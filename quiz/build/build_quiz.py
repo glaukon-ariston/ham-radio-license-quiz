@@ -226,9 +226,9 @@ a.tag:hover{background:var(--accent-soft)}
       <th>Područje</th><th>Pitanja</th><th>Na ispitu</th><th>Vrijeme</th><th>Viđeno</th><th>Uspješnost</th>
     </tr></thead><tbody></tbody></table></div>
 
-    <div class="sect"><h2>Tehnički dio po cjelinama</h2><div class="rule"></div></div>
+    <div class="sect"><h2>Po cjelinama</h2><div class="rule"></div></div>
     <div class="tscroll"><table id="subTable"><thead><tr>
-      <th>Cjelina</th><th>Pitanja</th><th>Viđeno</th><th>Uspješnost</th><th></th>
+      <th>Cjelina / područje</th><th>Pitanja</th><th>Viđeno</th><th>Uspješnost</th><th></th>
     </tr></thead><tbody></tbody></table></div>
 
     <div class="sect"><h2>Zadnji ispiti</h2><div class="rule"></div></div>
@@ -541,6 +541,26 @@ function finish(){
   show("result");
 }
 
+/* ---------- shared cjelina/area breakdown (used by both home()'s subTable and the
+   practice picker, so the two never diverge) ----------
+   Tehnički is the only section whose questions carry a subsection (q.sub) — the HRS source
+   gives propisi and pravila no chapter headings to draw one from (book_subsections.json),
+   so for those two this correctly degrades to a single whole-area group rather than
+   inventing cjelina names. */
+function sectionGroups(k){
+  const qs = DATA.q.filter(q=>q.s===k);
+  const bySub = {};
+  qs.forEach(q=>{ if(q.sub) (bySub[q.sub] = bySub[q.sub]||[]).push(q); });
+  const groups = Object.keys(bySub).length
+    ? Object.entries(bySub).sort((a,b)=>parseInt(a[0])-parseInt(b[0])).map(([name,gqs])=>({name, sub:name, qs:gqs}))
+    : [{name: SEC[k].name, sub:null, qs}];
+  return groups.map(g => {
+    let seen=0, ok=0, tries=0;
+    g.qs.forEach(q=>{ const s=store.seen[q.id]; if(s){ seen++; ok+=s.ok; tries+=s.n; } });
+    return {name:g.name, sub:g.sub, qs:g.qs, seen, ok, tries};
+  });
+}
+
 /* ---------- home ---------- */
 function home(){
   const tb = $("#secTable").querySelector("tbody"); tb.innerHTML = "";
@@ -555,20 +575,21 @@ function home(){
     tb.appendChild(tr);
   }
 
-  const subs = {};
-  DATA.q.filter(q=>q.s==="tehnicki" && q.sub).forEach(q=>(subs[q.sub] = subs[q.sub]||[]).push(q));
   const sb = $("#subTable").querySelector("tbody"); sb.innerHTML = "";
-  Object.entries(subs).sort((a,b)=>parseInt(a[0])-parseInt(b[0])).forEach(([name,qs])=>{
-    let seen=0, ok=0, tries=0;
-    qs.forEach(q=>{ const s=store.seen[q.id]; if(s){ seen++; ok+=s.ok; tries+=s.n; } });
-    const tr = document.createElement("tr");
-    tr.innerHTML = '<td>'+name+'</td><td class="num">'+qs.length+'</td><td class="num">'+seen+
-      '</td><td class="num">'+(tries?pct(ok,tries)+' %':'—')+'</td>'+
-      '<td style="text-align:right"><button class="btn" data-sub="'+name.replace(/"/g,'&quot;')+'">Vježbaj</button></td>';
-    sb.appendChild(tr);
+  for(const k of Object.keys(SEC)){
+    sectionGroups(k).forEach(g => {
+      const tr = document.createElement("tr");
+      tr.innerHTML = '<td>'+g.name+'</td><td class="num">'+g.qs.length+'</td><td class="num">'+g.seen+
+        '</td><td class="num">'+(g.tries?pct(g.ok,g.tries)+' %':'—')+'</td>'+
+        '<td style="text-align:right"><button class="btn" data-sub="'+(g.sub||"").replace(/"/g,'&quot;')+
+        '" data-sec="'+k+'">Vježbaj</button></td>';
+      sb.appendChild(tr);
+    });
+  }
+  sb.querySelectorAll("[data-sub]").forEach(b => b.onclick = () => {
+    const sub = b.dataset.sub, sec = b.dataset.sec;
+    start("practice", {filter: sub ? (q => q.sub === sub) : (q => q.s === sec)});
   });
-  sb.querySelectorAll("[data-sub]").forEach(b => b.onclick = () =>
-    start("practice", {filter: q => q.sub === b.dataset.sub}));
 
   const n = Object.keys(store.wrong).length;
   $("#wrongspec").textContent = n ? n + " pitanja u redu" : "red je prazan";
@@ -597,6 +618,17 @@ function buildPicker(){
   for(const [k,meta] of Object.entries(SEC)){
     const n = DATA.q.filter(q=>q.s===k).length;
     add(meta.name, "Sva pitanja iz ovog područja, nasumičnim redom.", n+" pitanja", q=>q.s===k);
+    // Cjelina rows exist only where the data has them (tehnicki) — see sectionGroups() above.
+    // Propisi/pravila stay a single whole-area entry, already added as the button just above.
+    const groups = sectionGroups(k);
+    if(groups.length > 1 || groups[0].sub){
+      groups.forEach(g => {
+        const stat = g.tries ? pct(g.ok,g.tries)+"% uspješnost" : "još bez pokušaja";
+        add(g.name.replace(/^\d+\.\s*/,""),
+            "Cjelina unutar „" + meta.name + "”. Viđeno " + g.seen + " · " + stat + ".",
+            g.qs.length+" pitanja", q=>q.sub===g.sub);
+      });
+    }
   }
   const nh = DATA.q.filter(q=>q.src==="hrs").length, nb = DATA.q.filter(q=>q.src==="book").length;
   add("Sve iz HRS lista", "Sva pitanja iz sve tri službene liste.", nh+" pitanja", q=>q.src==="hrs");
