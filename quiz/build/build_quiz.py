@@ -203,7 +203,7 @@ a.tag:hover{background:var(--accent-soft)}
     <div class="lookup">
       <label class="eyebrow" for="lookupq">Otvori pitanje po oznaci</label>
       <div class="lookuprow">
-        <input id="lookupq" class="lookupin" type="text" placeholder="npr. teh-024"
+        <input id="lookupq" class="lookupin" type="text" placeholder="teh-024 · pro-011 · prv-007"
                autocomplete="off" autocapitalize="off" spellcheck="false" inputmode="text">
         <button id="lookupgo" class="btn" type="button">Otvori</button>
       </div>
@@ -225,7 +225,9 @@ a.tag:hover{background:var(--accent-soft)}
 
     <p class="note" style="margin-top:2rem">
       Točni odgovori dolaze iz samih HRS ispitnih lista — u izvornim PDF-ovima označeni su crvenom bojom.
-      Svako pitanje ima svoju oznaku (<span class="mono">teh-024</span>) — upiši je gore u „Otvori
+      Svako pitanje ima svoju oznaku — <span class="mono">teh-</span> za tehnički dio,
+      <span class="mono">pro-</span> za propise, <span class="mono">prv-</span> za pravila i
+      postupke, <span class="mono">bk-</span> za pitanja iz priručnika. Upiši je gore u „Otvori
       pitanje po oznaci”, ili više njih odvojenih zarezom. Kad je stranica otvorena izravno, a ne
       unutar okvira na claude.ai, isto radi i adresa s <span class="mono">#q=teh-024</span>.
       <button id="reset" class="btn" style="margin-left:.4rem">Obriši napredak</button>
@@ -571,7 +573,8 @@ function show(id){
 function qidFromUrl(){
   const m = (location.hash + "&" + location.search).match(/[#?&]q=([^&]+)/i);
   if(m) return decodeURIComponent(m[1]).trim().toLowerCase();
-  const bare = location.hash.match(/^#([a-z]{3}-\d+(?:\s*,\s*[a-z]{3}-\d+)*)$/i);
+  const one = "(?:bk-)?[a-z]{3}-[a-z0-9-]+";
+  const bare = location.hash.match(new RegExp("^#(" + one + "(?:,\\s*" + one + ")*)$", "i"));
   return bare ? bare[1].toLowerCase() : "";
 }
 
@@ -585,13 +588,19 @@ function setUrlQ(id){
 }
 
 // Accepts what people actually paste: "teh-024", "TEH 24", "#q=teh-024", a whole URL tail.
-// Ids are zero-padded to three digits, so "teh-24" gets padded before we give up.
+// Ids come in two shapes — HRS "teh-024" / "pro-011" / "prv-007" (three digits, and a few like
+// "teh-186b"), and priručnik "bk-teh-1-01" (two). So an unpadded number is tried at both widths,
+// with and without the separator, and only then given up on.
 function normId(raw){
   const s = String(raw).trim().toLowerCase()
-              .replace(/^.*?[#?&]q=/, "").replace(/^#/, "").replace(/\s+/g, "");
+              .replace(/^.*?[#?&]q=/, "").replace(/^#/, "").replace(/[\s_]+/g, "");
   if(byId[s]) return s;
-  const m = s.match(/^([a-z]{3})[-_]?(\d{1,3})$/);
-  if(m){ const p = m[1] + "-" + m[2].padStart(3, "0"); if(byId[p]) return p; }
+  const m = s.match(/^(.*?)-?(\d+)$/);
+  if(m) for(const stem of [m[1] + "-", m[1]])
+    for(const w of [3, 2]){
+      const p = stem + m[2].padStart(w, "0");
+      if(byId[p]) return p;
+    }
   return s;
 }
 
@@ -635,9 +644,18 @@ $("#reviewWrong").onclick = () => start("wrong");
 // No <form>: a sandboxed frame may not have allow-forms, and a blocked submit fails silently.
 const doLookup = () => { const v = $("#lookupq").value.trim(); if(v) openById(v); };
 $("#lookupgo").onclick = doLookup;
-$("#lookupq").addEventListener("keydown", e => { if(e.key === "Enter"){ e.preventDefault(); doLookup(); } });
+// stopPropagation matters: without it this same Enter keeps bubbling to the document handler
+// below, which by then sees the freshly opened question and reads it as "next" — closing it.
+$("#lookupq").addEventListener("keydown", e => {
+  if(e.key !== "Enter") return;
+  e.preventDefault(); e.stopPropagation();
+  doLookup();
+});
 
 document.addEventListener("keydown", e => {
+  // Never steal keys from a field someone is typing in — 1–4 and Enter are quiz controls only.
+  const t = e.target;
+  if(t && (t.isContentEditable || /^(INPUT|TEXTAREA|SELECT)$/.test(t.tagName))) return;
   if($("#quiz").classList.contains("hidden")) return;
   if(e.key >= "1" && e.key <= "4"){ const it = S.items[S.i]; const k = it.order[+e.key - 1]; if(k) pick(k); }
   else if(e.key === "Enter" || e.key === "ArrowRight") step(1);
