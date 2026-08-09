@@ -1,0 +1,1491 @@
+{
+ "_doc": "Prošireni nastavni zapisi — paket teh3_krugovi_b (37 pitanja iz podnaslova '3. Krugovi', parni brojevi 66–138). Titrajni krugovi, filtri, Q-faktor, ispravljači i stabilizatori, pojačala i njihovi razredi, modulacije (AM/SSB/FM/PM), oscilatori, VFO i PLL, miješala. Neparna polovica istog podnaslova je u notes_zzz_expanded_teh3_krugovi_a.json — kad se ovdje spominje susjedno pitanje, navedeno je po id-u i temi, jer je pisano paralelno.",
+ "_links_verified": "Svaki URL ovdje je dohvaćen i potvrđeno je da postoji i da pokriva navedenu temu (9. kolovoza 2026.). Napomena: hr.wikipedia 'Filtar' je stranica razdvojbe, a hr.wikipedia 'Signal' je članak o aplikaciji za poruke — ni jedan se ne rabi.",
+ "_citation_note": "RK (Radiokomunikacije) i PZM (Pašarić) su čitani po stranicama. RK: 3.2. Ugođeni titrajni krugovi = tiskana str. 106–113; 3.3. Jedinice za napajanje = 114–118; 3.4. Pojačala = 118–121; 3.6. Oscilatori = 124–127; razredi pojačala A/B/C = 86–89; modulacije = 47–50 i 141–144. PZM: Tema 11 (filtri) = 97–100, Tema 12 (titrajni krug, rezonancija) = 100–103, Tema 13 (blok-sheme, ispravljači) = 103–106, Tema 7 (transformatori) = 83–86, Tema 8 (diode) = 86–89.",
+ "_key_warning": "teh-114: u banci je odgovor 'a', ali službeni ispitni PDF crvenom bojom označava '(c)'. Vidi bilješku uz to pitanje.",
+ "teh-066": {
+  "note": "Na slici su zavojnica L, kondenzator C i otpornik R spojeni JEDAN ZA DRUGIM u jednu jedinu petlju s izvorom izmjeničnog napona. Kroz sve tri komponente teče ista struja — to je definicija serijskog spoja, pa je i titrajni krug serijski.\n\nZašto je to važno: u rezonanciji se induktivni otpor zavojnice i kapacitivni otpor kondenzatora točno izjednače, a kako napon na zavojnici prethodi struji za 90°, a na kondenzatoru zaostaje za 90°, ta su dva napona međusobno u protufazi (180°) i poništavaju se. Ostaje samo djelatni otpor R. Serijski titrajni krug zato u rezonanciji ima NAJMANJU impedanciju i kroz njega teče NAJVEĆA struja — praktički je kratki spoj za svoju rezonantnu frekvenciju.\n\nParalelni krug se ponaša točno obrnuto: u rezonanciji ima najveću impedanciju i najmanju ukupnu struju, pa ga zovu i zapornim krugom. Pravilo koje vrijedi zapamtiti: serijski propušta svoju frekvenciju, paralelni je zaustavlja. Upravo se zato u pojasnopropusnom filtru serijski krug stavlja u uzdužnu granu, a paralelni poprečno prema masi (vidi teh-078, pojasnopropusni filtar).\n\nNa slici prepoznaješ serijski krug po tome što L i C stoje u nizu na istom vodu; kod paralelnog bi bili jedan iznad drugoga, spojeni na ista dva čvora.",
+  "formula": [
+   "Serijski RLC:",
+   "   Z = √( R² + (X_L − X_C)² )",
+   "   X_L = 2π·f·L        X_C = 1 / (2π·f·C)",
+   "",
+   "Uvjet rezonancije:  X_L = X_C",
+   "   2π·f₀·L = 1 / (2π·f₀·C)",
+   "   f₀ = 1 / (2π·√(L·C))     ← Thomsonova relacija",
+   "",
+   "U rezonanciji:  Z = R (najmanje)  →  I = U / R (najveće)",
+   "",
+   "Sažetak za pamćenje:",
+   "   SERIJSKI  u rezonanciji: Z min, I max  → kratki spoj",
+   "   PARALELNI u rezonanciji: Z max, I min  → zaporni krug"
+  ],
+  "links": [
+   {
+    "label": "Titrajni krug (hr.wikipedia)",
+    "url": "https://hr.wikipedia.org/wiki/Titrajni_krug"
+   },
+   {
+    "label": "Rezonancija (hr.wikipedia)",
+    "url": "https://hr.wikipedia.org/wiki/Rezonancija"
+   },
+   {
+    "label": "LC circuit (en.wikipedia)",
+    "url": "https://en.wikipedia.org/wiki/LC_circuit"
+   }
+  ],
+  "cite": [
+   {
+    "src": "RK",
+    "loc": "3.2.3. Serijski RLC titrajni krug, tiskana str. 110–111"
+   },
+   {
+    "src": "PZM",
+    "loc": "Tema 12, 3.3.2. Izračun rezonantne frekvencije, tiskana str. 100–102"
+   }
+  ]
+ },
+ "teh-068": {
+  "note": "Krivulja na slici pada prema nuli, dodirne minimum na f₀ i onda opet raste na obje strane. Takav 'U' oblik ima samo jedna stvar — ugođeni SERIJSKI LC krug. U rezonanciji mu se X_L i X_C ponište, ostane samo mali djelatni otpor namota, pa je impedancija najmanja upravo na f₀.\n\nOstale tri ponuđene komponente daju sasvim drukčije krivulje i po tome ih razlikuješ na prvi pogled. Kondenzator ima impedanciju koja s frekvencijom monotono PADA (hiperbola, X_C = 1/(2πfC)) i nikada se ne vraća gore. Zavojnica ima impedanciju koja monotono RASTE i to pravocrtno (X_L = 2πfL). Paralelni titrajni krug ima obrnuti oblik — vrh (maksimum) na f₀, a pad na obje strane.\n\nMisaona prečica za ispit: gledaj samo što se događa NA f₀. Ako je tamo dolina — serijski. Ako je vrh — paralelni. Ako krivulja uopće nema izraženu točku f₀, nego samo raste ili pada — riječ je o pojedinačnoj komponenti, zavojnici ili kondenzatoru.\n\nŠto je krivulja uža i strmija oko f₀, to je Q veći, tj. djelatni otpor R manji (vidi teh-080 o Q-faktoru). Kod serijskog kruga R je dno te doline: idealni krug s R = 0 imao bi dno točno na nuli.",
+  "formula": [
+   "Ovisnost o frekvenciji — što gledati na dijagramu:",
+   "",
+   "   kondenzator    X_C = 1/(2π·f·C)   pada, hiperbola",
+   "   zavojnica      X_L = 2π·f·L       raste, pravac",
+   "   serijski LC    Z(f₀) = R          MINIMUM na f₀   ← ova slika",
+   "   paralelni LC   Z(f₀) = L/(C·R)    MAKSIMUM na f₀",
+   "",
+   "f₀ = 1 / (2π·√(L·C))",
+   "",
+   "Dinamički otpor paralelnog kruga dobre kakvoće ≈ 50 000 Ω"
+  ],
+  "links": [
+   {
+    "label": "Električna impedancija",
+    "url": "https://hr.wikipedia.org/wiki/Elektri%C4%8Dna_impedancija"
+   },
+   {
+    "label": "Titrajni krug (hr.wikipedia)",
+    "url": "https://hr.wikipedia.org/wiki/Titrajni_krug"
+   },
+   {
+    "label": "LC circuit (en.wikipedia)",
+    "url": "https://en.wikipedia.org/wiki/LC_circuit"
+   }
+  ],
+  "cite": [
+   {
+    "src": "RK",
+    "loc": "3.2.3. Serijski RLC titrajni krug (sl. 3.2.3. rezonancijske krivulje), tiskana str. 110–111"
+   },
+   {
+    "src": "RK",
+    "loc": "3.2.1. Paralelni titrajni krug (sl. 3.18.), tiskana str. 106–108"
+   }
+  ]
+ },
+ "teh-070": {
+  "note": "Na shemi je kondenzator prema masi, pa zavojnica u uzdužnoj grani, pa opet kondenzator prema masi. Nacrtano tako izgleda kao grčko slovo π — otud naziv Pi-filtar. Da je bilo obrnuto (zavojnica–kondenzator prema masi–zavojnica), bio bi to T-filtar.\n\nDa je niskopropusni, vidi se iz ponašanja elemenata s frekvencijom. Zavojnica u uzdužnoj grani ima otpor X_L = 2πfL koji s frekvencijom RASTE, pa sve teže propušta visoke frekvencije prema izlazu. Kondenzatori prema masi imaju otpor X_C = 1/(2πfC) koji s frekvencijom PADA, pa visoke frekvencije sve lakše odvode na masu. Oba efekta rade u istom smjeru: niske frekvencije prolaze, visoke se guše.\n\nPi-filtar je klasičan izlazni sklop kratkovalnog odašiljača i ima dvije uloge odjednom. Prva je potiskivanje harmonika (druga harmonička, treća harmonička…) koje nelinearno izlazno pojačalo neizbježno stvara. Druga je transformacija impedancije — s visoke izlazne impedancije pojačala na 50 Ω koaksijalnog voda. Zato su kod klasičnih cijevnih odašiljača oba kondenzatora Pi-filtra promjenjiva i zovu se PLATE i LOAD.\n\nPazi na zamku u ponuđenim odgovorima: 'niskopropusni filtar T' je ista funkcija ali drugi raspored elemenata, a 'serijski oscilatorni krug' bi imao L i C u nizu u istoj grani, bez ijednog kondenzatora prema masi.",
+  "formula": [
+   "Pi (π) izvedba:      C — L — C     (L uzdužno, C prema masi)",
+   "T izvedba:           L — C — L     (L uzdužno, C prema masi u sredini)",
+   "",
+   "Zašto propušta niske:",
+   "   X_L = 2π·f·L        raste s f  → guši visoke u nizu",
+   "   X_C = 1/(2π·f·C)    pada  s f  → kratko spaja visoke na masu",
+   "",
+   "Projektiranje (konstant-k, prilagođen na R₀):",
+   "   R₀ = √(L / C)          f_g = 1 / (π·√(L·C))",
+   "",
+   "Primjer za R₀ = 50 Ω i f_g = 30 MHz:",
+   "   L = R₀ / (π·f_g) = 50 / (π·3·10⁷) = 0,53 µH",
+   "   C = 1 / (π·f_g·R₀) = 1 / (π·3·10⁷·50) = 212 pF",
+   "   → u π-članu svaki kondenzator prema masi je C/2 ≈ 106 pF"
+  ],
+  "links": [
+   {
+    "label": "Low-pass filter (en.wikipedia)",
+    "url": "https://en.wikipedia.org/wiki/Low-pass_filter"
+   },
+   {
+    "label": "Impedance matching (en.wikipedia)",
+    "url": "https://en.wikipedia.org/wiki/Impedance_matching"
+   }
+  ],
+  "cite": [
+   {
+    "src": "RK",
+    "loc": "5.3.7. Izlazni filtar (PI-filtar), tiskana str. 139"
+   },
+   {
+    "src": "RK",
+    "loc": "3.2.4. Filtri (sl. 3.2.4. niskopropusni filtar, π-izvedba), tiskana str. 112"
+   },
+   {
+    "src": "PZM",
+    "loc": "Tema 11, 3.3.1. Osnovno poznavanje filtara, tiskana str. 97–99"
+   }
+  ]
+ },
+ "teh-072": {
+  "note": "Na slici je niz pravokutnika s valovitom crticom iznad — to je simbol kvarcnog kristala — povezanih u ljestvičastu mrežu s kondenzatorima prema masi (C1, C2, C3, C2, C1). Takav sklop zove se kristalni ljestvičasti filtar i on je pojasnopropusni.\n\nZašto baš kvarc: tanka pločica izrezana iz kristala kremena, stisnuta između dvije vodljive obloge, ponaša se električki kao titrajni krug — ali titrajni krug nevjerojatne kakvoće. LC krug s dobrom zavojnicom ima Q između 50 i 300; kvarcni kristal ima Q reda 10⁴ do 10⁶. Zato je njegova rezonantna krivulja izuzetno uska i strma, a spajanjem nekoliko kristala dobiva se propusna karakteristika koja se približava idealnom pravokutniku.\n\nTakav filtar sjedi u međufrekvencijskom stupnju prijamnika i on je taj koji stvarno određuje selektivnost — sposobnost da izdvoji jednu postaju od susjedne (vidi teh-138 o susjednom kanalu). Tipične širine su 500 Hz za CW, 2,4 kHz za SSB. U odašiljaču isti takav filtar potiskuje val nositelj i neželjeni bočni pojas pri stvaranju SSB signala.\n\nMana kvarca je što ne može mijenjati frekvenciju — radi na onoj za koju je izbrušen — i što je skup. Keramički filtri su jeftiniji ali imaju širu krivulju.",
+  "formula": [
+   "Faktor kakvoće — zašto kvarc, a ne LC:",
+   "   LC krug s dobrom zavojnicom   Q ≈ 50 … 300",
+   "   kvarcni kristal               Q ≈ 10⁴ … 10⁶",
+   "",
+   "Q = f₀ / B   →   uža krivulja = veći Q",
+   "   B = f₀ / Q",
+   "   primjer: f₀ = 9 MHz, Q = 4000 → B = 2,25 kHz  (baš za SSB)",
+   "",
+   "Tipične širine kristalnog filtra u prijamniku:",
+   "   CW   250 … 500 Hz",
+   "   SSB  2,1 … 2,7 kHz",
+   "   AM   6 kHz",
+   "",
+   "Kristal radi u temeljnom modu do ~22 MHz,",
+   "u 'overtone' modu (neparni umnošci) do ~200 MHz."
+  ],
+  "links": [
+   {
+    "label": "Crystal filter (en.wikipedia)",
+    "url": "https://en.wikipedia.org/wiki/Crystal_filter"
+   },
+   {
+    "label": "Band-pass filter (en.wikipedia)",
+    "url": "https://en.wikipedia.org/wiki/Band-pass_filter"
+   }
+  ],
+  "cite": [
+   {
+    "src": "RK",
+    "loc": "3.2.5. Piezoelektrični kristali, tiskana str. 113–114"
+   },
+   {
+    "src": "RK",
+    "loc": "5.3.11. Kristalni filtar, tiskana str. 141"
+   },
+   {
+    "src": "PZM",
+    "loc": "Tema 12, kvarcni kristal kao serijski titrajni krug, tiskana str. 102"
+   }
+  ]
+ },
+ "teh-074": {
+  "note": "Harmonici su po definiciji cjelobrojni višekratnici radne frekvencije — dakle uvijek IZNAD nje. Ako odašiljač radi na 3,5 MHz, druga harmonička je na 7 MHz, treća na 10,5 MHz i tako dalje. Filtar koji ih potiskuje mora zato propustiti sve do radne frekvencije, a gušiti sve iznad. To je niskopropusni filtar.\n\nNa slici to je krivulja (b): ravna do 30 MHz, pa naglo pada. Ostale tri padaju u krivo doba — (a) je pojasnopropusna s padom na obje strane, a (c) i (d) rastu s frekvencijom, dakle propuštaju baš ono što bi trebale gušiti (to su visokopropusni filtri).\n\nZašto baš 30 MHz: to je gornja granica kratkovalnog područja. Jedan niskopropusni filtar s tom graničnom frekvencijom pokriva sve KV amaterske pojase odjednom i potiskuje sve što bi upalo u UKV. Za bolji učinak na pojedinom pojasu PZM preporučuje posebni filtar po pojasu — npr. za rad na 3500 kHz graničnu frekvenciju postavi na 4000 kHz i druga harmonička na 7000 kHz više se ne čuje.\n\nOvo nije samo tehnička preporuka nego zakonska obveza: nijedan odašiljač ne smije zračiti sporedne emisije iznad propisanih granica, pa svaki KV odašiljač na izlazu ima niskopropusni filtar (u praksi ugrađen u Pi-filtar izlaznog stupnja, vidi teh-070).",
+  "formula": [
+   "Harmonici radne frekvencije f₀:",
+   "   2·f₀, 3·f₀, 4·f₀ …   uvijek IZNAD f₀",
+   "",
+   "Primjer, odašiljač na 3,5 MHz:",
+   "   2. harmonik  =  7,0 MHz",
+   "   3. harmonik  = 10,5 MHz",
+   "   4. harmonik  = 14,0 MHz",
+   "",
+   "→ potreban filtar koji propušta ISPOD i guši IZNAD",
+   "   = niskopropusni filtar (NPF, engl. LPF)",
+   "",
+   "Granična frekvencija za cijeli KV: 30 MHz",
+   "Za jedan pojas: f_g ≈ 1,15 · f₀ (npr. 3,5 MHz → 4,0 MHz)"
+  ],
+  "links": [
+   {
+    "label": "Low-pass filter (en.wikipedia)",
+    "url": "https://en.wikipedia.org/wiki/Low-pass_filter"
+   }
+  ],
+  "cite": [
+   {
+    "src": "PZM",
+    "loc": "Tema 11, 3.3.1. Osnovno poznavanje filtara — niskopropusni filtri na izlazu odašiljača, tiskana str. 99–100"
+   },
+   {
+    "src": "RK",
+    "loc": "5.3.7. Izlazni filtar (PI-filtar), tiskana str. 139"
+   }
+  ]
+ },
+ "teh-076": {
+  "note": "Karakteristika na slici raste s frekvencijom, ima usku dolinu (zarez) neposredno ispod 470 MHz i onda ostaje ravna i visoka iznad nje. Sve što je ispod 470 MHz je prigušeno, sve iznad prolazi — to je visokopropusni filtar, a 470 MHz je donji rub televizijskog UHF područja. Otud oznaka 'TV/UHF'.\n\nShema uz krivulju objašnjava kako je to izvedeno: kondenzatori su u uzdužnoj grani (propuštaju visoko, guše nisko — to je osnovni visokopropusni razdjelnik napona), a prema masi je spojen serijski titrajni krug L-C s trimerom. Taj serijski krug je zamka: u svojoj rezonanciji ima gotovo nulti otpor, pa jednu usku frekvenciju kratko spaja na masu. To je onaj zarez malo ispod 470 MHz — namješta se točno na 70 cm amatersko područje (430–440 MHz).\n\nZašto ti to treba: kad tvoj odašiljač smeta susjedovoj televiziji, uzrok često nije nečistoća tvog signala nego preopterećenje susjedova prijamnika tvojom OSNOVNOM frekvencijom. Tvoj uređaj je ispravan, njegov televizor je ispravan, a slika svejedno propada. Lijek je visokopropusni filtar u susjedov antenski vod: propušta TV signal, a blokira tvoj. Pazi na smjer razmišljanja — niskopropusni filtar ide na TVOJ odašiljač (teh-074), visokopropusni na SUSJEDOV prijamnik.\n\nPonuđeni odgovor (d) 'visokopropusni VHF/FM filtar' pada zato što bi FM radiodifuzija (88–108 MHz) tražila prijelaz oko 88 MHz, a ne 470 MHz.",
+  "formula": [
+   "Granice na koje treba paziti:",
+   "   FM radio (VHF)      88 … 108 MHz",
+   "   TV VHF (III)       174 … 230 MHz",
+   "   TV UHF             470 … 790 MHz   ← ova slika",
+   "   amaterski 70 cm    430 … 440 MHz   ← ispod ruba, zato zamka",
+   "",
+   "Uzdužni kondenzator: X_C = 1/(2π·f·C) pada s f → propušta visoko",
+   "Serijski LC prema masi u rezonanciji: Z ≈ R ≈ 0 → zarez (notch)",
+   "   f_zamke = 1 / (2π·√(L·C)) ≈ 433 MHz"
+  ],
+  "links": [
+   {
+    "label": "High-pass filter (en.wikipedia)",
+    "url": "https://en.wikipedia.org/wiki/High-pass_filter"
+   },
+   {
+    "label": "Band-stop filter (en.wikipedia)",
+    "url": "https://en.wikipedia.org/wiki/Band-stop_filter"
+   }
+  ],
+  "cite": [
+   {
+    "src": "PZM",
+    "loc": "Tema 19, 9. Smetnje — visokopropusni filtar u antenskom vodu susjeda, tiskana str. 125–129 (osobito 127)"
+   },
+   {
+    "src": "RK",
+    "loc": "3.2.4. Filtri (sl. 3.2.5. visokopropusni filtar), tiskana str. 112"
+   }
+  ]
+ },
+ "teh-078": {
+  "note": "Na shemi su dva paralelna titrajna kruga (svaki zavojnica i kondenzator prema masi), međusobno induktivno spregnuta i povezana zajedničkim kondenzatorom u sredini. Dva ugođena kruga jedan za drugim propuštaju samo uzak pojas oko svoje zajedničke rezonantne frekvencije, a sve ostalo guše — to je pojasnopropusni filtar.\n\nMehanizam je izravna posljedica onoga iz teh-066: paralelni titrajni krug u rezonanciji ima najveću impedanciju, pa u uzdužnoj grani propušta svoju frekvenciju, a kad je spojen prema masi zaustavlja je. Kombiniranjem serijskog i paralelnog kruga dobiješ ili pojasnopropusni ili pojasnozaporni filtar — ovisno samo o tome kako su spojeni. To je najčešća zamka u ovoj skupini pitanja.\n\nDva spregnuta kruga daju bitno bolju krivulju od jednoga: uz kritičnu spregu vrh je ravan, a bokovi strmi, dakle bliže idealnom pravokutniku. Ako spregu previše pojačaš, na vrhu se pojave dva brijega s udolinom točno na rezonantnoj frekvenciji; ako je previše oslabiš, vrh je oštar ali propusni pojas preuzak.\n\nPojasnopropusni filtar je od prvih dana radiotehnike najvažniji tip filtra jer on daje selektivnost prijamnika. Kad ti treba znatno uža krivulja od one koju daje LC, prelaziš na kvarc (vidi teh-072).",
+  "formula": [
+   "Četiri vrste filtara i njihove krivulje:",
+   "   NPF  niskopropusni     propušta ispod f_g",
+   "   VPF  visokopropusni    propušta iznad f_g",
+   "   PPF  pojasnopropusni   propušta između f₁ i f₂   ← ova slika",
+   "   PZF  pojasnozaporni    guši između f₁ i f₂",
+   "",
+   "Isti elementi, drukčiji spoj:",
+   "   PPF: serijski LC uzdužno + paralelni LC prema masi",
+   "   PZF: paralelni LC uzdužno + serijski LC prema masi",
+   "",
+   "Širina pojasa i kakvoća:",
+   "   B = f₂ − f₁         Q = f₀ / B",
+   "   primjer: f₀ = 10,7 MHz, B = 15 kHz → Q ≈ 713"
+  ],
+  "links": [
+   {
+    "label": "Band-pass filter (en.wikipedia)",
+    "url": "https://en.wikipedia.org/wiki/Band-pass_filter"
+   },
+   {
+    "label": "Titrajni krug (hr.wikipedia)",
+    "url": "https://hr.wikipedia.org/wiki/Titrajni_krug"
+   }
+  ],
+  "cite": [
+   {
+    "src": "RK",
+    "loc": "3.2.2. Indukcijski spregnuti titrajni krugovi, tiskana str. 110"
+   },
+   {
+    "src": "RK",
+    "loc": "3.2.4. Filtri (sl. 3.2.6. pojasnopropusni filtar), tiskana str. 112"
+   },
+   {
+    "src": "PZM",
+    "loc": "Tema 12, pojasnopropusni i pojasnozaporni filtar (sl. 12/7.), tiskana str. 102"
+   }
+  ]
+ },
+ "teh-080": {
+  "note": "Q je kratica od engleskog quality — kakvoća. To je mjera koliko titrajni krug malo gubi energije po jednom titraju, pa se često prevodi kao faktor dobrote ili činitelj kakvoće. Ponuđeni odgovor 'kvalitet oscilatornog kruga' točno to i kaže.\n\nDefinicija je omjer reaktancije zavojnice i njezina djelatnog otpora: Q = X_L / R. Djelatni otpor je otpor bakrene žice namota — jedino mjesto gdje se energija stvarno gubi, pretvara u toplinu. Manji R znači manje gubitaka, veći Q i užu, oštriju rezonantnu krivulju. Praktični LC krugovi imaju Q između 50 i 300; kvarcni kristal ide u desetke tisuća.\n\nDrugi, jednako koristan oblik iste veličine je Q = f₀ / B: kakvoća je omjer rezonantne frekvencije i širine propusnog pojasa. Iz njega odmah vidiš zašto Q i selektivnost idu ruku pod ruku — za dvostruko uži pojas treba dvostruko veći Q.\n\nQ ti govori i koliko se struja u krugu 'uveća' kad dođe u rezonanciju: kod paralelnog kruga struje kroz zavojnicu i kondenzator mogu biti Q puta veće od struje koja u krug ulazi. Kod serijskog kruga isto vrijedi za napone na L i C — mogu biti mnogostruko viši od narinutog napona, na što treba paziti pri gradnji.\n\nOstale ponuđene tvrdnje pripadaju drugim veličinama: šumnu vrijednost prijamnika opisuje faktor šuma F (ili šumna temperatura), prilagođenje tereta opisuje SWR ili omjer impedancija, a pojačanje izlaznog stupnja izražava se u decibelima.",
+  "formula": [
+   "Q = X_L / R = 2π·f₀·L / R",
+   "Q = f₀ / B          ← B je širina pojasa na −3 dB",
+   "Q = (1/R)·√(L/C)    ← zgodan oblik za serijski krug",
+   "",
+   "Primjer: L = 100 µH, C = 100 pF, R = 5 Ω",
+   "   √(L/C) = √(100·10⁻⁶ / 100·10⁻¹²) = √10⁶ = 1000 Ω",
+   "   Q = 1000 / 5 = 200",
+   "   f₀ = 1,59 MHz  →  B = f₀/Q = 1,59 MHz / 200 = 8 kHz",
+   "",
+   "Redovi veličine:",
+   "   LC krug            Q = 50 … 300",
+   "   zavojnica na feritu  bolji Q (manje zavoja, manji R)",
+   "   kvarcni kristal    Q = 10⁴ … 10⁶",
+   "",
+   "Veći Q → uža krivulja → bolja selektivnost, manji gubitci."
+  ],
+  "links": [
+   {
+    "label": "Q factor (en.wikipedia)",
+    "url": "https://en.wikipedia.org/wiki/Q_factor"
+   },
+   {
+    "label": "Titrajni krug (hr.wikipedia)",
+    "url": "https://hr.wikipedia.org/wiki/Titrajni_krug"
+   }
+  ],
+  "cite": [
+   {
+    "src": "RK",
+    "loc": "2.3.3. Faktor dobrote — Q faktor, tiskana str. 69"
+   },
+   {
+    "src": "RK",
+    "loc": "3.2.1. Paralelni titrajni krug, t. 4.4. i 4.7., tiskana str. 108"
+   },
+   {
+    "src": "PZM",
+    "loc": "Tema 12, faktor kvalitete Q (sl. 12/4.), tiskana str. 101"
+   }
+  ]
+ },
+ "teh-082": {
+  "note": "Zadatak se rješava Thomsonovom relacijom i jedina stvarna zamka je u tome što u njoj NEMA otpora. Vrijednost R = 5 Ω je namjerno postavljena da te zavede — ona ne ulazi u rezonantnu frekvenciju nego samo u kakvoću kruga Q.\n\nUmnožak L·C ovdje ispada iznimno zgodan: 100 µH · 100 pF = 10⁻⁴ · 10⁻¹⁰ = 10⁻¹⁴, a korijen iz toga je točno 10⁻⁷. Zato je f₀ = 1/(2π·10⁻⁷) = 10⁷/(2π) Hz. Podijeliš li 10⁷ s 2, dobiješ 5·10⁶, pa je f₀ = 5/π MHz ≈ 1,59 MHz. Ponuđeni odgovor je namjerno ostavljen u obliku s π da bi se izbjeglo računanje decimala.\n\nZa provjeru bez kalkulatora vrijedi upamtiti amatersku inačicu formule iz PZM-a: f[MHz] = 159/√(L·C) uz L u mikrohenrijima i C u pikofaradima. Ovdje: 159/√(100·100) = 159/100 = 1,59 MHz. Isto.\n\nOtpor od 5 Ω ipak nije bez posla — daje Q. Karakteristična impedancija kruga je √(L/C) = √(10⁻⁴/10⁻¹⁰) = 1000 Ω, pa je Q = 1000/5 = 200, a širina propusnog pojasa B = f₀/Q ≈ 8 kHz. To je vrlo dobar krug.",
+  "formula": [
+   "f₀ = 1 / (2π·√(L·C))",
+   "",
+   "L·C = 100 µH · 100 pF",
+   "    = 100·10⁻⁶ H · 100·10⁻¹² F",
+   "    = 10⁻⁴ · 10⁻¹⁰ = 10⁻¹⁴",
+   "√(L·C) = 10⁻⁷",
+   "",
+   "f₀ = 1 / (2π·10⁻⁷) = 10⁷ / (2π) Hz",
+   "   = 5·10⁶ / π Hz = 5/π MHz ≈ 1,59 MHz",
+   "",
+   "Provjera amaterskom formulom (L u µH, C u pF):",
+   "   f[MHz] = 159 / √(L·C) = 159 / √(100·100) = 159/100 = 1,59",
+   "",
+   "R ne ulazi u f₀, nego u Q:",
+   "   √(L/C) = √(10⁻⁴/10⁻¹⁰) = 1000 Ω",
+   "   Q = 1000 / 5 = 200        B = f₀/Q ≈ 8 kHz"
+  ],
+  "links": [
+   {
+    "label": "LC circuit (en.wikipedia)",
+    "url": "https://en.wikipedia.org/wiki/LC_circuit"
+   },
+   {
+    "label": "Titrajni krug (hr.wikipedia)",
+    "url": "https://hr.wikipedia.org/wiki/Titrajni_krug"
+   }
+  ],
+  "cite": [
+   {
+    "src": "PZM",
+    "loc": "Tema 12, Thomsonov obrazac i amaterska formula 159/√(LC), tiskana str. 100–102"
+   },
+   {
+    "src": "RK",
+    "loc": "3.2.3. Serijski RLC titrajni krug, tiskana str. 111"
+   }
+  ]
+ },
+ "teh-084": {
+  "note": "Frekvencija je obrnuto razmjerna korijenu iz kapaciteta. Ako C poraste, nazivnik u Thomsonovoj formuli poraste, pa f pada. Ta rečenica je cijeli odgovor: C raste — f pada.\n\nKorijen je bitan dio priče. Da bi frekvenciju prepolovio, moraš kapacitet UČETVEROSTRUČITI, ne udvostručiti. Zato promjenjivi kondenzator u VFO-u koji ide od 20 pF do 320 pF (omjer 16:1) pokriva frekvencijski raspon 4:1. Isto vrijedi i za induktivitet: f ~ 1/√L.\n\nPitanje je zapravo o temperaturnoj stabilnosti oscilatora. Dielektrik kondenzatora mijenja kapacitet s temperaturom, a metal se širi; posljedica je da se frekvencija oscilatora polako 'kliza' (engl. drift) dok se uređaj zagrijava. Zato se u titrajni krug VFO-a ugrađuju kondenzatori s poznatim, malim ili namjerno suprotnim temperaturnim koeficijentom (NP0/C0G, ili kompenzacijski kondenzator negativnog koeficijenta), zavojnica se moče na keramiku, a krug se drži dalje od izvora topline.\n\nMisaona prečica koju vrijedi imati u glavi: sve što povećava L ili C spušta frekvenciju. Prst blizu zavojnice, dulja žica, veći trimer, jezgra uvučena dublje — sve to snizuje f.",
+  "formula": [
+   "f₀ = 1 / (2π·√(L·C))        →   f₀ ~ 1/√C   i   f₀ ~ 1/√L",
+   "",
+   "C raste  →  f pada",
+   "C pada   →  f raste",
+   "",
+   "Zbog korijena promjena nije razmjerna:",
+   "   C · 2   →  f / √2  = f · 0,71",
+   "   C · 4   →  f / 2",
+   "   C · 16  →  f / 4",
+   "",
+   "Primjer VFO-a: C od 20 pF do 320 pF (omjer 16:1)",
+   "   → frekvencijski raspon 4:1  (npr. 1,25 MHz … 5 MHz)"
+  ],
+  "links": [
+   {
+    "label": "Titrajni krug (hr.wikipedia)",
+    "url": "https://hr.wikipedia.org/wiki/Titrajni_krug"
+   },
+   {
+    "label": "Električni kondenzator",
+    "url": "https://hr.wikipedia.org/wiki/Elektri%C4%8Dni_kondenzator"
+   }
+  ],
+  "cite": [
+   {
+    "src": "PZM",
+    "loc": "Tema 12, 'Što su zavojnica i kondenzator veći, to je rezonantna frekvencija niža', tiskana str. 100"
+   },
+   {
+    "src": "RK",
+    "loc": "3.6.1. Oscilator s promjenjivom frekvencijom — utjecaj temperature, tiskana str. 124"
+   }
+  ]
+ },
+ "teh-086": {
+  "note": "Razredi (klase) pojačala označavaju se slovima i u ispitnom gradivu ih ima četiri: A, AB, B i C. 'OJ' nije ništa — to je čisti distraktor.\n\nSlovo govori koliki dio ulazne sinusoide tranzistor (ili cijev) uopće vodi, a to se zove kut vođenja. Razred A vodi cijelu periodu, 360° — najvjernije pojačanje, ali i najgora učinkovitost jer tranzistor troši struju i kad nema signala. Razred B vodi točno pola periode, 180°. Razred AB je između — vodi nešto više od pola, taman toliko da se ukloni izobličenje pri prijelazu kroz nulu. Razred C vodi manje od pola periode, ima najbolju učinkovitost i najgora izobličenja.\n\nIz tog niza slijedi i pravilo koje ti treba u praksi: što manji kut vođenja, to bolja učinkovitost ali veće izobličenje. Zato SSB odašiljač mora imati linearno pojačalo (A ili AB), a FM i CW odašiljači smiju raditi u razredu C jer im amplituda ne nosi informaciju (vidi teh-108 o razredu C).\n\nPostoje i moderni razredi D, E, F, G, H i S — sklopni (prekidački) pojačala s učinkovitošću preko 90 % — ali ispitni program A-razreda traži samo A, AB, B i C.",
+  "formula": [
+   "Razred   kut vođenja   učinkovitost (teor./prakt.)   izobličenje",
+   "  A         360°           50 % / 40…45 %              najmanje",
+   "  AB     180°…360°         između A i B                malo",
+   "  B         180°           78 % / 60…66 %              srednje",
+   "  C       < 180°           — / 65…70 %                 najveće",
+   "",
+   "Primjena:",
+   "  A, AB  →  SSB, linearna pojačala, prijamnici",
+   "  B      →  protutaktna (push-pull) NF pojačala",
+   "  C      →  CW i FM odašiljači, množila frekvencije",
+   "",
+   "Zašto A troši toliko: za 50 W na teretu tranzistor sam",
+   "raspe još 50 W u toplinu → napajanje mora dati ≥ 100 W.",
+   "",
+   "'OJ' nije oznaka razreda — nema takve klase."
+  ],
+  "links": [
+   {
+    "label": "Power amplifier classes (en.wikipedia)",
+    "url": "https://en.wikipedia.org/wiki/Power_amplifier_classes"
+   },
+   {
+    "label": "Pojačalo (hr.wikipedia)",
+    "url": "https://hr.wikipedia.org/wiki/Poja%C4%8Dalo"
+   }
+  ],
+  "cite": [
+   {
+    "src": "RK",
+    "loc": "2.6.3.1. Primjeri uporabe tranzistora — 2. Pojačala snage, razredi A, B, C, tiskana str. 86–89"
+   },
+   {
+    "src": "RK",
+    "loc": "Ispitni program HAREC, t. 3.4. 'Prednapon klase A, A/B, B i C', tiskana str. 220"
+   }
+  ]
+ },
+ "teh-088": {
+  "note": "Transformator u ispravljaču radi jednu jedinu stvar od one četiri ponuđene: prilagođava mrežni napon potrebnoj razini — snižava ga ili povisuje. Iz mreže dolazi 230 V izmjenično, a uređaj treba možda 12 V ili 24 V; transformator napravi tu pretvorbu.\n\nMehanizam je omjer broja zavoja. Napon na sekundaru odnosi se prema naponu na primaru kao broj zavoja sekundara prema broju zavoja primara. Struja ide obrnuto — što je napon niži, to je dopuštena struja veća, jer se snaga (uz gubitke) prenosi gotovo nepromijenjena. Transformator ne stvara energiju, on je samo 'preslaguje' u drugi omjer napona i struje.\n\nOstale tri ponuđene uloge pripadaju drugim dijelovima ispravljača i moraš ih znati razdvojiti: ispravljanje (pretvorbu izmjeničnog u istosmjerno) obavlja dioda ili Graetzov most (teh-094), 'peglanje' pulsirajućeg napona obavlja filtar — kondenzator ili LC-prigušnica (teh-090), a stabilizaciju obavlja zener dioda ili tranzistorski/integrirani regulator (teh-092).\n\nTransformator ima i drugu, vrlo važnu ulogu koju pitanje ne spominje: galvansko odvajanje uređaja od mreže. Primar i sekundar nisu vodljivo povezani, nego samo magnetski, pa dodir sekundarnog kruga nije spojen na fazu — to je sigurnosna funkcija koju sklopna napajanja bez transformatora moraju riješiti na drugi način.",
+  "formula": [
+   "U₂ / U₁ = N₂ / N₁          (napon prati broj zavoja)",
+   "I₂ / I₁ = N₁ / N₂          (struja ide obrnuto)",
+   "P₂ ≈ P₁                    (transformator ne stvara snagu)",
+   "",
+   "Primjer: 230 V → 12 V",
+   "   N₁/N₂ = 230/12 = 19,2",
+   "   ako primar ima 1150 zavoja → sekundar ima 60 zavoja",
+   "   za 2 A na sekundaru, primar vuče 2/19,2 ≈ 0,10 A",
+   "",
+   "Pozor iza mosta: kondenzator se puni na VRŠNU vrijednost",
+   "   U_dc ≈ √2 · U₂ − 1,4 V = 1,41·12 − 1,4 ≈ 15,6 V"
+  ],
+  "links": [
+   {
+    "label": "Transformator (hr.wikipedia)",
+    "url": "https://hr.wikipedia.org/wiki/Transformator"
+   },
+   {
+    "label": "Ispravljač (hr.wikipedia)",
+    "url": "https://hr.wikipedia.org/wiki/Ispravlja%C4%8D"
+   }
+  ],
+  "cite": [
+   {
+    "src": "RK",
+    "loc": "3.3. Jedinice za napajanje — uvod, tiskana str. 114"
+   },
+   {
+    "src": "PZM",
+    "loc": "Tema 7, 3.2.4. Transformatori, tiskana str. 83–86"
+   },
+   {
+    "src": "PZM",
+    "loc": "Tema 13, Ispravljači, tiskana str. 105–106"
+   }
+  ]
+ },
+ "teh-090": {
+  "note": "Iza diode ili mosta dobiješ napon koji više ne mijenja smjer — dakle jest istosmjeran — ali još uvijek jako 'valovi': mijenja jakost u ritmu mreže. Ta preostala valovitost zove se napon brujanja ili ripl (engl. ripple), i posao filtra je da nju ukloni. To je točno ono što kaže odgovor (a).\n\nMehanizam je vrlo jednostavan. Veliki elektrolitski kondenzator paralelno teretu puni se do vršne vrijednosti tijekom svakog poluvala, a između poluvalova se polako prazni kroz teret. Što je kondenzator veći i struja manja, to manje uspije pasti prije nego dođe sljedeći poluval — i tim je ripl manji. Bolja, ali skuplja izvedba je LC-filtar: prigušnica u nizu pruža velik otpor izmjeničnim komponentama, a kondenzatori ih odvode na masu.\n\nFrekvencija ripla nije mrežnih 50 Hz nego ovisi o načinu ispravljanja: kod poluvalnog je 50 Hz, kod punovalnog 100 Hz. Punovalno je dakle dvostruko lakše filtrirati, što je još jedan razlog zašto se rabi Graetzov most.\n\nZašto je to važno u radiotehnici: neizglađen napon čuje se u zvučniku kao brujanje, a na odašiljaču amplitudno modulira signal — pa ti sugovornik u telegrafskom izvještaju daje nizak T (T5 znači 'signal snažno moduliran brujanjem', T9 'savršeno čist ton'). Pazi: filtar ne stabilizira napon; napon iza filtra i dalje pada kad se poveća opterećenje. To je posao stabilizatora (teh-092).",
+  "formula": [
+   "Frekvencija ripla:",
+   "   poluvalno ispravljanje  →  50 Hz",
+   "   punovalno / Graetz      → 100 Hz",
+   "",
+   "Približna procjena valovitosti s kondenzatorom:",
+   "   U_ripl ≈ I / (f_ripl · C)",
+   "",
+   "Primjer: I = 1 A, C = 4700 µF, punovalno (f = 100 Hz)",
+   "   U_ripl ≈ 1 / (100 · 4700·10⁻⁶) = 1 / 0,47 ≈ 2,1 V",
+   "",
+   "Isti teret, C = 22 000 µF:",
+   "   U_ripl ≈ 1 / (100 · 0,022) ≈ 0,45 V",
+   "",
+   "Podjela poslova u ispravljaču:",
+   "   transformator → razina napona",
+   "   dioda / most  → ispravljanje",
+   "   filtar (C, LC)→ uklanjanje brujanja",
+   "   stabilizator  → stalan napon pod opterećenjem"
+  ],
+  "links": [
+   {
+    "label": "Ripple (electrical) (en.wikipedia)",
+    "url": "https://en.wikipedia.org/wiki/Ripple_(electrical)"
+   },
+   {
+    "label": "Ispravljač (hr.wikipedia)",
+    "url": "https://hr.wikipedia.org/wiki/Ispravlja%C4%8D"
+   }
+  ],
+  "cite": [
+   {
+    "src": "RK",
+    "loc": "3.3.1.4. Izglađivanje istosmjernih napona ili smanjivanje stupnja valovitosti, tiskana str. 115–116"
+   },
+   {
+    "src": "PZM",
+    "loc": "Tema 13, Ispravljači — 'ispeglati' napon, tiskana str. 106"
+   }
+  ]
+ },
+ "teh-092": {
+  "note": "Najjednostavniji stabilizator napona ima samo dva elementa: zener diodu i otpornik u nizu s njom. Ništa manje ne ide.\n\nZener dioda se spaja OBRNUTO (u nepropusnom smjeru) i to je ključ. U tom smjeru obična dioda ne vodi, ali zener dioda ima namjerno konstruiran probojni napon — zenerov napon — na kojem počne voditi i na kojem se napon na njoj drži gotovo nepromijenjen bez obzira na to koliko struje kroz nju prolazi. Ta plosnata karakteristika je referenca napona.\n\nPredotpornik je nužan iz dva razloga. Prvi: on preuzima razliku između ulaznog i zenerova napona, jer bi bez njega dioda bila spojena izravno na viši napon i izgorjela. Drugi: on pretvara promjenu ulaznog napona ili opterećenja u promjenu struje kroz diodu, a ne u promjenu napona na teretu. Kad teret uzme više struje, kroz zener teče manje — a napon ostane isti.\n\nZa ozbiljnija napajanja taj se osnovni sklop proširuje: zener daje samo referencu, a struju daje tranzistor koji njome upravlja (RK to zove sklopom za uravnoteženje), ili se sve zamijeni integriranim regulatorom tipa 7812. Ali temelj, ono što ispit traži, ostaje zener + otpornik.\n\nOstale ponuđene tvrdnje pripadaju drugim poslovima: Graetzov most ispravlja (teh-094), žičani otpornici su samo otpornici, a tranzistori jesu dio složenijeg stabilizatora ali nisu najjednostavniji.",
+  "formula": [
+   "R_v = (U_ul − U_Z) / (I_Z + I_teret)",
+   "",
+   "Primjer: U_ul = 12 V, zener 9 V, teret 20 mA, I_Z(min) = 10 mA",
+   "   R_v = (12 − 9) / (0,010 + 0,020)",
+   "       = 3 V / 0,030 A = 100 Ω",
+   "   P_R = (U_ul − U_Z) · I = 3 V · 0,030 A = 90 mW → 0,25 W tip",
+   "   P_Z(najgore, bez tereta) = 9 V · 0,030 A = 270 mW → 0,5 W tip",
+   "",
+   "Pozor: zener se spaja U NEPROPUSNOM SMJERU (katoda na +).",
+   "Bez predotpornika sklop ne radi — dioda izgori."
+  ],
+  "links": [
+   {
+    "label": "Zener dioda (hr.wikipedia)",
+    "url": "https://hr.wikipedia.org/wiki/Zener_dioda"
+   },
+   {
+    "label": "Voltage regulator (en.wikipedia)",
+    "url": "https://en.wikipedia.org/wiki/Voltage_regulator"
+   }
+  ],
+  "cite": [
+   {
+    "src": "RK",
+    "loc": "2.6.2.1. Primjeri uporabe dioda — 3. Zenerova dioda kao regulator napona (sl. 2.6.3.), tiskana str. 80"
+   },
+   {
+    "src": "RK",
+    "loc": "3.3.1.7. Zahtjevi i osobine jedinice za napajanje, tiskana str. 118"
+   },
+   {
+    "src": "PZM",
+    "loc": "Tema 8, 3.2.5. Diode — zener dioda za stabilizaciju napona, tiskana str. 88–89"
+   }
+  ]
+ },
+ "teh-094": {
+  "note": "Graetzov most (u ispitnom tekstu pogrešno napisan 'Greatzov', a u knjigama i kao Grätzov) je spoj četiriju dioda koji obavlja punovalno ispravljanje. To je danas najčešća izvedba — kupuje se kao jedan komad s četiri priključka.\n\nRadi tako da su diode spojene u most: tijekom jednog poluvala vode dvije dijagonalno suprotne diode, tijekom drugog poluvala druge dvije. Bez obzira na to koji je poluval na ulazu, struja kroz teret ide uvijek u istom smjeru. Zato oba poluvala doprinose istosmjernom naponu, za razliku od poluvalnog ispravljanja gdje se pola energije jednostavno baci.\n\nGlavna prednost pred starijim punovalnim spojem s dvije diode jest što ne treba transformator sa srednjim izvodom niti dvostruki sekundarni napon — dovoljan je jedan obični namot. Transformator je manji i jeftiniji. Druga prednost je manje opterećenje dioda: RK navodi da je vršni obratni napon (PIV) na diodi u mosnom spoju samo oko 1,5 puta izlazni istosmjerni napon, dok je u poluvalnom i klasičnom punovalnom spoju oko 3 puta.\n\nCijena je pad napona: struja uvijek prolazi kroz DVIJE diode u nizu, pa gubiš oko 1,4 V kod silicijskih dioda umjesto 0,7 V. Kod napajanja od 12 V to je zanemarivo, kod napajanja od 3 V nije.\n\nTreća, praktična dobit: frekvencija ripla je 100 Hz umjesto 50 Hz, pa je filtriranje dvostruko lakše (vidi teh-090).",
+  "formula": [
+   "Graetzov most = 4 diode, jedan sekundarni namot",
+   "",
+   "   poluval +  →  vode D1 i D3",
+   "   poluval −  →  vode D2 i D4",
+   "   kroz teret struja UVIJEK u istom smjeru",
+   "",
+   "Usporedba:",
+   "                    poluvalno   2 diode+sred.izvod   most",
+   "   diode                1              2              4",
+   "   sekundar          1 × U         2 × U          1 × U",
+   "   f ripla            50 Hz        100 Hz         100 Hz",
+   "   PIV / U_dc          ~3            ~3            ~1,5",
+   "   pad napona        0,7 V          0,7 V          1,4 V",
+   "",
+   "U_dc (bez opterećenja) ≈ √2 · U_ac − 1,4 V",
+   "   npr. 12 V~ → 1,41·12 − 1,4 ≈ 15,6 V="
+  ],
+  "links": [
+   {
+    "label": "Diode bridge (en.wikipedia)",
+    "url": "https://en.wikipedia.org/wiki/Diode_bridge"
+   },
+   {
+    "label": "Ispravljač (hr.wikipedia)",
+    "url": "https://hr.wikipedia.org/wiki/Ispravlja%C4%8D"
+   }
+  ],
+  "cite": [
+   {
+    "src": "RK",
+    "loc": "3.3.1.3. Mosni ispravljač (Graetzov spoj), tiskana str. 115"
+   },
+   {
+    "src": "RK",
+    "loc": "3.3.1.6. Svojstva silicijskih dioda — PIV u mosnom spoju, tiskana str. 117"
+   },
+   {
+    "src": "PZM",
+    "loc": "Tema 8, 3.2.5. Diode — Graetzov spoj (sl. 8/4b.), tiskana str. 88"
+   }
+  ]
+ },
+ "teh-096": {
+  "note": "Signal je nositelj informacije. To je cijela definicija i točan odgovor (b).\n\nRazlika koju ovo pitanje provjerava jest razlika između informacije i njezina fizičkog nositelja. Informacija je ono što želiš prenijeti — riječ, slovo, mjerni podatak. Signal je fizička veličina (napon, struja, elektromagnetski val) koja se mijenja u vremenu tako da tu informaciju nosi. Bez promjene nema informacije: savršeno stalan napon ne prenosi ništa. Zato je i nemodulirani val nositelj sam po sebi bez informacije — tek kad ga moduliraš, postaje signal koji nešto nosi.\n\nZato je pogrešan odgovor (d) koji signale poistovjećuje s komunikacijskim kanalima. Kanal je put kojim signal putuje — kabel, ionosfera, slobodni prostor. Signal je ono što tim putem prolazi. Uz signal ide i njegov neizbježni pratilac, šum — nasumična promjena koja ne nosi informaciju i koja postavlja granicu koliko slab signal još možeš primiti.\n\nU radiotehnici signale dijelimo na sinusoidne (jedna frekvencija, čist ton) i nesinusoidne (pravokutni, impulsni — sadrže osnovni val i harmonike), te na niskofrekvencijske (audio, do ~15 kHz) i visokofrekvencijske (radio). Modulacija je postupak kojim niskofrekvencijski informacijski signal 'utisneš' u visokofrekvencijski val nositelj.",
+  "formula": [
+   "Pojmovi koje ne treba brkati:",
+   "",
+   "   informacija  — sadržaj koji se prenosi",
+   "   signal       — fizička veličina koja tu informaciju NOSI",
+   "   kanal        — put kojim signal putuje (kabel, prostor)",
+   "   šum          — nasumična smetnja, ne nosi informaciju",
+   "   nositelj     — VF val u koji se informacija utiskuje",
+   "",
+   "Podjela signala u radiotehnici:",
+   "   po obliku:      sinusoidni  /  nesinusoidni (harmonici!)",
+   "   po frekvenciji: NF (audio, do ~15 kHz)  /  VF (radio)",
+   "   po prirodi:     analogni  /  digitalni"
+  ],
+  "links": [
+   {
+    "label": "Signal (en.wikipedia)",
+    "url": "https://en.wikipedia.org/wiki/Signal"
+   },
+   {
+    "label": "Modulacija (hr.wikipedia)",
+    "url": "https://hr.wikipedia.org/wiki/Modulacija"
+   }
+  ],
+  "cite": [
+   {
+    "src": "RK",
+    "loc": "1.6. Sinusoidni signali, tiskana str. 42–44; 1.7. Nesinusoidni signali, tiskana str. 45–46"
+   },
+   {
+    "src": "RK",
+    "loc": "1.8. Modulirani signali — definicija modulacije, tiskana str. 47"
+   }
+  ]
+ },
+ "teh-098": {
+  "note": "Signale pojačavamo pojačalima. Odgovor je toliko izravan da vrijedi obratiti pozornost na ono zbog čega je pitanje uopće postavljeno — na tri distraktora, jer svaki od njih imenuje sklop koji radi nešto sasvim drugo.\n\nUmnoživač (množilo frekvencije) ne mijenja razinu nego frekvenciju: iskorištava nelinearnost tranzistora da na izlazu istakne drugu ili treću harmoničku, pa se iz oscilatora na 3,5 MHz dobije signal na 7 ili 10,5 MHz. Filtar ne pojačava nego bira — propušta jedne frekvencije, guši druge. A 'atentatorima' je očita tiskarska pogreška za ATENUATORE, koji rade upravo suprotno od pojačala: namjerno slabe signal za poznati iznos u decibelima (vidi teh-102).\n\nPojačalo je aktivni sklop — mora imati izvor napajanja iz kojeg crpi energiju. Ono ne 'umnožava' signal ni iz čega, nego istosmjernu energiju iz napajanja oblikuje po uzoru na ulazni signal. Zato pojačalo ima učinkovitost, grije se i pripada nekom razredu rada (vidi teh-086).\n\nPojačanje se izražava kao omjer, a u praksi gotovo uvijek u decibelima — jer se tako kroz lanac stupnjeva samo zbraja umjesto da se množi.",
+  "formula": [
+   "Naponsko pojačanje:  A_u = U_izlaz / U_ulaz",
+   "Snagovno pojačanje:  A_p = P_izlaz / P_ulaz",
+   "",
+   "U decibelima:",
+   "   G = 10 · log₁₀(P₂/P₁)   [dB]   ← za snagu",
+   "   G = 20 · log₁₀(U₂/U₁)   [dB]   ← za napon",
+   "",
+   "Primjer: pojačalo daje 100 W iz 5 W",
+   "   A_p = 20        G = 10·log₁₀(20) = 13 dB",
+   "",
+   "Tko što radi:",
+   "   pojačalo    razinu podiže   (+ dB)",
+   "   atenuator   razinu spušta   (− dB)",
+   "   filtar      bira frekvencije",
+   "   množilo     mijenja frekvenciju (×2, ×3)"
+  ],
+  "links": [
+   {
+    "label": "Pojačalo (hr.wikipedia)",
+    "url": "https://hr.wikipedia.org/wiki/Poja%C4%8Dalo"
+   },
+   {
+    "label": "Decibel (hr.wikipedia)",
+    "url": "https://hr.wikipedia.org/wiki/Decibel"
+   }
+  ],
+  "cite": [
+   {
+    "src": "RK",
+    "loc": "3.4. Pojačala, tiskana str. 118–121"
+   },
+   {
+    "src": "PZM",
+    "loc": "Tema 13, Tablica 1. — funkcija 'pojačanje', tiskana str. 104–105"
+   }
+  ]
+ },
+ "teh-100": {
+  "note": "Miješalo je nelinearan sklop i upravo mu je nelinearnost svrha. Kad na njegov ulaz dovedeš dva signala različitih frekvencija, na izlazu dobiješ, uz obje ulazne frekvencije, i njihov ZBROJ i njihovu RAZLIKU. To su dva glavna proizvoda miješanja i to je ono što pitanje traži.\n\nOvdje: razlika je 432 − 404 = 28 MHz, a zbroj 432 + 404 = 836 MHz. Odgovor (d) navodi točno taj par. Preostale ponuđene kombinacije su namjerno posložene tako da jedna od dviju brojki bude točna, pa ih treba provjeriti obje — 144 MHz i 216 MHz ne izlaze ni iz zbroja ni iz razlike.\n\nZašto se to uopće radi: miješanjem se signal 'seli' na frekvenciju na kojoj ga je lakše obraditi. To je princip superheterodinskog prijamnika — ulazni signal se pomiješa sa signalom lokalnog oscilatora i dobije se stalna međufrekvencija, na kojoj su filtri i pojačala uvijek isti i uvijek optimalni, bez obzira na to koju postaju slušaš. Isti trik se koristi i u odašiljaču (vidi teh-134, dobivanje 21 MHz iz VFO-a i kristala).\n\nPraktična posljedica koju vrijedi zapamtiti: iza miješala UVIJEK ide filtar. Miješalo ne bira, ono proizvodi oba proizvoda odjednom (a uz njih i slabije proizvode višeg reda, 2f₁ ± f₂ i slično); filtar u izlazu odlučuje koji od njih ide dalje.",
+  "formula": [
+   "Miješalo daje:   f_zbroj = f₁ + f₂     i     f_razlika = |f₁ − f₂|",
+   "",
+   "Uvrsti:",
+   "   f₁ = 432 MHz,  f₂ = 404 MHz",
+   "   razlika = 432 − 404 =  28 MHz",
+   "   zbroj   = 432 + 404 = 836 MHz",
+   "",
+   "→ odgovor: 28 MHz i 836 MHz",
+   "",
+   "Provjera ostalih ponuda:",
+   "   836 i 144 — 836 je dobar, 144 nije ni zbroj ni razlika",
+   "   144 i 432 — 432 je samo ulazna frekvencija",
+   "   101 i 216 — ni jedno ni drugo",
+   "",
+   "Osim toga nastaju i slabiji proizvodi višeg reda:",
+   "   2f₁ ± f₂,  f₁ ± 2f₂ …  → zato iza miješala uvijek filtar."
+  ],
+  "links": [
+   {
+    "label": "Frequency mixer (en.wikipedia)",
+    "url": "https://en.wikipedia.org/wiki/Frequency_mixer"
+   },
+   {
+    "label": "Superheterodyne receiver (en.wikipedia)",
+    "url": "https://en.wikipedia.org/wiki/Superheterodyne_receiver"
+   }
+  ],
+  "cite": [
+   {
+    "src": "RK",
+    "loc": "4.3.3. Miješalo, tiskana str. 132"
+   },
+   {
+    "src": "RK",
+    "loc": "2.6.3.1. Primjeri uporabe tranzistora — 6. Tranzistor kao miješalo, tiskana str. 91"
+   },
+   {
+    "src": "PZM",
+    "loc": "Tema 13, Tablica 1. — miješanje frekvencija, tiskana str. 104–105"
+   }
+  ]
+ },
+ "teh-102": {
+  "note": "Oslabljivač signala zove se atenuator (u hrvatskom se sreće i prigušivač ili slabilo). To je pasivna mreža otpornika koja namjerno smanjuje razinu signala za poznati, točno definiran iznos u decibelima — i pritom zadržava istu impedanciju na ulazu i na izlazu, obično 50 Ω.\n\nZašto bi netko namjerno slabio signal: razloga ima nekoliko. U prijamniku atenuator od 10 ili 20 dB spašava ulazni stupanj od preopterećenja kad je postaja prejaka ili kad si blizu snažnog odašiljača. Pri mjerenjima atenuator daje poznatu referentnu razinu i štiti mjerni instrument. U mjernim postavima s više uređaja atenuator održava prilagodbu i sprečava da odbijeni val od jednog uređaja poremeti drugi.\n\nOstale ponuđene riječi su drugi sklopovi: konverter (pretvarač) mijenja frekvencijsko područje, cirkulator je feritni sklop koji propušta snagu samo u jednom smjeru (rabi se za odvajanje odašiljača od prijamnika), a buffer (odvojni stupanj) izolira oscilator od promjenjivog opterećenja da mu ne 'klizi' frekvencija.\n\nRačuna se u decibelima kao svako drugo slabljenje, dakle s minusom: atenuator od 10 dB propusti desetinu snage, od 20 dB stotinu puta manje, od 3 dB polovicu. Kroz lanac se zbrajaju s pojačanjima — 20 dB pojačanja pa 6 dB atenuatora daje 14 dB ukupno.\n\nNapomena o izvorima: ni RK ni PZM nemaju posebno poglavlje o atenuatorima; RK ih spominje u ispitnom programu, u točki o odnosima snaga izraženim u decibelima.",
+  "formula": [
+   "Atenuator (prigušivač, slabilo): namjerno slabljenje u dB",
+   "",
+   "   L = 10 · log₁₀(P_ulaz / P_izlaz)   [dB]",
+   "   P_izlaz = P_ulaz · 10^(−L/10)",
+   "",
+   "Uobičajene vrijednosti:",
+   "    3 dB  → prolazi 50 %   snage",
+   "    6 dB  → prolazi 25 %",
+   "   10 dB  → prolazi 10 %",
+   "   20 dB  → prolazi  1 %",
+   "   30 dB  → prolazi  0,1 %",
+   "",
+   "Primjer u lancu:",
+   "   pretpojačalo +20 dB, atenuator −6 dB → ukupno +14 dB",
+   "",
+   "Izvedbe: Π (pi) ili T mreža od tri otpornika, uz čuvanje 50 Ω."
+  ],
+  "links": [
+   {
+    "label": "Attenuator (electronics) (en.wikipedia)",
+    "url": "https://en.wikipedia.org/wiki/Attenuator_(electronics)"
+   },
+   {
+    "label": "Decibel (hr.wikipedia)",
+    "url": "https://hr.wikipedia.org/wiki/Decibel"
+   }
+  ],
+  "cite": [
+   {
+    "src": "RK",
+    "loc": "Ispitni program HAREC, t. 1.9. Snaga i energija — 'odnos snage ulaza i izlaza u dB za serijski spojena pojačala i/ili atenuatore', tiskana str. 218"
+   }
+  ]
+ },
+ "teh-104": {
+  "note": "Odgovor je (c): što je viša frekvencija vala nositelja, to veća širina pojasa smije biti. Veza nije fizikalni zakon nego posljedica prostora — koliko ga uopće ima.\n\nRazmisli o brojkama. Cijelo kratkovalno područje, od 3 do 30 MHz, široko je svega 27 MHz. U njemu se stisnu sve radiodifuzne, pomorske, zrakoplovne i amaterske službe svijeta, pa se pojasevi mjere u kilohercima: SSB kanal je 2,7 kHz, CW nekoliko stotina herca. Jedan jedini televizijski kanal širok je 8 MHz — u cijeli KV spektar stala bi tri televizijska kanala i ništa više. Zato televizija, digitalni prijenosi i široki podatkovni kanali žive na UKV-u i iznad, gdje samo područje od 470 do 790 MHz nudi 320 MHz prostora.\n\nDrugi način da to vidiš jest relativna širina pojasa: širina podijeljena s frekvencijom nositelja. SSB signal od 2,7 kHz na 3,5 MHz zauzima 0,08 % nositelja. Isti relativni postotak na 435 MHz znači 348 kHz — mjesta za desetke puta širi signal. Sklopovi (titrajni krugovi, filtri, antene) i rade s relativnim širinama, pa je i tehnički lakše napraviti široki pojas visoko nego nisko.\n\nPraktična pouka za ispit i za rad: na KV-u si dužan biti uzak — SSB umjesto AM, CW gdje ide. Na UKV-u i UHF-u si slobodniji, pa se ondje rabe FM (12,5/25 kHz kanali), digitalne modulacije i televizija.",
+  "formula": [
+   "Relativna (frakcijska) širina pojasa:",
+   "   B_rel = B / f_nositelja",
+   "",
+   "SSB 2,7 kHz na 3,5 MHz   →  2,7·10³ / 3,5·10⁶ = 0,077 %",
+   "SSB 2,7 kHz na 435 MHz   →  2,7·10³ / 4,35·10⁸ = 0,0006 %",
+   "",
+   "Koliko prostora uopće ima:",
+   "   cijeli KV     3 … 30 MHz    =  27 MHz",
+   "   TV UHF      470 … 790 MHz   = 320 MHz",
+   "   jedan TV kanal              =   8 MHz",
+   "   → u cijeli KV stanu 3 TV kanala",
+   "",
+   "Otud i izbor modulacija:",
+   "   KV   → CW (0,2 kHz), SSB (2,7 kHz)",
+   "   UKV  → FM (12,5 / 25 kHz kanali), digitalne modulacije"
+  ],
+  "links": [
+   {
+    "label": "Bandwidth (signal processing) (en.wikipedia)",
+    "url": "https://en.wikipedia.org/wiki/Bandwidth_(signal_processing)"
+   }
+  ],
+  "cite": [
+   {
+    "src": "RK",
+    "loc": "5.4.2. RF — širina pojasa, tiskana str. 142"
+   },
+   {
+    "src": "RK",
+    "loc": "3.6.2. Sintetizatori — kanalni razmak 12,5 i 25 kHz kod FM uređaja, tiskana str. 127"
+   }
+  ]
+ },
+ "teh-106": {
+  "note": "Od CW-a, SSB-a i FM-a najmanju širinu pojasa ima CW — telegrafija. Odgovor (a).\n\nRazlog je u količini informacije. Kod telegrafije se val nositelj samo uključuje i isključuje; nema govornog spektra koji bi trebalo prenijeti. Potrebna širina ovisi samo o brzini tipkanja i o tome koliko su bridovi znaka zaobljeni. Za uobičajenih 20 riječi u minuti dovoljno je oko 100 do 150 Hz. SSB mora prenijeti govorni pojas i traži oko 2,4 do 2,7 kHz — dvadesetak puta više. FM za govor traži još više, jer njegova širina ovisi o devijaciji: po Carsonovu pravilu B = 2(Δf + f_m), što za uskopojasni FM daje oko 16 kHz.\n\nPosljedica je izravna i vrlo praktična: uska širina pojasa znači da prijamnik može uključiti uski filtar, a uski filtar propušta manje šuma. Zato CW probija kad SSB više ne radi. Dobitak nije mali — prelazak s 2,4 kHz na 250 Hz smanjuje snagu šuma gotovo deset puta, što je oko 10 dB, isto kao da si snagu odašiljača udeseterostručio.\n\nUsput, pazi na drugu varijantu istog pitanja koja se pojavljuje u ispitu: ako se pita koja MODULACIJA daje najmanju širinu pojasa pri prijenosu govornih frekvencija, odgovor je SSB, jer CW nije govorna modulacija. Pročitaj pitanje do kraja.",
+  "formula": [
+   "Približne širine pojasa:",
+   "",
+   "   CW (20 riječi/min)      100 … 250 Hz",
+   "   SSB (govor)             2,4 … 2,7 kHz",
+   "   AM (govor)              2 · f_m ≈ 6 kHz",
+   "   FM uski (govor)         2·(Δf + f_m) ≈ 16 kHz",
+   "   FM radiodifuzni         2·(75 + 15) = 180 kHz",
+   "",
+   "Pravila iz RK 5.4.2.:",
+   "   AM (DSB):  B = 2 · f_m(max)",
+   "   SSB:       B = f_m(max)",
+   "   FM:        B = 2 · (f_m(max) + Δf)     ← Carsonovo pravilo",
+   "",
+   "Zašto je uže bolje:",
+   "   filtar 2,4 kHz → 250 Hz je 9,6 puta uži",
+   "   10·log₁₀(9,6) ≈ 9,8 dB manje šuma"
+  ],
+  "links": [
+   {
+    "label": "Continuous wave (en.wikipedia)",
+    "url": "https://en.wikipedia.org/wiki/Continuous_wave"
+   },
+   {
+    "label": "Morseov kod (hr.wikipedia)",
+    "url": "https://hr.wikipedia.org/wiki/Morseov_kod"
+   }
+  ],
+  "cite": [
+   {
+    "src": "RK",
+    "loc": "5.4.2. RF — širina pojasa, tiskana str. 142"
+   },
+   {
+    "src": "PZM",
+    "loc": "Tema 15, širina AM i SSB signala, tiskana str. 112–113"
+   }
+  ]
+ },
+ "teh-108": {
+  "note": "Razred C ima najbolju učinkovitost od svih razreda iz ispitnog gradiva, ali i najveća nelinearna izobličenja. Točno to kaže odgovor (d).\n\nRazlog je u kutu vođenja. U razredu C baza tranzistora je preko otpornika na negativnom potencijalu, dakle tranzistor je zakočen; provede tek kad pozitivni poluval ulaznog signala naraste dovoljno iznad nule i zakoči se čim se ovaj vrati prema nuli. Vodi dakle MANJE od pola periode. Kako struja teče kratko, a napon je u to vrijeme nizak, gubitak snage u tranzistoru je malen — RK navodi 65 do 70 posto učinkovitosti, dok pojačalo A razreda daje 40 do 45 posto, a B razreda 60 do 66 posto u praksi.\n\nCijena je oblik izlaznog signala: on više uopće ne sliči na ulazni, nego je niz kratkih šiljaka. Titrajni krug u kolektoru to popravlja — energija uskladištena u njemu 'nadomješta' dio periode koji nedostaje i vraća sinusoidu — ali harmonici ostaju znatni i zato izlaz razreda C nužno mora imati dobar niskopropusni filtar (vidi teh-074).\n\nPraktična granica: razred C se smije rabiti samo kad amplituda ne nosi informaciju. To je slučaj kod CW-a i FM-a. Za SSB je neupotrebljiv — SSB je amplitudno oblikovan signal i traži linearno pojačalo, dakle razred A ili AB. Pokušaš li SSB kroz razred C, dobiješ 'splatter' preko pola pojasa i ljutite susjede.\n\nPazi na distraktore: (a) tvrdi visoku učinkovitost ALI mala izobličenja — to nije ni jedan razred; (b) i (c) tvrde nisku učinkovitost, što je značajka razreda A, ne C.",
+  "formula": [
+   "Razred C:  kut vođenja < 180°  (manje od poluvala)",
+   "",
+   "Učinkovitost prema RK (praktične vrijednosti):",
+   "   razred A   40 … 45 %",
+   "   razred B   60 … 66 %",
+   "   razred C   65 … 70 %      ← najbolja",
+   "",
+   "Cijena: znatna nelinearnost → jaki harmonici",
+   "   → titrajni krug u kolektoru vraća oblik sinusoide",
+   "   → izlazni niskopropusni (PI) filtar je obavezan",
+   "",
+   "Gdje se smije, a gdje ne:",
+   "   CW, FM   → smije (amplituda ne nosi informaciju)",
+   "   SSB, AM  → NE smije (traži linearno pojačalo, A ili AB)",
+   "",
+   "Uz to, razred C traži i NAJVEĆU pobudnu snagu."
+  ],
+  "links": [
+   {
+    "label": "Power amplifier classes (en.wikipedia)",
+    "url": "https://en.wikipedia.org/wiki/Power_amplifier_classes"
+   },
+   {
+    "label": "Pojačalo (hr.wikipedia)",
+    "url": "https://hr.wikipedia.org/wiki/Poja%C4%8Dalo"
+   }
+  ],
+  "cite": [
+   {
+    "src": "RK",
+    "loc": "2.6.3.1. Pojačala snage — 2.3. Razred C, tiskana str. 88–89"
+   },
+   {
+    "src": "RK",
+    "loc": "5.3.6. Pojačalo snage — 'kod SSB odašiljača ne rabi se C razred', tiskana str. 139"
+   }
+  ]
+ },
+ "teh-110": {
+  "note": "Spektar amplitudno moduliranog signala ima tri dijela: val nositelj u sredini i dva simetrična bočna pojasa, jedan iznad i jedan ispod njega. Odgovor (a).\n\nZašto baš tako: modulacijom se amplituda nositelja mijenja u ritmu informacijskog signala, a matematički je to isto kao da si nositelju pribrojio dvije nove frekvencije — jednu na f_c + f_m i jednu na f_c − f_m. Ako moduliraš govorom, koji je pojas frekvencija a ne jedan ton, dobiješ dva pojasa umjesto dviju crta. Oni su zrcalno jednaki jer nose istu informaciju, samo obrnuto poredanu.\n\nIz toga slijedi da je AM signal širok dvostruko više od najviše modulacijske frekvencije. Ako prenosiš govor do 3 kHz, AM signal zauzima 6 kHz. Radiodifuzija na srednjem valu ograničava se na 4,5 kHz modulacije, pa je kanal 9 kHz širok.\n\nA sada ono što je zanimljivo i što objašnjava zašto SSB uopće postoji: nositelj ne nosi nikakvu informaciju — on je stalan bez obzira na modulaciju — a troši najveći dio snage. Pri 100 % modulacije nositelj drži dvije trećine ukupne snage, a svaki bočni pojas po jednu šestinu. Sva informacija je u tim dvjema šestinama, a i one su međusobno iste. SSB izbaci nositelj i jedan bočni pojas i tako sve raspoloživo pojačalo usmjeri u ono što jedino nosi informaciju (vidi teh-116).\n\nNapomena o izvoru: PZM na str. 112 navodi podjelu snage 50 % nositelj / 25 % + 25 % bočni pojasi. Točan odnos pri m = 100 % je 2/3 : 1/6 : 1/6, ali zaključak je isti — daleko najveći dio snage troši nositelj koji ne nosi informaciju.",
+  "formula": [
+   "AM spektar, moduliran jednim tonom f_m:",
+   "",
+   "   f_c − f_m        f_c        f_c + f_m",
+   "   donja bočna    nositelj    gornja bočna",
+   "",
+   "Širina pojasa:  B = 2 · f_m(max)",
+   "   govor do 3 kHz  →  B = 6 kHz",
+   "   MW radiodifuzija 4,5 kHz  →  B = 9 kHz",
+   "",
+   "Snaga pri dubini modulacije m:",
+   "   P_uk = P_nositelja · (1 + m²/2)",
+   "",
+   "Pri m = 100 % (m = 1):",
+   "   P_uk = 1,5 · P_n",
+   "   nositelj      = P_n / 1,5·P_n = 66,7 %",
+   "   svaki bočni   = 16,7 %",
+   "   → informacija je u svega 1/3 snage, i to dvaput ponovljena"
+  ],
+  "links": [
+   {
+    "label": "Amplitudna modulacija (hr.wikipedia)",
+    "url": "https://hr.wikipedia.org/wiki/Amplitudna_modulacija"
+   },
+   {
+    "label": "Amplitude modulation (en.wikipedia)",
+    "url": "https://en.wikipedia.org/wiki/Amplitude_modulation"
+   }
+  ],
+  "cite": [
+   {
+    "src": "RK",
+    "loc": "1.8.1. Amplitudna modulacija — AM, odjeljak 'Bočni pojasi', tiskana str. 47–49"
+   },
+   {
+    "src": "RK",
+    "loc": "5.4.3. Bočni pojasi, tiskana str. 142"
+   },
+   {
+    "src": "PZM",
+    "loc": "Tema 15, bočni pojasi AM signala (sl. 15/5.), tiskana str. 112"
+   }
+  ]
+ },
+ "teh-112": {
+  "note": "Na slici su tri diskretne komponente: jedna u sredini, označena f_c (frekvencija vala nositelja), i po jedna simetrično lijevo i desno, na f_c − f_m i f_c + f_m. To je potpis amplitudne modulacije s jednim modulacijskim tonom. Odgovor (b).\n\nSvaka od ostalih ponuđenih modulacija dala bi bitno drukčiju sliku. SSB bi imao SAMO jednu komponentu — jedan bočni pojas, bez nositelja i bez druge strane. Frekvencijska modulacija ne daje dvije nego cijeli beskonačan niz bočnih komponenti na f_c ± n·f_m (n = 1, 2, 3 …), čije amplitude opadaju po Besselovim funkcijama; koliko ih je izraženo ovisi o indeksu modulacije. Fazna modulacija spada u istu obitelj kutne modulacije i spektar joj izgleda kao FM-ov, dakle također mnogo linija.\n\nPravilo za prepoznavanje na slici, koje vrijedi upamtiti:\n— jedna crta pored nositelja s obje strane, simetrično → AM\n— samo jedna crta, bez nositelja → SSB\n— mnogo simetričnih crta na jednakom razmaku f_m → FM ili PM\n— jedna crta i ništa drugo → nemodulirani nositelj (CW u stanju držanja).\n\nAko slika ima označen f_c i ako se nositelj vidi kao najviša komponenta u sredini, gotovo je uvijek riječ o AM-u, jer kod AM-a nositelj ostaje stalne amplitude bez obzira na modulaciju.",
+  "formula": [
+   "Prepoznavanje modulacije po spektru:",
+   "",
+   "   AM    f_c i f_c ± f_m           3 komponente, simetrično",
+   "   SSB   samo f_c + f_m (ili −)    1 komponenta, nositelj potisnut",
+   "   FM    f_c ± n·f_m, n = 1,2,3…   niz komponenti, opadajuće",
+   "   PM    kao FM (kutna modulacija) niz komponenti",
+   "",
+   "Za AM s jednim tonom:",
+   "   B = (f_c + f_m) − (f_c − f_m) = 2·f_m",
+   "",
+   "Primjer: f_c = 1950 kHz, f_m = 5 kHz",
+   "   donja bočna = 1945 kHz",
+   "   gornja bočna = 1955 kHz",
+   "   B = 10 kHz"
+  ],
+  "links": [
+   {
+    "label": "Amplitudna modulacija (hr.wikipedia)",
+    "url": "https://hr.wikipedia.org/wiki/Amplitudna_modulacija"
+   },
+   {
+    "label": "Amplitude modulation (en.wikipedia)",
+    "url": "https://en.wikipedia.org/wiki/Amplitude_modulation"
+   }
+  ],
+  "cite": [
+   {
+    "src": "RK",
+    "loc": "5.4.3. Bočni pojasi — tri frekvencije f_c, f_c+f_m, f_c−f_m, tiskana str. 142"
+   },
+   {
+    "src": "RK",
+    "loc": "1.8.1. Amplitudna modulacija — AM, primjer s 1950 kHz, tiskana str. 49"
+   }
+  ]
+ },
+ "teh-114": {
+  "note": "Točan odgovor je (c) — oscilogram s TROKUTOM KOJI IMA REP. U ranijoj verziji ove zbirke ovdje je greškom bilo upisano (a); slovo je ispravljeno prema crveno označenom odgovoru u izvornom HRS PDF-u (pitanje 114., str. 16), pa se banka i službeni ključ sada slažu.\n\nKako se čita modulacijski trapez: na osciloskop dovedeš modulirani VF signal na jedan par otklonskih pločica, a modulacijski NF signal na drugi, uz isključenu vremensku bazu. Slika je trapez čija je dulja osnovica a (vrh modulacije) i kraća osnovica b (dno modulacije). Iz njih se dubina modulacije računa izravno.\n\nOblik ti odmah kaže dubinu modulacije. Dok je modulacija ispod 100 %, obje osnovice postoje i lik je pravi trapez — to je slika (a). Kad modulacija dosegne točno 100 %, kraća osnovica se svede na nulu i trapez prijeđe u TROKUT — to je slika (b); RK to kaže doslovno. Ako moduliraš preko 100 %, nositelj se u dnu prekida i na osciloskopu se iza vrha trokuta pojavi ravna crta, 'rep' po nul-liniji — to je slika (c), prekomjerna modulacija.\n\nZašto je to bitno: prekomodulacija unosi jaka izobličenja i harmonike modulacijskih frekvencija koji se zrače kao neželjene sporedne emisije. U eteru to zvuči kao 'splatter' (bućkanje) i smeta postajama u susjednim kanalima na širini mnogo većoj od dopuštene. Modulacija zato nikad ne smije prijeći 100 %; u praksi se drži na 80 do 90 %, a ograničavalo (limiter) sprečava vršne prebačaje.",
+  "formula": [
+   "Dubina modulacije iz trapeza:",
+   "   m = (a − b) / (a + b) · 100 %",
+   "   a = dulja osnovica,  b = kraća osnovica",
+   "",
+   "Primjer: a = 60 mm, b = 20 mm",
+   "   m = (60 − 20)/(60 + 20) = 40/80 = 0,5 = 50 %",
+   "",
+   "Oblik trapeza ↔ dubina modulacije:",
+   "   pravi trapez (b > 0)      →  m < 100 %      slika (a)",
+   "   trokut (b = 0)            →  m = 100 %      slika (b)",
+   "   trokut s repom po osi     →  m > 100 %      slika (c)  ←",
+   "",
+   "Iz amplituda (drugi način, ista formula):",
+   "   m = (U_max − U_min) / (U_max + U_min)",
+   "   npr. nositelj 30 V, vršak 60 V → U_max=60, U_min=0 → m = 100 %"
+  ],
+  "links": [
+   {
+    "label": "Amplitude modulation (en.wikipedia)",
+    "url": "https://en.wikipedia.org/wiki/Amplitude_modulation"
+   },
+   {
+    "label": "Amplitudna modulacija (hr.wikipedia)",
+    "url": "https://hr.wikipedia.org/wiki/Amplitudna_modulacija"
+   }
+  ],
+  "cite": [
+   {
+    "src": "RK",
+    "loc": "5.4.10. Indeks modulacije — modulacijski trapez, 'kada imamo 100 posto modulaciju trapez će prijeći u trokut', tiskana str. 144"
+   },
+   {
+    "src": "RK",
+    "loc": "1.8.1. Dubina ili stupanj modulacije (sl. 1.8.1.1.), tiskana str. 49"
+   }
+  ]
+ },
+ "teh-116": {
+  "note": "SSB spektar sadrži samo jedan bočni pojas. Ni nositelja, ni druge bočne strane — oboje je potisnuto. Odgovor (c).\n\nIdeja stoji na dvjema opažanjima iz teh-110. Prvo: nositelj ne nosi informaciju, on je stalan bez obzira na modulaciju, a troši dvije trećine snage. Drugo: gornji i donji bočni pojas nose potpuno istu informaciju, samo zrcalno. Dakle jedan od njih je suvišan, a nositelj je suvišan. Izbaciš oboje i dobiješ SSB — single side band, jedan bočni pojas s potisnutim nositeljem.\n\nDobitak je dvostruk. Zauzeti pojas je upola uži: umjesto 6 kHz za AM, SSB signal širok je koliko i najviša modulacijska frekvencija, dakle oko 2,7 kHz. A sva raspoloživa snaga odašiljača ide u onaj jedini pojas koji nosi informaciju, umjesto da se troši na nositelj i na duplikat. Zato je SSB danas isključivi način rada fonijom na kratkim valovima.\n\nCijena je složeniji prijamnik. Kako je nositelj potisnut, prijamnik ga mora sam obnoviti lokalnim oscilatorom (BFO), i to vrlo točno — pogrešiš li ugađanje za 100 Hz, glas zvuči neprirodno i izobličeno. Zato SSB nije pogodan za prijenos glazbe, samo za govor. Zato i sve postaje na SSB-u moraju biti ugođene 'na isti herc'.\n\nSSB se u odašiljaču dobiva tako da se najprije napravi obična AM (odnosno DSB u balansnom modulatoru), pa se kristalnim filtrom strme karakteristike (vidi teh-072) propusti samo jedan bočni pojas.",
+  "formula": [
+   "Od AM do SSB:",
+   "   AM   =  nositelj + donji pojas + gornji pojas",
+   "   DSB  =  donji pojas + gornji pojas        (nositelj potisnut)",
+   "   SSB  =  jedan pojas                       (i drugi potisnut)",
+   "",
+   "Širina pojasa:",
+   "   AM   B = 2 · f_m(max) ≈ 6 kHz",
+   "   SSB  B =     f_m(max) ≈ 2,7 kHz     ← upola uže",
+   "",
+   "Snaga: sva ide u jedini pojas koji nosi informaciju.",
+   "U odnosu na AM istog vršnog napona dobitak je oko 9 dB.",
+   "",
+   "Postupak u odašiljaču:",
+   "   balansni modulator → DSB → kristalni filtar → SSB",
+   "U prijamniku treba BFO da obnovi potisnuti nositelj."
+  ],
+  "links": [
+   {
+    "label": "Single-sideband modulation (en.wikipedia)",
+    "url": "https://en.wikipedia.org/wiki/Single-sideband_modulation"
+   },
+   {
+    "label": "Amplitudna modulacija (hr.wikipedia)",
+    "url": "https://hr.wikipedia.org/wiki/Amplitudna_modulacija"
+   }
+  ],
+  "cite": [
+   {
+    "src": "RK",
+    "loc": "1.8.2. SSB — sustav prijenosa jednog bočnog pojasa s potisnutim nositeljem, tiskana str. 50"
+   },
+   {
+    "src": "RK",
+    "loc": "5.4.2. RF — širina pojasa; 5.3.11. Kristalni filtar, tiskana str. 141–142"
+   },
+   {
+    "src": "PZM",
+    "loc": "Tema 15, Modulacija jednim bočnim pojasom — SSB, tiskana str. 112–113"
+   }
+  ]
+ },
+ "teh-118": {
+  "note": "USB je kratica od Upper Side Band — gornji bočni pojas, onaj IZNAD potisnutog nositelja. LSB je Lower Side Band, donji. Odgovor (a).\n\nBudući da su oba pojasa jednakovrijedna i nose istu informaciju, koji ćeš rabiti stvar je dogovora. A dogovor je jasan i lako se pamti: na 3,5 i 7 MHz rabi se LSB, na svim višim amaterskim pojasevima i na UKV-u rabi se USB. Granica je 10 MHz. To nije propis nego uvriježena praksa, ali je toliko čvrsta da ćeš, ako je prekršiš, jednostavno nikoga ne razumjeti — sugovornikov prijamnik demodulirat će tvoj signal 'naopako' i dobit će nerazumljivo brbljanje.\n\nIznimke koje vrijedi znati: digitalne vrste rada (RTTY, FT8, PSK) rabe USB na svim pojasevima, uključujući 80 i 40 m, jer se tako izbjegava obrtanje tonova. Isto vrijedi i za rad preko satelita.\n\nPojam zaokruži tako da si predočiš spektar: nositelj (kojeg u SSB-u zapravo nema, ali se zna gdje bi bio) u sredini, gornja bočna frekvencija je f_c + f_m, donja f_c − f_m. USB uzima onu prvu.",
+  "formula": [
+   "   USB = Upper Side Band = gornji bočni pojas → f_c + f_m",
+   "   LSB = Lower Side Band = donji  bočni pojas → f_c − f_m",
+   "",
+   "Uobičajeni dogovor u amaterskoj službi:",
+   "",
+   "   1,8 MHz (160 m)   LSB",
+   "   3,5 MHz  (80 m)   LSB",
+   "   7   MHz  (40 m)   LSB",
+   "   ───── granica 10 MHz ─────",
+   "  14, 18, 21, 24, 28 MHz   USB",
+   "   svi UKV/UHF pojasevi     USB",
+   "",
+   "Iznimka: digitalne vrste rada (RTTY, FT8, PSK) — USB svugdje."
+  ],
+  "links": [
+   {
+    "label": "Single-sideband modulation (en.wikipedia)",
+    "url": "https://en.wikipedia.org/wiki/Single-sideband_modulation"
+   }
+  ],
+  "cite": [
+   {
+    "src": "PZM",
+    "loc": "Tema 15, LSB na 3,5 i 7 MHz, USB na višim pojasevima, granica 10 MHz, tiskana str. 113"
+   },
+   {
+    "src": "RK",
+    "loc": "1.8.2. SSB, tiskana str. 50"
+   }
+  ]
+ },
+ "teh-120": {
+  "note": "Kod frekvencijske modulacije mijenja se FREKVENCIJA vala nositelja, i to linearno s informacijskim signalom. Amplituda ostaje stalna. Odgovor (c).\n\nPogledaj što se točno događa. Nemodulirani odašiljač emitira na središnjoj frekvenciji f_c. Kad na modulator dođe pozitivan poluval govora, frekvencija se pomakne naviše na f_c + Δf; kad dođe negativan, naniže na f_c − Δf. Taj pomak zove se devijacija frekvencije (hrvatski razmah) i on je izravno razmjeran AMPLITUDI modulacijskog signala — glasnije govoriš, veća devijacija. Brzina kojom se frekvencija njiše amo-tamo odgovara frekvenciji modulacijskog signala.\n\nTo da amplituda ostaje konstantna nije sitnica nego glavna prednost FM-a. Većina prirodnih i tehničkih smetnji (atmosferski praskovi, iskrenje, motori) su amplitudne smetnje. FM prijamnik ima ograničavalo (limiter) koje sve što viri iznad zadane amplitude jednostavno odreže — a s tim odreže i smetnju, dok informacija, koja je u frekvenciji, ostaje netaknuta. Otud čist zvuk FM veze i otud 'capture effect': jači signal potpuno potisne slabiji.\n\nDruga posljedica konstantne amplitude jest da FM odašiljač smije raditi u nelinearnom razredu C (vidi teh-108) — što daje bolju učinkovitost. AM i SSB to ne smiju.\n\nDistraktori: (a) i (d) govore o amplitudi, dakle o AM-u; (b) o fazi, dakle o faznoj modulaciji (teh-124).",
+  "formula": [
+   "FM:  f(t) = f_c + k · u_m(t)      amplituda = konst.",
+   "",
+   "   Δf (devijacija) ~ AMPLITUDI modulacijskog signala",
+   "   brzina njihanja  = FREKVENCIJI modulacijskog signala",
+   "",
+   "Normirane devijacije:",
+   "   FM stereo radiodifuzija   Δf = ± 75 kHz  (f_m do 15 kHz)",
+   "   pokretne postaje, govor   Δf = ± 2,5 … 5 kHz",
+   "",
+   "Indeks modulacije:  m = Δf / f_m     (vidi teh-122)",
+   "Širina pojasa:      B = 2·(Δf + f_m)  Carsonovo pravilo",
+   "",
+   "Zašto je FM otporan na smetnje:",
+   "   smetnje su amplitudne → ograničavalo ih odreže,",
+   "   a informacija je u frekvenciji i ostaje netaknuta."
+  ],
+  "links": [
+   {
+    "label": "Frekvencijska modulacija (hr.wikipedia)",
+    "url": "https://hr.wikipedia.org/wiki/Frekvencijska_modulacija"
+   },
+   {
+    "label": "Frequency modulation (en.wikipedia)",
+    "url": "https://en.wikipedia.org/wiki/Frequency_modulation"
+   }
+  ],
+  "cite": [
+   {
+    "src": "RK",
+    "loc": "1.8.3. Frekvencijska modulacija — FM, devijacija frekvencije, tiskana str. 50"
+   },
+   {
+    "src": "PZM",
+    "loc": "Tema 15, Frekvencijska modulacija — FM, tiskana str. 113"
+   }
+  ]
+ },
+ "teh-122": {
+  "note": "Indeks modulacije kod FM-a je omjer devijacije frekvencije i modulacijske frekvencije. Uvrsti brojke: m = Δf / f_m = 3 kHz / 5 kHz = 0,6. Odgovor (c).\n\nJedina zamka je u tome što treba znati što ide u brojnik, a što u nazivnik. Devijacija (razmah, ono ± 3 kHz) je pomak nositelja i ide GORE; modulacijska frekvencija (5 kHz, ton kojim moduliraš) ide DOLJE. Zamijeniš li ih, dobit ćeš 1,67 — a taj broj nije među ponuđenima, što je dobar znak da si na krivom putu.\n\nZnak ± u zadatku ne udvostručuje devijaciju: Δf je iznos pomaka u jednu stranu, ne od vrha do vrha. Zato je Δf = 3 kHz, a ne 6 kHz.\n\nIndeks modulacije nije puka brojka — on određuje širinu pojasa. Po Carsonovu pravilu B = 2·(Δf + f_m), pa ovdje B = 2·(3 + 5) = 16 kHz. Isti indeks 0,6 uz drukčije brojke dao bi drukčiju širinu, pa treba paziti da se ne pomiješaju. Za usporedbu, radiodifuzni FM ima Δf = 75 kHz i f_m = 15 kHz, dakle m = 5 i B = 180 kHz.\n\nIndeks manji od 1 znači uskopojasni FM (NBFM), kakav se rabi na amaterskim UKV repetitorima. Indeks znatno veći od 1 znači širokopojasni FM s boljom kvalitetom zvuka ali mnogo širim pojasom.",
+  "formula": [
+   "m = Δf / f_m",
+   "",
+   "Uvrsti:",
+   "   Δf  = 3 kHz    (devijacija frekvencije)",
+   "   f_m = 5 kHz    (modulacijska frekvencija)",
+   "",
+   "   m = 3 / 5 = 0,6",
+   "",
+   "Pozor: znak ± ne udvostručuje Δf — to je pomak u jednu stranu.",
+   "Ako zamijeniš brojnik i nazivnik dobiješ 1,67 (nije ponuđeno).",
+   "",
+   "Širina pojasa (Carson):",
+   "   B = 2·(Δf + f_m) = 2·(3 + 5) = 16 kHz",
+   "",
+   "Za usporedbu, radiodifuzni FM:",
+   "   Δf = 75 kHz, f_m = 15 kHz → m = 5, B = 180 kHz"
+  ],
+  "links": [
+   {
+    "label": "Frequency modulation (en.wikipedia)",
+    "url": "https://en.wikipedia.org/wiki/Frequency_modulation"
+   },
+   {
+    "label": "Frekvencijska modulacija (hr.wikipedia)",
+    "url": "https://hr.wikipedia.org/wiki/Frekvencijska_modulacija"
+   }
+  ],
+  "cite": [
+   {
+    "src": "RK",
+    "loc": "5.4.10. Indeks modulacije — m = Δf/f_m, tiskana str. 144"
+   },
+   {
+    "src": "RK",
+    "loc": "1.8.3. Frekvencijska modulacija — FM, tiskana str. 50"
+   }
+  ]
+ },
+ "teh-124": {
+  "note": "Kod fazne modulacije mijenja se FAZA vala nositelja u ritmu informacijskog signala. Odgovor (a).\n\nFazna i frekvencijska modulacija su blizanci — obje spadaju u kutnu modulaciju i na osciloskopu ili u spektru izgledaju gotovo jednako. Razlog je što se faza i frekvencija ne mogu razdvojiti: mijenjaš li fazu, neizbježno mijenjaš i frekvenciju, jer je frekvencija brzina promjene faze. Razlika je u tome ČEMU je devijacija razmjerna. Kod FM-a devijacija ovisi samo o amplitudi modulacijskog signala. Kod PM-a ovisi i o amplitudi i o frekvenciji modulacijskog signala — viši tonovi daju veću devijaciju.\n\nIzvedbeno se razlikuju po tome gdje se zahvaća. Frekvencijska modulacija djeluje na sam oscilator (najčešće varikap-diodom u njegovu titrajnom krugu), pa oscilator više ne može biti kristalni — a to znači lošiju stabilnost. Fazna modulacija djeluje na titrajni krug NEKOG STUPNJA IZA oscilatora, pa oscilator ostaje netaknut i može biti kristalno stabilan. Zato se u praksi često rabi 'indirektni FM': napravi se fazna modulacija iza kristalnog oscilatora, uz korekciju NF karakteristike, i dobije se signal koji je za prijamnik neraspoznatljiv od pravog FM-a, a s kristalnom stabilnošću.\n\nPazi na distraktore: (b) opisuje FM, (c) opisuje AM, a (d) je besmislen — modulacija po definiciji ovisi o informacijskom signalu, inače ne prenosi ništa.",
+  "formula": [
+   "PM:  φ(t) = φ₀ + k · u_m(t)        mijenja se FAZA",
+   "FM:  f(t) = f_c + k · u_m(t)        mijenja se FREKVENCIJA",
+   "",
+   "Razlika koja se pamti:",
+   "   FM:  Δf ~ amplituda modulacijskog signala",
+   "   PM:  Δf ~ amplituda × frekvencija modulacijskog signala",
+   "",
+   "Gdje se zahvaća:",
+   "   FM  → u samom oscilatoru (varikap u titrajnom krugu)",
+   "         → oscilator ne može biti kristalni",
+   "   PM  → u titrajnom krugu STUPNJA IZA oscilatora",
+   "         → oscilator smije biti kristalni, stabilnost bolja",
+   "",
+   "Otud 'indirektni FM' = PM + korekcija NF karakteristike."
+  ],
+  "links": [
+   {
+    "label": "Phase modulation (en.wikipedia)",
+    "url": "https://en.wikipedia.org/wiki/Phase_modulation"
+   },
+   {
+    "label": "Modulacija (hr.wikipedia)",
+    "url": "https://hr.wikipedia.org/wiki/Modulacija"
+   }
+  ],
+  "cite": [
+   {
+    "src": "RK",
+    "loc": "5.3.10. Fazni modulator, tiskana str. 141"
+   },
+   {
+    "src": "RK",
+    "loc": "1.8. Modulirani signali, tiskana str. 47–50"
+   }
+  ]
+ },
+ "teh-126": {
+  "note": "Izvor radiofrekvencijskog signala u svakom odašiljaču i u svakom superheterodinskom prijamniku je oscilator — a u modernim uređajima najčešće RF sintetizator. Odgovor (c).\n\nOscilator je sklop koji istosmjernu energiju iz napajanja pretvara u izmjenične oscilacije određene frekvencije. Da bi to mogao, mora imati tri stvari: element koji određuje frekvenciju (titrajni krug ili piezoelektrični kristal), pojačalo (tranzistor ili cijev) i pozitivnu povratnu spregu koja nadoknađuje gubitke i time održava oscilacije (vidi teh-128).\n\nSintetizator je nadogradnja. Umjesto jednog LC oscilatora čija frekvencija 'kliza' s temperaturom, sintetizator iz jednog jedinog kvarcnog kristala izvodi velik broj stabilnih frekvencija na jednakim razmacima. Najčešća izvedba je fazno zatvorena petlja, PLL, kojom se frekvencija bira programiranjem djelitelja (vidi teh-136). Novije izvedbe rabe izravnu digitalnu sintezu (DDS), gdje se val doslovno računa i pretvara D/A pretvaračem.\n\nOstale ponuđene mogućnosti rade suprotan ili sasvim drugi posao: detektor VADI informaciju iz VF signala (demodulacija), stabilizator napona daje stalan istosmjerni napon a ne izmjenični signal, a niskofrekvencijsko pojačalo radi u audio području, ne u radijskom.",
+  "formula": [
+   "Oscilator = pretvarač istosmjerne energije u izmjenične oscilacije",
+   "",
+   "Tri nužna sastojka (PZM, Tema 13):",
+   "   1. rezonancija     → titrajni krug ili kristal (određuje f)",
+   "   2. pojačanje       → tranzistor ili cijev",
+   "   3. pozitivna povratna sprega → nadoknađuje gubitke",
+   "",
+   "Vrste izvora RF signala:",
+   "   LC oscilator (VFO)   ugađa se, ali kliže",
+   "   kristalni oscilator  vrlo stabilan, fiksna frekvencija",
+   "   PLL sintetizator     mnogo frekvencija iz jednog kristala",
+   "   DDS                  izravna digitalna sinteza",
+   "",
+   "f_LC = 1 / (2π·√(L·C))        f_PLL = f_ref · N"
+  ],
+  "links": [
+   {
+    "label": "Oscilator (elektrotehnika)",
+    "url": "https://hr.wikipedia.org/wiki/Oscilator_(elektrotehnika)"
+   },
+   {
+    "label": "Frequency synthesizer (en.wikipedia)",
+    "url": "https://en.wikipedia.org/wiki/Frequency_synthesizer"
+   }
+  ],
+  "cite": [
+   {
+    "src": "RK",
+    "loc": "3.6. Oscilatori; 3.6.2. Sintetizatori i petlja fazne sinkronizacije, tiskana str. 124–127"
+   },
+   {
+    "src": "PZM",
+    "loc": "Tema 13, funkcije u radiotehnici — oscilator, tiskana str. 104–105"
+   }
+  ]
+ },
+ "teh-128": {
+  "note": "Osnovni element svakog električnog oscilatora je povratna sprega — točnije POZITIVNA povratna sprega. Odgovor (d).\n\nPogledaj zašto je baš ona nezamjenjiva. Titrajni krug sam po sebi doista titra, ali prigušeno: energija se njiše između električnog polja kondenzatora i magnetskog polja zavojnice, a djelatni otpor žice je pretvara u toplinu, pa oscilacije zamiru poput njihala bez pogona. Da bi titranje bilo trajno, netko mora u svakom ciklusu nadoknaditi izgubljeno. To radi pojačalo, ali samo ako mu dio izlaznog signala vratiš na ulaz U PRAVOJ FAZI. Ta vraćena veza je povratna sprega i bez nje oscilacija nema.\n\nUvjet je poznat kao Barkhausenov: umnožak pojačanja i faktora povratne sprege mora biti barem 1, a ukupni fazni pomak u petlji 0° (odnosno 360°). Ako je umnožak manji od 1, oscilacije zamiru; ako je znatno veći, oscilacije se izobličavaju u pravokutnik.\n\nPazi na razliku između pozitivne i negativne povratne sprege: pozitivna omogućuje rad oscilatora, a negativna radi suprotno — stabilizira pojačalo, smanjuje mu izobličenje i može automatski regulirati pojačanje. Isti sklop, suprotan predznak faze, suprotan učinak.\n\nOstale ponuđene komponente su dijelovi drugih sklopova: diskriminator je vrsta FM detektora, ispravljač daje istosmjerno napajanje, a mješač premješta frekvenciju (teh-100). Ni jedno od toga oscilator ne mora imati.",
+  "formula": [
+   "Barkhausenov uvjet oscilacije:",
+   "   A · β ≥ 1        (petljasto pojačanje)",
+   "   ukupni fazni pomak u petlji = 0°  (ili 360°)",
+   "",
+   "A = pojačanje pojačala,  β = udio signala vraćen na ulaz",
+   "",
+   "Bez povratne sprege:  titraji se prigušuju i zamiru",
+   "S pozitivnom spregom: titraji se trajno održavaju",
+   "S negativnom spregom: pojačalo se stabilizira, manje izobličenja",
+   "",
+   "Frekvenciju određuje titrajni krug ili kristal:",
+   "   f₀ = 1 / (2π·√(L·C))",
+   "",
+   "Poznati oscilatori po načinu ostvarenja sprege:",
+   "   Colpitts, Clapp-Gouriet, Hartley, Vackar"
+  ],
+  "links": [
+   {
+    "label": "Electronic oscillator (en.wikipedia)",
+    "url": "https://en.wikipedia.org/wiki/Electronic_oscillator"
+   },
+   {
+    "label": "Oscilator (elektrotehnika)",
+    "url": "https://hr.wikipedia.org/wiki/Oscilator_(elektrotehnika)"
+   }
+  ],
+  "cite": [
+   {
+    "src": "RK",
+    "loc": "2.6.3.1. Primjeri uporabe tranzistora — 5. Tranzistor kao oscilator, tiskana str. 91"
+   },
+   {
+    "src": "PZM",
+    "loc": "Tema 13, povratna sprega — pozitivna omogućuje rad oscilatora, tiskana str. 104"
+   }
+  ]
+ },
+ "teh-130": {
+  "note": "Stabilan oscilator je onaj kojemu se frekvencija vrlo malo mijenja. Odgovor (c). Obrati pozornost na 'vrlo malo' — apsolutna nepromjenjivost ne postoji, uvijek postoji neko odstupanje, pitanje je samo koliko je malo.\n\nTri stvari mu pomiču frekvenciju i sve tri treba znati. Prva je temperatura: dielektrik kondenzatora i metal zavojnice mijenjaju vrijednost dok se uređaj zagrijava, pa frekvencija polako 'kliže' (engl. drift). Druga je mehanika: udarac, potres ili samo pomak žice mijenja induktivitet ili kapacitet. Treća je napon napajanja: promjena radnog napona mijenja kapacitete unutar tranzistora, a time i frekvenciju.\n\nProtumjere slijede izravno iz uzroka. Zavojnica se namota tijesno i zategnuto na keramički nosač, promjenjivi kondenzator mora biti mehanički čvrst, veze što kraće i nepomične. Titrajni krug se smjesti dalje od izvora topline i sastavi od elemenata s malim temperaturnim koeficijentom (keramika, tinjac). Napon napajanja oscilatora se posebno stabilizira. Kod kristalnih oscilatora kristal se stavlja u termostat ugrijan na 60–70 °C, viši od okoline, da vanjske promjene temperature do njega uopće ne dopru.\n\nZašto se toliko trudimo: nestabilan oscilator znači da ti signal 'bježi' iz sugovornikova filtra tijekom veze, i da izlaziš izvan dopuštenih granica pojasa. Frekvencijska stabilnost je propisana norma za svako radno područje i ne smije se prekoračiti. Naglo klizanje na početku telegrafskog znaka ima i svoje ime — čirp (cvrkut), i sugovornik ti ga označi slovom 'c' u izvještaju.",
+  "formula": [
+   "Stabilnost se izražava u ppm (dijelova na milijun):",
+   "   Δf = f · ppm / 10⁶",
+   "",
+   "Primjer: 10 ppm na 14,200 MHz",
+   "   Δf = 14,2·10⁶ · 10 / 10⁶ = 142 Hz",
+   "   → za SSB podnošljivo, za uski CW filtar već mnogo",
+   "",
+   "Primjer: 1 ppm (TCXO) na 432 MHz",
+   "   Δf = 432 Hz",
+   "",
+   "Uzroci klizanja i protumjere:",
+   "   temperatura → keramika/tinjac, mali temp. koeficijent,",
+   "                 dalje od topline, kristal u termostatu",
+   "   mehanika    → tijesan namot, kratke i čvrste veze",
+   "   napajanje   → stabiliziran napon oscilatora",
+   "   opterećenje → odvojni stupanj (buffer) iza oscilatora"
+  ],
+  "links": [
+   {
+    "label": "Oscilator (elektrotehnika)",
+    "url": "https://hr.wikipedia.org/wiki/Oscilator_(elektrotehnika)"
+   },
+   {
+    "label": "Crystal oscillator (en.wikipedia)",
+    "url": "https://en.wikipedia.org/wiki/Crystal_oscillator"
+   }
+  ],
+  "cite": [
+   {
+    "src": "RK",
+    "loc": "3.6.1. Oscilator s promjenjivom frekvencijom — zahtjev stabilnosti, tiskana str. 124"
+   },
+   {
+    "src": "RK",
+    "loc": "5.4.1. Frekvencijska stabilnost, tiskana str. 141; 4.3.2. Oscilator u prijamniku, tiskana str. 132"
+   }
+  ]
+ },
+ "teh-132": {
+  "note": "VFO je kratica od engleskog Variable Frequency Oscillator — oscilator promjenljive frekvencije. Odgovor (b).\n\nTo je oscilator kojemu možeš mijenjati frekvenciju, obično promjenjivim kondenzatorom ili jezgrom u zavojnici titrajnog kruga, u novijim izvedbama varikap-diodom kojom se upravlja naponom. Suprotnost mu je kristalni oscilator, koji radi na jednoj jedinoj frekvenciji, onoj za koju je kristal izbrušen.\n\nOdatle i vječni kompromis radiotehnike: VFO se može ugađati po cijelom pojasu ali mu frekvencija kliže, a kristal je izvanredno stabilan ali nepomičan. Zato su stariji uređaji imali oboje — VFO za ugađanje i kristal za referentne točke — a moderni to rješavaju PLL sintetizatorom, koji uzme stabilnost kristala i doda joj mogućnost ugađanja u koracima (vidi teh-136).\n\nU praksi VFO često ne radi na radnoj frekvenciji odašiljača nego na nižoj, jer je na nižoj frekvenciji stabilnost bolja. Onda se dobivena frekvencija ili udvostruči množilom, ili se pomiješa s kristalnom (vidi teh-134). Najčešće izvedbe VFO-a u amaterskoj tehnici su Colpittsov i Clappov oscilator.\n\nDistraktori se svode na uobičajenu zbrku: (a) opisuje kristalni oscilator, (c) 'oscilator za vrlo visoke frekvencije' bi bio VHF oscilator a ne VFO, a (d) je besmislen.",
+  "formula": [
+   "VFO = Variable Frequency Oscillator",
+   "",
+   "   VFO      frekvencija se mijenja, stabilnost lošija",
+   "   XO       kristalni, frekvencija fiksna, stabilnost odlična",
+   "   VCO      naponski upravljan (varikap), dio PLL-a",
+   "   PLL      stabilnost kristala + ugađanje u koracima",
+   "",
+   "Ugađanje VFO-a:",
+   "   f₀ = 1 / (2π·√(L·C))",
+   "   promjenjivi C 20 … 320 pF (16:1) → raspon f = 4:1",
+   "",
+   "Najčešće izvedbe: Colpittsov i Clappov oscilator.",
+   "Iza VFO-a ide odvojni stupanj (buffer) da mu opterećenje",
+   "ne pomiče frekvenciju."
+  ],
+  "links": [
+   {
+    "label": "Variable-frequency oscillator (en.wikipedia)",
+    "url": "https://en.wikipedia.org/wiki/Variable-frequency_oscillator"
+   },
+   {
+    "label": "Oscilator (elektrotehnika)",
+    "url": "https://hr.wikipedia.org/wiki/Oscilator_(elektrotehnika)"
+   }
+  ],
+  "cite": [
+   {
+    "src": "RK",
+    "loc": "3.6.1. Oscilator s promjenjivom frekvencijom (VFO), tiskana str. 124"
+   },
+   {
+    "src": "PZM",
+    "loc": "Tema 15, 5.2. Blok-shema odašiljača — VFO i PA, tiskana str. 111"
+   }
+  ]
+ },
+ "teh-134": {
+  "note": "Zadatak se rješava jednom oduzimanjem i jednom provjerom. Miješalo daje zbroj i razliku ulaznih frekvencija (vidi teh-100); ovdje nam treba zbroj, jer je izlazna frekvencija viša od obiju ulaznih ne bi bilo moguće drukčije. Dakle f_kristal + f_VFO = f_izlaz, odnosno f_kristal = 21,0 − 5,0 = 16 MHz. Odgovor (d).\n\nProvjeri i drugi rub, jer točan je samo onaj kristal koji pokriva CIJELI traženi opseg: 16 + 5,5 = 21,5 MHz. Slaže se. Nije slučajno — VFO ima raspon 0,5 MHz, a traženi izlaz također 0,5 MHz, pa zbrajanje čuva širinu raspona. Da je traženi opseg bio širi od VFO-ovog, zadatak ne bi imao rješenja zbrajanjem.\n\nPreostale ponude propadaju čim ih uvrstiš: 21 MHz daje 26,0–26,5 MHz, 14 MHz daje 19,0–19,5 MHz, a 5 MHz daje 10,0–10,5 MHz. Ni jedno ne pogađa 21,0–21,5.\n\nZašto se uopće ovako radi umjesto da se napravi VFO odmah na 21 MHz: stabilnost. Oscilator koji radi na nižoj frekvenciji ima manji apsolutni pomak frekvencije za isti postotni pomak elemenata, pa se u odašiljačima s translacijom frekvencije stabilni niskofrekvencijski VFO miješa s kristalno stabilnim signalom. Istim VFO-om od 5,0–5,5 MHz i različitim kristalima pokriješ više pojasa.\n\nNa izlazu miješala pojavljuje se i razlika, 16 − 5,0 = 11,0 do 16 − 5,5 = 10,5 MHz, pa je filtar iza miješala nužan da odabere gornji proizvod. Primijeti i da razlika ide u SUPROTNOM smjeru od VFO-a — kad okreneš skalu naviše, razlika pada.",
+  "formula": [
+   "Miješalo:  f_izlaz = f_kristal ± f_VFO",
+   "",
+   "Traženo:  21,0 … 21,5 MHz",
+   "VFO:       5,0 …  5,5 MHz",
+   "",
+   "Donji rub:  f_kristal = 21,0 − 5,0 = 16 MHz",
+   "Gornji rub: 16 + 5,5 = 21,5 MHz  ✓  pokriva cijeli opseg",
+   "",
+   "Provjera ostalih ponuda:",
+   "   21 MHz → 26,0 … 26,5 MHz    ✗",
+   "   14 MHz → 19,0 … 19,5 MHz    ✗",
+   "    5 MHz → 10,0 … 10,5 MHz    ✗",
+   "",
+   "Na izlazu nastaje i razlika:",
+   "   16 − 5,0 = 11,0 MHz,  16 − 5,5 = 10,5 MHz",
+   "   → filtar iza miješala bira zbroj",
+   "   (primijeti: razlika se kreće u suprotnom smjeru od VFO-a)"
+  ],
+  "links": [
+   {
+    "label": "Frequency mixer (en.wikipedia)",
+    "url": "https://en.wikipedia.org/wiki/Frequency_mixer"
+   },
+   {
+    "label": "Variable-frequency oscillator (en.wikipedia)",
+    "url": "https://en.wikipedia.org/wiki/Variable-frequency_oscillator"
+   }
+  ],
+  "cite": [
+   {
+    "src": "RK",
+    "loc": "5.1.1. Odašiljač s translacijom frekvencije ili bez nje, tiskana str. 136"
+   },
+   {
+    "src": "RK",
+    "loc": "4.3.3. Miješalo, tiskana str. 132"
+   }
+  ]
+ },
+ "teh-136": {
+  "note": "Radna frekvencija PLL sintetizatora postavlja se programiranjem programibilnog djelitelja u povratnoj petlji. Odgovor (a).\n\nEvo kako petlja radi. Kristalni oscilator daje vrlo stabilnu frekvenciju; djelitelj M je spusti na referentnu frekvenciju f_ref, koja ujedno određuje korak ugađanja. Naponski upravljani oscilator (VCO) daje izlaznu frekvenciju f_iz, ali ona se prije usporedbe podijeli programibilnim djelitejem s N. Fazni detektor uspoređuje f_iz/N s f_ref i, ako se razlikuju, daje istosmjerni napon pogreške. Taj napon, propušten kroz niskopropusni filtar, ugađa VCO sve dok se f_iz/N ne izjednači s f_ref. U tom trenutku petlja je 'zaključana' i vrijedi f_iz = N · f_ref.\n\nIz te jedne jednadžbe slijedi sve. Frekvenciju biraš tako da promijeniš cijeli broj N — sklopkom, tipkovnicom ili mikroprocesorom. Korak ugađanja jednak je f_ref: kod FM uređaja se bira 12,5 ili 25 kHz, koliko je i kanalni razmak, a kod SSB uređaja što manje, npr. 100 Hz. Stabilnost cijelog izlaza jednaka je stabilnosti onog jednog kristala, bez obzira na to koliko je frekvencija visoka.\n\nPreostale ponude opisuju kako se ugađa nešto drugo: promjenjivi kondenzator i pomicanje jezgre u zavojnici ugađaju klasični LC oscilator (VFO, teh-132), a zagrijavanje kristala može frekvenciju 'povući' za nekoliko kiloherca ali to je kompenzacija, ne postavljanje kanala.",
+  "formula": [
+   "PLL u zaključanom stanju:",
+   "   f_iz / N = f_ref     →     f_iz = N · f_ref",
+   "",
+   "s referencom izvedenom iz kristala:",
+   "   f_ref = f_XO / M     →     f_iz = f_XO · N / M",
+   "",
+   "Primjer, UKV FM uređaj:",
+   "   f_XO = 12,8 MHz,  M = 1024  →  f_ref = 12,5 kHz",
+   "   N = 11552  →  f_iz = 12,5 kHz · 11552 = 144 400 kHz",
+   "                        = 144,400 MHz",
+   "   N + 1 = 11553 → 144,4125 MHz   (korak = f_ref = 12,5 kHz)",
+   "",
+   "Korak ugađanja = f_ref:",
+   "   FM uređaji   12,5 ili 25 kHz (kanalni razmak)",
+   "   SSB uređaji  100 Hz ili manje",
+   "",
+   "Dijelovi petlje: XO → djelitelj M → fazni detektor → NPF →",
+   "VCO → izlaz, i natrag kroz programibilni djelitelj N."
+  ],
+  "links": [
+   {
+    "label": "Phase-locked loop (en.wikipedia)",
+    "url": "https://en.wikipedia.org/wiki/Phase-locked_loop"
+   },
+   {
+    "label": "Frequency synthesizer (en.wikipedia)",
+    "url": "https://en.wikipedia.org/wiki/Frequency_synthesizer"
+   }
+  ],
+  "cite": [
+   {
+    "src": "RK",
+    "loc": "3.6.2. Sintetizatori i petlja fazne sinkronizacije (sl. 3.6.4.), tiskana str. 126–127"
+   }
+  ]
+ },
+ "teh-138": {
+  "note": "Susjedni kanal je prva sljedeća viša ili niža frekvencija na kojoj može raditi drugi odašiljač. Odgovor (b) je gotovo doslovna formulacija iz priručnika.\n\nPojam ima smisla samo tamo gdje je spektar podijeljen u kanale zadanog razmaka. Na amaterskom UKV-u kanalni razmak je 12,5 ili 25 kHz, pa ako radiš na 145,600 MHz, susjedni kanali su 145,5875 i 145,6125 MHz (uz razmak 12,5 kHz). Na kratkim valovima nema formalnih kanala, ali pojam se rabi u istom smislu — postaja koja radi neposredno uz tebe.\n\nZašto to pitanje uopće postoji: susjedni kanal je mjera po kojoj se ocjenjuje prijamnik. Koliko će dobro tvoj prijamnik odvojiti signal sa susjednog kanala ovisi o njegovoj SELEKTIVNOSTI, a ta ovisi ponajviše o filtrima u međufrekvencijskom stupnju (vidi teh-072 o kristalnom filtru). Ako je susjed vrlo jak, ni dobar filtar ne pomaže, pa se u specifikacijama navodi 'potiskivanje susjednog kanala' u decibelima.\n\nDruga strana iste medalje tiče se tvog odašiljača: prekomjerna modulacija (teh-114) ili nelinearno pojačalo (teh-108) šire tvoj signal preko granica kanala i onda ti smetaš susjedima. Zato je disciplina u modulaciji i u izboru razreda pojačala izravno pitanje pristojnosti u eteru.\n\nDistraktori: (a) 'kanal susjednog odašiljača' zvuči slično ali ne definira ništa — susjedan po čemu; (c) i (d) opisuju nešto sasvim drugo, (d) zapravo dupleks.",
+  "formula": [
+   "Susjedni kanal = prva sljedeća viša ili niža frekvencija",
+   "                 na kojoj može raditi drugi odašiljač",
+   "",
+   "Kanalni razmaci:",
+   "   UKV/UHF FM amaterski   12,5 kHz  ili  25 kHz",
+   "",
+   "Primjer, radiš na 145,600 MHz uz razmak 12,5 kHz:",
+   "   susjedni niži  = 145,5875 MHz",
+   "   susjedni viši  = 145,6125 MHz",
+   "",
+   "Selektivnost = sposobnost prijamnika da razluči signale",
+   "postaja na bliskim frekvencijama.",
+   "Ovisi o broju i vrsti titrajnih krugova, najviše u MF pojačalu."
+  ],
+  "links": [
+   {
+    "label": "Adjacent-channel interference (en.wikipedia)",
+    "url": "https://en.wikipedia.org/wiki/Adjacent-channel_interference"
+   },
+   {
+    "label": "Band-pass filter — selektivnost (en.wikipedia)",
+    "url": "https://en.wikipedia.org/wiki/Band-pass_filter"
+   }
+  ],
+  "cite": [
+   {
+    "src": "RK",
+    "loc": "4.4.1. Susjedni kanal i 4.4.2. Selektivnost, tiskana str. 134"
+   },
+   {
+    "src": "RK",
+    "loc": "3.6.2. Sintetizatori — kanalni razmak 12,5 / 25 kHz, tiskana str. 127"
+   }
+  ]
+ }
+}

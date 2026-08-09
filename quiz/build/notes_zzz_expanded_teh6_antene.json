@@ -1,0 +1,1041 @@
+{
+ "_doc": "Expanded teaching notes — batch: 6. Antene i antenski vodovi (27 questions: teh-171…teh-202, bez teh-177/178/179/180/197/198 koji su već obrađeni u notes_zzz_expanded_db.json). Dvije ideje nose cijelo poglavlje: antena ne stvara snagu nego je preraspoređuje, i SWR je simptom neprilagodbe a ne kvar sam po sebi.",
+ "_links_verified": "Svaki URL je dohvaćen i potvrđeno je da postoji i da pokriva navedenu temu (9. kolovoza 2026.). hr.wikipedia poveznice uzete su iz potvrđenog popisa u work/LINKS.md; en.wikipedia poveznice (Standing wave ratio, Velocity factor, Balun, Log-periodic antenna, Quad antenna, Monopole antenna, Dipole antenna, Ground plane, Beamwidth, Gain (antenna), Impedance matching, Quarter-wave impedance transformer, Twin-lead, Balanced line, Polarization (waves), Antenna (radio)) dodatno su dohvaćene za ovu seriju.",
+ "_citation_note": "RK poglavlje 6 (Antene i prijenosni vodovi) proteže se na tiskanim str. 146–160; svaka navedena stranica pročitana je s same stranice. PZM Tema 16 (6. Antene) proteže se na tiskanim str. 114–117 — naslovi 6.1./6.2./6.3. svi su ispisani na str. 114 kao sadržaj teme, ali je GRADIVO raspoređeno kroz sve četiri stranice. Zato su zatečeni navodi tipa 'PZM 6.2. str. 114' ispravljeni na stvarnu stranicu (dijagrami zračenja i Yagi su na str. 116, vertikalna i GP antena na str. 117).",
+ "teh-171": {
+  "note": "Poluvalni dipol je, po imenu, dug pola valne duljine. Ako je l = λ/2 = 5 m, onda je λ = 10 m, a frekvencija se dobije iz λ = 300/f[MHz]: f = 300/10 = 30 MHz. Odgovor je a).\n\nBroj 300 nije čarolija — dolazi od brzine svjetlosti. Val se prostire s c ≈ 300 000 km/s = 3·10⁸ m/s, pa je λ = c/f. Izraziš li frekvenciju u megahercima, 3·10⁸ podijeljeno s 10⁶ daje okruglih 300, a rezultat izlazi u metrima. Odnos ide i unatrag, f = 300/λ, i vrijedi ga imati u glavi: 3,5 MHz → 86 m, 14 MHz → 21,4 m, 145 MHz → 2,07 m.\n\nZamka koju ispit ovdje ne postavlja, ali praksa postavlja: 30 MHz je ELEKTRIČNA, idealna vrijednost. Stvarna žica reže se oko 5 % kraća (vidi teh-172), pa RK daje praktični izraz l = 142,5/f. Po njemu bi dipol od točno 5 m bakrene žice rezonirao tek na 142,5/5 = 28,5 MHz. Na ispitu se traži teorijski račun s brojem 300; u dvorištu se računa sa 142,5.",
+  "formula": [
+   "λ[m] = 300 / f[MHz]        ⇔   f[MHz] = 300 / λ[m]",
+   "",
+   "Zadano: l = λ/2 = 5 m   →   λ = 2 · 5 = 10 m",
+   "         f = 300 / 10 = 30 MHz          ← odgovor a)",
+   "",
+   "Praktični (skraćeni) izraz iz RK, s faktorom 0,95:",
+   "   l = 142,5 / f[MHz]",
+   "   za l = 5 m  →  f = 142,5 / 5 = 28,5 MHz"
+  ],
+  "links": [
+   {
+    "label": "Valna duljina (hr.wikipedia)",
+    "url": "https://hr.wikipedia.org/wiki/Valna_duljina"
+   },
+   {
+    "label": "Antena (hr.wikipedia)",
+    "url": "https://hr.wikipedia.org/wiki/Antena"
+   },
+   {
+    "label": "Dipole antenna (en.wikipedia)",
+    "url": "https://en.wikipedia.org/wiki/Dipole_antenna"
+   }
+  ],
+  "cite": [
+   {
+    "src": "RK",
+    "loc": "6.1.1. Duljina antene, tiskana str. 147 (tablica duljina poluvalnih dipola po pojasevima, str. 148)"
+   },
+   {
+    "src": "PZM",
+    "loc": "Tema 16, 6. Antene — Izračun valne duljine, str. 114"
+   }
+  ]
+ },
+ "teh-172": {
+  "note": "Da, razlika postoji, i to u smjeru b): električna duljina je obično VEĆA od mehaničke. Drugim riječima, antena se ponaša kao da je dulja nego što je izmjeriš metrom, pa je moraš izrezati kraću od proračuna da bi rezonirala na željenoj frekvenciji.\n\nRazloga je nekoliko i svi vuku na istu stranu. Val duž vodiča putuje nešto sporije nego u slobodnom zraku. Krajevi antene imaju kapacitet prema okolini, izolatorima, krovu i zidu (tzv. učinak krajeva), pa se električki 'produljuju'. Deblja žica prema valnoj duljini također snizuje rezonantnu frekvenciju. RK to sažima brojkom: stvarna duljina antene je za 5…7 posto manja od električke, PZM govori o 'faktoru skraćenja' koji je najčešće 0,95.\n\nPraktična posljedica: nikad ne reži antenu na točan proračun — reži je za nekoliko postotaka DULJU nego što misliš da treba, izmjeri SWR i skraćuj u malim koracima. Skratiti se uvijek može, produljiti ne. Zapamti smjer: kraćenje žice diže rezonantnu frekvenciju, produljenje je snizuje.",
+  "formula": [
+   "Električna (teorijska) duljina poluvalne antene:",
+   "   l_el = λ/2 = 150 / f[MHz]",
+   "",
+   "Mehanička (stvarna) duljina, s faktorom skraćenja 0,95:",
+   "   l_meh = 0,95 · l_el = 142,5 / f[MHz]",
+   "",
+   "Primjer iz PZM-a, f = 145 MHz:",
+   "   λ = 300/145 = 2,07 m",
+   "   λ/2 = 1,035 m = 103,5 cm      ← električna",
+   "   103,5 cm · 0,95 = 98,3 cm     ← mehanička, to režeš",
+   "   svaki krak = 98,3/2 = 49,15 cm",
+   "",
+   "RK: l_meh je 5…7 % manja od l_el."
+  ],
+  "links": [
+   {
+    "label": "Dipole antenna (en.wikipedia)",
+    "url": "https://en.wikipedia.org/wiki/Dipole_antenna"
+   },
+   {
+    "label": "Valna duljina (hr.wikipedia)",
+    "url": "https://hr.wikipedia.org/wiki/Valna_duljina"
+   }
+  ],
+  "cite": [
+   {
+    "src": "RK",
+    "loc": "6.1.1. Duljina antene, tiskana str. 147"
+   },
+   {
+    "src": "PZM",
+    "loc": "Tema 16, 6. Antene — poluvalni dipol i faktor skraćenja, str. 114–115"
+   }
+  ]
+ },
+ "teh-173": {
+  "note": "Da, izravno su povezani — odgovor b). Što je antena bolje usmjerena, to joj je dobitak veći. To nisu dvije neovisne osobine nego dva imena za istu stvar gledanu iz dva kuta.\n\nRazlog je jednostavan i vrijedi ga zapamtiti kao pravilo za cijelo poglavlje: ANTENA NE STVARA SNAGU. Iz odašiljača u antenu uđe točno onoliko vata koliko je odašiljač dao, i ni vat više. Sve što antena može jest istu tu snagu preraspodijeliti po prostoru — oduzeti je smjerovima koji te ne zanimaju i dodati je onome koji te zanima. Zato PZM izričito piše da se kod dobiti antene 'ne radi o pravom pojačanju, nego o pojačanom zračenju u najpovoljnijem smjeru na račun onih smjerova prema kojima antena ne zrači'. Pojačalo ima napajanje i troši struju; antena nema ništa, pa mora uzeti odnekud.\n\nOtud i mjerenje: dobitak se uvijek iskazuje PREMA NEČEMU. dBd je usporedba s poluvalnim dipolom (dipol je po definiciji 0 dBd), dBi je usporedba s izotropnim radijatorom koji zrači jednako na sve strane. Razlika je 2,15 dB, jer i sâm dipol već ima 2,15 dBi zbog svoje osmice. Proizvođači rado navode dBi jer je brojka veća — kad uspoređuješ dvije antene, prvo provjeri jesu li obje u istoj jedinici.\n\nDruga strana medalje: veći dobitak znači uži snop (vidi teh-175 i teh-176) i manje zračenja u ostale smjerove. Yagi s 16 dB dobitka je izvrsna dok je okrenuta prema sugovorniku, a gluha čim se on pomakne. Zato usmjerene antene idu na rotator, a repetitori i vozila koriste svesmjerne vertikale.",
+  "formula": [
+   "Antena ne stvara snagu — samo je preraspodjeljuje.",
+   "",
+   "Reference za dobitak:",
+   "   dBd — u odnosu na poluvalni dipol   (dipol = 0 dBd)",
+   "   dBi — u odnosu na izotropni radijator",
+   "   dBi = dBd + 2,15        (dipol ima 2,14…2,15 dBi)",
+   "",
+   "Primjer (PZM): Yagi s 4 elementa ≈ 6 dBd",
+   "   6 dB = 3 + 3 dB → ×2 · ×2 = ×4 snage u glavnom smjeru",
+   "   isto u dBi:  6 + 2,15 = 8,15 dBi",
+   "",
+   "RK: Yagijev niz za VHF/UHF postiže i do 16 dB,",
+   "    parabola i preko 50 dB — ali sa sve užim snopom."
+  ],
+  "links": [
+   {
+    "label": "Gain (antenna) (en.wikipedia)",
+    "url": "https://en.wikipedia.org/wiki/Gain_(antenna)"
+   },
+   {
+    "label": "Yagi–Uda antena (en.wikipedia)",
+    "url": "https://en.wikipedia.org/wiki/Yagi%E2%80%93Uda_antenna"
+   },
+   {
+    "label": "Antena (hr.wikipedia)",
+    "url": "https://hr.wikipedia.org/wiki/Antena"
+   }
+  ],
+  "cite": [
+   {
+    "src": "RK",
+    "loc": "6.1.4. Usmjerenost antene, tiskana str. 149; popis značajki (usmjerenost, širina snopa, dobitak, e.r.p., e.i.r.p., izotropna antena), str. 150–151"
+   },
+   {
+    "src": "PZM",
+    "loc": "Tema 16 — Yagi-Udina antena i dobit antene, str. 116"
+   }
+  ]
+ },
+ "teh-174": {
+  "note": "Odgovor je b): u obliku horizontalnog i vertikalnog dijagrama zračenja. Stvarni dijagram zračenja je trodimenzionalno tijelo — kod poluvalnog dipola, primjerice, torus (krafna) nabijen oko žice. Takvo se tijelo ne da nacrtati na papiru, pa se kroz njega provuku dva okomita presjeka: vodoravni (azimutni, 'odakle dolazi signal') i okomiti (elevacijski, 'pod kojim kutom odlazi u ionosferu').\n\nCrta se u polarnim koordinatama: antena je u središtu, smjer najjačeg zračenja postavlja se na 0°, a koncentrične kružnice nose mjerilo. Vanjska kružnica je 0 dB, tj. maksimum, a sve unutra je slabije. Iz takvog dijagrama izravno očitaš širinu snopa (teh-175, teh-176), odnos naprijed-natrag (teh-177) i slabljenje bočnih snopova (teh-178).\n\nPazi na mjerilo, na što RK izričito upozorava: isti dipol izgleda bitno drukčije ako su kružnice razmaknute u linearnom mjerilu SNAGE, u linearnom mjerilu NAPONA ili logaritamski u decibelima. Prije nego išta očitaš, pogledaj oznake na kružnicama.\n\nOdbačene ponuđene tvrdnje: šumni broj je značajka PRIJAMNIKA (koliko šuma sam dodaje), a ne dijagram zračenja antene; analitička formula postoji, ali je za realnu antenu nad realnim tlom neupotrebljiva za brzo očitanje.",
+  "formula": [
+   "Dva normirana presjeka 3D dijagrama:",
+   "   • horizontalni (azimutni)  — usmjerenost po strani svijeta",
+   "   • vertikalni (elevacijski) — kut zračenja prema ionosferi",
+   "",
+   "Polarni prikaz:",
+   "   antena u središtu, maksimum na azimutu 0° = vanjski krug = 0 dB",
+   "   kružnice = mjerilo, pravci = azimut 30°, 60°, 90° … 360°",
+   "",
+   "Mjerilo kružnica MIJENJA oblik slike:",
+   "   linearno po snazi · linearno po naponu · logaritamsko (dB)"
+  ],
+  "links": [
+   {
+    "label": "Radiation pattern (en.wikipedia)",
+    "url": "https://en.wikipedia.org/wiki/Radiation_pattern"
+   },
+   {
+    "label": "Antenna (radio) (en.wikipedia)",
+    "url": "https://en.wikipedia.org/wiki/Antenna_(radio)"
+   }
+  ],
+  "cite": [
+   {
+    "src": "RK",
+    "loc": "6.1.2. Dijagrami zračenja, tiskana str. 148; 6.1.5. Dijagrami zračenja (polarni prikaz, mjerila, popis značajki), str. 150"
+   },
+   {
+    "src": "PZM",
+    "loc": "Tema 16 — dijagram zračenja poluvalnog dipola (sl. 16/3.), str. 116"
+   }
+  ]
+ },
+ "teh-175": {
+  "note": "Širina snopa zračenja je, po definiciji, kut između dvaju pravaca na kojima je zračena snaga pala na POLOVICU maksimalne — a polovica snage je točno −3 dB (vidi teh-198). Zato se i zove 'širina snopa na pola snage'. Ne mjeri se do ruba latice nego do −3 dB kružnice.\n\nNa ovom dijagramu vanjska kružnica je 0 dB, sljedeća prema unutra −3 dB. Glavna latica dodiruje vanjsku kružnicu na azimutu 0°, a −3 dB kružnicu siječe na 30° i na 330°. Razmak između tih dvaju pravaca je 30° + 30° = 60°, pa je odgovor b).\n\nPostupak je uvijek isti i vrijedi ga uvježbati: nađi maksimum, prijeđi jednu kružnicu prema unutra (ako je mjerilo u dB i korak 3 dB), očitaj oba azimuta na kojima latica siječe tu kružnicu i oduzmi ih. Ono što je izvan tog kuta nije 'ništa' — antena i tamo zrači, samo manje od pola snage.\n\nOno što ostatak latice radi izvan snopa vidiš po drugim brojkama istog dijagrama: odnosu naprijed-natrag (teh-177) i slabljenju bočnih snopova (teh-178).",
+  "formula": [
+   "Širina snopa = kut između −3 dB točaka glavne latice",
+   "   −3 dB  →  polovica najveće zračene snage",
+   "",
+   "Očitanje s ove slike:",
+   "   maksimum na azimutu 0° (vanjski krug, 0 dB)",
+   "   sjecišta s −3 dB kružnicom:  330°  i  30°",
+   "   širina snopa = 30° + 30° = 60°     ← odgovor b)",
+   "",
+   "Veza s dobitkom (gruba procjena, nije iz udžbenika):",
+   "   D ≈ 41253 / (θ_vodoravno · θ_okomito)   [oba kuta u °]",
+   "   uži snop  →  veći dobitak"
+  ],
+  "links": [
+   {
+    "label": "Beamwidth (en.wikipedia)",
+    "url": "https://en.wikipedia.org/wiki/Beamwidth"
+   },
+   {
+    "label": "Radiation pattern (en.wikipedia)",
+    "url": "https://en.wikipedia.org/wiki/Radiation_pattern"
+   }
+  ],
+  "cite": [
+   {
+    "src": "RK",
+    "loc": "6.1.5., točka 2. — širina snopa zračenja između pravaca s polovicom najveće snage (−3 dB), tiskana str. 150"
+   }
+  ]
+ },
+ "teh-176": {
+  "note": "Isti postupak kao u teh-175, samo je ovdje latica osjetno deblja. Glavna latica dodiruje vanjsku (0 dB) kružnicu na 0°, a −3 dB kružnicu siječe tek na 60° i na 300°. Širina snopa je 60° + 60° = 120°, dakle odgovor a).\n\nUsporedi dvije slike jednu do druge — to je najbolja ilustracija veze iz teh-173. Antena iz teh-175 gura istu snagu kroz 60°, ova ista snagu razmazuje kroz 120°. Površina 'krafne' je otprilike ista jer je snaga ista; što je otvor uži, to je vrh viši. Antena s 120° snopa ima manji dobitak od one sa 60°, ali zato mnogo lakše pogodiš sugovornika i ne moraš stalno vrtjeti rotator.\n\nZamka na ispitu: nemoj mjeriti do mjesta gdje latica 'završi' (tamo gdje se približi nuli) — dobit ćeš dvostruko preveliku brojku. Mjeri isključivo do −3 dB kružnice. I provjeri korak kružnica; ako je mjerilo 10 dB po kružnici, −3 dB nije nijedna nacrtana kružnica nego točka između prve i druge.",
+  "formula": [
+   "Očitanje s ove slike:",
+   "   maksimum na azimutu 0°",
+   "   sjecišta s −3 dB kružnicom:  300°  i  60°",
+   "   širina snopa = 60° + 60° = 120°    ← odgovor a)",
+   "",
+   "Usporedba s teh-175:",
+   "    60° snop  →  uža latica, veći dobitak",
+   "   120° snop  →  šira latica, manji dobitak",
+   "",
+   "Snaga je ista u oba slučaja — mijenja se samo raspodjela."
+  ],
+  "links": [
+   {
+    "label": "Beamwidth (en.wikipedia)",
+    "url": "https://en.wikipedia.org/wiki/Beamwidth"
+   },
+   {
+    "label": "Radiation pattern (en.wikipedia)",
+    "url": "https://en.wikipedia.org/wiki/Radiation_pattern"
+   }
+  ],
+  "cite": [
+   {
+    "src": "RK",
+    "loc": "6.1.5., točka 2. — širina snopa zračenja, tiskana str. 150"
+   }
+  ]
+ },
+ "teh-181": {
+  "note": "Slika prikazuje OKOMITI presjek: donji rub je tlo, a iznad njega dvije zaobljene latice koje idu prema oba horizonta, s izraženom nulom točno uvis. Takav dijagram ima vertikalni dipol nad zemljom — odgovor c).\n\nZašto nula iznad glave: dipol ne zrači uzduž vlastite osi. Kad je dipol vodoravan, njegove su nule prema krajevima žice; kad ga postaviš okomito, ista ta nula okrene se prema zenitu. RK to kaže izravno: kad je poluvalna antena vertikalna, dijagram zračenja je toroidan, pa je zračenje u svim smjerovima osim okomito uvis. Zemlja ispod antene odbija dio vala, a zbrajanje izravne i odbijene zrake spušta i oblikuje latice prema horizontu.\n\nTo je ujedno i praktična vrijednost vertikalne antene: energija ide nisko prema horizontu, što na kratkom valu znači male kutove zračenja i dobre DX-veze. Za lokalni rad na male udaljenosti, gdje treba zračiti strmo uvis, vertikala je najgori mogući izbor.\n\nEliminacija ostalih ponuđenih: Yagi bi imala jednu veliku laticu na JEDNU stranu i mali stražnji snop (usporedi teh-182), parabola bi imala vrlo uzak snop poput olovke, a vodoravni dipol nisko nad zemljom zrači pretežno strmo uvis, bez ove duboke nule u zenitu.",
+  "formula": [
+   "Vertikalni dipol nad zemljom — okomiti presjek:",
+   "   dvije latice prema oba horizonta",
+   "   duboka nula točno uvis (zenit)",
+   "   vodoravni presjek: krug (svesmjeran)",
+   "",
+   "Dipol NE zrači uzduž svoje osi:",
+   "   vodoravni dipol → nule prema krajevima žice",
+   "   okomiti  dipol → nula prema zenitu"
+  ],
+  "links": [
+   {
+    "label": "Dipole antenna (en.wikipedia)",
+    "url": "https://en.wikipedia.org/wiki/Dipole_antenna"
+   },
+   {
+    "label": "Radiation pattern (en.wikipedia)",
+    "url": "https://en.wikipedia.org/wiki/Radiation_pattern"
+   },
+   {
+    "label": "Dipol (hr.wikipedia)",
+    "url": "https://hr.wikipedia.org/wiki/Dipol"
+   }
+  ],
+  "cite": [
+   {
+    "src": "RK",
+    "loc": "6.1.2. Dijagrami zračenja — 'Kada je poluvalna antena vertikalna, dijagram zračenja je toroidan…', tiskana str. 149; 6.1.3. Kut zračenja, str. 149"
+   }
+  ]
+ },
+ "teh-182": {
+  "note": "Na slici je okomiti presjek s JEDNOM velikom laticom nagnutom uvis na jednu stranu i jednim malim stražnjim snopom na suprotnoj. To je potpis usmjerene antene, a od ponuđenih je to Yagi — odgovor b).\n\nYagi je poluvalni dipol (radijator) kojemu su dodani parazitni elementi: reflektor iza i jedan ili više direktora ispred (vidi teh-190). Ti elementi ne dobivaju snagu iz voda — u njima se struje induciraju poljem radijatora, i njihovo zračenje zbraja se s radijatorovim: u prednjem smjeru u fazi, u stražnjem u protufazi. Rezultat je da se sva raspoloživa snaga stisne u jedan snop naprijed, a ono što ostane otraga mjeri se kao odnos naprijed-natrag (vidi teh-177).\n\nMali stražnji snop nije greška crteža nego stvarnost svake Yagi antene. Savršeno potiskivanje unatrag ne postoji; dobre amaterske Yagije imaju F/B reda 20–25 dB, što znači da otraga izlazi 100 do 300 puta manje snage nego naprijed.\n\nDa je posrijedi GP ili vertikalni dipol, latice bi bile simetrične na obje strane (teh-181, teh-183); tu simetrije nema, i to je jedini podatak koji ti na slici treba.",
+  "formula": [
+   "Yagi — okomiti presjek:",
+   "   jedna velika latica naprijed, nagnuta uvis (kut zračenja)",
+   "   jedan mali stražnji snop  → nesimetrična slika",
+   "",
+   "Zašto se zbraja naprijed:",
+   "   reflektor (dulji, induktivan) + radijator + direktor (kraći, kapacitivan)",
+   "   polja u prednjem smjeru u fazi, u stražnjem u protufazi",
+   "",
+   "Tipičan odnos naprijed-natrag: 20…25 dB → ×100 … ×300"
+  ],
+  "links": [
+   {
+    "label": "Yagi–Uda antena (en.wikipedia)",
+    "url": "https://en.wikipedia.org/wiki/Yagi%E2%80%93Uda_antenna"
+   },
+   {
+    "label": "Radiation pattern (en.wikipedia)",
+    "url": "https://en.wikipedia.org/wiki/Radiation_pattern"
+   }
+  ],
+  "cite": [
+   {
+    "src": "RK",
+    "loc": "6.1.4. Usmjerenost antene — Yagijev niz i njegov dijagram zračenja (sl. 6.1.5.), tiskana str. 149"
+   },
+   {
+    "src": "PZM",
+    "loc": "Tema 16 — Yagi-Udina antena, str. 116"
+   }
+  ]
+ },
+ "teh-183": {
+  "note": "Okomiti presjek s dvije simetrične latice prema oba horizonta i nulom uvis — to je slika svake OKOMITE, svesmjerne antene, a od ponuđenih je to samo GP antena, pa je odgovor a).\n\nGP (ground plane) je četvrtvalna okomita antena kojoj donji krak zamjenjuje umjetno tlo: četiri ili šest radijala duljine λ/4 na dnu. Zemlja, odnosno taj sustav radijala, djeluje kao zrcalo — u njemu se stvara zrcalna slika gornjeg kraka, pa se antena od λ/4 ponaša kao cijeli dipol od λ/2. Radijali se često spuste ukoso prema dolje upravo zato da bi se priključni otpor podigao s otprilike 40 Ω na 50 Ω i tako izravno pogodio 50-omski koaksijalni kabel.\n\nPozor na stvarnu zamku ovog para pitanja: slika u teh-181 i slika ovdje gotovo su iste. To nije slučajno — vertikalni dipol i GP antena zaista imaju vrlo sličan okomiti dijagram, jer je GP fizički pola vertikalnog dipola dopunjeno zrcalnom slikom. Razlikuješ ih po PONUĐENIM ODGOVORIMA: u teh-181 GP nije ponuđen, a ovdje nije ponuđen vertikalni dipol. Preostale mogućnosti (helikoidalna, quad, vodoravni dipol) daju bitno drukčije slike.\n\nPraktično: kvaliteta uzemljenja odnosno protuutega odlučuje o svemu. RK piše da je utjecaj tla presudan — loši radijali pretvaraju dio snage u toplinu u zemlji, a antena i dalje pokazuje uredan SWR. Nizak SWR nije dokaz da antena dobro zrači (vidi teh-199).",
+  "formula": [
+   "GP (ground plane) antena:",
+   "   okomiti štap l = λ/4",
+   "   4 do 6 radijala λ/4 na dnu = umjetno tlo (protuuteg)",
+   "   zrcalna slika u tlu dopunjuje antenu do λ/2",
+   "",
+   "   impedancija u napojnoj točki ≈ 40 Ω (RK),",
+   "   s radijalima spuštenima ukoso → bliže 50 Ω",
+   "",
+   "Dijagram:  vodoravno — krug (svesmjerno)",
+   "           okomito  — latice nisko prema horizontu, nula uvis"
+  ],
+  "links": [
+   {
+    "label": "Monopole antenna (en.wikipedia)",
+    "url": "https://en.wikipedia.org/wiki/Monopole_antenna"
+   },
+   {
+    "label": "Ground plane (en.wikipedia)",
+    "url": "https://en.wikipedia.org/wiki/Ground_plane"
+   },
+   {
+    "label": "Uzemljenje (hr.wikipedia)",
+    "url": "https://hr.wikipedia.org/wiki/Uzemljenje"
+   }
+  ],
+  "cite": [
+   {
+    "src": "RK",
+    "loc": "6.1.6.4. Vertikalna antena i 6.1.6.5. GP antena na stupu, tiskana str. 152–153"
+   },
+   {
+    "src": "PZM",
+    "loc": "Tema 16 — Vertikalna antena, ground plane (GP), str. 117"
+   }
+  ]
+ },
+ "teh-184": {
+  "note": "Slika je VODORAVNI presjek i pokazuje klasičnu osmicu: dvije jednake latice u suprotnim smjerovima, s dvije duboke nule okomito na njih. To je vodoravni dipol — odgovor c).\n\nOsmica slijedi izravno iz toga kako dipol zrači: najjače okomito na žicu, a uzduž same žice ne zrači uopće. Kad dipol položiš vodoravno, njegova os leži u vodoravnoj ravnini, pa u toj istoj ravnini vidiš i maksimume (poprečno na žicu) i nule (prema krajevima žice). PZM to sažima rečenicom da radioamateri paze kako će okrenuti i pričvrstiti dipol na krovu — jer smjer žice odlučuje koga ćeš čuti.\n\nDobitak dipola u tim dvama smjerovima je 2,15 dBi, i to je opet ista priča iz teh-173: snaga koja ne ode prema krajevima žice mora otići nekamo, pa ojača poprečne smjerove.\n\nEliminacija: GP i vertikalni dipol u vodoravnoj ravnini daju KRUG (teh-185), a Yagi jednu veliku laticu na jednu stranu i mali stražnji snop (teh-186). Simetrična osmica može biti samo dipol položen u ravnini crteža.",
+  "formula": [
+   "Vodoravni dipol, vodoravni presjek — osmica:",
+   "   maksimumi okomito na žicu (dva, suprotna)",
+   "   nule uzduž žice (prema krajevima)",
+   "",
+   "Dobitak: 0 dBd = 2,15 dBi",
+   "",
+   "Osmica je posljedica, ne slučajnost:",
+   "   ono što ne ode prema krajevima → ojača poprečne smjerove"
+  ],
+  "links": [
+   {
+    "label": "Dipole antenna (en.wikipedia)",
+    "url": "https://en.wikipedia.org/wiki/Dipole_antenna"
+   },
+   {
+    "label": "Radiation pattern (en.wikipedia)",
+    "url": "https://en.wikipedia.org/wiki/Radiation_pattern"
+   },
+   {
+    "label": "Dipol (hr.wikipedia)",
+    "url": "https://hr.wikipedia.org/wiki/Dipol"
+   }
+  ],
+  "cite": [
+   {
+    "src": "RK",
+    "loc": "6.1.2. Dijagrami zračenja — teorijski dijagram poluvalne antene (sl. 6.1.4.a), tiskana str. 148"
+   },
+   {
+    "src": "PZM",
+    "loc": "Tema 16 — dijagram zračenja poluvalnog dipola u obliku osmice (sl. 16/3.), str. 116"
+   }
+  ]
+ },
+ "teh-185": {
+  "note": "Vodoravni presjek je KRUG — jednako zračenje na sve strane svijeta, bez ijednog istaknutog smjera. To je svesmjerna (omnidirekcijska) antena, a od ponuđenih je to GP antena, odgovor c).\n\nKrug u vodoravnoj ravnini dobiva svaka okomita antena: vertikala, štap na automobilu, GP, kolinearna antena repetitora. Upravo zbog toga se vertikale koriste tamo gdje ne znaš odakle sugovornik zove ili se stalno krećeš — repetitori, vozila, brodovi, portabl rad. PZM to izričito navodi kao značajno svojstvo vertikalne antene.\n\nNemoj krug čitati kao 'antena nema dobitka'. Vodoravni presjek ne kaže ništa o okomitom. GP antena dobitak dobiva tako što energiju iz zenita spušta prema horizontu (usporedi teh-183) — u vodoravnoj ravnini je pošteno raspoređuje, u okomitoj je itekako preraspodjeljuje. Kolinearne vertikale s više elemenata na taj način postižu 6 dBd i više, a i dalje im je vodoravni dijagram krug.\n\nEliminacija: Yagi i quad su usmjerene i daju laticu, a long wire ima više bočnih latica pod kosim kutovima. Samo GP daje krug.",
+  "formula": [
+   "GP antena, vodoravni presjek: KRUG (svesmjerno)",
+   "",
+   "Krug ≠ nema dobitka.",
+   "   vodoravno: snaga jednako po azimutu",
+   "   okomito:  snaga stisnuta iz zenita prema horizontu → dobitak",
+   "",
+   "Tipična primjena: repetitori, vozila, brodovi, portabl."
+  ],
+  "links": [
+   {
+    "label": "Monopole antenna (en.wikipedia)",
+    "url": "https://en.wikipedia.org/wiki/Monopole_antenna"
+   },
+   {
+    "label": "Ground plane (en.wikipedia)",
+    "url": "https://en.wikipedia.org/wiki/Ground_plane"
+   },
+   {
+    "label": "Radiation pattern (en.wikipedia)",
+    "url": "https://en.wikipedia.org/wiki/Radiation_pattern"
+   }
+  ],
+  "cite": [
+   {
+    "src": "RK",
+    "loc": "6.1.6.5. — 'Vertikalna, štap ili monopol antena, općenito ima u horizontalnoj ravnini kružni dijagram zračenja', tiskana str. 153"
+   },
+   {
+    "src": "PZM",
+    "loc": "Tema 16 — vertikalna antena zrači kružno, str. 117"
+   }
+  ]
+ },
+ "teh-186": {
+  "note": "U izvorniku (HRS, str. 28) uz ovo pitanje stoji vodoravni presjek s jednom velikom laticom naprijed i jednim malim stražnjim snopom. Nesimetrična slika s izraženim prednjim smjerom može biti samo usmjerena antena — Yagi, odgovor a).\n\nČitaj sliku po istom redoslijedu svaki put: (1) je li simetrična? Ako jest i ima dvije jednake latice, riječ je o dipolu (teh-184); ako je krug, o vertikali/GP (teh-185). (2) Ako nije simetrična, gledaš usmjerenu antenu. (3) Tek onda s te iste slike očitaš širinu snopa (teh-175, teh-176), odnos naprijed-natrag (teh-177) i slabljenje bočnih snopova (teh-178).\n\nPonuđeni odgovori sami odbacuju ostatak: vertikalni dipol i GP u vodoravnoj ravnini daju krug, a 'long wiew' je očita tipfeler-varijanta long wire antene, koja bi imala nekoliko kosih bočnih latica, a ne jednu čistu naprijed.\n\nNAPOMENA za pripremu: u ovoj bazi je slika pridružena ovom pitanju POGREŠNA — prikazuje kvadratnu petlju (quad), koja u izvorniku pripada nenumeriranom pitanju o quad radijatoru (vidi teh-186b). Ne daj da te crtež zavede; pitanje traži dijagram zračenja, a odgovor je Yagi.",
+  "formula": [
+   "Vodoravni presjek — što koja slika znači:",
+   "   krug                          → vertikala / GP",
+   "   simetrična osmica             → dipol",
+   "   jedna velika latica + mali",
+   "   stražnji snop (nesimetrično)  → Yagi (ili quad)",
+   "",
+   "Redoslijed čitanja: simetrija → vrsta antene → širina snopa,",
+   "F/B, bočne latice."
+  ],
+  "links": [
+   {
+    "label": "Yagi–Uda antena (en.wikipedia)",
+    "url": "https://en.wikipedia.org/wiki/Yagi%E2%80%93Uda_antenna"
+   },
+   {
+    "label": "Radiation pattern (en.wikipedia)",
+    "url": "https://en.wikipedia.org/wiki/Radiation_pattern"
+   }
+  ],
+  "cite": [
+   {
+    "src": "RK",
+    "loc": "6.1.4. Usmjerenost antene (sl. 6.1.5.b — dijagram zračenja Yagijeva niza), tiskana str. 149; 6.1.6.7. Troelementna snop-antena, str. 154"
+   },
+   {
+    "src": "HRS-A",
+    "loc": "RA_ispiti_9_A_razred_Tehnicki_dio.pdf, pitanje 186, str. 28"
+   }
+  ]
+ },
+ "teh-186b": {
+  "note": "Odgovor je d): stranica je λ/4, a polarizacija horizontalna. Quad (kvad, cubical quad) je zatvorena kvadratna petlja čiji je OPSEG jedna cijela valna duljina. Kvadrat ima četiri jednake stranice, pa je svaka λ/4. RK to navodi izravno: stranica petlje radijatora svaka s l = λ/4.\n\nPolarizaciju određuje mjesto napajanja, ne oblik petlje. Na slici uz pitanje petlja je okrenuta kao romb (dijagonala okomito) i napojni vod dolazi na donji vrh — u toj se točki struja giba vodoravno, pa je zračenje horizontalno polarizirano. Pomakneš li napojnu točku na bočni vrh, ista petlja daje vertikalnu polarizaciju. RK to spominje kod obje izvedbe (dijagonala pod 45° i dijagonala okomita): polarizacija je u oba slučaja horizontalna, a za vertikalnu bi napojna točka bila ona označena crtkanom strelicom.\n\nQuad se gradi kao Yagi, samo s petljama umjesto štapova: reflektor je 3…5 % dulji, direktor 3…5 % kraći od radijatora. Za jedan pojas (dva elementa) napaja se 75-omskim koaksijalnim kabelom, a za tri pojasa 50-omskim. RK ga hvali kao antenu s do 2 dB većim dobitkom od Yagija i boljim odnosom naprijed-natrag.\n\nOva zadaća nema svoj broj u izvornoj HRS listi — smještena je između pitanja 186 i 187 na str. 28. Slika koja u ovoj bazi visi uz teh-186 zapravo pripada ovdje.",
+  "formula": [
+   "Quad — kvadratna petlja radijatora:",
+   "   opseg = 1 λ",
+   "   stranica = λ/4        ← traženi odgovor",
+   "",
+   "Primjer, pojas 20 m (14,1 MHz):",
+   "   λ = 300 / 14,1 = 21,3 m",
+   "   stranica = 21,3 / 4 = 5,32 m",
+   "   ukupno žice po petlji = 21,3 m",
+   "",
+   "Polarizacija ovisi o NAPOJNOJ TOČKI:",
+   "   napajanje na donjem (ili gornjem) vrhu → horizontalna",
+   "   napajanje na bočnom vrhu              → vertikalna",
+   "",
+   "Ostali elementi (RK): reflektor +3…5 %, direktor −3…5 %"
+  ],
+  "links": [
+   {
+    "label": "Quad antenna (en.wikipedia)",
+    "url": "https://en.wikipedia.org/wiki/Quad_antenna"
+   },
+   {
+    "label": "Polarization (waves) (en.wikipedia)",
+    "url": "https://en.wikipedia.org/wiki/Polarization_(waves)"
+   }
+  ],
+  "cite": [
+   {
+    "src": "RK",
+    "loc": "6.1.6.8. Kvad-antena W9LZX — 'stranica petlje radijatora svaka s l = λ/4', polarizacija horizontalna, tiskana str. 155"
+   },
+   {
+    "src": "HRS-A",
+    "loc": "RA_ispiti_9_A_razred_Tehnicki_dio.pdf, nenumerirano pitanje između 186. i 187., str. 28"
+   }
+  ]
+ },
+ "teh-187": {
+  "note": "Prvo valna duljina: λ = 300/f = 300/10 = 30 m. Antena je četvrtvalna, dakle l = λ/4 = 30/4 = 7,5 m. Odgovor je a).\n\nTekst pitanja je nespretno napisan ('Približna duljina antene λ=?') — ne traži se valna duljina nego DULJINA ANTENE. Ako bi netko odgovorio 30 m, odgovorio bi na λ, a to je ponuđeni odgovor d) i tipična zamka. Ponuđeni b) 15 m je λ/2, a c) 22,5 m je 3λ/4; sve su to 'skoro točni' brojevi koji nastanu ako pogriješiš u zadnjem koraku.\n\nČetvrtvalna okomita antena (monopol) fizički je pola dipola: donji krak zamjenjuje tlo ili sustav radijala, a u tlu se stvara zrcalna slika gornjeg kraka (vidi teh-183). Zato λ/4 štap radi kao cijeli λ/2 dipol, ali samo ako je uzemljenje dobro — RK upozorava da je utjecaj tla presudan i da je postizanje dovoljne vodljivosti tla najveća teškoća.\n\nU praksi bi i ovaj štap trebalo skratiti oko 5 % (vidi teh-172): 7,5 m · 0,95 ≈ 7,12 m. Ispit traži zaokruženih 7,5 m.",
+  "formula": [
+   "λ = 300 / f[MHz] = 300 / 10 = 30 m",
+   "l = λ/4 = 30 / 4 = 7,5 m          ← odgovor a)",
+   "",
+   "Zamke u ponuđenim odgovorima:",
+   "   30 m   = λ      (cijela valna duljina)",
+   "   15 m   = λ/2    (poluvalni dipol)",
+   "   22,5 m = 3λ/4",
+   "",
+   "Praktično, s faktorom skraćenja 0,95:",
+   "   7,5 m · 0,95 ≈ 7,12 m"
+  ],
+  "links": [
+   {
+    "label": "Monopole antenna (en.wikipedia)",
+    "url": "https://en.wikipedia.org/wiki/Monopole_antenna"
+   },
+   {
+    "label": "Valna duljina (hr.wikipedia)",
+    "url": "https://hr.wikipedia.org/wiki/Valna_duljina"
+   }
+  ],
+  "cite": [
+   {
+    "src": "RK",
+    "loc": "6.1.1. Duljina antene, tiskana str. 147; 6.1.6.4. Vertikalna antena (l = k·λ/4), str. 152"
+   },
+   {
+    "src": "PZM",
+    "loc": "Tema 16 — Izračun valne duljine, str. 114; Vertikalna antena, str. 117"
+   }
+  ]
+ },
+ "teh-188": {
+  "note": "Trap je PARALELNI titrajni krug koji u rezonanciji ima velik otpor — odgovor b).\n\nPodsjetnik na osnove iz poglavlja o krugovima: serijski LC krug u rezonanciji ima NAJMANJU impedanciju (kratki spoj za rezonantnu frekvenciju), a paralelni LC krug NAJVEĆU (praktički prekid). Trap mora prekidati, ne kratko spajati — zato je paralelni. Umetnut je u krak antene i na svojoj rezonantnoj frekvenciji djeluje kao izolator: RK doslovce piše da trap za rezonancijsku frekvenciju predstavlja golem otpor (izolator).\n\nTako jedna žica radi na više pojaseva. Kod klasične W3DZZ antene trapovi su ugođeni na 7,1 MHz. Na 7 MHz trap 'odsiječe' vanjske dijelove i antena je poluvalna za 40 m. Na 3,5 MHz trap nije u rezonanciji, ponaša se induktivno, antena se električki produlji i cijela duljina 2·(l₁+l₂) radi kao λ/2 za 80 m. Iznad rezonancije (14, 21, 28 MHz) trap je kapacitivan i antena radi kao 3λ/2, 5λ/2 i 7λ/2.\n\nCijena višepojasnosti: trapovi imaju vlastite gubitke, podnose ograničenu snagu i u njima se pri velikom SWR-u može probiti izolacija. Zato su trap-antene kompromis, ne besplatan ručak.",
+  "formula": [
+   "Rezonantna frekvencija titrajnog kruga:",
+   "   f₀ = 1 / (2π · √(L·C))",
+   "",
+   "U rezonanciji:",
+   "   SERIJSKI  LC → najMANJA impedancija (kratki spoj)",
+   "   PARALELNI LC → najVEĆA  impedancija (izolator)  ← trap",
+   "",
+   "Trap izvan rezonancije:",
+   "   f < f₀  → induktivan  (antena se električki PRODULJI)",
+   "   f > f₀  → kapacitivan (antena radi kao viši harmonik)",
+   "",
+   "W3DZZ (RK): trap ugođen na 7,1 MHz,",
+   "   l₁ = 9,75…10 m,  l₂ = 6,50…6,70 m"
+  ],
+  "links": [
+   {
+    "label": "Titrajni krug (hr.wikipedia)",
+    "url": "https://hr.wikipedia.org/wiki/Titrajni_krug"
+   },
+   {
+    "label": "Rezonancija (hr.wikipedia)",
+    "url": "https://hr.wikipedia.org/wiki/Rezonancija"
+   }
+  ],
+  "cite": [
+   {
+    "src": "RK",
+    "loc": "6.1.6.2. Trap-dipol (W3DZZ-antena) — 'trap (paralelni rezonantni krug) predstavlja golem otpor (izolator)', tiskana str. 151–152"
+   },
+   {
+    "src": "PZM",
+    "loc": "3.3.2. Pojasnopropusni filtar i izračun rezonantne frekvencije, str. 100"
+   }
+  ]
+ },
+ "teh-189": {
+  "note": "Savijeni (folded) dipol napaja se dvožičnim simetričnim vodom od 300 Ω — odgovor c). Dva su razloga, i oba moraju biti zadovoljena.\n\nPrvi je impedancija. Savijanje dipola u petlju od dvije paralelne žice dijeli struju na dva jednaka dijela, pa je pri istoj snazi napon na priključcima dvostruk, a impedancija se digne na ČETVEROSTRUKU vrijednost običnog dipola. RK to piše kao 4 · 75 Ω = 300 Ω. Dvožični vod od 300 Ω spoji se izravno, bez ikakve prilagodbe — SWR je 1:1 već po konstrukciji.\n\nDrugi je simetrija. Savijeni dipol je simetrična antena: oba su priključka električki ravnopravna prema masi. Koaksijalni vod je nesimetričan, jer mu je oplet uzemljen (vidi teh-195). Spojiš li nesimetričan vod izravno na simetričnu antenu, struja poteče i po VANJSKOJ strani opleta, pa i sam kabel počne zračiti — javljaju se smetnje u kući, VF na mikrofonu i pomaknut dijagram zračenja. Rješenje je balun (vidi teh-201).\n\nRK dodaje i praktičan razlog: kad je napojni vod jako dugačak, savijeni dipol napajan 300-omskim dvojnim vodom ima nešto manje gubitke od koaksijalnog kabela. Ponuđenih 600 Ω je impedancija ljestvičastog voda sa zračnom izolacijom — točan tip voda, kriva vrijednost.",
+  "formula": [
+   "Ravni poluvalni dipol:      Z ≈ 50…75 Ω",
+   "Savijeni (folded) dipol:    Z = 4 · 75 Ω = 300 Ω",
+   "",
+   "Zašto ×4: struja se dijeli na dvije žice → I/2 pri istoj snazi",
+   "          Z = U/I, a U je dvostruk → Z je četverostruk",
+   "",
+   "Prilagodba: 300 Ω antena ↔ 300 Ω dvožični vod → SWR 1:1",
+   "",
+   "Normirane vrijednosti (RK):",
+   "   koaksijalni vod  50 Ω · 75 Ω",
+   "   dvožični vod    300 Ω · 600 Ω"
+  ],
+  "links": [
+   {
+    "label": "Dipole antenna (en.wikipedia)",
+    "url": "https://en.wikipedia.org/wiki/Dipole_antenna"
+   },
+   {
+    "label": "Twin-lead (en.wikipedia)",
+    "url": "https://en.wikipedia.org/wiki/Twin-lead"
+   },
+   {
+    "label": "Balanced line (en.wikipedia)",
+    "url": "https://en.wikipedia.org/wiki/Balanced_line"
+   }
+  ],
+  "cite": [
+   {
+    "src": "RK",
+    "loc": "6.1.6.3. Savijeni dipol — impedancija 4 × 75 Ω = 300 Ω, napojni vod dvojni vod 300 Ω bez prilagodbe, tiskana str. 152"
+   },
+   {
+    "src": "RK",
+    "loc": "6.2.4. Elementi za prilagodbu — normirane impedancije vodova, tiskana str. 159"
+   }
+  ]
+ },
+ "teh-190": {
+  "note": "Direktori su KRAĆI od dipola i stoje ISPRED zračećeg elementa, u smjeru zračenja — odgovor c). Reflektor je obrnut: dulji i iza. Mnemonik: kraći naprijed, duži natrag; ono ispred 'vuče', ono iza 'gura'.\n\nZašto duljina odlučuje o ulozi: element malo dulji od rezonantne duljine ponaša se induktivno, a malo kraći kapacitivno. Ta razlika u reaktanciji pomiče fazu struje koju u njemu inducira radijator. Kad se zračenja svih elemenata zbroje, u prednjem smjeru dolaze približno u fazi (pojačavaju se), a u stražnjem u protufazi (poništavaju se). PZM daje brojke: reflektor je 5 % dulji od radijatora, direktor 5 % kraći. RK to zapisuje kao uvjet l_reflektora > λ/2 > l_direktora.\n\nDirektori i reflektor ne dobivaju struju iz napojnog voda — nazivaju se PARAZITNIM elementima jer se struje u njima samo induciraju. Zato Yagi ne 'proizvodi' snagu, nego je preraspodjeljuje (vidi teh-173): sve što dobiješ naprijed uzeto je otraga i sa strane.\n\nCijena dodavanja direktora, prema RK: usmjerenost raste, ali se frekvencijski pojas SUŽAVA, a impedancija u napojnoj točki PADA — kod tri elementa i do 20 Ω. Zato Yagi obično ne možeš spojiti izravno na 50 Ω, nego preko gama- ili delta-prilagodbe, ili s savijenim dipolom kao radijatorom (4 × 20 Ω = 80 Ω).",
+  "formula": [
+   "Yagi, gledano u smjeru zračenja:",
+   "",
+   "   REFLEKTOR  →  RADIJATOR  →  DIREKTOR 1 → DIREKTOR 2 → →→ zračenje",
+   "   (dulji,        (λ/2,         (kraći, kapacitivni)",
+   "    induktivan)    napajan)",
+   "",
+   "   l_reflektora > λ/2 > l_direktora",
+   "   PZM: reflektor +5 %, direktor −5 % od radijatora",
+   "   RK:  razmaci reda 0,1…0,15 λ",
+   "",
+   "Posljedice dodavanja direktora (RK):",
+   "   usmjerenost ↑    frekvencijski pojas ↓    impedancija ↓ (≈20 Ω)"
+  ],
+  "links": [
+   {
+    "label": "Yagi–Uda antena (en.wikipedia)",
+    "url": "https://en.wikipedia.org/wiki/Yagi%E2%80%93Uda_antenna"
+   },
+   {
+    "label": "Gain (antenna) (en.wikipedia)",
+    "url": "https://en.wikipedia.org/wiki/Gain_(antenna)"
+   }
+  ],
+  "cite": [
+   {
+    "src": "RK",
+    "loc": "6.1.4. Usmjerenost antene — Yagijev niz: radijator l = λ/2, reflektor l > λ/2, direktor l < λ/2, tiskana str. 149"
+   },
+   {
+    "src": "RK",
+    "loc": "6.1.6.7. Troelementna snop-antena — 'dodavanjem direktora usmjerenost raste, frekvencijski pojas je uži, impedancija opada', tiskana str. 154–155"
+   },
+   {
+    "src": "PZM",
+    "loc": "Tema 16 — Yagi-Udina antena: reflektor 5 % dulji, direktor 5 % kraći, str. 116"
+   }
+  ]
+ },
+ "teh-191": {
+  "note": "Širokopojasna je logaritamsko-periodična antena — odgovor c). Ostale tri ponuđene su rezonantne, dakle po prirodi uskopojasne.\n\nRazlika je u načelu rada. Dipol, Yagi i GP rade zato što im je duljina elemenata ugođena na jednu frekvenciju; čim se udaljiš od nje, antena izlazi iz rezonancije, impedancija postane reaktivna i SWR raste. Logaritamsko-periodična antena umjesto toga ima NIZ dipola stupnjevanih duljina, gdje je svaki idući element za stalan faktor kraći od prethodnog. Na svakoj frekvenciji unutar radnog opsega u rezonanciji je samo nekoliko elemenata, a ostali su neaktivni. Kako se frekvencija mijenja, 'aktivno područje' klizi duž nosača — pa antena zadržava približno isti dijagram, dobitak i impedanciju kroz cijeli pojas, često u omjeru 1:10.\n\nCijena je, kao i uvijek, poštena: budući da u svakom trenutku radi samo dio elemenata, LP antena pri istoj veličini ima manji dobitak od Yagija ugođenog na jednu frekvenciju. Zato je nalaziš u mjeriteljstvu, EMC ispitivanjima i kod amatera koji jednom antenom žele pokriti 14–30 MHz bez ugađanja.\n\nOprez oko literature: ni RK ni PZM nemaju odjeljak o logaritamsko-periodičnoj anteni, pa za nju nema stranice koju bih ti mogao navesti. Ono što RK ima jest izričita potvrda druge polovice odgovora — da dodavanjem direktora Yagiju frekvencijski pojas postaje UŽI, i da se pri konstrukciji radi kompromis između dobitka i širine pojasa.",
+  "formula": [
+   "Uskopojasne (rezonantne) antene:  dipol · Yagi · quad · GP",
+   "   rade jer im je duljina ugođena na jednu frekvenciju",
+   "",
+   "Logaritamsko-periodična antena:",
+   "   niz dipola stupnjevanih duljina, svaki kraći za stalan faktor τ",
+   "   l_(n+1) = τ · l_n        (τ ≈ 0,8…0,95)",
+   "   na svakoj frekvenciji radi samo 'aktivno područje' niza",
+   "   → isti dijagram i impedancija kroz pojas i do 1:10",
+   "",
+   "Kompromis: širok pojas ↔ manji dobitak nego Yagi iste veličine"
+  ],
+  "links": [
+   {
+    "label": "Log-periodic antenna (en.wikipedia)",
+    "url": "https://en.wikipedia.org/wiki/Log-periodic_antenna"
+   },
+   {
+    "label": "Yagi–Uda antena (en.wikipedia)",
+    "url": "https://en.wikipedia.org/wiki/Yagi%E2%80%93Uda_antenna"
+   }
+  ],
+  "cite": [
+   {
+    "src": "RK",
+    "loc": "6.1.6.7. — 'dodavanjem parazitnih elemenata (direktora) usmjerenost antene raste, frekvencijski pojas je uži', tiskana str. 154; kompromis dobitak/širina pojasa, str. 150. NAPOMENA: ni RK ni PZM nemaju odjeljak o logaritamsko-periodičnoj anteni."
+   }
+  ]
+ },
+ "teh-192": {
+  "note": "Ispitni ključ HRS-a traži 5 m i to je ono što na ispitu moraš zaokružiti — odgovor a). Zapamti brojku.\n\n⚖ Provjera propisa: tu brojku NE MOGU pronaći u važećem Pravilniku o amaterskim radijskim komunikacijama (NN 150/22). Članak 21., koji nosi naslov 'Antene i priključni vodovi na amaterskim radijskim postajama', propisuje nešto drugo i s drugim brojem: najmanje JEDAN METAR udaljenosti između sastavnih dijelova antene i priključnih vodova unutar građevine i bilo kojeg dijela javne komunikacijske instalacije, uz iznimku da je manje od jednog metra dopušteno kod oklopljenih vodova ako je zajamčen rad bez smetnji. Taj se metar odnosi na tuđe telekomunikacijske instalacije, a ne na prostor u kojem borave ljudi. Pretražio sam cijeli tekst Pravilnika i u njemu se ne pojavljuje nijedna udaljenost od 5 m niti odredba o razmaku antene od ljudi. Zatečeni navod u bazi ('antena mora biti najmanje 5 m udaljena od vodova drugih telekomunikacijskih i električnih instalacija, čl. 21.') je netočan i ispravljen je.\n\nGdje se onda krije 5 m? Ne mogu to potvrditi pa ti neću izmišljati članak. Vjerojatni je izvor ranija verzija propisa — čl. 25. NN 150/22 stavlja izvan snage Pravilnik iz NN 45/12, 97/14 i 116/17, a taj stariji tekst nemam u ovoj zbirci da bih provjerio. Druga je mogućnost da pitanje cilja na propise o zaštiti od elektromagnetskih polja, na koje NN 150/22 upućuje samo općenito (dozvola mora zadovoljiti i pravilnik koji uređuje posebne uvjete postavljanja i uporabe radijskih postaja), bez navođenja metara.\n\nPraktična pouka koja vrijedi neovisno o brojci: antena se postavlja što više i što dalje od mjesta gdje ljudi borave, jer gustoća snage pada s kvadratom udaljenosti — dvostruko dalje znači četiri puta slabije polje. Na KV-u s 100 W i vodoravnim dipolom nekoliko metara razmaka već rješava problem; na VHF/UHF-u s usmjerenom antenom snop ne smije prolaziti kroz prozor susjedne sobe.",
+  "formula": [
+   "Ispitni ključ HRS-a:  5 m      ← ovo zaokruži",
+   "",
+   "Što NN 150/22, čl. 21. doista propisuje:",
+   "   ≥ 1 m između dijelova antene/priključnog voda unutar građevine",
+   "        i bilo kojeg dijela javne komunikacijske instalacije",
+   "   < 1 m dopušteno kod OKLOPLJENIH vodova, uz rad bez smetnji",
+   "   uzemljenje se NE smije spajati na javnu komunikacijsku instalaciju",
+   "   antenski sustavi izvan građevina — profesionalna izvedba",
+   "   suglasnost pribavlja nositelj dozvole",
+   "",
+   "Pad polja s udaljenosti:  S ~ 1/r²",
+   "   2× dalje → 4× slabije;  3× dalje → 9× slabije"
+  ],
+  "links": [
+   {
+    "label": "Pravilnik o amaterskim radijskim komunikacijama, NN 150/2022",
+    "url": "https://narodne-novine.nn.hr/clanci/sluzbeni/2022_12_150_2313.html"
+   },
+   {
+    "label": "Zakon o elektroničkim komunikacijama, NN 76/2022",
+    "url": "https://narodne-novine.nn.hr/clanci/sluzbeni/2022_07_76_1116.html"
+   }
+  ],
+  "cite": [
+   {
+    "src": "NN150/22",
+    "loc": "Članak 21. (Antene i priključni vodovi na amaterskim radijskim postajama) — propisuje najmanje 1 m prema javnoj komunikacijskoj instalaciji; brojka 5 m ne postoji u tekstu Pravilnika"
+   },
+   {
+    "src": "HRS-A",
+    "loc": "RA_ispiti_9_A_razred_Tehnicki_dio.pdf, pitanje 192, str. 29 — ključ: 5 m"
+   }
+  ],
+  "flag": "check"
+ },
+ "teh-193": {
+  "note": "Kad je relativna dielektrična konstanta veća od 1, brzina širenja se SMANJUJE — odgovor c). Brzina vala u dielektriku je c podijeljeno korijenom iz εr, a korijen iz broja većeg od jedan je veći od jedan, pa dijeljenje uvijek daje manje od c.\n\nFizikalno: elektromagnetski val u dielektriku neprestano polarizira molekule izolatora, one se prestrojavaju i vraćaju energiju natrag u polje s malim kašnjenjem. To kašnjenje po cijeloj duljini voda čitamo kao manju brzinu. U vakuumu (εr = 1) nema što kašnjeti, pa je brzina puna c. Zrak je εr ≈ 1,0006, praktički vakuum; polietilen iz koaksijalnog kabela ima εr ≈ 2,3.\n\nOdatle izravno slijedi FAKTOR BRZINE (u starijoj literaturi 'koeficijent skraćenja') k = 1/√εr, a to je omjer brzine u vodu i brzine u slobodnom prostoru. RK daje brojke: koaksijalni vod s polietilenskom izolacijom ima k = 0,66, a simetrični 300-omski dvojni vod k = 0,85 — jer je kod njega većina polja u zraku, a ne u plastici.\n\nPraktična posljedica koja se plaća skupo: svaki komad voda kojemu je važna ELEKTRIČNA duljina (λ/4 transformator iz teh-200, stub, balun-petlja, faze u antenskom nizu) mora se rezati kraći za faktor brzine. Vidi račun u teh-194.",
+  "formula": [
+   "Brzina vala u dielektriku:",
+   "   v = c / √εr",
+   "",
+   "   εr = 1     → v = c            (vakuum, praktički i zrak)",
+   "   εr = 2,3   → v = c/1,52 = 0,66·c   (polietilen)",
+   "   εr = 4     → v = c/2 = 0,5·c",
+   "",
+   "Faktor brzine (koeficijent skraćenja):",
+   "   k = v/c = 1/√εr        ⇔   εr = 1/k²",
+   "",
+   "RK: koaksijalni vod s PE izolacijom k = 0,66",
+   "    simetrični 300 Ω dvojni vod    k = 0,85"
+  ],
+  "links": [
+   {
+    "label": "Velocity factor (en.wikipedia)",
+    "url": "https://en.wikipedia.org/wiki/Velocity_factor"
+   },
+   {
+    "label": "Dielektrik (hr.wikipedia)",
+    "url": "https://hr.wikipedia.org/wiki/Dielektrik"
+   },
+   {
+    "label": "Elektromagnetski val (hr.wikipedia)",
+    "url": "https://hr.wikipedia.org/wiki/Elektromagnetski_val"
+   }
+  ],
+  "cite": [
+   {
+    "src": "RK",
+    "loc": "6.2. Prijenosni vodovi — v = c/√εr, omjer brzine (faktor brzine) k, tiskana str. 157"
+   }
+  ]
+ },
+ "teh-194": {
+  "note": "Koeficijent skraćenja (faktor brzine) je po definiciji omjer brzine u vodu i brzine u slobodnom prostoru, pa se brzina dobije jednostavnim množenjem: v = k · c = 0,5 · 300 000 = 150 000 km/s. Odgovor je c).\n\nPazi na ponuđeni b) 200 000 km/s — to bi bio faktor 0,66, dakle brojka koju ćeš najčešće susretati u praksi jer je to tipičan koaksijalni kabel s punom polietilenskom izolacijom. Ponuđeni a) 300 000 km/s je brzina u vakuumu, a d) 15 000 km/s je pogreška za jedan red veličine. Iz k možeš odmah izračunati i kakav je to dielektrik: εr = 1/k² = 1/0,25 = 4 (vidi teh-193).\n\nZašto je to važno: valna duljina U VODU nije ista kao valna duljina u zraku. Ako ti treba komad kabela električke duljine λ/4 ili λ/2 — a treba ti kod λ/4 transformatora (teh-200), kod balun-petlje 4:1 (teh-201) i kod stubova — moraš fizičku duljinu skratiti množenjem s k. Ako to zaboraviš, komad je predugačak i radi na krivoj frekvenciji.\n\nRK u vlastitoj zbirci pitanja ima točno takav zadatak: koaksijalni vod odrezan je na električnu duljinu λ za 100 MHz, faktor brzine 0,66 — kolika je fizička duljina? λ = 300/100 = 3 m, fizički 3 · 0,66 = 1,98 m.",
+  "formula": [
+   "v = k · c",
+   "  = 0,5 · 300 000 km/s",
+   "  = 150 000 km/s              ← odgovor c)",
+   "",
+   "Kakav je to dielektrik:  εr = 1/k² = 1/0,5² = 4",
+   "",
+   "Ostale ponuđene brojke:",
+   "   300 000 km/s → k = 1     (vakuum)",
+   "   200 000 km/s → k = 0,66  (tipičan koaksijalni kabel)",
+   "",
+   "Valna duljina U VODU i fizička duljina komada:",
+   "   λ_vod = k · λ_zrak",
+   "",
+   "Primjer (RK, zbirka pitanja):",
+   "   f = 100 MHz → λ = 3 m,  k = 0,66",
+   "   fizička duljina za električnu duljinu λ:  3 · 0,66 = 1,98 m",
+   "   za λ/4:  0,75 m · 0,66 = 0,495 m ≈ 50 cm"
+  ],
+  "links": [
+   {
+    "label": "Velocity factor (en.wikipedia)",
+    "url": "https://en.wikipedia.org/wiki/Velocity_factor"
+   },
+   {
+    "label": "Koaksijalni kabel (hr.wikipedia)",
+    "url": "https://hr.wikipedia.org/wiki/Koaksijalni_kabel"
+   }
+  ],
+  "cite": [
+   {
+    "src": "RK",
+    "loc": "6.2. Prijenosni vodovi — faktor brzine k = 0,66 za koaksijalni vod s PE izolacijom, tiskana str. 157"
+   },
+   {
+    "src": "RK",
+    "loc": "Zbirka ispitnih pitanja, Skupina III., pitanje 15. (faktor brzine 0,66 na 100 MHz), tiskana str. 311"
+   }
+  ]
+ },
+ "teh-195": {
+  "note": "Koaksijalni vod NIJE simetričan — odgovor b). Pitanje traži izuzetak, pa se lako pogriješi ako ga pročitaš prebrzo.\n\nDefinicija je jasna i vrijedi je zapamtiti doslovno kako je RK piše: kod simetričnog voda oba su vodiča na jednakom potencijalu prema masi (zemlji), dok je kod nesimetričnog jedan vodič uzemljen. Kod koaksijalnog kabela vanjski oplet (ekran) jest taj uzemljeni vodič, a unutarnja žila nosi signal — dva vodiča nisu ravnopravna, dakle vod je nesimetričan. Sva tri preostala ponuđena voda (oklopljeni dvožični, dvožični sa zračnom izolacijom, TV dvojni vod) imaju dvije jednake žile i jesu simetrična.\n\nNemoj pobrkati OKLOP sa simetrijom. Oklopljeni dvožični vod ima oplet, ali on je samo zaštita — dvije unutarnje žile ostaju ravnopravne prema masi, pa je vod i dalje simetričan. Simetrija se odnosi na odnos vodiča prema masi, ne na to ima li kabel oplet.\n\nPraktična posljedica: kad nesimetričan vod spojiš na simetričnu antenu (dipol, savijeni dipol, quad), struja poteče i po vanjskoj strani opleta i kabel počne zračiti. Posljedice su smetnje u kući, VF na mikrofonu i kućištu, i iskrivljen dijagram zračenja. Zato između koaksijalnog kabela i simetrične antene ide balun (vidi teh-201) — kod PZM-a opisan kao VF transformator koji se u pravilu mota na toroidnoj jezgri.",
+  "formula": [
+   "Simetričan vod:   oba vodiča na jednakom potencijalu prema masi",
+   "Nesimetričan vod: jedan vodič UZEMLJEN",
+   "",
+   "   koaksijalni (suosni) vod   → NEsimetričan   (oplet na masi)",
+   "   dvožični 300 Ω / 600 Ω     → simetričan",
+   "   TV dvojni vod (twin-lead)  → simetričan",
+   "   oklopljeni dvožični vod    → simetričan (oplet je samo zaštita)",
+   "",
+   "Nesimetričan vod + simetrična antena → balun,",
+   "inače struja teče i po VANJSKOJ strani opleta i kabel zrači."
+  ],
+  "links": [
+   {
+    "label": "Balanced line (en.wikipedia)",
+    "url": "https://en.wikipedia.org/wiki/Balanced_line"
+   },
+   {
+    "label": "Koaksijalni kabel (hr.wikipedia)",
+    "url": "https://hr.wikipedia.org/wiki/Koaksijalni_kabel"
+   },
+   {
+    "label": "Twin-lead (en.wikipedia)",
+    "url": "https://en.wikipedia.org/wiki/Twin-lead"
+   }
+  ],
+  "cite": [
+   {
+    "src": "RK",
+    "loc": "6.2. Prijenosni vodovi — 'Dva vodiča simetričnog voda na jednakom su potencijalu prema masi, dok je kod nesimetričnoga voda jedan vodič uzemljen', tiskana str. 156"
+   },
+   {
+    "src": "PZM",
+    "loc": "Tema 16 — balun kao VF transformator na toroidnoj jezgri, str. 116"
+   }
+  ]
+ },
+ "teh-196": {
+  "note": "Za koaksijalni vod nije karakteristična impedancija od 300 Ω — odgovor d). To je vrijednost dvožičnog SIMETRIČNOG voda (twin-lead), ne koaksijalnog kabela.\n\nRK navodi normirane vrijednosti izravno: za koaksijalni vod 50 Ω ili 75 Ω, za dvožični napojni vod 300 Ω. Na drugom mjestu dodaje da simetrični vod od dva gola vodiča promjera 1,6…2 mm s razmakom 3…4 cm ima 300 Ω ili 600 Ω. Radioamaterski standard je 50 Ω, jer i predajnici i antenske priključnice rade s tom vrijednošću; 75 Ω je televizijski i koristi se za dipole i prijamnike.\n\nPonuđenih 90 Ω je zamka: takvi su koaksijalni kabeli postojali i još se ponegdje sreću, ali NISU normirana, 'karakteristična' vrijednost za amaterski rad, dok je 300 Ω nedvojbeno vrijednost druge vrste voda. Zanimljivo je da RK sam spominje 90 Ω u drugom kontekstu — kao otpor središnje točke poluvalnog dipola kad radi kao antena trećeg harmonika — pa brojka nije nasumična, ali nije impedancija koaksijalnog kabela.\n\nZašto baš 50 i 75: kod koaksijalnog voda impedancija ovisi o omjeru promjera unutarnje žile i unutarnjeg promjera opleta. Oko 77 Ω to slabljenje je najmanje, a oko 30 Ω podnošenje snage najveće — 50 Ω je razuman kompromis između to dvoje i zato je postao standard.",
+  "formula": [
+   "Normirane karakteristične impedancije (RK):",
+   "",
+   "   KOAKSIJALNI vod (nesimetričan):   50 Ω  ·  75 Ω",
+   "   DVOŽIČNI vod (simetričan):       300 Ω  ·  600 Ω",
+   "",
+   "   → 300 Ω nije koaksijalna vrijednost        ← odgovor d)",
+   "",
+   "Karakteristična impedancija voda:",
+   "   Z = √(L/C)     — ovisi o geometriji i dielektriku,",
+   "                    NE ovisi o frekvenciji ni o duljini voda",
+   "",
+   "50 Ω je kompromis: ≈77 Ω → najmanje slabljenje,",
+   "                   ≈30 Ω → najveća podnosiva snaga."
+  ],
+  "links": [
+   {
+    "label": "Koaksijalni kabel (hr.wikipedia)",
+    "url": "https://hr.wikipedia.org/wiki/Koaksijalni_kabel"
+   },
+   {
+    "label": "Twin-lead (en.wikipedia)",
+    "url": "https://en.wikipedia.org/wiki/Twin-lead"
+   },
+   {
+    "label": "Električna impedancija",
+    "url": "https://hr.wikipedia.org/wiki/Elektri%C4%8Dna_impedancija"
+   }
+  ],
+  "cite": [
+   {
+    "src": "RK",
+    "loc": "6.2. Prijenosni vodovi — karakteristična impedancija koaksijalnog kabela 50 Ω ili 75 Ω, simetričnog voda 300 Ω ili 600 Ω, tiskana str. 157"
+   },
+   {
+    "src": "RK",
+    "loc": "6.2.4. Elementi za prilagodbu — normirane vrijednosti, tiskana str. 159"
+   },
+   {
+    "src": "PZM",
+    "loc": "Tema 16 — svi koaksijalni kabeli do antene rade s 50 Ω, str. 115"
+   }
+  ]
+ },
+ "teh-199": {
+  "note": "Napon je na slici JEDNOLIK duž cijelog voda — ravna crta, bez brjegova i dolova. To se događa samo kad je teret jednak karakterističnoj impedanciji voda, R = Z. Odgovor je a).\n\nMehanizam: kad val koji putuje prema teretu naiđe na otpor jednak onome na koji je vod 'naviknut', teret ga u cijelosti primi i pretvori u zračenje. Nema odbijenog vala, nema što interferirati s napredujućim valom, pa napon svugdje ima istu efektivnu vrijednost. Čim se R razlikuje od Z, dio energije se vrati; napredujući i povratni val zbrajaju se na jednim mjestima i poništavaju na drugima, i uzduž voda nastane STOJNI VAL s minimumima i maksimumima na razmaku od λ/4. Omjer najvišeg i najnižeg napona tog stojnog vala jest SWR.\n\nOdatle ide i ključno razumijevanje koje ispit ne pita izravno, ali praksa pita svakodnevno: SWR JE SIMPTOM NEPRILAGODBE, A NE KVAR SAM PO SEBI. Visok SWR ne 'troši' snagu — snaga se gubi u dodatnom slabljenju voda i eventualno u zaštiti odašiljača koja smanjuje izlaz. Vod s malim gubicima podnijet će SWR 3:1 bez velike štete; loš kabel na 432 MHz s istim SWR-om pojest će mnogo. RK zato izričito piše da su posljedice neprilagodbe uočljive posebice na 144 MHz i 432 MHz, a na KV-u znatno manje.\n\nI obrnuto, još važnije: nizak SWR nije dokaz dobre antene. Umjetno opterećenje (dummy load) ima savršen SWR 1:1 i ne zrači ništa; loše uzemljena vertikala može pokazivati 1,2:1 dok pola snage grije zemlju. SWR-metar mjeri prilagodbu, ne učinkovitost.",
+  "formula": [
+   "Prilagođen vod:  R = Z",
+   "   nema odbijenog vala → napon jednolik duž voda → SWR = 1:1",
+   "",
+   "SWR iz impedancija (čisto djelatni teret):",
+   "   SWR = Z_veći / Z_manji",
+   "   npr. 50 Ω vod, 150 Ω antena → SWR = 150/50 = 3:1",
+   "        50 Ω vod,  25 Ω antena → SWR =  50/25 = 2:1",
+   "",
+   "Koeficijent refleksije i snage:",
+   "   Γ = (SWR − 1)/(SWR + 1)        P_odbijena/P_poslana = Γ²",
+   "   SWR 3:1 → Γ = 2/4 = 0,5 → odbije se 25 %, izrači 75 %",
+   "        (isti broj kao u PZM-u: SWR 3:1 → izračit će se 75 %)",
+   "",
+   "SWR iz izmjerenih snaga:",
+   "   SWR = (1 + √(P_r/P_f)) / (1 − √(P_r/P_f))",
+   "",
+   "Rubni slučajevi iz ponuđenih odgovora:",
+   "   R = 0 (kratki spoj) i R = ∞ (otvoren kraj) → potpuna refleksija,",
+   "   SWR = ∞, izraziti stojni val (vidi teh-200)"
+  ],
+  "links": [
+   {
+    "label": "Standing wave ratio (en.wikipedia)",
+    "url": "https://en.wikipedia.org/wiki/Standing_wave_ratio"
+   },
+   {
+    "label": "Stojni val (hr.wikipedia)",
+    "url": "https://hr.wikipedia.org/wiki/Stojni_val"
+   },
+   {
+    "label": "Električna impedancija",
+    "url": "https://hr.wikipedia.org/wiki/Elektri%C4%8Dna_impedancija"
+   }
+  ],
+  "cite": [
+   {
+    "src": "RK",
+    "loc": "6.2.1. Impedancijska prilagodba antena i prijenosni vod te 6.2.2. Stojni valovi na prijenosnom vodu do antene, tiskana str. 157; sl. 6.2.1. (naponski stojni val pri R < Z), str. 158; tablica 6.3. i posljedice neprilagodbe, str. 160"
+   },
+   {
+    "src": "PZM",
+    "loc": "Tema 16 — prilagodba impedancije, SWR, SWR-metar, str. 115"
+   }
+  ]
+ },
+ "teh-200": {
+  "note": "Vod duljine λ/4 zanimljiv je zato što djeluje kao TRANSFORMATOR IMPEDANCIJE — odgovor b). Komad kabela prave duljine može spojiti dvije različite impedancije bez ijedne zavojnice i bez ijednog kondenzatora.\n\nPravilo je kratko: ulazna impedancija četvrtvalnog voda jednaka je kvadratu karakteristične impedancije tog voda podijeljenom s impedancijom tereta. Ako ti trebaju konkretne vrijednosti, okreni izraz i izračunaj koji ti kabel treba: Z = √(Z_ul · Z_teret). Za spajanje 50 Ω na 100 Ω treba ti vod od √(50 · 100) = 70,7 Ω — a to je gotovo točno standardnih 75 Ω, pa se u praksi tako i radi.\n\nIsti izraz objašnjava i rubne slučajeve, tzv. stubove. Otvoren λ/4 komad (Z_teret → ∞) na ulazu daje Z → 0, dakle ponaša se kao serijski titrajni krug, kratki spoj za tu frekvenciju. Kratko spojen λ/4 komad (Z_teret = 0) daje Z → ∞, dakle paralelni titrajni krug, izolator. Tako se od komada kabela pravi filtar ili izolator — usporedi trap iz teh-188, koji radi na istom načelu s pravim LC krugom.\n\nDva praktična upozorenja. Prvo, λ/4 je ELEKTRIČNA duljina, pa fizički komad moraš skratiti faktorom brzine (vidi teh-194): λ/4 na 145 MHz je 51,7 cm u zraku, ali samo 34,1 cm u kabelu s k = 0,66. Drugo, transformacija vrijedi točno samo na jednoj frekvenciji — λ/4 transformator je po prirodi uskopojasan.\n\nPonuđeni odgovori a), c) i d) zvuče razumno, ali nisu razlog: kratak vod jest povoljan, ali λ/4 nije odabran zbog duljine nego zbog svojstva transformacije.",
+  "formula": [
+   "Četvrtvalni vod kao transformator impedancije:",
+   "",
+   "   Z_ul = Z_voda² / Z_teret        (za l = λ/4)",
+   "   Z_voda = √(Z_ul · Z_teret)      ← kad biraš kabel",
+   "",
+   "Primjer: spojiti 50 Ω na 100 Ω",
+   "   Z_voda = √(50 · 100) = √5000 = 70,7 Ω  ≈ 75 Ω koaksijalni",
+   "   provjera: 75² / 100 = 5625/100 = 56 Ω  → SWR 56/50 ≈ 1,1:1",
+   "",
+   "Rubni slučajevi (stubovi):",
+   "   λ/4 OTVOREN na kraju   → Z_ul → 0   = serijski LC (kratki spoj)",
+   "   λ/4 KRATKO SPOJEN      → Z_ul → ∞   = paralelni LC (izolator)",
+   "",
+   "Fizička duljina = λ/4 · k :",
+   "   145 MHz → λ = 2,07 m, λ/4 = 51,7 cm",
+   "   u kabelu s k = 0,66:  51,7 · 0,66 = 34,1 cm"
+  ],
+  "links": [
+   {
+    "label": "Quarter-wave impedance transformer (en.wikipedia)",
+    "url": "https://en.wikipedia.org/wiki/Quarter-wave_impedance_transformer"
+   },
+   {
+    "label": "Impedance matching (en.wikipedia)",
+    "url": "https://en.wikipedia.org/wiki/Impedance_matching"
+   },
+   {
+    "label": "Stojni val (hr.wikipedia)",
+    "url": "https://hr.wikipedia.org/wiki/Stojni_val"
+   }
+  ],
+  "cite": [
+   {
+    "src": "RK",
+    "loc": "6.2.4. Elementi za prilagodbu — 'ulazna impedancija Z_ul = Z²/Z_izl, gdje je Z karakteristična impedancija voda, a l = λ/4', tiskana str. 159"
+   },
+   {
+    "src": "RK",
+    "loc": "6.2.3. Ogranak prijenosnog voda duljine λ/4 kao serijski ili paralelni titrajni krug, tiskana str. 158"
+   }
+  ]
+ },
+ "teh-201": {
+  "note": "Omjer transformacije je omjer IMPEDANCIJA: 300 Ω / 75 Ω = 4, dakle 1:4. Odgovor je b) (u izvorniku pogrešno otisnuto kao '1 . 4').\n\nNajčešća pogreška ovdje je zamijeniti omjer impedancija s omjerom NAMOTAJA. Kod transformatora se napon prenosi u omjeru broja namotaja, a impedancija se mijenja s KVADRATOM tog omjera. Ako je omjer impedancija 1:4, omjer namotaja je 1:√4 = 1:2. Pitanje traži omjer transformacije impedancija, pa je odgovor 4, a ne 2 — ponuđeni d) 1:2 je upravo ta zamka.\n\nRK ima i elegantno praktično rješenje za točno ovaj slučaj: transformacija 4:1 s poluvalnom koaksijalnom U-petljom. Uzmeš 75-omski kabel, napraviš petlju električne duljine λ/2 i dobiješ 4 · 75 Ω = 300 Ω, bez ijedne zavojnice. Ne zaboravi da je i to električna duljina — fizički se petlja reže kraća za faktor brzine (vidi teh-194).\n\nAlternativa je balun namotan na feritnoj toroidnoj jezgri, kakav PZM opisuje kao VF transformator. Balun 4:1 ovdje radi dva posla odjednom: transformira 75 Ω u 300 Ω i pretvara nesimetričan spoj u simetričan, što je upravo ono što treba za savijeni dipol (teh-189) ili za folded-dipole radijator Yagija. Zato se u katalozima balun uvijek nudi u dvije vrste — 1:1 (samo simetriranje) i 1:4 (simetriranje plus transformacija).\n\nIsto pitanje, s istim brojkama i istim odgovorom, nalazi se i u zbirci pitanja u RK-u.",
+  "formula": [
+   "Omjer transformacije IMPEDANCIJA:",
+   "   n_Z = Z₂ / Z₁ = 300 Ω / 75 Ω = 4     →  1 : 4   ← odgovor b)",
+   "",
+   "Omjer NAMOTAJA (zamka!):",
+   "   Z₂/Z₁ = (N₂/N₁)²",
+   "   N₂/N₁ = √(Z₂/Z₁) = √4 = 2            →  1 : 2",
+   "",
+   "Praktična izvedba (RK): poluvalna koaksijalna U-petlja",
+   "   od 75-omskog kabela, električne duljine λ/2",
+   "   75 Ω · 4 = 300 Ω",
+   "",
+   "Baluni u praksi:",
+   "   1:1  → samo nesimetrično → simetrično",
+   "   1:4  → simetriranje + transformacija impedancije"
+  ],
+  "links": [
+   {
+    "label": "Balun (en.wikipedia)",
+    "url": "https://en.wikipedia.org/wiki/Balun"
+   },
+   {
+    "label": "Impedance matching (en.wikipedia)",
+    "url": "https://en.wikipedia.org/wiki/Impedance_matching"
+   },
+   {
+    "label": "Transformator (hr.wikipedia)",
+    "url": "https://hr.wikipedia.org/wiki/Transformator"
+   }
+  ],
+  "cite": [
+   {
+    "src": "RK",
+    "loc": "6.2.4. Elementi za prilagodbu — transformacija impedancije s poluvalnom koaksijalnom U-petljom, omjer 4:1 (4 × 75 Ω = 300 Ω), sl. 6.2.5., tiskana str. 159"
+   },
+   {
+    "src": "RK",
+    "loc": "Zbirka ispitnih pitanja, Skupina III., pitanje 14. (isti zadatak 75 Ω → 300 Ω), tiskana str. 311"
+   },
+   {
+    "src": "PZM",
+    "loc": "3.2.4. Transformatori — odnos broja namotaja i napona, str. 83–85; balun na toroidnoj jezgri, str. 116"
+   }
+  ]
+ },
+ "teh-202": {
+  "note": "Dobra prilagodba znači da su SVE TRI impedancije jednake: izlazna impedancija odašiljača = karakteristična impedancija napojnog voda = impedancija antene u točki napajanja. Odgovor je b).\n\nZahtjev dolazi iz teorema o prijenosu snage: najveću snagu iz izvora dobiješ kad je otpor trošila jednak unutarnjem otporu izvora. PZM to izvodi upravo tim redom i objašnjava zašto danas praktički sve stoji na 50 Ω — i izlazne priključnice tvorničkih predajnika i koaksijalni kabeli do antene. Kad je lanac usklađen, nema odbijenog vala, nema stojnog vala i sva snaga koja izađe iz odašiljača (umanjena za slabljenje kabela) dođe do antene.\n\nZašto su ponuđeni c) i d) besmisleni: impedancije se u lancu ne zbrajaju niti oduzimaju. Vod nije trošilo u seriji s antenom — on je 'cijev' koja mora imati isti presjek na oba kraja. Odgovor a) je nedovoljan: dovoljno je da vod odgovara anteni, ali ne i odašiljaču — tada je vod prema anteni prilagođen, ali odašiljač 'vidi' krivu impedanciju i njegov izlazni stupanj radi izvan projektiranog režima.\n\nU praksi se ideal ne postiže. RK piše da se uvijek radi s nekim stupnjem neprilagodbe, dopušta VSWR do 1,65 (gubitak u prijenosu 0,276 dB), a suvremeni odašiljači sami smanjuju snagu ili se isključuju kad SWR-metar pokaže iznad 2,5:1. Kad antena i vod ne pristaju, prilagodba se dotjeruje antenskim prilagodnikom (AP) — ali pazi: prilagodnik stoji uz odašiljač, pa on prilagođava odašiljač VODU, dok stojni val između prilagodnika i antene ostaje. Vidi teh-199 za razliku između prilagodbe i učinkovitosti.",
+  "formula": [
+   "Uvjet dobre prilagodbe:",
+   "",
+   "   Z_izlaz odašiljača  =  Z_karakteristična voda  =  Z_antene",
+   "        50 Ω           =         50 Ω             =    50 Ω",
+   "",
+   "   → nema refleksije, SWR = 1:1, najveći prijenos snage",
+   "",
+   "Impedancije se NE zbrajaju i NE oduzimaju duž lanca.",
+   "",
+   "Što RK dopušta u praksi:",
+   "   VSWR 1,65  → prigušenje povratnog vala 12,1 dB,",
+   "                gubitak u prijenosu 0,276 dB",
+   "   VSWR > 2,5 → suvremeni odašiljači smanjuju snagu ili se isklapaju",
+   "   VSWR 5:1 uz veliku snagu → moguć prekid voda, filtra ili sklopki"
+  ],
+  "links": [
+   {
+    "label": "Impedance matching (en.wikipedia)",
+    "url": "https://en.wikipedia.org/wiki/Impedance_matching"
+   },
+   {
+    "label": "Standing wave ratio (en.wikipedia)",
+    "url": "https://en.wikipedia.org/wiki/Standing_wave_ratio"
+   },
+   {
+    "label": "Električna impedancija",
+    "url": "https://hr.wikipedia.org/wiki/Elektri%C4%8Dna_impedancija"
+   }
+  ],
+  "cite": [
+   {
+    "src": "RK",
+    "loc": "6.2.1. Impedancijska prilagodba antena i prijenosni vod, tiskana str. 157; 6.2.4. (dobra prilagodba: nesimetričan izlaz 50 Ω na antenu od 50 Ω, bez gubitaka i bez refleksije), str. 159; tablica 6.3. i posljedice neprilagodbe, str. 160"
+   },
+   {
+    "src": "PZM",
+    "loc": "Tema 16 — 'najveću snagu iz nekog trošila dobivamo kada je otpor trošila jednak unutrašnjem otporu izvora', prilagodba impedancije, str. 115"
+   }
+  ]
+ }
+}

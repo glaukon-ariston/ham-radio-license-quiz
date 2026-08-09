@@ -1,0 +1,553 @@
+{
+ "_doc": "Expanded teaching notes — batch: 5. Odašiljači (predajnici), 13 questions (teh-157…teh-170). Blok-shema odašiljača, oscilator i frekvencijska stabilnost, umnožavanje frekvencije, modulatori za AM/FM/SSB, izlazni stupanj i razredi pojačala, širina pojasa emisije, harmonici i sporedna zračenja, te uzroci kvarova (čirp, klizanje, splatter, prekomodulacija). Named to sort LAST so these override the terse originals.",
+ "_links_verified": "Every URL here was fetched and confirmed to exist and to cover the stated point (9 Aug 2026).",
+ "_citation_note": "RK printed pages read off the pages themselves (poglavlje 5. je tiskana str. 136–145, razredi pojačala tiskana str. 86–89, smetnje odašiljača tiskana str. 193–195). PZM 'Tema 15 — 5. Odašiljači' je tiskana str. 110–113. Inherited PZM citations for the amplifier-class and efficiency questions pointed at str. 110–113, but that section says nothing about razrede pojačala ni o učinkovitosti — those are corrected to RK.",
+ "teh-157": {
+  "note": "Odašiljač je onaj dio radio-postaje koji energiju iz napajanja pretvara u visokofrekvencijski (VF) signal, u taj signal utisne informaciju i preda ga anteni. Tri su koraka i sva tri moraju biti prisutna: PROIZVESTI VF titranje (oscilator), UTISNUTI informaciju (modulator ili tipkalo), POJAČATI na traženu razinu i predati u antenu (izlazni stupanj i PI-filtar).\n\nOdgovor b („uređaj koji iz radiofrekventnog signala izdvaja informaciju\") opisuje točno suprotan smjer — to je detektor, dakle prijamnik. Odgovor c isto je opis prijamnika. Ovo je najčešća zamka u cijelom poglavlju: pročitaj smjer strelice. Odašiljač informaciju STAVLJA u VF signal, prijamnik je iz njega VADI.\n\nCijeli lanac ima logiku koju vrijedi razumjeti jednom pa je više nikad ne moraš pamtiti. Oscilator daje čistu, ali slabu i osjetljivu frekvenciju. Odvojni stupanj (buffer) je tu da ga ništa iza njega ne poremeti. Množilo frekvencije postoji zato što oscilator na nižoj frekvenciji radi stabilnije nego na radnoj. Pobudni stupanj (driver) daje izlaznom pojačalu potrebnu snagu pobude. Izlazno pojačalo daje snagu, a PI-filtar prilagođava impedanciju i guši harmonike.\n\nSvaki taj stupanj ima svoje napajanje, a jedan ispravljač može napajati više stupnjeva. Kad na ispitu vidiš blok-shemu, prepoznaj po tome ŠTO nedostaje: nema NF ulaza → CW (vidi teh-161); NF ide na oscilator → FM (vidi teh-164); postoji balansni modulator i filtar → SSB (vidi teh-166 i teh-167).",
+  "formula": [
+   "Lanac odašiljača (RK, poglavlje 5.):",
+   "",
+   "   Mikrofon → NF pojačalo → Modulator",
+   "                               ↓",
+   "   Oscilator → Odvojni st. → Množilo → Pobudni st. → PA → PI-filtar → Antena",
+   "",
+   "Lanac prijamnika ide obrnuto:",
+   "",
+   "   Antena → VF pojačalo → Miješalo → MF pojačalo → Detektor → NF → Zvučnik",
+   "",
+   "Opcija b opisuje DETEKTOR u prijamniku, a ne odašiljač."
+  ],
+  "links": [
+   {
+    "label": "Odašiljač (hr.wikipedia)",
+    "url": "https://hr.wikipedia.org/wiki/Oda%C5%A1ilja%C4%8D"
+   },
+   {
+    "label": "Transmitter (en.wikipedia)",
+    "url": "https://en.wikipedia.org/wiki/Transmitter"
+   }
+  ],
+  "cite": [
+   {
+    "src": "RK",
+    "loc": "5.1.1. Odašiljač s translacijom frekvencije ili bez nje, tiskana str. 136"
+   },
+   {
+    "src": "PZM",
+    "loc": "Tema 15 — 5.1. Osnovno poznavanje funkcija odašiljača, tiskana str. 110"
+   }
+  ]
+ },
+ "teh-158": {
+  "note": "Izlazni stupanj (PA, engl. power amplifier) je zadnje pojačalo u lancu i njegov je posao jedini i jasan: podići snagu signala na razinu koju želimo predati anteni. Sve prije njega radi s milivatima; PA radi s vatima ili kilovatima.\n\nZato na izlaznom stupnju vladaju najveći naponi i najveće struje u cijelom odašiljaču, a s njima i najveća toplinska naprezanja. Otud hladnjaci i ventilatori. Neposredno iza PA gotovo uvijek stoji PI-filtar (nazvan po grčkom slovu π, jer mu shema tako izgleda) koji ima dvostruku ulogu: prilagođava izlaznu impedanciju pojačala na 50 Ω koliko traži kabel (vidi teh-159) i potiskuje harmonike koji upravo u izlaznom stupnju i nastaju (vidi teh-163).\n\nOdgovor c je najzanimljivija zamka jer je točno naopako. Cilj konstrukcije je da sljedeći stupanj ima ŠTO MANJI utjecaj na oscilator, a ne što veći — jer svaka promjena opterećenja oscilatora povlači promjenu frekvencije. Baš zato između oscilatora i pojačala stoji odvojni stupanj (buffer), koji nema nikakvo pojačanje (približno 1, čak i malo manje) i izvodi se kao emitersko slijedilo. Ako taj buffer izostaviš ili je loš, dobiješ čirp — cvrkut na početku telegrafskog znaka, jer se frekvencija pomakne čim se opterećenje promijeni (vidi teh-161).\n\nOdgovor a („oslabiti signal\") i d („demodulirati AM signal\") pripadaju drugim uređajima: atenuator odnosno prijamnik.",
+  "formula": [
+   "Tipične razine snage u lancu 100 W KV postaje:",
+   "",
+   "   Oscilator (VFO)       ≈ 1 mW      čista, ali slaba frekvencija",
+   "   Odvojni stupanj       pojačanje ≈ 1   (izolacija, ne pojačanje!)",
+   "   Množilo frekvencije   ×2 ili ×3",
+   "   Pobudni stupanj       ≈ 1 W",
+   "   Pojačalo snage (PA)   100 W       ← IZLAZNI STUPANJ",
+   "   PI-filtar             prilagodba na 50 Ω + gušenje harmonika",
+   "   Antena",
+   "",
+   "Ukupno pojačanje lanca:",
+   "   100 W / 1 mW = 100 000 puta",
+   "   L = 10 · log₁₀(100 000) = 50 dB"
+  ],
+  "links": [
+   {
+    "label": "Transmitter (en.wikipedia)",
+    "url": "https://en.wikipedia.org/wiki/Transmitter"
+   },
+   {
+    "label": "Odašiljač (hr.wikipedia)",
+    "url": "https://hr.wikipedia.org/wiki/Oda%C5%A1ilja%C4%8D"
+   }
+  ],
+  "cite": [
+   {
+    "src": "RK",
+    "loc": "5.3.3. Odvojni stupanj, 5.3.6. Pojačalo snage i 5.3.7. Izlazni filtar (PI-filtar), tiskana str. 138–139"
+   },
+   {
+    "src": "PZM",
+    "loc": "Tema 15 — 5.2. Blok-shema odašiljača, tiskana str. 111"
+   }
+  ]
+ },
+ "teh-159": {
+  "note": "Norma je 50 Ω. Toliko ima izlazna antenska priključnica svakog tvorničkog amaterskog odašiljača i toliko ima koaksijalni kabel koji na nju spajaš (RG-58, RG-213, RG-8, RG-142…). Razlog je najveći prijenos snage: najviše snage predaje se teretu kad je otpor tereta jednak unutrašnjem otporu izvora, pa se cijeli lanac odašiljač → vod → antena gradi na istoj brojci.\n\nZašto baš 50, a ne neki okrugliji broj? To je kompromis nađen još u Bellovim laboratorijima: koaksijalni vod ima najmanje slabljenje na oko 77 Ω, a podnosi najveću snagu na oko 30 Ω. Pedeset je otprilike na sredini i zato služi za snagu. TV tehnika, gdje se snaga ne prenosi nego samo signal, uzela je vrijednost bližu minimumu slabljenja — 75 Ω.\n\nOstale ponuđene vrijednosti nisu slučajne: 75 Ω je TV koaksijalni kabel, 300 Ω je simetrična TV vrpca (RK navodi 300 Ω ili 600 Ω za dvožične vodove), a 240 Ω nije norma ni za što — to je čisti punjač. Zapamti par 50/75: 50 za radio, 75 za televiziju.\n\nPraktična posljedica: poluvalni dipol u rezonanciji ima priključni otpor između 50 i 75 Ω, dakle sam po sebi lijepo pristaje uz 50 Ω. Sve što od toga odstupa mjeriš SWR-metrom. Kod SWR 1:1 sva snaga ide u antenu; kod 3:1 vraća se četvrtina snage natrag u odašiljač, što je granica koja se u praksi još tolerira.",
+  "formula": [
+   "Norma:  Z = 50 Ω na antenskoj priključnici odašiljača",
+   "        Z = 50 Ω i za koaksijalni kabel (RG-58, RG-213, RG-8)",
+   "",
+   "Ostale ponuđene vrijednosti:",
+   "    75 Ω  → TV koaksijalni kabel (RG-59, RG-6)",
+   "   300 Ω  → simetrična vrpca (RK: 300 Ω ili 600 Ω)",
+   "   240 Ω  → nije norma ni za što",
+   "",
+   "Zašto baš 50 Ω — kompromis:",
+   "   ≈ 77 Ω → najmanje slabljenje",
+   "   ≈ 30 Ω → najveća podnosiva snaga",
+   "",
+   "Neprilagodba se mjeri kao SWR:",
+   "   Γ = (Z_tereta − Z₀) / (Z_tereta + Z₀)",
+   "   Z_tereta = 150 Ω, Z₀ = 50 Ω → Γ = 100/200 = 0,5",
+   "   SWR = (1 + Γ)/(1 − Γ) = 1,5/0,5 = 3   → SWR 3:1",
+   "   reflektirana snaga = Γ² = 0,25 → 25 % natrag, 75 % u antenu"
+  ],
+  "links": [
+   {
+    "label": "Coaxial cable (en.wikipedia)",
+    "url": "https://en.wikipedia.org/wiki/Coaxial_cable"
+   },
+   {
+    "label": "Impedance matching (en.wikipedia)",
+    "url": "https://en.wikipedia.org/wiki/Impedance_matching"
+   }
+  ],
+  "cite": [
+   {
+    "src": "PZM",
+    "loc": "Tema 16 — 6.3. Impedancija antena, tiskana str. 114–115 (izričita tvrdnja o 50 Ω je na str. 115)"
+   },
+   {
+    "src": "RK",
+    "loc": "6.2. Prijenosni vodovi, tiskana str. 157; i 5.4.6. Izlazna impedancija, tiskana str. 143"
+   }
+  ]
+ },
+ "teh-160": {
+  "note": "Koeficijent iskorištenja (učinkovitost, stupanj djelovanja, oznaka η) je omjer snage koju pojačalo daje na izlazu i snage koju troši iz napajanja. On ti govori KAKO SE DIJELI uložena snaga: jedan dio izlazi kao koristan RF signal, ostatak se pretvara u toplinu na tranzistoru ili elektronskoj cijevi. Zato je točan odgovor a.\n\nPazi na definiciju ulazne snage — to nije snaga pobude, nego umnožak istosmjernog napona na kolektoru (odnosno anodi) i struje koja kroz njega teče. Dakle ono što izvlačiš iz napajanja. Odatle slijedi da η nikad ne može biti 1, jer je ulazna snaga uvijek veća od izlazne.\n\nOdgovori b, c i d su svi „nešto o izlaznom stupnju\", ali ni jedan nije omjer. Izlazna snaga je jedan broj, impedancija drugi, pobuda treći — koeficijent iskorištenja je odnos DVIJU snaga i to je ključna riječ u pitanju.\n\nPraktična važnost je golema i vidi se odmah po veličini hladnjaka. Pojačalo A razreda sa 100 W u anteni troši preko 200 W i mora odvesti stotinjak vata topline; isto pojačalo u C razredu troši oko 150 W i grije se upola manje. Zato izlazna pojačala odašiljača rade najčešće u C razredu (vidi teh-162, teh-163 i teh-170), a linearna SSB pojačala — koja to ne smiju — imaju veće hladnjake i jače napajanje za istu snagu (vidi teh-168).",
+  "formula": [
+   "η = P_izlazna / P_ulazna          (stupanj iskorištenja)",
+   "",
+   "P_ulazna  = U_kolektora · I_kolektora     ← snaga iz napajanja",
+   "P_gubitka = P_ulazna − P_izlazna          ← toplina na tranzistoru",
+   "",
+   "Primjer: PA daje 100 W uz η = 60 %",
+   "   P_ulazna  = 100 W / 0,60 = 167 W",
+   "   P_gubitka = 167 W − 100 W = 67 W  → hladnjak mora odvesti 67 W",
+   "",
+   "Isti PA uz η = 40 % (A razred):",
+   "   P_ulazna  = 100 W / 0,40 = 250 W",
+   "   P_gubitka = 150 W  → hladnjak dvostruko veći, napajanje jače",
+   "",
+   "Tipične vrijednosti (RK):",
+   "   A razred   ≈ 50 % teorijski, 40…45 % u praksi",
+   "   B razred   78,5 % teorijski, 60…66 % u praksi",
+   "   C razred   65…70 %",
+   "",
+   "η < 1 uvijek — ulazna snaga je uvijek veća od izlazne."
+  ],
+  "links": [
+   {
+    "label": "Power amplifier classes (en.wikipedia)",
+    "url": "https://en.wikipedia.org/wiki/Power_amplifier_classes"
+   }
+  ],
+  "cite": [
+   {
+    "src": "RK",
+    "loc": "5.4.8. Učinkovitost, tiskana str. 143; i 5.3.6. Pojačalo snage, tiskana str. 139"
+   },
+   {
+    "src": "RK",
+    "loc": "2.6.3.1. Pojačala snage — razredi A, B, C, tiskana str. 86–89"
+   }
+  ]
+ },
+ "teh-161": {
+  "note": "Na slici je: Oscilator → Odvojni stupanj → Izlazno pojačalo → Antena, a Tipkalo je priključeno na izlazno pojačalo. To je RK-ova Sl. 5.1., blok shema odašiljača za Morseovu telegrafiju (CW, emisija A1A).\n\nPrepoznaje se po onome čega NEMA. Nema mikrofona, nema NF pojačala, nema modulatora — dakle ne može biti ni FM ni SSB. Nema balansnog modulatora ni SSB filtra — dakle sigurno nije SSB (usporedi teh-166 i teh-167). Nema miješala ni NF ulaza na oscilator — dakle nije FM (usporedi teh-164). Ostaje jedini element koji nosi informaciju: tipkalo, koje VF signal uključuje i isključuje. Iskrište (odgovor c) je predak svih odašiljača, ali ono nema ni oscilator ni pojačalo — proizvodilo je prigušene, široke oblake smetnji, i upravo je CW („continuous wave\", neprigušeni val) bio odgovor na taj problem.\n\nObrati pažnju gdje je tipkalo. Otipkava se IZLAZNO POJAČALO, a ne oscilator. To nije crtački hir: ako otipkavaš sam oscilator, on svaki put mora ponovno „uhvatiti\" frekvenciju, i na početku svakog znaka čuje se čirp (cvrkut). RK to izričito objašnjava: čirp nastaje kad je istosmjerno napajanje VFO-a loše regulirano ili kad odaslani signal povratnom spregom utječe na oscilator. Odvojni stupanj na shemi je upravo protuotrov za to. Kod odašiljača veće snage otipkava se prednapon u nekom predstupnju male snage; samo se kod malih snaga smije otipkavati izravno PA.\n\nDrugi kvar otipkavanja je kliks (engl. click): ako se signal uspostavlja i nestaje trenutno, s oštrim pravokutnim bridovima, nastaje mnoštvo harmonika koji se čuju daleko lijevo i desno od tvoje frekvencije. Lijek je isti kao i kod prekomodulacije — zaobli bridove, tj. uspori nastajanje i nestajanje signala.",
+  "formula": [
+   "Blok-shema sa slike (RK Sl. 5.1., emisija A1A):",
+   "",
+   "   Oscilator → Odvojni stupanj → Izlazno pojačalo → Antena",
+   "                                        ↑",
+   "                                     Tipkalo",
+   "",
+   "Zauzeta širina pojasa CW signala:",
+   "   praktično pravilo  B ≈ 4 · brzina [riječi/min]",
+   "   pri 25 rij./min →  B ≈ 100 Hz",
+   "   RK: pri uobičajenoj brzini „nekoliko stotina herca\"",
+   "   Usporedi: SSB ≈ 2 400 Hz, AM ≈ 6 000 Hz, NBFM ≈ 11 000 Hz",
+   "",
+   "Dva kvara otipkavanja i njihov uzrok:",
+   "   KLIKS  — pretrenutni bridovi znaka → harmonici    → zaobli bridove",
+   "   ČIRP   — pomak frekvencije na početku znaka",
+   "            → loše stabiliziran napon VFO-a  ili",
+   "            → povratna sprega izlaza na oscilator → bolji buffer"
+  ],
+  "links": [
+   {
+    "label": "Continuous wave (en.wikipedia)",
+    "url": "https://en.wikipedia.org/wiki/Continuous_wave"
+   },
+   {
+    "label": "Crystal oscillator (en.wikipedia)",
+    "url": "https://en.wikipedia.org/wiki/Crystal_oscillator"
+   }
+  ],
+  "cite": [
+   {
+    "src": "RK",
+    "loc": "5.1.1. Odašiljač s translacijom frekvencije ili bez nje — Sl. 5.1. (jednostavni CW odašiljač, A1A), tiskana str. 136"
+   },
+   {
+    "src": "RK",
+    "loc": "5.4.11. Smetnje koje se stvaraju otipkavanjem Morseovih znakova, tiskana str. 144; i 9.2.1.1. Frekvencijska nestabilnost, tiskana str. 193–194"
+   },
+   {
+    "src": "PZM",
+    "loc": "Tema 15 — CW, neprigušeni val, sl. 15/1., tiskana str. 110"
+   }
+  ]
+ },
+ "teh-162": {
+  "note": "Kod CW-a amplituda je ili puna ili nikakva — informaciju nosi TRAJANJE uključenog stanja, a ne oblik ovojnice. Zato izobličenje amplitude ne može pokvariti poruku, i pojačalo za CW smije raditi u bilo kojem razredu: A, AB, B ili C.\n\nRazredi se razlikuju samo po tome koliki dio ulaznog vala tranzistor uopće vodi (kut vođenja θ). U A razredu vodi cijeli period, u B razredu točno poluperiodu, u AB razredu nešto više od poluperiode, a u C razredu znatno manje od poluperiode. Što manje vodi, to manje vremena provodi struju uz istodobno prisutan napon, pa se manje grije — otud raste učinkovitost, a s njom i izobličenje.\n\nBudući da su sva četiri razreda upotrebljiva, u praksi se bira C, jer daje najveću snagu za najmanje utrošene struje. Titrajni krug u kolektoru pritom „dopuni\" dio vala koji tranzistor nije proveo, pa na anteni ipak dobiješ sinusoidu na radnoj frekvenciji. Harmonike koji preostanu skida PI-filtar.\n\nSuprotan slučaj je SSB, gdje informacija JEST u ovojnici i C razred otpada (vidi teh-168). To je najvažnija razlika u cijelom poglavlju: pitaj se uvijek nosi li amplituda informaciju. CW ne nosi, FM ne nosi (vidi teh-170), SSB i AM nose.",
+  "formula": [
+   "Kut vođenja i učinkovitost (RK 2.6.3.1.):",
+   "",
+   "   A     θ = 360°           η ≈ 50 % teorijski, 40…45 % stvarno",
+   "   AB    180° < θ < 360°    između B i A",
+   "   B     θ = 180°           η = 78,5 % teorijski, 60…66 % stvarno",
+   "   C     θ < 180°           η = 65…70 %",
+   "",
+   "CW: amplituda je ili puna ili nula",
+   "   → izobličenje amplitude ništa ne uništava",
+   "   → dopušteni su A, AB, B i C, a bira se C zbog učinkovitosti",
+   "",
+   "Usporedi (vidi teh-168):",
+   "   SSB → samo A, AB, B — nikada C",
+   "   FM  → A, AB, B, C   (vidi teh-170)"
+  ],
+  "links": [
+   {
+    "label": "Power amplifier classes (en.wikipedia)",
+    "url": "https://en.wikipedia.org/wiki/Power_amplifier_classes"
+   },
+   {
+    "label": "Continuous wave (en.wikipedia)",
+    "url": "https://en.wikipedia.org/wiki/Continuous_wave"
+   }
+  ],
+  "cite": [
+   {
+    "src": "RK",
+    "loc": "2.6.3.1. Pojačala snage — razredi A, B, C i Sl. 2.6.14., tiskana str. 86–89"
+   },
+   {
+    "src": "RK",
+    "loc": "5.3.6. Pojačalo snage, tiskana str. 139"
+   }
+  ]
+ },
+ "teh-163": {
+  "note": "Pojačalo C razreda ima radnu točku ISPOD ništice: baza je preko otpornika na negativnom potencijalu i tranzistor je zakočen. Provede tek kad pozitivni poluval ulaznog signala naraste dovoljno da ga otkoči, i to samo dio poluvala. Zato je kut vođenja manji od 180°, učinkovitost 65…70 posto — bolja nego u praktičnim izvedbama A i B razreda — ali su izobličenja izražena. To je odgovor d.\n\nZamke u ostalim odgovorima su fine. Odgovor a je pola točan („visok stupanj učinkovitosti\") pa zbog toga i vara, ali „mala izobličenja\" opisuju A razred, ne C. Odgovor b tvrdi nisku učinkovitost, što je upravo obrnuto od stvarnosti. Odgovor c je isto naopako po učinkovitosti.\n\nKako onda C razred uopće radi ako toliko izobličuje? Trik je titrajni krug u kolektoru umjesto običnog otpornika. Kratki strujni impuls udari u titrajni krug, a energija uskladištena u krugu nadomjesti dio vala koji nedostaje — kao kad guraš njihalo kratkim guranjem jednom po ciklusu. Osnovni val na anteni ostaje sinusoidalan, ali sve što nije pogođeno rezonancijom ostaje kao harmonici, i njih na kraju skida PI-filtar (vidi teh-158). Ako je PI-filtar loš ili neugođen, ti harmonici odlaze u eter kao sporedna zračenja i smetaju drugim službama.\n\nSitnica koja se ponekad pita: C razred traži NAJVEĆU pobudnu snagu od svih razreda (jer ga treba prvo otkočiti), a A razred najmanju.",
+  "formula": [
+   "C razred:",
+   "   radna točka ispod ništice — tranzistor je normalno zakočen",
+   "   kut vođenja θ < 180°  (znatno manje od poluvala)",
+   "   η = 65…70 %",
+   "",
+   "Usporedba učinkovitosti (RK):",
+   "   A   ≈ 50 % teorijski   40…45 % stvarno",
+   "   B   78,5 % teorijski   60…66 % stvarno",
+   "   C   65…70 %            ← u praksi najbolji",
+   "",
+   "Cijena: strujni impulsi su bogati harmonicima",
+   "   → titrajni krug u kolektoru „dopunjava\" osnovni val",
+   "   → PI-filtar na izlazu potiskuje 2. i 3. harmonik",
+   "   → loš PI-filtar = sporedna zračenja na 2f i 3f",
+   "",
+   "Pobudna snaga (RK 5.3.4.):",
+   "   C razred → NAJVEĆA        A razred → najmanja"
+  ],
+  "links": [
+   {
+    "label": "Power amplifier classes (en.wikipedia)",
+    "url": "https://en.wikipedia.org/wiki/Power_amplifier_classes"
+   },
+   {
+    "label": "Spurious emission (en.wikipedia)",
+    "url": "https://en.wikipedia.org/wiki/Spurious_emission"
+   }
+  ],
+  "cite": [
+   {
+    "src": "RK",
+    "loc": "2.6.3.1. — 2.3. Razred C i Sl. 2.6.13., tiskana str. 88–89"
+   },
+   {
+    "src": "RK",
+    "loc": "5.3.4. Pobudni stupanj, 5.3.7. Izlazni filtar (PI-filtar), tiskana str. 139; i 5.4.12. Sporedna visokofrekvencijska zračenja, tiskana str. 145"
+   }
+  ]
+ },
+ "teh-164": {
+  "note": "Na slici je: NF ulaz → Modulator → Oscilator → Miješalo → VF izlaz → Antena. Presudan je smjer strelice iz modulatora: ona ulazi U OSCILATOR. To je RK-ova Sl. 5.3., blok shema FM odašiljača (emisija F3E).\n\nMehanizam je jednostavan. Frekvencijski modulator ne radi ništa drugo nego mijenja kapacitet (ili induktivnost) u titrajnom krugu oscilatora u ritmu NF signala. Najčešće je to varikap-dioda: njezin kapacitet ovisi o naponu koji je na njoj, pa NF napon izravno pomiče frekvenciju oscilatora gore-dolje oko srednje vrijednosti. Amplituda pritom ostaje nepromijenjena — to je ključno svojstvo FM-a i razlog zašto se FM smije pojačavati u C razredu (vidi teh-170).\n\nZašto nisu ostali odgovori: superheterodinski prijamnik i prijamnik s direktnim miješanjem imali bi antenu na ULAZU i detektor te NF izlaz na kraju, a ovdje antena stoji na izlazu. SSB predajnik morao bi imati balansni modulator i SSB filtar (vidi teh-166 i teh-167), a njih na shemi nema — modulator ovdje uopće ne dira VF put, nego oscilator.\n\nZa fazni modulator vrijedi da se on NE spaja na oscilator nego na titrajni krug nekog stupnja iza njega; ako na shemi vidiš modulator koji djeluje iza oscilatora, riječ je o faznoj, a ne o frekvencijskoj modulaciji.",
+  "formula": [
+   "Blok-shema sa slike (RK Sl. 5.3., emisija F3E):",
+   "",
+   "   NF ulaz → Modulator → Oscilator → Miješalo → VF izlaz → Antena",
+   "",
+   "Devijacija i indeks modulacije:",
+   "   Δf   = odstupanje trenutačne frekvencije od frekvencije nositelja",
+   "   m    = Δf / f_m          (indeks modulacije)",
+   "",
+   "Carsonovo pravilo za širinu pojasa:",
+   "   B ≈ 2 · (Δf + f_m)",
+   "",
+   "Amaterski uskopojasni FM (RK: Δf ≤ ±2,5 kHz, f_m = 3 kHz):",
+   "   B = 2 · (2,5 + 3) kHz = 11 kHz",
+   "",
+   "Radiodifuzni FM (Δf = ±75 kHz, f_m = 15 kHz):",
+   "   m = 75 / 15 = 5",
+   "   B = 2 · (75 + 15) kHz = 180 kHz   (u praksi se računa 200 kHz)",
+   "",
+   "RK preporučuje amaterski m < 0,6 i odmak od ruba pojasa ≥ 10 kHz."
+  ],
+  "links": [
+   {
+    "label": "Frequency modulation (en.wikipedia)",
+    "url": "https://en.wikipedia.org/wiki/Frequency_modulation"
+   },
+   {
+    "label": "Carson bandwidth rule (en.wikipedia)",
+    "url": "https://en.wikipedia.org/wiki/Carson_bandwidth_rule"
+   },
+   {
+    "label": "Frekvencijska modulacija (hr.wikipedia)",
+    "url": "https://hr.wikipedia.org/wiki/Frekvencijska_modulacija"
+   }
+  ],
+  "cite": [
+   {
+    "src": "RK",
+    "loc": "5.2. Blok dijagrami, Sl. 5.3. (FM, F3E), tiskana str. 138"
+   },
+   {
+    "src": "RK",
+    "loc": "5.3.8. Frekvencijski modulator i 5.3.10. Fazni modulator, tiskana str. 139–141; 5.4.9.–5.4.10., tiskana str. 143–144"
+   },
+   {
+    "src": "PZM",
+    "loc": "Tema 15 — Frekvencijska modulacija (FM), sl. 15/6., tiskana str. 113"
+   }
+  ]
+ },
+ "teh-165": {
+  "note": "Ograničavalo (engl. limiter) stoji u NISKOFREKVENCIJSKOM putu odašiljača, prije modulatora, i njegov je posao držati amplitudu NF modulacijskog signala ispod dogovorene granice. Zato je točan odgovor d.\n\nUzrok kvara koji ono sprječava razlikuje se po vrsti modulacije, ali posljedica je ista — signal se širi izvan svog kanala. Kod AM-a prevelika NF amplituda znači dubinu modulacije veću od 100 posto: ovojnica se „prekine\" u nuli, val se izobličuje i nastaju harmonici modulacijskog signala koji zauzimaju mnogo širi pojas nego što bi trebali. Kod FM-a prevelika NF amplituda znači preveliku devijaciju Δf, a po Carsonovom pravilu širina pojasa raste izravno s devijacijom. Kod SSB-a prejaka pobuda gura linearno izlazno pojačalo iz linearnog područja pa nastaju intermodulacijski produkti — to je splatter (vidi teh-168).\n\nZato je odgovor a tako privlačan i tako pogrešan. Ograničavalo NE ograničava snagu odašiljača — ono ni ne dodiruje VF put. Snagu ograničava zakon i konstrukcija izlaznog stupnja, a razina modulacije je nešto sasvim drugo. Ni odgovor c nije točan: ograničavanje NF signala ne povećava korisno djelovanje, ono samo drži spektar unutar dopuštenog.\n\nU praksi je ograničavalo često kombinirano s automatskom audiokompresijom, jer se time postiže i drugi cilj: da prosječna razina modulacije bude blizu 100 posto (jer preniska modulacija daje preslab signal), ali nikad iznad. Na osciloskopu se dubina modulacije provjerava trapeznom metodom.",
+  "formula": [
+   "Dubina modulacije iz trapeza na osciloskopu:",
+   "",
+   "   m = (a − b) / (a + b) · 100 %",
+   "   a = dulja osnovica trapeza, b = kraća osnovica",
+   "   b = 0 (trapez prijeđe u trokut)  ⇒  m = 100 %",
+   "",
+   "AM:  m > 100 %  → ovojnica se prekida → jaka izobličenja i splatter",
+   "     ispravno:  NF pojas 300…2 500 Hz  → B = 2 · 2,5 = 5 kHz",
+   "                NF pojas 300…3 000 Hz  → B = 2 · 3   = 6 kHz",
+   "",
+   "FM:  prevelika NF amplituda → prevelika devijacija Δf",
+   "     m = Δf / f_m ;  RK preporučuje m < 0,6",
+   "     amaterski NBFM: Δf ≤ ±2,5 kHz",
+   "",
+   "SSB: prejaka pobuda → izlazno pojačalo izlazi iz linearnosti",
+   "     → intermodulacija u kanalu (distorzija) i izvan njega (splatter)",
+   "",
+   "Ograničavalo stoji u NF putu, PRIJE modulatora — ne u VF putu."
+  ],
+  "links": [
+   {
+    "label": "Limiter (en.wikipedia)",
+    "url": "https://en.wikipedia.org/wiki/Limiter"
+   },
+   {
+    "label": "Amplitudna modulacija (hr.wikipedia)",
+    "url": "https://hr.wikipedia.org/wiki/Amplitudna_modulacija"
+   }
+  ],
+  "cite": [
+   {
+    "src": "RK",
+    "loc": "5.4.10. Indeks modulacije, tiskana str. 144"
+   },
+   {
+    "src": "RK",
+    "loc": "9.2.1.2. Neučinkovita uporaba frekvencijskog spektra, tiskana str. 194–195"
+   }
+  ]
+ },
+ "teh-166": {
+  "note": "Na izlazu balansnog modulatora dobiješ DSB — oba bočna pojasa, bez vala nositelja. Odatle i puno ime u literaturi: DSB-SC, double sideband suppressed carrier.\n\nMehanizam je u imenu. „Balansni\" znači da je sklop simetričan tako da se val nositelj na izlazu pojavi dvaput u protufazi i sam sebe poništi, dok umnožak NF signala i nositelja preživi. A umnožak dvaju signala daje zbroj i razliku njihovih frekvencija — dakle f_nositelja + f_NF i f_nositelja − f_NF. To su gornji i donji bočni pojas. Nositelj je nestao jer je poništen, a ne filtriran.\n\nOvdje je zamka očita čim je vidiš: odgovori a (USB), b (LSB) i d (SSB) svi traže korak koji se još nije dogodio. Balansni modulator sam po sebi ne zna niti mari koji ćeš bočni pojas zadržati — on samo makne nositelja. Jedan bočni pojas makneš tek filtrom, i to je sljedeće pitanje (teh-167). Zapamti redoslijed: AM → (balansni modulator) → DSB → (SSB filtar) → SSB.\n\nZašto se uopće muči s potiskivanjem nositelja? Zato što nositelj ne nosi nikakvu informaciju, a kod klasične AM emisije troši polovicu ukupne snage u anteni. Kad ga makneš, sva snaga odlazi u ono što se stvarno prenosi. RK traži da potiskivanje nositelja i neželjenog bočnog pojasa bude najmanje 50 dB — ako je slabije, pojavljuju se intermodulacijski produkti i splatter (vidi teh-168).",
+  "formula": [
+   "Balansni modulator množi NF i VF signal:",
+   "",
+   "   f_nositelja = 9 000 kHz,   f_NF = 0,3…3 kHz",
+   "",
+   "   izlaz:  f_c − f_NF = 8 997,0…8 999,7 kHz   ← donji bočni pojas (LSB)",
+   "           f_c + f_NF = 9 000,3…9 003,0 kHz   ← gornji bočni pojas (USB)",
+   "           f_c        = 9 000 kHz             → POTISNUT (balans)",
+   "",
+   "Redoslijed nastanka SSB signala:",
+   "   AM  = nositelj + LSB + USB",
+   "   DSB = LSB + USB, bez nositelja      ← izlaz balansnog modulatora",
+   "   SSB = samo jedan pojas               ← tek nakon SSB filtra (teh-167)",
+   "",
+   "Zahtjev na potiskivanje (RK): najmanje 50 dB",
+   "   50 dB → 100 000 puta slabije po snazi",
+   "   25 dB →     316 puta slabije → već se pojavljuje splatter"
+  ],
+  "links": [
+   {
+    "label": "Double-sideband suppressed-carrier transmission (en.wikipedia)",
+    "url": "https://en.wikipedia.org/wiki/Double-sideband_suppressed-carrier_transmission"
+   },
+   {
+    "label": "Single-sideband modulation (en.wikipedia)",
+    "url": "https://en.wikipedia.org/wiki/Single-sideband_modulation"
+   },
+   {
+    "label": "Amplitudna modulacija (hr.wikipedia)",
+    "url": "https://hr.wikipedia.org/wiki/Amplitudna_modulacija"
+   }
+  ],
+  "cite": [
+   {
+    "src": "RK",
+    "loc": "5.3.9. SSB modulator i Sl. 5.5. Blok shema balansnoga modulatora, tiskana str. 140–141"
+   },
+   {
+    "src": "PZM",
+    "loc": "Tema 15 — Modulacija jednim bočnim pojasom (SSB), sl. 15/4. i 15/5., tiskana str. 112–113"
+   }
+  ]
+ },
+ "teh-167": {
+  "note": "Iz DSB signala jedan bočni pojas izdvaja se FILTROM — uskim filtrom koji propušta samo željeni pojas, a drugi guši. To je odgovor b i to je takozvana filtarska metoda, daleko najčešća u amaterskim uređajima.\n\nZahtjev na filtar je surov i vrijedi ga razumjeti brojkama. Gornji i donji bočni pojas dodiruju se kod nositelja; razmak između njih je samo dvostruka najniža modulacijska frekvencija, dakle oko 600 Hz. Filtar mora u tih par stotina herca prijeći iz propuštanja u gušenje od 50 dB. Na frekvenciji od 9 MHz to znači relativnu strminu od nekoliko stotinki postotka — LC filtar to nikad ne bi mogao. Zato se rabi kvarcni (kristalni) filtar, jer kristal ima izuzetno visok Q i zato izuzetno strme bokove rezonantne krivulje.\n\nOstale ponuđene mogućnosti su sve varijante zablude da se SSB dobiva dodavanjem nečega. Odgovor a (miješanje s nositeljem) i d (dodavanje nositelja) opisuju obrnuti postupak — to je ono što radi prijamnik kad BFO-om obnavlja potisnuti nositelj da bi SSB uopće bio razumljiv. Odgovor c je jednostavno neistinit.\n\nDvije praktične posljedice. Prvo: koji ćeš bočni pojas propustiti bira se prekidačem, jer odašiljač obično ima oba filtra ili jedan filtar i dva VF generatora; po dogovoru se na 3,5 i 7 MHz radi LSB-om, a iznad 10 MHz USB-om. Drugo: budući da SSB zauzima samo najvišu modulacijsku frekvenciju kao širinu pojasa, on je najštedljiviji analogni fonijski način rada — upola uži od AM-a i s cijelom snagom u korisnom signalu.",
+  "formula": [
+   "Širina pojasa po vrsti emisije (RK 5.4.2.):",
+   "",
+   "   AM (DSB)   B = 2 · f_m,max        3 kHz govora → 6 kHz",
+   "   SSB        B = f_m,max            3 kHz govora → 3 kHz",
+   "                                     (praktično 2,4…2,7 kHz)",
+   "   FM         B = 2 · (Δf + f_m,max)",
+   "   CW         nekoliko stotina Hz",
+   "",
+   "Zašto baš kvarcni filtar:",
+   "   propusni pojas 300…2 700 Hz na nositelju 9 000 kHz",
+   "   → 2,4 kHz / 9 000 kHz = 0,027 % relativne širine",
+   "   → prijelaz iz propuštanja u −50 dB unutar ≈ 600 Hz",
+   "   → LC filtar to ne može; kristal ima dovoljno visok Q",
+   "",
+   "Dogovor o izboru pojasa (granica 10 MHz):",
+   "   3,5 MHz i 7 MHz    → LSB (donji bočni pojas)",
+   "   14 MHz i više      → USB (gornji bočni pojas)"
+  ],
+  "links": [
+   {
+    "label": "Single-sideband modulation (en.wikipedia)",
+    "url": "https://en.wikipedia.org/wiki/Single-sideband_modulation"
+   },
+   {
+    "label": "Amplitudna modulacija (hr.wikipedia)",
+    "url": "https://hr.wikipedia.org/wiki/Amplitudna_modulacija"
+   }
+  ],
+  "cite": [
+   {
+    "src": "RK",
+    "loc": "5.3.9. SSB modulator i 5.3.11. Kristalni filtar, tiskana str. 140–141; 5.4.2. RF — širina pojasa, tiskana str. 142"
+   },
+   {
+    "src": "PZM",
+    "loc": "Tema 15 — SSB, izbor LSB/USB, tiskana str. 112–113"
+   }
+  ]
+ },
+ "teh-168": {
+  "note": "Ne. Za SSB se ne smije upotrijebiti pojačalo C razreda, i točan razlog je onaj u odgovoru b: C razred je nelinearan.\n\nSuština je u tome gdje leži informacija. Kod SSB-a ovojnica VF signala vjerno prati govor — kad govoriš glasnije, amplituda je veća; kad šutiš, snage nema. Pojačalo C razreda vodi manje od poluvala i grubo reže ono što mu dođe na ulaz, pa ovojnicu jednostavno uništi. Nije riječ o „malo lošijem zvuku\": rezultat su intermodulacijski produkti, i to je onaj kvar koji se u eteru čuje kao splatter.\n\nVrijedi razumjeti zašto se ti produkti ne mogu filtrirati. Ako su u ovojnici dva tona f₁ i f₂, nelinearnost stvara produkte trećeg reda na 2f₁ − f₂ i 2f₂ − f₁, petog reda na 3f₁ − 2f₂ i 3f₂ − 2f₁ i tako dalje. Ti produkti padaju NEPOSREDNO uz korisni pojas i unutar njega — filtar ih ne razlikuje od korisnog signala. Zato jedini lijek nije filtar nego linearnost: pojačalo mora raditi ispod razine na kojoj se stišće, u razredu A, AB ili B. RK to kaže izravno: budući da SSB odašiljač na izlazu ima linearno pojačalo, kod njega se ne rabi C razred.\n\nOdgovori c i d promašuju uzrok, i to je zamka. Odgovor c tvrdi da C razred ima premali koeficijent iskorištenja — upravo obrnuto, on ga ima najveći (vidi teh-163). Odgovor d je isto o iskorištenju; ali veliko iskorištenje nikad nije mana. Problem je isključivo linearnost. U praksi amaterska SSB pojačala rade u AB razredu, kao kompromis: dovoljno linearno, a ipak oko 50…60 posto učinkovito.",
+  "formula": [
+   "Koja klasa za koju vrstu rada:",
+   "",
+   "   CW  (A1A)   A, AB, B, C   ← amplituda je ili puna ili nula",
+   "   FM  (F3E)   A, AB, B, C   ← amplituda je stalna",
+   "   SSB (J3E)   A, AB, B      ← informacija JE u ovojnici",
+   "   AM  (A3E)   A, AB, B      ← informacija JE u ovojnici",
+   "",
+   "Posljedica nelinearnosti kod SSB (dva tona f₁ i f₂ u ovojnici):",
+   "",
+   "   3. red:  2f₁ − f₂   i   2f₂ − f₁   ← padaju uz sam korisni pojas",
+   "   5. red:  3f₁ − 2f₂  i   3f₂ − 2f₁  ← dalje od pojasa = SPLATTER",
+   "",
+   "   Filtar ih ne može ukloniti jer su u kanalu i tik uz njega.",
+   "   Jedini lijek: raditi ispod razine stišnuća, u A/AB/B razredu.",
+   "",
+   "RK: potiskivanje neželjenog pojasa ≥ 50 dB je dovoljno;",
+   "    pri 25 dB i prepobuđenom pojačalu → distorzija + splatter."
+  ],
+  "links": [
+   {
+    "label": "Power amplifier classes (en.wikipedia)",
+    "url": "https://en.wikipedia.org/wiki/Power_amplifier_classes"
+   },
+   {
+    "label": "Single-sideband modulation (en.wikipedia)",
+    "url": "https://en.wikipedia.org/wiki/Single-sideband_modulation"
+   }
+  ],
+  "cite": [
+   {
+    "src": "RK",
+    "loc": "5.3.6. Pojačalo snage, tiskana str. 139 („kod SSB odašiljača ne rabi se C razred\")"
+   },
+   {
+    "src": "RK",
+    "loc": "9.2.1.2. Neučinkovita uporaba frekvencijskog spektra i Sl. 9.2.3., tiskana str. 194–195; i 2.6.3.1., tiskana str. 86–89"
+   }
+  ]
+ },
+ "teh-170": {
+  "note": "Da. Kod FM-a amplituda je konstantna i ne nosi nikakvu informaciju — informacija je isključivo u trenutačnoj frekvenciji. Zato pojačalo C razreda, koje amplitudu grubo reže, ne može uništiti ništa što nam treba, i smije se koristiti. A budući da smije, i koristi se, jer daje najveću učinkovitost.\n\nMehanizam je isti kao kod CW-a (teh-162): tranzistor provede kratak strujni impuls jednom po ciklusu, a titrajni krug u kolektoru iz uskladištene energije obnovi punu sinusoidu na frekvenciji nositelja. Frekvencija tih impulsa vjerno prati modulaciju, pa i izlaz vjerno prati modulaciju. Isti razlog stoji iza toga da FM prijamnik u sebi ima ograničavalo — jer se sve promjene amplitude na putu smiju bez štete odrezati.\n\nOdgovor b je zanimljiva zamka: „samo u slučaju kad se amplituda FM signala ne mijenja prebrzo\". Amplituda FM signala se UOPĆE ne mijenja, ni brzo ni sporo — to je definicijsko svojstvo frekvencijske modulacije. Odgovor a („ne jer su nelinearni\") točan je opis C razreda, ali pogrešan zaključak: nelinearnost je problem samo tamo gdje amplituda nosi informaciju, dakle kod SSB-a i AM-a (vidi teh-168). Odgovor d je činjenično naopak — C razred ima najveće iskorištenje, ne najmanje.\n\nPraktični dobitak je najvidljiviji na ručnoj postaji. Uz istu snagu u anteni, C razred crpi znatno manje struje iz baterije od linearnog pojačala, i manje se grije. Zato su FM ručne postaje male i lagane, a SSB uređaji iste snage veći.",
+  "formula": [
+   "FM: A(t) = konst.,  informacija je u f(t)",
+   "   → rezanje amplitude ne uništava informaciju",
+   "   → titrajni krug u izlazu vraća sinusoidu na frekvenciji nositelja",
+   "",
+   "Praktična dobit (ručna postaja, 5 W u anteni, baterija 7,4 V):",
+   "",
+   "   C razred,  η = 65 %  → P_DC = 5 / 0,65 = 7,7 W  → I = 1,04 A",
+   "   A razred,  η = 45 %  → P_DC = 5 / 0,45 = 11,1 W → I = 1,50 A",
+   "",
+   "   Ista snaga u anteni; s C razredom baterija traje ≈ 45 % dulje,",
+   "   a hladnjak odvodi 2,7 W umjesto 6,1 W topline.",
+   "",
+   "Pravilo za cijelo poglavlje:",
+   "   nosi li amplituda informaciju?",
+   "      NE  (CW, FM)   → dopušten C razred",
+   "      DA  (SSB, AM)  → samo A, AB, B"
+  ],
+  "links": [
+   {
+    "label": "Frequency modulation (en.wikipedia)",
+    "url": "https://en.wikipedia.org/wiki/Frequency_modulation"
+   },
+   {
+    "label": "Power amplifier classes (en.wikipedia)",
+    "url": "https://en.wikipedia.org/wiki/Power_amplifier_classes"
+   }
+  ],
+  "cite": [
+   {
+    "src": "RK",
+    "loc": "5.4.9. Frekvencijska devijacija, tiskana str. 143; i 5.3.6. Pojačalo snage, tiskana str. 139"
+   },
+   {
+    "src": "RK",
+    "loc": "2.6.3.1. — 2.3. Razred C, tiskana str. 88–89"
+   }
+  ]
+ }
+}

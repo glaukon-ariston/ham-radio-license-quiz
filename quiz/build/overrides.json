@@ -1,0 +1,99 @@
+{
+  "_doc": "Manual corrections applied after parsing. Every entry records a human decision about a defect in the source PDF, so the parser stays free of special cases and each judgement is auditable.",
+  "split": [
+    {
+      "from": "teh-186",
+      "reason": "Page 28 of the technical bank contains an UNNUMBERED question between 186 and 187 ('Duljina strane quad radijatora i polarizacija su:'). Its options are lettered e)-h), so the parser folded them into question 186, which ended up with eight options and two red marks. Verified against the rendered page.",
+      "keep_options": [
+        "a",
+        "b",
+        "c",
+        "d"
+      ],
+      "new": {
+        "id": "teh-186b",
+        "number": 186.5,
+        "question": "Duljina strane quad radijatora i polarizacija su:",
+        "take_options": [
+          "e",
+          "f",
+          "g",
+          "h"
+        ],
+        "note": "Unnumbered in the source PDF; numbered 186b here. Sits between q186 and q187 on page 28."
+      }
+    }
+  ],
+  "patch": {
+    "teh-186": {
+      "options.d": "GP antena.",
+      "reason": "Option d) had the following unnumbered question's stem appended to it."
+    },
+    "teh-030": {
+      "options.d": "Frekvencija (f).",
+      "reason": "The literal '(f)' in the answer text was misread as an option label, truncating option d)."
+    },
+    "teh-186b": {
+      "options.b": "λ/2 horizontalna",
+      "options.c": "λ/2 vertikalna",
+      "reason": "Stray fragments from the adjacent figure ('λ=?') and from a split word ('a.') attached to options b) and c)."
+    },
+    "teh-017": {
+      "question": "Ako sinusni izmjenični napon ima efektivnu vrijednost Uef = 100 V, kolika je maksimalna vrijednost napona?",
+      "reason": "Vrijednost 'Uef = 100 V' u izvorniku je slika formule, pa je pri izvlačenju teksta nestala i pitanje je ostalo bez podatka. Prepisano s renderirane str. 2."
+    },
+    "teh-020": {
+      "options.a": "R = U × I",
+      "options.b": "I = R × U",
+      "options.c": "U = R × I",
+      "options.d": "U = R / I",
+      "reason": "Jednadžbe su u izvorniku slike; izvlačenje teksta dalo je kontrolne znakove i pobrkalo redoslijed. Prepisano s renderirane str. 2 (točan odgovor c)."
+    },
+    "teh-258": {
+      "options.b": "napona",
+      "options.d": "snage",
+      "reason": "Labels from the schematic below the options ('R_ref', 'R_i', 'V', 'E', 'R_x') were appended to options b) and d), which rendered as 'napona, Rref R1 V E' and 'snage. Rx'. Read off the rendered str. 36: the four options are Otpora / napona / struje / snage."
+    },
+    "teh-046": {
+      "options.b": "1 uH",
+      "reason": "Oznake sa sheme ispod odgovora ('L1 L2 R L3') nalijepile su se na odgovor b). Očitano s renderirane str. 6: b) glasi samo '1 uH'."
+    },
+    "teh-112": {
+      "options.b": "amplitudne modulacije",
+      "reason": "Legenda uz spektar ('fc= frekvencija vala nositelja', 'fm= modulacijska frekvencija', 'fc- fm  fc  fc+ fm') nalijepila se na odgovor b), koji je ujedno i točan. Očitano s renderirane str. 16."
+    },
+    "teh-277": {
+      "options.d": "odvajanje uzemljenja nikada nema pozitivne učinke.",
+      "reason": "Oznake sa sheme ('AP', 'prema odašiljaču koji ima mrežno uzemljenje', 'RF uzemljenje') nalijepile su se na odgovor d). Očitano s renderirane str. 39."
+    },
+    "teh-081": {
+      "options.a": "f_rez = 1 / (2π√(L·C))",
+      "options.b": "f_rez = 2π√(L·C)",
+      "options.c": "f_rez = 1 / (2π·L·C)",
+      "options.d": "f_rez = 2π / (L·C)",
+      "reason": "Formule su u izvorniku slike; izvlačenje teksta dalo je krnje nizove tipa 'f= π√'. Prepisano s renderirane str. 13 (točan odgovor a — Thomsonova formula)."
+    }
+  },
+  "figure_options": {
+    "_doc": "Questions whose OPTIONS are diagrams rather than text. The red mark still identifies the answer; the option bodies are supplied as cropped images. The four labels MUST be listed explicitly: text extraction only finds whichever labels happen to sit on a text baseline, which left teh-074 offering a) and c) alone while its correct answer was b) — unanswerable. WARNING: the answers here are typed in by hand, and three of the original four were typed WRONG (see the per-question reasons). Never take one on trust; read the red label off the rendered page. To re-check all four at once, list the coloured spans that fall between a question's stem and the next question's stem.",
+    "teh-074": {
+      "answer": "b",
+      "options": {"a": "a)", "b": "b)", "c": "c)", "d": "d)"}
+    },
+    "teh-075": {
+      "answer": "d",
+      "options": {"a": "a)", "b": "b)", "c": "c)", "d": "d)"},
+      "reason": "Was 'c'. The red label on str. 12 is (d) — the response flat to 3 kHz then rolling off, i.e. the low-pass a microphone stage wants. Option (c) is a U-shaped curve. Physics and the red mark agree; the 'c' was a transcription slip when these four were hand-entered."
+    },
+    "teh-095": {
+      "answer": "b",
+      "options": {"a": "a)", "b": "b)", "c": "c)", "d": "d)"},
+      "reason": "Was 'a'. The red label on str. 14 is b) — separated positive humps with gaps, which is what a half-wave rectifier actually produces. Option (a) is an un-rectified full sine."
+    },
+    "teh-114": {
+      "answer": "c",
+      "options": {"a": "a)", "b": "b)", "c": "c)", "d": "ni jedan od prikazanih"},
+      "reason": "Was 'a'. The red label on str. 16 is (c) — the modulation trapezoid whose edge runs past the apex, the signature of over 100 % modulation. Option (a) is a clean trapezoid, i.e. correct modulation."
+    }
+  }
+}

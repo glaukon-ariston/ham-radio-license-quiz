@@ -1,0 +1,12 @@
+# Normalise line endings in the repo, leave the working tree native.
+* text=auto
+
+# Source PDFs and images are binary — never diff or eol-convert them.
+*.pdf  binary
+*.png  binary
+*.docx binary
+
+# Hand-written JSON is UTF-8 with Croatian diacritics; diff it as text.
+*.json text diff
+*.py   text diff
+*.md   text diff

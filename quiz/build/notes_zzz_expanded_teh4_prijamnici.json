@@ -1,0 +1,561 @@
+{
+  "_doc": "Expanded teaching notes — batch: 4. Prijamnici (17 questions, teh-140…teh-156). Superheterodinsko načelo, miješalo i zrcalna frekvencija, izbor međufrekvencije, selektivnost i osjetljivost, AGC, detektori za AM/FM/SSB/CW, i put signala kroz blok-dijagram. Named to sort LAST so these override the terse originals.",
+  "_links_verified": "Every URL here was fetched and confirmed to exist and to cover the stated point (9 Aug 2026). hr.wikipedia has NO article on the superheterodyne receiver — 'Radioprijamnik' is the closest Croatian coverage; the rest fall back to en.wikipedia.",
+  "_citation_note": "The inherited citations pointed almost uniformly at PZM '4. Prijamnici, str. 107–109'. That section is real (Tema 14, tiskane str. 107–109) but it only covers the audion, the direct receiver, the single superhet and the DCR. It does NOT contain the converter/tuner types, the ratio detector, the BFO stage, AGC, the S-meter or the receiver characteristics. Those all live in RK, poglavlje 4 (tiskane str. 128–135) and RK 3.5 DETEKTORI (tiskane str. 121–123), which were read page-by-page and cited here instead. RK's PDF→printed offset is +4 through this whole chapter; printed 129, 131 and 135 carry no folio in the scan, but they are bracketed by numbered pages on both sides (pdf 124→128, 126→130, 128→132, 130→134, 132→136), so their numbering is certain.",
+
+  "teh-140": {
+    "note": "Prijamnik je frekvencijski stabilan točno onoliko koliko je stabilan njegov lokalni oscilator. Razlog je u samom superheterodinskom načelu: prijamnik ne 'gleda' izravno na frekvenciju koju primaš, nego miješalo od ulaznog signala i signala lokalnog oscilatora radi razliku — međufrekvenciju. MF filtar je fiksan i nepomičan. Ako oscilator odluta za 500 Hz, cijeli se primani prozor pomakne za 500 Hz, a ti to čuješ kao da je sugovornik 'otišao' s frekvencije.\n\nZamka u ovom pitanju su odgovori a i c. Mehanička stabilnost i stabilnost napona napajanja jesu stvarni uzroci nestabilnosti — ali oni djeluju POSREDNO, upravo preko oscilatora. Vibracija pomakne ploču promjenjivog kondenzatora ili rastegne zavojnicu, promjena napona napajanja promijeni kapacitet spoja tranzistora — i u oba slučaja se promijeni frekvencija oscilatora. RK to kaže izrijekom: oscilator je sklop u prijamniku najodgovorniji za stabilnost prijamnika. Zato je d korijenski uzrok, a a i c samo njegovi mehanizmi.\n\nOtud i sve praktične mjere iz priručnika: zavojnica namotana tijesno i zategnuto na keramički nosivač, kratke i čvrste veze, promjenjivi kondenzator visoke kvalitete, titrajni krug daleko od izvora topline, stabilizirani napon napajanja oscilatora, a kod kristalnih oscilatora kristal u termostatu na 60…70 °C.\n\nKoliko je to važno vidi se iz brojki: SSB signal je širok oko 2,4 kHz, a razumljivost počne trpjeti već pri pomaku od stotinjak herca. Na 145 MHz oscilator s vrlo skromnih 10 ppm odluta 1,45 kHz — dovoljno da izgubiš SSB vezu. Vidi i teh-151 o klizanju (driftu) i teh-150 o tome zašto se zahtjev na stabilnost razlikuje po pojasima.",
+    "formula": [
+      "Superheterodin:   f_MF = | f_signala − f_LO |",
+      "",
+      "Ako se f_LO promijeni za Δf, primana frekvencija",
+      "se pomakne za ISTIH Δf:",
+      "   Δf_prijama = Δf_LO",
+      "",
+      "Frekvencija LC-oscilatora (Thomson):",
+      "   f = 1 / (2·π·√(L·C))",
+      "   → svaka promjena L ili C je promjena frekvencije",
+      "",
+      "Primjer, 145 MHz i oscilator od 10 ppm:",
+      "   Δf = 145 000 000 Hz · 10·10⁻⁶ = 1450 Hz",
+      "   (SSB kanal je širok ~2400 Hz → veza propada)"
+    ],
+    "links": [
+      {"label": "Radioprijamnik (hr.wikipedia)", "url": "https://hr.wikipedia.org/wiki/Radioprijamnik"},
+      {"label": "Superheterodyne receiver (en.wikipedia)", "url": "https://en.wikipedia.org/wiki/Superheterodyne_receiver"},
+      {"label": "Crystal oscillator — stabilnost, TCXO/OCXO", "url": "https://en.wikipedia.org/wiki/Crystal_oscillator"}
+    ],
+    "cite": [
+      {"src": "RK", "loc": "4.3.2. Oscilator (stalni i promjenjivi) — mjere za stabilnost, tiskana str. 131–132"},
+      {"src": "RK", "loc": "4.4.4. Stabilnost, tiskana str. 135"}
+    ]
+  },
+
+  "teh-141": {
+    "note": "Selektivnost je sposobnost prijamnika da RAZLUČI signale postaja koje odašilju na bliskim frekvencijama — dakle da propusti onu koju hoćeš, a potisne susjednu. Formulacija u odgovoru c je gotovo doslovno ono što piše u priručniku.\n\nOdgovor a je namjerno postavljen naopako: 'ako dobro prima signal susjednog kanala' opisuje LOŠU selektivnost. Susjedni kanal je po definiciji prva sljedeća viša ili niža frekvencija na kojoj može raditi drugi odašiljač; dobra selektivnost znači da ga NE čuješ. Odgovor b opisuje razmak predaje i prijama (duplex, split), a odgovor d je AGC — regulacija pojačanja, sasvim drugo svojstvo.\n\nGdje se selektivnost zapravo stvara? Ne na ulazu. Ulazni titrajni krugovi VF pojačala moraju biti promjenjivi jer se ugađaju po pojasu, pa su nužno široki. Selektivnost pravi MEĐUFREKVENCIJSKO pojačalo: MF je stalna, pa filtri u njoj mogu biti fiksni, uski i strmi (kristalni, keramički ili mehanički). Zato je pravilo iz priručnika: najveće pojačanje treba biti u MF stupnjevima, a ulazna pojačala ne smiju imati veliko pojačanje — inače stvaraju intermodulaciju prije nego što je filtar uopće odbacio smetnju.\n\nNe brkaj selektivnost s osjetljivošću (teh-142) — to je najčešći ispitni par u ovoj cjelini. Osjetljivost je 'koliko slab signal čujem', selektivnost je 'koliko blisko dvije postaje mogu biti a da ih razdvojim'.",
+    "formula": [
+      "Uobičajene širine pojasa MF filtra po načinu rada:",
+      "   CW        250 … 500 Hz",
+      "   SSB       2,1 … 2,7 kHz   (tipično 2,4 kHz)",
+      "   AM        6 kHz",
+      "   FM (UKV)  12 … 16 kHz",
+      "",
+      "Faktor oblika (shape factor) — mjera strmine filtra:",
+      "   SF = B(−60 dB) / B(−6 dB)",
+      "   idealno 1; dobar SSB kristalni filtar ~1,5…2",
+      "",
+      "Selektivnost NE nastaje na ulazu nego u MF pojačalu:",
+      "   ulazni krug je promjenjiv → nužno širok",
+      "   MF je stalna → filtar može biti uzak i fiksan"
+    ],
+    "links": [
+      {"label": "Selectivity (radio)", "url": "https://en.wikipedia.org/wiki/Selectivity_(radio)"},
+      {"label": "Intermediate frequency — zašto se filtrira na MF", "url": "https://en.wikipedia.org/wiki/Intermediate_frequency"},
+      {"label": "Radioprijamnik (hr.wikipedia)", "url": "https://hr.wikipedia.org/wiki/Radioprijamnik"}
+    ],
+    "cite": [
+      {"src": "RK", "loc": "4.4.1. Susjedni kanal i 4.4.2. Selektivnost, tiskana str. 134"},
+      {"src": "RK", "loc": "4.3.4. Međufrekvencijsko pojačalo, tiskana str. 132"}
+    ]
+  },
+
+  "teh-142": {
+    "note": "Osjetljivost je mogućnost prijamnika da pojača i najslabije signale — ali uz unaprijed određen, povoljan omjer signala i šuma. Ta druga polovica definicije je bitna: pojačanje samo po sebi ne znači ništa jer se s korisnim signalom pojačava i šum. Prijamnik koji signal pojača milijun puta zajedno sa šumom nije osjetljiv, samo je glasan.\n\nZato osjetljivost uvijek ima tri broja: napon na ulazu, traženi omjer S/N i širinu pojasa u kojoj se mjeri. Podatak 'osjetljivost 0,2 µV' bez toga je bezvrijedan — u 500 Hz CW filtru isti prijamnik izgleda bitno bolje nego u 2,4 kHz SSB filtru, jer uži filtar propušta manje šuma.\n\nOdgovori c i d su zamke istog tipa: 'osjetljiv na mehaničke vibracije' i 'osjetljiv na male temperaturne promjene' koriste riječ osjetljiv u svakodnevnom, a ne tehničkom značenju — i zapravo opisuju NESTABILNOST (vidi teh-140). Odgovor a opisuje lošu selektivnost (vidi teh-141).\n\nDonja granica osjetljivosti nije stvar truda nego fizike: svaki otpor na sobnoj temperaturi sam po sebi šumi −174 dBm po hercu širine pojasa. Ispod tog toplinskog poda ne možeš, koliko god pojačavala nadodavao. Sve što možeš jest suziti pojas i smanjiti vlastiti šum prvog stupnja (vidi teh-143). Za osjećaj: S9 na KV-u odgovara 50 µV odnosno −73 dBm (vidi teh-139), a dobar KV prijamnik čuje oko 0,2 µV, što je −121 dBm — dakle gotovo 50 dB, više od osam S-jedinica ispod S9.",
+    "formula": [
+      "Toplinski šum na ulazu (soba, 290 K):",
+      "   P_šum = −174 dBm/Hz + 10·log₁₀(B) + NF",
+      "",
+      "Za SSB, B = 2400 Hz i faktor šuma NF = 10 dB:",
+      "   10·log₁₀(2400) = 33,8 dB",
+      "   P_šum = −174 + 33,8 + 10 = −130,2 dBm",
+      "",
+      "Pretvorba dBm ↔ µV na 50 Ω:   U = √(P · 50)",
+      "   −130 dBm = 10⁻¹⁶ W → U = 0,07 µV",
+      "   −121 dBm            → U = 0,2 µV",
+      "   −73 dBm (S9, KV)    → U = 50 µV",
+      "",
+      "Suzi filtar sa 2400 na 500 Hz → 10·log(2400/500)",
+      "                              = 6,8 dB manje šuma"
+    ],
+    "links": [
+      {"label": "Sensitivity (electronics) — osjetljivost prijamnika", "url": "https://en.wikipedia.org/wiki/Sensitivity_(electronics)"},
+      {"label": "Noise figure", "url": "https://en.wikipedia.org/wiki/Noise_figure"},
+      {"label": "S meter", "url": "https://en.wikipedia.org/wiki/S_meter"}
+    ],
+    "cite": [
+      {"src": "RK", "loc": "4.4.3. Osjetljivost, tiskana str. 135"},
+      {"src": "RK", "loc": "4.3.11. S-mjerilo, tiskana str. 134"}
+    ]
+  },
+
+  "teh-143": {
+    "note": "Priručnik ovdje kaže vrlo jednostavno: bolja osjetljivost postiže se većim brojem stupnjeva pojačanja. To je i logika ključa — signal od desetinke mikrovolta treba dovesti do razine od nekoliko volta na zvučniku, a to je pojačanje reda 10⁷, koje jedan stupanj ne može dati.\n\nAli isti odlomak odmah dodaje ogradu koju vrijedi znati: pojačanje iznad određenog iznosa nema više smisla, jer bi se pojačavali vlastiti šumovi koji nastaju u samim sklopovima pojačanja. Najvažnije je dobro izvesti PRVI stupanj, najbliži ulazu, jer njegov šum najviše doprinosi ukupnom vlastitom šumu prijamnika.\n\nTo je Friisovo pravilo i vrijedi ga razumjeti jer objašnjava pola prakse na UKV-u. Šum svakog sljedećeg stupnja dijeli se s ukupnim pojačanjem svih stupnjeva prije njega. Ako je prvi stupanj tih i ima pristojno pojačanje, sve iza njega je gotovo nevažno; ako je prvi stupanj bučan, nijedno pojačanje kasnije to ne popravlja. Otud predpojačalo na jarbolu, uz samu antenu, a ne u šaku — jer gubitak kabela ispred prvog pojačala ulazi u račun kao šum, jedan prema jedan.\n\nOstali odgovori ne drže vodu: broj oscilatora (b) određuje vrstu superheterodina, ne osjetljivost (vidi teh-144 i teh-149); kvaliteta kvarca (c) određuje stabilnost frekvencije (teh-140); izlazno audiopojačalo (d) radi na kraju lanca gdje je signal već velik, pa njegov šum praktički ne ulazi u račun.",
+    "formula": [
+      "Friisov obrazac za faktor šuma lanca:",
+      "",
+      "   F = F₁ + (F₂−1)/G₁ + (F₃−1)/(G₁·G₂) + …",
+      "",
+      "Primjer — dobar prvi stupanj:",
+      "   1. stupanj: NF 3 dB (F₁=2), pojačanje 20 dB (G₁=100)",
+      "   2. stupanj: NF 10 dB (F₂=10)",
+      "   F = 2 + (10−1)/100 = 2,09  →  NF = 3,2 dB",
+      "   → drugi stupanj pokvario je svega 0,2 dB",
+      "",
+      "Isti stupnjevi obrnutim redom:",
+      "   F = 10 + (2−1)/100 = 10,01  →  NF = 10,0 dB",
+      "",
+      "Pouka: prvi stupanj određuje sve. Zato",
+      "predpojačalo ide GORE, uz antenu, prije kabela."
+    ],
+    "links": [
+      {"label": "Noise figure — Friisov obrazac, dominacija 1. stupnja", "url": "https://en.wikipedia.org/wiki/Noise_figure"},
+      {"label": "Sensitivity (electronics)", "url": "https://en.wikipedia.org/wiki/Sensitivity_(electronics)"},
+      {"label": "Radio receiver — blok-shema i svojstva", "url": "https://en.wikipedia.org/wiki/Radio_receiver"}
+    ],
+    "cite": [
+      {"src": "RK", "loc": "4.4.3. Osjetljivost, tiskana str. 135"},
+      {"src": "RK", "loc": "4.3.1. Pojačalo visoke frekvencije (VF) — važnost prvog stupnja za S/N, tiskana str. 131"}
+    ]
+  },
+
+  "teh-144": {
+    "note": "Dvostruki superheterodin ima dva oscilatora, dva miješala i dvije međufrekvencije — i dolazi u dvije podvrste koje se razlikuju samo po tome KOJI je oscilator promjenjiv. To je cijela poanta ovog pitanja i njegovog para teh-149.\n\nKod KONVERTORSKOG tipa prvi oscilator je STALAN. Ako je oscilator stalan, a ulazna frekvencija se mijenja dok prelaziš pojas, onda i razlika — prva međufrekvencija — mora biti promjenjiva. Odatle odgovor b. Drugi oscilator je zato promjenjiv, i njegov je posao da tu promjenjivu prvu MF pretvori u stalnu drugu MF, na kojoj tek onda stoji uski filtar.\n\nNajpoznatiji primjer koji ćeš stvarno vidjeti u praksi je klasični konvertor (transverter) za 2 m ispred kratkovalnog prijamnika. Kristalni oscilator na 116 MHz je stalan; kad prelaziš 144…146 MHz, iz konvertora izlazi 28…30 MHz — dakle prva MF se šeta po cijelom 2-metarskom pojasu. Kratkovalni prijamnik iza njega svojim promjenjivim VFO-om ugađa tih 28…30 MHz i pretvara ih u svoju stalnu MF, primjerice 9 MHz.\n\nKako zapamtiti bez učenja napamet: u miješalu je MF razlika ulaza i oscilatora. Ako je oscilator fiksan, MF putuje s ulazom; ako oscilator prati ulaz, MF stoji. Konvertor = prvi oscilator stoji → prva MF putuje. Tjuner = prvi oscilator prati → prva MF stoji (vidi teh-149).",
+    "formula": [
+      "Miješalo:   f_MF = | f_ulaza − f_oscilatora |",
+      "",
+      "KONVERTORSKI tip:",
+      "   1. oscilator STALAN     → 1. MF PROMJENJIVA",
+      "   2. oscilator PROMJENJIV → 2. MF STALNA",
+      "",
+      "Primjer: konvertor za 2 m ispred KV prijamnika",
+      "   f_osc1 = 116 MHz  (kristal, stalan)",
+      "   ulaz 144 MHz → 1. MF = 144 − 116 = 28 MHz",
+      "   ulaz 146 MHz → 1. MF = 146 − 116 = 30 MHz",
+      "   → 1. MF se mijenja po cijelom pojasu ✓",
+      "",
+      "   f_osc2 = 37…39 MHz (promjenjiv VFO)",
+      "   2. MF = 37 − 28 = 9 MHz",
+      "         = 39 − 30 = 9 MHz   → stalna ✓",
+      "",
+      "TJUNERSKI tip (teh-149) je točno obrnut:",
+      "   1. osc PROMJENJIV → 1. MF stalna",
+      "   2. osc STALAN     → 2. MF stalna"
+    ],
+    "links": [
+      {"label": "Superheterodyne receiver — dvostruka konverzija", "url": "https://en.wikipedia.org/wiki/Superheterodyne_receiver"},
+      {"label": "Intermediate frequency — dvostruka i trostruka konverzija", "url": "https://en.wikipedia.org/wiki/Intermediate_frequency"},
+      {"label": "Frequency mixer", "url": "https://en.wikipedia.org/wiki/Frequency_mixer"}
+    ],
+    "cite": [
+      {"src": "RK", "loc": "4.1.1. Jednostruki i dvostruki superheterodinski prijamnik, tiskana str. 128"},
+      {"src": "RK", "loc": "4.2. Blok dijagrami, sl. 4.5. (konvertorski tip), tiskana str. 129–130"}
+    ]
+  },
+
+  "teh-145": {
+    "note": "VF (RF) pojačalo je PRVI stupanj prijamnika, odmah iza antene i ispred miješala. To slijedi već iz njegovog imena: ono radi na visokoj, primanoj frekvenciji, a čim signal prođe kroz miješalo, on više nije na visokoj frekvenciji nego na međufrekvenciji — pa bi pojačalo iza miješala po definiciji bilo MF pojačalo, a ne VF (odgovori c i d). Na izlazu prijamnika (b) je NF pojačalo.\n\nOvo pitanje je zapravo pitanje o blok-dijagramu, pa isplati jednom za svagda proći put signala: antena → VF pojačalo s predselekcijom → miješalo (u koje ulazi i lokalni oscilator) → MF pojačalo s filtrom → detektor (uz BFO ako je CW ili SSB) → NF pojačalo → zvučnik. Kad jednom vidiš taj niz, sva ostala pitanja iz ove cjeline postanu pitanja 'gdje u nizu'.\n\nVF pojačalo radi tri stvari odjednom. Poboljšava osjetljivost, jer je prvo u lancu pa njegov šum dominira ukupnim odnosom signal/šum (Friisovo pravilo, vidi teh-143). Poboljšava selektivnost ulaznim promjenjivim titrajnim krugovima. I — ono što se najlakše previdi — svojom predselekcijom potiskuje ZRCALNU frekvenciju, jedini signal izvan pojasa koji miješalo ne može razlikovati od pravoga. Nakon miješala je za to kasno: zrcalni signal je već pretvoren u istu MF kao i korisni i nijedan MF filtar ga više ne razdvaja.\n\nZato postoji i ograda: VF pojačalo ne smije imati preveliko pojačanje. Sve što pojačaš prije uskog MF filtra ide u miješalo zajedno sa svim jakim susjedima, a nelinearnost miješala od toga radi intermodulaciju. Pravilo iz priručnika glasi: ulazna pojačala malo pojačanja, najveće pojačanje u MF stupnjevima.",
+    "formula": [
+      "PUT SIGNALA KROZ PRIJAMNIK (superheterodin)",
+      "",
+      "  1. ANTENA",
+      "  2. VF (RF) POJAČALO + predselekcija",
+      "        ← ovdje se određuje šum (osjetljivost)",
+      "        ← ovdje se potiskuje ZRCALNA frekvencija",
+      "  3. MIJEŠALO          ← + LOKALNI OSCILATOR",
+      "  4. MF POJAČALO + filtar",
+      "        ← ovdje se određuje SELEKTIVNOST",
+      "        ← ovdje je najveće pojačanje",
+      "  5. DETEKTOR          ← + BFO (samo CW i SSB)",
+      "  6. NF (AF) POJAČALO",
+      "  7. ZVUČNIK / SLUŠALICE",
+      "",
+      "  AGC: uzima se iz MF-a, ispravi diodom, filtrira,",
+      "       i istosmjernim naponom vraća na 2. i 4. stupanj",
+      "",
+      "ZRCALNA (simetrična) FREKVENCIJA",
+      "   f_LO = f_signala + f_MF        (LO iznad signala)",
+      "   f_zrcalna = f_LO + f_MF = f_signala + 2·f_MF",
+      "",
+      "Primjer A — visoka MF, 9 MHz, prijam 14,200 MHz:",
+      "   f_LO      = 14,200 + 9,000 = 23,200 MHz",
+      "   f_zrcalna = 14,200 + 2·9,000 = 32,200 MHz",
+      "   → 18 MHz od korisnog signala; ulazni titrajni",
+      "     krug to bez muke potiskuje",
+      "",
+      "Primjer B — niska MF, 455 kHz, isti prijam:",
+      "   f_LO      = 14,200 + 0,455 = 14,655 MHz",
+      "   f_zrcalna = 14,200 + 0,910 = 15,110 MHz",
+      "   → svega 910 kHz od signala; ulazni krug",
+      "     to jedva razdvaja → zrcalne smetnje",
+      "",
+      "Odatle pravilo: viša MF = bolja zrcalna karakteristika,",
+      "                niža MF = bolja selektivnost.",
+      "Dvostruki superheterodin uzima oboje (vidi teh-149)."
+    ],
+    "links": [
+      {"label": "Radio receiver — blok-shema superheterodina", "url": "https://en.wikipedia.org/wiki/Radio_receiver"},
+      {"label": "Superheterodyne receiver — zrcalna frekvencija", "url": "https://en.wikipedia.org/wiki/Superheterodyne_receiver"},
+      {"label": "Radioprijamnik (hr.wikipedia)", "url": "https://hr.wikipedia.org/wiki/Radioprijamnik"}
+    ],
+    "cite": [
+      {"src": "RK", "loc": "4.3.1. Pojačalo visoke frekvencije (VF) ili radiofrekvencije (RF), tiskana str. 131"},
+      {"src": "RK", "loc": "4.4.5. Zrcalna frekvencija i 4.4.6. Intermodulacija, tiskana str. 135"},
+      {"src": "RK", "loc": "3.4.3. Radiofrekvencijska pojačala u prijamniku, tiskana str. 119"}
+    ]
+  },
+
+  "teh-146": {
+    "note": "NF (AF) pojačalo je zadnji stupanj u lancu. Njegov je posao pojačati signal koji je izašao iz detektora — dakle već demoduliran, već audio — do razine dovoljne da se čuje u zvučniku ili slušalicama. Zato mora pojačavati CIJELI audio pojas koji se prenosi, jednako i najniže i najviše tonove, inače bi mijenjalo boju glasa.\n\nOdgovor a je zamka s brojem: 300 Hz je DONJA, a ne gornja granica govornog pojasa. Komunikacijski kanal prenosi otprilike 300…3000 Hz, jer je to raspon u kojem se nalazi gotovo sva razumljivost ljudskog govora. Pojačalo koje bi radilo samo do 300 Hz propuštalo bi jedino mumljanje. Odgovor c je pogrešan stupanj (MF pojačalo je prije detektora, vidi teh-145), a d je preuzak — NF pojačalo ne razlikuje govor od podatkovnog tona, oboje su za njega samo audio.\n\nDvije praktične stvari koje priručnik dodaje. Prvo, ta pojačala rade u razredu A kako bi izobličenje bilo što manje, a zadnji stupanj često je protutaktni (simetrični) u razredu AB, gdje jedna polovica pojačava pozitivne, a druga negativne poluperiode. Drugo, na izlazu je najčešće transformator za prilagodbu, jer je izlazni otpor pojačala reda kilooma, a zvučnik ima svega 4 ili 8 Ω — bez prilagodbe se snaga ne bi prenijela.\n\nZapamti i logiku širine pojasa: sve što NF pojačalo propušta iznad 3 kHz na SSB vezi je samo šum, jer je MF filtar ionako odrezao sve iznad toga. Zato mnogi prijamnici imaju i NF filtar — sužavanje na kraju lanca ne popravlja selektivnost, ali smanjuje umor sluha.",
+    "formula": [
+      "Širine audio pojasa:",
+      "   govorna razumljivost   300 … 3000 Hz",
+      "   SSB kanal (MF filtar)  ~2,4 kHz",
+      "   radiodifuzijski AM     do ~4,5 kHz",
+      "   Hi-Fi                  20 Hz … 20 kHz",
+      "",
+      "Mjesto u lancu (vidi teh-145):",
+      "   … → DETEKTOR → NF POJAČALO → zvučnik",
+      "",
+      "Prilagodba na zvučnik transformatorom:",
+      "   n = √(R_izlazni / R_zvučnika)",
+      "   npr. 3200 Ω na 8 Ω → n = √400 = 20 : 1"
+    ],
+    "links": [
+      {"label": "Audio power amplifier", "url": "https://en.wikipedia.org/wiki/Audio_power_amplifier"},
+      {"label": "Radio receiver — NF stupanj u blok-shemi", "url": "https://en.wikipedia.org/wiki/Radio_receiver"}
+    ],
+    "cite": [
+      {"src": "RK", "loc": "4.3.9. Pojačalo niskih (NF) ili audiofrekvencija (AF), tiskana str. 133"},
+      {"src": "RK", "loc": "1.7.1. Audio signali — signali zvučnih ili audiofrekvencija, tiskana str. 45"}
+    ]
+  },
+
+  "teh-147": {
+    "note": "BFO (beat frequency oscillator, oscilator s izbijanjem) je pomoćni oscilator koji ubacuje nositelj koji na prijamu nedostaje. Nedostaje iz dva različita razloga, i zato ima dvije funkcije — a odgovor d je jedini koji navodi obje.\n\nKod CW-a nositelj se samo uključuje i isključuje tipkom; on nije ničim moduliran. Detektor iz njega nema što izvući: čuo bi se tek tihi 'klik' na početku i kraju svake točke. BFO se pomiješa s međufrekvencijom i ta razlika daje ton koji čuješ — prema priručniku obično oko 800 Hz. Dakle ton koji čuješ u telegrafiji ne dolazi iz etera, nego ga proizvodi tvoj prijamnik.\n\nKod SSB-a odašiljač je nositelj namjerno POTISNUO da ne troši snagu na njega. Bez nositelja detektor ne zna gdje je referentna točka i govor je nerazumljiv. BFO (u toj ulozi zove se i CIO, carrier insertion oscillator) vraća taj nositelj na pravo mjesto i govor postane razumljiv. Ako ga promašiš za više od tridesetak herca, glas se pomakne po frekvenciji i dobiješ poznati 'Paško Patak' efekt — to je isti onaj razlog zašto SSB traži precizno ugađanje, a FM ne.\n\nZamka u ovom pitanju je odgovor b: 'kod prijama CW signala' JEST točno, ali je nepotpuno. Ispit ovdje traži najpotpuniji točan odgovor, ne prvi točan. Kad god u ponuđenim odgovorima vidiš jedan koji sadrži dva druga, gotovo uvijek je on ključ. Vidi i teh-152 o produkt-detektoru, koji je sklop u koji se BFO zapravo ubacuje.",
+    "formula": [
+      "CW — ton nastaje kao razlika MF i BFO:",
+      "   f_ton = | f_MF − f_BFO |",
+      "",
+      "   f_MF  = 9 000 000 Hz",
+      "   f_BFO = 8 999 200 Hz",
+      "   f_ton =       800 Hz   ← ono što čuješ",
+      "",
+      "SSB — BFO nadomješta potisnuti nositelj:",
+      "   f_BFO se postavlja na rub MF filtra,",
+      "   ondje gdje bi nositelj bio da nije potisnut",
+      "",
+      "   promašaj > 30 Hz → glas pomaknut po frekvenciji",
+      "                      ('Paško Patak')",
+      "",
+      "Isti sklop, dva imena:",
+      "   BFO (beat frequency oscillator)  — za CW",
+      "   CIO (carrier insertion oscillator) — za SSB"
+    ],
+    "links": [
+      {"label": "Beat frequency oscillator", "url": "https://en.wikipedia.org/wiki/Beat_frequency_oscillator"},
+      {"label": "Continuous wave — zašto CW treba BFO", "url": "https://en.wikipedia.org/wiki/Continuous_wave"},
+      {"label": "Single-sideband modulation — obnavljanje nositelja", "url": "https://en.wikipedia.org/wiki/Single-sideband_modulation"}
+    ],
+    "cite": [
+      {"src": "RK", "loc": "4.3.7. Oscilator s izbijanjem, tiskana str. 133"},
+      {"src": "RK", "loc": "3.5.4. Detektor SSB signala — CIO i produkt-detektor, tiskana str. 123"},
+      {"src": "PZM", "loc": "Tema 15, SSB modulacija — BFO obnavlja noseću frekvenciju, tiskana str. 113"}
+    ]
+  },
+
+  "teh-148": {
+    "note": "Ratio-detektor (engl. ratio = omjer) demodulira FREKVENCIJSKI modulirani signal. Ime dolazi od načina rada: MF signal se preko transformatora dovodi na dvije suprotno polarizirane diode, a izlazni napon ovisi o OMJERU napona koje te dvije diode isprave.\n\nMehanizam je vrijedan razumijevanja jer objašnjava zašto uopće radi. Sekundarni titrajni krug ugođen je na sredinu MF-a. Točno u rezonanciji naponi na obje diode su jednaki i izlaz je nula. Kad frekvencija poraste za Δf, napon na jednom kraju raste, a na drugom pada; kad padne za Δf, događa se obrnuto. Izlazni napon je dakle razmjeran ODSTUPANJU frekvencije od sredine — a to je upravo ono što nosi informaciju kod FM-a.\n\nDodatna prednost ratio-detektora, i razlog zašto se u prijamnicima udomaćio, jest velik kondenzator (5…10 µF) koji drži zbroj obaju ispravljenih napona stalnim. Time sklop sam po sebi potiskuje amplitudne smetnje — a FM je i inače otporan na njih. Foster–Seeleyjev diskriminator daje isti oblik izlaza, ali nema tu ugrađenu limitaciju pa ispred sebe traži zaseban ograničavač.\n\nZa ispit najviše vrijedi zapamtiti tablicu 'koji detektor za koju modulaciju'. Prijamnici koji rade više načina imaju ih doslovno više ugrađenih: diodni detektor za AM, produkt-detektor za SSB i CW, a UKV prijamnici uz to i FM detektor. Vidi teh-152 (AM), teh-153 (shema ratio-detektora) i teh-156 (zamka s 10,7 MHz).",
+    "formula": [
+      "KOJI DETEKTOR ZA KOJU MODULACIJU",
+      "",
+      "   AM      → diodni detektor ovojnice",
+      "             (dioda + RC)              teh-152, 154, 156",
+      "   FM      → diskriminator (Foster–Seeley)",
+      "             ili RATIO-DETEKTOR        teh-148, 153",
+      "   SSB     → produkt-detektor + BFO/CIO",
+      "   CW      → produkt-detektor + BFO    teh-147",
+      "   DSB     → produkt-detektor",
+      "",
+      "Ratio-detektor, kako nastaje izlaz:",
+      "   f = f₀        → U(D₁) = U(D₂)  → izlaz 0 V",
+      "   f = f₀ + Δf   → U(D₁) ↑, U(D₂) ↓ → izlaz +",
+      "   f = f₀ − Δf   → U(D₁) ↓, U(D₂) ↑ → izlaz −",
+      "",
+      "   U_izlaz ~ Δf   → to je demodulirani NF signal"
+    ],
+    "links": [
+      {"label": "Ratio detector", "url": "https://en.wikipedia.org/wiki/Ratio_detector"},
+      {"label": "Frekvencijska modulacija (hr.wikipedia)", "url": "https://hr.wikipedia.org/wiki/Frekvencijska_modulacija"},
+      {"label": "Product detector — za SSB i CW", "url": "https://en.wikipedia.org/wiki/Product_detector"}
+    ],
+    "cite": [
+      {"src": "RK", "loc": "3.5.3. Detektor FM signala — ratio-detektor, sl. 3.5.2., tiskana str. 122"},
+      {"src": "RK", "loc": "4.3.6. Detektor, tiskana str. 133"}
+    ]
+  },
+
+  "teh-149": {
+    "note": "Ovo je zrcalni par pitanja teh-144. Kod TJUNERSKOG tipa dvostrukog superheterodina prvi oscilator je promjenjiv — baš kao kod običnog jednostrukog superheterodina — pa je prva međufrekvencija stalna. Drugi oscilator zato može biti stalan, i druga međufrekvencija je također stalna. Odgovor a.\n\nZašto uopće raditi dvije konverzije kad je prva MF već stalna? Zbog sukoba dvaju zahtjeva koji se ne mogu zadovoljiti jednom MF-om. Za dobru selektivnost želiš NISKU međufrekvenciju, jer je na 455 kHz lako napraviti filtar širine 2,4 kHz — to je 0,5 % frekvencije. Za dobro potiskivanje zrcalne frekvencije želiš VISOKU međufrekvenciju, jer je zrcalna udaljena 2·f_MF od korisnog signala (vidi teh-145). Prva MF je visoka i rješava zrcalnu, druga je niska i rješava selektivnost.\n\nPriručnik navodi i tipične brojke tog rješenja: prva međufrekvencija reda 1,6…30 MHz za dobru 'zrcalnu karakteristiku', a druga 50…100 kHz za dobru selektivnost. U amaterskoj praksi ćeš najčešće sresti prvu MF od 9 MHz ili 45 MHz, a drugu od 455 kHz.\n\nOno što se u oba pitanja stvarno provjerava jest razumiješ li da MF slijedi iz oscilatora, a ne obrnuto. Ako oscilator stoji, a ulaz se šeta, MF se mora šetati. Ako oscilator prati ulaz, MF stoji. Tjuner = prvi oscilator prati, sve MF stoje. Konvertor = prvi oscilator stoji, prva MF se šeta (teh-144).",
+    "formula": [
+      "TJUNERSKI tip:",
+      "   1. oscilator PROMJENJIV → 1. MF STALNA",
+      "   2. oscilator STALAN     → 2. MF STALNA  ← odgovor",
+      "",
+      "Primjer, prijam pojasa 20 m:",
+      "   ulaz     14,000 … 14,350 MHz",
+      "   f_osc1   23,000 … 23,350 MHz  (promjenjiv, prati)",
+      "   1. MF  = 23,000 − 14,000 = 9,000 MHz",
+      "          = 23,350 − 14,350 = 9,000 MHz  → stalna ✓",
+      "",
+      "   f_osc2 = 8,545 MHz  (kristal, stalan)",
+      "   2. MF  = 9,000 − 8,545 = 0,455 MHz  → stalna ✓",
+      "",
+      "ZAŠTO DVIJE MF — sukob zahtjeva:",
+      "   visoka MF → zrcalna daleko (dobra zaštita)",
+      "               ali težak uski filtar",
+      "   niska MF  → lak uski filtar (dobra selektivnost)",
+      "               ali zrcalna blizu",
+      "",
+      "   1. MF (visoka, 1,6…30 MHz)  → riješi ZRCALNU",
+      "   2. MF (niska, 50…455 kHz)   → riješi SELEKTIVNOST"
+    ],
+    "links": [
+      {"label": "Intermediate frequency — izbor MF i dvostruka konverzija", "url": "https://en.wikipedia.org/wiki/Intermediate_frequency"},
+      {"label": "Superheterodyne receiver", "url": "https://en.wikipedia.org/wiki/Superheterodyne_receiver"},
+      {"label": "Radioprijamnik (hr.wikipedia)", "url": "https://hr.wikipedia.org/wiki/Radioprijamnik"}
+    ],
+    "cite": [
+      {"src": "RK", "loc": "4.1.1. Jednostruki i dvostruki superheterodinski prijamnik, tiskana str. 128"},
+      {"src": "RK", "loc": "3.4.4. Pojačalo međufrekvencije — sukob zahtjeva i tipične vrijednosti MF, tiskana str. 119"},
+      {"src": "RK", "loc": "4.2. Blok dijagrami, sl. 4.4. (tjunerski tip), tiskana str. 129–130"}
+    ]
+  },
+
+  "teh-150": {
+    "note": "Pitanje zvuči prazno, ali ima smisao: nema jedne apsolutne brojke koja bi za sva tri svojstva vrijedila na svim frekvencijama. Ono što je 'dovoljno dobro' ovisi o pojasu na kojem radiš i o načinu rada — pa odgovor glasi da moraju biti u granicama uobičajenim za to frekvencijsko područje.\n\nOsjetljivost je najbolji primjer. Na kratkim valovima nema smisla juriti za ekstremno niskim vlastitim šumom, jer je atmosferski i industrijski šum koji dolazi s antene ionako mnogo veći od šuma prijamnika — bolji predpojačalo ne bi promijenio ništa. Na UKV-u i UHF-u vanjski je šum malen, pa svaki decibel faktora šuma izravno pomiče domet, i tu se predpojačala isplate (vidi teh-143).\n\nStabilnost isto tako. FM na 145 MHz podnosi lutanje od nekoliko stotina herca jer je kanal širok 12,5 ili 25 kHz. SSB veza na istoj frekvenciji propada već na nekoliko stotina herca. A ista ta apsolutna pogreška u ppm je na 3,5 MHz četrdeset puta manja nego na 145 MHz — zato oscilator koji je posve pristojan na KV-u može biti neupotrebljiv na UKV-u.\n\nSelektivnost slijedi širinu emisije: 2,4 kHz za SSB, 500 Hz za CW, 12…16 kHz za UKV FM. Preuska selektivnost jednako je loša kao preširoka — kroz 500 Hz filtar SSB govor je nerazumljiv. Odgovori b, c i d su besmisleni upravo zato što tvrde da parametri mogu biti proizvoljni, promjenjivi ili preuzeti od druge radijske službe.",
+    "formula": [
+      "Ista pogreška, dva pojasa — zašto zahtjev ovisi o f:",
+      "   oscilator s 10 ppm klizanja",
+      "      na  3,5 MHz →  3 500 000 · 10⁻⁵ =   35 Hz",
+      "      na  145 MHz → 145 000 000 · 10⁻⁵ = 1450 Hz",
+      "   isti oscilator, 40× gora posljedica na UKV-u",
+      "",
+      "Uobičajene vrijednosti u praksi (nisu propisane norme,",
+      "nego ono što se od uređaja očekuje):",
+      "",
+      "   KV, SSB (14 MHz)",
+      "      osjetljivost   ~0,2 µV  (10 dB S/N, 2,4 kHz)",
+      "      selektivnost   2,4 kHz",
+      "      stabilnost     desetci Hz",
+      "      faktor šuma    nije kritičan (dominira šum pojasa)",
+      "",
+      "   UKV, FM (145 MHz)",
+      "      osjetljivost   ~0,2 µV (12 dB SINAD)",
+      "      selektivnost   12 … 16 kHz",
+      "      stabilnost     stotine Hz je podnošljivo",
+      "      faktor šuma    1 … 3 dB — svaki dB se broji"
+    ],
+    "links": [
+      {"label": "Radio receiver — osjetljivost i selektivnost", "url": "https://en.wikipedia.org/wiki/Radio_receiver"},
+      {"label": "Sensitivity (electronics)", "url": "https://en.wikipedia.org/wiki/Sensitivity_(electronics)"},
+      {"label": "Selectivity (radio)", "url": "https://en.wikipedia.org/wiki/Selectivity_(radio)"}
+    ],
+    "cite": [
+      {"src": "RK", "loc": "4.4. Karakteristike prijamnika (jednostavni opis) — 4.4.1. do 4.4.6., tiskana str. 134–135"}
+    ]
+  },
+
+  "teh-151": {
+    "note": "Klizanje ili drift je NEPOŽELJNO, SUSTAVNO i SPORO mijenjanje frekvencije oscilatora s vremenom. Sve tri riječi u odgovoru d nose težinu i svaka isključuje po jedan pogrešan odgovor.\n\n'Nepoželjno' isključuje odgovor b, koji drift proglašava poželjnim. 'Sustavno' i 'tijekom vremena' isključuju odgovor c: kratkotrajne, slučajne promjene frekvencije nisu drift nego podrhtavanje (jitter) odnosno fazni šum. Drift ide u jednom smjeru i traje minutama ili satima. Odgovor a, frekvencijska devijacija, uopće nije greška nego namjerni parametar FM modulacije — koliko odašiljač otklanja frekvenciju u ritmu govora.\n\nGlavni uzrok je zagrijavanje. Frekvencija LC oscilatora je f = 1/(2π√(LC)), a i L i C se s temperaturom mijenjaju: zavojnica se rasteže, dielektrik kondenzatora mijenja permitivnost, mijenjaju se i kapaciteti spojeva unutar tranzistora. Zato uređaj neposredno nakon uključivanja kliže najbrže, a poslije pola sata se 'smiri'. Otud i navika da se prije važnog natjecanja ili mjerenja uređaj uključi ranije. Kod kristalnih oscilatora tome se doskače kompenzacijom (TCXO) ili termostatom, u kojem se kristal drži na 60…70 °C, dakle iznad svake vanjske temperature (OCXO).\n\nDrift objašnjava i zašto je prijamnik stabilan samo koliko i njegov oscilator (teh-140): svaki herc koji lokalni oscilator odluta pomiče prijamni prozor za isti toliko.",
+    "formula": [
+      "Klizanje se izražava u ppm (dijelova na milijun)",
+      "ili u Hz kroz zadano vrijeme:",
+      "",
+      "   Δf = f · (ppm / 10⁶)",
+      "",
+      "Primjer, prijamnik na 145,500 MHz:",
+      "   običan LC VFO, 10 ppm  → Δf = 1455 Hz",
+      "   TCXO, 1 ppm            → Δf =  146 Hz",
+      "   OCXO, 0,01 ppm         → Δf =  1,5 Hz",
+      "",
+      "Ne brkati:",
+      "   DRIFT       spora, sustavna, jednosmjerna promjena",
+      "               (zagrijavanje, starenje)",
+      "   JITTER/     brze, slučajne promjene oko srednje",
+      "   fazni šum   vrijednosti",
+      "   DEVIJACIJA  namjerni otklon frekvencije kod FM",
+      "               modulacije — nije greška"
+    ],
+    "links": [
+      {"label": "Frequency drift", "url": "https://en.wikipedia.org/wiki/Frequency_drift"},
+      {"label": "Crystal oscillator — starenje, temperatura, TCXO/OCXO", "url": "https://en.wikipedia.org/wiki/Crystal_oscillator"},
+      {"label": "Oscilator (elektrotehnika) — hr.wikipedia", "url": "https://hr.wikipedia.org/wiki/Oscilator_(elektrotehnika)"}
+    ],
+    "cite": [
+      {"src": "RK", "loc": "3.6.1. Oscilator s promjenjivom frekvencijom — 'klizati (engl. drift)', mjere protiv mehaničkog i temperaturnog utjecaja, tiskana str. 124"},
+      {"src": "RK", "loc": "4.3.2. Oscilator (stalni i promjenjivi), tiskana str. 131–132"}
+    ]
+  },
+
+  "teh-152": {
+    "note": "Najjednostavniji AM detektor je dioda plus kondenzator — i to je doslovno cijeli sklop. Dioda odreže jednu poluperiodu moduliranog signala, a kondenzator koji slijedi iza nje puni se do vrhova preostalih poluperioda i između njih se polako prazni kroz otpornik. Napon na kondenzatoru zato prati OVOJNICU (envelope) moduliranog signala — a ovojnica je upravo modulacijski signal. Otud i drugo ime: detektor ovojnice.\n\nCijela tajna ispravnog rada je u vremenskoj konstanti τ = R·C, koja mora biti u prozoru između dvije granice. Mora biti mnogo veća od periode nositelja, inače se kondenzator isprazni između pojedinih poluperioda i na izlazu dobiješ nazubljeni VF signal umjesto glatke ovojnice. I mora biti mnogo manja od periode najviše audio frekvencije, inače kondenzator ne stigne pratiti brze promjene modulacije i visoki tonovi se izgube.\n\nOdgovori a i b nude FM detektore: ratio-detektor i diskriminator demoduliraju frekvencijsku, a ne amplitudnu modulaciju (vidi teh-148). Odgovor c je izmišljotina — kristalni filtar je selektivni sklop, on ne demodulira ništa.\n\nZa AM je diodni detektor sasvim dovoljan jer AM signal sa sobom nosi vlastiti nositelj. Za SSB i CW ne valja, jer je ondje nositelj potisnut ili nemoduliran, pa ovojnica nema smisla — tamo treba produkt-detektor s BFO-om (vidi teh-147). Suvremeni prijamnik zato ima oba: diodni detektor za AM i produkt-detektor za SSB i CW. Sheme koje ćeš prepoznavati su teh-154 i teh-156.",
+    "formula": [
+      "Detektor ovojnice — uvjet na vremensku konstantu:",
+      "",
+      "   1/f_nositelja  ≪  τ = R·C  ≪  1/f_audio(max)",
+      "",
+      "Provjera s brojkama sa sheme (MF 455 kHz, C = 1 nF,",
+      "uz tipičan teret R = 10 kΩ):",
+      "",
+      "   1/455 kHz          = 2,2 µs    ← donja granica",
+      "   τ = 10 kΩ · 1 nF   = 10 µs     ← naš sklop",
+      "   1/3000 Hz          = 333 µs    ← gornja granica",
+      "",
+      "   2,2 µs ≪ 10 µs ≪ 333 µs  ✓ sklop radi ispravno",
+      "",
+      "Što ide krivo izvan tog prozora:",
+      "   τ premalen → na izlazu ostaje VF valovitost",
+      "   τ prevelik → gube se visoki tonovi (dijagonalno",
+      "                izobličenje ovojnice)"
+    ],
+    "links": [
+      {"label": "Envelope detector — dioda + RC", "url": "https://en.wikipedia.org/wiki/Envelope_detector"},
+      {"label": "Amplitudna modulacija (hr.wikipedia)", "url": "https://hr.wikipedia.org/wiki/Amplitudna_modulacija"},
+      {"label": "Product detector — za SSB/CW", "url": "https://en.wikipedia.org/wiki/Product_detector"}
+    ],
+    "cite": [
+      {"src": "RK", "loc": "4.3.6. Detektor, tiskana str. 133"},
+      {"src": "RK", "loc": "3.5.2. Diodni detektor ili detektor ovojnice, tiskana str. 122"},
+      {"src": "RK", "loc": "2.6.2.1. Primjeri uporabe dioda — 2. AM demodulator, tiskana str. 80"}
+    ]
+  },
+
+  "teh-153": {
+    "note": "Na shemi je MF ulaz preko transformatora, dvije diode okrenute JEDNA PREMA DRUGOJ (suprotno polarizirane), nekoliko kondenzatora i djelilo od dva otpornika s kojega se uzima AF izlaz. To je ratio-detektor, dakle FM demodulator.\n\nKako ga prepoznati u tri koraka. Prvo: oznake ulaza i izlaza — MF unutra, AF van — govore da je riječ o detektoru, a ne o mrežnom ispravljaču (odgovor d bi imao mrežni transformator i nikakvu MF oznaku). Drugo: DVIJE diode, ali suprotno polarizirane. Punovalni ispravljač ima diode okrenute u ISTOM smjeru prema zajedničkom teretu; ovdje su okrenute jedna protiv druge jer se izlaz uzima kao razlika, a ne kao zbroj njihovih napona. Treće: dioda ovdje ima dvije, a detektor ovojnice (odgovor a) i AM detektor (odgovor c) imaju samo jednu — vidi teh-154 i teh-156.\n\nRad je opisan u teh-148: sekundarni krug ugođen je na sredinu MF-a, u rezonanciji su naponi na obje diode jednaki i izlaz je nula, a čim frekvencija odstupi, jedan raste a drugi pada, pa je izlazni napon razmjeran otklonu frekvencije. Veliki kondenzator preko cijelog izlaza (5…10 µF) drži ZBROJ obaju ispravljenih napona stalnim — otud ime 'ratio', jer korisna informacija leži u omjeru, a ne u apsolutnim iznosima. Ta osobina daje ratio-detektoru ugrađenu otpornost na amplitudne smetnje.\n\nPrimijeti da su odgovori a i c u ovom pitanju zapravo isti sklop pod dva imena (detektor ovojnice = AM detektor). Kad ti ispit ponudi dva odgovora koji znače istu stvar, nijedan od njih nije ključ — jer bi inače pitanje imalo dva točna odgovora. To je koristan trik za brzo odbacivanje.",
+    "formula": [
+      "PREPOZNAVANJE SKLOPA NA SHEMI",
+      "",
+      "  1 dioda + RC, MF ulaz, AF izlaz",
+      "      → detektor ovojnice / AM detektor   teh-154, 156",
+      "",
+      "  2 diode SUPROTNO polarizirane + MF transformator",
+      "  + veliki kondenzator preko izlaza",
+      "      → RATIO-DETEKTOR (FM)               teh-153",
+      "",
+      "  2 diode u ISTOM smjeru na zajednički teret",
+      "      → punovalni ispravljač",
+      "",
+      "  FET/tranzistor s DVA ulaza (MF + BFO)",
+      "      → produkt-detektor (SSB, CW)",
+      "",
+      "  tranzistor, RC sprega, zvučnik, bez titrajnih krugova",
+      "      → NF (AF) pojačalo                  teh-155",
+      "",
+      "Ratio-detektor, izlaz:",
+      "   f = f₀      → U(D₁) = U(D₂) → AF izlaz 0",
+      "   f = f₀ ± Δf → naponi se razilaze → AF izlaz ~ ±Δf"
+    ],
+    "links": [
+      {"label": "Ratio detector", "url": "https://en.wikipedia.org/wiki/Ratio_detector"},
+      {"label": "Frekvencijska modulacija (hr.wikipedia)", "url": "https://hr.wikipedia.org/wiki/Frekvencijska_modulacija"}
+    ],
+    "cite": [
+      {"src": "RK", "loc": "3.5.3. Detektor FM signala — ratio-detektor, sl. 3.5.2., tiskana str. 122"},
+      {"src": "RK", "loc": "4.3.6. Detektor, tiskana str. 133"}
+    ]
+  },
+
+  "teh-154": {
+    "note": "Na shemi je ulaz označen 'iz MF-a', zatim transformator s ugođenim sekundarom, JEDNA dioda u seriji, kondenzator od 1 nF prema masi i potenciometar s kojeg se uzima AF izlaz. Jedna dioda plus RC članak — to je detektor ovojnice.\n\nOdgovori b i c nude fazni diskriminator odnosno fazni detektor. Oba bi morala uspoređivati FAZU dvaju signala, pa bi im trebale najmanje dvije diode i dva sprežna namota — ovdje toga nema. Odgovor a, poluvalni mrežni ispravljač, ima istu topologiju (dioda + kondenzator) i baš zato je najopasnija zamka; razlika je u tome što bi mrežni ispravljač imao mrežni transformator na 50 Hz i puno veći kondenzator, a nikako ne bi imao oznaku 'iz MF-a' na ulazu ni 'AF izlaz' s potenciometra. Kad na shemi vidiš MF ulaz i AF izlaz, sklop demodulira, a ne napaja.\n\nPotenciometar na izlazu je usput i sam po sebi trag: to je regulacija glasnoće, jer je ovo posljednja točka prije NF pojačala (vidi teh-145 i teh-146).\n\nVažno je uočiti da su ovo i teh-156 u biti ISTI sklop, samo s drukčijim popisom ponuđenih odgovora — jednom se traži naziv 'detektor ovojnice', drugi put 'AM detektor'. To su dva imena za istu stvar. Zato u ovim shematskim pitanjima uvijek pročitaj ponuđene odgovore do kraja: slika sama ne razlikuje ta dva pitanja, popis odgovora ih razlikuje.",
+    "formula": [
+      "Sklop na shemi:",
+      "   MF transformator → 1 dioda → 1 nF prema masi",
+      "   → potenciometar (glasnoća) → AF izlaz",
+      "",
+      "Uvjet ispravnog rada (vidi teh-152):",
+      "   1/f_nositelja ≪ R·C ≪ 1/f_audio(max)",
+      "",
+      "Zašto to NIJE mrežni ispravljač, iako izgleda isto:",
+      "   mrežni ispravljač   50 Hz, C reda 1000 µF,",
+      "                       izlaz je istosmjerni napon",
+      "   detektor ovojnice   MF (455 kHz…10,7 MHz),",
+      "                       C reda 1 nF,",
+      "                       izlaz je audio signal",
+      "",
+      "Broji diode:  1 → AM   ·   2 suprotne → FM"
+    ],
+    "links": [
+      {"label": "Envelope detector", "url": "https://en.wikipedia.org/wiki/Envelope_detector"},
+      {"label": "Amplitudna modulacija (hr.wikipedia)", "url": "https://hr.wikipedia.org/wiki/Amplitudna_modulacija"}
+    ],
+    "cite": [
+      {"src": "RK", "loc": "3.5.2. Diodni detektor ili detektor ovojnice, tiskana str. 122"},
+      {"src": "RK", "loc": "4.3.6. Detektor, tiskana str. 133"}
+    ]
+  },
+
+  "teh-155": {
+    "note": "Na shemi je jedan tranzistor s djelilom baze od dva otpornika po 3,3 kΩ, ulaznim kondenzatorom od 1 µF, emiterskim otpornikom premoštenim kondenzatorom od 1 µF, a u kolektoru transformator koji napaja ZVUČNIK. To je NF (AF) pojačalo, i zvučnik je najjači trag na cijeloj slici.\n\nDruga potvrda je u vrijednostima kondenzatora. Kondenzator od 1 µF ima na 1 kHz reaktanciju od oko 159 Ω — dakle upravo prikladnu za sprezanje audio signala. Na međufrekvenciji od 455 kHz isti bi kondenzator imao 0,35 Ω, što je za VF sklop besmisleno velika vrijednost; VF i MF pojačala sprežu se kondenzatorima reda nanofarada ili pikofarada. Kad na shemi vidiš mikrofarade u signalnom putu, gledaš audio.\n\nTreći, i najpouzdaniji trag: nigdje na shemi nema TITRAJNOG KRUGA. VF pojačalo (odgovor a) i MF pojačalo (odgovor d) po definiciji imaju ugođene LC krugove na ulazu i izlazu — VF promjenjive, MF stalne — jer je njihov posao pojačati samo jedan uzak pojas frekvencija. Ovdje je opterećenje kolektora obični transformator za prilagodbu na zvučnik, bez ugađanja. Miješalo (odgovor c) otpada jer ima samo jedan ulaz, a miješalo traži dva.\n\nSpoj je klasično pojačalo sa zajedničkim emiterom: djelilo 3k3/3k3 postavlja radnu točku baze, emiterski otpornik daje istosmjernu stabilizaciju radne točke, a kondenzator preko njega tu protuspregu ukida za izmjenični signal da se ne izgubi pojačanje. Transformator na izlazu prilagođava visoki izlazni otpor kolektora na nekoliko oma zvučnika (vidi teh-146).",
+    "formula": [
+      "Reaktancija kondenzatora:  X_C = 1 / (2·π·f·C)",
+      "",
+      "Kondenzator od 1 µF:",
+      "   na 1 kHz     X_C = 159 Ω     ← audio sprega ✓",
+      "   na 455 kHz   X_C = 0,35 Ω    ← besmisleno za VF",
+      "",
+      "Kondenzator od 1 nF:",
+      "   na 455 kHz   X_C = 350 Ω     ← ovako izgleda VF",
+      "",
+      "Pravilo palca: µF u signalnom putu → audio",
+      "               nF i pF u signalnom putu → VF/MF",
+      "",
+      "TRI TRAGA DA JE OVO NF POJAČALO:",
+      "   1. na izlazu je zvučnik",
+      "   2. sprežni kondenzatori su 1 µF",
+      "   3. NIGDJE nema ugođenog titrajnog kruga",
+      "      (VF i MF pojačala uvijek ih imaju)"
+    ],
+    "links": [
+      {"label": "Common emitter — pojačalo sa zajedničkim emiterom", "url": "https://en.wikipedia.org/wiki/Common_emitter"},
+      {"label": "Audio power amplifier", "url": "https://en.wikipedia.org/wiki/Audio_power_amplifier"}
+    ],
+    "cite": [
+      {"src": "RK", "loc": "4.3.9. Pojačalo niskih (NF) ili audiofrekvencija (AF) — razred A, izlazni transformator za prilagodbu, tiskana str. 133"},
+      {"src": "RK", "loc": "2.6.3.1. Primjeri uporabe tranzistora — 1.1. Pojačalo sa zajedničkim emiterom, tiskana str. 83"}
+    ]
+  },
+
+  "teh-156": {
+    "note": "Shema pokazuje MF ulaz označen s 10,7 MHz, transformator, JEDNU diodu u seriji i kondenzator od 1 nF prema masi. Jedna dioda i jedan kondenzator mogu reagirati samo na AMPLITUDU signala — zato je to AM detektor, bez obzira na to što piše kod ulaza.\n\nA kod ulaza piše zamka. 10,7 MHz je standardna međufrekvencija radiodifuzijskih FM prijamnika, i cijelo je pitanje složeno tako da te taj broj odvuče na odgovor b, FM diskriminator. Ali diskriminator mora mjeriti odstupanje FREKVENCIJE, a za to mu treba fazna usporedba: dva sprežna namota i dvije diode, kao na shemi u teh-153. Ovdje toga nema. Broj na ulazu govori samo gdje je sklop u lancu, ne što radi.\n\nPreostali odgovori otpadaju lako. Mrežni ispravljač (a) ne bi imao MF oznaku ni kondenzator od svega 1 nF. Stabilizator napona (d) tražio bi Zenerovu diodu spojenu poprijeko, prema masi, a ne običnu diodu u seriji sa signalom.\n\nJedna poštena napomena da te ne zbuni ako naiđeš na nju drugdje: u praksi se jednodiodni detektor MOŽE upotrijebiti i za grubu FM demodulaciju, tzv. detekcijom na boku krivulje (slope detection), tako da se titrajni krug namjerno raštima s 10,7 MHz i frekvencijske promjene se pretvore u amplitudne. To je improvizacija, ne standardni sklop, i ispit je ne traži — ključ je AM detektor. Usporedi s teh-154: to je ista topologija, samo je ondje ponuđen naziv 'detektor ovojnice'. Oba su naziva za isti sklop.",
+    "formula": [
+      "Sklop na shemi:",
+      "   MF ulaz 10,7 MHz → transformator → 1 dioda",
+      "   → 1 nF prema masi → izlaz",
+      "",
+      "Što sklop može detektirati:",
+      "   1 dioda + 1 kondenzator → samo AMPLITUDU",
+      "   za FREKVENCIJU treba fazna usporedba:",
+      "      2 diode + sprežni namoti (ratio-detektor,",
+      "      Foster–Seeleyjev diskriminator)",
+      "",
+      "Zamka: 10,7 MHz je standardna MF radiodifuzijskih",
+      "FM prijamnika — ali frekvencija ulaza NE određuje",
+      "vrstu detektora. Topologija određuje.",
+      "",
+      "Tipične međufrekvencije, za orijentaciju:",
+      "     455 kHz   AM radiodifuzija",
+      "    10,7 MHz   FM radiodifuzija, UKV prijamnici",
+      "     9,0 MHz   česta 1. MF u amaterskim KV uređajima",
+      "    45,0 MHz   1. MF kod dvostruke konverzije"
+    ],
+    "links": [
+      {"label": "Envelope detector", "url": "https://en.wikipedia.org/wiki/Envelope_detector"},
+      {"label": "Intermediate frequency — 455 kHz, 10,7 MHz", "url": "https://en.wikipedia.org/wiki/Intermediate_frequency"},
+      {"label": "Ratio detector — kako izgleda pravi FM detektor", "url": "https://en.wikipedia.org/wiki/Ratio_detector"}
+    ],
+    "cite": [
+      {"src": "RK", "loc": "3.5.2. Diodni detektor ili detektor ovojnice, tiskana str. 122"},
+      {"src": "RK", "loc": "4.3.6. Detektor, tiskana str. 133"}
+    ]
+  }
+}

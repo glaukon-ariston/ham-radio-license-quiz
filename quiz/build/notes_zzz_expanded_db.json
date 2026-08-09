@@ -1,0 +1,234 @@
+{
+  "_doc": "Expanded teaching notes — batch 1: the decibel family (13 questions). Longer prose, a worked formula block, verified external links, and citations checked against the actual page rather than assumed. Named to sort LAST so these override the terse originals; rebuild.py applies notes_*.json in sorted order.",
+  "_links_verified": "Every URL here was fetched and confirmed to exist and to cover the stated point (9 Aug 2026).",
+  "_citation_note": "RK printed page numbers were read off the page itself. The PDF-to-printed offset is NOT constant through the book (+3 in the front matter, +5 in the question section), so each was checked individually.",
+
+  "teh-030": {
+    "note": "Decibel (dB) nije jedinica snage nego jedinica OMJERA. Ne govori koliko nečega ima, nego koliko je nešto veće ili manje od nečega drugog. Zato uvijek mora postojati referenca — ili druga snaga s kojom uspoređujemo, ili dogovorena nulta točka.\n\nRazina se definira dekadskim logaritmom omjera dviju snaga. Logaritam se koristi zato što raspon snaga u radiotehnici ide od pikovata na prijamu do kilovata na odašiljaču — to je raspon od 10¹⁸, koji se u linearnom mjerilu ne da nacrtati ni pratiti. Logaritam ga sabije u nekoliko desetaka brojeva.\n\nDruga velika prednost: množenje prelazi u zbrajanje. Lanac pojačala i vodova s pojačanjima ×100, ×0,5 i ×4 računa se kao 20 dB − 3 dB + 6 dB = 23 dB. To je razlog zašto se u praksi sve izražava u dB.\n\nJedinica bel (B) je prevelika za praktičnu upotrebu pa se rabi deset puta manja — decibel. Otud faktor 10 u formuli.",
+    "formula": [
+      "L = 10 · log₁₀(P₂ / P₁)   [dB]        ← za SNAGE",
+      "L = 20 · log₁₀(U₂ / U₁)   [dB]        ← za napone i struje",
+      "",
+      "Zašto 20 za napon: P ~ U², a log(U²) = 2·log(U)."
+    ],
+    "links": [
+      {"label": "Decibel (hr.wikipedia)", "url": "https://hr.wikipedia.org/wiki/Decibel"},
+      {"label": "Decibel (en.wikipedia)", "url": "https://en.wikipedia.org/wiki/Decibel"},
+      {"label": "Logaritam", "url": "https://hr.wikipedia.org/wiki/Logaritam"}
+    ],
+    "cite": [{"src": "RK", "loc": "1.9.4. O decibelu (dB), tiskana str. 53–55"}]
+  },
+
+  "teh-031": {
+    "note": "+3 dB znači dvostruku snagu. Uvrsti 3 dB u definiciju razine i izračunaj omjer — dobiješ 1,995, dakle praktički točno 2. Nije okrugla dvojka slučajno: log₁₀(2) = 0,301, pa je 10·log₁₀(2) = 3,01 dB. U radioamaterskoj praksi se zaokružuje na 3 dB.\n\nOvo je najkorisniji broj koji ćeš zapamtiti. Svako udvostručenje snage je +3 dB, svako prepolovljenje je −3 dB. Zato: 100 W → 200 W je +3 dB, a 100 W → 50 W je −3 dB.\n\nVrijedi i obrnuto smjerom razmišljanja: ako ti netko kaže da je pojačalo dalo 3 dB, dobio si dvostruko snage — što na prijamu odgovara jedva primjetnoj promjeni, jer ljudsko uho i S-instrument reagiraju logaritamski. Za jednu S-jedinicu treba 6 dB, dakle četverostruka snaga.",
+    "formula": [
+      "3 = 10 · log₁₀(P₂/P₁)",
+      "log₁₀(P₂/P₁) = 0,3",
+      "P₂/P₁ = 10^0,3 = 1,995 ≈ 2",
+      "",
+      "Primjer: 50 W + 3 dB → 100 W"
+    ],
+    "links": [
+      {"label": "Decibel (hr.wikipedia)", "url": "https://hr.wikipedia.org/wiki/Decibel"},
+      {"label": "Decibel (en.wikipedia)", "url": "https://en.wikipedia.org/wiki/Decibel"}
+    ],
+    "cite": [{"src": "RK", "loc": "1.9.4. O decibelu (dB), tiskana str. 53–55"}]
+  },
+
+  "teh-032": {
+    "note": "+10 dB znači deseterostruku snagu. To slijedi izravno iz definicije razine: decibel je deset puta dekadski logaritam omjera dviju snaga, pa 10 dB znači da je logaritam omjera jednak 1, a broj čiji je dekadski logaritam 1 jest 10.\n\nKorisno je to vidjeti kao pravilo: svakih +10 dB množi snagu s 10, a svakih +3 dB je udvostručuje. Budući da se decibeli ZBRAJAJU tamo gdje se omjeri množe, iz ta dva broja možeš složiti gotovo sve što ti treba na ispitu.\n\nPazi na čestu zamku: ovo vrijedi za SNAGU. Za napon ili struju formula ima faktor 20 umjesto 10, pa +10 dB znači napon veći √10 ≈ 3,16 puta, a ne 10 puta. Pitanje uvijek pročitaj do kraja — traži li se snaga ili napon.",
+    "formula": [
+      "10 = 10 · log₁₀(P₂/P₁)",
+      "log₁₀(P₂/P₁) = 1",
+      "P₂/P₁ = 10¹ = 10          → deseterostruka snaga",
+      "",
+      "Provjera: 5 W + 10 dB → 50 W",
+      "",
+      "Tablica za pamćenje (SNAGA):",
+      "   3 dB = ×2         10 dB = ×10",
+      "   6 dB = ×4         20 dB = ×100",
+      "   9 dB = ×8         30 dB = ×1000",
+      "",
+      "Slaganje: 13 dB = 10 + 3 → ×10 · ×2 = ×20",
+      "          23 dB = 20 + 3 → ×100 · ×2 = ×200",
+      "",
+      "Za NAPON vrijedi 20·log, pa je 10 dB → ×√10 ≈ 3,16"
+    ],
+    "links": [
+      {"label": "Decibel (hr.wikipedia)", "url": "https://hr.wikipedia.org/wiki/Decibel"},
+      {"label": "Decibel (en.wikipedia)", "url": "https://en.wikipedia.org/wiki/Decibel"}
+    ],
+    "cite": [{"src": "RK", "loc": "1.9.4. O decibelu (dB), tiskana str. 53–55"}]
+  },
+
+  "teh-033": {
+    "note": "Ovo je glavni razlog zašto se uopće služimo decibelima: kroz lanac se oni ZBRAJAJU. Da računaš s omjerima, morao bi ih množiti; ovako samo zbrajaš pozitivne (pojačanja) i negativne (slabljenja) brojeve.\n\nKad je zbroj cijelog lanca 0 dB, znači da su se pojačanja i slabljenja točno poništila — snaga na izlazu jednaka je snazi na ulazu. 0 dB NIJE nula snage; to je omjer 1:1. Nula vata bila bi minus beskonačno decibela.\n\nIsti postupak koristiš i za napojni vod i antenu (vidi teh-179 i teh-180): dobitak antene u dB plus gubitak voda u dB, pa tek onda pretvoriš natrag u vate.",
+    "formula": [
+      "L_ukupno = L₁ + L₂ + L₃ + …   (pojačanja +, slabljenja −)",
+      "",
+      "Ako je L_ukupno = 0 dB:",
+      "   P_izlaz / P_ulaz = 10^(0/10) = 10⁰ = 1",
+      "   → izlazna snaga = ulazna snaga",
+      "",
+      "0 dB = omjer 1:1, a NE nula snage."
+    ],
+    "links": [
+      {"label": "Decibel (en.wikipedia)", "url": "https://en.wikipedia.org/wiki/Decibel"}
+    ],
+    "cite": [{"src": "RK", "loc": "1.9.4. O decibelu (dB), tiskana str. 53–55"}]
+  },
+
+  "teh-034": {
+    "note": "Zadatak ERP-a rješava se u decibelima, pa se tek na kraju vraća u vate. Dobitak antene se dodaje, gubitak napojnog voda se oduzima.\n\nOvdje: +12 dB od antene, −2 dB u vodu, ukupno +10 dB. A +10 dB je deseterostruko (vidi teh-032), pa 100 W postaje 1000 W.\n\nERP nije snaga koju odašiljač stvarno troši — to je snaga koju bi trebao imati polustvalni dipol da u smjeru glavnog snopa proizvede isto polje. Antena ne stvara energiju; ona je samo usmjerava, pa u jednom smjeru dobiješ više, a u ostalima manje.\n\nPazi na razliku ERP i EIRP: ERP se odnosi na dipol kao referencu (dBd), EIRP na izotropni radijator (dBi). Razlika je 2,15 dB. Pravilnik NN 150/22 u Dodatku 1 na nekim mjestima propisuje baš EIRP — primjerice 1 W EIRP na 135,7 kHz.",
+    "formula": [
+      "L_ukupno = G_antene − L_voda = 12 dB − 2 dB = 10 dB",
+      "",
+      "ERP = P · 10^(L/10) = 100 W · 10^(10/10)",
+      "    = 100 W · 10 = 1000 W",
+      "",
+      "Odnos referenci:  dBi = dBd + 2,15"
+    ],
+    "links": [
+      {"label": "Effective radiated power", "url": "https://en.wikipedia.org/wiki/Effective_radiated_power"},
+      {"label": "Decibel (hr.wikipedia)", "url": "https://hr.wikipedia.org/wiki/Decibel"}
+    ],
+    "cite": [
+      {"src": "RK", "loc": "1.9.4. O decibelu (dB), tiskana str. 53–55"},
+      {"src": "NN150/22", "loc": "Dodatak 1., Tablica 1. (EIRP granice) i Napomena 4."}
+    ]
+  },
+
+  "teh-139": {
+    "note": "Jedna S-jedinica je po dogovoru 6 dB, što znači četverostruku snagu (6 dB = 3 dB + 3 dB = ×2 · ×2).\n\nTo je iznenađujuće velik skok. Da bi sugovorniku podigao izvještaj za jednu S-jedinicu, moraš učetverostručiti snagu — sa 100 W na 400 W. Zato povećanje sa 100 W na 200 W (+3 dB) jedva pomakne iglu: to je pola S-jedinice.\n\nIARU preporuka veže S9 na −73 dBm na 50 Ω za KV (na VHF/UHF −93 dBm). Iznad S9 izvještaj se daje u decibelima iznad S9, primjerice 'S9 + 20 dB'.\n\nPraktična pouka za ispit i za rad: bolja antena gotovo uvijek isplati više od većeg pojačala. +6 dB dobitka antene daje istu razliku kao učetverostručenje snage, a ne troši struju i ne stvara smetnje susjedima.",
+    "formula": [
+      "1 S-jedinica = 6 dB",
+      "6 dB = 3 + 3 dB → ×2 · ×2 = ×4 snage",
+      "",
+      "S9 (KV)      = −73 dBm  na 50 Ω",
+      "S9 (VHF/UHF) = −93 dBm",
+      "",
+      "100 W → 400 W = +6 dB = +1 S-jedinica"
+    ],
+    "links": [
+      {"label": "S meter", "url": "https://en.wikipedia.org/wiki/S_meter"},
+      {"label": "Decibel (en.wikipedia)", "url": "https://en.wikipedia.org/wiki/Decibel"}
+    ],
+    "cite": [{"src": "PZM", "loc": "4. Prijamnici, str. 107 i dalje"}]
+  },
+
+  "teh-169": {
+    "note": "6 dB rastavi na 3 dB + 3 dB. Svaki od njih udvostručuje snagu, pa je ukupno ×2 · ×2 = 4 puta.\n\nMožeš i izravno: 10^(6/10) = 10^0,6 = 3,98 ≈ 4.\n\nOvo rastavljanje na zbroj poznatih koraka je najbrža metoda na ispitu — rijetko ćeš imati kalkulator, a gotovo svaki traženi broj složiv je od 3 dB i 10 dB.",
+    "formula": [
+      "6 dB = 3 dB + 3 dB → ×2 · ×2 = ×4",
+      "",
+      "Provjera izravno:",
+      "   P₂/P₁ = 10^(6/10) = 10^0,6 = 3,98 ≈ 4",
+      "",
+      "Niz koji pokriva većinu zadataka:",
+      "   3 dB ×2 · 6 dB ×4 · 9 dB ×8 · 10 dB ×10 · 20 dB ×100"
+    ],
+    "links": [
+      {"label": "Decibel (hr.wikipedia)", "url": "https://hr.wikipedia.org/wiki/Decibel"}
+    ],
+    "cite": [{"src": "RK", "loc": "1.9.4. O decibelu (dB), tiskana str. 53–55"}]
+  },
+
+  "teh-177": {
+    "note": "Odnos naprijed-nazad (F/B, front-to-back) je razlika u decibelima između zračenja u smjeru glavnog snopa i zračenja točno suprotno, 180° iza antene.\n\nČita se izravno s dijagrama zračenja: koliko koncentričnih kružnica (obično po 10 dB) ima između vrha glavnog snopa i stražnjeg snopa.\n\nF/B je mjera koliko dobro antena POTISKUJE ono što dolazi otraga — bitno kad ti smeta postaja iza tebe. To nije isto što i dobitak: antena može imati velik dobitak i osrednji F/B, i obrnuto. Kod Yagijeve antene F/B se ugađa razmakom i duljinom reflektora, i obično je najbolji na nešto drugoj frekvenciji nego najveći dobitak.",
+    "formula": [
+      "F/B [dB] = razina glavnog snopa − razina stražnjeg snopa",
+      "",
+      "10 dB razlike → snaga otraga je 10× manja",
+      "20 dB razlike → snaga otraga je 100× manja"
+    ],
+    "links": [
+      {"label": "Radiation pattern", "url": "https://en.wikipedia.org/wiki/Radiation_pattern"},
+      {"label": "Yagi–Uda antena", "url": "https://en.wikipedia.org/wiki/Yagi%E2%80%93Uda_antenna"}
+    ],
+    "cite": [{"src": "PZM", "loc": "6. Antene, str. 114 i dalje"}]
+  },
+
+  "teh-178": {
+    "note": "Slabljenje bočnih snopova je razlika u decibelima između glavnog snopa i najjačeg bočnog snopa (side lobe), očitana s dijagrama zračenja na isti način kao F/B — brojanjem kružnica.\n\nBočni snopovi su neizbježni kod svake usmjerene antene. Što su niži, to je antena 'čišća': manje kupi smetnje sa strane i manje ih emitira prema susjedima.\n\nNa dijagramu pazi na mjerilo. Radioamaterski dijagrami najčešće su u dB s kružnicama po 10 dB, ali postoje i linearni dijagrami polja gdje ista slika znači nešto sasvim drugo.",
+    "formula": [
+      "Slabljenje bočnog snopa [dB] =",
+      "      razina glavnog snopa − razina najjačeg bočnog snopa",
+      "",
+      "10 dB → bočni snop nosi 1/10 snage glavnoga"
+    ],
+    "links": [
+      {"label": "Radiation pattern", "url": "https://en.wikipedia.org/wiki/Radiation_pattern"},
+      {"label": "Side lobe", "url": "https://en.wikipedia.org/wiki/Side_lobe"}
+    ],
+    "cite": [{"src": "PZM", "loc": "6. Antene, str. 114 i dalje"}]
+  },
+
+  "teh-179": {
+    "note": "Postupak je uvijek isti: sve pretvori u decibele, zbroji, pa vrati u vate.\n\nAntena daje +10 dB, vod oduzima 3 dB, ukupno +7 dB. Sada 7 dB rastavi na 10 − 3: to je ×10 pa /2, dakle ×5. Konačno 15 W · 5 = 75 W.\n\nMožeš i drugim redoslijedom, rezultat je isti: 7 dB = 3 + 3 + 1 ili 10^0,7 = 5,01. Rastavljanje na 10 i 3 je najbrže bez kalkulatora.",
+    "formula": [
+      "L_ukupno = +10 dB (antena) − 3 dB (vod) = +7 dB",
+      "",
+      "7 dB = 10 dB − 3 dB → ×10 zatim ÷2 → ×5",
+      "",
+      "ERP = 15 W · 5 = 75 W",
+      "",
+      "Provjera: 10^(7/10) = 5,01"
+    ],
+    "links": [
+      {"label": "Effective radiated power", "url": "https://en.wikipedia.org/wiki/Effective_radiated_power"}
+    ],
+    "cite": [{"src": "RK", "loc": "1.9.4. O decibelu (dB), tiskana str. 53–55"}]
+  },
+
+  "teh-180": {
+    "note": "Dobitak antene +10 dB i gubitak voda −10 dB poništavaju se: ukupno 0 dB. A 0 dB je omjer 1:1, pa je ERP jednak snazi odašiljača — 100 W.\n\nOvo je poučan zadatak jer pokazuje koliko loš napojni vod može pojesti. Uložio si u antenu s 10 dB dobitka, a zbog gubitka u vodu si na kraju tamo gdje bi bio i s običnim dipolom bez gubitaka.\n\nGubitak od 10 dB znači da do antene stiže samo 1/10 snage — od 100 W svega 10 W. Antena to onda 'pojača' natrag na ekvivalentnih 100 W u glavnom smjeru. Zaključak koji vrijedi i u praksi: kratak i kvalitetan vod često donosi više od skuplje antene.",
+    "formula": [
+      "L_ukupno = +10 dB − 10 dB = 0 dB",
+      "P_izlaz / P_ulaz = 10^0 = 1",
+      "ERP = 100 W",
+      "",
+      "Koliko snage uopće stigne do antene:",
+      "   −10 dB → 100 W · 0,1 = 10 W"
+    ],
+    "links": [
+      {"label": "Effective radiated power", "url": "https://en.wikipedia.org/wiki/Effective_radiated_power"},
+      {"label": "Coaxial cable", "url": "https://en.wikipedia.org/wiki/Coaxial_cable"}
+    ],
+    "cite": [{"src": "RK", "loc": "1.9.4. O decibelu (dB), tiskana str. 53–55"}]
+  },
+
+  "teh-197": {
+    "note": "Slabljenje napojnog voda razmjerno je njegovoj DULJINI kad se izrazi u decibelima — upravo zato što su decibeli logaritamski. Dvostruko dulji vod ima dvostruko više dB gubitka.\n\nAko 100 m daje 8 dB, onda 50 m daje 4 dB. U linearnom mjerilu to ne bi bilo pola: 8 dB je faktor 0,158, a 4 dB faktor 0,398 — nije dvostruko, ali u decibelima jest. To je još jedan razlog zašto se gubici uvijek navode u dB po 100 m.\n\nProizvođači slabljenje navode za određenu frekvenciju jer ono raste s frekvencijom. Isti kabel koji na 14 MHz gubi malo, na 432 MHz može gubiti višestruko više — provjeri uvijek na kojoj je frekvenciji podatak.",
+    "formula": [
+      "Gubitak [dB] razmjeran je duljini:",
+      "   100 m → 8 dB",
+      "    50 m → 4 dB",
+      "",
+      "U linearnom omjeru NIJE pola:",
+      "   8 dB → 10^(−0,8) = 0,158  (15,8 % snage prolazi)",
+      "   4 dB → 10^(−0,4) = 0,398  (39,8 % snage prolazi)"
+    ],
+    "links": [
+      {"label": "Coaxial cable", "url": "https://en.wikipedia.org/wiki/Coaxial_cable"},
+      {"label": "Decibel (hr.wikipedia)", "url": "https://hr.wikipedia.org/wiki/Decibel"}
+    ],
+    "cite": [{"src": "PZM", "loc": "6. Antene i napojni vodovi, str. 114 i dalje"}]
+  },
+
+  "teh-198": {
+    "note": "Snaga je pala sa 100 W na 50 W, dakle na polovicu. Prepolovljenje je −3 dB — isti onaj broj koji za udvostručenje daje +3 dB, samo s negativnim predznakom.\n\nZadatak vrijedi zapamtiti u oba smjera, jer se u praksi upravo tako mjeri gubitak voda: izmjeriš snagu na ulazu i na izlazu i razliku izraziš u decibelima.\n\nGubitak od 3 dB znači da polovica snage odašiljača nikad ne dođe do antene — pretvori se u toplinu u kabelu. Na KV-u je to podnošljivo, na UHF-u je vrlo mnogo.",
+    "formula": [
+      "L = 10 · log₁₀(P₂/P₁) = 10 · log₁₀(50/100)",
+      "  = 10 · log₁₀(0,5)",
+      "  = 10 · (−0,301)",
+      "  = −3,01 dB ≈ −3 dB",
+      "",
+      "Simetrija:  ×2 → +3 dB      ÷2 → −3 dB"
+    ],
+    "links": [
+      {"label": "Decibel (hr.wikipedia)", "url": "https://hr.wikipedia.org/wiki/Decibel"},
+      {"label": "Coaxial cable", "url": "https://en.wikipedia.org/wiki/Coaxial_cable"}
+    ],
+    "cite": [{"src": "RK", "loc": "1.9.4. O decibelu (dB), tiskana str. 53–55"}]
+  }
+}

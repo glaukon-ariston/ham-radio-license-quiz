@@ -1,0 +1,1263 @@
+{
+  "_doc": "Prošireni nastavni zapisi — paket propisi_b (47 pitanja, pro-002 … pro-094, parni brojevi). Hrvatski i međunarodni propisi: pojmovi, razredi i vrste postaja, ispit, dozvola, lokacija, pozivne oznake, frekvencijski pojasevi i snage, sadržaj odašiljanja, prijam, dnevnik, antene, tehnički zahtjevi, repetitori, inspekcijski nadzor i ITU regije. Sortira se ZADNJE pa nadjačava kratke izvorne bilješke.",
+  "_links_verified": "Svaki URL je dohvaćen i potvrđen 9. kolovoza 2026. NAPOMENA: LINKS.md navodi za ZEK adresu .../2022_07_76_1113.html — ta stranica ne vraća tekst zakona. Provjereni tekst Zakona o elektroničkim komunikacijama NN 76/22 nalazi se na .../2022_07_76_1116.html i taj se link ovdje koristi.",
+  "_citation_note": "Svaki članak i stavak Pravilnika provjeren je u samom tekstu NN 150/22 (PyMuPDF, 20 stranica). RK tiskane stranice očitane su preko folio-mape (booktool map RK: pomak +4 za pdf 10–280, +7 za pdf 351–409), pa su stranice 211–245 i 358–373 pojedinačno potvrđene. Ispravljeno je devet naslijeđenih citacija — vidi izvještaj.",
+
+  "pro-002": {
+    "note": "Definicija je doslovna iz Pravilnika, a nosive su joj posljednje dvije odredbe: „isključivo iz osobnih razloga\" i „bez novčane naknade\". Prve dvije riječi (radijska tehnika, radiooperatorstvo) samo kažu čime se baviš; te dvije odredbe kažu ZAŠTO se time smiješ baviti na frekvencijama koje ti je država dala besplatno.\n\nZato su ponuđeni odgovori a) i b) preširoki: i serviser mobilne mreže i inženjer u HRT-u bave se radijskom tehnikom, ali za plaću i u tuđoj službi — oni nisu radioamateri nego profesionalci u drugoj radiokomunikacijskoj službi. Amaterska služba u ITU-ovoj podjeli i postoji samo kao neprofitna, samoobrazovna i eksperimentalna služba; čim uđe novac, spektar bi se morao dodijeliti po posve drugim pravilima i uz naplatu.\n\nPosljedica je vrlo praktična i provlači se kroz cijeli ispit: ne smiješ raditi vezu za tuđi posao, ne smiješ oglašavati, ne smiješ naplatiti prijenos poruke, ne smiješ emitirati glazbu ni zabavu (vidi pro-062). Dopuštene su poruke osobne prirode koje se odnose na radioamatere. Jedina iznimka od svega toga je promet u slučaju nesreće i opasnosti.\n\nČlanak 2. daje ukupno četiri definicije i vrijedi ih znati sve, jer se u ispitu pojavljuju i kao distraktori: amaterska radijska postaja, radioamater, Savez (HRS) i klub.",
+    "formula": [
+      "Čl. 2. st. 1. NN 150/22 — četiri pojma:",
+      "",
+      "  1. amaterska radijska postaja",
+      "       = postaja koja radi u pojasu namijenjenom",
+      "         amaterskoj i amaterskoj satelitskoj službi",
+      "  2. radioamater",
+      "       = fizička osoba, radijska tehnika i radiooperatorstvo,",
+      "         ISKLJUČIVO iz osobnih razloga,",
+      "         BEZ novčane naknade",
+      "  3. HRS = strukovni savez radioamaterskih udruga",
+      "  4. klub = udruga građana registrirana u RH"
+    ],
+    "links": [
+      {"label": "Radioamaterizam (hr.wikipedia)", "url": "https://hr.wikipedia.org/wiki/Radioamaterizam"},
+      {"label": "Pravilnik NN 150/2022 (puni tekst)", "url": "https://narodne-novine.nn.hr/clanci/sluzbeni/2022_12_150_2313.html"}
+    ],
+    "cite": [
+      {"src": "NN150/22", "loc": "čl. 2. st. 1. t. 2."},
+      {"src": "RK", "loc": "3.3. Propisi i uvjeti za dozvole i rad radioamaterskih postaja, tiskana str. 231"}
+    ]
+  },
+
+  "pro-004": {
+    "note": "Dva uvjeta, i to kumulativno: položen ispit I dozvola koju izdaje HAKOM. Ispit dokazuje da znaš, dozvola ti daje pravo da to znanje pretočiš u odašiljanje na konkretnim frekvencijama, s konkretnom snagom i pod konkretnom pozivnom oznakom. Jedno bez drugoga ne vrijedi ništa: sa samim ispitom ne smiješ odaslati ni jedan val, a dozvolu bez ispita ti nitko neće izdati.\n\nRazlog za razdvajanje je pravni. Ispit je jednokratna provjera osposobljenosti i vrijedi trajno (svjedodžba se ne obnavlja). Dozvola je upravni akt s rokom valjanosti, vezan uz tvoju adresu, lokaciju postaje, razred i pozivnu oznaku — sve stvari koje se mijenjaju i koje regulator mora moći ažurirati i povući. Zato svaku promjenu podataka moraš prijaviti (vidi pro-034).\n\nPazi gdje ovo piše, jer je naslijeđena citacija bila kriva. Odredba je u OPĆIM NAČELIMA, čl. 3. st. 2., a ne u članku o dozvoli. Članak 12. uređuje postupak izdavanja dozvole — što se prilaže, koliko traje, što dozvola sadrži — ali temeljno pravilo „ispit + dozvola\" postavljeno je odmah na početku Pravilnika, uz načelo iz st. 1. da se spektar koristi u skladu s pravilima i načelima amaterske službe.\n\nIznimke postoje i dobro ih je znati: za prijamnu postaju i za postaju za radiogoniometriju dozvola nije potrebna (čl. 12. st. 7., vidi pro-026), a strani državljanin s CEPT dozvolom smije raditi u RH do 90 dana bez naše dozvole (čl. 12. st. 12.).",
+    "formula": [
+      "Uvjet za postavljanje i uporabu (čl. 3. st. 2.):",
+      "",
+      "   položen ispit  ∧  dozvola HAKOM-a",
+      "   (oba, ne jedno ili drugo)",
+      "",
+      "Iznimke bez dozvole (čl. 12. st. 7.):",
+      "   • prijamna amaterska radijska postaja",
+      "   • postaja za radiogoniometriju",
+      "",
+      "Stranac s CEPT dozvolom (čl. 12. st. 12.):",
+      "   do 90 dana neprekidno, bez hrvatske dozvole"
+    ],
+    "links": [
+      {"label": "Pravilnik NN 150/2022 (puni tekst)", "url": "https://narodne-novine.nn.hr/clanci/sluzbeni/2022_12_150_2313.html"}
+    ],
+    "cite": [
+      {"src": "NN150/22", "loc": "čl. 3. st. 2. (ISPRAVAK: naslijeđeni citat čl. 12. st. 1. odnosi se na postupak izdavanja, ne na sam uvjet)"},
+      {"src": "RK", "loc": "3.3.1. Opća načela, tiskana str. 231"}
+    ]
+  },
+
+  "pro-006": {
+    "note": "Točno dva razreda: A i početnički P. Podjela nije po opremi ni po stažu nego po RAZINI OSPOSOBLJENOSTI — tako to Pravilnik doslovno kaže — pa razred određuje što smiješ, a ne što imaš.\n\nRazlika je vidljiva u Dodatku 1: A razred ima sve pojaseve i do 1500 W PEP, P razred ima uži izbor pojaseva i 100 W PEP. Na KV-u P razred nema 160 m, 60 m, 30 m, 17 m ni 12 m, a na 20 m ima samo isječke 14040–14150 i 14280–14350 kHz. Na VHF/UHF-u P razred ima 144–146 MHz sa 100 W i 430–440 MHz.\n\nOznake A i B, odnosno I i II iz ponuđenih odgovora, potječu iz starijih sustava: hrvatski propisi prije 2003. poznavali su razrede A, B i C (vidi pro-020), a stari jugoslavenski sustav rimske brojke. Sve to danas više ne postoji — postoje samo A i P.\n\nMeđunarodno gledano, A razred je usklađen s CEPT-ovim HAREC-om (T/R 61-02), a P razred s ERC izvješćem 32, pa se A razred priznaje u desecima zemalja, a P u znatno manje njih (vidi pro-014, pro-028 i pro-030).",
+    "formula": [
+      "Dva razreda (čl. 4. st. 1.), granice iz Dodatka 1.:",
+      "",
+      "   razred A:  1500 W PEP  = 61,8 dBm",
+      "   razred P:   100 W PEP  = 50,0 dBm",
+      "",
+      "Provjera:  10·log₁₀(1500 W / 1 mW) = 10·log₁₀(1,5·10⁶)",
+      "                                   = 61,76 dBm ≈ 61,8 dBm",
+      "           10·log₁₀(100 W / 1 mW)  = 50,0 dBm",
+      "",
+      "Razlika A prema P:  1500/100 = 15× snage = +11,8 dB"
+    ],
+    "links": [
+      {"label": "Radioamaterizam (hr.wikipedia)", "url": "https://hr.wikipedia.org/wiki/Radioamaterizam"},
+      {"label": "Peak envelope power (PEP)", "url": "https://en.wikipedia.org/wiki/Peak_envelope_power"}
+    ],
+    "cite": [
+      {"src": "NN150/22", "loc": "čl. 4. st. 1.; Dodatak 1., t. 2.2.1."},
+      {"src": "RK", "loc": "3.3.2.1. Razredi, tiskana str. 231"}
+    ]
+  },
+
+  "pro-008": {
+    "note": "Klupsku postaju postavlja KLUB — pravna osoba, udruga građana registrirana u RH — a na njoj rade radioamateri A ili P razreda. To je cijeli sadržaj čl. 4. st. 3. t. 2., i točno tako je formuliran točan odgovor.\n\nZašto klub, a ne pojedinac: klupska postaja je zajednički resurs kojim se služi više operatora, često i početnici pod nadzorom. Netko mora pravno odgovarati za nju kad se izmjenjuju ljudi za mikrofonom, pa se u zahtjevu obvezno navodi ODGOVORNI RADIOAMATER (čl. 14. st. 2., vidi pro-024). Dozvola prestaje vrijediti ako klub prestane postojati ili obavljati djelatnost (čl. 14. st. 3.).\n\nNajvažnija praktična odredba je čl. 14. st. 4.: klupska postaja smije raditi samo u razredu za koji odgovorni radioamater ima važeću dozvolu, a operator s P razredom na njoj smije raditi samo u granicama P razreda. Iznimka koja se voli pitati: uz NADZOR odgovornog radioamatera A razreda, i operator s P razredom smije na klupskoj postaji raditi u punim granicama A razreda. To je jedini put kojim P razred zakonito dođe do 1500 W i do KV pojaseva koje inače nema.\n\nSitnica koju vrijedi znati jer razlikuje stari i novi propis: priručnik iz 2005. tražio je da klub bude učlanjen u HRS. Važeći Pravilnik taj uvjet više ne postavlja — traži samo da je klub udruga registrirana u Republici Hrvatskoj (čl. 2. st. 1. t. 4.).",
+    "formula": [
+      "Vrste postaja i tko ih postavlja (čl. 4. st. 3.):",
+      "",
+      "   1. osobna .................. radioamater (A ili P)",
+      "   2. klupska ................. KLUB, rade A ili P",
+      "   3. repetitor / digipitor ... Savez ili klub",
+      "   4. radiofar ................ Savez ili klub",
+      "   5. radiogoniometrija ....... Savez ili klub (privremeno)",
+      "   6. televizijski signal ..... (nije navedeno tko)",
+      "   7. amaterska satelitska služba",
+      "",
+      "Klupska postaja — razred (čl. 14. st. 4.):",
+      "   P operator → samo prava P razreda",
+      "   P operator + nadzor odgovornog A → prava A razreda"
+    ],
+    "links": [
+      {"label": "Pravilnik NN 150/2022 (puni tekst)", "url": "https://narodne-novine.nn.hr/clanci/sluzbeni/2022_12_150_2313.html"}
+    ],
+    "cite": [
+      {"src": "NN150/22", "loc": "čl. 4. st. 3. t. 2.; čl. 14. st. 2.–4."},
+      {"src": "RK", "loc": "3.3.6. Klupske postaje i relejne postaje, tiskana str. 234"}
+    ]
+  },
+
+  "pro-010": {
+    "note": "Radiofar postavlja Savez ILI klub — nikada pojedinac. Riječ „ili\" je ovdje ključna: odgovor a) je preuzak jer isključuje klubove, odgovor b) preuzak jer isključuje Savez, a d) pušta pojedinca tamo gdje ga propis ne pušta.\n\nRazlog je u samoj prirodi radiofara. To je postaja koja odašilje bez posade, neprekidno, na točno određenoj frekvenciji, godinama. Takva postaja mora biti međunarodno usklađena (frekvencijski plan radiofarova vodi IARU), mora imati stalno nadležnu osobu koja je može isključiti i mora preživjeti to što joj vlasnik ode na godišnji odmor ili izgubi interes. Pojedinac za to nije prikladan pravni nositelj; udruga jest.\n\nZa radiofar se izdaje POSEBNA dozvola za pojedinu postaju (čl. 12. st. 9.) i u njoj mora biti naveden odgovorni radioamater (čl. 12. st. 10.). Uvjet je i da je uporaba frekvencija usklađena na međunarodnoj razini te da radiofar radi na lokaciji i frekvencijama iz dozvole (čl. 14. st. 5.). Isti režim vrijedi i za repetitor i digipitor.\n\nSnage su male i stupnjevane po dosegu — to je omiljeno ispitno pitanje: 50 W ERP za međunarodni, 10 W za državni i 1 W za lokalni radiofar. Svrha radiofara je mjerenje prostiranja, a ne pokrivanje; više snage samo bi kvarilo mjerenje i smetalo drugima.",
+    "formula": [
+      "Tko postavlja (čl. 4. st. 3.):",
+      "   radiofar .................. Savez ili klub",
+      "   repetitor / digipitor ..... Savez ili klub",
+      "",
+      "ERP radiofara (Dodatak 1., t. 2.4.3.):",
+      "   međunarodni ............... 50 W",
+      "   državni ................... 10 W",
+      "   lokalni ...................  1 W",
+      "",
+      "Usporedi:  repetitor 15 W ERP (t. 2.4.2.2., vidi pro-084)",
+      "           radiogoniometrija 5 W do 30 MHz, 10 W iznad"
+    ],
+    "links": [
+      {"label": "Radio propagation beacon", "url": "https://en.wikipedia.org/wiki/Radio_propagation_beacon"},
+      {"label": "International Amateur Radio Union (IARU)", "url": "https://en.wikipedia.org/wiki/International_Amateur_Radio_Union"}
+    ],
+    "cite": [
+      {"src": "NN150/22", "loc": "čl. 4. st. 3. t. 4.; čl. 12. st. 9. i 10.; Dodatak 1., t. 2.4.3."},
+      {"src": "RK", "loc": "3.3.16.3. Amaterski radiofar, tiskana str. 245"}
+    ]
+  },
+
+  "pro-012": {
+    "note": "Označeni odgovor je najširi krug: Savez, klub ILI radioamater s položenim ispitom za A ili P razred. Logika koja stoji iza toga jest da amaterska televizija (ATV) nije infrastruktura poput repetitora ili radiofara nego obična dvosmjerna komunikacija, samo s videom umjesto glasa — pa nema razloga da je smije postaviti samo udruga.\n\n⚖ Provjera propisa: čl. 4. st. 3. t. 6. jedina je točka u cijelom popisu vrsta postaja koja NE navodi tko postaju postavlja. Točke 3., 4. i 5. izrijekom kažu „koji postavlja Savez ili klub\", a t. 1. i 2. kažu „radioamater\" odnosno „klub\"; t. 6. glasi samo „amaterska radijska postaja za odašiljanje televizijskog signala\". Iz čl. 12. st. 9. slijedi jedino to da se za takvu postaju izdaje POSEBNA dozvola za pojedinu radijsku postaju. Odgovor se dakle izvodi iz šutnje propisa, a ne iz izričite odredbe.\n\nDodatna zamka: priručnik iz 2005. na tiskanoj str. 231 (t. 3.3.2.2. f) izrijekom kaže da postaju za emitiranje televizijskog signala „postavljaju klubovi ili HRS\" — dakle stari izvor je uži od označenog odgovora. Označeni odgovor prati sadašnji Pravilnik i njegovu šutnju, a ne priručnik. Ako na ispitu naiđeš na stariju inačicu pitanja, odgovor može biti drugi.\n\nSadržajno ograničenje vrijedi bez obzira na to tko postavlja postaju: televizijski i faksimilni prijenosi ne smiju imati prirodu radijskih i televizijskih prijenosa, ne smiju sadržavati oglase i ne smiju biti namijenjeni javnosti (Dodatak 1., t. 2.4.1.1.). ATV je razgovor s drugim radioamaterom, ne emitiranje programa.",
+    "formula": [
+      "Čl. 4. st. 3. — tko postavlja koju vrstu postaje:",
+      "",
+      "   t. 1. osobna .............. „koju postavlja radioamater\"",
+      "   t. 2. klupska ............. „koju postavlja klub\"",
+      "   t. 3. repetitor/digipitor . „koji postavlja Savez ili klub\"",
+      "   t. 4. radiofar ............ „koji postavlja Savez ili klub\"",
+      "   t. 5. radiogoniometrija ... „koju Savez ili klub postavlja\"",
+      "   t. 6. TV signal ........... (bez navođenja!)  ← ovdje",
+      "",
+      "Posljedica (čl. 12. st. 9.):",
+      "   za postaje iz t. 3., 4. i 6. → POSEBNA dozvola"
+    ],
+    "links": [
+      {"label": "Amateur television (ATV)", "url": "https://en.wikipedia.org/wiki/Amateur_television"},
+      {"label": "Pravilnik NN 150/2022 (puni tekst)", "url": "https://narodne-novine.nn.hr/clanci/sluzbeni/2022_12_150_2313.html"}
+    ],
+    "cite": [
+      {"src": "NN150/22", "loc": "čl. 4. st. 3. t. 6.; čl. 12. st. 9.; Dodatak 1., t. 2.4.1.1."},
+      {"src": "RK", "loc": "3.3.2.2. Vrste amaterskih radijskih postaja, t. f), tiskana str. 231"}
+    ],
+    "flag": "check"
+  },
+
+  "pro-014": {
+    "note": "Obvezni dio ispitnog programa za A razred usklađen je s CEPT preporukom T/R 61-02, a za P razred s ERC izvješćem ERC REPORT 32. To piše na dva mjesta doslovno: u čl. 7. st. 2. Pravilnika i u prvoj rečenici samog dokumenta „Obvezni dio ispitnog programa\".\n\nT/R 61-02 je preporuka koja uvodi HAREC — Harmonised Amateur Radio Examination Certificate. Ona ne propisuje pitanja nego SILABUS: popis tema i razinu na kojoj se svaka tema traži. Zato tvoj ispit izgleda kao što izgleda — tehnički sadržaj u deset poglavlja, pa operativna pravila, pa propisi. Kad položiš, tvoje znanje je po definiciji usporedivo sa znanjem radioamatera u svakoj drugoj CEPT zemlji, i upravo zato ti se na zahtjev može izdati HAREC certifikat (čl. 10. st. 4.) i s njim dobiti nacionalna dozvola u inozemstvu.\n\nNe brkaj dvije preporuke, jer ih ispit rado suprotstavlja u istom pitanju. T/R 61-01 uređuje DOZVOLU — pravo da kao gost radiš u drugoj CEPT zemlji bez traženja tamošnje dozvole. T/R 61-02 uređuje ISPIT — priznavanje osposobljenosti. Prva ti otvara vrata na kratko, druga na dugo. ERC REPORT 32 je treći dokument i opisuje početnički (novice) silabus, izričito niže razine od HAREC-a.\n\nCjelokupni ispitni program donosi Savez uz suglasnost Agencije, a Agencija objavljuje obvezni dio na svojim stranicama (čl. 7. st. 1.). Struktura ispita za A razred po Odluci HRS-a: 40 pitanja iz tehničkog sadržaja, 20 iz propisa i 20 iz operativnih pravila, prag prolaza 70 % u SVAKOM od tri područja.",
+    "formula": [
+      "Tri CEPT dokumenta koja se stalno brkaju:",
+      "",
+      "   T/R 61-01   → CEPT radioamaterska DOZVOLA",
+      "                 (gostovanje, prefiks posjećene zemlje)",
+      "   T/R 61-02   → HAREC, ISPITNI program za A razred",
+      "   ERC REP 32  → novice ispitni program za P razred",
+      "",
+      "Ispit za A razred (Odluka HRS-a, t. 5. i 7.):",
+      "   40 pitanja tehnika ............ 45 min",
+      "   20 pitanja propisi ............ 30 min",
+      "   20 pitanja operativna pravila . 30 min",
+      "   prolaz: ≥ 70 % u svakom od tri područja",
+      "   (P razred: 20+20+20, prag 60 %)"
+    ],
+    "links": [
+      {"label": "European Conference of Postal and Telecommunications Administrations (CEPT)", "url": "https://en.wikipedia.org/wiki/European_Conference_of_Postal_and_Telecommunications_Administrations"},
+      {"label": "Pravilnik NN 150/2022 (puni tekst)", "url": "https://narodne-novine.nn.hr/clanci/sluzbeni/2022_12_150_2313.html"}
+    ],
+    "cite": [
+      {"src": "NN150/22", "loc": "čl. 7. st. 1. i st. 2."},
+      {"src": "OBVEZNI", "loc": "uvodna rečenica, str. 1"},
+      {"src": "TR61-02", "loc": "naslovnica i Introduction, str. 1–2 (HAREC)"},
+      {"src": "ODLUKA", "loc": "t. 5., 7. i 9. (sastav i prag ispita)"}
+    ]
+  },
+
+  "pro-016": {
+    "note": "Po važećem Pravilniku donje dobne granice za pristup ispitu NEMA. Čl. 9. st. 1. traži samo pisani zahtjev s imenom, prezimenom, OIB-om i razredom; st. 2. dodaje da osobe mlađe od 18 godina zahtjevu moraju priložiti odobrenje roditelja ili staratelja. Ni jedne brojke o godinama u tekstu nema.\n\nTo je namjerna promjena, a ne propust. Djeca su najbolji novi radioamateri i svaka umjetna granica gubi ih upravo u dobi kad su najznatiželjniji. Umjesto dobne granice propis je stavio pristanak roditelja — mehanizam koji rješava pravnu sposobnost maloljetnika, a ne zabranjuje mu da nauči gradivo.\n\nStariji izvori govore drukčije i tu je zamka. Priručnik iz 2005. na tiskanoj str. 232 kaže: „Pravo polaganja ispita imaju kandidati koji su stariji od 12 godina, a za kandidate mlađe od 18 godina potreban je pismeni pristanak zakonitog staratelja\", a ista se granica pojavljuje i u starijoj inačici ovog pitanja u zbirci na tiskanoj str. 359 (odgovor „s navršenih 12 godina\"). Ta je granica danas ukinuta. Ako naiđeš na inačicu pitanja gdje ponuđeni odgovori uopće ne sadrže „bez obzira na godine\", onda je riječ o staroj listi.\n\nOdvoji ISPIT od DOZVOLE. Ispit smiješ polagati u bilo kojoj dobi. Za dozvolu vrijede opći uvjeti iz Zakona i čl. 12. Pravilnika; stari propisi tražili su 14 godina za dozvolu, a važeći Pravilnik u čl. 12. ne postavlja dobnu granicu. Isto pravilo o dobi vrijedi i za A razred (vidi pro-018).",
+    "formula": [
+      "Čl. 9. — pristup ispitu:",
+      "",
+      "   st. 1.  pisani zahtjev: ime i prezime, OIB, razred",
+      "   st. 2.  mlađi od 18 g. → odobrenje roditelja/staratelja",
+      "",
+      "   donja dobna granica: NEMA (ni za P ni za A)",
+      "",
+      "Zastarjele brojke koje se još vuku po literaturi:",
+      "   RK 2005, tiskana str. 232 ....... „stariji od 12 godina\"",
+      "   RK 2005, tiskana str. 232 i 233 . dozvola od 14 godina"
+    ],
+    "links": [
+      {"label": "Pravilnik NN 150/2022 (puni tekst)", "url": "https://narodne-novine.nn.hr/clanci/sluzbeni/2022_12_150_2313.html"}
+    ],
+    "cite": [
+      {"src": "NN150/22", "loc": "čl. 9. st. 1. i st. 2."},
+      {"src": "RK", "loc": "3.3.3. Radioamaterski ispiti, tiskana str. 232; zastarjela inačica pitanja, tiskana str. 359"}
+    ]
+  },
+
+  "pro-018": {
+    "note": "Odgovor je isti kao za P razred i to je cijela poanta pitanja: Pravilnik ne pravi razliku po dobi između razreda. Čl. 9. vrijedi za oba, pa nema ni 18 ni 14 ni 12 godina — samo obveza da maloljetnik priloži odobrenje roditelja ili staratelja.\n\nZamka je psihološka. A razred zvuči „ozbiljnije\" pa se čini logičnim da traži veću dob, a k tome ponuđeni odgovori a) 18 i b) 14 zvuče uvjerljivo jer se te brojke doista pojavljuju u starim propisima. Priručnik iz 2005. u zbirci pitanja na tiskanoj str. 361 nudi upravo taj skup (16 / 18 / 14 / 12) i tamo je odgovor bio 14 godina. Danas te odredbe nema.\n\nPuni put do dozvole vrijedi ponoviti jer se u ispitu razbija na više pitanja: zahtjev za ispit predaje se Savezu ili klubu (čl. 9. st. 1.); ispit se polaže pred povjerenstvom od predsjednika i dva člana (čl. 5. st. 1.), iznimno i putem video veze; tko ne položi, može ponovno, ali ne prije isteka dva mjeseca (čl. 10. st. 2.); nakon položenog ispita dobiva se svjedodžba (čl. 10. st. 3.), a za A razred na zahtjev i HAREC certifikat (čl. 10. st. 4.).\n\nJoš jedna posljedica nepostojanja dobne granice: A razred se smije polagati IZRAVNO, bez prethodnog P razreda. Nigdje u Pravilniku ne postoji odredba da je P razred preduvjet za A.",
+    "formula": [
+      "Put do dozvole (NN 150/22):",
+      "",
+      "   čl. 9. st. 1.   zahtjev Savezu ili klubu",
+      "   čl. 9. st. 2.   < 18 g. → odobrenje roditelja/staratelja",
+      "   čl. 5. st. 1.   povjerenstvo: predsjednik + 2 člana",
+      "   čl. 8. st. 3.   klub traži odobrenje 30 dana prije",
+      "   čl. 6. st. 1.   obavijest Agenciji 15 dana prije",
+      "   čl. 6. st. 2.   izvješće Agenciji 15 dana poslije",
+      "   čl. 10. st. 2.  ponovni ispit ne prije 2 mjeseca",
+      "   čl. 10. st. 3.  svjedodžba",
+      "   čl. 10. st. 4.  HAREC na zahtjev (samo A razred)",
+      "   čl. 3. st. 2.   + dozvola HAKOM-a → smiješ raditi"
+    ],
+    "links": [
+      {"label": "Pravilnik NN 150/2022 (puni tekst)", "url": "https://narodne-novine.nn.hr/clanci/sluzbeni/2022_12_150_2313.html"}
+    ],
+    "cite": [
+      {"src": "NN150/22", "loc": "čl. 9. st. 1. i st. 2.; čl. 5., čl. 6., čl. 10."},
+      {"src": "RK", "loc": "zastarjela inačica pitanja, tiskana str. 361 (Skupina II., pit. 4.)"}
+    ]
+  },
+
+  "pro-020": {
+    "note": "Prijelazna odredba: radioamaterima koji su po ranije važećim propisima položili ispit za B ili C razred priznaje se položeni ispit za A razred. Odgovor je „A, B i C\" jer se A razred samome sebi ne mora priznavati — tko je imao A, ima A i dalje — pa nabrajanje sva tri razreda pokriva sve nositelje starih ispita.\n\nSmisao odredbe je da nitko ne ispadne iz sustava kad se broj razreda smanji s tri na dva. Stari hrvatski sustav imao je A, B i C; kad je uveden CEPT-ovski model s jednim punim razredom i jednim početničkim, sva tri stara razreda morala su se preslikati na nešto. Preslikala su se prema gore, u A, jer su svi bili ispiti bez početničkog ograničenja.\n\nZato je odgovor d) pogrešan: razreda D u hrvatskim propisima nije bilo, pa ga nema što priznavati. Odgovor b) je pogrešan iz suprotnog razloga — kad bi se priznavao samo A, nositelji B i C ostali bi bez ikakvih prava, što je upravo ono što prijelazna odredba sprječava.\n\nPazi gdje ovo piše, jer je naslijeđena citacija bila preširoka. Odredba nije u čl. 4. (koji uređuje razrede i vrste postaja) nego u čl. 10. st. 6., na kraju članka o svjedodžbi i certifikatima — dakle u dijelu o ispitu, jer se priznaje ISPIT, a ne dozvola. Dozvolu i dalje moraš imati i ona se izdaje po važećim pravilima.",
+    "formula": [
+      "Čl. 10. st. 6. — prijelazno priznavanje:",
+      "",
+      "   stari B razred  →  priznaje se položeni ispit za A",
+      "   stari C razred  →  priznaje se položeni ispit za A",
+      "   stari A razred  →  ostaje A (nema se što priznavati)",
+      "   ─────────────────────────────────────────────",
+      "   dakle: A, B i C  →  današnji A razred",
+      "",
+      "   razreda D u hrvatskim propisima nije bilo"
+    ],
+    "links": [
+      {"label": "Pravilnik NN 150/2022 (puni tekst)", "url": "https://narodne-novine.nn.hr/clanci/sluzbeni/2022_12_150_2313.html"}
+    ],
+    "cite": [
+      {"src": "NN150/22", "loc": "čl. 10. st. 6. (ISPRAVAK: naslijeđeni citat čl. 4. ne sadrži ovu odredbu)"}
+    ]
+  },
+
+  "pro-022": {
+    "note": "Označeni odgovor traži DVA propisa: podzakonski akt za radioamatere (ovaj Pravilnik) i propis o ograničenjima jakosti elektromagnetskih polja. Logika iza toga je zdrava i vrijedi je razumjeti neovisno o slovu zakona: Pravilnik o amaterskim radijskim komunikacijama štiti SPEKTAR — da ne smetaš drugim službama; propis o EM poljima štiti LJUDE — da polje u prostoru gdje ljudi borave ne prijeđe dopuštenu razinu. To su dva različita cilja i dva različita propisa, i dozvola mora zadovoljiti oba.\n\n⚖ Provjera propisa: NN 150/22 nigdje ne imenuje „Pravilnik o ograničenjima jakosti elektromagnetskih polja za radiokomunikacijsku opremu i telekomunikacijsku terminalnu opremu\". Čl. 12. st. 2. upućuje općenito na „pravilnik koji uređuje posebne uvjete postavljanja i uporabe radijskih postaja iz članka 91. stavka 2. Zakona\", i to samo za amaterske radijske postaje kojima je efektivna izračena snaga JEDNAKA ILI VEĆA OD 100 W. Isto upućivanje ponavlja se u čl. 13. st. 3. za postavljanje nepokretne postaje.\n\nOdakle onda ime iz odgovora? Iz priručnika. RK na tiskanoj str. 233 (t. 3.3.4.1. „Potvrda o sigurnosti rada amaterske radijske postaje\") imenuje upravo taj propis, NN 183/04, i veže ga uz istu granicu od 100 W ERP. Ispitna lista je preuzela ime iz priručnika, a Pravilnik ga je u međuvremenu zamijenio općim upućivanjem. Sadržajno je odgovor i dalje ispravan, samo je ime propisa danas drugo.\n\nPraktična posljedica: ako ti je ERP manji od 100 W, ne moraš uz zahtjev prilagati proračun polja. Ako je 100 W ili više, prilažeš dijagram zračenja, tlocrt i bokocrt antenskog sustava, kartu s ucrtanim područjima povećane osjetljivosti, najmanju udaljenost do njih i izračun očekivanog polja. Ne brkaj tu granicu s onom od 1 m između antenskog sustava i javne komunikacijske instalacije (pro-076) — to su dva posve različita pravila.",
+    "formula": [
+      "Dva propisa, dva cilja:",
+      "",
+      "   NN 150/22 (ovaj Pravilnik) ... zaštita SPEKTRA",
+      "   propis o EM poljima .......... zaštita LJUDI",
+      "",
+      "Prag iz čl. 12. st. 2.:",
+      "",
+      "   ERP < 100 W   → samo redoviti prilozi uz zahtjev",
+      "   ERP ≥ 100 W   → + podaci po propisu o posebnim",
+      "                     uvjetima (čl. 91. st. 2. ZEK-a)",
+      "",
+      "Što se prilaže iznad praga (RK, tiskana str. 233):",
+      "   a) horizontalni i vertikalni dijagram zračenja",
+      "   b) tlocrt i bokocrt antenskog sustava",
+      "   c) karta s područjima povećane osjetljivosti",
+      "   d) najmanja udaljenost do njih [m]",
+      "   e) izračun očekivanog EM polja"
+    ],
+    "links": [
+      {"label": "Pravilnik NN 150/2022 (puni tekst)", "url": "https://narodne-novine.nn.hr/clanci/sluzbeni/2022_12_150_2313.html"},
+      {"label": "Zakon o elektroničkim komunikacijama NN 76/2022", "url": "https://narodne-novine.nn.hr/clanci/sluzbeni/2022_07_76_1116.html"}
+    ],
+    "cite": [
+      {"src": "NN150/22", "loc": "čl. 12. st. 2. (opće upućivanje); čl. 13. st. 3."},
+      {"src": "RK", "loc": "3.3.4.1. Potvrda o sigurnosti rada amaterske radijske postaje, tiskana str. 233; zastarjela inačica pitanja, tiskana str. 373"}
+    ],
+    "flag": "check"
+  },
+
+  "pro-024": {
+    "note": "Ključna riječ je ODGOVORNA OSOBA. Čl. 14. st. 2. traži da klub zahtjev za dozvolu podnese „uz obvezno navođenje podataka o odgovornom radioamateru\" — to je jedina stvar po kojoj se zahtjev kluba razlikuje od zahtjeva pojedinca, i to je jedina razlika koju pitanje traži.\n\nOstatak popisa iz odgovora d) su redoviti prilozi iz čl. 12. st. 2.: dokaz o položenom ispitu i potvrda o prijedlogu pozivne oznake koju izdaje Savez. Klupska postaja smije raditi samo u razredu odgovornog radioamatera (čl. 14. st. 4.), pa je logično da se prilaže baš njegov dokaz o ispitu — postaja „nasljeđuje\" njegov razred.\n\nZašto su a), b) i c) pogrešni iako zvuče temeljitije: sve tri traže izvod iz registra udruga i/ili potvrdu o članstvu u HRS-u, a važeći Pravilnik ni jedno ni drugo ne traži. Registraciju udruge Agencija ionako provjerava u javnom registru, a članstvo u HRS-u prestalo je biti uvjet — današnja definicija kluba (čl. 2. st. 1. t. 4.) glasi samo „udruga građana registrirana sukladno propisima RH\". Priručnik iz 2005. na tiskanoj str. 231 još je tražio da klub bude učlanjen u HRS; to je ukinuto. Zamka pitanja je dakle u tome da najdulji popis nije točan popis.\n\nJoš dvije odredbe koje idu uz ovo: dozvola prestaje vrijediti prestankom obavljanja djelatnosti ili prestankom postojanja kluba (čl. 14. st. 3.), a promjenu odgovornog radioamatera treba prijaviti kao i svaku drugu promjenu podataka iz dozvole (čl. 12. st. 16., vidi pro-034).",
+    "formula": [
+      "Zahtjev kluba za klupsku dozvolu:",
+      "",
+      "   čl. 12. st. 1.  obrazac zahtjeva (objavljuje Agencija)",
+      "   čl. 12. st. 2.  + dokaz o položenom ispitu",
+      "                   + potvrda o prijedlogu pozivne oznake (HRS)",
+      "                   + javna isprava s OIB-om",
+      "   čl. 14. st. 2.  + PODACI O ODGOVORNOM RADIOAMATERU  ← razlika",
+      "",
+      "   čl. 12. st. 3.  postaje u samogradnji i preinačene postaje",
+      "                   → + uvjerenje o tehničkoj sukladnosti (HRS)",
+      "",
+      "NE traži se:  izvod iz registra udruga",
+      "              potvrda o članstvu u HRS-u"
+    ],
+    "links": [
+      {"label": "Pravilnik NN 150/2022 (puni tekst)", "url": "https://narodne-novine.nn.hr/clanci/sluzbeni/2022_12_150_2313.html"}
+    ],
+    "cite": [
+      {"src": "NN150/22", "loc": "čl. 14. st. 2. (odgovorni radioamater); čl. 12. st. 2. (redoviti prilozi)"},
+      {"src": "RK", "loc": "3.3.6. Klupske postaje, tiskana str. 234"}
+    ]
+  },
+
+  "pro-026": {
+    "note": "Za postaju za radiogoniometriju dozvola nije potrebna. To izrijekom kaže čl. 12. st. 7., i u istoj rečenici izuzima i PRIJAMNU amatersku postaju — dva slučaja, isti stavak, oba se rado pitaju.\n\nRazlog je razmjeran riziku. Postaja za radiogoniometriju („lov na lisicu\", ARDF) odašilje kratke ciklusne signale male snage, na unaprijed dogovorenim natjecateljskim frekvencijama, nekoliko sati, jednom ili dvaput godišnje. Zahtijevati za to trajnu dozvolu s upisanom lokacijom bilo bi besmisleno — postaja se postavlja u šumu i navečer pokupi. Prijamna postaja pak uopće ne odašilje, pa nema što smetati.\n\nIzuzeće od dozvole nije izuzeće od svih pravila. Snaga je ograničena Dodatkom 1., t. 2.4.4.: ERP najviše 5 W do 30 MHz i 10 W iznad 30 MHz. Postaju i dalje postavlja Savez ili klub, i to za PRIVREMENU uporabu, u svrhu obuke ili natjecanja (čl. 4. st. 3. t. 5.) — ne smije je postaviti pojedinac i ne smije ostati trajno u prirodi.\n\nNaslijeđena citacija upućivala je na čl. 4. st. 3. t. 5., koji definira VRSTU postaje. Sam odgovor na pitanje — da dozvola nije potrebna — nalazi se u čl. 12. st. 7., pa je to sada glavni citat.",
+    "formula": [
+      "Bez dozvole (čl. 12. st. 7.):",
+      "   • prijamna amaterska radijska postaja",
+      "   • amaterska radijska postaja za radiogoniometriju",
+      "",
+      "Ali i dalje vrijedi:",
+      "   čl. 4. st. 3. t. 5.  postavlja Savez ili klub,",
+      "                        privremeno, obuka ili natjecanje",
+      "   Dodatak 1., t. 2.4.4.  ERP  ≤  5 W   do 30 MHz",
+      "                          ERP  ≤ 10 W   iznad 30 MHz"
+    ],
+    "links": [
+      {"label": "Amateur radio direction finding (ARDF)", "url": "https://en.wikipedia.org/wiki/Amateur_radio_direction_finding"}
+    ],
+    "cite": [
+      {"src": "NN150/22", "loc": "čl. 12. st. 7. (ISPRAVAK glavnog citata); čl. 4. st. 3. t. 5.; Dodatak 1., t. 2.4.4."},
+      {"src": "RK", "loc": "3.3.16.4. Amaterska radijska postaja za radiogoniometriranje, tiskana str. 245"}
+    ]
+  },
+
+  "pro-028": {
+    "note": "Dozvola sadrži oznaku CEPT razreda. Razlog je čisto praktičan: kad s hrvatskom dozvolom staneš pred talijanskog ili njemačkog inspektora, on ne zna što znači „A razred\" po hrvatskom Pravilniku. Zna, međutim, što znači CEPT razred, jer je to zajednička valuta svih CEPT administracija. Oznaka CEPT razreda je prevoditelj između nacionalnih sustava.\n\nGdje to piše: u čl. 12. st. 11. t. 4. Pravilnika, koji nabraja obvezni sadržaj dozvole — podaci o nositelju, o radioamaterskom razredu, o pozivnoj oznaci, o ODGOVARAJUĆEM CEPT RAZREDU, o uvjetima uporabe, rok valjanosti i ostali podaci s obrasca. Naslijeđena citacija upućivala je na T/R 61-01, Aneks I., ali to je netočno: Aneks 1 te preporuke nabraja minimalni sadržaj CEPT dozvole i tamo su navedeni oznaka da je riječ o CEPT dozvoli, izjava o ovlaštenju, ime i adresa nositelja, pozivna oznaka, valjanost i tijelo koje ju je izdalo — CEPT RAZRED se u tom popisu ne spominje. Zahtjev za upisom CEPT razreda je nacionalni, iz Pravilnika.\n\nZašto su ostali odgovori pogrešni: naziv kluba u dozvoli nema što tražiti (klupska dozvola glasi na klub, ali to je druga vrsta dozvole); broj svjedodžbe se ne upisuje jer dozvola nije potvrda o ispitu nego ovlaštenje za rad; oznaka P razreda pojavljuje se samo u dozvoli koja je izdana za P razred, pa nije opće obilježje CEPT dozvole.\n\nStarija inačica ovog pitanja u zbirci (RK, tiskana str. 372, Skupina VI., pit. 18) imala je kao točan odgovor „oznaku za položeni radioamaterski ispit (HAREC) u skladu s CEPT preporukom T/R 61-02\". Današnja lista taj je odgovor zamijenila oznakom CEPT razreda — usporedi s pro-030, koji je isti par pitanja gledan iz kuta P razreda.",
+    "formula": [
+      "Sadržaj dozvole (čl. 12. st. 11.):",
+      "",
+      "   1. podaci o nositelju dozvole",
+      "   2. podaci o radioamaterskom razredu       (A ili P)",
+      "   3. podaci o pozivnoj oznaci",
+      "   4. podaci o ODGOVARAJUĆEM CEPT RAZREDU    ← ovdje",
+      "   5. podaci o uvjetima uporabe",
+      "   6. rok valjanosti dozvole",
+      "   7. drugi podaci s obrasca Agencije",
+      "",
+      "Preslikavanje razreda (čl. 12. st. 5. i 6.):",
+      "   A razred  →  dozvola po T/R 61-01      (CEPT)",
+      "   P razred  →  dozvola po ECC/REC/(05)06 (CEPT Novice)"
+    ],
+    "links": [
+      {"label": "Pravilnik NN 150/2022 (puni tekst)", "url": "https://narodne-novine.nn.hr/clanci/sluzbeni/2022_12_150_2313.html"}
+    ],
+    "cite": [
+      {"src": "NN150/22", "loc": "čl. 12. st. 11. t. 4. (ISPRAVAK: T/R 61-01 Aneks 1 ne navodi CEPT razred među minimalnim sadržajem)"},
+      {"src": "TR61-01", "loc": "Aneks 1, t. 1. — minimalni sadržaj CEPT dozvole, str. 4"},
+      {"src": "RK", "loc": "zastarjela inačica pitanja, tiskana str. 372 (Skupina VI., pit. 18.)"}
+    ]
+  },
+
+  "pro-030": {
+    "note": "Radioamateru s položenim P razredom izdaje se dozvola u skladu s CEPT preporukom ECC/REC/(05)06 — to je doslovno čl. 12. st. 6. Pravilnika. A razred ide po T/R 61-01 (st. 5.), P razred po ECC/REC/(05)06 (st. 6.); ta dva stavka su blizanci i najlakše ih je pamtiti zajedno.\n\nDva sustava, dvije razine. T/R 61-01 je „puna\" CEPT dozvola i nju priznaje velika većina CEPT zemalja te niz zemalja izvan CEPT-a. ECC/REC/(05)06 je CEPT Novice dozvola, izvedena iz ERC izvješća 32, i priznaje je bitno manje administracija — jer je i ispitni silabus izričito niže razine od HAREC-a. ERC REPORT 32 to kaže sam za sebe: novice ispit je „medium-level examination with a lower standard than required under the HAREC\".\n\nPraktična pouka za Glaukona, koji polaže A razred: to je razlika koja odlučuje hoćeš li s vlastitom dozvolom moći raditi kao gost u drugoj zemlji bez papirologije. S A razredom i CEPT dozvolom uglavnom da; s P razredom moraš svaki put provjeriti prihvaća li ta zemlja ECC/REC/(05)06 i pod kojim uvjetima.\n\nZašto su ostali odgovori pogrešni: a) upisuje A razred u dozvolu izdanu za P — nemoguće; c) naziv vlasnika jest u dozvoli, ali to nije ono što razlikuje P razred niti ono što pitanje traži; d) broj svjedodžbe se u dozvolu ne upisuje uopće (vidi pro-028).",
+    "formula": [
+      "Tri razine CEPT-ovog sustava (ERC REP 32, t. 1.):",
+      "",
+      "   1. HAREC ......... T/R 61-02  → puna dozvola T/R 61-01",
+      "   2. NOVICE ........ ERC REP 32 → dozvola ECC/REC/(05)06",
+      "   3. ENTRY-CLASS ... ECC REP 89 (RH je ne primjenjuje)",
+      "",
+      "Hrvatsko preslikavanje (čl. 12. st. 5. i 6.):",
+      "   A razred  →  T/R 61-01",
+      "   P razred  →  ECC/REC/(05)06"
+    ],
+    "links": [
+      {"label": "Pravilnik NN 150/2022 (puni tekst)", "url": "https://narodne-novine.nn.hr/clanci/sluzbeni/2022_12_150_2313.html"}
+    ],
+    "cite": [
+      {"src": "NN150/22", "loc": "čl. 12. st. 6. (za A razred: st. 5.)"},
+      {"src": "ERC32", "loc": "t. 1. Introduction, str. 2 — tri razine ispita"}
+    ]
+  },
+
+  "pro-032": {
+    "note": "Za rad iz motornog vozila dovoljna je odgovarajuća radioamaterska dozvola — nikakvo dodatno odobrenje, prijava registarske oznake ni suglasnost kluba. Čl. 13. st. 1. u istoj rečenici kaže da je „temeljem dozvole moguća uporaba pokretne amaterske radijske postaje u motornom vozilu, na plovilu ili zrakoplovu\".\n\nAli u toj istoj rečenici krije se razlika koju ispit voli: za plovilo i zrakoplov traži se PRETHODNO ODOBRENJE ZAPOVJEDNIKA plovila odnosno zrakoplova. Za automobil ne traži se ništa, jer si u vlastitom vozilu sam sebi zapovjednik. Na brodu i u zrakoplovu tvoj odašiljač može ometati navigacijsku i komunikacijsku opremu o kojoj ovise životi, pa odluku donosi onaj tko za tu opremu odgovara.\n\nLokacija je inače upisana u dozvoli i to je pravilo (čl. 13. st. 1., prva rečenica). Pokretni i prenosivi rad su iznimke od tog pravila i zato su izrijekom navedeni. Za rad s DRUGE nepokretne lokacije vrijedi rok od najviše 90 dana neprekidno (čl. 13. st. 2.).\n\nKad radiš iz vozila, pozivnoj oznaci možeš dodati „/M\" u telegrafiji odnosno „mobile\" u telefoniji (čl. 15. st. 2. t. 1., vidi pro-036). Riječ „možeš\" je točna — dodatak je mogućnost, ne obveza; obveza je odašiljati pozivnu oznaku (čl. 15. st. 3.).",
+    "formula": [
+      "Čl. 13. st. 1. — pokretni rad na temelju dozvole:",
+      "",
+      "   motorno vozilo ... samo dozvola",
+      "   plovilo .......... dozvola + odobrenje zapovjednika",
+      "   zrakoplov ........ dozvola + odobrenje zapovjednika",
+      "",
+      "Čl. 13. st. 2. — druga NEPOKRETNA lokacija:",
+      "   do 90 dana neprekidno",
+      "",
+      "Dodatci pozivnoj oznaci (čl. 15. st. 2.):",
+      "   /M  mobile  ·  /MM  maritime mobile",
+      "   /AM air mobile  ·  /P  portable"
+    ],
+    "links": [
+      {"label": "Amateur radio call signs", "url": "https://en.wikipedia.org/wiki/Amateur_radio_call_signs"}
+    ],
+    "cite": [
+      {"src": "NN150/22", "loc": "čl. 13. st. 1. i st. 2."},
+      {"src": "RK", "loc": "3.3.5. Lokacija amaterske radijske postaje, tiskana str. 233; zastarjela inačica pitanja, tiskana str. 370"}
+    ]
+  },
+
+  "pro-034": {
+    "note": "HRS lista traži „u roku od dva tjedna\" i tako i odgovori na ispitu. Ta brojka nije izmišljena: doslovno tako stoji u priručniku iz 2005., na tiskanoj str. 233 — „Vlasnik dozvole je obvezan prijaviti Agenciji u pisanom obliku svaku promjenu adrese stanovanja ili bilo koju drugu promjenu iz dozvole najdulje u roku od dva tjedna nakon što je do promjene došlo.\" Ispitna lista je preuzela priručnik.\n\n⚖ Provjera propisa: važeći Pravilnik u čl. 12. st. 16. propisuje drugi rok — nositelj dozvole mora promjenu prijaviti „bez odgode, a najkasnije u roku od 15 dana od dana nastanka promjene\", i to podnošenjem zahtjeva za izdavanje NOVE dozvole. Razlika prema HRS ključu je jedan dan i gotovo sigurno je riječ o tome da ispitna lista nije osvježena, a ne o namjernoj razlici. Na ispitu odgovaraj kako traži HRS lista; u praksi se drži roka od 15 dana i pravila „bez odgode\".\n\nDvije stvari koje se lako pobrkaju s ovim rokom. Prva: čl. 12. st. 17. daje isti rok od 15 dana za prijavu NOVE ili zamijenjene radijske postaje, ali uz dodatak „prije početka rada\" — dakle novu postaju prijavljuješ prije nego što je pustiš u rad, a ne u roku od 15 dana nakon toga. Druga: Savez ima rok od 15 dana za obavijest o promjeni Povjerenika za repetitore (čl. 14. st. 5.).\n\nZašto se promjena uopće mora prijaviti: dozvola je vezana uz osobu, adresu i lokaciju. Ako se preseliš, a to ne prijaviš, tvoja je postaja formalno na lokaciji na kojoj je nema — a upravo je lokacija ono što regulator treba kad netko prijavi smetnju ili kad se koordiniraju frekvencije.",
+    "formula": [
+      "Rokovi za prijavu promjena:",
+      "",
+      "   HRS ispitna lista .......... dva tjedna (14 dana)",
+      "   RK 2005, tiskana str. 233 .. „najdulje u roku od dva tjedna\"",
+      "   NN 150/22, čl. 12. st. 16. . bez odgode, najkasnije 15 dana",
+      "",
+      "Ostali rokovi od 15 dana u Pravilniku:",
+      "   čl. 12. st. 17.  nova/zamijenjena postaja",
+      "                    (ali PRIJE početka rada)",
+      "   čl. 14. st. 5.   promjena Povjerenika za repetitore",
+      "   čl. 6. st. 1.    obavijest o ispitu prije održavanja",
+      "   čl. 6. st. 2.    izvješće o ispitu nakon održavanja"
+    ],
+    "links": [
+      {"label": "Pravilnik NN 150/2022 (puni tekst)", "url": "https://narodne-novine.nn.hr/clanci/sluzbeni/2022_12_150_2313.html"}
+    ],
+    "cite": [
+      {"src": "NN150/22", "loc": "čl. 12. st. 16. (15 dana, bez odgode)"},
+      {"src": "RK", "loc": "3.3.5. Lokacija amaterske radijske postaje, tiskana str. 233 („dva tjedna\"); zastarjela inačica pitanja, tiskana str. 364"}
+    ],
+    "flag": "check"
+  },
+
+  "pro-036": {
+    "note": "Rad iz vozila: „/M\" u telegrafiji, „mobile\" u telefoniji. Oznake nisu hrvatske kratice nego međunarodne engleske — zato „/V\" i „VOZILO\" iz odgovora b) i „AUTOMOBIL\" iz d) nisu ni blizu točnog. Sugovornik u Japanu mora razumjeti dodatak jednako dobro kao i sugovornik u Zagrebu.\n\nSvrha dodatka je informacija, ne dozvola. Kad čuje „/M\", druga postaja odmah zna tri stvari: da nisi na lokaciji upisanoj u dozvoli, da ti je antena vjerojatno kratka i slaba, i da ti se signal može prekinuti bez najave jer voziš. To mijenja način vođenja veze — kraće poruke, više ponavljanja, bez dugih tehničkih rasprava.\n\nZbog toga je bitna riječ „može\" u čl. 15. st. 2.: dodatak je pravo, a ne obveza. Obveza je odašiljati samu pozivnu oznaku na početku i na kraju veze te u razmacima od najviše deset minuta (čl. 15. st. 3., vidi pro-044). Dodatak „/M\" bez pozivne oznake ne znači ništa.\n\nSva četiri dodatka na jednom mjestu: /M za vozilo, /MM za plovilo, /AM za zrakoplov, /P za prenosivu postaju. Zamka koju ispit voli je odnos /M i /P: /M znači da si u pokretu s postajom u vozilu, /P da si postaju prenio negdje drugdje i tamo je postavio. Naslijeđena citacija upućivala je na priručnik na tiskanoj str. 256, ali ta stranica sadrži popis prefiksa po zemljama (DXCC lista); oznake /M, /MM i /AM opisane su na tiskanoj str. 234, u t. 3.3.7.",
+    "formula": [
+      "Čl. 15. st. 2. — dodatci pozivnoj oznaci:",
+      "",
+      "   t. 1.  motorno vozilo ... „/M\"   / „mobile\"",
+      "   t. 2.  plovilo .......... „/MM\"  / „maritime mobile\"",
+      "   t. 3.  zrakoplov ........ „/AM\"  / „air mobile\"",
+      "   t. 4.  prenosiva postaja  „/P\"   / „portable\"",
+      "",
+      "Struktura same pozivne oznake (čl. 15. st. 1.):",
+      "   9A + jedna znamenka + najviše tri slova",
+      "   npr.  9A3ABC",
+      "",
+      "Stranac u RH (čl. 15. st. 5.):  „9A/\" ispred svoje oznake",
+      "                                („9A stroke\" u telefoniji)"
+    ],
+    "links": [
+      {"label": "Amateur radio call signs", "url": "https://en.wikipedia.org/wiki/Amateur_radio_call_signs"}
+    ],
+    "cite": [
+      {"src": "NN150/22", "loc": "čl. 15. st. 2. t. 1."},
+      {"src": "RK", "loc": "3.3.7. Pozivne oznake, tiskana str. 234 (ISPRAVAK: str. 256 je DXCC popis prefiksa, ne oznake /M i /MM)"}
+    ]
+  },
+
+  "pro-038": {
+    "note": "Rad iz zrakoplova: „/AM\" u telegrafiji, „air mobile\" u telefoniji. Kao i kod /M, riječ je o međunarodnoj engleskoj kratici, pa hrvatske izvedenice „/Z\", „ZRAKOPLOV\" ili „/ZP\" nisu ni ponuđene kao ozbiljne mogućnosti — one su tu samo da provjere pamtiš li da je sustav engleski.\n\nOznaku „/A\" iz odgovora b) treba posebno izbjegavati i to iz razloga koji nema veze s ovim člankom: mnogi prefiksi u svijetu počinju slovom A, pa bi „/A\" bio dvosmislen. Isti je razlog zašto se u nekim administracijama /M, /MM i /AM uopće ne koriste kao prefiksi nego samo kao sufiksi.\n\nNajvažniji dodatak uz ovo pitanje: za rad na zrakoplovu (i na plovilu) potrebno je PRETHODNO ODOBRENJE ZAPOVJEDNIKA (čl. 13. st. 1.). Za rad iz automobila ne treba nikakvo odobrenje (vidi pro-032). Ispit voli spojiti ta dva pitanja u jedno, pa provjeri traži li se od tebe oznaka ili uvjet za rad.\n\nU praksi je /AM vrlo rijedak upravo zbog tog odobrenja — u komercijalnom letu ga nećeš dobiti; ostaje balon, jedrilica ili mali zrakoplov s kooperativnim pilotom. /MM je češći, jer skiperi na dugim plovidbama rado imaju radioamatera na brodu.",
+    "formula": [
+      "Zrakoplov:  „/AM\"  ·  „air mobile\"",
+      "",
+      "Uvjeti za pokretni rad (čl. 13. st. 1.):",
+      "",
+      "   vozilo ..... dozvola",
+      "   plovilo .... dozvola + odobrenje zapovjednika plovila",
+      "   zrakoplov .. dozvola + odobrenje zapovjednika zrakoplova",
+      "",
+      "Cijeli skup:  /M · /MM · /AM · /P   (čl. 15. st. 2.)"
+    ],
+    "links": [
+      {"label": "Amateur radio call signs", "url": "https://en.wikipedia.org/wiki/Amateur_radio_call_signs"}
+    ],
+    "cite": [
+      {"src": "NN150/22", "loc": "čl. 15. st. 2. t. 3.; čl. 13. st. 1. (odobrenje zapovjednika)"},
+      {"src": "RK", "loc": "3.3.7. Pozivne oznake, tiskana str. 234"}
+    ]
+  },
+
+  "pro-040": {
+    "note": "Označeni odgovor je „za rad telegrafijom na plovilu ili prekooceanskoj sportskoj brodici\". Sadržajno je točan: /MM se dodaje kad radiš s plovila, a u telegrafiji se koristi upravo oznaka /MM dok se u telefoniji izgovaraju riječi „maritime mobile\".\n\n⚖ Provjera propisa: sadržaj odgovora je točan, ali IZVOR nije CEPT preporuka T/R 61-01. Aneks 1, t. 2.3. te preporuke uređuje samo dodavanje PREFIKSA posjećene zemlje ispred nacionalne pozivne oznake, odvojeno znakom „/\" u telegrafiji odnosno riječju „stroke\" u telefoniji, i nigdje ne spominje /MM. Oznaka /MM odnosno „maritime mobile\" propisana je nacionalno, u čl. 15. st. 2. t. 2. Pravilnika. Formulacija pitanja („Prigodom posjete drugim zemljama CEPT-a…\") potječe iz priručnika iz 2005., tiskana str. 234, gdje su prefiks posjećene zemlje i sufiksi /M, /MM, /AM opisani u istom popisu — pa je pitanje naslijedilo uvod koji mu sadržajno ne pripada.\n\nPrimijeti i drugu neurednost. Priručnik na tiskanoj str. 234 razlikuje „/M za rad na motornom vozilu ILI PLOVILU\" i „/MM za rad na plovilu ili prekooceanskoj sportskoj brodici\", a starija inačica pitanja u zbirci (tiskana str. 373) ima čak dva plovilna odgovora — jedan za telegrafiju, drugi za telefoniju. Važeći Pravilnik je to počistio: plovilo je /MM, točka.\n\nZa gostovanje po CEPT-u zapamti pravu odredbu: dodaje se PREFIKS posjećene zemlje ispred tvoje oznake, npr. 9A3ABC u Italiji radi kao I/9A3ABC. Suprotan smjer je u čl. 15. st. 5.: stranac u Hrvatskoj dodaje „9A/\" ispred svoje oznake.",
+    "formula": [
+      "Dvije različite stvari koje ovo pitanje spaja:",
+      "",
+      "  1) PREFIKS posjećene zemlje  (T/R 61-01, Aneks 1, t. 2.3.)",
+      "     I/9A3ABC          telegrafija:  „/\"",
+      "     „I stroke 9A3ABC\" telefonija:   „stroke\"",
+      "",
+      "  2) SUFIKS načina rada       (NN 150/22, čl. 15. st. 2.)",
+      "     9A3ABC/MM         telegrafija:  „/MM\"",
+      "     „maritime mobile\" telefonija",
+      "",
+      "Stranac u RH (čl. 15. st. 5.):  9A/DL1XYZ"
+    ],
+    "links": [
+      {"label": "Amateur radio call signs", "url": "https://en.wikipedia.org/wiki/Amateur_radio_call_signs"},
+      {"label": "Pravilnik NN 150/2022 (puni tekst)", "url": "https://narodne-novine.nn.hr/clanci/sluzbeni/2022_12_150_2313.html"}
+    ],
+    "cite": [
+      {"src": "NN150/22", "loc": "čl. 15. st. 2. t. 2. (a ne T/R 61-01)"},
+      {"src": "TR61-01", "loc": "Aneks 1, t. 2.3. — samo prefiks posjećene zemlje, str. 4"},
+      {"src": "RK", "loc": "3.3.7. Pozivne oznake, tiskana str. 234; zastarjele inačice pitanja, tiskana str. 371 i 373"}
+    ],
+    "flag": "check"
+  },
+
+  "pro-042": {
+    "note": "Slušatelji dobivaju posebnu oznaku oblika „9A RS\" plus serijski broj — dakle npr. 9A RS 1234. Oznaku dodjeljuje Agencija na prijedlog Saveza, isto kao i pozivne oznake operatorima (čl. 15. st. 4.).\n\nKljučna razlika prema pravoj pozivnoj oznaci je u strukturi i u tome što slijedi iz nje. Prava oznaka je „9A\" + jedna ZNAMENKA + najviše tri SLOVA (čl. 15. st. 1.), npr. 9A3ABC. Slušateljska je „9A RS\" + SERIJSKI BROJ. Već po obliku se vidi da nositelj nije operator: nema znamenke koja označava područje i nema slovnog sufiksa.\n\nRazlog za takvu oznaku: SWL (short wave listener) ne odašilje, pa mu oznaka ne služi za identifikaciju u eteru nego za identifikaciju u izvješćima. Slušatelj sluša veze, bilježi ih i šalje izvješća o prijamu postajama koje je čuo; one mu uzvraćaju QSL karticom. Bez jedinstvene oznake ta razmjena ne bi imala smisla. Za prijamnu postaju dozvola nije potrebna (čl. 12. st. 7.), pa je oznaka jedina formalnost.\n\nZa mnoge je SWL prvi korak — slušaš godinu dana, naučiš procedure, prepoznaješ pozivne oznake i prefikse, pa tek onda položiš ispit. Pravila iz čl. 19. vrijede i za slušatelja: nenamjerno primljeni signali ne smiju se bilježiti ni prosljeđivati drugima (čl. 19. st. 2.).",
+    "formula": [
+      "Dvije vrste oznaka:",
+      "",
+      "   operator (čl. 15. st. 1.):",
+      "      9A + znamenka + najviše 3 slova       9A3ABC",
+      "",
+      "   slušatelj (čl. 15. st. 4.):",
+      "      „9A RS\" + serijski broj               9A RS 1234",
+      "",
+      "Za prijamnu postaju dozvola NIJE potrebna",
+      "   (čl. 12. st. 7.)"
+    ],
+    "links": [
+      {"label": "Shortwave listening (SWL)", "url": "https://en.wikipedia.org/wiki/Shortwave_listening"}
+    ],
+    "cite": [
+      {"src": "NN150/22", "loc": "čl. 15. st. 4."},
+      {"src": "RK", "loc": "zastarjela inačica pitanja, tiskana str. 359 i 367"}
+    ]
+  },
+
+  "pro-044": {
+    "note": "Deset minuta. Čl. 15. st. 3. traži da se pozivna oznaka odašilje na početku I na kraju svake radijske komunikacije, a kod veze duljeg trajanja u vremenskim razmacima „od najmanje deset minuta\", običnim jezikom ili Morseovim kôdom.\n\nSvrha je sljedivost. Identifikacija je jedini mehanizam kojim se u eteru zna tko govori: bez nje ne bi bilo moguće ni riješiti smetnju, ni potvrditi vezu, ni provesti nadzor. Zato je odašiljanje oznake obveza (za razliku od dodataka /M i /P, koji su mogućnost — vidi pro-036).\n\nNapomena o formulaciji, jer zbunjuje: „u razmacima od najmanje deset minuta\" u izvorniku preporuke znači da razmak ne smije biti DULJI od deset minuta, dakle identificiraj se barem svakih deset minuta. Hrvatski tekst čita se doslovno obrnuto. Zdravorazumsko tumačenje — ono koje se i primjenjuje i koje ispit očekuje — jest: najviše deset minuta bez identifikacije.\n\nDrugo pravilo, s drugom brojkom, vrijedi za repetitor i digipitor: njihova se pozivna oznaka odašilje u vrsti emisije F2A ili G2A (Morseova telegrafija) i ponavlja NAJMANJE SVAKIH 20 MINUTA dok je repetitor uključen (Dodatak 1., t. 2.4.2.4.). Deset za tebe, dvadeset za repetitor — to je par brojki koji ispit voli zamijeniti.",
+    "formula": [
+      "Identifikacija (čl. 15. st. 3.):",
+      "",
+      "   • na početku svake komunikacije",
+      "   • na kraju svake komunikacije",
+      "   • kod dulje veze: svakih 10 minuta",
+      "   • običnim jezikom ILI Morseovim kôdom",
+      "",
+      "Repetitor / digipitor (Dodatak 1., t. 2.4.2.4.):",
+      "",
+      "   • vrsta emisije F2A ili G2A (Morseova telegrafija)",
+      "   • najmanje svakih 20 minuta, dok je uključen",
+      "",
+      "   Zapamti par:   ti 10 min   —   repetitor 20 min"
+    ],
+    "links": [
+      {"label": "Morseov kod (hr.wikipedia)", "url": "https://hr.wikipedia.org/wiki/Morseov_kod"},
+      {"label": "Amateur radio repeater", "url": "https://en.wikipedia.org/wiki/Amateur_radio_repeater"}
+    ],
+    "cite": [
+      {"src": "NN150/22", "loc": "čl. 15. st. 3.; Dodatak 1., t. 2.4.2.4. (repetitor, 20 min)"},
+      {"src": "RK", "loc": "zastarjele inačice pitanja, tiskana str. 358 (Skupina I., pit. 4.), 363 i 366"}
+    ]
+  },
+
+  "pro-046": {
+    "note": "Osnovna obveza nositelja dozvole je rad u granicama dopuštenog frekvencijskog pojasa. To je odredba čl. 16. st. 1.: odašiljač smije raditi samo na frekvencijama unutar pojaseva navedenih u Tablici 1. Dodatka 1., a dopuštena snaga se ne smije prekoračiti. Pojačava je čl. 22. st. 2.: „Granice frekvencijskih pojaseva ne smiju se prekoračiti.\"\n\nZašto baš to, a ne nešto drugo: amaterska služba dijeli spektar s drugim službama, često kao SEKUNDARNA (status S u Tablici 1.). Izlazak izvan ruba pojasa ne znači da si „malo pogriješio\" nego da odašilješ u tuđoj namjeni — u pojasu radionavigacije, radiodifuzije ili vojne službe. Rub pojasa je granica tvog prava, ne preporuka.\n\nOstala tri ponuđena odgovora su namjerno besmislena, ali svaki od njih ima korijen u nečemu što je nekad postojalo ili se čini logičnim. Brzina Morseovog koda (60 otkucaja u minuti, 30 znakova u minuti) bila je ispitni uvjet do 2003., kad je T/R 61-01 ukinuo obveznu provjeru poznavanja Morseovih znakova; danas nije ni ispitni uvjet ni obveza nositelja dozvole. Uporaba dvaju jezika nikad nije bila propisana — čl. 17. traži samo da se prijenos odvija OBIČNIM jezikom, uz međunarodni amaterski kôd i operativne kratice.\n\nPraktična posljedica koju vrijedi imati u glavi za rad: ne računa se samo nosilac nego CIJELI zauzeti pojas. Ako radiš SSB s nosiocem 3 kHz od ruba pojasa, tvoj bočni pojas već je izvan njega. Zato se u praksi ostavlja rezerva od barem širine emisije, a širina pojasa mora ionako biti ograničena na najmanju potrebnu mjeru (čl. 16. st. 2.).",
+    "formula": [
+      "Obveze nositelja dozvole — gdje što piše:",
+      "",
+      "   čl. 16. st. 1.  samo frekvencije iz Tablice 1.,",
+      "                   snaga se ne smije prekoračiti",
+      "   čl. 16. st. 2.  širina pojasa na najmanju potrebnu mjeru",
+      "   čl. 16. st. 5.  nemodulirani nositelj samo kratko,",
+      "                   i to za ispitivanje ili ugađanje",
+      "   čl. 16. st. 6.  za ugađanje se koristi umjetna antena",
+      "   čl. 22. st. 2.  granice pojaseva se ne smiju prekoračiti",
+      "   čl. 12. st. 4.  samo frekvencije, emisije i snage",
+      "                   usklađene s izdanom dozvolom",
+      "",
+      "Rub pojasa i SSB:",
+      "   nosilac 3 kHz od ruba + 2,7 kHz bočnog pojasa",
+      "   → dio emisije je već IZVAN pojasa"
+    ],
+    "links": [
+      {"label": "Frequency allocation", "url": "https://en.wikipedia.org/wiki/Frequency_allocation"}
+    ],
+    "cite": [
+      {"src": "NN150/22", "loc": "čl. 16. st. 1.; čl. 22. st. 2.; čl. 12. st. 4."},
+      {"src": "RK", "loc": "zastarjele inačice pitanja, tiskana str. 358 (Skupina I., pit. 7.), 363, 366 i 372"}
+    ]
+  },
+
+  "pro-048": {
+    "note": "Pojas 1810–1900 kHz smiju koristiti samo radioamateri A razreda. Razlog je jednostavan i vidi se golim okom u Dodatku 1.: tablica za P razred uopće ne sadrži 160 m. P razred na KV-u ima 80 m, 40 m, dva isječka 20 m, 15 m i 10 m — i to je sve.\n\nRaspon iz pitanja zapravo presijeca dva različita retka tablice za A razred, i vrijedi znati oba jer imaju različit status i različitu snagu. Dio 1810–1850 kHz ima status Pex (primarna služba, pojas koji se najvećim dijelom koristi za amatersku službu) i 1500 W PEP. Dio 1850–2000 kHz ima status S (sekundarna služba) i uz Napomenu 6 najveću SREDNJU snagu od 1000 W. Zamka je što se u drugom dijelu propisuje srednja snaga, a ne vršna snaga ovojnice.\n\nStatus S znači da u tom dijelu ne smiješ stvarati štetne smetnje postajama primarne službe i ne možeš tražiti zaštitu od njihovih smetnji (Dodatak 1., Opća napomena). Na 160 m je to stvarno ograničenje, jer je pojas u Regiji 1 dijeljen s pomorskom radionavigacijom i fiksnim službama.\n\n160 m je „gentleman's band\": noćni pojas, zimska sezona, velike antene i visoke snage, i pojas na kojem se najviše osjeti razlika između A i P razreda. Upravo zato ga P razred nema — traži iskustvo u nošenju sa smetnjama i s antenskim kompromisima koji na λ/2 od 160 m nisu mali.",
+    "formula": [
+      "Dodatak 1., Tablica 1. — 160 m, samo A razred:",
+      "",
+      "   1810 – 1850 kHz   Pex   1500 W PEP    2,7 kHz",
+      "   1850 – 2000 kHz   S     1000 W        2,7 kHz",
+      "                     (Napomena 6: najveća SREDNJA snaga)",
+      "",
+      "   P razred na KV-u:  3500–3800 · 7000–7200 ·",
+      "                      14040–14150 · 14280–14350 ·",
+      "                      21000–21450 · 28000–29700 kHz",
+      "                      → 160 m NEMA",
+      "",
+      "Status:  P  = primarna služba",
+      "         Pex= primarna, pretežno amaterska",
+      "         S  = sekundarna (bez prava na zaštitu)"
+    ],
+    "links": [
+      {"label": "160-meter band", "url": "https://en.wikipedia.org/wiki/160-meter_band"},
+      {"label": "Frequency allocation", "url": "https://en.wikipedia.org/wiki/Frequency_allocation"}
+    ],
+    "cite": [
+      {"src": "NN150/22", "loc": "Dodatak 1., Tablica 1. (A i P razred); Napomena 6.; Opća napomena o statusu"},
+      {"src": "RK", "loc": "zastarjela inačica pitanja, tiskana str. 364 (Skupina III., pit. 5.)"}
+    ]
+  },
+
+  "pro-050": {
+    "note": "Pojas 144–146 MHz imaju OBA razreda. To je jedan od rijetkih pojaseva koji stoji u obje tablice Dodatka 1., i upravo zato je 2 m pojas na kojem počinje gotovo svaki radioamater.\n\nRazlika je u snazi: A razred 1500 W PEP, P razred 100 W PEP. Status je u oba slučaja Pex — primarna služba, pojas koji se najvećim dijelom upotrebljava za amatersku službu — a najveća širina pojasa je 20 kHz. Uz Napomenu 1, 2 m se smije koristiti i u amaterskoj satelitskoj službi.\n\nZašto baš 2 m za početnike: raspon je kratak, uglavnom optički s malim produljenjem, pa greška ne odlazi daleko i ne smeta pola Europe. Oprema je jeftina i mala, repetitori su gusti, a FM je jednostavan. Za razliku od KV-a, ovdje se ne treba boriti s prostiranjem da bi se uopće ostvarila veza.\n\nDobro upamti gornju granicu: 146 MHz, a NE 148 MHz. U ITU Regiji 1 (Europa, Afrika) pojas ide 144–146 MHz; u Regijama 2 i 3 ide 144–148 MHz. Uređaji uvezeni iz SAD-a znaju biti otvoreni do 148 MHz, ali dio iznad 146 MHz u Hrvatskoj nije amaterski pojas (vidi pro-094 o regijama).",
+    "formula": [
+      "Dodatak 1., Tablica 1. — 144 – 146 MHz:",
+      "",
+      "   A razred:  Nap. 1   Pex   1500 W PEP   20 kHz",
+      "   P razred:  Nap. 1   Pex    100 W PEP   20 kHz",
+      "",
+      "   Napomena 1 → dopuštena i amaterska satelitska služba",
+      "",
+      "ITU regije i gornji rub 2 m:",
+      "   Regija 1 (Europa) ....... 144 – 146 MHz",
+      "   Regije 2 i 3 ............ 144 – 148 MHz",
+      "",
+      "Ostali pojasevi koje imaju OBA razreda:",
+      "   430–440 MHz · 1240–1300 MHz · 2300–2400 MHz ·",
+      "   2400–2450 MHz i veći dio mikrovalnih pojaseva"
+    ],
+    "links": [
+      {"label": "2-meter band", "url": "https://en.wikipedia.org/wiki/2-meter_band"},
+      {"label": "ITU Region", "url": "https://en.wikipedia.org/wiki/ITU_Region"}
+    ],
+    "cite": [
+      {"src": "NN150/22", "loc": "Dodatak 1., Tablica 1. (A i P razred); Napomena 1."},
+      {"src": "RK", "loc": "zastarjela inačica pitanja, tiskana str. 360 (pit. 16.)"}
+    ]
+  },
+
+  "pro-052": {
+    "note": "Pojas 21 000 – 21 450 kHz (15 m) imaju oba razreda: A razred s 1500 W PEP i statusom Pex, P razred sa 100 W. To je jedan od svega nekoliko KV pojaseva koje P razred uopće ima, pa ga vrijedi zapamtiti zajedno s ostalima iz istog retka.\n\nTablica za P razred grupira više pojaseva u jedan redak s jednom snagom: 3500–3800 kHz, 7000–7200 kHz, 14 040–14 150 kHz, 14 280–14 350 kHz i 21 000–21 450 kHz — svi status P (primarna služba), 100 W, širina pojasa 2,7 kHz. Zasebno stoji 28 000–29 700 kHz, također 100 W, ali sa širinom 6,0 kHz.\n\nPrimijeti obrazac: P razred dobiva klasične „stare\" pojaseve (80, 40, 20, 15, 10 m), a ne dobiva WARC pojaseve (30, 17, 12 m) ni 160 m. WARC pojasevi su uski i međunarodno osjetljivi — na 30 m amaterska služba je sekundarna i dopušteni su samo A1A i F1B (Napomena 3) — pa se čuvaju za razred s punim ispitom.\n\nNa 15 m je i puna širina pojasa dostupna P razredu, za razliku od 20 m gdje P razred dobiva samo dva isječka. To je zato što je 15 m dnevni DX pojas jakih ciklusa i tehnički najzahvalniji za početnika s poštenom žičanom antenom.",
+    "formula": [
+      "Dodatak 1., Tablica 1. — 15 m (21 000 – 21 450 kHz):",
+      "",
+      "   A razred:  Nap. 1   Pex   1500 W PEP",
+      "   P razred:           P      100 W PEP   2,7 kHz",
+      "",
+      "Svi KV pojasevi P razreda:",
+      "   3 500 –  3 800 kHz     (80 m)",
+      "   7 000 –  7 200 kHz     (40 m)",
+      "  14 040 – 14 150 kHz     (20 m, isječak)",
+      "  14 280 – 14 350 kHz     (20 m, isječak)",
+      "  21 000 – 21 450 kHz     (15 m, cijeli)",
+      "  28 000 – 29 700 kHz     (10 m, cijeli, 6,0 kHz)",
+      "",
+      "  P razred NEMA: 160 m, 60 m, 30 m, 17 m, 12 m, 6 m, 4 m"
+    ],
+    "links": [
+      {"label": "15-meter band", "url": "https://en.wikipedia.org/wiki/15-meter_band"}
+    ],
+    "cite": [
+      {"src": "NN150/22", "loc": "Dodatak 1., Tablica 1. (A i P razred); Napomena 1. i Napomena 3."}
+    ]
+  },
+
+  "pro-054": {
+    "note": "Najveću snagu propisuje podzakonski akt za radioamatere — dakle ovaj Pravilnik, konkretno Dodatak 1., i to na dva mjesta: t. 2.2.1. daje opću granicu po razredu (A = 1500 W, P = 100 W), a Tablica 1. daje granicu po pojedinom pojasu, koja je često niža.\n\nGranicu postavlja država, a ne proizvođač ni klub, jer snaga nije tehničko nego regulatorno pitanje. Veća snaga znači veći doseg smetnje, veće polje u okolišu i veći utjecaj na susjedne službe. Zato čl. 16. st. 1. izrijekom kaže da se dopuštena snaga ne smije prekoračiti, a Dodatak 1., t. 2.2.2. traži da odašiljač bude izveden tako da se propisana izlazna snaga NE MOŽE povećati rukovanjem — dakle ne smije postojati skriveni „turbo\" gumb.\n\nPazi na hijerarhiju granica, jer se tu griješi: uvijek vrijedi ona NIŽA. A razred ima 1500 W općenito, ali na 70 MHz samo 10 W, na 135,7–137,8 kHz 1 W EIRP, na 5351,5–5366,5 kHz 15 W EIRP, na 50,5–51,9 MHz 100 W. Opća granica nije dozvola za 1500 W svugdje.\n\nJedina zakonita iznimka je čl. 12. st. 15.: iznimno, u svrhu eksperimentiranja i tehničkih istraživanja, može se izdati privremena dozvola za veću vršnu snagu — ali samo izvan gusto naseljenih mjesta i gradova, i samo za istraživanje odbijanja valova od objekata u svemiru (EME, meteorski odraz) i za sudjelovanje u međunarodnim natjecanjima.",
+    "formula": [
+      "Dvije razine granice — vrijedi NIŽA:",
+      "",
+      "   Dodatak 1., t. 2.2.1.  opća granica po razredu",
+      "      A razred = 1500 W (61,8 dBm)",
+      "      P razred =  100 W (50,0 dBm)",
+      "",
+      "   Dodatak 1., Tablica 1.  granica po POJASU, npr. za A:",
+      "      135,7 – 137,8 kHz .....    1 W EIRP  (Nap. 4)",
+      "      472 – 479 kHz .........    1 W EIRP  (Nap. 4*)",
+      "      5351,5 – 5366,5 kHz ...   15 W EIRP  (Nap. 7)",
+      "      10 100 – 10 150 kHz ...  250 W",
+      "      50 000 – 50 500 kHz ...  500 W",
+      "      50 500 – 51 900 kHz ...  100 W",
+      "      70 000 – 70 450 kHz ...   10 W",
+      "      2300 – 2400 MHz .......  150 W",
+      "",
+      "Iznimka (čl. 12. st. 15.): privremena dozvola za veću snagu",
+      "   samo izvan gusto naseljenih mjesta, za EME i natjecanja"
+    ],
+    "links": [
+      {"label": "Peak envelope power (PEP)", "url": "https://en.wikipedia.org/wiki/Peak_envelope_power"},
+      {"label": "Pravilnik NN 150/2022 (puni tekst)", "url": "https://narodne-novine.nn.hr/clanci/sluzbeni/2022_12_150_2313.html"}
+    ],
+    "cite": [
+      {"src": "NN150/22", "loc": "Dodatak 1., t. 2.2.1. i Tablica 1.; čl. 16. st. 1.; čl. 12. st. 15."},
+      {"src": "RK", "loc": "zastarjela inačica pitanja, tiskana str. 362 (pit. 12.)"}
+    ]
+  },
+
+  "pro-056": {
+    "note": "Na 4 m pojasu (70 000 – 70 450 kHz) A razred smije najviše 10 W PEP. To je najniža „obična\" brojka u cijeloj tablici za A razred — niža je samo 1 W EIRP na 135,7 kHz i 472 kHz.\n\nRazlog za tako oštro ograničenje je status: 4 m je u Tablici 1. označen kao S, dakle SEKUNDARNA služba. Pojas oko 70 MHz u Regiji 1 je povijesno vojni i namijenjen fiksnim i pokretnim službama; amateri su tamo gosti. Sekundarna služba ne smije stvarati štetne smetnje primarnoj i ne može tražiti zaštitu od nje (Dodatak 1., Opća napomena). Deset vata je razina na kojoj gost ne smeta domaćinu.\n\nDodatno, 4 m nije globalni pojas nego europska posebnost — dodijelio ga je tek dio zemalja, i to pod različitim uvjetima. Zato za njega gotovo da i nema serijske opreme; radi se pretvaračima (transverterima) s 28 MHz.\n\nZa pamćenje: 4 m i 6 m su „mali\" pojasevi s malim snagama, iako su u sredini tablice A razreda gdje sve ostalo ima 1500 W. Sekvenca 6 m / 4 m / 2 m ide 500 W (50,0–50,5 MHz, status P), 100 W (50,5–51,9 MHz, status S), 10 W (70 MHz, status S), pa 1500 W (144–146 MHz, status Pex). Kad status padne na S, padne i snaga.",
+    "formula": [
+      "Dodatak 1., Tablica 1. (A razred) — VHF niz:",
+      "",
+      "   50 000 – 50 500 kHz   P     500 W   12,0 kHz",
+      "   50 500 – 51 900 kHz   S     100 W   12,0 kHz",
+      "   70 000 – 70 450 kHz   S      10 W   12,0 kHz   ← 4 m",
+      "  144 000 – 146 000 kHz  Pex  1500 W   20,0 kHz",
+      "",
+      "Pravilo koje se vidi iz tablice:",
+      "   status S  →  mala snaga, bez prava na zaštitu",
+      "   status Pex →  puna snaga",
+      "",
+      "P razred nema ni 6 m ni 4 m."
+    ],
+    "links": [
+      {"label": "4-meter band", "url": "https://en.wikipedia.org/wiki/4-meter_band"},
+      {"label": "Frequency allocation", "url": "https://en.wikipedia.org/wiki/Frequency_allocation"}
+    ],
+    "cite": [
+      {"src": "NN150/22", "loc": "Dodatak 1., Tablica 1. (A razred); Opća napomena o statusu"}
+    ]
+  },
+
+  "pro-058": {
+    "note": "Pojas 24 890 – 24 990 kHz (12 m) ima za A razred status Pex i punih 1500 W PEP, kao i većina KV pojaseva. Odgovor je dakle 1500 W.\n\nOvdje treba paziti na zamku koju pitanje postavlja formatom brojki. Napisano je „od 24.890 do 24.990 MHz\", s točkom kao razdjelnikom tisućica, pa na prvi pogled izgleda kao da je riječ o pojasu oko 25 GHz. Nije: to je 24 890 – 24 990 kHz, dakle 24,89 – 24,99 MHz, kratkovalni WARC pojas od 12 metara. Ponuđeni odgovor b) „1 W\" je tu upravo zato da uhvati onoga tko je pomislio na mikrovalne pojaseve, gdje se doista pojavljuje pojas 24 – 24,05 GHz.\n\n12 m je jedan od tri WARC pojasa (30, 17 i 12 m), dodijeljena amaterima na Svjetskoj administrativnoj radijskoj konferenciji 1979. Po dogovoru IARU-a na WARC pojasevima se ne održavaju natjecanja — to je njihova neformalna, ali čvrsto poštovana posebnost. Za razliku od 30 m, koji je sekundaran i ograničen na A1A i F1B (Napomena 3), 12 m je pun pojas s primarnim statusom i bez ograničenja vrste emisije.\n\nP razred 12 m nema. WARC pojasevi su rezervirani za A razred (vidi pro-052).",
+    "formula": [
+      "Dodatak 1., Tablica 1. (A razred) — KV, 1500 W Pex:",
+      "",
+      "    7 000 –  7 100 kHz    Nap. 1   Pex   1500 W",
+      "   14 000 – 14 250 kHz    Nap. 1   Pex   1500 W",
+      "   18 068 – 18 168 kHz    Nap. 1   Pex   1500 W   (17 m)",
+      "   21 000 – 21 450 kHz    Nap. 1   Pex   1500 W",
+      "   24 890 – 24 990 kHz    Nap. 1   Pex   1500 W   (12 m) ←",
+      "   28 000 – 29 700 kHz    Nap. 1   Pex   1500 W",
+      "",
+      "Ne brkati s mikrovalnim pojasom:",
+      "   24 – 24,05 GHz   Pex",
+      "   24,05 – 24,25 GHz  S",
+      "",
+      "WARC pojasevi: 30 m · 17 m · 12 m — bez natjecanja (IARU)"
+    ],
+    "links": [
+      {"label": "12-meter band", "url": "https://en.wikipedia.org/wiki/12-meter_band"},
+      {"label": "International Amateur Radio Union (IARU)", "url": "https://en.wikipedia.org/wiki/International_Amateur_Radio_Union"}
+    ],
+    "cite": [
+      {"src": "NN150/22", "loc": "Dodatak 1., Tablica 1. (A razred); Napomena 1. i Napomena 3."}
+    ]
+  },
+
+  "pro-060": {
+    "note": "Zabranjeno je komunicirati s radijskim postajama koje nemaju valjanu identifikacijsku oznaku ili je ne odašilju u propisnim intervalima — dakle s nelicenciranima i s onima koji se ne identificiraju. Tako glasi čl. 18. t. 4., a ponuđeni odgovor je njegova skraćena inačica.\n\nZašto je to zabrana, a ne samo loš običaj: cijeli sustav amaterske službe počiva na tome da je svaki sudionik poznat i odgovoran. Ako odgovoriš postaji bez oznake, ti si joj dao smisao postojanja i praktički je legitimirao. Nelicencirani prekršitelj bez sugovornika brzo odustane; s tobom kao sugovornikom dobiva ono zbog čega je uključio odašiljač. Zato je jedini ispravan postupak — ignorirati, ne prozivati, ne prepirati se u eteru, i po potrebi prijaviti.\n\nOstala tri ponuđena odgovora opisuju stvari koje su izrijekom DOPUŠTENE. Morseov kôd je pravno izjednačen s običnim jezikom; prijenos običnim jezikom je upravo ono što čl. 17. traži; a međunarodne operativne kratice (Q-kôd, amaterski kôd) čl. 17. izrijekom ubraja u obični jezik. Ni jedna od njih ne može biti zabrana.\n\nPotpuni popis zabrana iz čl. 18. ima osam točaka i vrijedi ga proći cijelog, jer se iz njega izvodi nekoliko pitanja u ovom paketu (vidi pro-062 i pro-064).",
+    "formula": [
+      "Čl. 18. — u amaterskim komunikacijama NIJE dopušteno:",
+      "",
+      "   1. poruke koje se ne odnose na radioamatere",
+      "      (iznimka: poziv u nesreći ili opasnosti)",
+      "   2. poruke koje ugrožavaju obranu i nacionalnu sigurnost",
+      "      ili sigurnost ljudskih života",
+      "   3. služiti se nepristojnim rječnikom",
+      "   4. komunicirati s postajama BEZ valjane identifikacijske",
+      "      oznake ili koje je ne odašilju u propisnim intervalima ←",
+      "   5. upotrebljavati „SOS\" ili „MAYDAY\"",
+      "   6. prenositi glazbu, zabavu, oglašavanje",
+      "      (iznimka: ton za mjerenje, najviše 2 minute)",
+      "   7. odašiljati signale nejasnog značenja ili pogrešne",
+      "      pozivne oznake",
+      "   8. prenositi riječi trećih osoba koje nisu javno izgovorene"
+    ],
+    "links": [
+      {"label": "Pravilnik NN 150/2022 (puni tekst)", "url": "https://narodne-novine.nn.hr/clanci/sluzbeni/2022_12_150_2313.html"}
+    ],
+    "cite": [
+      {"src": "NN150/22", "loc": "čl. 18. t. 4.; čl. 17."},
+      {"src": "RK", "loc": "3.3.9. Sadržaj odašiljanja, tiskana str. 241–242; zastarjele inačice pitanja, tiskana str. 361 i 367"}
+    ]
+  },
+
+  "pro-062": {
+    "note": "Dopuštene su poruke OSOBNE prirode. Do tog odgovora dolaziš eliminacijom, jer su ostala tri izrijekom zabranjena u čl. 18.: nepristojan sadržaj (t. 3.), signali nejasnog značenja koji unose zabunu (t. 7.), a religiozne poruke padaju pod t. 1. — poruke koje se ne odnose na radioamatere.\n\nOkvir je čl. 18. t. 1.: zabranjeno je razmjenjivati poruke koje se NE ODNOSE NA RADIOAMATERE. Iz te zabrane obrnuto slijedi ono što je dopušteno — osobna komunikacija između radioamatera, o radioamaterskim temama i o njima samima. To je i ITU-ova definicija amaterske službe: samoobrazovanje, međusobno komuniciranje i tehnička istraživanja, bez novčanog interesa.\n\nGranica je jasnija nego što se čini. Dopušteno je: izvještaj o prijamu, oprema, antene, prostiranje, vrijeme, kako si, gdje si, planovi za natjecanje. Nije dopušteno: bilo što u ime trećega tko nije radioamater, bilo što poslovno, oglašavanje, prijenos glazbe ili zabave (t. 6.), i prenošenje riječi trećih osoba koje nisu javno izgovorene (t. 8.).\n\nDvije iznimke koje treba znati. Prva: poziv u slučaju nesreće ili opasnosti — tada sva ograničenja o sadržaju padaju (t. 1., uz čl. 59. st. 5. i 6. ZEK-a), a radioamater koji primi poziv u pomoć mora bez odgode prekinuti vlastito odašiljanje i uspostaviti vezu s postajom u pogibelji (čl. 19. st. 3.). Druga: prijenos zvuka određene radijske frekvencije dopušten je za ispitivanje i mjerenje, najviše dvije minute.",
+    "formula": [
+      "Zašto su ostala tri odgovora pogrešna:",
+      "",
+      "   b) nepristojan sadržaj ... čl. 18. t. 3. — zabranjeno",
+      "   c) unose zabunu .......... čl. 18. t. 7. — zabranjeno",
+      "   d) religiozne prirode .... čl. 18. t. 1. — ne odnosi se",
+      "                              na radioamatere",
+      "   a) osobne prirode ........ jedino što preostaje  ✓",
+      "",
+      "Dvije iznimke:",
+      "   • poziv u nesreći/opasnosti  (čl. 18. t. 1.,",
+      "     čl. 19. st. 3. — prekini i pomozi)",
+      "   • ton za ispitivanje i mjerenje, najviše 2 minute",
+      "     (čl. 18. t. 6.)"
+    ],
+    "links": [
+      {"label": "Radioamaterizam (hr.wikipedia)", "url": "https://hr.wikipedia.org/wiki/Radioamaterizam"}
+    ],
+    "cite": [
+      {"src": "NN150/22", "loc": "čl. 18. t. 1., 3., 6. i 7.; čl. 19. st. 3."},
+      {"src": "RK", "loc": "3.3.9. Sadržaj odašiljanja, tiskana str. 241–242; zastarjela inačica pitanja, tiskana str. 367"}
+    ]
+  },
+
+  "pro-064": {
+    "note": "Komunikacija se ne smije odvijati nejasnim signalima. Čl. 18. t. 7. zabranjuje „odašiljati signale nejasnog značenja ili pogrešne pozivne oznake\", a čl. 17. postavlja pozitivno pravilo: prijenos između amaterskih postaja mora se odvijati OBIČNIM JEZIKOM.\n\nBit zabrane je zabrana šifriranja. Amaterski promet mora biti u načelu razumljiv svakome tko sluša — i drugim amaterima i nadzornom tijelu. Čim se poruka namjerno učini nerazumljivom trećima, prestaje biti amaterska komunikacija i postaje nešto drugo, što se dodjeljuje po posve drugim pravilima i uz nadzor. Zato radioamateri ne smiju kriptirati sadržaj.\n\nVažna razlika koju treba razumjeti: digitalni modovi NISU šifriranje. FT8, RTTY, PSK31 ili paketni promet su javno objavljeni, standardizirani načini kodiranja koje svatko može dekodirati odgovarajućim programom — dakle „obični jezik\" u pravnom smislu. Isto vrijedi za Morseov kôd i za međunarodni amaterski kôd i operativne kratice, koje čl. 17. izrijekom ubraja u obični jezik. Zabranjeno je ono što je nerazumljivo NAMJERNO i tajno.\n\nJedina iznimka od načela razumljivosti u Pravilniku su naredbe za daljinsko upravljanje repetitorom i digipitorom (F2D ili G2D, Dodatak 1., t. 2.4.2.3.) — a ni one nisu tajne, nego tehničke. Ponuđeni odgovor b) („na jeziku koji nije materinji\") je čista zamka: nikakvog jezičnog ograničenja u Pravilniku nema, i svakodnevno se radi na engleskom.",
+    "formula": [
+      "Dva članka koja se drže zajedno:",
+      "",
+      "   čl. 17.        prijenos mora biti OBIČNIM JEZIKOM;",
+      "                  međunarodni amaterski kôd i operativne",
+      "                  kratice smatraju se običnim jezikom",
+      "   čl. 18. t. 7.  zabranjeni signali nejasnog značenja",
+      "                  i pogrešne pozivne oznake",
+      "",
+      "Obični jezik (dopušteno):",
+      "   govor · Morseov kôd · Q-kôd · RTTY · PSK31 · FT8",
+      "",
+      "Nejasno značenje (zabranjeno):",
+      "   šifriranje · vlastiti tajni kôd · lažna pozivna oznaka"
+    ],
+    "links": [
+      {"label": "Morseov kod (hr.wikipedia)", "url": "https://hr.wikipedia.org/wiki/Morseov_kod"}
+    ],
+    "cite": [
+      {"src": "NN150/22", "loc": "čl. 18. t. 7.; čl. 17."},
+      {"src": "RK", "loc": "3.3.9. Sadržaj odašiljanja, tiskana str. 242; zastarjele inačice pitanja, tiskana str. 358, 363, 366 i 372"}
+    ]
+  },
+
+  "pro-066": {
+    "note": "Prijamnom opremom amaterske postaje smiju se primati samo tri stvari: signali drugih radioamatera, signali FREKVENCIJSKE NORME i VREMENSKI SIGNALI — plus, kao četvrto, signali za koje je pribavljena prethodna suglasnost Agencije. To je čl. 19. st. 1. i on je taksativan.\n\nZašto su frekvencijska norma i točno vrijeme izuzeti: to su etalonske postaje (DCF77, WWV, RWM i slične) koje postoje upravo zato da bi ih svatko primao. Radioamateru služe za baždarenje — provjeriš kalibraciju prijamnika na poznatoj frekvenciji i uskladiš sat na UTC, koji ti treba za dnevnik (čl. 20. st. 1. t. 2.) i za digitalne modove osjetljive na sinkronizaciju.\n\nZašto su ostali odgovori zabranjeni: prijam prometa drugih telekomunikacijskih službi zadire u tajnost komunikacija. Čl. 19. st. 2. zaoštrava: nenamjerno primljeni signali ne smiju se ni BILJEŽITI ni odašiljati drugima. Isto načelo ponavlja i čl. 3. st. 3.: poruke koje si primio, a nisu ti namijenjene, ne smiješ proslijediti drugima osim u slučajevima iz čl. 59. st. 6. ZEK-a. Odgovor a) („prijenos glazbe iz drugih amaterskih postaja\") pada iz drugog razloga — takav prijenos uopće ne bi smio postojati, jer je glazba zabranjena čl. 18. t. 6.\n\nPraktično: sam prijamnik ne krši ništa, ali ono što s primljenim učiniš krši. Skener koji hvata policiju ili taksi nije zabranjen kao uređaj, ali bilježenje, prepričavanje ili iskorištavanje toga jest — i to ne samo po ovom Pravilniku nego i po Zakonu.",
+    "formula": [
+      "Čl. 19. st. 1. — što se SMIJE primati:",
+      "",
+      "   1. signali odaslani od drugih radioamatera",
+      "   2. signali frekvencijske norme",
+      "   3. vremenski signali (točno vrijeme)",
+      "   4. signali uz prethodnu suglasnost Agencije",
+      "",
+      "Čl. 19. st. 2.:",
+      "   nenamjerno primljeni signali",
+      "   → ne smiju se bilježiti ni odašiljati drugima",
+      "",
+      "Čl. 19. st. 3.:",
+      "   poziv u pomoć → bez odgode prekini vlastito odašiljanje",
+      "                   i uspostavi vezu s postajom u pogibelji"
+    ],
+    "links": [
+      {"label": "Pravilnik NN 150/2022 (puni tekst)", "url": "https://narodne-novine.nn.hr/clanci/sluzbeni/2022_12_150_2313.html"}
+    ],
+    "cite": [
+      {"src": "NN150/22", "loc": "čl. 19. st. 1.; čl. 19. st. 2.; čl. 3. st. 3."},
+      {"src": "RK", "loc": "3.3.10. Prijam, tiskana str. 242; zastarjela inačica pitanja, tiskana str. 359"}
+    ]
+  },
+
+  "pro-068": {
+    "note": "Uz amaterske signale dozvola omogućava i prijam signala točnog vremena. To je isti čl. 19. st. 1. kao u pro-066, samo gledan s druge strane: ondje se pitalo što se smije primati, ovdje se pita što dozvola dodatno omogućava.\n\nOva dva pitanja su par i vrijedi ih učiti zajedno. Popis je uvijek isti — radioamateri, frekvencijska norma, vremenski signali, plus ono za što Agencija da suglasnost — a mijenja se samo koji je od tih pojmova ponuđen kao točan odgovor. U starijoj inačici pitanja (RK, tiskana str. 358 i 372) točan je odgovor bio „frekvencijskih normi\", u ovoj je „signala točnog vremena\". Isti stavak, druga stavka popisa.\n\nSve tri pogrešne mogućnosti zadiru u tajnost komunikacija: poruke iz javne telekomunikacijske mreže, vijesti novinskih agencija i „strogo povjerljive informacije\". Ni jedno od toga nije upućeno tebi, pa ni prijam ni bilježenje ni prosljeđivanje nisu dopušteni (čl. 19. st. 2., čl. 3. st. 3.).\n\nU praksi ti signal točnog vremena treba svaki dan. Dnevnik se vodi po UTC-u (čl. 20. st. 1. t. 2.), a digitalni modovi s vremenskim odsječcima — FT8 ima 15-sekundne prozore — jednostavno ne rade ako ti je sat pomaknut više od sekunde ili dvije.",
+    "formula": [
+      "Čl. 19. st. 1. — isti popis, druga stavka:",
+      "",
+      "   pro-066 traži:  „prijenos normi frekvencije i točnog vremena\"",
+      "   pro-068 traži:  „signala točnog vremena\"",
+      "   → oba iz istog stavka",
+      "",
+      "Čemu služi točno vrijeme radioamateru:",
+      "   • dnevnik se vodi u UTC        (čl. 20. st. 1. t. 2.)",
+      "   • FT8 / JT65: 15 s odnosno 60 s prozori",
+      "     → sat mora biti točan unutar ~1 s",
+      "   • frekvencijska norma → baždarenje prijamnika"
+    ],
+    "links": [
+      {"label": "Pravilnik NN 150/2022 (puni tekst)", "url": "https://narodne-novine.nn.hr/clanci/sluzbeni/2022_12_150_2313.html"}
+    ],
+    "cite": [
+      {"src": "NN150/22", "loc": "čl. 19. st. 1."},
+      {"src": "RK", "loc": "3.3.10. Prijam, tiskana str. 242; zastarjele inačice pitanja, tiskana str. 358 (Skupina I., pit. 2.) i 372"}
+    ]
+  },
+
+  "pro-070": {
+    "note": "Označeni odgovor je „nije dopuštena\", i to nije proizvoljno: doslovno tako stoji u priručniku iz 2005., na tiskanoj str. 245, u popisu pravila za amaterske relejne postaje — „Govorna komunikacija između dviju amaterskih relejnih postaja nije dopuštena.\" Ispitna lista je preuzela tu rečenicu.\n\nSmisao zabrane je razumljiv iz same svrhe repetitora. Repetitor postoji da premosti udaljenost između POKRETNIH i nepokretnih postaja, odnosno između pokretnih postaja međusobno. Ako se dva repetitora spoje govornim putem, oni prestaju biti pomoć korisnicima i postaju vlastita mreža: jedan zauzet kanal povlači drugi, smetnja se prenosi iz jednog kraja zemlje u drugi, a nitko od korisnika više ne može procijeniti tko je zapravo na vezi. Uz to, dva repetitora u međusobnoj petlji lako se zaključaju jedan na drugoga i blokiraju oba kanala.\n\n⚖ Provjera propisa: važeći Pravilnik tu zabranu više ne sadrži izrijekom. Dodatak 1., t. 2.4.2.1. opisuje samo SVRHU repetitora i digipitora (premošćivanje udaljenosti između pokretnih i nepokretnih amaterskih radijskih postaja, ili između pokretnih), a t. 2.4.2.6. zabranjuje samo to da druge radioamaterske komunikacije uzrokuju smetnje prometu preko repetitora. Izričite zabrane govorne veze između dvaju repetitora u NN 150/22 nema — odgovor se izvodi iz svrhe repetitora i iz starijeg propisa.\n\nZa potpunost, ostala pravila o repetitoru iz Dodatka 1. koja se pitaju: ERP najviše 15 W i devijacija najviše ±5 kHz (t. 2.4.2.2.), uključivanje audio-frekvencijom F2D ili G2D uz kašnjenje 3–5 s i zabranu stalnog uključenja (t. 2.4.2.3.), identifikacija u F2A ili G2A svakih 20 minuta (t. 2.4.2.4.) te obveza da odgovorni radioamater ili Povjerenik Saveza može repetitor isključiti u bilo koje vrijeme (t. 2.4.2.5.).",
+    "formula": [
+      "Svrha repetitora (Dodatak 1., t. 2.4.2.1.):",
+      "   pokretna ⇄ REPETITOR ⇄ nepokretna",
+      "   pokretna ⇄ REPETITOR ⇄ pokretna",
+      "   REPETITOR ⇄ REPETITOR   ← nije svrha",
+      "",
+      "Ostala pravila za repetitor:",
+      "   t. 2.4.2.2.  ERP ≤ 15 W (41,8 dBm), devijacija ≤ ±5 kHz",
+      "   t. 2.4.2.3.  uključenje F2D/G2D, kašnjenje 3–5 s,",
+      "                stalno uključenje nije dopušteno",
+      "   t. 2.4.2.4.  identifikacija F2A/G2A svakih 20 min",
+      "   t. 2.4.2.5.  mora se moći isključiti u bilo koje vrijeme",
+      "   t. 2.4.2.6.  druge komunikacije ne smiju smetati prometu",
+      "                preko repetitora"
+    ],
+    "links": [
+      {"label": "Amateur radio repeater", "url": "https://en.wikipedia.org/wiki/Amateur_radio_repeater"}
+    ],
+    "cite": [
+      {"src": "NN150/22", "loc": "Dodatak 1., t. 2.4.2.1. i t. 2.4.2.6. (izričite zabrane nema)"},
+      {"src": "RK", "loc": "3.3.16.2. Amaterske relejne postaje, tiskana str. 245 („Govorna komunikacija između dviju amaterskih relejnih postaja nije dopuštena.\"); zastarjela inačica pitanja, tiskana str. 359"}
+    ],
+    "flag": "check"
+  },
+
+  "pro-072": {
+    "note": "Označeni odgovor je „običnom olovkom\", to jest grafitnom. Izvor je priručnik iz 2005., tiskana str. 242, gdje se za dnevnik traži da sva odašiljanja budu upisana „razgovijetnim zapisom KOJI SE NE MOŽE BRISATI\". Grafit se briše gumicom, dakle otpada. Ista je logika i u starijoj inačici pitanja u zbirci (tiskana str. 361), gdje je točan odgovor bio jednostavno „olovkom\".\n\nZašto je trajnost zapisa uopće važna: dnevnik je dokazno sredstvo. Ako netko prijavi smetnju u utorak u 21:40, tvoj dnevnik je ono što pokazuje jesi li tada uopće bio u eteru, na kojoj frekvenciji, s kojom snagom i tko je upravljao postajom. Zapis koji se može naknadno izbrisati i prepraviti ne dokazuje ništa. Iz istog razloga Pravilnik traži i stranice označene po redoslijedu — da se ne može neprimjetno izvaditi list.\n\n⚖ Provjera propisa: čl. 20. st. 1. važećeg Pravilnika traži samo „čitljiv zapis\" i stranice označene po njihovu redoslijedu; zabrana grafitne olovke NIJE izrijekom propisana. Štoviše, st. 2. izrijekom dopušta vođenje dnevnika elektroničkim putem, uz uvjet da je osigurana mogućnost tiskanja (ispisa) u svrhu kontrole — čime je ponuđeni odgovor d) („putem elektroničkog računala\") isključen kao netočan, jer je računalo izrijekom dopušteno.\n\nZa ispit: odgovori „običnom olovkom\". U praksi vodi elektronički dnevnik — to je danas normalno i propisom izrijekom dopušteno — i pazi da ga možeš ispisati na zahtjev. Rok čuvanja je najmanje 12 mjeseci od dana zadnjeg zapisa (čl. 20. st. 3.).",
+    "formula": [
+      "Čl. 20. st. 1. — obvezni sadržaj svakog zapisa:",
+      "",
+      "   1. dan, mjesec i godina",
+      "   2. početak i kraj prijenosa u UTC",
+      "   3. frekvencijski pojas ili točna frekvencija",
+      "   4. vrsta emisije i snaga odašiljačke postaje",
+      "   5. lokacija i pozivna oznaka druge postaje",
+      "      (ako je razmijenjena)",
+      "   6. tko je upravljao postajom",
+      "",
+      "   + stranice označene po redoslijedu, čitljiv zapis",
+      "",
+      "Čl. 20. st. 2.  elektronički dnevnik JE dopušten",
+      "                (uz mogućnost ispisa)",
+      "Čl. 20. st. 3.  čuvati najmanje 12 mjeseci od zadnjeg zapisa"
+    ],
+    "links": [
+      {"label": "Pravilnik NN 150/2022 (puni tekst)", "url": "https://narodne-novine.nn.hr/clanci/sluzbeni/2022_12_150_2313.html"}
+    ],
+    "cite": [
+      {"src": "NN150/22", "loc": "čl. 20. st. 1. (čitljiv zapis, stranice po redoslijedu) i st. 2. (elektronički dnevnik dopušten)"},
+      {"src": "RK", "loc": "3.3.11. Dnevnik amaterske radijske postaje, tiskana str. 242 („zapis koji se ne može brisati\"); zastarjele inačice pitanja, tiskana str. 361 i 362"}
+    ],
+    "flag": "check"
+  },
+
+  "pro-074": {
+    "note": "Označeni odgovor je uvezana bilježnica. Razlog je isti kao kod pro-072, samo primijenjen na fizički oblik umjesto na sredstvo pisanja: dnevnik mora imati stranice označene po njihovu redoslijedu, a to ima smisla samo ako se stranice ne mogu vaditi i zamjenjivati. Bilježnica s listovima koji se vade (odgovor b) izravno pobija tu svrhu, mekani pisaći papir (c) se gubi i gužva, a ispis na pisaćem stroju (a) su opet slobodni listovi.\n\nSvrha je dokazna, ne birokratska. Uvezana bilježnica s numeriranim stranicama je najstariji poznati način da se dokaže kako zapis nije naknadno mijenjan: nedostatak stranice se vidi, umetanje se vidi, preskakanje redoslijeda se vidi. Isti se princip koristi u brodskim i zrakoplovnim dnevnicima.\n\n⚖ Provjera propisa: čl. 20. st. 1. traži stranice označene po redoslijedu, ali NE propisuje fizički oblik dnevnika — riječ „uvezan\" u Pravilniku uopće ne postoji. Štoviše, st. 2. izrijekom dopušta elektronički dnevnik uz mogućnost ispisa, čime je zahtjev za uvezanom bilježnicom sadržajno prevladan. Označeni odgovor slijedi stariji propis i priručnik (formulacija pitanja doslovno je preuzeta iz zbirke, tiskana str. 370), a ne slovo važećeg Pravilnika.\n\nU praksi danas gotovo svi vode elektronički dnevnik. Ono što tada moraš osigurati nije uvez nego mogućnost ISPISA u svrhu kontrole (čl. 20. st. 2.) i čuvanje najmanje 12 mjeseci od zadnjeg zapisa (čl. 20. st. 3.). Zapis koji postoji samo u oblaku nedostupnog servisa taj uvjet ne ispunjava.",
+    "formula": [
+      "Zašto uvez — dokazna vrijednost:",
+      "",
+      "   uvezana bilježnica  → vađenje lista se VIDI",
+      "   slobodni listovi    → zamjena se NE VIDI",
+      "",
+      "Čl. 20. — što Pravilnik doista traži:",
+      "   st. 1.  stranice označene po njihovu redoslijedu",
+      "           + čitljiv zapis",
+      "           (fizički oblik NIJE propisan)",
+      "   st. 2.  elektronički dnevnik dopušten,",
+      "           uz osiguranu mogućnost ispisa",
+      "   st. 3.  čuvanje ≥ 12 mjeseci od zadnjeg zapisa"
+    ],
+    "links": [
+      {"label": "Pravilnik NN 150/2022 (puni tekst)", "url": "https://narodne-novine.nn.hr/clanci/sluzbeni/2022_12_150_2313.html"}
+    ],
+    "cite": [
+      {"src": "NN150/22", "loc": "čl. 20. st. 1. i st. 2. (oblik dnevnika nije propisan; elektronički izrijekom dopušten)"},
+      {"src": "RK", "loc": "3.3.11. Dnevnik amaterske radijske postaje, tiskana str. 242; zastarjela inačica pitanja, tiskana str. 370 (Skupina V., pit. 5.)"}
+    ],
+    "flag": "check"
+  },
+
+  "pro-076": {
+    "note": "Najmanje JEDAN metar. Čl. 21. st. 1. traži da se antene i priključni vodovi grade i postavljaju tako da se osigura najmanje jedan metar udaljenosti između njihovih sastavnih dijelova UNUTAR GRAĐEVINE i bilo kojeg dijela javne komunikacijske instalacije.\n\nRazlog je sprječavanje sprege. Tvoj koaksijalni ili simetrični vod nosi radiofrekvencijsku snagu; telefonski par, kabel kabelske televizije ili UTP u zidu su neoklopljeni ili slabo oklopljeni vodiči koji se ponašaju kao prijamne antene. Na maloj udaljenosti kapacitivna i induktivna sprega ubacuju tvoj signal izravno u tuđu instalaciju — susjed dobiva brujanje u telefonu i pikselizirani TV, a ti dobivaš prijavu smetnje. Jedan metar je udaljenost na kojoj bliskopoljska sprega padne na podnošljivu razinu.\n\nDvije iznimke i dopune u istoj odredbi. Prva: manja udaljenost od jednog metra dopuštena je kod OKLOPLJENIH vodova, ako je zajamčen rad bez smetnji — oklop preuzima ulogu razmaka. Druga: priključni vodovi koji prolaze preko javnih komunikacijskih instalacija smiju se postaviti samo uz suglasnost vlasnika tih instalacija (vidi pro-078). Uz to, čl. 21. st. 2. zabranjuje spajanje uzemljenja amaterske postaje s javnim komunikacijskim instalacijama.\n\nNe brkaj ovaj jedan metar s posve drugim brojkama iz EMF propisa, koje se tiču udaljenosti antene od prostora gdje borave ljudi i granice od 100 W ERP iz čl. 12. st. 2. (vidi pro-022). Ovo je pravilo o suživotu s tuđim kabelima, a ne o zaštiti ljudi od polja.",
+    "formula": [
+      "Čl. 21. — antene i priključni vodovi:",
+      "",
+      "   st. 1.  ≥ 1 m između dijelova antenskog sustava",
+      "           unutar građevine i bilo kojeg dijela",
+      "           javne komunikacijske instalacije",
+      "",
+      "           < 1 m dopušteno SAMO kod oklopljenih vodova,",
+      "           uz zajamčen rad bez smetnji",
+      "",
+      "           prolaz preko javnih instalacija",
+      "           → samo uz suglasnost njihova vlasnika",
+      "",
+      "   st. 2.  uzemljenje postaje se NE SMIJE spajati",
+      "           s javnim komunikacijskim instalacijama",
+      "   st. 3.  nositelj dozvole mora bez odgode i o svom",
+      "           trošku izmijeniti antene i vodove ako",
+      "           izazivaju opasnost ili ometaju te instalacije"
+    ],
+    "links": [
+      {"label": "Antena (hr.wikipedia)", "url": "https://hr.wikipedia.org/wiki/Antena"},
+      {"label": "Electromagnetic interference", "url": "https://en.wikipedia.org/wiki/Electromagnetic_interference"}
+    ],
+    "cite": [
+      {"src": "NN150/22", "loc": "čl. 21. st. 1., st. 2. i st. 3."},
+      {"src": "RK", "loc": "3.3.12. Antene i priključni vodovi, tiskana str. 243; zastarjele inačice pitanja, tiskana str. 360 i 362"}
+    ]
+  },
+
+  "pro-078": {
+    "note": "Suglasnost pribavlja NOSITELJ DOZVOLE — dakle sam radioamater, odnosno vlasnik postaje. Ne HAKOM, ne HRS, i nije riječ o tome da suglasnost nije potrebna.\n\nČl. 21. st. 4. to kaže u jednoj rečenici: „Suglasnost za postavljanje antena i priključnih vodova pribavlja nositelj dozvole za rad amaterske radijske postaje.\" Naslijeđena citacija upućivala je na st. 1., u kojem doista stoji da se vodovi preko javnih komunikacijskih instalacija smiju postaviti samo uz suglasnost vlasnika tih instalacija — ali TKO tu suglasnost mora pribaviti propisano je tek u st. 4.\n\nLogika je ista kao kod svake druge građevinske suglasnosti: onaj tko ima korist od zahvata snosi i teret pribavljanja dopuštenja. Antena na krovu zgrade tiče se suvlasnika, antena iznad tuđe parcele tiče se vlasnika te parcele, vod koji prelazi preko instalacije tiče se njezina vlasnika. Regulator izdaje dozvolu za UPORABU SPEKTRA; on ne rješava tvoje imovinsko-pravne odnose sa susjedima i suvlasnicima.\n\nPraktično, to je najčešći stvarni razlog zašto radioamater ne može podići antenu — ne propis o spektru nego suglasnost suvlasnika zgrade. Priručnik na tiskanoj str. 243 to opisuje istim riječima: pristanak treće strane (vlasnika zgrade, uprave nadležne za javne putove) treba pribaviti sam vlasnik amaterske radijske postaje. Uz to, čl. 21. st. 3. stavlja na tebe i trošak izmjene antena i vodova ako oni ometaju javne instalacije.",
+    "formula": [
+      "Tko što radi:",
+      "",
+      "   HAKOM ......... izdaje dozvolu za uporabu spektra",
+      "   HRS ........... predlaže pozivnu oznaku,",
+      "                   izdaje uvjerenje o tehničkoj sukladnosti",
+      "   NOSITELJ ...... pribavlja suglasnost za postavljanje",
+      "   DOZVOLE         antena i priključnih vodova  (čl. 21. st. 4.)",
+      "                   i snosi trošak izmjene       (čl. 21. st. 3.)",
+      "",
+      "Čije suglasnosti dolaze u obzir:",
+      "   vlasnik / suvlasnici građevine",
+      "   vlasnik javne komunikacijske instalacije (čl. 21. st. 1.)",
+      "   uprava nadležna za javne putove"
+    ],
+    "links": [
+      {"label": "Pravilnik NN 150/2022 (puni tekst)", "url": "https://narodne-novine.nn.hr/clanci/sluzbeni/2022_12_150_2313.html"}
+    ],
+    "cite": [
+      {"src": "NN150/22", "loc": "čl. 21. st. 4. (ISPRAVAK: st. 1. govori čija je suglasnost potrebna, st. 4. tko je pribavlja)"},
+      {"src": "RK", "loc": "3.3.12. Antene i priključni vodovi, tiskana str. 243"}
+    ]
+  },
+
+  "pro-080": {
+    "note": "Označeni odgovor je 60 dB gušenja uz srednju razinu snage 1 mW, za pojas 30 – 235 MHz i srednje snage veće od 25 W. Ta je brojka točna i nalazi se u tablici iz čl. 22. st. 4. Pravilnika.\n\n⚖ Provjera propisa: DATUM u pitanju je pogrešan. Tablica s vrijednošću 60 dB / 1 mW primjenjuje se na amaterske radijske postaje stavljene u uporabu PRIJE 1. SIJEČNJA 2003., a ne prije 1. siječnja 2013. Niz „2013\" ne pojavljuje se nigdje u NN 150/22. Za postaje stavljene u uporabu NAKON 1. siječnja 2003. vrijedi čl. 22. st. 5. s posve drugim kriterijem: ispod 30 MHz 43 + 10 log (PEP) ili 50 dBc, a iznad 30 MHz 43 + 10 log (P) ili 60 dB, pri čemu se primjenjuje veličina koja je MANJE STROGA. Odgovaraj kako traži HRS lista, ali znaj da je granica 2003., a ne 2013.\n\nZašto uopće dva režima: stari režim propisuje fiksne pragove po pojasu i po srednjoj snazi, jer je nastao u doba kad se mjerilo apsolutnom razinom. Novi režim vezuje prag uz snagu odašiljača preko formule 43 + 10 log (P), što je puno pravednije — jak odašiljač mora potisnuti sporedna zračenja jače u apsolutnom iznosu, ali jednako u relativnom. Prijelaz na novi režim vezan je uz datum stavljanja postaje u uporabu, pa stari uređaji ne moraju biti odbačeni.\n\nStariji priručnik istu tablicu opisuje riječima na tiskanoj str. 243, s vrijednošću 60 dB za 30 – 235 MHz i srednju snagu veću od 25 W — ali bez apsolutne razine od 1 mW, koju donosi tek Pravilnik. Zapamti obrazac tablice: iznad 25 W traži se 60 dB, ispod ili jednako 25 W samo 40 dB, jer je i apsolutna razina sporednog zračenja tada manja.",
+    "formula": [
+      "Čl. 22. st. 4. — postaje u uporabi PRIJE 1. 1. 2003.:",
+      "",
+      "   pojas             srednja snaga    gušenje / razina",
+      "   ─────────────────────────────────────────────────",
+      "     9 kHz –  30 MHz      —            40 dB /  50 mW",
+      "    30 MHz – 235 MHz    > 25 W         60 dB /   1 mW   ←",
+      "                        ≤ 25 W         40 dB /  25 µW",
+      "   235 MHz – 960 MHz    > 25 W         60 dB /  20 mW",
+      "                        ≤ 25 W         40 dB /  25 µW",
+      "   960 MHz – 17,7 GHz   > 10 W         50 dB / 100 mW",
+      "                        ≤ 10 W                  100 µW",
+      "",
+      "Čl. 22. st. 5. — postaje u uporabi NAKON 1. 1. 2003.:",
+      "",
+      "     9 kHz – 30 MHz   43 + 10 log (PEP)  ili 50 dBc",
+      "     iznad   30 MHz   43 + 10 log (P)    ili 60 dB",
+      "     → primjenjuje se veličina koja je MANJE STROGA",
+      "",
+      "Primjer za 100 W iznad 30 MHz:",
+      "   43 + 10·log₁₀(100) = 43 + 20 = 63 dB",
+      "   63 dB je strože od 60 dB → vrijedi 60 dB"
+    ],
+    "links": [
+      {"label": "Spurious emission", "url": "https://en.wikipedia.org/wiki/Spurious_emission"},
+      {"label": "Pravilnik NN 150/2022 (puni tekst)", "url": "https://narodne-novine.nn.hr/clanci/sluzbeni/2022_12_150_2313.html"}
+    ],
+    "cite": [
+      {"src": "NN150/22", "loc": "čl. 22. st. 4. (granica je 1. siječnja 2003., ne 2013.); čl. 22. st. 5."},
+      {"src": "RK", "loc": "3.3.13. Tehnički zahtjevi, tiskana str. 243"}
+    ],
+    "flag": "conflict"
+  },
+
+  "pro-082": {
+    "note": "Iznad 30 MHz vrijedi 43 + 10 log (P) ili 60 dB, uz primjenu one veličine koja je MANJE STROGA. Odgovor a) je jedini koji ima i točnu formulu i točan prag; ostali imaju 40, 50 ili 30 dBc.\n\nPazi gdje ovo piše, jer je naslijeđena citacija bila kriva. Odredba je u tablici iz čl. 22. st. 5., a ne u Dodatku 1., t. 2.3. — t. 2.3. Dodatka 1. nabraja VRSTE EMISIJE (A1A, J3E, F3E i tako dalje) i o sporednim zračenjima ne govori ništa.\n\nSmisao formule: 43 + 10 log (P) daje prag u decibelima ispod nosioca, ali vezan uz apsolutnu snagu. Za 1 W dobiješ 43 dB, za 100 W 63 dB, za 1500 W oko 74,8 dB. Kad je taj broj veći od 60, primjenjuje se blaži kriterij od 60 dB — a to je gotovo uvijek slučaj kod snaga iznad približno 50 W. Zato u praksi za jače odašiljače iznad 30 MHz vrijedi upravo 60 dB.\n\nRazlika prema pojasu ispod 30 MHz je jedan korak: ondje je prag 50 dBc umjesto 60 dB, i formula koristi PEP umjesto P. Razlog je što su iznad 30 MHz sporedna zračenja opasnija — harmonici KV odašiljača padaju ravno u VHF pojaseve zrakoplovstva, radiodifuzije i hitnih službi, a antene su ondje učinkovitije, pa i mali ostatak snage zrači daleko.",
+    "formula": [
+      "Čl. 22. st. 5. — sporedna zračenja, novi režim:",
+      "",
+      "     9 kHz – 30 MHz   43 + 10 log (PEP)   ili 50 dBc",
+      "     iznad   30 MHz   43 + 10 log (P)     ili 60 dB",
+      "     → uzima se MANJE STROGA vrijednost",
+      "",
+      "Koliko iznosi formula:",
+      "        1 W   →  43 + 10·log₁₀(1)    = 43,0 dB",
+      "       10 W   →  43 + 10·log₁₀(10)   = 53,0 dB",
+      "       50 W   →  43 + 10·log₁₀(50)   = 60,0 dB   ← prijelom",
+      "      100 W   →  43 + 10·log₁₀(100)  = 63,0 dB",
+      "     1500 W   →  43 + 10·log₁₀(1500) = 74,8 dB",
+      "",
+      "   ispod ~50 W  → mjerodavna je formula (blaža)",
+      "   iznad ~50 W  → mjerodavno je 60 dB (blaže)"
+    ],
+    "links": [
+      {"label": "Spurious emission", "url": "https://en.wikipedia.org/wiki/Spurious_emission"}
+    ],
+    "cite": [
+      {"src": "NN150/22", "loc": "čl. 22. st. 5. (ISPRAVAK: Dodatak 1., t. 2.3. nabraja vrste emisije, ne sporedna zračenja)"},
+      {"src": "RK", "loc": "3.3.13. Tehnički zahtjevi, tiskana str. 243; zastarjela inačica pitanja, tiskana str. 372 (pit. 14.)"}
+    ]
+  },
+
+  "pro-084": {
+    "note": "ERP amaterske relejne (repetitorske) postaje ne smije prijeći 15 W, odnosno 41,8 dBm. Brojka je iz Dodatka 1., t. 2.4.2.2., gdje u istoj rečenici stoji i drugo ograničenje koje se rado pita: devijacija frekvencije ne smije biti veća od ±5 kHz.\n\nZašto tako malo, kad repetitor treba pokrivati veliko područje: zato što repetitor stoji na vrhu brda i radi neprekidno. Kombinacija visine i trajnosti radi posao koji snaga ne mora — 15 W ERP s Medvednice pokriva pola sjeverne Hrvatske. Da se dopusti više, susjedni repetitori na istom kanalu u susjednim zemljama počeli bi se preklapati, a repetitorski kanali su međunarodno koordinirani upravo zato da se to ne dogodi.\n\nPrimijeti da je riječ o ERP, a ne o PEP-u iz Tablice 1. ERP uključuje dobitak antene i gubitak napojnog voda, pa 15 W ERP može značiti bitno manje vata na izlazu odašiljača ako je antena usmjerena i s dobitkom. To je logično: ograničava se ono što se stvarno izračuje u prostor, a ne ono što odašiljač troši.\n\nStavi ovu brojku u niz s ostalim ERP granicama iz Dodatka 1., jer se sve tri pitaju i sve se brkaju: repetitor 15 W, radiofar 50 / 10 / 1 W ovisno o razini, radiogoniometrija 5 W do 30 MHz i 10 W iznad. Sve su to postaje bez stalne posade i sve imaju granicu izraženu kao ERP.",
+    "formula": [
+      "ERP granice iz Dodatka 1.:",
+      "",
+      "   t. 2.4.2.2.  repetitor / digipitor .... 15 W (41,8 dBm)",
+      "                devijacija .............. ≤ ±5 kHz",
+      "",
+      "   t. 2.4.3.    radiofar međunarodni .... 50 W",
+      "                radiofar državni ........ 10 W",
+      "                radiofar lokalni ........  1 W",
+      "",
+      "   t. 2.4.4.    radiogoniometrija",
+      "                   do 30 MHz ............  5 W",
+      "                   iznad 30 MHz ......... 10 W",
+      "",
+      "Provjera dBm:  10·log₁₀(15 W / 1 mW)",
+      "               = 10·log₁₀(15 000) = 41,76 ≈ 41,8 dBm"
+    ],
+    "links": [
+      {"label": "Amateur radio repeater", "url": "https://en.wikipedia.org/wiki/Amateur_radio_repeater"},
+      {"label": "Effective radiated power", "url": "https://en.wikipedia.org/wiki/Effective_radiated_power"}
+    ],
+    "cite": [
+      {"src": "NN150/22", "loc": "Dodatak 1., t. 2.4.2.2. (naslijeđeni citat t. 2.4. preširok)"},
+      {"src": "RK", "loc": "3.3.16.2. Amaterske relejne postaje, tiskana str. 245; zastarjele inačice pitanja, tiskana str. 364 i 371"}
+    ]
+  },
+
+  "pro-086": {
+    "note": "Ako tvoja postaja prouzroči smetnju, moraš BEZ ODGODE prestati s radom i poduzeti mjere za uklanjanje smetnje. Tako glasi čl. 24. st. 2., i to je jedini članak Pravilnika koji uređuje smetnje.\n\nRedoslijed je bitan i ispit ga provjerava upravo ponuđenim odgovorima. Ne prijavljuješ smetnju Savezu ni klubu — oni nemaju nikakvu ovlast u tome. Ne čekaš inspekciju — čekanje znači da smetnja traje, a smetnja koja traje šteti nekome drugome upravo sada. Prvo prestaneš, pa tek onda tražiš uzrok. To je isto načelo kao u prometu: prvo se zaustaviš, pa onda razmišljaš.\n\nČlanak dodaje i rok koji se često previdi: mjere za uklanjanje smetnje i omogućavanje nesmetanog rada drugih postaja treba poduzeti najkasnije u roku od 30 DANA, odnosno u skladu s mjerama koje izrekne Agencija. Uz to, st. 1. postavlja opće pravilo da rad amaterske postaje ne smije stvarati smetnje drugim radiokomunikacijskim službama, a st. 3. zabranjuje NAMJERNO ometanje rada drugih amaterskih postaja.\n\nTehnička strana toga je posao za tebe, ne za regulatora: filtar na izlazu, bolje uzemljenje, feritne jezgre na kabelima susjedne opreme, promjena pojasa ili smanjenje snage. Čl. 22. st. 8. zato i traži da odašiljačka oprema bude izgrađena tako da omogući smanjenje izlazne snage u slučaju smetnje ili indukcije — mogućnost brzog spuštanja snage je propisano svojstvo opreme, ne luksuz.",
+    "formula": [
+      "Čl. 24. — smetnje, redoslijed postupanja:",
+      "",
+      "   st. 1.  rad postaje NE SMIJE stvarati smetnje",
+      "           drugim radiokomunikacijskim službama",
+      "",
+      "   st. 2.  ako smetnja nastane:",
+      "             1. BEZ ODGODE prestani s radom",
+      "             2. poduzmi mjere za uklanjanje smetnje",
+      "             3. rok: najkasnije 30 dana,",
+      "                odnosno prema mjerama Agencije",
+      "",
+      "   st. 3.  namjerno ometanje drugih amaterskih postaja",
+      "           je zabranjeno",
+      "",
+      "Tehničke mjere:  filtar · uzemljenje · feriti ·",
+      "                 manja snaga (čl. 22. st. 8.)"
+    ],
+    "links": [
+      {"label": "Electromagnetic interference", "url": "https://en.wikipedia.org/wiki/Electromagnetic_interference"},
+      {"label": "Uzemljenje (hr.wikipedia)", "url": "https://hr.wikipedia.org/wiki/Uzemljenje"}
+    ],
+    "cite": [
+      {"src": "NN150/22", "loc": "čl. 24. st. 1., st. 2. i st. 3.; čl. 22. st. 8."},
+      {"src": "RK", "loc": "3.3.15. Smetnje i mjere za zaštitu od smetnji, tiskana str. 244; zastarjela inačica pitanja, tiskana str. 371 (pit. 11.)"}
+    ]
+  },
+
+  "pro-088": {
+    "note": "Označeni odgovor je „po zahtjevu odgovorne osobe iz inspekcijske službe\". Eliminacija je ovdje brza i vodi do ispravnog razmišljanja: nezadovoljni susjed, susjed radioamater ili taksist mogu prijaviti smetnju, ali ne mogu ništa zabraniti. Zabrana je javnopravna ovlast i pripada nadzornom tijelu, nikome drugom.\n\n⚖ Propis ovo ne uređuje. NN 150/22 ne poznaje institut zabrane rada „u svako doba\" niti uopće spominje inspekcijsku službu; u cijelom dokumentu riječ „zabran\" se ne pojavljuje, a jedini članak o smetnjama je čl. 24., koji uređuje samo dužnost nositelja dozvole da prestane s radom i ukloni smetnju. Ovlasti nadzora propisane su Zakonom o elektroničkim komunikacijama (NN 76/22) — zakonom na temelju kojega je ovaj Pravilnik i donesen, što se vidi već u njegovoj preambuli (čl. 16. st. 1. t. 1. i čl. 69. st. 22. ZEK-a). Cite dakle ZEK, ne Pravilnik.\n\nOdakle formulacija pitanja: iz priručnika iz 2005. Poglavlje 3.2. „Ovlasti inspekcijske službe\" na tiskanoj str. 229 nabraja te ovlasti, među njima „privremena zabrana rada radijske postaje koja stvara štetnu smetnju, dok se smetnja ne ukloni\" i „trajna zabrana uporabe radijske postaje za koju se opetovano utvrdi da ne ispunjava propisane uvjete i norme\". Ista je stranica izvor za pro-090 i pro-092. Tekst se poziva na tadašnji Zakon o telekomunikacijama; danas je to ZEK.\n\nPraktična pouka koja preživljava svaku promjenu zakona: kad ti se javi inspekcija, ne raspravljaj o tome smiju li — smiju. Pokaži dozvolu, dnevnik i shemu odašiljača (čl. 22. st. 7. traži da ih držiš spremnima upravo za inspekcijski nadzor), i riješi smetnju.",
+    "formula": [
+      "Tko što može:",
+      "",
+      "   susjed / oštećenik ...... može PRIJAVITI smetnju",
+      "   HRS / klub .............. nemaju ovlast zabrane",
+      "   nadzorno tijelo (HAKOM) . može zabraniti rad",
+      "",
+      "Ovlasti inspekcije (RK, tiskana str. 229):",
+      "   • trajna zabrana uporabe postaje koja opetovano",
+      "     ne ispunjava propisane uvjete i norme",
+      "   • privremena zabrana rada postaje koja stvara",
+      "     štetnu smetnju, dok se smetnja ne ukloni",
+      "   • naredba za uklanjanje nedostataka na opremi",
+      "   • prijava za kazneno djelo ili prekršaj",
+      "   • upravna mjera novčane kazne",
+      "",
+      "Što moraš imati spremno (čl. 22. st. 7. Pravilnika):",
+      "   shema električne instalacije odašiljača",
+      "   + nacrt nepokretnog antenskog sustava"
+    ],
+    "links": [
+      {"label": "Zakon o elektroničkim komunikacijama NN 76/2022", "url": "https://narodne-novine.nn.hr/clanci/sluzbeni/2022_07_76_1116.html"}
+    ],
+    "cite": [
+      {"src": "ZEK", "loc": "NN 76/22, čl. 16. st. 1. t. 25. (inspekcijski nadzor je zadaća Agencije) i Dio četvrti, Glava I. — Inspekcijski nadzor; točan broj članka o ovlastima inspektora nije potvrđen iz izvornog teksta pa se ne navodi"},
+      {"src": "NN150/22", "loc": "čl. 24. — jedini članak o smetnjama; zabranu rada ne uređuje"},
+      {"src": "RK", "loc": "3.2. Ovlasti inspekcijske službe, tiskana str. 229; zastarjela inačica pitanja, tiskana str. 367 (Skupina IV., pit. 2.)"}
+    ],
+    "flag": "check"
+  },
+
+  "pro-090": {
+    "note": "Označeni odgovor je trajna zabrana rada radijske postaje — najstroža mjera, jer je rad bez dozvole najteži oblik prekršaja: ne radi se o postaji koja radi loše nego o postaji koja uopće nema pravo raditi.\n\n⚖ Propis ovo ne uređuje. NN 150/22 ne propisuje nikakve mjere za rad bez dozvole; riječ „zabran\" se u Pravilniku ne pojavljuje, a ni riječ „kazn\". Ovlasti nadzora i prekršajne odredbe propisane su Zakonom o elektroničkim komunikacijama (NN 76/22), na temelju kojega je Pravilnik i donesen. Odgovor se ne može potvrditi iz Pravilnika i zato se ovdje citira ZEK.\n\nIzvor same formulacije je priručnik iz 2005. Na tiskanoj str. 229 prva navedena ovlast inspekcijske službe glasi „trajna zabrana uporabe radijske postaje za koju se opetovano utvrdi da ne ispunjava propisane uvjete i norme\" — što je, strogo uzevši, mjera za opetovanu neusklađenost, a ne za rad bez dozvole. Ponuđeni odgovor d) („zabrana obavljanja djelatnosti u trajanju od tri mjeseca do godine dana\") također potječe iz priručnika, ali iz susjednog poglavlja 3.2.1. „Kaznene odredbe\" na tiskanoj str. 230, gdje je to ZAŠTITNA MJERA uz novčanu kaznu za teže povrede. Ispitna lista je dvije mjere iz dvije susjedne stranice pretvorila u dva ponuđena odgovora, a kao točan uzela onu s prve.\n\nZa pamćenje razlikuj tri stupnja: naredba za uklanjanje nedostataka (blago), privremena zabrana rada dok se smetnja ne ukloni (srednje), trajna zabrana uporabe postaje (najstrože). Uz to idu novčana kazna i zaštitne mjere zabrane obavljanja djelatnosti odnosno oduzimanja postaje.",
+    "formula": [
+      "Stupnjevanje mjera (RK, tiskana str. 229–231):",
+      "",
+      "   1. naredba za uklanjanje nedostataka na opremi",
+      "   2. privremena zabrana rada — dok smetnja traje",
+      "   3. TRAJNA zabrana uporabe radijske postaje       ← ovdje",
+      "   4. prijava za prekršaj ili kazneno djelo",
+      "   5. novčana kazna",
+      "   6. zaštitna mjera: zabrana obavljanja djelatnosti",
+      "      3 mjeseca – 1 godina  (odgovor d) — druga stvar!)",
+      "   7. zaštitna mjera: oduzimanje radijske postaje",
+      "",
+      "Gdje su te ovlasti danas:",
+      "   ZEK, NN 76/22 — a NE u Pravilniku NN 150/22"
+    ],
+    "links": [
+      {"label": "Zakon o elektroničkim komunikacijama NN 76/2022", "url": "https://narodne-novine.nn.hr/clanci/sluzbeni/2022_07_76_1116.html"}
+    ],
+    "cite": [
+      {"src": "ZEK", "loc": "NN 76/22, čl. 16. st. 1. t. 25.; Dio četvrti, Glava I. — Inspekcijski nadzor i Glava II. — Prekršajne odredbe; točni brojevi članaka nisu potvrđeni iz izvornog teksta pa se ne navode"},
+      {"src": "NN150/22", "loc": "mjere za rad bez dozvole nisu propisane (usporedi čl. 24. — jedini članak o smetnjama)"},
+      {"src": "RK", "loc": "3.2. Ovlasti inspekcijske službe, tiskana str. 229 i 3.2.1. Kaznene odredbe, tiskana str. 230; zastarjela inačica pitanja, tiskana str. 362 (pit. 14.)"}
+    ],
+    "flag": "check"
+  },
+
+  "pro-092": {
+    "note": "Označeni odgovor je „u svako pogodno vrijeme\". Inspekcijski pregled nije vezan na radno vrijeme, na dane u tjednu ni na doba dana — i to ima smisla, jer amaterska postaja i ne radi u radno vrijeme: radi navečer, vikendom i noću, upravo kad smetnja i nastaje. Pregled u ponedjeljak u deset ujutro ne bi zatekao ništa.\n\n⚖ Propis ovo ne uređuje. NN 150/22 ne uređuje vrijeme inspekcijskog pregleda i uopće ne spominje inspekcijsku službu; jedini spomen inspekcije u cijelom Pravilniku je u čl. 22. st. 7., gdje se traži da shemu odašiljača i nacrt antenskog sustava držiš spremnima i bez odgode predočiš ili dostaviš Agenciji „u svrhu inspekcijskog nadzora\". Same ovlasti nadzora propisane su Zakonom o elektroničkim komunikacijama (NN 76/22), pa se odgovor ne može potvrditi iz Pravilnika.\n\nFormulacija pitanja preuzeta je iz zbirke u priručniku, tiskana str. 373 (Skupina VI., pit. 1.), a materijalna podloga je poglavlje 3.2. „Ovlasti inspekcijske službe\" na tiskanoj str. 229. Susjedno pitanje u istoj zbirci glasi „Inspekcijska služba može pregledavati sljedeće\" s točnim odgovorom „postaju, dnevnik i dozvolu\" — vrijedi ga zapamtiti uz ovo, jer se često pojavljuju u paru.\n\nPraktična pouka: drži na jednom mjestu i dostupno dozvolu, dnevnik (čl. 20.), shemu odašiljača i nacrt antenskog sustava (čl. 22. st. 7.). To je točno ono što se pregledava, i jedina priprema koja ti u tom trenutku pomaže.",
+    "formula": [
+      "Što se pregledava:",
+      "   • amaterska radijska postaja",
+      "   • dnevnik postaje              (čl. 20.)",
+      "   • dozvola",
+      "   • shema odašiljača i nacrt antenskog sustava",
+      "                                  (čl. 22. st. 7.)",
+      "",
+      "Kada:  u svako pogodno vrijeme",
+      "       (ne samo u radno vrijeme)",
+      "",
+      "Gdje su ovlasti propisane:",
+      "   ZEK, NN 76/22 — Pravilnik NN 150/22 ih ne sadrži;",
+      "   jedini spomen inspekcije u Pravilniku: čl. 22. st. 7."
+    ],
+    "links": [
+      {"label": "Zakon o elektroničkim komunikacijama NN 76/2022", "url": "https://narodne-novine.nn.hr/clanci/sluzbeni/2022_07_76_1116.html"}
+    ],
+    "cite": [
+      {"src": "ZEK", "loc": "NN 76/22, čl. 16. st. 1. t. 25.; Dio četvrti, Glava I. — Inspekcijski nadzor; točan broj članka nije potvrđen iz izvornog teksta pa se ne navodi"},
+      {"src": "NN150/22", "loc": "čl. 22. st. 7. — jedini spomen inspekcijskog nadzora; vrijeme pregleda nije uređeno"},
+      {"src": "RK", "loc": "3.2. Ovlasti inspekcijske službe, tiskana str. 229; zastarjela inačica pitanja, tiskana str. 373 (Skupina VI., pit. 1.)"}
+    ],
+    "flag": "check"
+  },
+
+  "pro-094": {
+    "note": "ITU Regija 2 obuhvaća Sjevernu i Južnu Ameriku, dakle i Kanadu. Europa je u Regiji 1, a Japan i Australija u Regiji 3 — sva tri pogrešna odgovora su zapravo primjeri druge dvije regije.\n\nSvijet je Radijskim propisima ITU-a podijeljen na tri radiokomunikacijske regije, razgraničene linijama A, B i C. Priručnik ih opisuje na tiskanim str. 211–212: Regija 1 je omeđena linijom A na istoku i linijom B na zapadu i obuhvaća Europu, Afriku i područje bivšeg Sovjetskog Saveza te Mongoliju i Tursku; Regija 2 je između linija B i C, „što praktično označava teritorij Sjeverne i Južne Amerike\"; Regija 3 je između linija C i A i obuhvaća ostatak Azije, Australiju i Pacifik.\n\nZašto to nije puka geografija nego stvar koja te se tiče svaki dan: svaka regija ima vlastiti plan namjene frekvencija, pa se rubovi amaterskih pojaseva razlikuju. Najpoznatiji primjeri su 2 m (144–146 MHz u Regiji 1, 144–148 MHz u Regijama 2 i 3), 40 m (u Regiji 1 amaterima je 7000–7200 kHz, a dio je dijeljen s radiodifuzijom) i 80 m. Kad radiš DX, sugovornik u drugoj regiji možda smije biti na frekvenciji na kojoj ti ne smiješ — i obrnuto. T/R 61-01 zato izrijekom upozorava da se posebna pozornost obrati razlikama u dodjeli frekvencija amaterskoj službi u tri ITU regije (Aneks 1, t. 2.2.).\n\nNe brkaj ITU regije s IARU regijama, iako se poklapaju po granicama. ITU regije su pravna podjela spektra i obvezujuće su; IARU regije su organizacijska podjela radioamaterskog saveza i donose PLANOVE POJASEVA, koji su dogovor, a ne propis. Hrvatska je u ITU Regiji 1 i u IARU Regiji 1.",
+    "formula": [
+      "Tri ITU regije (RK, tiskana str. 211–212):",
+      "",
+      "   Regija 1  Europa, Afrika, bivši SSSR,",
+      "             Mongolija, Turska",
+      "   Regija 2  Sjeverna i Južna Amerika        ← Kanada",
+      "   Regija 3  ostatak Azije, Australija, Pacifik",
+      "",
+      "Zašto je bitno — rubovi pojaseva se razlikuju:",
+      "",
+      "   2 m:   Regija 1     144 – 146 MHz",
+      "          Regije 2, 3  144 – 148 MHz",
+      "",
+      "ITU regija  = pravna podjela spektra (obvezujuće)",
+      "IARU regija = plan pojaseva (dogovor amatera)"
+    ],
+    "links": [
+      {"label": "ITU Region", "url": "https://en.wikipedia.org/wiki/ITU_Region"},
+      {"label": "International Amateur Radio Union (IARU)", "url": "https://en.wikipedia.org/wiki/International_Amateur_Radio_Union"},
+      {"label": "Frequency allocation", "url": "https://en.wikipedia.org/wiki/Frequency_allocation"}
+    ],
+    "cite": [
+      {"src": "RK", "loc": "1.4. Radiokomunikacijske regije ITU, tiskana str. 211–212 (ISPRAVAK: str. 264 je IARU plan kratkovalnih pojaseva)"},
+      {"src": "TR61-01", "loc": "Aneks 1, t. 2.2. — upozorenje na razlike u dodjeli po ITU regijama, str. 4"}
+    ]
+  }
+}

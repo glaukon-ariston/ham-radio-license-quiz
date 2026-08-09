@@ -1,0 +1,632 @@
+{
+  "_doc": "Expanded teaching notes — batch: 9. Smetnje i imunitet (15 pitanja, teh-259…teh-273). Harmonici i sporedne emisije, splatter i klikovi, blokiranje/intermodulacija/unakrsna modulacija u prijamniku, TVI i BCI, putovi širenja smetnje (zračenjem, indukcijom, vođenjem), filtri i gdje koji ide, oklapanje i uzemljenje, te društvena strana pritužbe susjeda. Cijela je skupina napisana oko jedne ideje: SVAKA smetnja ima izvor, put i žrtvu, i lijek se bira prema tome tko je od njih troje kriv. Sortira se ZADNJE pa nadjačava kratke izvorne bilješke.",
+  "_links_verified": "Svaki URL je dohvaćen i potvrđeno je da postoji i da pokriva navedenu tvrdnju (9. kolovoza 2026.). hr.wikipedia članci 'Elektromagnetska kompatibilnost' i 'Elektromagnetska smetnja' ne postoje — koriste se engleski 'Electromagnetic compatibility' / 'Electromagnetic interference'. hr 'Filtar' je razdvojbena stranica pa se umjesto nje koristi en 'Electronic filter'.",
+  "_citation_note": "RK poglavlje 9. Smetnje i imunitet prostire se na tiskanim str. 188–202 (pdf 184–198, pomak +4). Zbirka ispitnih pitanja u RK je podijeljena na skupine I–VI: Skupina I str. 287–297, II 298–308, III 309–320, IV 321–331, V 332–343, VI 344–353; odgovori su u tablici na tiskanim str. 354–355. Trinaest od ovih petnaest pitanja doslovno je preslikano iz te zbirke i svako je nađeno na papiru. DVIJE RAZLIKE: RK-ova tablica odgovora za teh-261 (Skupina III, pit. 55) daje (d) mrežni filtar, a HRS ključ daje (c); za teh-273 (Skupina IV, pit. 52) RK daje (b) pojasnopropusni, a HRS (d) niskopropusni. Odgovori su ostavljeni onako kako ih HRS crveno označava, a razlika je objašnjena u bilješci. Naslijeđene PZM citacije ('9.1. Uklanjanje smetnji, str. 125–129') pokazale su se preširokima i djelomično netočnima — PZM Tema 19 stvarno počinje na tiskanoj str. 125 i traje do 129, ali gradivo za većinu ovih pitanja uopće nije u PZM-u nego u RK-u; citacije su prepisane na točan izvor.",
+
+  "teh-259": {
+    "note": "Cijela ova skupina pitanja stoji na jednoj ideji koju vrijedi naučiti prije svih pojedinosti: svaka smetnja ima IZVOR, PUT i ŽRTVU. Lijek se ne bira prema simptomu nego prema tome tko je od to troje stvarno kriv. Ovdje je zadatak izričito rekao da smetnja „potječe od našega odašiljača\" i da je na jednoj jedinoj harmoničkoj frekvenciji — dakle kriv je IZVOR, i to usko. Uskom problemu odgovara uzak lijek: notch (zaporni) filtar.\n\nNotch-filtar je pojasnozaporni filtar vrlo uskog pojasa gušenja, u praksi obično jedan jedini rezonantni titrajni krug ugođen točno na frekvenciju neželjenog harmonika. RK kaže i koliko dobiješ: dodatnih 25…30 dB potiskivanja baš na toj frekvenciji, uz zanemariv utjecaj na radnu frekvenciju. U VHF i UHF području izvodi se kao koaksijalni ogranak duljine λ/4 na frekvenciji harmonika — otvoreni kraj takvog ogranka transformira se u kratki spoj na mjestu priključka, pa harmonik jednostavno nema kamo.\n\nPazi na MJESTO ugradnje: RK ga stavlja ispred SWR-metra, i to s razlogom — filtar unosi vlastitu neprilagodbu, pa ako ga staviš iza mjerila, mjerit ćeš SWR filtra umjesto SWR-a antene i krivo zaključiti da ti je antena loša.\n\nOstale tri ponuđene stvari liječe sasvim druge bolesti, i baš zato su ponuđene. Širokopojasni filtar bi gušio i tvoju radnu frekvenciju — tupim nožem ne vadi se trn. Mrežni filtar liječi PUT (smetnju koja se širi vodovima napajanja, vidi teh-267), a ne izvor. Klik-filtar liječi drugi izvor — oštre bridove otipkavanja kod CW-a (vidi teh-271). Ako pak ne znaš KOJI harmonik smeta, notch nije rješenje: RK tada preporučuje visoki propusnik s graničnom frekvencijom 40 MHz u susjedovu antenskom vodu (vidi teh-269).",
+    "formula": [
+      "Izbor filtra prema tome tko je kriv:",
+      "",
+      "   jedan poznati harmonik, naš odašiljač   → NOTCH (pojasnozaporni, uzak)",
+      "   svi harmonici, naš KV odašiljač        → NISKOPROPUSNI, f_g = 30 MHz",
+      "   VHF/UHF odašiljač za jedan pojas        → POJASNOPROPUSNI",
+      "   smetnja ulazi u susjedov TV/FM          → VISOKOPROPUSNI, kod susjeda",
+      "   smetnja putuje mrežom 230 V             → MREŽNI filtar",
+      "   klikovi pri otipkavanju CW-a            → KLIK-filtar",
+      "",
+      "Koliko notch daje (RK): 25…30 dB dodatnog potiskivanja",
+      "   25 dB → 10^(25/10) = 316 ×  slabije",
+      "   30 dB → 10^(30/10) = 1000 × slabije",
+      "",
+      "Primjer: 100 W nositelja, harmonik −40 dB = 10 mW,",
+      "   uz notch −30 dB → 10 µW",
+      "",
+      "λ/4 ogranak za VHF/UHF notch (koaks, faktor skraćenja k = 0,66):",
+      "   l = 0,25 · (300 / f[MHz]) · k",
+      "   f = 435 MHz → l = 0,25 · 0,690 m · 0,66 = 0,114 m ≈ 11,4 cm",
+      "",
+      "Mjesto: notch IDE ISPRED SWR-metra",
+      "   (inače mjeriš neprilagodbu filtra, a ne antene)"
+    ],
+    "links": [
+      {"label": "Band-stop / notch filter (en.wikipedia)", "url": "https://en.wikipedia.org/wiki/Band-stop_filter"},
+      {"label": "Electronic filter (en.wikipedia)", "url": "https://en.wikipedia.org/wiki/Electronic_filter"},
+      {"label": "Harmonic (en.wikipedia)", "url": "https://en.wikipedia.org/wiki/Harmonic"}
+    ],
+    "cite": [
+      {"src": "RK", "loc": "9.2. Uzroci smetnja — „1. Notch-filtar\", tiskana str. 192"},
+      {"src": "RK", "loc": "Zbirka ispitnih pitanja, Skupina II, pit. 59. istog teksta, tiskana str. 308"},
+      {"src": "RK", "loc": "Zbirka ispitnih pitanja, Skupina VI, pit. 58. („notch filtar samo kad znademo koja harmonička frekvencija smeta\"), tiskana str. 353"}
+    ]
+  },
+
+  "teh-260": {
+    "note": "Odgovor je (d): propisno oklopljeni. Oklapanje znači METALNO kućište — lim, tuljac, oplet — koje se ponaša kao Faradayev kavez. Epoksidna smola i tvrda plastika su dielektrici; za radiovalove su providni kao staklo za svjetlost, pa opcije (b) i (c) ne rade baš ništa protiv zračenja. Štite od vlage i mehanike, ne od RF-a.\n\nZašto baš stupnjevi u kojima nastaju harmonici. Harmonici se rađaju svugdje gdje je karakteristika nelinearna — u izlaznom pojačalu razreda C, u množilu frekvencije, u miješalu. Ako takav stupanj zrači izravno iz kućišta, tvoj savršeni niskopropusni filtar u antenskom vodu ne pomaže ni malo: energija je zaobišla filtar i otišla u eter kroz plastiku, kroz procjep na kućištu ili kroz mikrofonski kabel. Zato RK traži oklapanje SVAKOG RF-sklopa ZASEBNO, uz što kraća i ekranizirana ožičenja. Filtar liječi ono što ide kroz vod; oklop liječi ono što ide kroz zrak.\n\nOklop radi samo ako je propisno spojen na masu i uzemljen. Neuzemljen limeni poklopac nije oklop nego dodatna antena — presprege ga natjeraju da zrači ono što je trebao zaustaviti. Zato RK trojku mjera uvijek navodi zajedno: oklapanje s propisnim uzemljivanjem, filtriranje i rasprezanje.\n\nUtješan podatak koji objašnjava zašto je tanak lim dovoljan: RF struje teku samo po površini vodiča (površinski efekt), a dubina prodiranja na radiofrekvencijama je stotinke milimetra. Debljina lima nije problem — problem su procjepi, rupe i loši spojevi poklopca. Prorez duljine λ/2 zrači kao antena, ma koliko bio uzak.",
+    "formula": [
+      "Tri mjere protiv smetnja (RK, zaključak pogl. 9.):",
+      "   oklapanje    → protiv zračenja (metal! ne plastika)",
+      "   filtriranje  → protiv vođenja po vodovima",
+      "   rasprezanje  → protiv sprege i parazitnih oscilacija",
+      "",
+      "Zašto plastika ne oklapa:",
+      "   oklop mora biti VODLJIV da u njemu poteku struje",
+      "   koje ponište polje; dielektrik ih ne može voditi.",
+      "",
+      "Dubina prodiranja u bakar (površinski efekt):",
+      "   δ ≈ 66 / √f   [mm, f u Hz]",
+      "      50 Hz   → δ = 66/7,07   = 9,3 mm",
+      "       1 MHz  → δ = 66/1000   = 0,066 mm",
+      "      14 MHz  → δ = 66/3742   = 0,018 mm",
+      "     144 MHz  → δ = 66/12 000 = 0,0055 mm",
+      "   → i najtanji lim je debeo mnogo dubina prodiranja;",
+      "     kritični su PROCJEPI i loš spoj poklopca, ne debljina.",
+      "",
+      "Oklop bez uzemljenja = antena, ne oklop."
+    ],
+    "links": [
+      {"label": "Electromagnetic shielding (en.wikipedia)", "url": "https://en.wikipedia.org/wiki/Electromagnetic_shielding"},
+      {"label": "Electromagnetic compatibility (en.wikipedia)", "url": "https://en.wikipedia.org/wiki/Electromagnetic_compatibility"},
+      {"label": "Uzemljenje (hr.wikipedia)", "url": "https://hr.wikipedia.org/wiki/Uzemljenje"}
+    ],
+    "cite": [
+      {"src": "RK", "loc": "9.2.1.3. Druge sporedne emisije („oklapanjem svakog RF-sklopa zasebno, uporabom što kraćih, ekraniziranih ožičenja\"), tiskana str. 196"},
+      {"src": "RK", "loc": "9.2. — zaključak: oklapanje, filtriranje, rasprezanje, tiskana str. 202"},
+      {"src": "RK", "loc": "Zbirka ispitnih pitanja, Skupina III, pit. 49. istog teksta, tiskana str. 318"},
+      {"src": "PZM", "loc": "Tema 19 — oklapanje uređaja („mora se nalaziti u limenoj kutiji\"), tiskana str. 126"}
+    ]
+  },
+
+  "teh-261": {
+    "note": "Odspajanje antene je klasičan dijagnostički potez i sve se vrti oko njega. Ako smetnja NESTANE kad susjed odspoji antenu, signal ulazi kroz antenski port i lijek je filtar u antenskom vodu. Ako smetnja OSTANE — a ovdje ostaje — signal ulazi negdje drugdje: silaznim kabelom kao takvim, mrežnim kabelom, ili izravno kroz kućište i ožičenje. Zato su opcije (a) sobna antena i (b) filtar u antenskom vodu ovdje otpisane samim tekstom zadatka: obje liječe put koji je već isključen.\n\nHRS ključ traži (c) — zamjenu TV antenskog kabela. Obrazloženje koje stoji iza toga daje RK na tiskanoj str. 201: u pletenici (vanjskom vodiču) silaznog koaksijalnog kabela za TV i FM INDUCIRAJU se neželjene RF struje od amaterskih KV postaja, jer su izmjere tih kabela (10…15 m) upravo takve da djeluju kao prijamne antene na KV-u. Te struje teku po VANJSKOJ strani opleta (istofazne, common-mode), pa ih ne zaustavlja to što je antena gore odspojena — kabel je i sam antena. Loš, jednostruko i rijetko opleten kabel („mrežica\" od 40 % pokrivenosti) pušta ih i unutra. Zamjena za kabel s gustim dvostrukim oklopom, ili — u praksi još učinkovitije — feritna prstenasta jezgra navučena na kabel uz sam TV, prekida upravo taj put.\n\nBudi svjestan da knjiga ovdje sama sa sobom nije složna: RK-ova tablica odgovora za doslovno isto pitanje (Zbirka, Skupina III, pit. 55., tiskana str. 319) daje (d) — ugradnju mrežnog filtra. To je fizikalno jednako obranjivo, čak i uobičajenije: ako je antena odspojena, mreža 230 V je najvjerojatniji preostali put. Ispit je ipak ispit: HRS crveno označava (c), pa na ispitu zaokruži (c). U stvarnom kvaru napravi oboje i to redom — prvo feritna prigušnica na silazni kabel i na mrežni kabel TV-a, pa tek onda zamjena kabela.\n\nI jedno upozorenje koje vrijedi za cijelo ovo poglavlje: brum i smetnju NIKADA ne rješavaj podizanjem ili odspajanjem zaštitnog vodiča. Zaštitni vodič ostaje spojen bezuvjetno; za RF se odvaja PUT, a ne skida zaštita (vidi teh-277).",
+    "formula": [
+      "Dijagnostika u dva poteza:",
+      "",
+      "   odspoji antenu → smetnja NESTALA",
+      "        ⇒ ulazi kroz antenski port",
+      "        ⇒ filtar u antenskom vodu (visokopropusni / notch)",
+      "",
+      "   odspoji antenu → smetnja OSTALA        ← ovaj slučaj",
+      "        ⇒ ulazi mimo antenskog porta:",
+      "          silazni kabel kao antena, mreža, kućište",
+      "        ⇒ oklopljeniji kabel, feritna prigušnica, mrežni filtar",
+      "",
+      "Zašto je i sam silazni kabel antena (RK, str. 201):",
+      "   tipična duljina l = 10…15 m",
+      "   λ/2 rezonancija:  f = 150 / l",
+      "        l = 12 m → f = 12,5 MHz",
+      "   λ/4 rezonancija:  f =  75 / l",
+      "        l = 12 m → f =  6,3 MHz",
+      "   → baš usred amaterskih KV pojasa (7, 10, 14 MHz)",
+      "",
+      "Struje na opletu su ISTOFAZNE (common-mode):",
+      "   feritna jezgra na kabelu → velik X_L za njih",
+      "   za protufazni korisni signal X_L ≈ 0  (RK, sl. 9.2.9.)",
+      "",
+      "NAPOMENA O KLJUČU:",
+      "   HRS (crveno u ispitnom PDF-u) : (c) zamjena kabela",
+      "   RK, tablica odgovora, Sk. III/55: (d) mrežni filtar",
+      "   → na ispitu (c)"
+    ],
+    "links": [
+      {"label": "Electromagnetic interference — coupling mechanisms (en.wikipedia)", "url": "https://en.wikipedia.org/wiki/Electromagnetic_interference"},
+      {"label": "Choke (electronics) — common-mode choke (en.wikipedia)", "url": "https://en.wikipedia.org/wiki/Choke_(electronics)"},
+      {"label": "Ferrite core (en.wikipedia)", "url": "https://en.wikipedia.org/wiki/Ferrite_core"},
+      {"label": "Koaksijalni kabel (hr.wikipedia)", "url": "https://hr.wikipedia.org/wiki/Koaksijalni_kabel"}
+    ],
+    "cite": [
+      {"src": "RK", "loc": "9.2.2. — „U pletenici vanjskog vodiča koaksijalnoga silaznog antenskog kabela… induciraju se neželjene RF struje\" i sl. 9.2.9. višenamjenski RF filtar, tiskana str. 200–201"},
+      {"src": "RK", "loc": "Zbirka ispitnih pitanja, Skupina III, pit. 55. istog teksta, tiskana str. 319 — knjižni ključ daje (d), HRS daje (c)"}
+    ]
+  },
+
+  "teh-262": {
+    "note": "Odgovor je (b) i RK ga daje gotovo doslovce: „Parazitne rezonancije mogu nastati i u HF odašiljaču i to na VHF i UHF frekvencijama, uglavnom zbog prevelikih parazitnih kapaciteta i dodatnih induktiviteta na predugačkim spojnim vodičima.\"\n\nMehanizam je lijep i vrijedi ga razumjeti do kraja. Nijedna komponenta nije samo ono što na njoj piše. Svaki tranzistor ima kapacitete među elektrodama reda desetak pF, a svaki ravan vodič ima induktivitet od približno 1 nH po milimetru, dakle 1 µH po metru. Kad spojiš tranzistor s deset centimetara predugom žicom, nisi napravio spoj — napravio si titrajni krug od stotinjak nanohenrija i par desetaka pikofarada. Uvrsti to u Thomsonovu formulu i ispadne rezonancija oko 100 MHz, dakle daleko iznad radnog KV područja. Ako pojačalo na toj frekvenciji još uvijek ima pojačanje veće od jedan i povratnu spregu u pravoj fazi, ono će tamo zaoscilirati. Nitko to nije htio; otud „parazitno\".\n\nPo čemu se prepoznaje. Parazitna oscilacija se javlja i kad NEMA pobude — između riječi kod SSB-a ili dok je tipkalo gore kod CW-a; čuje se kao „klokotavi govor\", kao gomila klikova i kao frekvencijska nestabilnost. Frekvencije su, kako kaže RK, relacijski nepovezane s radnom frekvencijom — po tome se razlikuju od harmonika (uvijek cjelobrojni višekratnik) i od proizvoda miješanja (uvijek zbroj ili razlika poznatih frekvencija). Zato opcija (a), frekvencijska pretvorba u miješalu, ne prolazi: ona daje predvidive, izračunljive frekvencije.\n\nLijek nije filtar nego PRIGUŠENJE mogućih rezonantnih krugova: kratki i debeli spojevi, te VHF prigušnica niskog faktora dobrote Q — namotaj na otporniku ili na namjerno „lošoj\" feritnoj jezgri — po potrebi uz dodatne R i C. Snizi Q i rezonancija se više ne može održati. Prepobuda izlaza (opcija c) i prevelik modulacijski signal (opcija d) daju harmonike i splatter (vidi teh-271), ali ne stvaraju rezonanciju na frekvenciji koja s radnom nema veze.",
+    "formula": [
+      "Nenamjerni titrajni krug u samom sklopu:",
+      "",
+      "   ravan vodič       ≈ 1 nH/mm = 1 µH/m",
+      "   kapaciteti tranzistora ≈ 10…50 pF",
+      "",
+      "   f₀ = 1 / (2·π·√(L·C))",
+      "",
+      "   L = 100 nH (10 cm spoja),  C = 25 pF:",
+      "      L·C = 1·10⁻⁷ · 2,5·10⁻¹¹ = 2,5·10⁻¹⁸",
+      "      √(L·C) = 1,58·10⁻⁹",
+      "      f₀ = 1 / (2·π·1,58·10⁻⁹) ≈ 100 MHz",
+      "   → KV odašiljač oscilira u VHF području",
+      "",
+      "Kako razlikovati tri vrste sporednih emisija:",
+      "   harmonik            f = n · f_rad     (cjelobrojno)",
+      "   proizvod miješanja  f = f₁ ± f₂        (izračunljivo)",
+      "   parazitna oscilacija  relacijski NEPOVEZANA s f_rad",
+      "",
+      "Lijek = sniziti Q, ne filtrirati:",
+      "   kratki i debeli spojevi",
+      "   VHF prigušnica niskog Q (namotaj na otporniku,",
+      "      „lošija\" feritna jezgra), dodatni R i C"
+    ],
+    "links": [
+      {"label": "Parasitic oscillation (en.wikipedia)", "url": "https://en.wikipedia.org/wiki/Parasitic_oscillation"},
+      {"label": "Titrajni krug (hr.wikipedia)", "url": "https://hr.wikipedia.org/wiki/Titrajni_krug"},
+      {"label": "Rezonancija (hr.wikipedia)", "url": "https://hr.wikipedia.org/wiki/Rezonancija"},
+      {"label": "Spurious emission (en.wikipedia)", "url": "https://en.wikipedia.org/wiki/Spurious_emission"}
+    ],
+    "cite": [
+      {"src": "RK", "loc": "9.2.1.3. — samooscilacije i parazitne rezonancije, tiskana str. 197"},
+      {"src": "RK", "loc": "Zbirka ispitnih pitanja, Skupina V, pit. 50. istog teksta, tiskana str. 341"},
+      {"src": "RK", "loc": "Zbirka ispitnih pitanja, Skupina VI, pit. 52. („parazitne oscilacije → frekvencije relacijski nepovezane s radnom\"), tiskana str. 352"}
+    ]
+  },
+
+  "teh-263": {
+    "note": "Odgovor je (a): na BILO KOJEM nelinearnom elementu na ulazu prijamnika. Naglasak je na dvije riječi — „bilo kojem\" i „nelinearnom\".\n\n„Nelinearnom\" je definicija, a ne opis. Linearni element može signal samo pomnožiti konstantom i pomaknuti mu fazu; iz sinusoide frekvencije f izlazi sinusoida iste frekvencije f. NOVE frekvencije može stvoriti samo nelinearnost, jer njezina prijenosna karakteristika sadrži kvadratni, kubni i više članove — a kvadrat zbroja dvaju sinusa daje zbrojne i razlikovne frekvencije. Zato je opcija (d), „na bilo kojem linearnom elementu\", pogrešna po samoj definiciji, a ne slučajno.\n\n„Bilo kojem\" ruši opcije (b) i (c). Nelinearna su i elektronska cijev i tranzistor i dioda; nelinearan je i svaki poluvodički spoj u ulaznom sklopu. Ali — i to je poanta koja se pamti — nelinearni element uopće ne mora biti u radiju. Korodirani spoj antenskog konektora, zahrđala obujmica na jarbolu, oksidirani lim oluka ili ograde: svaki takav dodir dvaju metala preko sloja oksida ponaša se kao dioda i ispravlja. To je „rusty bolt\" efekt, a RK ga ima kao zasebno ispitno pitanje: korodirani spoj silaznoga antenskog voda na susjedovoj TV anteni prouzročit će „neželjene produkte miješanja (ispravljanje)\".\n\nPraktična posljedica: kad se pojavi intermodulacija, izvor je često potpuno nedužan. Dva čista, propisna odašiljača plus jedan zahrđali vijak daju signale kojih u eteru nema. Zato se traži KRIVAC, a ne krivac — provjeri svoje konektore i spojeve prije nego što optužiš susjeda. Za ono što se događa unutar prijamnika i za brojke vidi teh-268; za razliku prema blokiranju vidi teh-265.",
+    "formula": [
+      "Zašto samo nelinearan element stvara nove frekvencije:",
+      "",
+      "   linearni:     y = a·x            → izlaz ima samo f₁ i f₂",
+      "   nelinearni:   y = a·x + b·x² + c·x³ + …",
+      "",
+      "   x = cos(2πf₁t) + cos(2πf₂t)",
+      "   član b·x²  → f₁±f₂, 2f₁, 2f₂     (2. red)",
+      "   član c·x³  → 2f₁−f₂, 2f₂−f₁, …   (3. red)  ← opasni",
+      "",
+      "Primjer na 2 m:",
+      "   f₁ = 145,000 MHz   f₂ = 145,600 MHz",
+      "   2f₁ − f₂ = 290,000 − 145,600 = 144,400 MHz",
+      "   2f₂ − f₁ = 291,200 − 145,000 = 146,200 MHz",
+      "   → oba padaju u pojas ili tik uz njega; filtar ih",
+      "     više ne može odvojiti od korisnog signala",
+      "",
+      "Nelinearni element NE MORA biti u prijamniku:",
+      "   korodiran konektor, zahrđala obujmica, oksidiran",
+      "   oluk = dioda koja ispravlja → „rusty bolt\" efekt"
+    ],
+    "links": [
+      {"label": "Intermodulation (en.wikipedia)", "url": "https://en.wikipedia.org/wiki/Intermodulation"},
+      {"label": "Rusty bolt effect (en.wikipedia)", "url": "https://en.wikipedia.org/wiki/Rusty_bolt_effect"},
+      {"label": "Electromagnetic interference (en.wikipedia)", "url": "https://en.wikipedia.org/wiki/Electromagnetic_interference"}
+    ],
+    "cite": [
+      {"src": "RK", "loc": "4.4.6. Intermodulacija, modulacijska smetnja, tiskana str. 135"},
+      {"src": "RK", "loc": "Zbirka ispitnih pitanja, Skupina VI, pit. 28. istog teksta, tiskana str. 348"},
+      {"src": "RK", "loc": "Zbirka ispitnih pitanja, Skupina II, pit. 50. (korodirani spoj → produkti miješanja/ispravljanje), tiskana str. 307"}
+    ]
+  },
+
+  "teh-264": {
+    "note": "Račun je trivijalan — 3 · 7 MHz = 21 MHz — ali pitanje ne provjerava množenje nego znaš li gdje je 21 MHz. To je pojas 15 m, dakle opet radioamaterski pojas: odgovor (a).\n\nNije slučajnost. Kratkovalni amaterski pojasi povijesno su dodijeljeni kao harmonički niz: 3,5 — 7 — 14 — 21 — 28 MHz. Zato drugi harmonik sa 40 m pada na 20 m, treći na 15 m, četvrti na 10 m. Praktična posljedica je dvostruka i vrijedi je zapamtiti: prljav odašiljač na 40 m NEĆE smetati zrakoplovnoj službi ni radiodifuziji, ali ĆE smetati amaterima na 20 i 15 m — a oni će to primijetiti, izmjeriti i javiti ti, što je zapravo najbolja moguća vrsta kontrole.\n\nAli pazi na rubove pojasa, jer se harmonik množi zajedno s njima. Hrvatski pojas 40 m je 7000–7200 kHz, a 15 m je 21 000–21 450 kHz. Trostruko od 7000 je 21 000 (donji rub), a trostruko od 7150 je 21 450 — točno gornji rub. Radiš li iznad 7150 kHz, tvoj treći harmonik VIŠE NIJE u amaterskom pojasu nego u radiodifuzijskom pojasu 13 m (21 450–21 850 kHz). Odgovor (a) je dakle točan za veći dio pojasa, ali ne baš za cijeli — a upravo taj gornji komad je onaj u kojem se sluša radiodifuzija.\n\nZa usporedbu, ostale ponuđene opcije: CB radio je 26 960–27 410 kHz (to je otprilike četvrti harmonik pojasa oko 6,8 MHz, ne od 7 MHz), a zrakoplovna VHF služba počinje na 108 MHz, što nije nikakav niski harmonik od 7 MHz. Znatno opasniji primjer daje sam RK: treći harmonik pojasa 3,5–3,8 MHz pada na 10,5–11,4 MHz i tako pokriva 10,7 MHz — zaštićenu međufrekvenciju FM radioprijamnika. Ondje filtar u susjedovu antenskom vodu ne pomaže ništa, jer smetnja ulazi ravno u MF stupanj.",
+    "formula": [
+      "3 · 7 MHz = 21 MHz  →  pojas 15 m  →  opet amaterski",
+      "",
+      "Harmonički niz KV amaterskih pojasa (NN 150/22, Dodatak 1.):",
+      "   1 ×  7,0…7,2 MHz    = 7000…7200 kHz    (40 m)",
+      "   2 ×                 = 14 000…14 400    (20 m je 14 000…14 350)",
+      "   3 ×                 = 21 000…21 600    (15 m je 21 000…21 450)",
+      "   4 ×                 = 28 000…28 800    (10 m je 28 000…29 700)",
+      "",
+      "Rub koji vrijedi znati:",
+      "   3 · 7150 kHz = 21 450 kHz = gornji rub pojasa 15 m",
+      "   iznad 7150 kHz treći harmonik izlazi iz amaterskog",
+      "   pojasa u radiodifuzijski pojas 13 m (21,45…21,85 MHz)",
+      "",
+      "Gdje su ostale ponuđene službe:",
+      "   CB radio             26 960…27 410 kHz",
+      "   zrakoplovni VHF      108…137 MHz",
+      "",
+      "Najgori KV primjer iz RK-a:",
+      "   3 · (3,5…3,8 MHz) = 10,5…11,4 MHz",
+      "   → pokriva 10,7 MHz = zaštićena MF FM prijamnika"
+    ],
+    "links": [
+      {"label": "Amateur radio frequency allocations (en.wikipedia)", "url": "https://en.wikipedia.org/wiki/Amateur_radio_frequency_allocations"},
+      {"label": "Harmonic (en.wikipedia)", "url": "https://en.wikipedia.org/wiki/Harmonic"},
+      {"label": "Pravilnik NN 150/2022 (Dodatak 1., frekvencijski pojasi)", "url": "https://narodne-novine.nn.hr/clanci/sluzbeni/2022_12_150_2313.html"}
+    ],
+    "cite": [
+      {"src": "RK", "loc": "9.2. — primjeri upadanja harmonika i zaštićene međufrekvencije 10,7 / 33,4 / 38,9 MHz, tiskana str. 192"},
+      {"src": "RK", "loc": "Zbirka ispitnih pitanja, Skupina IV, pit. 3. istog teksta, tiskana str. 321"},
+      {"src": "NN150/22", "loc": "Dodatak 1., Tablica 1. — 7000–7200 kHz, 14 000–14 350 kHz, 21 000–21 450 kHz, 28 000–29 700 kHz"}
+    ]
+  },
+
+  "teh-265": {
+    "note": "Odgovor je (d): preopterećenje ulaza televizora, njegova tjunera. Ovo je školski primjer smetnje u kojoj IZVOR nije kriv. Odašiljač na 435 MHz može biti savršeno čist, bez ijednog harmonika iznad granice — a susjedov TV svejedno neće raditi. Kriva je ŽRTVA, odnosno njezina nedovoljna otpornost na jako polje izvan vlastitog pojasa.\n\nRačun pokazuje zašto nijedan prijamnik to ne može podnijeti. Jakost polja u dalekom polju je E = √(30·P·G)/d. S 1 kW i usmjerenom antenom dobitka 20 dBi na deset metara dobiješ oko 173 V/m. Normalan TV signal na anteni je reda milivolta po metru. Omjer je oko 105 dB, a RK od prijamnika traži otpornost na blokiranje „iznad 80 dB\". Ulazni stupanj se jednostavno uguši: karakteristika mu se sabije, pojačanje padne, i slika nestane iako na TV kanalu nema ničega tuđeg. To je blokiranje ili smanjenje osjetljivosti (desenzitizacija), a ne harmonik.\n\nZato je lijek NA STRANI ŽRTVE, a ne na tvom niskopropusnom filtru — nema što filtrirati, tvoj je signal čist. Redoslijed je: zaokreni ili premjesti antenu da glavni snop ne gleda u susjedovu antenu (najjeftinije i najdjelotvornije, vidi teh-270), smanji snagu na najmanju kojom veza uspijeva, i tek onda stavi filtar u susjedov antenski vod — pojasnozaporni na 435 MHz ili visokopropusni koji propušta samo UHF TV iznad 470 MHz (vidi teh-269). PZM isto tako navodi razgovor sa susjedom, prekid rada u vrijeme kad on gleda TV i prelazak na drugu frekvenciju kao legitimna rješenja; tvrdoglavost s bilo koje strane vodi u dugotrajan sukob koji ništa ne rješava.\n\nJoš jedno upozorenje koje ovo pitanje ne postavlja, ali proizlazi iz istog računa: 173 V/m nije samo problem za televizor. Granica jakosti električnog polja u području 10–400 MHz je 11,2 V/m, a i na 435 MHz granica je oko 11,6 V/m (vidi teh-281). Antena koja s kilovatom gleda ravno u susjedov krov nije samo EMC problem nego i problem izloženosti ljudi.",
+    "formula": [
+      "Jakost polja u dalekom polju:",
+      "",
+      "   E = √(30 · P · G) / d      [V/m]",
+      "",
+      "   P = 1000 W,  G = 1 (izotropno),  d = 10 m:",
+      "      E = √(30 · 1000) / 10 = 173,2 / 10 = 17,3 V/m",
+      "",
+      "   P = 1000 W,  G = 100 (20 dBi),  d = 10 m:",
+      "      E = √(30 · 1000 · 100) / 10 = 1732 / 10 = 173 V/m",
+      "",
+      "Usporedba s korisnim TV signalom (≈ 1 mV/m):",
+      "   173 / 0,001 = 173 000 ×",
+      "   20 · log₁₀(173 000) ≈ 105 dB",
+      "",
+      "A RK od prijamnika traži (tiskana str. 198):",
+      "   odbacivanje sporednog odziva      ≥ 70 dB",
+      "   intermodulacijskog odziva         ≥ 65 dB",
+      "   blokiranje / smanjenje osjetljivosti ≥ 80 dB",
+      "   → 105 dB je preko svake norme",
+      "",
+      "Tri simptoma koja se ne smiju brkati:",
+      "   BLOKIRANJE      jedan jak signal → gluh prijamnik",
+      "   INTERMODULACIJA dva jaka signala → nove frekvencije",
+      "   HARMONIK        krivnja odašiljača, n · f_rad"
+    ],
+    "links": [
+      {"label": "Desensitization (telecommunications) (en.wikipedia)", "url": "https://en.wikipedia.org/wiki/Desensitization_(telecommunications)"},
+      {"label": "Electromagnetic compatibility (en.wikipedia)", "url": "https://en.wikipedia.org/wiki/Electromagnetic_compatibility"},
+      {"label": "High-pass filter (en.wikipedia)", "url": "https://en.wikipedia.org/wiki/High-pass_filter"}
+    ],
+    "cite": [
+      {"src": "RK", "loc": "9.2.2. Parametri prijamnika i smetnje — tražene razine odbacivanja neželjenih signala, tiskana str. 198"},
+      {"src": "RK", "loc": "Zbirka ispitnih pitanja, Skupina VI, pit. 46. istog teksta, tiskana str. 351; ista misao i u Skupini I, pit. 49., tiskana str. 307"},
+      {"src": "PZM", "loc": "Tema 19 — „susjedov prijamnik je blokiran\", visokopropusni filtar u susjedov antenski vod, smanjenje snage, dogovor sa susjedom, tiskana str. 127"}
+    ]
+  },
+
+  "teh-266": {
+    "note": "Odgovor je (c) i RK ga daje kao izričitu rečenicu: „Iz nekoga izvora RF smetnja one mogu doprijeti do nekog prijamnika zračenjem, vođenjem (kondukcijom) i indukcijom.\" Sve tri, i to — dodaje knjiga — često istodobno. Zato su (a), (b) i (d), koji svaki isključuju ostale puteve, pogrešni.\n\nVrijedi razumjeti po čemu se ta tri puta razlikuju, jer se prema njima biraju i lijekovi. ZRAČENJE je pravi elektromagnetski val koji putuje kroz prostor i koji antena prijamnika prima kao svaki drugi signal; djeluje na velike udaljenosti i slabi s 1/d. INDUKCIJA je sprega bliskog polja između dva vodiča koji su jedan uz drugoga — nema tu vala, nego se napon inducira magnetskim ili električnim poljem; slabi mnogo brže s udaljenošću, ali zato može biti razorna na metar razmaka. VOĐENJE je najprozaičnije: smetnja jednostavno putuje po žici, najčešće po mrežnom napajanju (vidi teh-267).\n\nRK dodaje i podjelu po PROLAZIMA (portovima) kroz koje smetnja ulazi u uređaj: antenski port, port napajanja i kućišni port. Ta je podjela korisna baš zato što svakom portu odgovara druga mjera: antenskom filtar, portu napajanja mrežni filtar, kućišnom oklapanje. Kad zapamtiš da su tri puta i tri porta, cijelo poglavlje 9. postaje uredno.\n\nDvije stvari iz istog odlomka koje se lako previde. Prvo, indukcija može prenijeti smetnju na VELIKE udaljenosti — ne izravno kroz zrak, nego tako da se inducira u dalekovod pa taj vod smetnju odvede kilometrima; tako do nas dolaze i atmosferski izboji. Drugo, i to je životno važno: u metalnom nosivom stupu tvoje antene, ako stoji blizu visokonaponskog voda i nije propisno uzemljen, induciraju se visoki naponi — RK to izričito naziva opasnim po život. Uzemljivanje jarbola nije stvar smetnja nego sigurnosti (vidi teh-275 i teh-280).",
+    "formula": [
+      "Tri puta i lijek za svaki:",
+      "",
+      "   ZRAČENJE (radijacija)",
+      "      pravi EM val, doseg velik, slabi s 1/d",
+      "      → oklapanje, razmak, zaokretanje antene",
+      "",
+      "   INDUKCIJA (bliska sprega)",
+      "      kapacitivna i magnetska sprega vodiča koji su",
+      "      jedan uz drugi; slabi brzo, ali blizu je jaka",
+      "      → razmak i razdvajanje vodova, rasprezanje, balun",
+      "",
+      "   VOĐENJE (kondukcija)",
+      "      smetnja putuje po žici, najčešće mrežnoj",
+      "      → mrežni filtar, prolazni kondenzatori, feriti",
+      "",
+      "Tri prolaza (porta) uređaja:",
+      "   antenski port   → filtar u antenskom vodu",
+      "   port napajanja  → mrežni filtar",
+      "   kućišni port    → oklapanje i uzemljenje",
+      "",
+      "Upozorenje iz istog odlomka:",
+      "   neuzemljen metalni jarbol blizu visokonaponskog voda",
+      "   → inducirani napon OPASAN PO ŽIVOT (RK)"
+    ],
+    "links": [
+      {"label": "Electromagnetic interference — coupling mechanisms (en.wikipedia)", "url": "https://en.wikipedia.org/wiki/Electromagnetic_interference"},
+      {"label": "Electromagnetic compatibility (en.wikipedia)", "url": "https://en.wikipedia.org/wiki/Electromagnetic_compatibility"},
+      {"label": "Uzemljenje (hr.wikipedia)", "url": "https://hr.wikipedia.org/wiki/Uzemljenje"}
+    ],
+    "cite": [
+      {"src": "RK", "loc": "9.2.2. — „Općenito o smetnjama\": zračenje, vođenje (kondukcija) i indukcija; antenski, napojni i kućišni port, tiskana str. 199"},
+      {"src": "RK", "loc": "9.2. — zaključak: „smetnje dopiru do naših uređaja zračenjem, ili vođenjem, ili indukcijom, ili svim tim putovima istodobno\", tiskana str. 202"},
+      {"src": "RK", "loc": "Zbirka ispitnih pitanja, Skupina VI, pit. 55. istog teksta, tiskana str. 353"}
+    ]
+  },
+
+  "teh-267": {
+    "note": "Odgovor je (c): da, šire se lako, ali ih uporabom filtara u većoj mjeri neutraliziramo. Opcija (b) ima točnu prvu polovicu i pogrešnu drugu — tvrdnja da nam to „obično ne predstavlja poteškoće\" nije istinita ni izdaleka; električna mreža je jedan od najgorih izvora nevolje u gradu. Opcije (a) i (d) su naprosto netočne: mreža jest namijenjena napajanju, ali ju to ne sprječava da bude izvrstan vodič i izvrsna antena.\n\nZašto baš mreža. Instalacija u zgradi je neoklopljena mreža vodiča duga desetke i stotine metara, zajednička SVAKOM uređaju u zgradi, s granama koje su na kratkom valu usporedive s valnom duljinom. Za 50 Hz to je obična žica; za 14 MHz to je razgranat napojni vod nepoznate impedancije koji ponegdje rezonira i zrači. Promet ide u oba smjera: tvoj RF izlazi na nju i pali se u susjedovim zvučnicima, a njihovi impulsni ispravljači, LED-napajanja, punjači i regulatori svjetla ulaze po njoj u tvoj prijamnik. PZM opisuje stvaran slučaj — radioklub u prizemlju sedmerokatnice sa 48 stanova imao je trajni šum jakosti S9 koji je 20 m dalje pao na S2; izvor je bio „oblak smetnja\" iz pedesetak impulsnih ispravljača u zgradi.\n\nMrežni filtar je zato prva od tri osnovne mjere (uz oklapanje i uzemljenje). Građa mu je jednostavna i vrijedi je razumjeti: bifilarno namotana zavojnica na feritnoj jezgri visoke permeabilnosti (RK navodi µ = 120…150) i kondenzatori reda 0,1 µF za 2 kV spojeni na metalno kućište. Zavojnica je zapravo prigušnica za ISTOFAZNE struje — za korisnu mrežnu struju, koja kroz oba vodiča teče u suprotnim smjerovima, magnetska se polja poništavaju pa je ne smeta; za RF smetnju, koja teče po oba vodiča istofazno, predstavlja veliku impedanciju. Kondenzatori istu tu smetnju kratko spajaju na masu, a mrežnoj struji od 50 Hz su gotovo prekid.\n\nDva praktična dodatka. Prvo, mrežni filtar mora ići na SVAKI kraj: i na tvoj odašiljač (RK, napomena N3 uz sl. 9.2.1.) i po potrebi na susjedov uređaj koji trpi. Drugo, i ovo je sigurnosno: kondenzatori mrežnog filtra vode na kućište, a kućište na zaštitni vodič — zato filtar RADI samo ako je zaštitni vodič spojen. Brum ili smetnju nikada ne rješavaj vađenjem zeleno-žutog vodiča ili adapterom bez uzemljenja; time si onesposobio i filtar i FID-sklopku i napravio smrtonosnu zamku (vidi teh-277).",
+    "formula": [
+      "Mrežni filtar — zašto radi (RK, sl. 9.2.8.):",
+      "",
+      "   L: bifilarna zavojnica na feritu µ = 120…150",
+      "   C: ≈ 0,1 µF / 2 kV prema kućištu (masi)",
+      "",
+      "   X_L = 2·π·f·L      X_C = 1 / (2·π·f·C)",
+      "",
+      "   Uz L = 1 mH i C = 0,1 µF:",
+      "",
+      "      na 50 Hz (korisna struja):",
+      "         X_L = 2·π·50·10⁻³        = 0,31 Ω   → prolazi",
+      "         X_C = 1/(2·π·50·10⁻⁷)    = 31,8 kΩ  → ne curi",
+      "",
+      "      na 14 MHz (smetnja):",
+      "         X_L = 2·π·14·10⁶·10⁻³    = 88 kΩ    → zapreka",
+      "         X_C = 1/(2·π·14·10⁶·10⁻⁷)= 0,11 Ω   → kratki spoj",
+      "",
+      "   → 50 Hz prolazi, RF ne prolazi. To je cijeli trik.",
+      "",
+      "Bifilarni namot = prigušnica za ISTOFAZNE struje:",
+      "   protufazna (korisna) mrežna struja → polja se poništavaju",
+      "   istofazna (RF smetnja)             → puni L, velika Z",
+      "",
+      "SIGURNOST: kondenzatori C vode na kućište, a kućište na",
+      "zaštitni vodič. Filtar radi SAMO uz spojen PE.",
+      "Nikad ne skidaj zaštitni vodič da bi maknuo brum."
+    ],
+    "links": [
+      {"label": "Line filter — mrežni EMI filtar (en.wikipedia)", "url": "https://en.wikipedia.org/wiki/Line_filter"},
+      {"label": "Choke (electronics) — common-mode choke (en.wikipedia)", "url": "https://en.wikipedia.org/wiki/Choke_(electronics)"},
+      {"label": "Ferrite core (en.wikipedia)", "url": "https://en.wikipedia.org/wiki/Ferrite_core"},
+      {"label": "Electromagnetic interference (en.wikipedia)", "url": "https://en.wikipedia.org/wiki/Electromagnetic_interference"}
+    ],
+    "cite": [
+      {"src": "RK", "loc": "9.2.2. — „RF smetnje iz mreže\" i sl. 9.2.8. Mrežni filtar (bifilarna zavojnica na feritu µ = 120…150, C ≈ 0,1 µF/2 kV), tiskana str. 200"},
+      {"src": "RK", "loc": "9.2. — napomena N3 uz sl. 9.2.1. („Putem mrežnog napajanja mogu prodrijeti RF smetnje. Postavite mrežni filtar.\"), tiskana str. 191"},
+      {"src": "PZM", "loc": "Tema 19 — mrežni filtar, sl. 19/1., tiskana str. 126; „gradski šum\" iz impulsnih ispravljača, S9 → S2 na 20 m, tiskana str. 128"}
+    ]
+  },
+
+  "teh-268": {
+    "note": "Odgovor je (b): do smetnji zbog intermodulacijskih produkata dolazi zbog prejakih signala u prijamniku, zbog kojih prijamnik prelazi u nelinearni način rada. Ključna riječ je „u prijamniku\". Intermodulacija je bolest ŽRTVE, a ne izvora — zato je opcija (a), koja krivi tuđe pojačalo snage, pogrešna, iako zvuči razumno.\n\nRazmisli što to zapravo znači: dva potpuno čista, propisna odašiljača i jedan prijamnik čiji je ulaz pretjeran daju signale kojih u eteru NEMA. Analizator spektra na dobroj anteni ne bi ih našao. Postoje samo unutar tvoje kutije, jer ih je tvoj vlastiti ulazni sklop proizveo kad je izišao iz linearnog područja. Ako to shvatiš, prestat ćeš tražiti krivca vani.\n\nNajopasniji su produkti TREĆEG reda, 2f₁−f₂ i 2f₂−f₁, jer padaju blizu izvornih frekvencija — dakle unutar pojasa koji ionako moraš primati, pa ih nikakav filtar ne može odvojiti (za sam račun vidi teh-263). I oni imaju jedno svojstvo koje je zlatno u praksi: rastu TROSTRUKO brže od korisnog signala. Povisiš li oba ulazna signala za 1 dB, produkt trećeg reda poraste za 3 dB. Obrnuto čitano — svakih 10 dB slabljenja na ulazu popravi intermodulaciju za 20 dB. Zato je najjeftiniji i najbrži lijek za intermodulaciju na kratkom valu uključiti prigušivač od 10 ili 20 dB i isključiti pretpojačalo; izgubiš nešto osjetljivosti koju ionako nemaš gdje potrošiti jer je atmosferski šum jači, a dobiješ čist pojas.\n\nRK to isto kaže i s konstrukcijske strane: ulazna pojačala NE SMIJU imati veliko pojačanje, jer je vjerojatnost intermodulacije to veća što je veće pojačanje ISPRED stupnja koji određuje selektivnost; najveće pojačanje mora biti u međufrekvencijskom pojačalu, iza uskog filtra. Iz istog razloga norma traži odbacivanje intermodulacijskog odziva od najmanje 65 dB. Razlikuj tri srodne pojave: blokiranje je jedan jak signal koji ogluši prijamnik (teh-265), unakrsna (modulacijska) smetnja je modulacija jakog signala prenesena na tvoj slabi nositelj, a intermodulacija su NOVE frekvencije iz dva ili više jakih signala.",
+    "formula": [
+      "Intermodulacija = krivnja PRIJAMNIKA, ne odašiljača",
+      "",
+      "   dva čista signala + nelinearan ulaz = nove frekvencije",
+      "   kojih u eteru uopće nema",
+      "",
+      "Produkti 3. reda (najgori, padaju u pojas):",
+      "   f_IM3 = 2f₁ − f₂   i   2f₂ − f₁",
+      "",
+      "Pravilo 3 : 1",
+      "   ulazni signali +1 dB  →  produkt 3. reda +3 dB",
+      "   ulazni signali −1 dB  →  produkt 3. reda −3 dB",
+      "",
+      "   → prigušivač 10 dB na ulazu:",
+      "        korisni signal  −10 dB",
+      "        intermodulacija −30 dB",
+      "        NETO dobitak    +20 dB čistoće",
+      "",
+      "   → prigušivač 20 dB: neto +40 dB. Najjeftiniji lijek",
+      "     na KV-u je ATT uključen i pretpojačalo isključeno.",
+      "",
+      "Norme koje RK traži od prijamnika (tiskana str. 198):",
+      "   sporedni odziv              ≥ 70 dB",
+      "   intermodulacijski odziv     ≥ 65 dB",
+      "   blokiranje / desenzitizacija ≥ 80 dB",
+      "",
+      "Konstrukcijsko pravilo (RK, str. 135):",
+      "   malo pojačanja PRIJE selektivnosti,",
+      "   veliko pojačanje TEK u MF stupnju.",
+      "",
+      "Ne brkati:",
+      "   blokiranje   1 jak signal → prijamnik ogluši",
+      "   unakrsna     modulacija jakog signala prenesena",
+      "                na tvoj slabi nositelj",
+      "   intermodul.  2+ jaka signala → NOVE frekvencije"
+    ],
+    "links": [
+      {"label": "Intermodulation (en.wikipedia)", "url": "https://en.wikipedia.org/wiki/Intermodulation"},
+      {"label": "Desensitization (telecommunications) (en.wikipedia)", "url": "https://en.wikipedia.org/wiki/Desensitization_(telecommunications)"},
+      {"label": "Electromagnetic compatibility (en.wikipedia)", "url": "https://en.wikipedia.org/wiki/Electromagnetic_compatibility"}
+    ],
+    "cite": [
+      {"src": "RK", "loc": "4.4.6. Intermodulacija, modulacijska smetnja — „ulazna pojačala ne smiju imati veliko pojačanje; najveće pojačanje treba biti u međufrekvencijskim pojačalima\", tiskana str. 135"},
+      {"src": "RK", "loc": "9.2.2. Parametri prijamnika i smetnje — odbacivanje intermodulacijskoga odziva ne manje od 65 dB, tiskana str. 198"},
+      {"src": "RK", "loc": "Zbirka ispitnih pitanja, Skupina VI, pit. 53. („Dva signala primana na nelinearnom elementu uvijek tvore intermodulacijske produkte\"), tiskana str. 352"}
+    ]
+  },
+
+  "teh-269": {
+    "note": "Ključne su tri riječi u zadatku: „bez harmonika\". One ti kažu da je izvor čist, dakle krivnja nije na odašiljačkoj strani i nema smisla dirati ga. Problem je u ŽRTVI — susjedov UHF TV prijamnik propušta u sebe signal od 144 MHz, koji s njegovim pojasom nema nikakve veze. Lijek ide u njegov antenski vod, i to VISOKOPROPUSNI filtar: odgovor (a).\n\nRačun je jednostavan. UHF TV počinje na 470 MHz (21. kanal). Visokopropusni filtar s prekidnom granicom oko 470 MHz propušta sve što televizor treba, a strmo reže sve ispod — pa i 144 MHz, koje je više od tri oktave niže i zato ga takav filtar guši vrlo učinkovito. RK pokazuje baš takav filtar (sl. 9.2.10.: 4,7 pF, 4,7 pF, 100 pF) i izričito napominje da to vrijedi SAMO za UHF TV prijam. Ako susjed gleda i VHF pojase I. i III. ili sluša FM radio, treba blaži visoki propusnik s granicom oko 40 MHz, koji propušta i FM (II. pojas) i VHF TV, a i dalje reže KV amaterske pojase.\n\nZašto ostale opcije ne rade. NISKOPROPUSNI filtar (b) radi točno naopako: propustio bi 144 MHz u televizor, a zaustavio bi UHF TV signal — susjed bi ostao bez slike, a smetnja bi ostala. Niskopropusni je filtar za ODAŠILJAČKI kraj (vidi teh-273), ne za prijamnički. PAR DIODA (c) je ograničivač amplitude; on bi doduše odrezao vrhove, ali je dioda nelinearan element pa bi ravno na susjedovu ulazu proizvela intermodulaciju i harmonike — dodao bi novi izvor smetnje umjesto da ga makneš (vidi teh-263). KOAKSIJALNI OGRANAK ½ λ (d) je zaporni element za JEDNU frekvenciju; za širok posao odbacivanja cijelog VHF područja nije to.\n\nZapamti opće pravilo koje ovo pitanje uvježbava, jer se u ovoj skupini vrti stalno: NISKOPROPUSNI filtar ide na odašiljač, VISOKOPROPUSNI na televizor. I jedno ograničenje: ako tvoj odašiljač ipak IMA peti harmonik na 720 MHz, susjedov visokopropusni UHF filtar ga NEĆE zaustaviti, jer 720 MHz je iznad 470 MHz i filtar ga uredno propušta (vidi teh-272). Filtar kod žrtve liječi samo ono što žrtva ne bi smjela primati — ne i tvoju prljavštinu u njezinom pojasu.",
+    "formula": [
+      "Zlatno pravilo o mjestu filtra:",
+      "",
+      "   NISKOPROPUSNI  →  na ODAŠILJAČ  (guši sve IZNAD f_rad)",
+      "   VISOKOPROPUSNI →  na TELEVIZOR  (guši sve ISPOD f_g)",
+      "",
+      "Brojke (RK, sl. 9.2.10.):",
+      "   UHF TV počinje na 470 MHz = 21. kanal",
+      "   visokopropusni filtar f_g ≈ 470 MHz",
+      "      propušta:  470…862 MHz  (UHF TV)",
+      "      reže:      145 MHz      ← naš odašiljač",
+      "",
+      "   Ako susjed gleda i VHF TV (I. i III. pojas) i sluša FM:",
+      "      uzmi visoki propusnik s f_g ≈ 40 MHz",
+      "      → propušta FM (II. pojas), VHF TV i UHF TV,",
+      "        a reže amaterske KV pojase (do 30 MHz)",
+      "",
+      "Zašto ostale opcije padaju:",
+      "   niskopropusni na TV  → propušta 144, guši UHF TV (naopako)",
+      "   par dioda            → nelinearno! stvara IM i harmonike",
+      "   ogranak ½ λ          → zapor za jednu frekvenciju, preusko",
+      "",
+      "Granica ovog lijeka:",
+      "   5 · 144 MHz = 720 MHz > 470 MHz",
+      "   → visokopropusni UHF filtar peti harmonik PROPUŠTA"
+    ],
+    "links": [
+      {"label": "High-pass filter (en.wikipedia)", "url": "https://en.wikipedia.org/wiki/High-pass_filter"},
+      {"label": "Electronic filter (en.wikipedia)", "url": "https://en.wikipedia.org/wiki/Electronic_filter"},
+      {"label": "Television channel frequencies (en.wikipedia)", "url": "https://en.wikipedia.org/wiki/Television_channel_frequencies"}
+    ],
+    "cite": [
+      {"src": "RK", "loc": "9.2.2. — „Visokopropusni TV filtar\", sl. 9.2.10. (propušta iznad 470 MHz, 21. kanal; za VHF+UHF uzeti visoki propusnik s f_g = 40 MHz), tiskana str. 201"},
+      {"src": "RK", "loc": "Zbirka ispitnih pitanja, Skupina VI, pit. 57. istog teksta, tiskana str. 353"},
+      {"src": "RK", "loc": "Zbirka ispitnih pitanja, Skupina III, pit. 53. i 54. (isti filtar, i zašto peti harmonik ipak prolazi), tiskana str. 319"},
+      {"src": "PZM", "loc": "Tema 19 — „jedini je lijek stavljanje visokopropusnog filtra u susjedov antenski vod\", tiskana str. 127"}
+    ]
+  },
+
+  "teh-270": {
+    "note": "Odgovor je (a): antenu postaviti što dalje od susjeda. To nije izbjegavanje pravog rješenja nego najbolje rješenje — jedino koje djeluje na SVE putove smetnje odjednom, u oba smjera, i ne košta ništa osim malo pameti pri postavljanju.\n\nFizika je na tvojoj strani. U dalekom polju jakost polja pada s 1/d, a gustoća snage s 1/d². Udvostručenje udaljenosti znači −6 dB polja i četiri puta manju gustoću snage. Pomakneš li antenu s 5 m na 20 m od susjedova krova, dobio si 20·log₁₀(4) = 12 dB — više nego što ti daje bilo koji filtar koji možeš kupiti, i to bez ikakvog gubitka na tvojoj strani. U bliskom polju, gdje vlada indukcija, pad je još strmiji.\n\nJednako važno: to radi i u PRIJAMU. PZM opisuje radioklub u prizemlju sedmerokatnice gdje je šum bio S9; džepnim prijamnikom se pokazalo da 20 metara dalje od zgrade pada na S2, a premještanjem antene podalje od zgrade problem je bitno smanjen. Udaljenost je jedini „filtar\" koji istodobno smanjuje i ono što ti emitiraš prema susjedu i ono što od njega primaš.\n\nOstale opcije su redom pogoršanja. Spustiti antenu što niže (b) znači približiti je kućnim instalacijama, žlijebovima, telefonskim i mrežnim vodovima — dakle pojačati upravo induktivnu spregu; niža antena je i lošija antena. Raditi s najvećom snagom (c) izravno je suprotno RK-ovu zlatnom pravilu: „radimo s najmanjom mogućom snagom odašiljača pri kojoj je naša veza uspješna\". Što duži antenski kabeli (d) donose veći gubitak i, gore od toga, dulji vod po kojem teku istofazne struje, dakle više zračenja iz samog voda.\n\nI pravna strana, jer ona u gustom susjedstvu brzo postane stvarna. Pravilnik NN 150/22 u čl. 21. traži da se antene i priključni vodovi postave tako da unutar građevine bude najmanje jedan metar razmaka od bilo kojeg dijela javne komunikacijske instalacije (manje samo za oklopljene vodove i uz jamstvo rada bez smetnji), te da se uzemljenja amaterske postaje NE spajaju s javnim komunikacijskim instalacijama. Članak 24. je još izravniji: ako tvoja postaja prouzroči smetnju, moraš bez odgode prestati s radom i ukloniti smetnju najkasnije u roku od 30 dana. Uz to ostaje i najvažniji nepisani dio: sa susjedom se razgovara. RK cijelo poglavlje zaključuje time da nam, unatoč svim mjerama, ostaje pokazati dragovoljnost i spremnost da uzroke smetnja istražimo i otklonimo.",
+    "formula": [
+      "Zašto udaljenost tuče filtar:",
+      "",
+      "   daleko polje:  E ∝ 1/d      S ∝ 1/d²",
+      "",
+      "   dvostruka udaljenost → −6 dB polja, 4× manja S",
+      "",
+      "   5 m → 20 m  (4 ×):",
+      "      20 · log₁₀(4) = 12 dB slabije polje",
+      "      gustoća snage 16 × manja",
+      "",
+      "   10 m → 30 m (3 ×):",
+      "      20 · log₁₀(3) = 9,5 dB",
+      "",
+      "Radi u OBA smjera (PZM, sedmerokatnica):",
+      "   uz zgradu       šum S9",
+      "   20 m od zgrade  šum S2",
+      "",
+      "Zlatno pravilo (RK, zaključak pogl. 9.):",
+      "   „radimo s najmanjom mogućom snagom odašiljača",
+      "    pri kojoj je naša veza uspješna\"",
+      "",
+      "Pravno (NN 150/22):",
+      "   čl. 21. st. 1. — najmanje 1 m od javne komunikacijske",
+      "                    instalacije unutar građevine",
+      "   čl. 21. st. 2. — uzemljenje postaje se NE spaja s njom",
+      "   čl. 24. st. 2. — smetnja: bez odgode prestati s radom,",
+      "                    ukloniti najkasnije u 30 dana"
+    ],
+    "links": [
+      {"label": "Pravilnik NN 150/2022 (čl. 21. i čl. 24.)", "url": "https://narodne-novine.nn.hr/clanci/sluzbeni/2022_12_150_2313.html"},
+      {"label": "Electromagnetic compatibility (en.wikipedia)", "url": "https://en.wikipedia.org/wiki/Electromagnetic_compatibility"},
+      {"label": "Antena (hr.wikipedia)", "url": "https://hr.wikipedia.org/wiki/Antena"}
+    ],
+    "cite": [
+      {"src": "RK", "loc": "9.2. — zaključak poglavlja: dragovoljnost prema susjedu i zlatno pravilo o najmanjoj mogućoj snazi, tiskana str. 202"},
+      {"src": "RK", "loc": "Zbirka ispitnih pitanja, Skupina VI, pit. 48. istog teksta, tiskana str. 351"},
+      {"src": "NN150/22", "loc": "čl. 21. (antene i priključni vodovi — 1 m od javne komunikacijske instalacije; uzemljenja se ne spajaju s njom) i čl. 24. (smetnje i mjere zaštite)"},
+      {"src": "PZM", "loc": "Tema 19 — premještanje antene podalje od zgrade, S9 → S2, tiskana str. 128"}
+    ]
+  },
+
+  "teh-271": {
+    "note": "Odgovor je (a): pojavu harmonika. Iza toga stoji jedno jedino pravilo koje objašnjava pola ovog poglavlja — NELINEARNOST UVIJEK STVARA HARMONIKE. Idealno linearno pojačalo izlazu daje istu valnu duljinu kakvu je dobilo, samo veću; čim ga prepobudiš i zabiješ u zasićenje, sinusoidi se odrezuju vrhovi, a odrezana sinusoida više nije sinusoida nego zbroj osnovnog vala i njegovih višekratnika.\n\nBrojke su poučne. Savršeno pravokutan val — krajnji slučaj odrezanog sinusa — sadrži samo neparne harmonike, s amplitudama 1, 1/3, 1/5, 1/7 osnovnoga. Treći harmonik na 1/3 amplitude je samo 9,5 dB ispod nositelja, a Pravilnik traži najmanje 50 dB ispod za KV, odnosno 60 dB iznad 30 MHz. Drugim riječima, prepobuđen odašiljač promašuje propis za četrdeset i više decibela. Zato opcija (d), „beznačajne promjene u radu\", nije samo netočna nego i pravno pogrešna.\n\nPremodulacija dodaje drugu nevolju, ovisno o modu. Kod SSB-a prepobuda izlaznog pojačala stvara INTERMODULACIJSKE komponente među samim govornim komponentama: unutar kanala to je izobličenje (nerazumljiv, „hrapav\" glas), a izvan kanala „prskanje\" — splatter — po pojasu mnogo širem od dodijeljenog. RK pokazuje oba slučaja na sl. 9.2.3.: uz potiskivanje neželjenog bočnog pojasa od 50 dB i više sve je uredno, a uz svega 25 dB i prepobuđen izlaz signal se raspline po spektru. Kod FM-a prevelik modulacijski signal daje preveliku devijaciju, pa širina pojasa po Carsonovu pravilu naraste preko dopuštenoga; zato RK traži da amaterski uskopojasni FM ne prijeđe devijaciju od ±2,5 kHz i da odmak od ruba pojasa ne bude manji od 10 kHz. Kod CW-a analogan grijeh je otipkavanje s oštrim bridovima, koje daje klikove i do 100 kHz od nositelja — lijek je klik-filtar (RK, sl. 9.2.4.).\n\nZašto NE subharmonici (opcija b): nelinearnost daje samo CJELOBROJNE višekratnike, nikad razlomke. Za frekvenciju nižu od osnovne treba sklop koji dijeli — djelitelj frekvencije ili poddimenzioniran oscilator — a to prepobuda ne može napraviti. Subharmonici u odašiljaču dolaze s druge strane, iz stupnjeva množila koji rade na nižoj frekvenciji (vidi teh-273). Opcija (c), „promjena modulacije\", opisuje simptom, a ne uzrok, i nije ono što pitanje traži.",
+    "formula": [
+      "Nelinearnost → harmonici. Uvijek.",
+      "",
+      "   pravokutan val (odrezan sinus) sadrži:",
+      "      f, 3f, 5f, 7f …   amplitude 1, 1/3, 1/5, 1/7",
+      "",
+      "   treći harmonik na 1/3 amplitude:",
+      "      20 · log₁₀(1/3) = −9,5 dB",
+      "   a propis traži (NN 150/22, čl. 22. st. 5.):",
+      "      9 kHz – 30 MHz : 43 + 10·log(PEP) ili 50 dBc",
+      "      iznad 30 MHz   : 43 + 10·log(P)   ili 60 dB",
+      "      (primjenjuje se ona vrijednost koja je manje stroga)",
+      "",
+      "   Provjera za 100 W na KV-u:",
+      "      43 + 10·log₁₀(100) = 43 + 20 = 63 dBc",
+      "      manje strogo je 50 dBc → dopušteno 100 W/10⁵ = 1 mW",
+      "",
+      "SSB: potiskivanje neželjenoga bočnog pojasa (RK, sl. 9.2.3.)",
+      "      ≥ 50 dB → uredno",
+      "      ≈ 25 dB + prepobuda → izobličenje u kanalu",
+      "                            i splatter izvan kanala",
+      "",
+      "FM: Carsonovo pravilo",
+      "      B = 2 · (Δf + f_m)",
+      "      amaterski NBFM: Δf = 2,5 kHz, f_m = 3 kHz",
+      "         B = 2 · (2,5 + 3) = 11 kHz",
+      "      radiodifuzijski FM: Δf = 75 kHz, f_m = 15 kHz",
+      "         B = 2 · (75 + 15) = 180 kHz ≈ 200 kHz",
+      "      → prevelik modulacijski signal širi B preko ruba pojasa",
+      "",
+      "CW: oštri bridovi otipkavanja → klikovi do 100 kHz dalje",
+      "      lijek = klik-filtar (L zaobljuje impuls, CR guši iskru)",
+      "",
+      "Subharmonik NE nastaje nelinearnošću:",
+      "   nelinearnost daje samo n · f (n cijeli broj)"
+    ],
+    "links": [
+      {"label": "Harmonic (en.wikipedia)", "url": "https://en.wikipedia.org/wiki/Harmonic"},
+      {"label": "Spurious emission (en.wikipedia)", "url": "https://en.wikipedia.org/wiki/Spurious_emission"},
+      {"label": "Carson bandwidth rule (en.wikipedia)", "url": "https://en.wikipedia.org/wiki/Carson_bandwidth_rule"},
+      {"label": "Single-sideband modulation (en.wikipedia)", "url": "https://en.wikipedia.org/wiki/Single-sideband_modulation"},
+      {"label": "Pravilnik NN 150/2022 (čl. 22. — sporedna zračenja)", "url": "https://narodne-novine.nn.hr/clanci/sluzbeni/2022_12_150_2313.html"}
+    ],
+    "cite": [
+      {"src": "RK", "loc": "9.2.1.2. Neučinkovita uporaba frekvencijskog spektra — prekomjerna modulacija, potiskivanje neželjenoga bočnog pojasa i splatter, sl. 9.2.3., tiskana str. 194–195"},
+      {"src": "RK", "loc": "9.2.1.2. — klik-smetnja i klik-filtar, sl. 9.2.4., tiskana str. 195–196"},
+      {"src": "RK", "loc": "Zbirka ispitnih pitanja, Skupina VI, pit. 47. istog teksta, tiskana str. 351"},
+      {"src": "NN150/22", "loc": "čl. 22. st. 3. („sporedna zračenja moraju se smanjiti na najmanju moguću mjeru\") i st. 5. (43 + 10 log PEP ili 50 dBc do 30 MHz; 43 + 10 log P ili 60 dB iznad 30 MHz)"}
+    ]
+  },
+
+  "teh-272": {
+    "note": "Račun: 5 · 144 MHz = 720 MHz, a 5 · 146 MHz = 730 MHz. Taj komad spektra pada u UHF TV područje, na 52. i 53. kanal — odgovor (c). RK navodi upravo tu brojku, „peti harmonik istoga odašiljača upada u V. frekvencijsko područje, 52. i 53. televizijski kanal, u dijelu pojasa 720…730 MHz\".\n\nMožeš to i sam provjeriti, i vrijedi znati kako. Europski UHF TV kanali široki su 8 MHz, a 21. kanal počinje na 470 MHz. Odatle je kanal n u pojasu od 470 + 8·(n−21) MHz naviše. Za n = 52 dobiješ 718–726 MHz, za n = 53 dobiješ 726–734 MHz. Frekvencija 720 MHz upada u 52., a 730 MHz u 53. kanal — točno kako knjiga kaže.\n\nNajkorisniji dio ovog pitanja je ono što slijedi iz njega. Prvo, harmonik je krivnja IZVORA, pa se i liječi na izvoru: pojasnopropusnim filtrom na izlazu 2 m odašiljača ili notch-filtrom ugođenim na 720 MHz (vidi teh-259 i teh-273). Drugo — i to je zamka koju RK postavlja kao zasebno pitanje — visokopropusni UHF filtar u susjedovu antenskom vodu, onaj iz teh-269 koji propušta sve iznad 470 MHz, peti harmonik NEĆE zaustaviti. On je iznad granice pa ga filtar uredno propušta ravno u televizor. Filtar kod žrtve štiti žrtvu od onoga što ona ne bi smjela primati, a ne od tvoje prljavštine u njezinom vlastitom pojasu.\n\nCijela obitelj harmonika od 144 MHz vrijedi truda: drugi je na 288 MHz (zrakoplovna i vojna područja), TREĆI na 432–438 MHz — dakle u tvom vlastitom pojasu 70 cm, pa ćeš prvo smetati sebi i kolegama — četvrti na 576–584 MHz u 34. TV kanalu (RK), i peti na 720–730 MHz. Napomena izvan knjige, jer se spektar u međuvremenu presložio: pojas 694–790 MHz u Europi je od 2020. prenamijenjen iz televizije u pokretnu mrežu, pa 720–730 MHz danas više nije TV nego mobilna telefonija. Za ispit vrijedi knjižni odgovor (52. i 53. TV kanal); u stvarnosti peti harmonik danas pada u još osjetljivije susjedstvo.",
+    "formula": [
+      "5 · 144 MHz = 720 MHz",
+      "5 · 146 MHz = 730 MHz",
+      "",
+      "Europska UHF TV mreža kanala (8 MHz po kanalu):",
+      "   kanal 21 = 470…478 MHz",
+      "   kanal n  = [470 + 8·(n−21)] … [478 + 8·(n−21)]  MHz",
+      "",
+      "   n = 52 → 470 + 8·31 = 718 …726 MHz   ← 720 MHz",
+      "   n = 53 → 470 + 8·32 = 726 …734 MHz   ← 730 MHz",
+      "",
+      "Svi harmonici pojasa 144…146 MHz:",
+      "   2 ×  288…292 MHz",
+      "   3 ×  432…438 MHz   ← naš vlastiti pojas 70 cm!",
+      "   4 ×  576…584 MHz   ← 34. TV kanal (RK)",
+      "   5 ×  720…730 MHz   ← 52. i 53. TV kanal",
+      "",
+      "Zamka:",
+      "   visokopropusni UHF filtar kod susjeda propušta > 470 MHz",
+      "   720 MHz > 470 MHz  →  filtar ga NE zaustavlja",
+      "   → harmonik se liječi NA IZVORU (pojasnopropusni ili notch)",
+      "",
+      "Izvan knjige: 694…790 MHz je u EU od 2020. prenamijenjen",
+      "iz TV-a u pokretnu mrežu — 720…730 MHz danas nije TV."
+    ],
+    "links": [
+      {"label": "Television channel frequencies (en.wikipedia)", "url": "https://en.wikipedia.org/wiki/Television_channel_frequencies"},
+      {"label": "Harmonic (en.wikipedia)", "url": "https://en.wikipedia.org/wiki/Harmonic"},
+      {"label": "Radiodifuzija (hr.wikipedia)", "url": "https://hr.wikipedia.org/wiki/Radiodifuzija"},
+      {"label": "Spurious emission (en.wikipedia)", "url": "https://en.wikipedia.org/wiki/Spurious_emission"}
+    ],
+    "cite": [
+      {"src": "RK", "loc": "9.2. — primjeri: 4. harmonik 144…146 MHz u 34. kanal (576…584 MHz), 5. harmonik u 52. i 53. kanal (720…730 MHz), tiskana str. 192"},
+      {"src": "RK", "loc": "Zbirka ispitnih pitanja, Skupina IV, pit. 49. istog teksta, tiskana str. 330"},
+      {"src": "RK", "loc": "Zbirka ispitnih pitanja, Skupina III, pit. 54. (peti harmonik prolazi kroz visokopropusni UHF filtar i smeta TV prijamu), tiskana str. 319"}
+    ]
+  },
+
+  "teh-273": {
+    "note": "HRS ključ traži (d), niskopropusni filtar, i to je odgovor koji na ispitu zaokružuješ. Logika iza njega: niskopropusni filtar propušta radnu frekvenciju i sve ispod nje, a guši sve iznad — dakle sve harmonike. Na kratkom valu je to standard: RK opisuje niskopropusni filtar s prekidnom frekvencijom od 30 MHz iza KV odašiljača, čime se potiskuju moguće smetnje u VHF području. Ista se logika u ovom pitanju primjenjuje na VHF odašiljač.\n\nAli budi svjestan da je pitanje nespretno postavljeno, jer spominje i SUBHARMONIKE. Subharmonik je po definiciji NIŽI od radne frekvencije, pa leži u pojasu PROPUŠTANJA niskopropusnog filtra — takav filtar ga ne može zaustaviti. Filtar koji reže s obiju strana jest pojasnopropusni, i baš to RK piše u tekstu: za VHF i UHF, gdje su odašiljači obično namijenjeni jednom pojasu, koristi se pojasnopropusni filtar koji „sprečava neželjena zračenja s obiju strana željenoga pojasa\". Sukladno tome, RK-ova vlastita tablica odgovora za doslovno isto pitanje (Zbirka, Skupina IV, pit. 52., tiskana str. 330) daje (b) pojasnopropusni. HRS crveno označava (d). Znaj oboje: na ispitu (d), u stvarnosti pojasnopropusni.\n\nOdakle uopće subharmonici u odašiljaču. Iz stupnjeva množila. Oscilator često radi na nižoj frekvenciji zbog stabilnosti, pa se frekvencija umnaža — RK daje primjer kristalnog oscilatora na 12 MHz i tri stupnja ×2, ×2, ×2. Signali iz tih pobudnih stupnjeva (f/2, f/3, f/4) mogu procuriti do izlaza, a oni su ispod radne frekvencije. Odašiljač bez množila, koji radi izravno na svojoj frekvenciji, subharmonike praktički nema.\n\nI jedna korisna provjera stvarnosti koju RK postavlja kao zasebno pitanje: amaterski KV odašiljač s niskopropusnim filtrom granice 30 MHz, dok radi u pojasu 14 MHz, propušta DRUGI harmonik — jer je 2 · 14 = 28 MHz, a to je ispod 30 MHz. Filtar radi savršeno i svejedno ti drugi harmonik izlazi na antenu, ravno u pojas 10 m. Tu pomaže antenski prilagodnik, koji je i sam ugođeni titrajni krug i za harmonike unosi dodatnih oko 25 dB prigušenja.",
+    "formula": [
+      "Što koji filtar propušta:",
+      "",
+      "   NISKOPROPUSNI   propušta ≤ f_g,  guši > f_g",
+      "        → guši harmonike (2f, 3f, …)",
+      "        → NE guši subharmonike (f/2, f/3) — oni su ispod!",
+      "",
+      "   VISOKOPROPUSNI  propušta ≥ f_g,  guši < f_g",
+      "        → filtar za ŽRTVU (TV), ne za odašiljač",
+      "",
+      "   POJASNOPROPUSNI propušta samo pojas",
+      "        → guši i harmonike I subharmonike",
+      "        → RK: „sprečava neželjena zračenja s obiju",
+      "           strana željenoga pojasa\"",
+      "",
+      "   POJASNOZAPORNI (notch)  guši samo uzak pojas",
+      "        → jedan poznati harmonik (teh-259)",
+      "",
+      "NAPOMENA O KLJUČU:",
+      "   HRS (crveno u ispitnom PDF-u)  : (d) niskopropusni",
+      "   RK, tablica odgovora Sk. IV/52 : (b) pojasnopropusni",
+      "   → na ispitu (d); fizikalno je za subharmonike",
+      "     ispravan pojasnopropusni",
+      "",
+      "Odakle subharmonici — iz množila:",
+      "   XO 12 MHz → ×2 → 24 → ×2 → 48 → ×2 → 96 MHz",
+      "   svaki međustupanj može procuriti na izlaz",
+      "",
+      "Provjera stvarnosti (RK, Zbirka Sk. III, pit. 50.):",
+      "   KV odašiljač, NP filtar f_g = 30 MHz, rad na 14 MHz",
+      "      2 · 14 = 28 MHz < 30 MHz  →  DRUGI HARMONIK PROLAZI",
+      "      3 · 14 = 42 MHz > 30 MHz  →  treći je zaustavljen",
+      "   → pomaže antenski prilagodnik (≈ −25 dB za harmonike)"
+    ],
+    "links": [
+      {"label": "Low-pass filter (en.wikipedia)", "url": "https://en.wikipedia.org/wiki/Low-pass_filter"},
+      {"label": "Band-pass filter (en.wikipedia)", "url": "https://en.wikipedia.org/wiki/Band-pass_filter"},
+      {"label": "Electronic filter (en.wikipedia)", "url": "https://en.wikipedia.org/wiki/Electronic_filter"},
+      {"label": "Frequency multiplier (en.wikipedia)", "url": "https://en.wikipedia.org/wiki/Frequency_multiplier"}
+    ],
+    "cite": [
+      {"src": "RK", "loc": "9.2. — „U HF području filtar 3. je uobičajeno niskopropusni s graničnom prekidnom frekvencijom na 30 MHz\", tiskana str. 192"},
+      {"src": "RK", "loc": "9.2. — pojasnopropusni filtar za VHF/UHF odašiljače, „sprečava neželjena zračenja s obiju strana željenoga pojasa\"; antenski prilagodnik unosi ≈ −25 dB za harmonike, tiskana str. 193"},
+      {"src": "RK", "loc": "Zbirka ispitnih pitanja, Skupina IV, pit. 52. istog teksta, tiskana str. 330 — knjižni ključ daje (b), HRS daje (d)"},
+      {"src": "RK", "loc": "Zbirka ispitnih pitanja, Skupina III, pit. 50. (drugi harmonik od 14 MHz prolazi kroz filtar granice 30 MHz), tiskana str. 318"}
+    ]
+  }
+}

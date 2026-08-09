@@ -1,0 +1,1875 @@
+{
+ "_doc": "Expanded teaching notes — packet pravila_a (40 pitanja, prv-001…prv-079, neparni brojevi). Operativna praksa: struktura pozivne oznake i prefiksi, Q-kod i operativne kratice, RST, UTC, QSL, bandplan i rubovi pojaseva, LSB/USB dogovor, 2 m simpleks i repetitorski kanali, polarizacija, WW-lokator, natjecanja. Svaka konvencija objašnjena je razlogom zbog kojeg postoji, a svugdje gdje se odgovor svodi na broj (rub pojasa, odmak repetitora, širina pojasa, znamenka RST-a) taj je broj stavljen u formula-blok. Sortira se ZADNJE pa nadjačava kratke izvorne bilješke.",
+ "_links_verified": "Svaki URL je dohvaćen i potvrđen (9. kolovoza 2026.). hr.wikipedia NEMA članke o Q-kodu, pozivnom znaku, RST-u, QSL-u, fonetskoj abecedi, lokatoru ni o repetitorima — provjereno pretragom hr.wikipedije, pa se za te teme linka en.wikipedia i to je označeno u labeli. Potvrđeno je i da je iaru-r1.org stranica s bandplanovima samo rasputnica, a stvarni HF bandplan je PDF na koji ona vodi; PDF je preuzet i pročitan. hamradio.hr/repetitori/ vraća meku 404 stranicu i NIJE linkan.",
+ "_citation_note": "RK: odjeljak 'Pravila i postupci' provjeren stranicu po stranicu — 1. Tabela sricanja i naslov Q-koda na tiskanoj str. 250, popis Q-kratica na 251, operativne kratice na 252–255 (CQ na 252, FM na 253, RST na 254, SSTV/TX/UTC na 255), znakovi za nesreću i definicija prefiks+sufiks na 256, DXCC popis po prefiksu 256–259 i po zemljama 260–263, IARU plan KV pojaseva 264–267 (napomena o LSB/USB na 266), plan 2 m 269–271. ITU definicija radijske postaje je na tiskanoj str. 210. PZM: Tema 21 sricanje 136–137, Tema 22 Q-kod 138, Tema 23 amaterske kratice 139–141, Tema 24 znakovi opasnosti 141, Tema 25 prefiksi 142–143, Tema 26 raspodjela frekvencija i plan 2 m 143–145, Tema 27 vrste emisija 146, Tema 28 vođenje veze 146–147, Tema 30 WW-lokator 149–150, Tema 31 dnevnik i QSL 151–153, Tema 32 raport RST 153–154, Teme 33–34 kodeks i natjecanja 155. NASLIJEĐENE CITACIJE ISPRAVLJENE: sve one koje su za Q-kod pokazivale na 'str. 250' (popis je na 251), sve koje su za pojedinu kraticu pokazivale na 'str. 252' (stranica ovisi o kratici), i osobito prv-057 (lokator NIJE u RK-ovu planu pojaseva na str. 264 — objašnjen je u PZM-u, Tema 30).",
+ "prv-001": {
+  "note": "Pozivna oznaka ima točno dva dijela i to nije birokratski hir nego posljedica toga kako radio funkcionira: signal ne nosi sa sobom adresu ni IP broj, pa se sve što sugovornik smije pretpostaviti o tebi mora dati čuti u nekoliko znakova. Zato je oznaka podijeljena na PREFIKS (predmetak), koji određuje državnu pripadnost postaje, i SUFIKS (dometak), koji tu jednu postaju razlikuje od svih ostalih unutar te države. RK to kaže gotovo tim riječima, a PZM dodaje da se prefiks sastoji od jednog ili dva slova (ili slova i broja) i još jedne znamenke u sredini oznake, dok je sufiks od jednog do tri slova i osobne je naravi.\n\nSmisao prefiksa je međunarodni. ITU je svakoj administraciji dodijelio blok početnih znakova, pa čim čuješ prve dva-tri znaka znaš gdje je postaja registrirana, bez ikakve baze podataka i bez pitanja. Hrvatskoj je dodijeljen blok 9A, pa se svaka naša pozivna oznaka po čl. 15. st. 1. Pravilnika sastoji od oznake »9A«, jedne znamenke i najviše tri slova — dakle 9A2XY, 9A1ARS i slično. U mnogim zemljama znamenka označava pozivno područje (u SAD-u 0–9 po regijama, slično u Njemačkoj i Japanu); kod nas je ona dio dodijeljene oznake i nema strogo zemljopisno značenje, pa ne izmišljaj pravilo koje Pravilnik ne propisuje.\n\nZamka u pitanju je odgovor c), »od prefiksa i dodatnih slova«. Dodatna slova doista postoje — /P, /M, /MM, /AM iz čl. 15. st. 2. — ali to su privjesci koji govore ODAKLE i KAKO radiš, a ne dijelovi strukture oznake. Struktura je uvijek prefiks + sufiks; sve ostalo je dodatak.\n\nUz to zapamti i obvezu koja iz oznake proizlazi: po čl. 15. st. 3. oznaka se mora odaslati na početku i na kraju svake veze, a u dugoj vezi najmanje svakih deset minuta. To je jedina stvar koja tvoju emisiju čini identificiranom, a neidentificirana emisija je i po ITU-ovu članku 25. i po čl. 18. t. 4. Pravilnika nedopuštena — s postajom bez valjane identifikacijske oznake ne smiješ ni komunicirati.",
+  "formula": [
+   "Struktura pozivne oznake:",
+   "",
+   "        9A        2        HW",
+   "        └┬─┘      └┬┘      └─┬┘",
+   "     blok ITU-a  znamenka   sufiks",
+   "     └────── PREFIKS ─────┘  1–3 slova",
+   "        (država)             (ta postaja)",
+   "",
+   "RH, čl. 15. st. 1.:  »9A« + 1 znamenka + najviše 3 slova",
+   "",
+   "Dodaci (čl. 15. st. 2.) — NISU dio strukture:",
+   "   /P   prenosiva postaja        (portable)",
+   "   /M   u motornom vozilu        (mobile)",
+   "   /MM  na plovilu               (maritime mobile)",
+   "   /AM  u zrakoplovu             (air mobile)",
+   "   9A/  stranac koji radi u RH   (9A stroke)",
+   "",
+   "Obveza javljanja (čl. 15. st. 3.):",
+   "   na početku veze · na kraju veze · svakih ≤ 10 min"
+  ],
+  "links": [
+   {
+    "label": "Amateur radio call signs (en.wikipedia)",
+    "url": "https://en.wikipedia.org/wiki/Amateur_radio_call_signs"
+   },
+   {
+    "label": "ITU prefix — tablica dodijeljenih blokova (en.wikipedia)",
+    "url": "https://en.wikipedia.org/wiki/ITU_prefix"
+   },
+   {
+    "label": "Pravilnik NN 150/2022",
+    "url": "https://narodne-novine.nn.hr/clanci/sluzbeni/2022_12_150_2313.html"
+   }
+  ],
+  "cite": [
+   {
+    "src": "RK",
+    "loc": "5. POZIVNE OZNAKE — uvodna definicija (prefiks određuje državnu pripadnost, sufiks postaju unutar države), tiskana str. 256"
+   },
+   {
+    "src": "PZM",
+    "loc": "Tema 25 — Pozivne oznake zemalja, »Oznaka se sastoji od prefiksa i sufiksa«, tiskana str. 142"
+   },
+   {
+    "src": "NN150/22",
+    "loc": "čl. 15. st. 1. (»9A« + jedna znamenka + najviše tri slova), st. 2. (dodaci /P, /M, /MM, /AM) i st. 3. (javljanje na početku, na kraju i svakih deset minuta)"
+   }
+  ]
+ },
+ "prv-003": {
+  "note": "Postaja nije uređaj. To je poanta cijelog pitanja. Odgovor c) glasi »jedan ili više odašiljača i prijamnika s pomoćnom opremom« i to je gotovo doslovan prijevod definicije iz ITU-ovih Radijskih propisa, koju RK navodi prije nego što uopće definira amatersku postaju: radijska postaja je jedan ili više odašiljača ili prijamnika, uključujući i pripadnu opremu, potrebnih na pojedinoj lokaciji za obavljanje radiokomunikacijske službe.\n\nZašto se definira baš tako široko: zato što se propisi vežu na POSTAJU, a ne na kutiju. Dozvola se izdaje za postaju na lokaciji (čl. 13. st. 1.), snaga se mjeri na priključku antene, dnevnik se vodi za postaju, a odgovornost za smetnje snosi nositelj dozvole za postaju. Da je »postaja« značila samo primopredajnik, sve što je izvan njega — antena, napojni vod, prilagodnik, linearno pojačalo, napajanje, mjerni instrumenti — ostalo bi izvan propisa, a upravo ti dijelovi najčešće i proizvode smetnje i prekoračenja. Zato pomoćna oprema pripada postaji.\n\n⚖ Provjera propisa: sam Pravilnik NN 150/22 ovaj pojam NE uređuje. Čl. 2. st. 1. definira samo četiri pojma — amatersku radijsku postaju (i to samo kao postaju koja radi u pojasu namijenjenom amaterskoj službi), radioamatera, Hrvatski radioamaterski savez i radioamaterski klub. Opće definicije »radijske postaje« u njemu nema; ona živi u ITU-ovim Radijskim propisima i u Zakonu o elektroničkim komunikacijama (NN 76/22), zakonu na temelju kojega je Pravilnik i donesen. Odgovor koji ispit traži je time točan, ali izvor mu nije Pravilnik — nemoj na ispitu ni u razgovoru s inspekcijom citirati čl. 2. kao izvor te definicije.\n\nPraktična provjera na stolu: sve što je fizički na tvojoj lokaciji i sudjeluje u emisiji ili prijamu dio je tvoje postaje. Ako sutra dodaš pojačalo, postaja ti se promijenila, i po čl. 12. st. 17. nabavu ili zamjenu prijavljene opreme moraš prijaviti Agenciji najkasnije u roku od 15 dana.",
+  "formula": [
+   "Definicija (ITU RR, prenesena u RK):",
+   "   radijska postaja =",
+   "      jedan ili više ODAŠILJAČA",
+   "      i/ili jedan ili više PRIJAMNIKA",
+   "      + PRIPADNA (pomoćna) OPREMA",
+   "      na jednoj lokaciji, za obavljanje službe",
+   "",
+   "Što sve ulazi u »pomoćnu opremu«:",
+   "   antena · napojni vod · antenski prilagodnik",
+   "   linearno pojačalo · napajanje · umjetna antena",
+   "   mjerni instrumenti (SWR-metar, mjerilo snage)",
+   "",
+   "Gdje je definicija, a gdje NIJE:",
+   "   ITU Radio Regulations   →  ima je",
+   "   ZEK, NN 76/22           →  ima je",
+   "   NN 150/22, čl. 2. st. 1.→  NEMA je",
+   "                              (definira samo 4 pojma)"
+  ],
+  "links": [
+   {
+    "label": "Pravilnik NN 150/2022",
+    "url": "https://narodne-novine.nn.hr/clanci/sluzbeni/2022_12_150_2313.html"
+   },
+   {
+    "label": "Zakon o elektroničkim komunikacijama NN 76/2022",
+    "url": "https://narodne-novine.nn.hr/clanci/sluzbeni/2022_07_76_1116.html"
+   },
+   {
+    "label": "Transmitter (en.wikipedia)",
+    "url": "https://en.wikipedia.org/wiki/Transmitter"
+   }
+  ],
+  "cite": [
+   {
+    "src": "RK",
+    "loc": "1.2. Definicija amaterske postaje — definicija radijske postaje prema ITU RR-u, tiskana str. 210"
+   },
+   {
+    "src": "NN150/22",
+    "loc": "čl. 2. st. 1. (definira samo amatersku radijsku postaju, radioamatera, HRS i klub — opće definicije radijske postaje nema); usporedi čl. 12. st. 17. i čl. 13. st. 1."
+   },
+   {
+    "src": "ZEK",
+    "loc": "NN 76/22 — zakon na temelju kojega je Pravilnik donesen; opće definicije radijskih postaja i nadzor su ondje, ne u Pravilniku"
+   }
+  ],
+  "flag": "check"
+ },
+ "prv-005": {
+  "note": "Odgovor je »ne«, i to je jedna od rijetkih stvari koje na ispitu možeš izvesti iz same tablice. U Dodatku 1., Tablici 1. Pravilnika svaki redak ima stupac »Status« sa slovom P, Pex ili S. Opća napomena uz tablicu tumači ih: P je primarna služba, Pex je primarna služba u pojasu koji se najvećim dijelom upotrebljava za amatersku službu, a S je sekundarna služba. Da su svi pojasevi bili isključivo amaterski, stupac Status ne bi ni trebao postojati.\n\nBit statusa je pravilo prvenstva, ne pravilo vlasništva. U istom pojasu primarna služba ima prednost pred sekundarnom. Amaterska postaja u sekundarnom statusu ne smije stvarati štetne smetnje postajama primarne službe I ne može zahtijevati zaštitu od smetnji koje te postaje njoj rade. To je vrlo asimetričan dogovor i vrijedi ga razumjeti prije nego što se naljutiš na radar ili na neku vojnu službu koja ti ruši 23 cm: ondje si gost.\n\nSpektar se tako dijeli zato što ga ima konačno malo, a služba koja ga treba stalno (zrakoplovstvo, radionavigacija, meteorologija, radiolokacija) ne može čekati. Amaterska služba pak radi povremeno, s poznatom lokacijom i poznatim operatorom, pa je idealan kandidat za dijeljenje. Zauzvrat dobiva pristup pojasevima koje inače nikad ne bi dobila.\n\nNekoliko primjera iz same Tablice 1. koje vrijedi zapamtiti, jer ispit voli baš njih: 2200 m (135,7–137,8 kHz) i 630 m (472–479 kHz) su S i uz to ograničeni na 1 W EIRP; 30 m (10 100–10 150 kHz) je S; 1240–1300 MHz je S; a 1810–1850 kHz, 144–146 MHz i 430–440 MHz su Pex, dakle pojasevi u kojima smo praktički sami. Sekundarni status je i razlog zašto na 30 m ne smiješ raditi telefonijom (vidi prv-029) i zašto je snaga ondje ograničena na 250 W.",
+  "formula": [
+   "Stupac »Status« u Dodatku 1., Tablici 1.:",
+   "",
+   "   P    primarna služba",
+   "   Pex  primarna služba, pojas najvećim dijelom amaterski",
+   "   S    sekundarna služba",
+   "",
+   "Pravilo prvenstva (Opća napomena):",
+   "   primarna  >  sekundarna",
+   "   sekundarna postaja:  ne smije smetati primarnoj",
+   "                        NE može tražiti zaštitu od nje",
+   "",
+   "Primjeri iz Tablice 1. (A razred):",
+   "   135,7 – 137,8 kHz    S     1 W EIRP   200 Hz",
+   "   472 – 479 kHz        S     1 W EIRP   200 Hz",
+   "   1810 – 1850 kHz      Pex   1500 W",
+   "   3500 – 3800 kHz      P     1500 W",
+   "   10 100 – 10 150 kHz  S      250 W     2,7 kHz",
+   "   144 – 146 MHz        Pex   1500 W",
+   "   430 – 440 MHz        Pex   1500 W",
+   "   1240 – 1300 MHz      S     1500 W"
+  ],
+  "links": [
+   {
+    "label": "Pravilnik NN 150/2022 — Dodatak 1.",
+    "url": "https://narodne-novine.nn.hr/clanci/sluzbeni/2022_12_150_2313.html"
+   },
+   {
+    "label": "Amateur radio frequency allocations (en.wikipedia)",
+    "url": "https://en.wikipedia.org/wiki/Amateur_radio_frequency_allocations"
+   },
+   {
+    "label": "Radio spectrum (en.wikipedia)",
+    "url": "https://en.wikipedia.org/wiki/Radio_spectrum"
+   }
+  ],
+  "cite": [
+   {
+    "src": "NN150/22",
+    "loc": "Dodatak 1., Tablica 1. (stupac »Status«) i Opća napomena uz Dodatak 1. — značenje P, Pex i S te pravilo prvenstva primarne službe"
+   }
+  ]
+ },
+ "prv-007": {
+  "note": "Nije obvezan. Radioamaterstvo nema propisanih aktivnosti te vrste: dozvola ti daje pravo raditi, a ne dužnost natjecati se. Natjecanja (contesti) su dobrovoljna, organiziraju ih savezi i klubovi, traju obično od 12 do 48 sati i traže izdržljivost i operatorsku vještinu — ali su i dalje samo jedan od načina na koji možeš koristiti dozvolu, ravnopravan s DX-om, s rag-chewom na repetitoru ili s gradnjom antene u dvorištu.\n\n⚖ Provjera propisa: tvrdnja je točna, ali čl. 3. Pravilnika, na koji se pitanje obično veže, o natjecanjima ne govori NIŠTA. Taj članak uređuje troje: da radioamater, klub i Savez koriste spektar u skladu s pravilima i načelima amaterske službe (st. 1.), da radioamater smije postaviti i upotrebljavati postaju samo uz položen ispit i izdanu dozvolu (st. 2.), i da tuđa priopćenja primljena putem postaje ne smije prosljeđivati drugima (st. 3.). Natjecanja se u cijelom Pravilniku spominju samo na dva mjesta — u čl. 4. st. 3. t. 5. (postaja za radiogoniometriju koju Savez ili klub postavlja radi obuke ili natjecanja) i u čl. 12. st. 15. (iznimna privremena dozvola za veću snagu, između ostalog za sudjelovanje u međunarodnim natjecanjima) — i ni na jednom od njih nema ni traga obvezi sudjelovanja.\n\nČl. 12. st. 15. vrijedi upamtiti i sam za sebe, jer je jedina zakonita iznimka od granice snage: iznimno, u svrhu eksperimentiranja i tehničkih istraživanja, Agencija može izdati privremenu dozvolu za veću vršnu snagu od propisane, ali samo izvan gusto naseljenih mjesta i gradova, i samo za istraživanje odbijanja valova od objekata u svemiru (EME) i za sudjelovanje u natjecanjima na međunarodnoj razini.\n\nMoralnu, a ne pravnu obvezu nalaže amaterski kodeks ponašanja koji su prihvatili svi savezi članice IARU-a: radioamater je pažljiv i pun obzira, odan svom pokretu, prijatelj drugima i odmjeren — kodeks izričito kaže da pravi radioamater neće dopustiti da mu hobi ugrozi obitelj, posao ili školu. To je pravi odgovor na duh pitanja: sve u ovom hobiju je dobrovoljno.",
+  "formula": [
+   "Što je obvezno, a što nije:",
+   "",
+   "   OBVEZNO (Pravilnik)",
+   "      položen ispit i važeća dozvola     čl. 3. st. 2.",
+   "      rad unutar pojaseva iz Dodatka 1.  čl. 16. st. 1.",
+   "      javljanje pozivne oznake           čl. 15. st. 3.",
+   "      vođenje dnevnika (nepokretna lok.) čl. 20. st. 1.",
+   "",
+   "   NIJE OBVEZNO",
+   "      natjecanja · DX · QSL · članstvo u klubu",
+   "",
+   "Natjecanja u NN 150/22 — jedina dva spomena:",
+   "   čl. 4. st. 3. t. 5.  postaja za radiogoniometriju",
+   "                        (obuka ili natjecanje)",
+   "   čl. 12. st. 15.      privremena dozvola za VEĆU snagu,",
+   "                        izvan gusto naseljenih mjesta,",
+   "                        za EME i međunarodna natjecanja"
+  ],
+  "links": [
+   {
+    "label": "Pravilnik NN 150/2022",
+    "url": "https://narodne-novine.nn.hr/clanci/sluzbeni/2022_12_150_2313.html"
+   },
+   {
+    "label": "Contesting (en.wikipedia)",
+    "url": "https://en.wikipedia.org/wiki/Contesting"
+   }
+  ],
+  "cite": [
+   {
+    "src": "NN150/22",
+    "loc": "čl. 3. (opća načela — o natjecanjima ne govori ništa); natjecanja se spominju samo u čl. 4. st. 3. t. 5. i čl. 12. st. 15., i to bez obveze sudjelovanja"
+   },
+   {
+    "src": "PZM",
+    "loc": "Tema 33 — Amaterski kodeks ponašanja i Tema 34 — Natjecanja, tiskana str. 155"
+   }
+  ],
+  "flag": "check"
+ },
+ "prv-009": {
+  "note": "Na 3,5 i 7 MHz radi se donjim bočnim pojasom (LSB). Pravilo je jednostavno i vrijedi ga zapamtiti u jednoj rečenici: ISPOD 10 MHz LSB, IZNAD 10 MHz USB. Zato 80 m i 40 m idu na LSB, a 20, 15 i 10 m — kao i sve iznad njih — na USB.\n\nTo NIJE fizika i nije propis. SSB odašiljač jednako dobro radi s bilo kojim bočnim pojasom; potisneš li gornji, ostane donji, i obratno. Radi se o čistom dogovoru, zapisanom u napomenama uz IARU-ov plan frekvencijskih pojaseva, a razlog mu je praktičan: ako polovica pojasa sluša jedan, a polovica drugi bočni pojas, nitko nikoga ne razumije, jer krivo odabran bočni pojas daje potpuno nerazumljiv, »Donaldov« govor. Jedno globalno pravilo uklanja to pitanje s dnevnog reda zauvijek.\n\nPovijesno objašnjenje zašto baš tako: prvi komercijalni SSB uređaji imali su filtar u međufrekvenciji i miješalo koje je na nižim pojasevima obrtalo spektar, pa je LSB ondje bio jeftinije rješenje. Kad su ti uređaji postali standard, dogovor se ustalio, a nova oprema ga je naslijedila. Danas svaki transceiver automatski bira bočni pojas prema pojasu — ali ručno ga i dalje možeš prebaciti, pa i pogriješiti.\n\nDvije iznimke koje treba znati da te ne zbune: na 60 m (5351,5–5366,5 kHz) IARU izričito preporučuje USB iako je to ispod 10 MHz, a u digitalnim modovima (RTTY, PSK31, FT8) po dogovoru se uvijek koristi USB na SVIM pojasevima, jer softver računa tonove od donje granice audiospektra. Pravilo »ispod 10 MHz LSB« odnosi se na GOVOR.",
+  "formula": [
+   "Dogovor (IARU, napomene uz plan pojaseva):",
+   "",
+   "   f < 10 MHz   →  LSB   (donji bočni pojas)",
+   "   f > 10 MHz   →  USB   (gornji bočni pojas)",
+   "",
+   "   160 m  1,8 MHz   LSB",
+   "    80 m  3,5 MHz   LSB   ← pitanje",
+   "    40 m  7   MHz   LSB   ← pitanje",
+   "    30 m 10,1 MHz   (telefonija nije dopuštena)",
+   "    20 m 14  MHz    USB",
+   "    17 m 18  MHz    USB",
+   "    15 m 21  MHz    USB",
+   "    12 m 24  MHz    USB",
+   "    10 m 28  MHz    USB",
+   "     2 m 144 MHz    USB",
+   "",
+   "Iznimke:",
+   "   60 m (5,3 MHz)          → IARU preporučuje USB",
+   "   digitalni modovi        → USB na svim pojasevima",
+   "",
+   "Krivi bočni pojas ≠ tiho — nego nerazumljivo."
+  ],
+  "links": [
+   {
+    "label": "Single-sideband modulation (en.wikipedia)",
+    "url": "https://en.wikipedia.org/wiki/Single-sideband_modulation"
+   },
+   {
+    "label": "IARU Region 1 — bandplanovi",
+    "url": "https://www.iaru-r1.org/reference/band-plans/"
+   },
+   {
+    "label": "Bandplan (en.wikipedia)",
+    "url": "https://en.wikipedia.org/wiki/Bandplan"
+   }
+  ],
+  "cite": [
+   {
+    "src": "RK",
+    "loc": "6. Planiranje pojaseva IARU-a — Napomene: »Na frekvencijskim pojasevima do 10 MHz upotrebljava se LSB, a iznad 10 MHz USB«, tiskana str. 266"
+   },
+   {
+    "src": "PZM",
+    "loc": "Tema 27 — Vrste emisija, SSB (J3E): »Na 3,5 i 7 MHz radi se donjim bočnim pojasom (LSB), a iznad toga gornjim (USB)«, tiskana str. 146"
+   }
+  ]
+ },
+ "prv-011": {
+  "note": "UTC je Coordinated Universal Time, univerzalno (međunarodno usklađeno) svjetsko vrijeme. RK ga u popisu operativnih kratica prevodi kao »međunarodno koordinirano vrijeme«, PZM kao »međunarodno usklađeno vrijeme, isto kao i GMT«. U praksi je to nasljednik GMT-a: isti trenutak, samo definiran atomskim satovima umjesto Zemljinom rotacijom, uz povremenu prijestupnu sekundu koja ih drži usklađenima.\n\nZašto radioamateri uopće ne koriste lokalno vrijeme: zato što je veza po definiciji međunarodna. Ako ti zapišeš 14:30 po srednjoeuropskom ljetnom vremenu, a Japanac 21:30 po svome, ista veza ima dva vremena i nijedan QSL biro, nijedan logbook i nijedan kontrolor natjecanja ne može ih uskladiti. UTC je jedina vremenska zona bez zone — ista brojka svugdje na svijetu, bez ljetnog i zimskog računanja vremena.\n\nI to nije samo običaj nego propis: čl. 20. st. 1. t. 2. Pravilnika izričito traži da se u dnevnik amaterske radijske postaje upisuju početak i kraj radiokomunikacijskog prijenosa PREMA USKLAĐENOM SVJETSKOM VREMENU (UTC). Dnevnik u lokalnom vremenu formalno nije uredno vođen dnevnik.\n\nPraktično: Hrvatska je UTC+1 zimi i UTC+2 ljeti, pa od lokalnog vremena oduzimaš 1 odnosno 2 sata. Uvijek. Pazi na dvije klasične zamke — veza u 00:30 lokalno ljeti pripada PRETHODNOM datumu po UTC-u (22:30 UTC), a datumska granica u natjecanjima teče po UTC-u, ne po tvom satu na zidu. Zbog toga se u žargonu i govori o »Zulu« vremenu (Z), po slovu Z iz tablice sricanja za vremensku zonu nulte dužine.",
+  "formula": [
+   "UTC = Coordinated Universal Time",
+   "    = univerzalno / međunarodno usklađeno svjetsko vrijeme",
+   "    ≈ GMT (isti trenutak, drukčija definicija)",
+   "    u žargonu i »Z« ili »Zulu«",
+   "",
+   "Hrvatska:",
+   "   zima (CET)   lokalno = UTC + 1 h",
+   "   ljeto (CEST) lokalno = UTC + 2 h",
+   "",
+   "   14:30 CEST  →  12:30 UTC",
+   "   00:30 CEST  →  22:30 UTC PRETHODNOG dana  ← zamka",
+   "",
+   "Propis, ne običaj:",
+   "   čl. 20. st. 1. t. 2. — početak i kraj prijenosa",
+   "                          upisuju se u UTC-u",
+   "   čl. 20. st. 3.      — dnevnik se čuva najmanje",
+   "                          12 mjeseci od zadnjeg zapisa"
+  ],
+  "links": [
+   {
+    "label": "Koordinirano svjetsko vrijeme (hr.wikipedia)",
+    "url": "https://hr.wikipedia.org/wiki/Koordinirano_svjetsko_vrijeme"
+   },
+   {
+    "label": "Coordinated Universal Time (en.wikipedia)",
+    "url": "https://en.wikipedia.org/wiki/Coordinated_Universal_Time"
+   },
+   {
+    "label": "Pravilnik NN 150/2022 — čl. 20. (dnevnik)",
+    "url": "https://narodne-novine.nn.hr/clanci/sluzbeni/2022_12_150_2313.html"
+   }
+  ],
+  "cite": [
+   {
+    "src": "RK",
+    "loc": "3. Operativne kratice u radioamaterskoj službi — »UTC — međunarodno koordinirano vrijeme«, tiskana str. 255"
+   },
+   {
+    "src": "PZM",
+    "loc": "Tema 23 — Amaterske kratice, »UTC — međunarodno usklađeno vrijeme, isto kao i GMT«, tiskana str. 141"
+   },
+   {
+    "src": "NN150/22",
+    "loc": "čl. 20. st. 1. t. 2. — u dnevnik se upisuju početak i kraj prijenosa prema usklađenom svjetskom vremenu (UTC)"
+   }
+  ]
+ },
+ "prv-013": {
+  "note": "Na UKV-u se koristi USB, gornji bočni pojas. To je izravna posljedica istog dogovora kao u prv-009: ispod 10 MHz LSB, iznad 10 MHz USB. Kako su sva UKV područja (6 m, 4 m, 2 m, 70 cm i dalje) daleko iznad 10 MHz, na svima njima vrijedi USB.\n\nNemoj se dati zbuniti time što se na 2 m najviše sluša FM. FM i SSB na UKV-u žive u različitim dijelovima pojasa i služe različitim stvarima. SSB (i CW) su uskopojasni modovi za slabe signale i velike domete — s njima se rade tropo, meteorscatter, aurora, EME — i smješteni su u donji dio pojasa, s pozivnom frekvencijom 144,300 MHz za SSB. FM je širokopojasan, jednostavan i lokalan, pa mu je mjesto u gornjem dijelu, sa simpleksnim kanalima i repetitorima. Pitanje traži »koja vrsta SSB modulacije«, dakle odnosi se samo na taj uskopojasni dio.\n\nRazlog zbog kojeg je za slab signal SSB, a ne FM, vrijedi razumjeti: SSB emisija stane u oko 2,7 kHz i sva snaga ide u koristan signal, dok FM emisija zauzima 12–20 kHz i ima izražen prag — ispod određene razine signala FM demodulator ne daje ništa upotrebljivo, dok se SSB signal i duboko u šumu još uvijek nekako čita. Zato se DX na UKV-u radi SSB-om i CW-om, a ne FM-om.\n\nJoš jedna posljedica koja se ispituje odvojeno (vidi prv-015): SSB/CW dio 2 m pojasa radi se HORIZONTALNOM polarizacijom, a FM dio VERTIKALNOM. PZM to sažima u jednu zagradu: 144–145 MHz horizontalna, 145–146 MHz vertikalna.",
+  "formula": [
+   "Dogovor: f > 10 MHz  →  USB",
+   "   → 50 MHz, 70 MHz, 144 MHz, 432 MHz … sve USB",
+   "",
+   "Podjela 2 m pojasa po naravi moda (RK, IARU plan):",
+   "",
+   "   144,000 – 144,150   CW (telegrafija)        500 Hz",
+   "   144,150 – 144,500   CW + SSB              2700 Hz",
+   "        144,300  ← SSB pozivna frekvencija",
+   "   144,500 – 144,794   sve vrste emisija",
+   "   144,994 – 145,194   FM repetitori, ULAZ      12 kHz",
+   "   145,206 – 145,594   FM simpleks              12 kHz",
+   "        145,500  ← pozivna frekv. za pokretne veze",
+   "   145,594 – 145,794   FM repetitori, IZLAZ     12 kHz",
+   "   145,806 – 146,000   satelitske veze",
+   "",
+   "Zašto SSB za DX, a ne FM:",
+   "   SSB  ≈ 2,7 kHz širine, nema praga  → čita se u šumu",
+   "   FM   ≈ 12–20 kHz, ima prag         → ispod praga ništa",
+   "",
+   "Polarizacija: 144–145 MHz vodoravna, 145–146 okomita"
+  ],
+  "links": [
+   {
+    "label": "Single-sideband modulation (en.wikipedia)",
+    "url": "https://en.wikipedia.org/wiki/Single-sideband_modulation"
+   },
+   {
+    "label": "2-meter band (en.wikipedia)",
+    "url": "https://en.wikipedia.org/wiki/2-meter_band"
+   },
+   {
+    "label": "IARU Region 1 — bandplanovi",
+    "url": "https://www.iaru-r1.org/reference/band-plans/"
+   }
+  ],
+  "cite": [
+   {
+    "src": "RK",
+    "loc": "6. Planiranje pojaseva IARU-a — Napomene (pravilo LSB/USB), tiskana str. 266; plan pojasa 144 MHz, tiskana str. 269–271"
+   },
+   {
+    "src": "PZM",
+    "loc": "Tema 27 — Vrste emisija, SSB (J3E), tiskana str. 146; unutrašnja raspodjela 2 m pojasa i polarizacija, tiskana str. 144"
+   }
+  ]
+ },
+ "prv-015": {
+  "note": "Repetitori rade vertikalnom (okomitom) polarizacijom. PZM to kaže bez uvijanja: amaterski repetitori rabe uskopojasnu frekvencijsku modulaciju (NBFM) i vertikalnu polarizaciju, pa i amaterske postaje moraju imati vertikalne antene za rad preko repetitora.\n\nRazlog je posve praktičan i leži u tome TKO ide preko repetitora. To su ručne postaje i postaje u vozilima. Ručni uređaj drži se uspravno i njegov je štap okomit; antena na krovu automobila je okomita jer je krov vodoravna protuutega i jer se auto na cesti okreće u svim smjerovima. Okomita antena je i svesmjerna u vodoravnoj ravnini, što je za pokretnu postaju koja stalno mijenja azimut jedino upotrebljivo rješenje. Kad bi repetitor bio vodoravno polariziran, svaka bi ga ručna postaja čula uz gubitak reda 20 dB — a to je kao da si snagu smanjio sto puta.\n\nZato se na 2 m pojas dijeli i po polarizaciji, a ne samo po modu: donji, SSB/CW dio (144–145 MHz) radi se VODORAVNOM polarizacijom, jer ondje su usmjerene antene, Yagi na rotoru i DX rad, gdje vodoravna polarizacija ima manje šuma iz okoline i bolje se ponaša pri refleksijama; gornji, FM dio (145–146 MHz) radi se OKOMITOM. Zamjena polarizacije nije mala stvar: teoretski je gubitak u križanoj polarizaciji beskonačan, u praksi 20 do 30 dB, što nadmašuje razliku između 5 W i 1,5 kW.\n\nOdgovor »nema pravila« zvuči razumno jer polarizacija doista nije propisana Pravilnikom — ali to je opet dogovor koji svi poštuju, kao i LSB/USB. Iznimka koju vrijedi znati: satelitske veze rade se kružnom (cirkularnom) polarizacijom, jer se satelit prevrće i njegova bi se linearna polarizacija stalno mijenjala u odnosu na tvoju; kružna polarizacija plaća stalnih 3 dB gubitka umjesto povremenih 30.",
+  "formula": [
+   "Polarizacija na 2 m (dogovor, ne propis):",
+   "",
+   "   144 – 145 MHz   SSB, CW, DX     VODORAVNA",
+   "   145 – 146 MHz   FM, repetitori  OKOMITA  ← pitanje",
+   "   satelitske veze                 KRUŽNA",
+   "",
+   "Zašto okomita za repetitore:",
+   "   ručna postaja  → štap je uspravan",
+   "   auto           → antena okomita na krov",
+   "   okomita antena → svesmjerna u vodoravnoj ravnini",
+   "                    (vozilo stalno mijenja azimut)",
+   "",
+   "Cijena krive polarizacije:",
+   "   križana polarizacija ≈ 20…30 dB gubitka",
+   "   20 dB = 100× manja snaga",
+   "   30 dB = 1000× manja snaga",
+   "   → gore nego razlika 5 W ↔ 1500 W",
+   "",
+   "Kružna polarizacija: stalnih ~3 dB gubitka prema",
+   "linearnoj, ali nema dubokih propada kad se satelit vrti."
+  ],
+  "links": [
+   {
+    "label": "Polarization (waves) (en.wikipedia)",
+    "url": "https://en.wikipedia.org/wiki/Polarization_(waves)"
+   },
+   {
+    "label": "Amateur radio repeater (en.wikipedia)",
+    "url": "https://en.wikipedia.org/wiki/Amateur_radio_repeater"
+   },
+   {
+    "label": "Circular polarization (en.wikipedia)",
+    "url": "https://en.wikipedia.org/wiki/Circular_polarization"
+   }
+  ],
+  "cite": [
+   {
+    "src": "PZM",
+    "loc": "Tema 26, 3. Pregled repetitorskih frekvencija na 2 metra — »repetitori rabe uskopojasnu frekvencijsku modulaciju (NBFM) i vertikalnu polarizaciju«, tiskana str. 145; podjela polarizacije 144–145 / 145–146 MHz, tiskana str. 144"
+   },
+   {
+    "src": "RK",
+    "loc": "6. Planiranje pojaseva IARU-a — plan pojasa 144 MHz (repetitorski ulazni i izlazni pojas, FM), tiskana str. 271"
+   }
+  ]
+ },
+ "prv-017": {
+  "note": "FM je kratica za Frequency Modulation, frekvencijsku modulaciju. U službenoj ITU-ovoj oznaci vrsta emisije to je F3E — slovo F za kutnu (frekvencijsku) modulaciju, znamenka 3 za jedan kanal s analognom informacijom, slovo E za telefoniju. Ta se oznaka doslovno pojavljuje u Dodatku 1. Pravilnika, u popisu dopuštenih vrsta emisije.\n\nKod FM-a amplituda nositelja ostaje stalna, a modulacijski signal mijenja njegovu FREKVENCIJU. Iz toga slijedi sve ostalo: budući da informacija nije u amplitudi, prijamnik smije amplitudu grubo ograničiti (limiter) i time odbaciti sve smetnje koje se nakupljaju kao promjene amplitude — atmosferske praske, iskrenje, industrijski šum. Zato FM zvuči čisto ondje gdje bi AM krčao. Cijena je širina pojasa: NBFM na 2 m zauzima oko 12 kHz, a AM ili SSB znatno manje.\n\nDruga posljedica je učinak zarobljavanja (capture effect): kad se dva FM signala nađu na istoj frekvenciji, prijamnik reproducira samo jači, a slabiji potpuno nestane. Na SSB-u bi se oba čula pomiješana. To je i razlog zašto na repetitoru nikad ne čuješ dvije postaje istodobno nego samo onu jaču — i zašto je »dupliranje« na repetitoru tako neugodno.\n\nOstale ponuđene kratice odvedu te na krivi trag ako ih ne razlikuješ: LSB je donji bočni pojas (vrsta SSB-a, ne modulacija sama po sebi), RTTY je radioteleprinter (digitalni tekstualni mod), a FSK je Frequency Shift Keying, otipkavanje pomakom frekvencije — srodno FM-u po ideji, ali to je način prijenosa podataka, a ne oznaka za frekvencijsku modulaciju govora.",
+  "formula": [
+   "FM = Frequency Modulation = frekvencijska modulacija",
+   "ITU oznaka vrste emisije:  F3E",
+   "     F  kutna (frekvencijska) modulacija",
+   "     3  jedan kanal s analognom informacijom",
+   "     E  telefonija",
+   "",
+   "Srodne oznake iz Dodatka 1.:",
+   "   A1A  Morseova telegrafija (CW)",
+   "   A3E  telefonija s AM-om",
+   "   J3E  telefonija SSB-om (potisnut nositelj)",
+   "   F1B  telegrafija s izravnim ispisom, FM (RTTY)",
+   "   F3E  telefonija FM-om          ← ovo je »FM«",
+   "   N0N  nemodulirani nositelj (ispitivanje)",
+   "",
+   "Ostale ponuđene kratice:",
+   "   LSB   donji bočni pojas (SSB)",
+   "   RTTY  radioteleprinter",
+   "   FSK   otipkavanje pomakom frekvencije",
+   "",
+   "Zašto je FM otporan na smetnje:",
+   "   informacija je u FREKVENCIJI, ne u amplitudi",
+   "   → ograničivač odreže sve promjene amplitude",
+   "   cijena: NBFM ≈ 12 kHz širine pojasa"
+  ],
+  "links": [
+   {
+    "label": "Frekvencijska modulacija (hr.wikipedia)",
+    "url": "https://hr.wikipedia.org/wiki/Frekvencijska_modulacija"
+   },
+   {
+    "label": "Frequency modulation (en.wikipedia)",
+    "url": "https://en.wikipedia.org/wiki/Frequency_modulation"
+   },
+   {
+    "label": "Modulacija (hr.wikipedia)",
+    "url": "https://hr.wikipedia.org/wiki/Modulacija"
+   }
+  ],
+  "cite": [
+   {
+    "src": "RK",
+    "loc": "3. Operativne kratice u radioamaterskoj službi — »FM 1. frekvencijska modulacija«, tiskana str. 253"
+   },
+   {
+    "src": "PZM",
+    "loc": "Tema 27 — Vrste emisija, »FM (F3E)«, tiskana str. 146"
+   },
+   {
+    "src": "NN150/22",
+    "loc": "Dodatak 1., t. 2.3.2. — popis vrsta emisije s frekvencijskom modulacijom (F3E telefonija, F1B telegrafija s izravnim ispisom)"
+   }
+  ]
+ },
+ "prv-019": {
+  "note": "SSTV je Slow Scan Television — sporoanalizirajuća televizija, prijenos NEPOKRETNE slike. Ime kaže sve: slika se ne osvježava dovoljno brzo da bi se vidjelo kretanje, nego se jedna jedina slika prenosi u minutu ili nekoliko minuta, red po red.\n\nRazlog zbog kojega je tako spora jest širina pojasa, i to je pravi sadržaj ovog pitanja. Obična televizijska slika traži nekoliko megaherca; amaterski KV kanal je širok oko 2,7 kHz, dakle oko tisuću puta manje. Ako želiš sliku provući kroz taj kanal, jedino što možeš žrtvovati jest vrijeme. Zato se SSTV signal prenosi kao obični audio ton unutar SSB kanala — svjetlina svakog elementa slike pretvara se u frekvenciju tona — i zato SSTV ide preko istog odašiljača i iste antene kao i govor, bez ikakvog dodatnog uređaja osim računala ili aplikacije.\n\nOstale ponuđene kratice moraš razlikovati jer se u pitanjima izmjenjuju: ATV je Amateur Television, brzi TV prijenos POKRETNE slike, a on zbog širine pojasa živi tek na 70 cm i više (u Dodatku 1. Pravilnika ograničenje širine kanala od 7 MHz odnosi se baš na amplitudno modulirani ili digitalni televizijski prijenos); RTTY je radioteleprinter, prijenos teksta; PSK31 je moderan digitalni tekstualni mod koji stane u tridesetak herca i pisanim putem preko računala zamjenjuje telegrafiju.\n\nGdje se SSTV radi: RK u IARU planu navodi 14,230 MHz, 21,340 MHz i 28,680 MHz kao pozivne frekvencije za SSTV i faks, uz uputu da se nakon uspostave veze prijeđe na drugu slobodnu frekvenciju unutar telefonijskog dijela pojasa. Na 2 m pozivna frekvencija za SSTV je 144,500 MHz.",
+  "formula": [
+   "SSTV = Slow Scan Television",
+   "     = sporoanalizirajuća televizija, NEPOKRETNA slika",
+   "",
+   "Zašto je spora — sve je u širini pojasa:",
+   "   TV slika u pokretu     ≈ 5 MHz",
+   "   amaterski KV kanal     ≈ 2,7 kHz",
+   "   omjer ≈ 1800 : 1  →  ušteda se plaća VREMENOM",
+   "   jedna slika: ~8 s do nekoliko minuta",
+   "",
+   "Ne brkati:",
+   "   SSTV   nepokretna slika, KV i UKV, stane u SSB kanal",
+   "   ATV    pokretna slika, tek od 70 cm naviše (MHz širine)",
+   "   RTTY   tekst, radioteleprinter",
+   "   PSK31  tekst, ~31 Hz širine",
+   "   FAX    faksimil, srodan SSTV-u",
+   "",
+   "Pozivne frekvencije za SSTV/FAX (RK, IARU plan):",
+   "   14,230 MHz · 21,340 MHz · 28,680 MHz",
+   "   144,500 MHz (2 m)",
+   "   → nakon poziva prijeđi na slobodnu frekvenciju"
+  ],
+  "links": [
+   {
+    "label": "Slow-scan television (en.wikipedia)",
+    "url": "https://en.wikipedia.org/wiki/Slow-scan_television"
+   },
+   {
+    "label": "Amateur television (en.wikipedia)",
+    "url": "https://en.wikipedia.org/wiki/Amateur_television"
+   },
+   {
+    "label": "PSK31 (en.wikipedia)",
+    "url": "https://en.wikipedia.org/wiki/PSK31"
+   }
+  ],
+  "cite": [
+   {
+    "src": "RK",
+    "loc": "3. Operativne kratice — »SSTV — sporoanalizirajuća televizija«, tiskana str. 255; pozivne frekvencije za SSTV/FAX u Napomenama uz plan pojaseva, tiskana str. 266"
+   },
+   {
+    "src": "PZM",
+    "loc": "Tema 27 — Vrste emisija, SSTV i PSK31, tiskana str. 146"
+   }
+  ]
+ },
+ "prv-021": {
+  "note": "V40, po starijoj oznaci S20, jest 145,500 MHz — i to nije bilo koji kanal nego POZIVNI kanal za pokretne veze na 2 m. RK ga u planu pojasa 144 MHz označava upravo tako, a PZM u tablici simpleksnih kanala stavlja uz S-20 fusnotu: rezerviran je kao pozivni kanal postaja u pokretu.\n\nOznake su dvije zato što se mreža kanala tijekom vremena udvostručila. Stara podjela imala je razmak 25 kHz i kanale S8 do S23 između 145,200 i 145,575 MHz. Kad je tehnika dopustila uže filtre, uveden je razmak od 12,5 kHz, pa su se između svaka dva stara kanala umetnuli međukanali i uvedene nove oznake: V16 do V47 za simpleks i RV48 do RV63 za repetitore. Zato se svaki stari S-kanal preslikava u V-kanal dvostrukog broja: S20 → V40.\n\nNajlakše ćeš oboje zapamtiti kroz jedan te isti izraz. Uzmi 145,000 MHz kao ishodište i pribroji broj kanala pomnožen s razmakom: za V-kanale 12,5 kHz, za stare S-kanale 25 kHz. V40 daje 145,000 + 40 · 12,5 kHz = 145,000 + 500 kHz = 145,500 MHz; S20 daje 145,000 + 20 · 25 kHz = isto. Ista formula radi i za repetitore (vidi prv-023), samo s drugim brojem kanala.\n\nRadna kultura oko pozivnog kanala: na 145,500 se ZOVE, a ne razgovara. Uspostaviš vezu i odmah dogovoriš prijelaz (QSY) na neki drugi simpleksni kanal, jednako kao što se na KV-u ne ostaje na pozivnoj frekvenciji za SSTV. Kanal koji je stalno zauzet razgovorom prestaje biti pozivni kanal i onaj tko te traži nema te gdje naći.",
+  "formula": [
+   "Jedna formula za sve kanale na 2 m:",
+   "",
+   "   f = 145,000 MHz + n · razmak",
+   "",
+   "   V-kanali (novi):   razmak 12,5 kHz",
+   "   S-kanali (stari):  razmak 25 kHz",
+   "   S → V:  V = 2 · S      (S20 → V40)",
+   "",
+   "   V40:  145,000 + 40 · 12,5 kHz = 145,500 MHz  ✓",
+   "   S20:  145,000 + 20 · 25   kHz = 145,500 MHz  ✓",
+   "",
+   "Stari simpleksni kanali (razmak 25 kHz):",
+   "   S8  145,200      S16 145,400",
+   "   S9  145,225      S17 145,425",
+   "   S10 145,250      S18 145,450",
+   "   S11 145,275      S19 145,475",
+   "   S12 145,300      S20 145,500  ← pozivni, pokretne",
+   "   S13 145,325      S21 145,525",
+   "   S14 145,350      S22 145,550",
+   "   S15 145,375      S23 145,575",
+   "",
+   "Pravilo lijepog ponašanja: na pozivnom kanalu se ZOVE,",
+   "pa se odmah QSY na slobodan kanal."
+  ],
+  "links": [
+   {
+    "label": "2-meter band (en.wikipedia)",
+    "url": "https://en.wikipedia.org/wiki/2-meter_band"
+   },
+   {
+    "label": "IARU Region 1 — bandplanovi",
+    "url": "https://www.iaru-r1.org/reference/band-plans/"
+   }
+  ],
+  "cite": [
+   {
+    "src": "PZM",
+    "loc": "Tema 26, 4. Simpleks kanali — tablica S8…S23 i fusnota »S-20 je rezerviran kao pozivni kanal postaja u pokretu«, tiskana str. 145; nove oznake V16–V47 i RV48–RV63, tiskana str. 145"
+   },
+   {
+    "src": "RK",
+    "loc": "6. Planiranje pojaseva IARU-a — plan pojasa 144 MHz, 145,500 MHz kao »pozivna frekvencija za pokretne veze«, tiskana str. 271"
+   }
+  ]
+ },
+ "prv-023": {
+  "note": "Izlazna (odašiljačka) frekvencija repetitora RV48, po staroj oznaci R0, jest 145,600 MHz. Njegov je ulaz 600 kHz niže, na 145,000 MHz — dakle ti odašilješ na 145,000, a slušaš na 145,600.\n\nRepetitor mora istodobno primati i odašiljati, i u tome je sav razlog za odmak. Kad bi ulaz i izlaz bili na istoj frekvenciji, vlastiti bi odašiljač od 25 W zaglušio vlastiti prijamnik koji hvata mikrovolte — a njih dvoje su na istom stupu, često na istoj anteni. Odmak (shift) od 600 kHz uz dupleksni filtar (duplekser) daje dovoljnu izolaciju da to prođe. Na 2 m odmak je 600 kHz i uvijek je NEGATIVAN gledano iz tvoje postaje: odašilješ niže nego što slušaš. Na 70 cm odmak je 7,6 MHz, a na 23 cm 28 MHz — brojke rastu s frekvencijom jer i filtri s frekvencijom postaju selektivniji u relativnom smislu.\n\nBrojevi kanala slijede isti izraz kao u prv-021, samo se odnose na IZLAZ: 145,000 MHz + n · 12,5 kHz. Za RV48 to daje 145,000 + 600 kHz = 145,600 MHz. Stara oznaka R0 dobiva se iz RV = 2·R + 48, pa je R0 → RV48, R1 → RV50 i tako dalje. Stari repetitorski kanali R0–R7 imali su izlaze od 145,600 do 145,775 MHz u koracima od 25 kHz, a ulaze od 145,000 do 145,175 MHz.\n\nRazlog zašto repetitori uopće postoje: na UKV-u je domet u biti optički, pa dvije ručne postaje u dolini jedna drugu ne čuju. Repetitor se postavi na vrh brda, čuje obje i prenosi ih — jedna postaja s dobrom lokacijom umnožava domet stotinama korisnika. Zato je i po čl. 4. st. 3. t. 3. Pravilnika repetitor posebna vrsta postaje koju postavlja Savez ili klub, uz posebnu dozvolu i uz imenovanog odgovornog radioamatera (čl. 12. st. 9. i st. 10.), i mora raditi na lokaciji i frekvencijama navedenima u dozvoli.",
+  "formula": [
+   "Repetitor: izlaz i ulaz razmaknuti su ODMAKOM (shift)",
+   "",
+   "   f_izlaz = 145,000 MHz + n · 12,5 kHz     (RVn)",
+   "   f_ulaz  = f_izlaz − odmak",
+   "",
+   "   RV48:  145,000 + 48 · 12,5 kHz = 145,600 MHz  ← izlaz",
+   "          145,600 − 0,600         = 145,000 MHz  ← ulaz",
+   "",
+   "Oznake: RV = 2 · R + 48   →  R0 = RV48",
+   "",
+   "Stari kanali (razmak 25 kHz):",
+   "   kanal   ulaz (ti odašilješ)   izlaz (ti slušaš)",
+   "   R0        145,000              145,600",
+   "   R1        145,025              145,625",
+   "   R2        145,050              145,650",
+   "   R3        145,075              145,675",
+   "   R4        145,100              145,700",
+   "   R5        145,125              145,725",
+   "   R6        145,150              145,750",
+   "   R7        145,175              145,775",
+   "",
+   "Odmaci po pojasevima:",
+   "     2 m   600 kHz   (uvijek negativan)",
+   "    70 cm  7,6 MHz",
+   "    23 cm  28 MHz",
+   "",
+   "Zašto odmak: vlastiti odašiljač i vlastiti prijamnik",
+   "rade istodobno na istom stupu → treba im razdvojiti",
+   "frekvencije i dupleksni filtar."
+  ],
+  "links": [
+   {
+    "label": "Amateur radio repeater (en.wikipedia)",
+    "url": "https://en.wikipedia.org/wiki/Amateur_radio_repeater"
+   },
+   {
+    "label": "2-meter band (en.wikipedia)",
+    "url": "https://en.wikipedia.org/wiki/2-meter_band"
+   },
+   {
+    "label": "Pravilnik NN 150/2022 — čl. 4. i čl. 12. (repetitori)",
+    "url": "https://narodne-novine.nn.hr/clanci/sluzbeni/2022_12_150_2313.html"
+   }
+  ],
+  "cite": [
+   {
+    "src": "PZM",
+    "loc": "Tema 26, 3. Pregled repetitorskih frekvencija na 2 metra — tablica R0…R7, odmak 600 kHz, razmak kanala 25 kHz, tiskana str. 144–145"
+   },
+   {
+    "src": "RK",
+    "loc": "6. Planiranje pojaseva IARU-a — plan pojasa 144 MHz: repetitorski ulazni pojas 144,994–145,194 i izlazni 145,594–145,794 MHz, razmak 12,5 kHz, tiskana str. 271"
+   },
+   {
+    "src": "NN150/22",
+    "loc": "čl. 4. st. 3. t. 3. (repetitor kao vrsta postaje), čl. 12. st. 9. i st. 10. (posebna dozvola i odgovorni radioamater), čl. 14. st. 5."
+   }
+  ]
+ },
+ "prv-025": {
+  "note": "Ne smije — ali pazi ZAŠTO, jer je upravo tu zamka. Zabrana ne dolazi od nabrojane vrste emisije, nego od ŠIRINE POJASA. U Dodatku 1., Tablici 1. Pravilnika redak 135,7–137,8 kHz (pojas 2200 m) ima u stupcu »Maksimalna širina pojasa« vrijednost 200 Hz. Govorni signal, ma koliko ga uskim filtrom stisnuo, ne stane u 200 Hz — razumljiv govor traži barem oko 2,7 kHz, dakle trinaest puta više. Telefonija je time isključena aritmetikom, a ne posebnom zabranom.\n\nUz taj isti redak stoji Napomena 4, i nju vrijedi znati napamet: u pojasu 135,7–137,8 kHz najveća ekvivalentna izotropna snaga odašiljača (EIRP) iznosi 1 W. Jedan vat EIRP-a na 2200 m nije skromno nego apsurdno malo u odnosu na sve što bi ondje trebalo da bi antena uopće nešto zračila — na valnoj duljini od preko dva kilometra svaka realna amaterska antena je elektromagnetski patuljak s dobitkom duboko u minusu, pa se do 1 W EIRP-a dolazi sa stotinama vata na ulazu. Zato se ondje radi vrlo sporim telegrafskim modovima, gdje se signal dobiva integracijom kroz minute.\n\nČesta zamjena koju ispit voli: Napomena 3, koja glasi »u frekvencijskom pojasu 10 100–10 150 kHz može se koristiti samo A1A i F1B vrsta emisije«, NE pripada 2200 m nego pojasu 30 m (vidi prv-029). Ako u glavi zamijeniš te dvije napomene, obje odgovarajuće ispitne točke padnu. Uz redak 135,7–137,8 kHz ide Napomena 4 (1 W EIRP), uz 472–479 kHz Napomena 4* (također 1 W EIRP), a Napomena 3 ide uz 10 100–10 150 kHz.\n\nI još jedan detalj koji se ispituje odvojeno: pojas 135,7–137,8 kHz u Tablici 1. postoji samo u tablici za A razred. Početnik ondje nema što tražiti, pa i ovo pitanje smisleno počinje riječima »radioamater A razreda«.",
+  "formula": [
+   "Redak 135,7 – 137,8 kHz (2200 m), Dodatak 1., Tablica 1.:",
+   "",
+   "   Napomena   4          → EIRP najviše 1 W",
+   "   Status     S          → sekundarna služba",
+   "   Snaga      1 W",
+   "   Širina pojasa  200 Hz ← ovo zabranjuje telefoniju",
+   "   Razred     samo A",
+   "",
+   "Zašto govor ne stane:",
+   "   razumljiv govor (SSB)   ≈ 2700 Hz",
+   "   dopušteno na 2200 m     =  200 Hz",
+   "   2700 / 200 = 13,5×  premalo",
+   "",
+   "Ne brkati napomene:",
+   "   Napomena 3   10 100 – 10 150 kHz → samo A1A i F1B",
+   "   Napomena 4   135,7 – 137,8 kHz  → EIRP ≤ 1 W",
+   "   Napomena 4*  472 – 479 kHz      → EIRP ≤ 1 W",
+   "",
+   "Valna duljina radi predodžbe:",
+   "   λ = 300 000 / 136 kHz ≈ 2200 m",
+   "   λ/4 ≈ 550 m  → nijedna realna antena nije ni blizu"
+  ],
+  "links": [
+   {
+    "label": "Pravilnik NN 150/2022 — Dodatak 1.",
+    "url": "https://narodne-novine.nn.hr/clanci/sluzbeni/2022_12_150_2313.html"
+   },
+   {
+    "label": "Amateur radio frequency allocations (en.wikipedia)",
+    "url": "https://en.wikipedia.org/wiki/Amateur_radio_frequency_allocations"
+   }
+  ],
+  "cite": [
+   {
+    "src": "NN150/22",
+    "loc": "Dodatak 1., Tablica 1., redak 135,7 – 137,8 kHz (A razred): status S, snaga 1 W, maksimalna širina pojasa 200 Hz, Napomena 4; Dodatne odredbe t. 2.1., Napomena 4 (EIRP ≤ 1 W) i Napomena 3 (koja se odnosi na 10 100 – 10 150 kHz, ne na ovaj pojas)"
+   }
+  ]
+ },
+ "prv-027": {
+  "note": "Ispitni ključ traži 7060–7200 kHz. To je gornji, telefonijski dio 40-metarskog pojasa: donji dio pripada telegrafiji i uskopojasnim digitalnim modovima, gornji govoru. Podjela ide odozdo prema gore uvijek istim redom — CW, pa uski digitalni modovi, pa »sve vrste emisije« odnosno govor — jer se najuži modovi guraju na rub pojasa gdje ih ima najviše po kiloherzu, a širokim modovima ostaje ostatak.\n\n⚖ Provjera propisa: ova podjela NIJE propis. NN 150/22 u Dodatku 1., Tablici 1. propisuje samo rubove pojasa i najveću širinu emisije, a pojas ne dijeli po vrstama emisije nigdje — jedina iznimka u cijelom Dodatku jest Napomena 3, koja se odnosi na 10 100–10 150 kHz. Podjela 40 m na telegrafski i telefonijski dio dolazi iz IARU-ova bandplana za Regiju 1, dobrovoljnog dogovora nacionalnih saveza. Rubovi pojasa u Tablici 1. jesu u skladu s ponuđenim odgovorom: 7000–7100 kHz (Pex) i 7100–7200 kHz (S), dakle 40 m u Hrvatskoj seže do 7200 kHz. Pravno te veže čl. 16. st. 1. (samo unutar pojasa iz Tablice 1.) i čl. 16. st. 2. (širina pojasa ograničena na najmanju nužnu mjeru) — ali ne i granica 7060.\n\nZnaj i to da se izvori ovdje razilaze, jer ćeš ih oba čitati. RK u svom (starijem) prijepisu IARU plana za 40 m navodi telefoniju od 7045 kHz naviše, dok današnji IARU R1 bandplan ima »all modes« već od 7050 kHz, a segmente 7060–7100, 7130–7175 i 7175–7200 označava kao poželjne za SSB natjecanja. Brojka 7060 iz ispitnog ključa poklapa se s početkom prvog takvog SSB segmenta. Drugim riječima: 7060 nije zid nego dogovorena donja granica pristojnog telefonijskog rada, i nitko te neće kazniti ako je prekršiš — ali ćeš smetati onima koji rade CW-om i digitalno.\n\nPraktična pouka za desk: prije nego što zauzmeš frekvenciju, poslušaj i pitaj (QRL?, vidi prv-045), i drži se dijela pojasa koji odgovara tvome modu. Bandplan je kolektivni dogovor koji funkcionira samo dok ga svi poštuju — u pojasu u kojem se natjecatelji, DX-eri i digitalci moraju smjestiti u 200 kHz, to je jedino što spektar drži upotrebljivim.",
+  "formula": [
+   "Rubovi 40 m u RH (NN 150/22, Dodatak 1., Tabl. 1., A):",
+   "   7000 – 7100 kHz   Pex   1500 W",
+   "   7100 – 7200 kHz   S     1500 W",
+   "   → pojas: 7000 – 7200 kHz",
+   "",
+   "Podjela po modovima (IARU R1 — DOGOVOR, ne propis):",
+   "   7000 – 7040   200 Hz    CW",
+   "   7040 – 7050   500 Hz    uski digitalni modovi",
+   "   7050 – 7053  2700 Hz    sve vrste emisije",
+   "   7053 – 7060  2700 Hz    sve vrste emisije",
+   "   7060 – 7100  2700 Hz    sve vrste, SSB natjecanja  ← ključ",
+   "   7100 – 7130  2700 Hz    sve vrste (7110 kHz — Centar",
+   "                           aktivnosti za nesreće, R1)",
+   "   7130 – 7175  2700 Hz    sve vrste, SSB natjecanja",
+   "   7175 – 7200  2700 Hz    sve vrste, prednost DX-u",
+   "",
+   "RK-ov (stariji) prijepis IARU plana:",
+   "   7045 – 7200 kHz  telefonija, telegrafija",
+   "   → izvori se razilaze; propis ne dijeli pojas uopće"
+  ],
+  "links": [
+   {
+    "label": "Pravilnik NN 150/2022 — Dodatak 1.",
+    "url": "https://narodne-novine.nn.hr/clanci/sluzbeni/2022_12_150_2313.html"
+   },
+   {
+    "label": "IARU Region 1 HF bandplan (PDF)",
+    "url": "https://www.iaru-r1.org/wp-content/uploads/2021/06/hf_r1_bandplan.pdf"
+   },
+   {
+    "label": "40-meter band (en.wikipedia)",
+    "url": "https://en.wikipedia.org/wiki/40-meter_band"
+   }
+  ],
+  "cite": [
+   {
+    "src": "NN150/22",
+    "loc": "Dodatak 1., Tablica 1., retci 7000 – 7100 kHz (Pex) i 7100 – 7200 kHz (S); čl. 16. st. 1. i st. 2. Podjela pojasa po vrstama emisije NIJE propisana — jedina takva odredba u Dodatku 1. je Napomena 3 za 10 100 – 10 150 kHz"
+   },
+   {
+    "src": "RK",
+    "loc": "6. Planiranje pojaseva IARU-a — plan pojasa 7 MHz (stariji prijepis: telefonija od 7045 kHz), tiskana str. 264"
+   }
+  ],
+  "flag": "check"
+ },
+ "prv-029": {
+  "note": "Na 30 m telefonija NIJE dopuštena — i ovdje, za razliku od 40 m, to doista jest propis, a ne dogovor. Napomena 3 uz Dodatak 1. Pravilnika glasi izrijekom: u frekvencijskom pojasu 10 100–10 150 kHz može se koristiti samo A1A i F1B vrsta emisije. A1A je Morseova telegrafija, F1B je telegrafija s izravnim ispisom (RTTY i srodni digitalni modovi). Govora među njima nema.\n\nRazlog je status pojasa. 30 m je u Tablici 1. označen slovom S — sekundarna služba — i dijelimo ga s nepokretnom službom i s vremenskim signalima. Uz sekundarni status ide i najniža snaga među KV pojasevima za A razred, 250 W, i najveća širina pojasa 2,7 kHz. Pojas je usto vrlo uzak: svega 50 kHz, dok 20 m ima 350 kHz, a 10 m 1700 kHz. Kad ti spektra ima toliko malo i uz to si gost, uskopojasni modovi su jedini razuman način da u njega stane iole ljudi.\n\nIARU je u svom planu otišao i korak dalje: 10 100–10 130 kHz je CW, 10 130–10 150 kHz uski digitalni modovi, a u napomenama izričito stoji da se u pojasu 10 MHz ne smiju emitirati nikakvi bilteni s novostima, da se izbjegava paketni radio i da SSB dolazi u obzir samo u slučaju opasnosti po život i imovinu, i to samo s postajama koje stvarno sudjeluju u mreži za opasnost. Uz to, natjecanja se u pojasevima 10, 18 i 24 MHz uopće ne smiju odvijati.\n\nPosljedica koja se u praksi lako previdi: 30 m je pojas isključivo A razreda, s ograničenjem emisije koje vrijedi za sve — pa i za daljinski upravljane, automatske i pokusne postaje. Ako netko planira nešto s balonima, majačima ili automatskim postajama na 30 m, ograničenje na A1A i F1B vrijedi i tamo.",
+  "formula": [
+   "Redak 10 100 – 10 150 kHz (30 m), A razred:",
+   "",
+   "   Napomena       3   → samo A1A i F1B",
+   "   Status         S   → sekundarna služba",
+   "   Snaga          250 W   (najmanje od KV pojaseva)",
+   "   Širina pojasa  2,7 kHz",
+   "",
+   "Dopuštene vrste emisije (i samo one):",
+   "   A1A   Morseova telegrafija (CW)",
+   "   F1B   telegrafija s izravnim ispisom (RTTY, digi)",
+   "   → J3E (SSB telefonija) NIJE dopuštena",
+   "",
+   "Zašto: pojas je uzak i dijelimo ga s drugima",
+   "   30 m širina    50 kHz",
+   "   20 m          350 kHz",
+   "   10 m         1700 kHz",
+   "",
+   "IARU dodatno (dogovor):",
+   "   10 100 – 10 130   CW",
+   "   10 130 – 10 150   uski digitalni modovi",
+   "   bez natjecanja na 10, 18 i 24 MHz",
+   "   bez biltena; SSB samo u prometu za opasnost"
+  ],
+  "links": [
+   {
+    "label": "Pravilnik NN 150/2022 — Dodatak 1., Napomena 3",
+    "url": "https://narodne-novine.nn.hr/clanci/sluzbeni/2022_12_150_2313.html"
+   },
+   {
+    "label": "30-meter band (en.wikipedia)",
+    "url": "https://en.wikipedia.org/wiki/30-meter_band"
+   },
+   {
+    "label": "IARU Region 1 HF bandplan (PDF)",
+    "url": "https://www.iaru-r1.org/wp-content/uploads/2021/06/hf_r1_bandplan.pdf"
+   }
+  ],
+  "cite": [
+   {
+    "src": "NN150/22",
+    "loc": "Dodatak 1., Tablica 1., redak 10 100 – 10 150 kHz (status S, 250 W, 2,7 kHz) i t. 2.1., Napomena 3: »U frekvencijskom pojasu 10 100 – 10 150 kHz može se koristiti samo A1A i F1B vrsta emisije«"
+   },
+   {
+    "src": "RK",
+    "loc": "6. Planiranje pojaseva IARU-a — plan pojasa 10 MHz, tiskana str. 265, i napomene za pojas 10 MHz, tiskana str. 267"
+   }
+  ]
+ },
+ "prv-031": {
+  "note": "Dvometarski pojas u Republici Hrvatskoj ide od 144,000 do 146,000 MHz. Tako stoji u Dodatku 1., Tablici 1. Pravilnika, i to sa statusom Pex — primarna služba u pojasu koji se najvećim dijelom upotrebljava za amatersku službu — uz snagu 1500 W za A razred i najveću širinu pojasa 20 kHz.\n\nZamka je ponuđeni odgovor b), 144–148 MHz. Te su brojke stvarne, ali pripadaju IARU-ovoj Regiji 2, dakle Sjevernoj i Južnoj Americi. Svijet je za potrebe raspodjele spektra podijeljen u tri ITU-ove regije i one se u pojedinim pojasevima razlikuju; Hrvatska je u Regiji 1 (Europa, Afrika, Bliski istok i sjeverna Azija) i kod nas gornji rub je 146 MHz. Ista vrsta razlike vrijedi i za 80 m (vidi prv-037) i za 10 m.\n\nPojas od 2 MHz nije velik, pa je unutar njega podjela stroga i vrijedi je znati: donja polovica pripada uskopojasnim modovima za slabe signale i DX (CW od 144,000, SSB s pozivnom frekvencijom 144,300), gornja polovica FM prometu — repetitorski ulazi oko 145,0, simpleks oko 145,2–145,6, repetitorski izlazi oko 145,6–145,8, a najgornjih 200 kHz (145,806–146,000) rezervirano je isključivo za satelitske veze. Zato se i polarizacija mijenja na pola pojasa (vidi prv-015).\n\nZapamti i to da je 2 m pojas naveden i u tablici za P razred, s istim rubovima 144–146 MHz — razlika između razreda ovdje je samo u snazi: 1500 W za A, 100 W za P.",
+  "formula": [
+   "2 m u RH (NN 150/22, Dodatak 1., Tablica 1.):",
+   "",
+   "   144,000 – 146,000 MHz",
+   "   Napomena 1 (satelitska služba) · Status Pex",
+   "   Snaga:  A 1500 W   ·   P 100 W",
+   "   Maksimalna širina pojasa: 20 kHz",
+   "",
+   "ITU regije — zašto 148 MHz nije naš broj:",
+   "   Regija 1  Europa, Afrika, Bliski istok  144 – 146 MHz",
+   "   Regija 2  Amerike                       144 – 148 MHz",
+   "   Regija 3  ostatak Azije, Oceanija       144 – 148 MHz",
+   "   RH je u Regiji 1.",
+   "",
+   "Gruba unutrašnja podjela 2 m (IARU R1):",
+   "   144,000 – 144,150   CW",
+   "   144,150 – 144,500   CW + SSB   (144,300 pozivna)",
+   "   144,500 – 144,794   sve vrste emisija",
+   "   144,994 – 145,194   repetitori — ULAZ",
+   "   145,206 – 145,594   FM simpleks (145,500 pozivna)",
+   "   145,594 – 145,794   repetitori — IZLAZ",
+   "   145,806 – 146,000   sateliti, isključivo"
+  ],
+  "links": [
+   {
+    "label": "Pravilnik NN 150/2022 — Dodatak 1.",
+    "url": "https://narodne-novine.nn.hr/clanci/sluzbeni/2022_12_150_2313.html"
+   },
+   {
+    "label": "2-meter band (en.wikipedia)",
+    "url": "https://en.wikipedia.org/wiki/2-meter_band"
+   },
+   {
+    "label": "ITU Region (en.wikipedia)",
+    "url": "https://en.wikipedia.org/wiki/ITU_Region"
+   }
+  ],
+  "cite": [
+   {
+    "src": "NN150/22",
+    "loc": "Dodatak 1., Tablica 1., redak 144 – 146 MHz: Napomena 1, status Pex, 1500 W (A) / 100 W (P), maksimalna širina pojasa 20 kHz"
+   },
+   {
+    "src": "RK",
+    "loc": "1.4. Radiokomunikacijske regije ITU, tiskana str. 211; plan pojasa 144 MHz, tiskana str. 269–271"
+   },
+   {
+    "src": "PZM",
+    "loc": "Tema 26, 2. Pregled unutrašnje raspodjele dvometarskog amaterskog područja, tiskana str. 144"
+   }
+  ]
+ },
+ "prv-033": {
+  "note": "Pojas od 23 cm u Hrvatskoj ide od 1240 do 1300 MHz. U Dodatku 1., Tablici 1. taj redak nosi Napomenu 1* i status S, snagu 1500 W za A razred i ograničenje širine kanala 2 MHz / 7 MHz / 18 MHz ovisno o vrsti prijenosa.\n\nStatus S znači da smo ondje gosti, i to je bitno: 1240–1300 MHz dijelimo s radionavigacijskom satelitskom službom, a u praksi to znači sa satelitskim navigacijskim sustavima (GPS, Galileo, GLONASS). Zato se u posljednjim godinama taj pojas i preispituje na europskoj razini — sekundarna služba nema pravo tražiti zaštitu, ali ima obvezu ne stvarati štetne smetnje, a ovdje se smeta nečemu što doslovno navodi zrakoplove.\n\nNapomena 1* je usko specijalizirana i vrijedi je zapamtiti jer se dodiruje s pitanjima o satelitima: uporaba pojaseva 1260–1270 MHz i 5650–5670 MHz ograničena je na smjer Zemlja–svemir (uplink), a uporaba pojaseva 2400–2450 MHz i 5830–5850 MHz na smjer svemir–Zemlja (downlink). Drugim riječima, unutar 23 cm postoji dio iz kojega se odašilje prema satelitu, ali se prema Zemlji s njega ne prima.\n\nZašto se pojas širine 60 MHz uopće dodjeljuje amaterima: zato što na tim frekvencijama tek postaju izvedive stvari koje na KV-u nisu — ATV s pravom pokretnom slikom (otud dopuštena širina kanala od 7 MHz), linearni transponderi, EME, i pokusi s velikim dobitkom antena, jer na 23 cm parabola promjera jednog metra već daje dvadesetak decibela. Praktični rubovi koje ćeš čuti u eteru su 1296,000 MHz kao središte uskopojasne aktivnosti i 1296,000–1296,025 MHz rezervirano za EME.",
+  "formula": [
+   "23 cm u RH (NN 150/22, Dodatak 1., Tablica 1.):",
+   "",
+   "   1240 – 1300 MHz",
+   "   Napomena 1*, 5  ·  Status S  ·  A: 1500 W, P: 100 W",
+   "   Širina kanala: 2 MHz / 7 MHz / 18 MHz",
+   "      2 MHz  uskopojasno",
+   "      7 MHz  AM ili digitalni TV prijenos",
+   "     18 MHz  FM ili kvadraturno modulirani prijenos",
+   "",
+   "Napomena 1* — smjer prema satelitu:",
+   "   1260 – 1270 MHz   samo Zemlja → svemir",
+   "   5650 – 5670 MHz   samo Zemlja → svemir",
+   "   2400 – 2450 MHz   samo svemir → Zemlja",
+   "   5830 – 5850 MHz   samo svemir → Zemlja",
+   "",
+   "Provjera valne duljine:",
+   "   λ = 300 / 1296 MHz ≈ 0,23 m  →  »23 cm«  ✓",
+   "",
+   "Status S: dijelimo pojas s radionavigacijskom",
+   "satelitskom službom (GPS/Galileo) → ne smijemo smetati",
+   "i ne možemo tražiti zaštitu."
+  ],
+  "links": [
+   {
+    "label": "Pravilnik NN 150/2022 — Dodatak 1.",
+    "url": "https://narodne-novine.nn.hr/clanci/sluzbeni/2022_12_150_2313.html"
+   },
+   {
+    "label": "23-centimeter band (en.wikipedia)",
+    "url": "https://en.wikipedia.org/wiki/23-centimeter_band"
+   },
+   {
+    "label": "Amateur radio frequency allocations (en.wikipedia)",
+    "url": "https://en.wikipedia.org/wiki/Amateur_radio_frequency_allocations"
+   }
+  ],
+  "cite": [
+   {
+    "src": "NN150/22",
+    "loc": "Dodatak 1., Tablica 1., redak 1240 – 1300 MHz (Napomena 1*, 5; status S; 1500 W za A razred) i t. 2.1., Napomena 1* i Napomena 5"
+   },
+   {
+    "src": "RK",
+    "loc": "6. Planiranje pojaseva IARU-a — plan pojasa 1240–1300 MHz, tiskana str. 274–275"
+   }
+  ]
+ },
+ "prv-035": {
+  "note": "PAZI — ovo je jedan od četiri crvena nalaza revizije propisa. HRS ključ označava b) 29000–29700 kHz, ali Pravilnik NN 150/22 u Dodatku 1., Tablici 1. navodi 10-metarski pojas kao 28 000 – 29 700 kHz, i to jednako za A i za P razred (za A: status Pex, 1500 W, najveća širina pojasa 6 kHz; za P: status P, 100 W, 6 kHz). Po važećem propisu točan bi odgovor bio c) 28000–29700 kHz. Na ispitu odgovori onako kako traži HRS lista, ali znaj da propis kaže drugačije — i nemoj po ključu zaključiti da smiješ raditi tek od 29 MHz naviše.\n\nOdakle uopće brojka 29000: to nije izmišljotina nego rub unutar bandplana. U IARU-ovu planu za Regiju 1 dio 10 m pojasa od 28000 do 29000 kHz ima propisanu najveću širinu emisije (200 Hz za CW, 500 Hz za uske digitalne modove, 2700 Hz za »sve vrste«), dok od 29000 kHz naviše širina više nije ograničena — ondje su FM simpleks kanali, digitalne postaje, satelitski linkovi i FM repetitori. Dakle 29000 kHz jest stvarna granica u planu, ali granica REŽIMA ŠIRINE, a ne rub pojasa. Netko je pri sastavljanju ispitne liste vjerojatno spojio to dvoje.\n\nDeset metara je najpodmukliji KV pojas i vrijedi razumjeti zašto: leži točno na gornjem rubu kratkog vala i njegova upotrebljivost gotovo potpuno ovisi o Sunčevoj aktivnosti. U maksimumu ciklusa otvara se preko cijelog svijeta uz smiješno male snage i jednostavne antene, a u minimumu zna biti mrtav mjesecima. Zato ondje ima i FM repetitora i satelitskih linkova — pojas je širok 1700 kHz, više nego svi pojasevi ispod 14 MHz zajedno, pa ima mjesta i za ono što bi drugdje bilo luksuz.\n\nZa svaki slučaj zapamti obje brojke i njihovo značenje: 28000 kHz je donji rub POJASA (propis), 29000 kHz je donji rub dijela pojasa BEZ ograničenja širine emisije (bandplan), 29700 kHz je gornji rub pojasa (propis).",
+  "formula": [
+   "PROPIS — NN 150/22, Dodatak 1., Tablica 1.:",
+   "",
+   "   28 000 – 29 700 kHz",
+   "      A razred:  Napomena 1 · Pex · 1500 W · 6,0 kHz",
+   "      P razred:  P · 100 W · 6,0 kHz",
+   "",
+   "ISPITNI KLJUČ HRS-a:  29 000 – 29 700 kHz   ← razlikuje se",
+   "",
+   "Odakle 29 000 (IARU R1 bandplan):",
+   "   28 000 – 28 070   200 Hz    CW",
+   "   28 070 – 28 190   500 Hz    uski digitalni modovi",
+   "   28 190 – 28 225             majaci, isključivo",
+   "   28 225 – 29 000  2700 Hz    sve vrste emisije",
+   "   29 000 – 29 200   bez ogr.  sve vrste, FM simpleks",
+   "   29 300 – 29 510   bez ogr.  satelitski linkovi",
+   "   29 520 – 29 590   bez ogr.  FM repetitori — ulaz",
+   "   → 29 000 kHz je granica REŽIMA ŠIRINE,",
+   "     a ne rub pojasa",
+   "",
+   "Tri brojke i što svaka znači:",
+   "   28 000 kHz  donji rub pojasa            (propis)",
+   "   29 000 kHz  početak dijela bez ogr. širine (bandplan)",
+   "   29 700 kHz  gornji rub pojasa           (propis)"
+  ],
+  "links": [
+   {
+    "label": "Pravilnik NN 150/2022 — Dodatak 1., Tablica 1.",
+    "url": "https://narodne-novine.nn.hr/clanci/sluzbeni/2022_12_150_2313.html"
+   },
+   {
+    "label": "10-meter band (en.wikipedia)",
+    "url": "https://en.wikipedia.org/wiki/10-meter_band"
+   },
+   {
+    "label": "IARU Region 1 HF bandplan (PDF)",
+    "url": "https://www.iaru-r1.org/wp-content/uploads/2021/06/hf_r1_bandplan.pdf"
+   }
+  ],
+  "cite": [
+   {
+    "src": "NN150/22",
+    "loc": "Dodatak 1., Tablica 1., redak 28 000 – 29 700 kHz — isti rubovi u tablici za A razred (Pex, 1500 W, 6,0 kHz) i za P razred (P, 100 W, 6,0 kHz)"
+   },
+   {
+    "src": "RK",
+    "loc": "6. Planiranje pojaseva IARU-a — plan pojasa 28 MHz, tiskana str. 266"
+   }
+  ],
+  "flag": "conflict"
+ },
+ "prv-037": {
+  "note": "Osamdesetmetarski pojas u Hrvatskoj ide od 3500 do 3800 kHz. Dodatak 1., Tablica 1. daje mu status P (primarna služba) i snagu 1500 W za A razred, uz najveću širinu pojasa 2,7 kHz — dakle točno onoliko koliko treba za SSB govor i ni herc više.\n\nZamka je ponuđeni odgovor a), 3510–4000 kHz. Gornja brojka 4000 kHz je stvarna, ali vrijedi u IARU-ovoj Regiji 2 (Amerike), gdje 80 m ide do 4000 kHz. Kod nas, u Regiji 1, gornji rub je 3800 kHz. To je ista vrsta zamke kao 148 MHz u prv-031 i vrijedi ju zapamtiti kao par: 3800 nasuprot 4000, 146 nasuprot 148, oboje »kod nas manje«.\n\nRazlika nije akademska nego se u eteru čuje svaku noć: Amerikanci na 80 m rade telefonijom i iznad 3800 kHz, gdje ih mi ne smijemo pratiti, pa se međukontinentalne veze na tom pojasu vode u razdvojenom radu (split) — oni odašilju gore, slušaju dolje. Zbog toga IARU segmente 3500–3510 i 3775–3800 kHz izričito rezervira kao prioritetne za međukontinentalni DX promet i preporučuje da se u njima ne održavaju natjecanja.\n\nUnutar pojasa vrijedi znati grubu podjelu: donjih 60 kHz je telegrafija (3500–3560 dio za natjecanja), zatim uski digitalni modovi do oko 3600, a od 3600 kHz naviše telefonija. Pozivni kanal za promet u nesrećama u Regiji 1 je 3760 kHz. I ne zaboravi da je i ovdje bočni pojas donji (LSB), jer je 3,5 MHz ispod 10 MHz — vidi prv-009.",
+  "formula": [
+   "80 m u RH (NN 150/22, Dodatak 1., Tablica 1.):",
+   "",
+   "   3500 – 3800 kHz",
+   "   Status P  ·  A: 1500 W  ·  širina pojasa 2,7 kHz",
+   "",
+   "Regije — zašto 4000 kHz nije naš broj:",
+   "   Regija 1 (RH)   3500 – 3800 kHz",
+   "   Regija 2        3500 – 4000 kHz",
+   "",
+   "   Upamti u paru:  80 m  3800 ↔ 4000",
+   "                    2 m   146  ↔  148",
+   "",
+   "Gruba podjela 80 m (IARU R1):",
+   "   3500 – 3510   CW, prednost međukontinentalnom DX-u",
+   "   3510 – 3560   CW, natjecanja",
+   "   3560 – 3580   CW",
+   "   3580 – 3600   uski digitalni modovi",
+   "   3600 – 3650   sve vrste, SSB natjecanja",
+   "   3650 – 3775   sve vrste",
+   "        3760 kHz — Centar aktivnosti za nesreće (R1)",
+   "   3775 – 3800   sve vrste, prednost DX-u",
+   "",
+   "Bočni pojas: 3,5 MHz < 10 MHz  →  LSB"
+  ],
+  "links": [
+   {
+    "label": "Pravilnik NN 150/2022 — Dodatak 1.",
+    "url": "https://narodne-novine.nn.hr/clanci/sluzbeni/2022_12_150_2313.html"
+   },
+   {
+    "label": "80-meter band (en.wikipedia)",
+    "url": "https://en.wikipedia.org/wiki/80-meter_band"
+   },
+   {
+    "label": "ITU Region (en.wikipedia)",
+    "url": "https://en.wikipedia.org/wiki/ITU_Region"
+   }
+  ],
+  "cite": [
+   {
+    "src": "NN150/22",
+    "loc": "Dodatak 1., Tablica 1., redak 3500 – 3800 kHz: status P, 1500 W (A razred), maksimalna širina pojasa 2,7 kHz"
+   },
+   {
+    "src": "RK",
+    "loc": "6. Planiranje pojaseva IARU-a — plan pojasa 3,5 MHz, tiskana str. 264, i napomene za pojas 3,5 MHz (prioritet DX-u u 3500–3510 i 3775–3800 kHz), tiskana str. 267"
+   }
+  ]
+ },
+ "prv-039": {
+  "note": "CQ je opći poziv — poziv svima koji ga čuju. RK ga u popisu operativnih kratica prevodi kao »opći poziv svim radiopostajama«, PZM kao »opći poziv svim radijskim postajama«. Izgovara se slovo po slovo (»ce-ku«), a u telegrafiji se otipkava kao dva znaka, C i Q.\n\nPodrijetlo mu je lijepo i pomaže pamćenju: potječe iz francuske pomorske telegrafije, gdje je »sécurité« skraćeno u prefiks CQ za poruke upućene svima na mreži. Britanski telegrafisti su ga preuzeli i objasnili sebi kao »seek you« — tražim te. Kad je 1904. trebao poseban znak za nevolju, uzeli su CQ i dodali D za distress: tako je nastao CQD, prvi međunarodni poziv u pomoć, koji je 1908. zamijenjen s SOS-om. Zato je ponuđeni odgovor a) CQD povijesno stvaran, ali je to poziv u pomoć, ne opći poziv.\n\nZašto opći poziv uopće postoji: bez njega bi svaka veza tražila da unaprijed znaš tko je na pojasu i na kojoj frekvenciji, što na KV-u nema smisla — ne znaš tko te čuje dok ne pokušaš. CQ je poziv upućen nepoznatom sugovorniku i po definiciji ne smije biti upućen nikome određenom. Zbog toga postoje i njegove suženije inačice: CQ DX traži samo daleke postaje, CQ TEST (ili CQ CONTEST) poziv je u natjecanju, CQ DE 9A… uvodi tvoju pozivnu oznaku, a QST je opći poziv koji prethodi poruci namijenjenoj svim radioamaterima (kratica nije usvojena međunarodno, pretežno je koriste američki radioamateri).\n\nPravni okvir: čl. 17. Pravilnika propisuje da se prijenos mora odvijati OBIČNIM jezikom i izričito kaže da se običnim jezikom smatraju međunarodni amaterski kôd i operativne kratice koje su u međunarodnoj uporabi. CQ, Q-kod i kratice iz RK-ova popisa dakle nisu šifra nego dopušteni jezik. Prava šifra — signali nejasnog značenja — zabranjena je čl. 18. t. 7.\n\nRedoslijed rada koji PZM propisuje za vezu vrijedi znati napamet: prije poziva OSLUŠNI je li frekvencija slobodna (i pitaj QRL?, vidi prv-045), pa tek onda pozivaj — CQ ponovljen nekoliko puta, tvoja pozivna oznaka, pa prijelaz na prijam.",
+  "formula": [
+   "CQ = opći poziv svim radiopostajama  (»ce-ku«)",
+   "",
+   "Inačice:",
+   "   CQ           svima",
+   "   CQ DX        samo daleke postaje",
+   "   CQ TEST      poziv u natjecanju",
+   "   CQ DE 9A…    »poziva 9A…«  (DE = od)",
+   "   QST          poziv prije poruke svim radioamaterima",
+   "",
+   "Ne brkati:",
+   "   CQ    opći poziv",
+   "   CQD   stari poziv u POMOĆ (1904.), zamijenjen SOS-om",
+   "   SOS   znak opasnosti telegrafijom",
+   "   MAYDAY znak opasnosti telefonijom",
+   "",
+   "Redoslijed veze (PZM, Tema 28):",
+   "   1. pozivanje — CQ ili usmjereni poziv",
+   "   2. uspostava veze — pozdrav i zahvala",
+   "   3. razmjena raporta i osnovnih podataka: RST, QTH, ime",
+   "   4. ostale informacije po želji",
+   "   5. zahvala za vezu",
+   "   6. završetak",
+   "",
+   "Prije poziva: poslušaj i pitaj QRL? — frekvencija",
+   "koju netko već koristi nije slobodna zato što ti",
+   "trenutačno ne čuješ obje strane."
+  ],
+  "links": [
+   {
+    "label": "CQ (call) (en.wikipedia)",
+    "url": "https://en.wikipedia.org/wiki/CQ_(call)"
+   },
+   {
+    "label": "Morseov kod (hr.wikipedia)",
+    "url": "https://hr.wikipedia.org/wiki/Morseov_kod"
+   },
+   {
+    "label": "Pravilnik NN 150/2022 — čl. 17. i čl. 18.",
+    "url": "https://narodne-novine.nn.hr/clanci/sluzbeni/2022_12_150_2313.html"
+   }
+  ],
+  "cite": [
+   {
+    "src": "RK",
+    "loc": "3. Operativne kratice u radioamaterskoj službi — CQ, »opći poziv svim radiopostajama«, tiskana str. 252"
+   },
+   {
+    "src": "PZM",
+    "loc": "Tema 23 — Amaterske kratice, »CQ — opći poziv svim radijskim postajama«, tiskana str. 139; Tema 28 — Održavanje radioamaterskih veza, tiskana str. 146–147"
+   },
+   {
+    "src": "NN150/22",
+    "loc": "čl. 17. — prijenos se odvija običnim jezikom, a običnim jezikom smatraju se međunarodni amaterski kôd i operativne kratice u međunarodnoj uporabi; čl. 18. t. 7. zabranjuje signale nejasnog značenja"
+   }
+  ]
+ },
+ "prv-041": {
+  "note": "RST je sustav za ocjenu primljenog signala. RK ga u popisu operativnih kratica razlaže izravno: R — razumljivost, S — jakost, T — ton. U engleskom izvorniku to su Readability, Strength i Tone.\n\nZašto se raport uopće daje: to je jedini povratni podatak koji sugovornik ima o tome kako njegova postaja stvarno radi. Iz raporta se vidi je li antena u redu, ima li previše ili premalo snage, je li modulacija čista, ima li brujanja iz napajanja. PZM to postavlja i kao formalni uvjet: veza se PRIZNAJE ako su međusobno razmijenjene pozivne oznake i raporti — to je minimum bez kojega QSO ne postoji, ni za dnevnik ni za diplomu ni za natjecanje.\n\nTri broja pokrivaju tri različita pitanja i vrijedi ih razdvojiti u glavi. Razumljivost (R) odgovara na pitanje »koliko od onoga što šalješ mogu pročitati«; ona može biti loša i kod jakog signala — ako je operator loš telegrafist ili je modulacija izobličena. Jakost (S) je čista razina signala, ono što pokazuje S-instrument. Ton (T) opisuje ČISTOĆU tona telegrafskog signala — ima li u njemu brujanja mreže, tragova neispravljene izmjenične struje ili modulacije. PZM izričito upozorava da se izvještaj za ton NE odnosi na stabilnost signala nego samo na čistoću tona.\n\nU praksi: u telegrafiji se daju sva tri broja (najveći raport je 599), a u telefoniji samo prva dva — R i S — jer nemoduliranog tona nema; kvaliteta modulacije se onda opiše riječima. Ako je jakost veća od 9, dodaje se broj decibela iznad S9, npr. »S9 + 30 dB«, jer S-ljestvica iznad devetke prestaje. Uz raport se u telegrafiji mogu dodati i slova: x za osobito stabilan i kristalno čist ton, c za pijukanje (chirp), k za udarce pri tipkanju (clicks).",
+  "formula": [
+   "RST = Readability · Strength · Tone",
+   "    = razumljivost · jakost · ton",
+   "",
+   "   R  1 … 5    razumljivost   (koliko razumijem)",
+   "   S  1 … 9    jakost         (koliko je glasno)",
+   "   T  1 … 9    ton            (koliko je čist)",
+   "",
+   "   najbolji raport: 599",
+   "   telefonija: samo R i S  →  59",
+   "   iznad S9:  »S9 + 20 dB«, »S9 + 30 dB«",
+   "",
+   "Dodatna slova uz raport (telegrafija):",
+   "   x   osobito stabilan i kristalno čist ton",
+   "   c   pijukanje (chirp)",
+   "   k   udarci pri tipkanju (clicks)",
+   "",
+   "Veza se priznaje tek ako su razmijenjene",
+   "POZIVNE OZNAKE i RAPORTI — to je minimum QSO-a.",
+   "",
+   "Ton ≠ stabilnost. T ocjenjuje samo ČISTOĆU tona."
+  ],
+  "links": [
+   {
+    "label": "R-S-T system (en.wikipedia)",
+    "url": "https://en.wikipedia.org/wiki/R-S-T_system"
+   },
+   {
+    "label": "S meter (en.wikipedia)",
+    "url": "https://en.wikipedia.org/wiki/S_meter"
+   }
+  ],
+  "cite": [
+   {
+    "src": "RK",
+    "loc": "3. Operativne kratice u radioamaterskoj službi — »RST — sustav za ocjenjivanje signala: R — razumljivost, S — jakost, T — ton«, tiskana str. 254"
+   },
+   {
+    "src": "PZM",
+    "loc": "Tema 32 — Izvještaj o čujnosti (raport): RST ljestvica, najveći raport 599, u telefoniji samo R i S, tiskana str. 153–154"
+   }
+  ]
+ },
+ "prv-043": {
+  "note": "TX je kratica za transmitter — odašiljač (predajnik). Njezin je par RX, receiver, prijamnik. Obje su u RK-ovu popisu operativnih kratica; RK uz njih navodi i TRX odnosno TRCV za primo-odašiljač, a XMTR kao stariju kraticu za odašiljač.\n\nKratice su nastale iz telegrafske ekonomije: u Morseovom kodu svaki znak košta vremena, pa se sve što se često ponavlja stisne na dva-tri znaka. »T« i »R« su prva slova, a »X« je puko dopunsko slovo koje kraticu čini jednoznačnom — sam »T« bi se u telegrafiji brkao sa slovom, a »TX« ne. Isti obrazac vidiš u TVI (smetnje na televizoru) i BCI (smetnje u prijamu radija).\n\nZamka je odgovor d), »primo-predajnik«. Uređaj koji sadrži i odašiljač i prijamnik u istom kućištu zove se transceiver, a kratice su TRX ili TRCV — ne TX. Razlika nije samo terminološka: u dnevniku i u dokumentaciji postaje odašiljač i prijamnik su odvojene stavke jer se odvojeno i propisuju (čl. 22. propisuje tehničke zahtjeve za odašiljačku, a čl. 19. st. 4. za prijamnu opremu).\n\nPar TX/RX koristit ćeš stalno i izvan telegrafije: kad govoriš o repetitoru, njegov RX je tvoj TX i obratno (vidi prv-023); kad zapisuješ split rad, TX i RX frekvencija su različite; kad postavljaš postaju, »TX inhibit« znači da je odašiljanje blokirano.",
+  "formula": [
+   "TX  = transmitter = odašiljač (predajnik)",
+   "RX  = receiver    = prijamnik",
+   "TRX, TRCV = transceiver = primo-odašiljač",
+   "XMTR = starija kratica za odašiljač",
+   "",
+   "Srodne kratice iz istog popisa:",
+   "   PA    izlazno pojačalo snage",
+   "   ANT   antena",
+   "   VFO   oscilator promjenjive frekvencije",
+   "   PWR   snaga",
+   "   RIG   uređaj, postaja",
+   "   TVI   smetnje u prijamu TV programa",
+   "   BCI   smetnje u prijamu radijskog programa",
+   "",
+   "Kod repetitora se par obrće:",
+   "   tvoj TX  =  repetitorov RX   (145,000 MHz)",
+   "   tvoj RX  =  repetitorov TX   (145,600 MHz)"
+  ],
+  "links": [
+   {
+    "label": "Transmitter (en.wikipedia)",
+    "url": "https://en.wikipedia.org/wiki/Transmitter"
+   },
+   {
+    "label": "Radioamaterizam (hr.wikipedia)",
+    "url": "https://hr.wikipedia.org/wiki/Radioamaterizam"
+   }
+  ],
+  "cite": [
+   {
+    "src": "RK",
+    "loc": "3. Operativne kratice u radioamaterskoj službi — »TX — odašiljač«, »RX — prijamnik«, »TRX, TRCV — primo-odašiljač«, tiskana str. 254–255"
+   },
+   {
+    "src": "PZM",
+    "loc": "Tema 23 — Amaterske kratice, TX i RX, tiskana str. 140–141"
+   }
+  ]
+ },
+ "prv-045": {
+  "note": "QRL? znači »Jeste li zauzeti?«, odnosno u praksi »je li ova frekvencija zauzeta?«. RK kraticu QRL tumači kao »zauzetost, rad; molim ne ometati — radim!«, a PZM daje oba smjera: pitanje »Jeste li zauzeti?« i odgovor »Zauzet sam. Nemojte mi smetati.«\n\nPrvo nauči mehaniku Q-koda, jer ona vrijedi za sve kratice: iza kratice s upitnikom ide PITANJE, bez upitnika ide ODGOVOR. RK to izričito objašnjava — »QRZ?« znači »Tko me poziva?«, a »QRZ …« znači »Poziva vas …«. Ista se kratica dakle koristi u oba smjera, što je i razlog zašto je Q-kod tako ekonomičan: tri znaka nose i pitanje i odgovor.\n\nZašto je baš QRL? najvažnija kratica za ponašanje na pojasu: ti čuješ samo jednu stranu veze. Postaja koja upravo sluša svog sugovornika s druge strane Europe za tebe je potpuno tiha, pa frekvencija zvuči slobodno iako nije. Ako na nju sjedneš, u pola sekunde si upropastio tuđu vezu i to nećeš ni znati. Zato je red poslušati nekoliko trenutaka, pa otipkati (ili izgovoriti) QRL?, pričekati, ponoviti, i tek onda zvati. Odgovor koji ćeš dobiti ako je zauzeta obično je kratak »R« ili »YES« ili »QRL«.\n\nNe brkaj sa sličnima. QRL? = jesi li zauzet. QRZ? = tko me zove (prv-049). QRM = smetnje od drugih postaja. QRN = atmosferske smetnje (prv-047). QRT = prekidam rad. QRV = spreman sam. I mala jezična zamka: QRL kao imenica u žargonu znači radno mjesto, posao (»QRL me čeka«), što s frekvencijom nema veze.",
+  "formula": [
+   "Mehanika Q-koda:",
+   "   XXX?  →  PITANJE",
+   "   XXX   →  ODGOVOR / tvrdnja",
+   "",
+   "   QRL?  Jeste li zauzeti? / Je li frekvencija zauzeta?",
+   "   QRL   Zauzet sam, ne smetajte — radim.",
+   "",
+   "Postupak prije zauzimanja frekvencije:",
+   "   1. slušaj nekoliko trenutaka",
+   "   2. »QRL?«  (u telefoniji: »Je li frekvencija slobodna?«)",
+   "   3. pričekaj, pa ponovi",
+   "   4. tek onda pozivaj CQ",
+   "   → čuješ samo JEDNU stranu veze; tišina nije dokaz",
+   "",
+   "Najčešće brkane kratice:",
+   "   QRL?  jesi li zauzet",
+   "   QRZ?  tko me zove",
+   "   QRM   smetnje od drugih postaja",
+   "   QRN   atmosferske smetnje",
+   "   QRO   povećaj snagu       QRP  smanji snagu",
+   "   QRQ   tipkaj brže         QRS  tipkaj sporije",
+   "   QRT   prekidam rad        QRV  spreman sam",
+   "   QRX   kad slijedi ponovni poziv",
+   "   QSY   prelazim na drugu frekvenciju"
+  ],
+  "links": [
+   {
+    "label": "Q code (en.wikipedia)",
+    "url": "https://en.wikipedia.org/wiki/Q_code"
+   },
+   {
+    "label": "Morseov kod (hr.wikipedia)",
+    "url": "https://hr.wikipedia.org/wiki/Morseov_kod"
+   }
+  ],
+  "cite": [
+   {
+    "src": "RK",
+    "loc": "2. Kratice Q-koda — QRL »zauzetost, rad; molim ne ometati — radim!«; uvodno pravilo o značenju s upitnikom i bez njega, tiskana str. 251 (naslov odjeljka na str. 250)"
+   },
+   {
+    "src": "PZM",
+    "loc": "Tema 22 — Kratice Q-koda, QRL »Jeste li zauzeti? / Zauzet sam. Nemojte mi smetati.«, tiskana str. 138"
+   }
+  ]
+ },
+ "prv-047": {
+  "note": "QRN su atmosferske smetnje. PZM ga navodi u oba smjera: »Imate li atmosferske smetnje?« i »Imam atmosferske smetnje.«, a RK ga opisuje kao smetnje od elektrostatičkog pražnjenja — to je isto, samo rečeno po uzroku umjesto po izvoru.\n\nRazlika QRN i QRM je zapravo razlika između PRIRODE i LJUDI, i tako je najlakše zapamtiti: QRN dolazi od munja, statičkog izbijanja, padalina i sličnog, dakle od atmosfere; QRM dolazi od drugih postaja, dakle od ljudi. Ta razlika nije akademska nego određuje što ćeš poduzeti. Protiv QRM-a pomaže uži filtar, promjena frekvencije, usmjerena antena okrenuta u drugu stranu. Protiv QRN-a filtar ne pomaže gotovo nimalo, jer smetnja pokriva cijeli pojas; pomaže niži kut zračenja, drukčija antena (petljasta antena je manje osjetljiva na električnu komponentu polja) ili strpljenje.\n\nZašto se atmosferske smetnje najviše čuju na niskim pojasevima: munja je vrlo kratak impuls goleme snage, a spektar takvog impulsa pada s frekvencijom. Zato je na 160 i 80 m ljetna grmljavinska sezona praktički neprekidno pucketanje, dok se na 10 m i na UKV-u QRN gotovo i ne čuje. Iz istog razloga u ocjeni signala T-brojka nema veze s QRN-om — QRN kvari razumljivost (R), a ne čistoću tona.\n\nCijela obitelj QR-kratica ima logiku koju vrijedi vidjeti: QRA, QRB, QRG, QRH, QRI, QRK opisuju SAMU postaju i signal, QRL do QRT opisuju uvjete i namjere, QRU do QRZ promet. Kad ih naučiš u toj skupini, prestaju biti popis i postaju sustav.",
+  "formula": [
+   "QRN  atmosferske smetnje  (priroda)",
+   "QRM  smetnje od drugih postaja  (ljudi)",
+   "",
+   "   N kao Nature / Nebo   →  atmosfera",
+   "   M kao Man             →  ljudi",
+   "",
+   "Što pomaže:",
+   "   protiv QRM   uži filtar · QSY · usmjerena antena",
+   "   protiv QRN   niži kut zračenja · petljasta antena ·",
+   "                strpljenje  (filtar ne pomaže — smetnja",
+   "                je po cijelom pojasu)",
+   "",
+   "QRN prema frekvenciji:",
+   "   160 m, 80 m   jak, ljeti gotovo neprekidan",
+   "    40 m, 20 m   osjetan",
+   "    10 m, UKV    gotovo ga nema",
+   "   → spektar munje pada s frekvencijom",
+   "",
+   "Skupina QR-kratica u sustavu:",
+   "   QRA ime postaje        QRB udaljenost",
+   "   QRG točna frekvencija  QRH nestabilna frekvencija",
+   "   QRI ton (T1–T9)        QRK razumljivost (R1–R5)",
+   "   QRL zauzet             QRM smetnje postaja",
+   "   QRN atmosferske smetnje"
+  ],
+  "links": [
+   {
+    "label": "Q code (en.wikipedia)",
+    "url": "https://en.wikipedia.org/wiki/Q_code"
+   },
+   {
+    "label": "Munja (hr.wikipedia)",
+    "url": "https://hr.wikipedia.org/wiki/Munja"
+   }
+  ],
+  "cite": [
+   {
+    "src": "RK",
+    "loc": "2. Kratice Q-koda — QRN »smetnje od elektrostatičkog pražnjenja«, QRM »smetnje«, tiskana str. 251"
+   },
+   {
+    "src": "PZM",
+    "loc": "Tema 22 — Kratice Q-koda: QRN »Imate li atmosferske smetnje? / Imam atmosferske smetnje.«, QRM »Smetaju li vam druge postaje?«, tiskana str. 138"
+   }
+  ]
+ },
+ "prv-049": {
+  "note": "QRZ? znači »Tko me zove?«. RK ga u popisu Q-kratica navodi kao »tko poziva?«, PZM u oba smjera: pitanje »Tko me zove?« i odgovor »Zove vas … (ime postaje) na … kHz«. RK ga uzima i kao školski primjer pravila o upitniku: »QRZ?« je pitanje, a »QRZ 9A2XY« odgovor.\n\nU stvarnom radu QRZ? koristiš u dvije situacije. Prva: čuo si da te netko zove, ali nisi razabrao oznaku — otipkaš ili kažeš QRZ? i tražiš ponavljanje. Druga, danas mnogo češća: nakon završene veze pitaš QRZ? da vidiš čeka li još netko na tvojoj frekvenciji, umjesto da ponovno zoveš CQ. To je pristojnije prema pojasu jer ne zauzima novo mjesto, a i brže je.\n\nOnim što QRZ? NIJE zaradio je vlastito pitanje. Nije opći poziv — za to služi CQ (prv-039); nije pitanje o zauzetosti frekvencije — za to služi QRL? (prv-045); nije pitanje o lokaciji — to je QTH; nije pitanje o vremenu — to je QTR. Sve četiri zamjene su ponuđene kao distraktori u ovoj skupini pitanja, pa ih drži razdvojene.\n\nJezična sitnica koju ćeš čuti i sam: u pileupu za rijetku DX postaju stalno se čuje »QRZ? QRZ?« kao poziv na sljedeći krug. Formalno je to natezanje značenja, jer QRZ pita tko zove, a ne traži da netko zove — ali tako se ustalilo i tako se koristi. Na ispitu ipak vrijedi značenje iz knjige: tko me zove.",
+  "formula": [
+   "QRZ?  Tko me zove?",
+   "QRZ … Poziva vas … (pozivna oznaka) na … kHz",
+   "",
+   "Kad se koristi:",
+   "   1. čuo si poziv, ali nisi razabrao oznaku",
+   "   2. nakon završene veze — »ima li još tko?«",
+   "",
+   "Četiri kratice koje se stalno brkaju:",
+   "   QRZ?  Tko me zove?",
+   "   QRL?  Jesi li zauzet / je li frekvencija zauzeta?",
+   "   QTH   Gdje je tvoja postaja? (mjesto)",
+   "   QTR   Koliko je sati? (točno vrijeme)",
+   "",
+   "I nije opći poziv — opći poziv je CQ."
+  ],
+  "links": [
+   {
+    "label": "Q code (en.wikipedia)",
+    "url": "https://en.wikipedia.org/wiki/Q_code"
+   },
+   {
+    "label": "Morseov kod (hr.wikipedia)",
+    "url": "https://hr.wikipedia.org/wiki/Morseov_kod"
+   }
+  ],
+  "cite": [
+   {
+    "src": "RK",
+    "loc": "2. Kratice Q-koda — QRZ »tko poziva?« i uvodno pravilo (»QRZ?« = »Tko me poziva?«, »QRZ …« = »Poziva vas …«), tiskana str. 251"
+   },
+   {
+    "src": "PZM",
+    "loc": "Tema 22 — Kratice Q-koda, QRZ »Tko me zove? / Zove vas …«, tiskana str. 138"
+   }
+  ]
+ },
+ "prv-051": {
+  "note": "R u kratici RST znači Readability — razumljivost (čitljivost) signala. RK to navodi izravno u popisu operativnih kratica: R — razumljivost, S — jakost, T — ton.\n\nRazumljivost je namjerno odvojena od jakosti jer to nisu ista stvar, i upravo je to ono što pitanje provjerava. Signal može biti vrlo jak i pritom nerazumljiv — ako je operator loš telegrafist pa neujednačeno tipka ili ne razdvaja znakove, ako je SSB modulacija izobličena, ako je preko njega QRM druge postaje. Jednako tako signal može biti slab (S2) a savršeno razumljiv (R5), što je uobičajena situacija u CW-u i u digitalnim modovima. Zato PZM opisuje R-ljestvicu riječima o naporu čitanja: R1 nečitljivi signali, R2 jedva čitljivi (riječi se samo povremeno raspoznaju), R3 čitljivi uz znatan napor, R4 čitljivi praktično bez teškoća, R5 jasni signali čitljivi bez napora.\n\nZapamti i asimetriju ljestvica, jer je ona posebno ispitno pitanje (prv-053): razumljivost ide 1 do 5, a jakost i ton 1 do 9. Zašto baš tako? Zato što se razumljivost procjenjuje subjektivno i pet stupnjeva je otprilike najviše što čovjek može pouzdano razlikovati, dok se jakost mjeri instrumentom i tražila je finiju podjelu.\n\nDobar navik: raport daj pošteno. Automatsko »59« svakome, koje se čuje u natjecanjima, informativno je bezvrijedno i sugovorniku ne govori ništa o njegovoj postaji. U mirnoj vezi vrijedi reći stvarni broj — to je jedina povratna informacija koju netko o svom signalu ikada dobije.",
+  "formula": [
+   "RST:",
+   "   R  Readability  razumljivost   1 … 5",
+   "   S  Strength     jakost         1 … 9",
+   "   T  Tone         ton            1 … 9",
+   "",
+   "Ljestvica razumljivosti (PZM, Tema 32):",
+   "   R1  nečitljivi, nerazumljivi signali",
+   "   R2  jedva čitljivi; riječi se tek povremeno raspoznaju",
+   "   R3  čitljivi uz znatan napor",
+   "   R4  čitljivi praktično bez teškoća",
+   "   R5  jasni, čitljivi bez napora",
+   "",
+   "Razumljivost ≠ jakost:",
+   "   jak i nerazumljiv:  izobličena modulacija, loše tipkanje",
+   "   slab i razumljiv:   uobičajeno u CW-u i digitalnim modovima"
+  ],
+  "links": [
+   {
+    "label": "R-S-T system (en.wikipedia)",
+    "url": "https://en.wikipedia.org/wiki/R-S-T_system"
+   }
+  ],
+  "cite": [
+   {
+    "src": "RK",
+    "loc": "3. Operativne kratice u radioamaterskoj službi — »RST — sustav za ocjenjivanje signala: R — razumljivost, S — jakost, T — ton«, tiskana str. 254"
+   },
+   {
+    "src": "PZM",
+    "loc": "Tema 32 — Izvještaj o čujnosti, ljestvica čitljivosti R1–R5, tiskana str. 153"
+   }
+  ]
+ },
+ "prv-053": {
+  "note": "Jakost signala (S) ocjenjuje se brojevima od 1 do 9. Isto vrijedi i za ton (T). Samo razumljivost (R) ide od 1 do 5. Zato je najveći mogući raport 599, a ne 555 ni 999.\n\nDevet stupnjeva jakosti nije proizvoljno: S-ljestvica je vezana uz S-instrument u prijamniku, a po IARU-ovoj preporuci jedna S-jedinica iznosi 6 dB, s time da je S9 na kratkom valu definiran kao −73 dBm na 50 Ω (na UKV-u −93 dBm). Šest decibela znači ČETVEROSTRUKU snagu po jedinici, pa raspon od S1 do S9 pokriva 48 dB, dakle omjer snaga od preko 60 000 puta. Devet stupnjeva je dakle logaritamska ljestvica koja pokriva golem raspon u razumnom broju brojeva — i to je razlog zašto je za jednu S-jedinicu poboljšanja potrebno učetverostručiti snagu (vidi teh-139).\n\nIznad S9 ljestvica prestaje, pa se dodaju decibeli: »S9 + 20 dB«, »S9 + 30 dB«. PZM to izričito navodi i upućuje na S-instrument u prijamniku. U telefoniji se daju samo R i S (»pet i devet«), a kvaliteta modulacije se opiše riječima; T-brojka se daje samo u telegrafiji jer opisuje čistoću nemoduliranog tona.\n\nKako to izgleda kad ga izgovoriš: »59« u telefoniji, »599« u telegrafiji, a u natjecanjima se uz raport dodaje i redni broj veze ili neka druga razmjena (zona, lokator, snaga) — jer raport 59 u natjecanju svi daju svima, pa se natjecateljski dio informacije mora prenijeti nečim drugim.",
+  "formula": [
+   "Opsezi triju ljestvica:",
+   "",
+   "   R  razumljivost   1 … 5",
+   "   S  jakost         1 … 9    ← pitanje",
+   "   T  ton            1 … 9",
+   "",
+   "   najbolji raport:  599   (telegrafija)",
+   "                      59   (telefonija, bez T)",
+   "",
+   "Ljestvica jakosti (PZM, Tema 32):",
+   "   S1 jedva primjetni       S6 dobri",
+   "   S2 vrlo slabi            S7 umjereno jaki",
+   "   S3 slabi                 S8 jaki",
+   "   S4 osrednji              S9 vrlo jaki",
+   "   S5 prilično dobri",
+   "",
+   "Iznad S9 → dodaju se decibeli: S9 + 20 dB, S9 + 30 dB",
+   "",
+   "Koliko je jedna S-jedinica:",
+   "   1 S = 6 dB = ×4 snage",
+   "   S9 (KV) = −73 dBm na 50 Ω;  S9 (UKV) = −93 dBm",
+   "   S1 → S9 = 48 dB ≈ omjer snaga 63 000 : 1"
+  ],
+  "links": [
+   {
+    "label": "R-S-T system (en.wikipedia)",
+    "url": "https://en.wikipedia.org/wiki/R-S-T_system"
+   },
+   {
+    "label": "S meter (en.wikipedia)",
+    "url": "https://en.wikipedia.org/wiki/S_meter"
+   }
+  ],
+  "cite": [
+   {
+    "src": "PZM",
+    "loc": "Tema 32 — Izvještaj o čujnosti: ljestvica snage S1–S9, ton T1–T9, »najveći raport je 599«, dodavanje decibela iznad S9, tiskana str. 153–154"
+   },
+   {
+    "src": "RK",
+    "loc": "3. Operativne kratice u radioamaterskoj službi — RST, tiskana str. 254; 2. Kratice Q-koda — QRK (R1–R5) i QRI (T1–T9), tiskana str. 251"
+   }
+  ]
+ },
+ "prv-055": {
+  "note": "Uobičajeno se QSL karte šalju preko QSL biroa (QSL službe) nacionalnog saveza. PZM to opisuje precizno: QSL-kartice šalju se preko QSL-službe koja je organizirana u gotovo svakom nacionalnom savezu i koju popularno zovu QSL-bureau; ako si član nacionalnog saveza, usluga je najčešće besplatna, iako ponekad spora.\n\nRazlog je čista ekonomija poštarine. Kartica poslana izravno u Japan košta kao pismo; kartica predana birou putuje u snopu od nekoliko tisuća komada zajedno s ostalima za istu zemlju, pa je trošak po kartici zanemariv. Biro sortira dolazne kartice po DXCC entitetima, šalje ih paketom stranim biroima, a od njih paketom prima i razdjeljuje domaćim članovima. Cijena je vrijeme: hrvatska QSL služba sama navodi da cijeli ciklus razmjene traje otprilike dvije godine.\n\nIzravno (»direct«) šalje se kad ti se žuri ili kad je veza posebno vrijedna — nova zemlja za diplomu, rijetka DX ekspedicija. Tada se u omotnicu prilaže adresirana povratna omotnica (SASE) i IRC-kupon ili novac za marku. Za ekspedicije i rijetke oznake često postoji imenovani QSL-manager preko kojega ide sva pošta. Danas tome treba dodati i elektroničke potvrde (LoTW, eQSL), koje su brze i besplatne, ali ne zamjenjuju papirnu karticu kao trofej ni kao dokaz za sve diplome.\n\nPravno: slanje QSL kartice NIJE propisano. PZM to izričito kaže — zakon ne propisuje obvezu slanja QSL-kartice kao potvrde održane veze; to je amaterska obveza ako si karticu obećao (»MY QSL IS SURE«). U dnevniku rada, međutim, rubrike za poslanu i primljenu QSL karticu su uobičajene, a kartica je i dokaz veze potreban za diplome. Praktičan format: PZM i hrvatska QSL služba preporučuju veličinu razglednice, otprilike 9 × 14 cm, jer se takve kartice strojno i ručno sortiraju bez zapinjanja.",
+  "formula": [
+   "Tri puta kojima QSL kartica može ići:",
+   "",
+   "   BIRO (QSL služba saveza)   ← uobičajeni put",
+   "      jeftino (za članove često besplatno)",
+   "      sporo — ciklus razmjene ≈ 2 godine",
+   "      sortira se po DXCC entitetima",
+   "",
+   "   IZRAVNO (direct)",
+   "      brzo, skupo",
+   "      prilaže se SASE + IRC ili novac za marku",
+   "      za rijetke veze i ekspedicije (često QSL-manager)",
+   "",
+   "   ELEKTRONIČKI (LoTW, eQSL)",
+   "      trenutačno i besplatno, ali nije papirnata kartica",
+   "",
+   "Format kartice: ≈ 9 × 14 cm (veličina razglednice)",
+   "",
+   "Pravni status: slanje QSL-a NIJE propisano.",
+   "Obveza je moralna — ako si karticu obećao."
+  ],
+  "links": [
+   {
+    "label": "QSL card (en.wikipedia)",
+    "url": "https://en.wikipedia.org/wiki/QSL_card"
+   },
+   {
+    "label": "HRS — QSL služba",
+    "url": "https://www.hamradio.hr/qsl-sluzba/"
+   },
+   {
+    "label": "DX Century Club (en.wikipedia)",
+    "url": "https://en.wikipedia.org/wiki/DX_Century_Club"
+   }
+  ],
+  "cite": [
+   {
+    "src": "PZM",
+    "loc": "Tema 31 — Vođenje dnevnika, QSL-kartice i QSL-služba: »QSL-kartice šalju se preko QSL-službe koja je organizirana u gotovo svakom nacionalnom savezu… popularno ih zovu QSL-bureau«, tiskana str. 152–153"
+   },
+   {
+    "src": "RK",
+    "loc": "Zbirka ispitnih pitanja — pitanje istog sadržaja (»Na koji način radioamateri šalju QSL karte?« → putem QSL biroa i pošte), tiskana str. 382 i 390"
+   }
+  ]
+ },
+ "prv-057": {
+  "note": "PROVJERITI S KLUBOM — ovdje se ispitni ključ i priručnik razilaze. HRS označava c), po 10 stupnjeva geografske dužine i po 20 stupnjeva geografske širine. Po Maidenheadovu (WW) standardu vrijedi obrnuto: prvo polje, dakle prva dva slova lokatora, obuhvaća 20° geografske DUŽINE i 10° geografske ŠIRINE — što odgovara ponuđenom odgovoru b). Odgovori kako traži HRS lista, ali budi svjestan neslaganja.\n\nPZM to iznosi bez dvojbe i s brojkama koje se daju provjeriti: cijela kugla zemaljska podijeljena je na 324 polja (fields) veličine 20° zemljopisne duljine i 10° zemljopisne širine, dakle 18 × 18 polja, označenih s po dva slova od A do R. Provjera je trivijalna: 18 · 20° = 360° dužine, što je puni krug, i 18 · 10° = 180° širine, što je od pola do pola. Da je obrnuto, dobio bi 180° dužine i 360° širine, a to na Zemlji ne postoji.\n\nOstatak sustava vrijedi znati jer objašnjava zašto lokator uopće postoji: svako polje dijeli se na 100 kvadrata (squares) veličine 2° × 1°, označenih znamenkama 00 do 99, a svaki kvadrat na 576 (24 × 24) podkvadrata (subsquares) veličine 5′ dužine × 2′30″ širine, označenih slovima A do X. Šest znakova time daje točnost od oko 8 × 4 km na našim širinama. Prvo slovo (i prva znamenka, i peto slovo) uvijek broji STUPCE slijeva udesno, drugo REDOVE odozdo prema gore — PZM to sažima u pravilo »tražeći lokaciju uvijek idemo najprije udesno, a zatim prema gore«. Polje AA je na istočnoj strani 180. meridijana i na južnom polu.\n\nZašto se to uopće koristi umjesto zemljopisne širine i dužine: zato što je lokator kratak, jednoznačan, lako se izgovori u vezi (JN75XT, Zagreb) i iz dva lokatora se izravno računa udaljenost i azimut — što je bit natjecanja na UKV-u, gdje se bodovi računaju po prijeđenim kilometrima. Zato se lokator i navodi kao obvezan podatak u UKV natjecanjima.",
+  "formula": [
+   "Maidenhead / WW-lokator, npr. JN75XT (Zagreb):",
+   "",
+   "   J N   7 5   X T",
+   "   └┬┘   └┬┘   └┬┘",
+   "  polje  kvadrat  podkvadrat",
+   "",
+   "   polje (field)      2 slova A–R    20° dužine × 10° širine",
+   "   kvadrat (square)   2 znamenke 0–9  2° dužine ×  1° širine",
+   "   podkvadrat         2 slova A–X     5′ dužine × 2′30″ širine",
+   "",
+   "Provjera da je 20° × 10°, a ne obrnuto:",
+   "   18 polja × 20° = 360°  dužine   (puni krug)  ✓",
+   "   18 polja × 10° = 180°  širine   (pol do pola) ✓",
+   "",
+   "Točnost na našim širinama:",
+   "   polje       ≈ 1600 × 1100 km",
+   "   kvadrat     ≈  164 ×  112 km",
+   "   podkvadrat  ≈    8 ×    4 km",
+   "",
+   "Pravilo čitanja: najprije UDESNO (stupac), pa GORE (red).",
+   "Polje AA: istočno od 180. meridijana, na južnom polu.",
+   "",
+   "HRS ključ:      10° dužine × 20° širine",
+   "Maidenhead/PZM: 20° dužine × 10° širine   ← neslaganje"
+  ],
+  "links": [
+   {
+    "label": "Maidenhead Locator System (en.wikipedia)",
+    "url": "https://en.wikipedia.org/wiki/Maidenhead_Locator_System"
+   }
+  ],
+  "cite": [
+   {
+    "src": "PZM",
+    "loc": "Tema 30 — World Wide lokator: »Cijela kugla zemaljska podijeljena je na 324 polja (fields) veličine 20° zemljopisne duljine i 10° zemljopisne širine (18 × 18 polja)«, tiskana str. 149–150"
+   }
+  ],
+  "flag": "check"
+ },
+ "prv-059": {
+  "note": "HA je prefiks Mađarske; postaja HA5KDQ je mađarska. PZM u popisu prefiksa europskih zemalja navodi HA i HG za Madžarsku, a RK istu zemlju ima u DXCC popisu. Znamenka 5 u oznaci označava mađarsko pozivno područje (Budimpešta), a sufiks KDQ s tri slova i početnim K tipičan je za klupske postaje.\n\nMađarska je dobar primjer zemlje s više dodijeljenih prefiksa: ITU joj je dodijelio blokove HAA–HAZ i HGA–HGZ, pa ćeš čuti i HA i HG oznake — HG se često koristi za posebne i prigodne pozivne oznake. To je uobičajeno: administracija dobiva blok, a unutar njega sama odlučuje kome što daje.\n\nPonuđeni distraktori su odabrani tako da provjere susjedstvo: Slovenija je S5, Njemačka DL (odnosno cijeli blok DA–DR), Švicarska HB (uz HB0 za Lihtenštajn). Zamijeniti HA i HB je najlakša greška u ovoj skupini, pa ih zapamti u paru — HA Mađarska, HB Švicarska.\n\nKorisno pravilo za sva pitanja ovog tipa: prefiks čitaš s LIJEVA i uzimaš najduži niz koji čini valjanu oznaku zemlje prije prve znamenke koja završava prefiks. U HA5KDQ to je HA; sve iza znamenke je sufiks i o zemlji ne govori ništa.",
+  "formula": [
+   "HA5KDQ  →  HA = Mađarska",
+   "",
+   "   HA5KDQ",
+   "   └┬┘│└┬┘",
+   "   HA 5 KDQ",
+   "   │  │  └─ sufiks (ne govori o zemlji)",
+   "   │  └──── pozivno područje (Budimpešta)",
+   "   └─────── prefiks: država",
+   "",
+   "Mađarska: blokovi HAA–HAZ i HGA–HGZ",
+   "",
+   "Susjedstvo koje se brka:",
+   "   HA, HG   Mađarska",
+   "   HB       Švicarska",
+   "   HB0      Lihtenštajn",
+   "   HV       Vatikan",
+   "   S5       Slovenija",
+   "   DL       Njemačka",
+   "   9A       Hrvatska"
+  ],
+  "links": [
+   {
+    "label": "ITU prefix (en.wikipedia)",
+    "url": "https://en.wikipedia.org/wiki/ITU_prefix"
+   },
+   {
+    "label": "Amateur radio call signs (en.wikipedia)",
+    "url": "https://en.wikipedia.org/wiki/Amateur_radio_call_signs"
+   }
+  ],
+  "cite": [
+   {
+    "src": "PZM",
+    "loc": "Tema 25 — Pozivne oznake zemalja, Europa: »HA, HG — Madžarska«, tiskana str. 142"
+   },
+   {
+    "src": "RK",
+    "loc": "5. Pozivne oznake — DXCC popis, tiskana str. 256–263 (Hungary u popisu po zemljama, tiskana str. 261)"
+   }
+  ]
+ },
+ "prv-061": {
+  "note": "DL je prefiks Njemačke; DL1AZB je njemačka postaja. PZM u popisu navodi cijeli blok DA–DL za Njemačku, a RK u DXCC popisu vodi DL kao Federal Republic of Germany. ITU je Njemačkoj dodijelio blokove DAA–DRZ i (od ujedinjenja) Y2A–Y9Z, pa ćeš čuti DA, DB, DC, DD, DF, DG, DH, DJ, DK, DL, DM, DO i druge kombinacije. DL je najčešća i pripada nositeljima pune (A) klase.\n\nRazlikovanje unutar njemačkih prefiksa je zgodan pokazatelj kako administracije koriste svoj blok: DL, DJ, DK, DF su klasične oznake pune klase, DO su početnici (razred E), DM je nasljeđe bivše DDR-e, a DA/DB/DC se dodjeljuju klubovima i posebnim postajama. Za ispit ti treba samo prvo slovo D.\n\nDistraktori pokrivaju najčešće zamjene: Danska je OZ (blok OUA–OZZ), Rusija UA/RA (blokovi RAA–RZZ i UAA–UIZ; UA1–UA6 europski dio, UA9 i UA0 azijski), Bugarska LZ. Nijedan od njih ne počinje slovom D, pa je pitanje zapravo lako čim znaš da D znači Deutschland.\n\nKorisna mnemonika: prefiksi vrlo često čuvaju trag imena zemlje ili njezina jezika — D Deutschland, F France, I Italia, G Great Britain, SP Polska (Stacja Polska), OK/OL Češka. Nije pravilo bez iznimaka (9A za Hrvatsku ne znači ništa), ali pomaže kod polovice europskih zemalja.",
+  "formula": [
+   "DL1AZB  →  DL = Njemačka",
+   "",
+   "Njemački blokovi: DAA – DRZ  i  Y2A – Y9Z",
+   "   DL, DJ, DK, DF   puna klasa",
+   "   DO               početnici (razred E)",
+   "   DM               nasljeđe bivše DDR-e",
+   "   DA, DB, DC       klubovi, posebne postaje",
+   "",
+   "Distraktori:",
+   "   OZ        Danska      (blok OUA – OZZ)",
+   "   UA, RA    Rusija      (UA1–UA6 europski dio,",
+   "                          UA9 i UA0 azijski)",
+   "   LZ        Bugarska",
+   "",
+   "Mnemonika: prefiks često čuva trag imena zemlje",
+   "   D  Deutschland     F  France      I  Italia",
+   "   G  Great Britain   SP Stacja Polska"
+  ],
+  "links": [
+   {
+    "label": "ITU prefix (en.wikipedia)",
+    "url": "https://en.wikipedia.org/wiki/ITU_prefix"
+   },
+   {
+    "label": "Amateur radio call signs (en.wikipedia)",
+    "url": "https://en.wikipedia.org/wiki/Amateur_radio_call_signs"
+   }
+  ],
+  "cite": [
+   {
+    "src": "PZM",
+    "loc": "Tema 25 — Pozivne oznake zemalja, Europa: »DA-DL — Njemačka«, »OZ — Danska«, »LZ — Bugarska«, tiskana str. 142"
+   },
+   {
+    "src": "RK",
+    "loc": "5. Pozivne oznake — DXCC popis, DL = Federal Republic of Germany, tiskana str. 257 i 261"
+   }
+  ]
+ },
+ "prv-063": {
+  "note": "E7 je prefiks Bosne i Hercegovine, pa je E75DX bosanskohercegovačka postaja. PZM u popisu europskih prefiksa navodi obje oznake koje su za BiH u optjecaju: T9 i E7.\n\nOvo je pitanje ujedno lekcija o tome kako prefiksi nastaju i mijenjaju se. Nakon osamostaljenja BiH je privremeno koristila blok T9, koji joj je bio dodijeljen iz jugoslavenskog naslijeđa. Vlastiti blok E7A–E7Z ITU joj je dodijelio kasnije i on je stupio na snagu 2007., a radioamateri su na nj masovno prešli 2009. godine. Zato su starije knjige — uključujući RK-ov DXCC popis, u kojem BiH još stoji pod T9 i u kojem se pojavljuje i »Serbia and Montenegro« — u tom dijelu zastarjele. To je opća pouka za ovu skupinu pitanja: popisi prefiksa stare brže od svega ostalog u priručniku.\n\nDistraktori su odabrani među prefiksima koji počinju istim slovom ili brojem: San Marino je T7 (ne T9!), Španjolska EA–EH, Estonija ES. Zamjena T7 i T9 je klasična greška, pa ih zapamti zajedno — T7 San Marino, T9 stara oznaka BiH, danas E7.\n\nSufiks DX u E75DX nije slučajan: kratke, zvučne oznake s dva-tri slova traže postaje koje mnogo rade natjecanja i DX, jer se u telegrafiji brže otipkaju i u buci lakše razaberu. To nije propis nego praksa dodjeljivanja, ali objašnjava zašto natjecateljske postaje uvijek imaju kratke oznake.",
+  "formula": [
+   "E75DX  →  E7 = Bosna i Hercegovina",
+   "",
+   "Povijest oznake:",
+   "   T9      privremena oznaka nakon osamostaljenja",
+   "   E7A–E7Z vlastiti blok ITU-a, na snazi od 2007.,",
+   "           u uporabi od 2009.",
+   "   → RK-ov DXCC popis još vodi BiH pod T9",
+   "",
+   "Distraktori:",
+   "   T7        San Marino   ← ne brkati s T9",
+   "   EA – EH   Španjolska",
+   "   ES        Estonija",
+   "",
+   "Susjedi za orijentaciju:",
+   "   9A  Hrvatska      S5  Slovenija",
+   "   E7  BiH           YT, YU  Srbija",
+   "   Z3  S. Makedonija 4O  Crna Gora",
+   "   HA  Mađarska      YO  Rumunjska"
+  ],
+  "links": [
+   {
+    "label": "ITU prefix (en.wikipedia)",
+    "url": "https://en.wikipedia.org/wiki/ITU_prefix"
+   },
+   {
+    "label": "Amateur radio call signs (en.wikipedia)",
+    "url": "https://en.wikipedia.org/wiki/Amateur_radio_call_signs"
+   }
+  ],
+  "cite": [
+   {
+    "src": "PZM",
+    "loc": "Tema 25 — Pozivne oznake zemalja, Europa: »T9 — Bosna i Hercegovina«, »E7 — BIH«, »T7 — San Marino«, tiskana str. 142"
+   },
+   {
+    "src": "RK",
+    "loc": "5. Pozivne oznake — DXCC popis (BiH još pod T9, E7 ne postoji u popisu), tiskana str. 258 i 260"
+   }
+  ]
+ },
+ "prv-065": {
+  "note": "LZ je prefiks Bugarske, pa je LZ5A bugarska postaja. PZM ga navodi u popisu europskih prefiksa, RK u DXCC popisu.\n\nCijela poanta ovog pitanja je u tome da tri od četiri ponuđene zemlje imaju prefiks koji počinje slovom L, i tu se griješi. Luksemburg je LX, Litva LY, Bugarska LZ — tri susjedna slova, tri različite zemlje. Dodaj im i Norvešku (LA, vidi prv-069) i Argentinu (LU, vidi prv-073) i imaš cijelu »L-obitelj« koja se u ovoj skupini pitanja vrti u krug.\n\nNajlakše ih je zapamtiti po redu abecede prema jugoistoku: LA Norveška (najsjevernije), LU Argentina (jedina izvan Europe), LX Luksemburg, LY Litva, LZ Bugarska. Zadnja tri idu abecedno X-Y-Z, a i zemljopisno su sve dalje na istok i jug — Luksemburg, Litva, Bugarska.\n\nSufiks 5A u LZ5A je vrlo kratak (jedno slovo), što je znak posebne ili natjecateljske oznake — takve se dodjeljuju za natjecanja i prigodne prilike jer se najbrže otipkaju. Turska, četvrti distraktor, ima blok TA–TC.",
+  "formula": [
+   "LZ5A  →  LZ = Bugarska",
+   "",
+   "»L-obitelj« koja se stalno brka:",
+   "   LA   Norveška      (blok LA – LN)",
+   "   LU   Argentina     (i LO – LW, L2 – L9)",
+   "   LX   Luksemburg",
+   "   LY   Litva",
+   "   LZ   Bugarska",
+   "",
+   "   Pamti po abecedi prema istoku:",
+   "      LX Luksemburg → LY Litva → LZ Bugarska",
+   "",
+   "Ostali distraktori:",
+   "   TA – TC   Turska",
+   "",
+   "Kratki sufiks (LZ5A) → posebna ili natjecateljska",
+   "oznaka; u telegrafiji se brže otipka i lakše razabere."
+  ],
+  "links": [
+   {
+    "label": "ITU prefix (en.wikipedia)",
+    "url": "https://en.wikipedia.org/wiki/ITU_prefix"
+   }
+  ],
+  "cite": [
+   {
+    "src": "PZM",
+    "loc": "Tema 25 — Pozivne oznake zemalja, Europa: »LX — Luksemburg«, »LZ — Bugarska«, »TA-TC — Turska«, tiskana str. 142"
+   },
+   {
+    "src": "RK",
+    "loc": "5. Pozivne oznake — DXCC popis (LU Argentina, LX Luxembourg, LY Lithuania, LZ Bulgaria u nizu), tiskana str. 258"
+   }
+  ]
+ },
+ "prv-067": {
+  "note": "G je prefiks Velike Britanije, pa je G5LP britanska postaja. PZM ga navodi kao »G — Engleska«, a RK u DXCC popisu vodi England pod G.\n\nOvdje treba razlikovati dvije stvari koje se u pitanju stapaju. Državno gledano, cijeli blok G i M pripada Ujedinjenoj Kraljevini; ITU joj je dodijelio GAA–GZZ, MAA–MZZ i 2AA–2ZZ. Ali u DXCC računu Britanija se dijeli na više zasebnih entiteta i za svaki postoji drugo drugo slovo: G/M England, GM/MM Scotland, GW/MW Wales, GI/MI Northern Ireland, GD/MD Isle of Man, GJ/MJ Jersey, GU/MU Guernsey. Zato ćeš čuti oznake tipa GM4… i znati da je postaja u Škotskoj, iako je zemlja ista.\n\nDistraktori su birani po sličnosti imena, ne prefiksa, i to je jedina zamka: Gruzija je 4L, Grčka SV (blok SV–SZ, uz SV9 za Kretu i SV/A za Sveto Goru), Irska EI (i EJ). Nijedna od njih nema G, pa ako znaš da G = Great Britain, ostalo se raspline samo od sebe.\n\nSitnica koja pomaže u eteru: G5LP ima samo dva slova u sufiksu i jednoznamenkasti broj — to je vrlo stara oznaka. Britanske oznake s dva slova u sufiksu dodjeljivane su u ranim desetljećima i danas su rijetkost i statusni simbol, kao i kratke američke 1×2 oznake.",
+  "formula": [
+   "G5LP  →  G = Velika Britanija (England u DXCC smislu)",
+   "",
+   "Blokovi UK: GAA – GZZ, MAA – MZZ, 2AA – 2ZZ",
+   "",
+   "DXCC entiteti unutar UK — drugo slovo odlučuje:",
+   "   G,  M    England",
+   "   GM, MM   Scotland",
+   "   GW, MW   Wales",
+   "   GI, MI   Northern Ireland",
+   "   GD, MD   Isle of Man",
+   "   GJ, MJ   Jersey",
+   "   GU, MU   Guernsey",
+   "",
+   "Distraktori (slična imena, različiti prefiksi):",
+   "   4L        Gruzija (Georgia)",
+   "   SV – SZ   Grčka   (SV9 Kreta, SV/A Sveta Gora)",
+   "   EI, EJ    Irska"
+  ],
+  "links": [
+   {
+    "label": "ITU prefix (en.wikipedia)",
+    "url": "https://en.wikipedia.org/wiki/ITU_prefix"
+   },
+   {
+    "label": "DX Century Club (en.wikipedia)",
+    "url": "https://en.wikipedia.org/wiki/DX_Century_Club"
+   }
+  ],
+  "cite": [
+   {
+    "src": "PZM",
+    "loc": "Tema 25 — Pozivne oznake zemalja, Europa: »G — Engleska«, »GD — Otok Man«, »GI — Sjeverna Irska«, »GM — Škotska«, »GW — Wales«, »EI, EJ — Irska«, »SV-SZ — Grčka«, tiskana str. 142"
+   },
+   {
+    "src": "RK",
+    "loc": "5. Pozivne oznake — DXCC popis (England, Scotland, Wales, Northern Ireland kao zasebni entiteti), tiskana str. 257 i 261"
+   }
+  ]
+ },
+ "prv-069": {
+  "note": "Norveškoj pripada prefiks LA. PZM ga navodi u obliku »LA-LM — Norveška« i uz popis objašnjava zašto: Norveška je nekada imala prefiks samo LA, ali zbog velikog broja radioamatera danas su joj dodijeljene sve kombinacije slova od LA do LM. RK u DXCC popisu vodi Norway pod LA.\n\nZato treba biti pošten prema ponuđenom odgovoru d), LB: on je unutar norveškog bloka i norveške postaje ga doista koriste. Ključ traži LA jer je to klasičan, osnovni i u priručniku naveden prefiks Norveške, i tako odgovori na ispitu — ali nemoj iz toga zaključiti da LB pripada nekome drugome. Isto vrijedi za odgovore a) NR i c) NO: cijeli blok N pripada Sjedinjenim Državama (vidi prv-071), pa su i NR i NO američke, a ne norveške oznake.\n\nOvo pitanje dobro pokazuje kako blokovi funkcioniraju. ITU ne dodjeljuje pojedine prefikse nego RASPONE, pa zemlja unutar raspona sama odlučuje što će s njima — dodijelit će jedan raspon klubovima, drugi početnicima, treći prigodnim postajama. Zato pitanje »kojoj zemlji pripada prefiks XY« ima smisla samo kad znaš u koji raspon XY pada.\n\nSjeverna Europa u cjelini, jer se u ovoj skupini pitanja vrti: LA Norveška, OZ Danska, SM Švedska, OH Finska, TF Island, OY Farski otoci, OX Grenland, JW Svalbard, JX Jan Mayen. Zadnja tri su norveški teritoriji, ali zasebni DXCC entiteti s vlastitim prefiksima.",
+  "formula": [
+   "Norveška: blok LA – LN,  klasični prefiks LA",
+   "",
+   "Ponuđeni odgovori — što je što:",
+   "   LA   Norveška   ← traženi odgovor",
+   "   LB   također unutar norveškog bloka",
+   "   NR   blok N → Sjedinjene Američke Države",
+   "   NO   blok N → Sjedinjene Američke Države",
+   "",
+   "ITU ne dodjeljuje pojedine prefikse nego RASPONE;",
+   "zemlja unutar raspona sama dijeli oznake",
+   "(klubovi, početnici, prigodne postaje).",
+   "",
+   "Sjeverna Europa i norveški teritoriji:",
+   "   LA   Norveška        OZ   Danska",
+   "   SM   Švedska         OH   Finska",
+   "   TF   Island          OY   Farski otoci",
+   "   OX   Grenland",
+   "   JW   Svalbard   ⎫  norveški teritoriji,",
+   "   JX   Jan Mayen  ⎭  zasebni DXCC entiteti"
+  ],
+  "links": [
+   {
+    "label": "ITU prefix (en.wikipedia)",
+    "url": "https://en.wikipedia.org/wiki/ITU_prefix"
+   },
+   {
+    "label": "Amateur radio call signs (en.wikipedia)",
+    "url": "https://en.wikipedia.org/wiki/Amateur_radio_call_signs"
+   }
+  ],
+  "cite": [
+   {
+    "src": "PZM",
+    "loc": "Tema 25 — Pozivne oznake zemalja: »LA-LM — Norveška« i objašnjenje proširenih prefiksa (»Norveška je nekada imala prefiks samo LA…«), tiskana str. 142"
+   },
+   {
+    "src": "RK",
+    "loc": "5. Pozivne oznake — DXCC popis, Norway = LA, tiskana str. 258 i 262"
+   }
+  ]
+ },
+ "prv-071": {
+  "note": "Sjedinjenim Američkim Državama pripada W. PZM ga navodi u obliku »W, K, N, AA-AK — SAD«, a RK u DXCC popisu vodi United States of America pod W odnosno K.\n\nSAD imaju najveći blok oznaka na svijetu, i to s razlogom: ondje je najviše licenciranih radioamatera. ITU im je dodijelio AAA–ALZ, KAA–KZZ, NAA–NZZ i WAA–WZZ — dakle cijela slova K, N i W plus dio slova A. Zbog toga i ponuđeni odgovor b), NN, zapravo pada u američki blok i doista se koristi za posebne (1×2 i 2×1) oznake. Ispit traži W jer je to osnovni i povijesno prvi američki prefiks; tako i odgovori, ali znaj da N nije ničiji drugi.\n\nZnamenka u američkoj oznaci ima stvarno značenje i vrijedi ga znati: ona označava pozivno područje, od 0 do 9, koje otprilike odgovara regiji SAD-a (W1 Nova Engleska, W6 Kalifornija, KH6 Havaji kao zaseban entitet i tako dalje). To je klasičan primjer sustava u kojem znamenka nosi zemljopisnu informaciju — za razliku od naše (vidi prv-001).\n\nOd distraktora treba znati: VE je Kanada (uz VO i VY), AP je Pakistan (blok APA–ASZ). AP je zgodna zamka jer je u istom slovu A kao i dio američkog bloka — ali američki dio prestaje na ALZ, a od AMA nadalje idu druge zemlje (AM–AO Španjolska, AP–AS Pakistan, AT–AW Indija, AX Australija, AY–AZ Argentina).",
+  "formula": [
+   "SAD: blokovi AAA–ALZ, KAA–KZZ, NAA–NZZ, WAA–WZZ",
+   "     klasični prefiks:  W   (uz K i N)",
+   "",
+   "Ponuđeni odgovori:",
+   "   W    SAD   ← traženi odgovor",
+   "   NN   također u američkom bloku N (posebne oznake)",
+   "   AP   Pakistan  (blok APA – ASZ)",
+   "   VE   Kanada    (uz VO Newfoundland, VY)",
+   "",
+   "Podjela slova A po zemljama — zašto AP nije SAD:",
+   "   AAA – ALZ   SAD",
+   "   AMA – AOZ   Španjolska",
+   "   APA – ASZ   Pakistan",
+   "   ATA – AWZ   Indija",
+   "   AXA – AXZ   Australija",
+   "   AYA – AZZ   Argentina",
+   "",
+   "Znamenka u američkoj oznaci = pozivno područje 0–9",
+   "   W1 Nova Engleska · W6 Kalifornija · KH6 Havaji"
+  ],
+  "links": [
+   {
+    "label": "ITU prefix (en.wikipedia)",
+    "url": "https://en.wikipedia.org/wiki/ITU_prefix"
+   },
+   {
+    "label": "Amateur radio licensing in the United States (en.wikipedia)",
+    "url": "https://en.wikipedia.org/wiki/Amateur_radio_licensing_in_the_United_States"
+   }
+  ],
+  "cite": [
+   {
+    "src": "PZM",
+    "loc": "Tema 25 — Pozivne oznake zemalja, Neke izvaneuropske zemlje: »W, K, N, AA-AK — SAD«, »VE, VO, VY — Kanada«, tiskana str. 143"
+   },
+   {
+    "src": "RK",
+    "loc": "5. Pozivne oznake — DXCC popis, United States of America, tiskana str. 258 i 263"
+   }
+  ]
+ },
+ "prv-073": {
+  "note": "Argentini pripada LU. PZM ga u popisu izvaneuropskih zemalja navodi kao »LO-LW — Argentina«, a RK u DXCC popisu vodi Argentinu pod LU. Argentini su dodijeljeni blokovi AYA–AZZ, LOA–LWZ i L2A–L9Z; LU je unutar srednjeg od njih i najčešće se koristi.\n\nZamka je opet u »L-obitelji« (vidi prv-065): LU Argentina i LX Luksemburg razlikuju se u jednom slovu, a zemlje su na različitim kontinentima. Uz njih idu LA Norveška, LY Litva i LZ Bugarska. Ako naučiš tih pet zajedno, riješio si četiri pitanja iz ove skupine odjednom.\n\nPonuđeni odgovor b), AR, izgleda uvjerljivo jer podsjeća na »ARgentina«, ali pada u blok ATA–AWZ, koji pripada Indiji. To je poučna zamka: prefiksi se ne izvode iz imena zemlje na engleskom nego iz ITU-ove tablice, i podudarnosti su češće slučajne nego pravilo. A3 je Tonga.\n\nJužna Amerika u cjelini, jer se ponavlja u pitanjima: LU Argentina, PY Brazil, CE Čile, CX Urugvaj, ZP Paragvaj, OA Peru, CP Bolivija, HC Ekvador, HK Kolumbija, YV Venezuela, PZ Surinam, 8R Gvajana, FY Francuska Gvajana.",
+  "formula": [
+   "Argentina: blokovi AYA–AZZ, LOA–LWZ, L2A–L9Z",
+   "           klasični prefiks:  LU",
+   "",
+   "Ponuđeni odgovori:",
+   "   LU   Argentina   ← traženi odgovor",
+   "   LX   Luksemburg",
+   "   AR   pada u blok ATA – AWZ  →  Indija",
+   "   A3   Tonga",
+   "",
+   "Južna Amerika:",
+   "   LU  Argentina    PY  Brazil       CE  Čile",
+   "   CX  Urugvaj      ZP  Paragvaj     OA  Peru",
+   "   CP  Bolivija     HC  Ekvador      HK  Kolumbija",
+   "   YV  Venezuela    PZ  Surinam      8R  Gvajana",
+   "   FY  Francuska Gvajana"
+  ],
+  "links": [
+   {
+    "label": "ITU prefix (en.wikipedia)",
+    "url": "https://en.wikipedia.org/wiki/ITU_prefix"
+   }
+  ],
+  "cite": [
+   {
+    "src": "PZM",
+    "loc": "Tema 25 — Pozivne oznake zemalja, Neke izvaneuropske zemlje: »LO-LW — Argentina«; Europa: »LX — Luksemburg«, tiskana str. 142–143"
+   },
+   {
+    "src": "RK",
+    "loc": "5. Pozivne oznake — DXCC popis, LU = Argentina, tiskana str. 258 i 260"
+   }
+  ]
+ },
+ "prv-075": {
+  "note": "Južnoafričkoj Republici pripada ZS. RK u DXCC popisu vodi South Africa pod ZS; ITU joj je dodijelio blok ZRA–ZUZ, pa ćeš čuti i ZR i ZS i ZT i ZU — ZS je pritom najčešća, dodjeljuje se punoj klasi.\n\nZamka su dvije slične oznake koje se razlikuju u zadnjem slovu: ZS Južnoafrička Republika i ZL Novi Zeland (vidi prv-077). Obje počinju sa Z, obje su na južnoj polutki, obje su rijetke iz Europe — i baš zato se u ispitnim pitanjima izmjenjuju. Pomaže mnemonika po zadnjem slovu: ZS kao »South Africa«, ZL kao »Land of the long white cloud« odnosno jednostavno ZL = Zealand.\n\nDruga dva distraktora, JA i JR, oba su japanski: Japanu su dodijeljeni blokovi JAA–JSZ i 7JA–7NZ, pa JA i JR pripadaju istoj zemlji. To je isti obrazac kao u prv-069 i prv-071 — dva ponuđena odgovora unutar istog bloka, od kojih je jedan klasična oznaka. Ovdje su oba japanska i oba pogrešna, pa zamka ne šteti.\n\nAfrika u grubim crtama, jer ju je najteže zapamtiti: ZS Južnoafrička Republika, SU Egipat, CN Maroko, 3V Tunis, 5A Libija, 7X Alžir, 5H Tanzanija, 5Z Kenija, 9J Zambija, Z2 Zimbabve, 5N Nigerija, TU Obala Bjelokosti. Prefiksi s brojem na početku vrlo su čest znak afričke ili azijske zemlje koja je oznaku dobila poslije velikog vala dekolonizacije.",
+  "formula": [
+   "Južnoafrička Republika: blok ZRA – ZUZ, prefiks ZS",
+   "",
+   "Ponuđeni odgovori:",
+   "   ZS   Južnoafrička Republika   ← traženi odgovor",
+   "   ZL   Novi Zeland",
+   "   JA   Japan   (blokovi JAA–JSZ, 7JA–7NZ)",
+   "   JR   Japan   — isti blok kao JA",
+   "",
+   "Mnemonika:  ZS = South Africa   ·   ZL = ZeaLand",
+   "",
+   "Afrika, gruba orijentacija:",
+   "   ZS  JAR        SU  Egipat      CN  Maroko",
+   "   3V  Tunis      5A  Libija      7X  Alžir",
+   "   5H  Tanzanija  5Z  Kenija      9J  Zambija",
+   "   Z2  Zimbabve   5N  Nigerija    TU  Obala Bjelokosti"
+  ],
+  "links": [
+   {
+    "label": "ITU prefix (en.wikipedia)",
+    "url": "https://en.wikipedia.org/wiki/ITU_prefix"
+   }
+  ],
+  "cite": [
+   {
+    "src": "RK",
+    "loc": "5. Pozivne oznake — DXCC popis: South Africa = ZS, New Zealand = ZL, tiskana str. 259 i 263"
+   },
+   {
+    "src": "PZM",
+    "loc": "Tema 25 — Pozivne oznake zemalja, Neke izvaneuropske zemlje: »JA-JS — Japan«, »ZL — Novi Zeland«, tiskana str. 143"
+   }
+  ]
+ },
+ "prv-077": {
+  "note": "Novom Zelandu pripada ZL. PZM ga navodi u popisu izvaneuropskih zemalja, RK u DXCC popisu vodi New Zealand pod ZL. Blok koji je ITU dodijelio Novom Zelandu je ZKA–ZMZ, pa uz ZL postoje i ZK i ZM oznake, a otočni teritoriji imaju vlastite: ZK1 Cookovi otoci, ZK2 Niue, ZK3 Tokelau, ZL7 Chathami, ZL8 Kermadec, ZL9 Auckland i Campbell.\n\nZamke su birane po sličnosti prvog slova ili po pripadnosti već poznatoj obitelji: PZ je Surinam, ZA Albanija, LZ Bugarska. LZ je ovdje ubačen namjerno jer se pojavljuje i kao točan odgovor u prv-065 — provjerava jesi li naučio oznaku ili samo zapamtio da je »L-nešto« bilo točno.\n\nParovi koje vrijedi držati zajedno jer se stalno rotiraju kroz ovu skupinu: ZL Novi Zeland i ZS Južnoafrička Republika (prv-075); ZA Albanija i Z3 Sjeverna Makedonija; PZ Surinam i PY Brazil; LZ Bugarska i LY Litva.\n\nNovi Zeland i Australija (VK) su za europskog radioamatera najdalje redovito dostupne zemlje — udaljenost od Zagreba do Aucklanda je oko 18 000 km, praktički antipod, i veza s njima je klasičan test i antene i uvjeta prostiranja. Zbog toga se ZL i VK oznake toliko često pojavljuju u ispitnim pitanjima: one su ono što svaki DX-er želi u dnevniku.",
+  "formula": [
+   "Novi Zeland: blok ZKA – ZMZ, klasični prefiks ZL",
+   "",
+   "Ponuđeni odgovori:",
+   "   ZL   Novi Zeland   ← traženi odgovor",
+   "   PZ   Surinam",
+   "   ZA   Albanija",
+   "   LZ   Bugarska",
+   "",
+   "Novozelandski otočni entiteti:",
+   "   ZK1  Cookovi otoci      ZK2  Niue",
+   "   ZK3  Tokelau            ZL7  Chathami",
+   "   ZL8  Kermadec           ZL9  Auckland i Campbell",
+   "",
+   "Parovi koji se stalno brkaju:",
+   "   ZL Novi Zeland  ↔  ZS  Južnoafrička Republika",
+   "   ZA Albanija     ↔  Z3  Sjeverna Makedonija",
+   "   PZ Surinam      ↔  PY  Brazil",
+   "   LZ Bugarska     ↔  LY  Litva"
+  ],
+  "links": [
+   {
+    "label": "ITU prefix (en.wikipedia)",
+    "url": "https://en.wikipedia.org/wiki/ITU_prefix"
+   },
+   {
+    "label": "DX Century Club (en.wikipedia)",
+    "url": "https://en.wikipedia.org/wiki/DX_Century_Club"
+   }
+  ],
+  "cite": [
+   {
+    "src": "PZM",
+    "loc": "Tema 25 — Pozivne oznake zemalja: »ZL — Novi Zeland«, »ZA — Albanija«, »LZ — Bugarska«, tiskana str. 142–143"
+   },
+   {
+    "src": "RK",
+    "loc": "5. Pozivne oznake — DXCC popis: New Zealand = ZL, Suriname = PZ, Albania = ZA, tiskana str. 258–259 i 262–263"
+   }
+  ]
+ },
+ "prv-079": {
+  "note": "Izraelu pripada 4X. RK u DXCC popisu vodi Israel pod 4X; ITU su Izraelu dodijeljeni blokovi 4XA–4XZ i 4ZA–4ZZ, pa se u eteru čuju obje oznake — 4X i 4Z — i obje su izraelske.\n\nOvo pitanje je i prilika da naučiš što znače prefiksi koji počinju znamenkom. Prefiks ne mora početi slovom: ITU je nizove koji počinju znamenkom (2, 3, 4, 5, 6, 7, 8, 9) dodijelio uglavnom zemljama koje su oznake dobile poslije Drugoga svjetskog rata i vala dekolonizacije, kad su slovni nizovi već bili razdijeljeni. Zato imamo 9A za Hrvatsku, 9H Maltu, 4L Gruziju, 5B Cipar, 3A Monako, 4O Crnu Goru.\n\nPonuđeni odgovor c), 4U, treba znati jer nije zemlja: to je oznaka postaja međunarodnih organizacija. 4U1ITU je postaja u sjedištu ITU-a u Ženevi, 4U1UN u sjedištu Ujedinjenih naroda u New Yorku, i obje se u DXCC-u broje kao zasebni entiteti. RK ih u DXCC popisu navodi odvojeno, kao »ITU HQ« i »United Nations HQ«. Postaja s prefiksom 4U dakle nije ni izraelska ni bilo koje države.\n\nPreostala dva distraktora: I je Italija (blok IAA–IZZ, uz IS0 za Sardiniju i IT9 za Siciliju), JA je Japan. Bliski istok za orijentaciju: 4X i 4Z Izrael, JY Jordan, OD Libanon, YK Sirija, A4 Oman, A6 Ujedinjeni Arapski Emirati, A7 Katar, A9 Bahrein, HZ Saudijska Arabija, YI Irak, EP Iran, TA Turska.",
+  "formula": [
+   "Izrael: blokovi 4XA – 4XZ  i  4ZA – 4ZZ",
+   "        prefiksi 4X i 4Z",
+   "",
+   "Ponuđeni odgovori:",
+   "   4X   Izrael   ← traženi odgovor",
+   "   4U   NIJE država — postaje međunarodnih organizacija:",
+   "           4U1ITU  sjedište ITU-a, Ženeva",
+   "           4U1UN   sjedište UN-a, New York",
+   "        (u DXCC-u zasebni entiteti)",
+   "   I    Italija  (IS0 Sardinija, IT9 Sicilija)",
+   "   JA   Japan",
+   "",
+   "Prefiksi koji počinju ZNAMENKOM:",
+   "   dodijeljeni uglavnom poslije 1945., kad su slovni",
+   "   nizovi već bili razdijeljeni",
+   "   9A Hrvatska · 9H Malta · 4L Gruzija · 5B Cipar",
+   "   3A Monako   · 4O Crna Gora · 5N Nigerija",
+   "",
+   "Bliski istok:",
+   "   4X/4Z Izrael   JY Jordan    OD Libanon   YK Sirija",
+   "   A4 Oman        A6 UAE       A7 Katar     A9 Bahrein",
+   "   HZ Saudijska Arabija        YI Irak      EP Iran"
+  ],
+  "links": [
+   {
+    "label": "ITU prefix (en.wikipedia)",
+    "url": "https://en.wikipedia.org/wiki/ITU_prefix"
+   },
+   {
+    "label": "International Amateur Radio Union (en.wikipedia)",
+    "url": "https://en.wikipedia.org/wiki/International_Amateur_Radio_Union"
+   }
+  ],
+  "cite": [
+   {
+    "src": "RK",
+    "loc": "5. Pozivne oznake — DXCC popis: 4X = Israel, 4U1/I = ITU HQ, 4U1/U = United Nations HQ, tiskana str. 256, 261 i 263"
+   },
+   {
+    "src": "PZM",
+    "loc": "Tema 25 — Pozivne oznake zemalja: »I — Italija«, »IS0, IM0 — Sardinija«, »IT — Sicilija«, »JA-JS — Japan«, tiskana str. 142–143"
+   }
+  ]
+ }
+}

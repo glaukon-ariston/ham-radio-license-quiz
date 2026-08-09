@@ -1,0 +1,288 @@
+{
+  "_doc": "Expanded teaching notes — batch: 10. Električna sigurnost (8 pitanja, teh-274…teh-281). Mrežno uzemljenje i zaštitni vodič, osigurači i FID-sklopka, visoki napon i izbijanje kondenzatora, munja i uzemljenje postaje, RF izloženost i osnovna ograničenja, prva pomoć kod strujnog udara. Pisano kao stvarna sigurnosna uputa, ne kao ispitna trivija. Sortira se ZADNJE pa nadjačava kratke izvorne bilješke.",
+  "_links_verified": "Svaki URL je dohvaćen i potvrđeno je da postoji i da pokriva navedenu tvrdnju (9. kolovoza 2026.). hr.wikipedia članak 'Električni osigurač' NE postoji — koristi se 'Osigurač'.",
+  "_citation_note": "RK poglavlje 10. Sigurnost prostire se na tiskanim str. 203–208 (pdf 199–204; str. 203 i 205 nemaju otisnut folio, izvedene su iz potvrđenog pomaka +4 koji vrijedi za pdf 69–258, a susjedne str. 202, 204, 206, 207 i 208 očitane su izravno s papira). PZM Tema 20 'Opasnost od električne energije' prostire se na tiskanim str. 130–134, svaka provjerena na samoj stranici. Nasljeđene PZM citacije za teh-274, teh-278 i teh-279 pokazale su se netočnima i ispravljene su — vidi izvještaj.",
+
+  "teh-274": {
+    "note": "Odgovor je „sve troje\" i to nije izbjegavanje pitanja nego fizika. RF zračenje je NEIONIZIRAJUĆE — energija pojedinog fotona premala je da izbije elektron iz atoma. Zato šteta ne nastaje po fotonu, kao kod rendgenskog zračenja, nego se nakuplja: tijelo upija energiju polja, ona prelazi u toplinu, i pitanje je samo koliko brzo je upija i koliko dugo. Brzinu upijanja diktira JAKOST polja, ukupnu dozu diktira TRAJANJE, a koliko se učinkovito ta energija uopće spregne u tkivo ovisi o FREKVENCIJI. Nijedan od ta tri podatka sam za sebe ne govori ništa.\n\nFrekvencija ulazi u račun jer ljudsko tijelo nije neutralan komad mesa nego apsorber s vlastitom rezonancijom. Uspravan čovjek uzemljenih stopala ponaša se kao vertikalna antena visoka oko 1,7 m, pa najjače upija oko 30–80 MHz. Upravo zato je u tablici graničnih vrijednosti najstroža brojka baš u području 10–400 MHz: 11,2 V/m, dok je na 1–10 MHz granica znatno viša. Drugim riječima, ista jakost polja opasnija je na 2 m nego na 160 m. Iznad nekoliko GHz vrijedi obrnuto — energija ostaje u koži i ne prodire duboko, ali zato lokalno grije oči i druge slabo prokrvljene dijelove.\n\nTrajanje ulazi kroz usrednjavanje. Sva osnovna ograničenja definirana su kao prosjek preko 6 minuta, jer toliko otprilike treba tijelu da termoregulacijom odgovori na višak topline. To je za radioamatera vrlo praktična vijest: SSB i CW imaju mali omjer srednje prema vršnoj snazi, pa je šestminutni prosjek često nekoliko puta manji od PEP-a. FM, digitalni modovi i beacon rad nemaju tu povlasticu — nose punu snagu cijelo vrijeme.\n\nRK razlikuje i IZRAVNE učinke (toplinsko djelovanje na termoregulaciju, netoplinsko na živčano i mišićno tkivo — mjera je SAR u W/kg) od NEIZRAVNIH (dodir vodljivog predmeta u jakom polju → šok i opeklina — mjera je struja dodira u mA). RF opeklina je podmukla baš zato što ne boli kao mrežni udar: nema grčenja mišića koje bi te trgnulo, pa ruka ostane na vodiču dok tkivo ne izgori u dubinu. Nikad ne diraj antenu ni napojni vod dok je odašiljač u emisiji (vidi teh-281 za same brojke).",
+    "formula": [
+      "Tri čimbenika i što svaki od njih znači:",
+      "   jakost polja  →  brzina upijanja energije (W/kg)",
+      "   trajanje      →  ukupna doza (usrednjava se na 6 min)",
+      "   frekvencija   →  koliko se energija dobro spregne u tkivo",
+      "",
+      "Rezonancija tijela (uspravno, stopala na tlu):",
+      "   λ/4 ≈ 1,7 m  →  f ≈ 75 / 1,7 ≈ 44 MHz",
+      "   → najjača apsorpcija oko 30…80 MHz",
+      "",
+      "Zato je granica najstroža baš tamo (RK, tabl. 10.2.):",
+      "     1…10 MHz     E = 34,8/√f  V/m",
+      "    10…400 MHz    E = 11,2 V/m      ← najniža",
+      "   400…2000 MHz   E = 0,558·√f V/m",
+      "",
+      "Mjere učinaka:",
+      "   izravni  → SAR  [W/kg]",
+      "   neizravni → struja dodira [mA]"
+    ],
+    "links": [
+      {"label": "Non-ionizing radiation", "url": "https://en.wikipedia.org/wiki/Non-ionizing_radiation"},
+      {"label": "Specific absorption rate (SAR)", "url": "https://en.wikipedia.org/wiki/Specific_absorption_rate"},
+      {"label": "ICNIRP — radiofrekvencijska polja", "url": "https://www.icnirp.org/en/frequencies/radiofrequency/index.html"},
+      {"label": "RF burn", "url": "https://en.wikipedia.org/wiki/RF_burn"}
+    ],
+    "cite": [
+      {"src": "RK", "loc": "10.1.2. Ljudsko tijelo i elektromagnetska polja radijskih frekvencija, tiskana str. 205–207"}
+    ]
+  },
+
+  "teh-275": {
+    "note": "Ovo je gotovo doslovan citat iz RK: „nekvalitetno i nepropisno uzemljenje može često više naškoditi nego nas zaštititi od jakih atmosferskih izboja ili od RF smetnji.\" Ključna riječ je NAŠKODITI, ne „ne pomoći\" — loše uzemljenje nije neutralno, ono je aktivno opasno, jer ti daje lažni osjećaj sigurnosti i ponašaš se kao da si zaštićen.\n\nZašto je gore od nikakvog, na strani mrežne sigurnosti: zaštitno uzemljenje ne štiti te tako što „odvodi struju u zemlju\", nego tako što u kvaru napravi dovoljno velik kratki spoj da OSIGURAČ pregori u djeliću sekunde. Ako je otpor uzemljivača prevelik, struja kvara bude premala da probudi osigurač — a kućište uređaja ostane trajno na opasnom potencijalu i čeka te. Uzmi 230 V i loš uzemljivač od 200 Ω: struja kvara je 1,15 A, osigurač od 16 A se ni ne trzne, a tih 1,15 A kroz tebe je dvadeset puta više od smrtonosne granice. S ispravnim uzemljivačem od nekoliko oma ista bi kvara dala stotine ampera i osigurač bi odletio odmah. RK traži da otpor uzemljivača ne bude veći od nekoliko oma; PZM je blaži i navodi granicu ispod 20 Ω — knjige se ovdje razilaze, pa se drži strože brojke.\n\nZašto je gore od nikakvog na RF strani: vodič uzemljenja koji je dug u odnosu na valnu duljinu prestaje biti uzemljenje i postaje zračeći element. Ravan vodič ima oko 1 µH po metru, pa već na 14 MHz jedan jedini metar ima reaktanciju od blizu 90 Ω. Ako je taj vod slučajno blizu λ/4, na njegovom gornjem kraju vidiš NAJVIŠI napon, a ne masu — RF ti se vrati u sobicu, „grize\" mikrofon, resetira računalo i pali TV susjedu. Uz to, dva odvojena spoja na zemlju kroz koja teče različita struja tvore petlju uzemljenja (ground loop) koja skuplja mrežni brum i smetnje.\n\nPraktično: uzemljenje se izvodi kratkim vodičem velikog presjeka (RK preporučuje pocinčanu traku 100 mm² u prstenu oko zgrade, na dubini 60–80 cm, po potrebi dopunjenu štapnim uzemljivačima), povremeno se PROVJERAVA (otpor uzemljivača, vlažnost tla, cjelovitost vodiča), i nikad se ne izvodi preko vodovodnih ni grijaćih instalacija — RK to izričito zabranjuje, a današnje plastične cijevi tu „masu\" ionako prekidaju. Za izvedbu zaštite od munje RK otvoreno kaže: povjeri je stručnoj osobi, improvizacija te može stajati veoma skupo.",
+    "formula": [
+      "Zašto loš uzemljivač NE aktivira osigurač:",
+      "",
+      "   I_kvara = U / R_uzemljivača",
+      "",
+      "   loš:   230 V / 200 Ω = 1,15 A   → osigurač 16 A miruje",
+      "                                     → kućište ostaje na 230 V",
+      "   dobar: 230 V / 2 Ω   = 115 A    → osigurač odmah pregori",
+      "",
+      "   (a već 50 mA kroz čovjeka može ubiti — vidi teh-279)",
+      "",
+      "Traženi otpor uzemljivača:",
+      "   RK   — „ne smije biti veći od nekoliko oma\"",
+      "   PZM  — „ispravno uzemljenje mora imati otpor ispod 20 Ω\"",
+      "",
+      "Zašto dugačak vodič nije masa za RF:",
+      "   ravan vodič ≈ 1 µH/m",
+      "   X_L = 2·π·f·L = 2·π·14·10⁶ · 1·10⁻⁶ ≈ 88 Ω  po metru na 14 MHz",
+      "   λ/4 na 14,2 MHz = 75/14,2 ≈ 5,3 m",
+      "   → vod te duljine je rezonator, a ne uzemljenje"
+    ],
+    "links": [
+      {"label": "Uzemljenje (hr.wikipedia)", "url": "https://hr.wikipedia.org/wiki/Uzemljenje"},
+      {"label": "Ground loop (electricity)", "url": "https://en.wikipedia.org/wiki/Ground_loop_(electricity)"},
+      {"label": "Osigurač (hr.wikipedia)", "url": "https://hr.wikipedia.org/wiki/Osigura%C4%8D"}
+    ],
+    "cite": [
+      {"src": "RK", "loc": "10.1.1. Visoki napon — Uzemljenje, sl. 10.2. „Uzemljenje zaštitno i RF\", tiskana str. 205"},
+      {"src": "PZM", "loc": "Tema 20 — nulti vodič i uzemljenje, tiskana str. 131"}
+    ]
+  },
+
+  "teh-276": {
+    "note": "Ljeto u pitanju nije ukras — ono je zamka. Znoj i vlaga su jedina promjenjiva veličina u cijelom računu, i mijenjaju ga za tri reda veličine. PZM daje brojke: suha koža daje tijelu otpor i do 500 kΩ, a mokra ili znojna pada na svega 1 kΩ. Uvrsti mrežnih 230 V u Ohmov zakon i dobiješ 0,46 mA za suhu kožu (jedva se osjeti) prema 230 mA za znojnu (prestanak disanja, grčenje, vrlo vjerojatno smrt). Isti napon, isti čovjek, ista prostorija — razlika je samo u tome je li se oznojio.\n\nZato je točan odgovor (d): rad pod naponom smije se raditi samo suhih ruku i tijela I uz poznavanje i primjenu SVIH mjera zaštite. RK te mjere nabraja poimence i vrijedi ih znati napamet: ne raditi vlažnih ili znojnih ruku; odjeća uz tijelo, bez rukava koji zapinju; obuća s gumenim potplatom; alat s propisanom, kvalitetnom izolacijom; ne raditi objema rukama istodobno — jednu ruku drži u džepu (Teslin trik, da struja ne prođe preko srca); raditi bez naglavnih slušalica; osigurač mijenjati samo na isključenom uređaju i nikad ga ne zamijeniti neodgovarajućim; obavijestiti ukućane ili klupske kolege da radiš na uređaju; i naučiti pružati prvu pomoć kod strujnog udara (vidi teh-278).\n\nZašto su ostali odgovori pogrešni, i to opasno pogrešni. (b) Osigurači te NE štite od strujnog udara — dimenzionirani su na desetak ampera, a već 0,05 A može ubiti; oni štite instalaciju od požara, a tebe samo posredno. Osobu štiti isključivo strujno-zaštitna (FID) sklopka, koja u Europi reagira na 30 mA za oko 25 ms — a i ona ne reagira ako istodobno dodirneš fazu i nulu, jer se tada tijelo ničim ne razlikuje od trošila. (c) 220 V nije nikakva granica sigurnosti; opasnim se smatra sve iznad 50 V (vidi teh-279). (a) je udžbenički opis idealnog smrtnog slučaja: znojan, gol i u dobrom kontaktu s tlom.\n\nJoš jedna zamka koju ljudi stalno podcjenjuju: isključen uređaj ne znači uređaj bez napona. Kondenzatori u ispravljaču mogu držati naboj satima, danima, po RK i tjednima. Zato svaki kondenzator iznad 0,01 µF u napajanju i modulatoru mora imati otpornik za izbijanje (bleeder, PZM navodi red veličine 100 kΩ odgovarajuće snage), a prije nego što ga uzmeš u ruke ipak ga kratko spoji izoliranim alatom. Elektronska cijev 4CX250B traži 2500 V anodnog napona — filtarski kondenzator na tom naponu je bomba koja strpljivo čeka.",
+    "formula": [
+      "Ohmov zakon je cijela poanta pitanja:",
+      "",
+      "   I = U / R_tijela",
+      "",
+      "   suha koža:  230 V / 500 kΩ = 0,46 mA   → jedva se osjeti",
+      "   znojna:     230 V / 1 kΩ   = 230 mA    → smrtonosno",
+      "",
+      "PZM, tablica 1 — osjetljivost ljudskog tijela:",
+      "   do 1 mA      ne osjeća se",
+      "      1 mA      jedva se osjeti",
+      "      5 mA      blagi šok",
+      "     30 mA      bolni šok, gubitak kontrole mišića  ← gornja granica",
+      "  50–150 mA     prestanak disanja, grčenje, moguća smrt",
+      "      1 A       prestanak rada srca, trajna oštećenja, smrt",
+      "     10 A       trenutačna smrt, pougljenjeno tijelo",
+      "",
+      "Tko te stvarno štiti:",
+      "   osigurač    10…16 A   → štiti instalaciju, NE tebe",
+      "   FID-sklopka 30 mA / ~25 ms (EU); 5 mA (SAD, Kanada) → štiti tebe",
+      "",
+      "Preostali naboj:",
+      "   svaki C > 0,01 µF u napajanju/modulatoru → bleeder (~100 kΩ)",
+      "   prije diranja svejedno kratko spoji priključke"
+    ],
+    "links": [
+      {"label": "Electrical injury", "url": "https://en.wikipedia.org/wiki/Electrical_injury"},
+      {"label": "Residual-current device (FID-sklopka)", "url": "https://en.wikipedia.org/wiki/Residual-current_device"},
+      {"label": "Osigurač (hr.wikipedia)", "url": "https://hr.wikipedia.org/wiki/Osigura%C4%8D"}
+    ],
+    "cite": [
+      {"src": "RK", "loc": "10.1.1. Visoki napon — Posebne mjere opreza i Izbijanje preostalih naboja, tiskana str. 204"},
+      {"src": "PZM", "loc": "Tema 20, Ljudsko tijelo (tablica 1 i otpor kože), tiskana str. 130; visokonaponski kondenzatori i bleeder, tiskana str. 133"}
+    ]
+  },
+
+  "teh-277": {
+    "note": "Odgovor je (a): da se spriječi mogući prijenos RF smetnja. RK to kaže izravno u popisu upozorenja uz sliku 10.2. („Uzemljenje zaštitno i RF\"): dobro zaštitno uzemljenje ne mora biti djelotvorno protiv RF smetnja. To su dva posla koja traže dvije različite izvedbe, pa se rade dvama različitim putovima.\n\nZaštitni vodič (PE, zeleno-žuti) rađen je za 50 Hz i za jedan jedini scenarij: kvar izolacije. Vodi se kroz cijelu kuću, dugačak je deseci metara, i za mrežnu frekvenciju je to potpuno svejedno jer je λ na 50 Hz 6000 km. Za RF nije svejedno ni približno. Na 14 MHz λ/4 iznosi oko 5,3 m, a već i sam metar ravnog vodiča ima reaktanciju blizu 90 Ω. Zaštitni vodič dug 20 m na KV-u nije masa nego napojni vod nepoznate impedancije, ponegdje u rezonanciji, i ponaša se kao antena. Ako pustiš RF struju iz antenskog prilagodnika natrag u PE, ta struja ne ide „u zemlju\" — ide razgranati se po svakoj utičnici u kući i po susjedovoj instalaciji. Rezultat: brum u modulaciji, resetiranje računala, smetnje na TV-u i telefonu, „vruć\" mikrofon koji te grize po usni.\n\nRF uzemljenje se zato izvodi suprotno: najkraćim mogućim, širokim vodičem (traka, a ne žica — na RF-u je bitna oplošina zbog površinskog efekta) ravno dolje do vlastitog uzemljivača, tako da se RF struja zatvori u petlji dugoj metar-dva umjesto kroz cijelu instalaciju. Antenski prilagodnik postoji upravo zato da RF struje ostanu tamo gdje im je mjesto, a ne da lutaju po kućnoj mreži.\n\nSad ono najvažnije, jer se ovdje ljudi ubijaju: „odvojeno\" znači odvojen PUT ZA RF, a NIKAKO odspojen zaštitni vodič. Zaštitni vodič ostaje spojen uvijek i bezuvjetno. Ako brum rješavaš tako da izvadiš zeleno-žuti vodič ili staviš adapter bez uzemljenja, napravio si smrtonosnu zamku i uklonio jedino što stoji između tebe i faze na kućištu — a usput si onesposobio i FID-sklopku, kojoj je PE-vodič nužan za rad (RK). Za RF se odvaja put, ne štiti se odspajanjem. I obrnuto: zbog izjednačavanja potencijala kod udara munje svi uzemljivači objekta na kraju se ipak spajaju u jednoj točki — inače bi ti između dvije „zemlje\" tijekom udara nastala razlika potencijala od kilovolta, i to točno preko tvog uređaja.",
+    "formula": [
+      "Isti vodič, dvije frekvencije:",
+      "",
+      "   λ na 50 Hz   = 300·10⁶ / 50      = 6 000 000 m",
+      "      → 20 m PE-vodiča = 0,0000033 λ — savršena masa",
+      "",
+      "   λ na 14 MHz  = 300 / 14          ≈ 21,4 m",
+      "      → 20 m PE-vodiča ≈ 0,93 λ — antena, ne masa",
+      "",
+      "Reaktancija ravnog vodiča (≈ 1 µH/m):",
+      "   X_L = 2·π·f·L",
+      "       = 2·π·14·10⁶ · 1·10⁻⁶ ≈ 88 Ω / m   na 14 MHz",
+      "       = 2·π·28·10⁶ · 1·10⁻⁶ ≈ 176 Ω / m  na 28 MHz",
+      "",
+      "Pravilo izvedbe:",
+      "   zaštitno (PE) → dugačko smije biti, mora postojati, NIKAD se ne skida",
+      "   RF            → najkraće moguće, traka a ne žica, vlastiti uzemljivač",
+      "",
+      "Za munju se svi uzemljivači ipak spajaju u jednoj točki",
+      "(izjednačenje potencijala) — inače kilovolti preko tvog uređaja."
+    ],
+    "links": [
+      {"label": "Ground loop (electricity)", "url": "https://en.wikipedia.org/wiki/Ground_loop_(electricity)"},
+      {"label": "Uzemljenje (hr.wikipedia)", "url": "https://hr.wikipedia.org/wiki/Uzemljenje"}
+    ],
+    "cite": [
+      {"src": "RK", "loc": "10.1.1. — sl. 10.2. „Uzemljenje zaštitno i RF\" i popis upozorenja („dobro zaštitno uzemljenje ne mora biti djelotvorno protiv RF smetnja\"), tiskana str. 205"},
+      {"src": "RK", "loc": "Zbirka ispitnih pitanja, pit. 49. istog teksta, tiskana str. 352"}
+    ]
+  },
+
+  "teh-278": {
+    "note": "Odgovor je (d): odmah pružiti prvu pomoć. Razlog je brutalno jednostavan — kod strujnog udara vrijeme je jedina valuta. Ako je udar izazvao ventrikularnu fibrilaciju, srce više ne pumpa, mozak ostaje bez kisika, a oštećenja mozga počinju za 3 do 5 minuta. Svaka minuta bez masaže srca smanjuje izglede za preživljavanje za otprilike 10 %. Hitna pomoć u prosjeku ne stiže za tri minute; liječnik iz susjedstva pogotovo ne. Zato sve što se svodi na „pozvati nekoga i čekati\" — odgovori (a), (b) i (c) — troši baš one minute o kojima ovisi ishod.\n\nAli pazi kako čitaš „odmah\". Prvo pravilo prve pomoći kod strujnog udara je da ne postaneš druga žrtva. Redoslijed je: (1) prekini struju — isključi osigurač ili FID-sklopku, izvuci utikač; ako to nije moguće, odvoji unesrećenog od vodiča suhim izolatorom (drvena letva, plastika) stojeći na suhoj podlozi, ali ga NE hvataj rukama dok je pod naponom, jer će te grč mišića zadržati na njemu; (2) provjeri svijest i disanje; (3) pozovi 112 ili 194, po mogućnosti neka to učini netko drugi dok ti već radiš; (4) ako ne diše normalno, počni oživljavanje: 30 kompresija prsnog koša na 2 upuha, dubina 5–6 cm, ritam 100–120 u minuti; (5) što prije AED — defibrilacija unutar tri minute presudno mijenja izglede, a fibrilacija je upravo ono što struja najčešće izazove.\n\nOva „pozovi pomoć\" i „pruži prvu pomoć\" nisu suprotstavljene, nego paralelne radnje — a ispit traži da znaš koja od njih ne smije čekati. Dobro je znati i da unesrećenog treba odvesti liječniku i kad se čini da se potpuno oporavio: aritmije i unutarnje opekline nakon strujnog udara mogu se pojaviti sa zakašnjenjem, a ulazna i izlazna rana na koži izgledaju bezazleno u odnosu na ono što je struja napravila usput.\n\nRK ovo ne ostavlja kao opću preporuku nego kao obvezu radioamatera: među mjerama opreza izričito stoji „naučite pružati prvu pomoć za slučaj strujnog udara i uvjerite se da to znaju i klupske kolege\". Riječ „klupske\" u pitanju nije slučajna — pitanje je pisano baš za situaciju u klubu, gdje se radi na uređajima pod naponom i gdje su kolege jedina pomoć koja je već na licu mjesta.",
+    "formula": [
+      "Zašto se ne čeka:",
+      "   3–5 min bez cirkulacije  →  oštećenje mozga",
+      "   svaka minuta bez masaže  →  −10 % izgleda za preživljavanje",
+      "",
+      "Redoslijed (bez preskakanja):",
+      "   1. PREKINI STRUJU — osigurač / FID / utikač",
+      "      (ne diraj unesrećenog dok je pod naponom)",
+      "   2. provjeri svijest i disanje",
+      "   3. 112  ili  194   (neka zove netko drugi)",
+      "   4. oživljavanje:  30 kompresija : 2 upuha",
+      "                     dubina 5–6 cm",
+      "                     ritam 100–120 / min",
+      "   5. AED što prije — defibrilacija < 3 min",
+      "",
+      "I nakon oporavka → liječnik. Aritmije i unutarnje",
+      "opekline mogu se javiti sa zakašnjenjem."
+    ],
+    "links": [
+      {"label": "Kardiopulmonalna reanimacija (hr.wikipedia)", "url": "https://hr.wikipedia.org/wiki/Kardiopulmonalna_reanimacija"},
+      {"label": "Ventricular fibrillation", "url": "https://en.wikipedia.org/wiki/Ventricular_fibrillation"},
+      {"label": "Electrical injury", "url": "https://en.wikipedia.org/wiki/Electrical_injury"}
+    ],
+    "cite": [
+      {"src": "RK", "loc": "10.1.1. Visoki napon — Posebne mjere opreza (zadnja stavka popisa), tiskana str. 204"},
+      {"src": "RK", "loc": "Zbirka ispitnih pitanja, pit. 59. istog teksta, tiskana str. 353"}
+    ]
+  },
+
+  "teh-279": {
+    "note": "Granica je 50 V i to je normirana brojka, ne procjena. RK je navodi u paru: „normirano se kao opasan uzima svaki istosmjerni napon viši od 120 V i niskofrekventni viši od 50 V\". Pitanje traži NISKOFREKVENTNI napon, dakle 50 V — odgovor (d). Iste dvije brojke stoje i u međunarodnoj normi IEC 61140 kao gornja granica malog napona (ELV): 50 V izmjenično, 120 V istosmjerno bez valovitosti.\n\nOdakle baš 50 V: iz najgoreg realnog slučaja. Znojno ili mokro tijelo ima otpor oko 1 kΩ (PZM). Uvrsti: 50 V / 1 kΩ = 50 mA, a 50 mA je prema PZM-ovoj tablici već područje prestanka disanja i moguće smrti. Granica je dakle postavljena točno tamo gdje najgori realni otpor tijela i smrtonosna struja daju isti rezultat. Sve iznad toga nije „malo opasnije\" — to je preko crte. PZM to kaže bez uvijanja: ako je koža vlažna, 50 V efektivnog izmjeničnog napona već može izazvati smrt.\n\nZašto je istosmjerni prag viši (120 V): za fibrilaciju srca izmjenična struja od 50 Hz daleko je opasnija od istosmjerne, jer stalno ponavlja podražaj i lako pogodi ranjivi dio srčanog ciklusa. Uz to izmjenična struja izaziva tetanički grč mišića šake — iznad struje puštanja (let-go current, oko 10 mA) ne možeš više otvoriti šaku i pustiti vodič, pa se vrijeme prolaska struje produljuje s djelića sekunde na koliko god traje. Istosmjerna struja te češće odbaci nego zadrži.\n\nZapamti pravu pouku, jer ispit pita napon, a ubija struja: fiziološki učinak određuje JAKOST STRUJE kroz tijelo, PUT te struje i TRAJANJE. Napon je samo jedan ulaz u račun; drugi je otpor tijela, koji se od osobe do osobe i od trenutka do trenutka mijenja i 500 puta. Zato je „ruka–ruka\" ili „ruka–stopalo\" (preko srca) mnogo gore od „prst–prst na istoj šaci\", i zato Tesla drži lijevu ruku iza leđa (vidi teh-276). Napomena za amatere: 50 V nije ni približno visok napon u našem hobiju — anodni napon starog prijamnika bio je 250 V, odašiljača oko 800 V, a cijev 4CX250B traži 2500 V.",
+    "formula": [
+      "Normirane granice (RK; iste u IEC 61140 — ELV):",
+      "   izmjenični (NF)   opasno iznad   50 V",
+      "   istosmjerni       opasno iznad  120 V",
+      "",
+      "Odakle 50 V — najgori realni slučaj:",
+      "   R_tijela (mokro/znojno) ≈ 1 kΩ",
+      "   I = U / R = 50 V / 1000 Ω = 50 mA",
+      "   50 mA → prestanak disanja, grčenje, moguća smrt",
+      "",
+      "Usporedba s mrežnim naponom:",
+      "   230 V / 1 kΩ   = 230 mA    smrtonosno",
+      "   230 V / 500 kΩ = 0,46 mA   jedva osjetno  (suha koža)",
+      "",
+      "Struja puštanja (let-go current), izmjenično:",
+      "   ≈ 10 mA — iznad toga ne možeš pustiti vodič",
+      "",
+      "Što stvarno određuje ishod:",
+      "   JAKOST struje · PUT kroz tijelo · TRAJANJE",
+      "   (napon je samo jedan od ulaza)"
+    ],
+    "links": [
+      {"label": "Extra-low voltage (IEC 61140: 50 V AC / 120 V DC)", "url": "https://en.wikipedia.org/wiki/Extra-low_voltage"},
+      {"label": "Electrical injury", "url": "https://en.wikipedia.org/wiki/Electrical_injury"},
+      {"label": "Ventricular fibrillation", "url": "https://en.wikipedia.org/wiki/Ventricular_fibrillation"}
+    ],
+    "cite": [
+      {"src": "RK", "loc": "10.1.1. Visoki napon (normirane granice 120 V DC / 50 V NF), tiskana str. 203"},
+      {"src": "PZM", "loc": "Tema 20, Ljudsko tijelo — otpor kože i „50 V pri vlažnoj koži već može izazvati smrt\", tiskana str. 130"}
+    ]
+  },
+
+  "teh-280": {
+    "note": "Odgovor (a) je jedini koji sadrži sva tri postupka, a sva tri su nužna: ne raditi s uređajima, odvojiti antenske vodove od uređaja i prespojiti ih na dobro uzemljenje, i izvući iz zidnih utičnica svaki uređaj koji prenapon može oštetiti. RK ih nabraja upravo tim redom u poglavlju 10.2. Munja.\n\nRazmjeri sile objašnjavaju zašto se ne pregovara. Munja je proboj kroz zrak između oblaka i Zemlje pri naponu reda stotinjak milijuna volta, a struja u vodovima za vrijeme udara doseže 100 do 200 tisuća ampera — pri tome se svaki vodič rastali bez obzira na debljinu. Radioamater je poseban slučaj jer po prirodi hobija podiže antenu što više može, dakle sam gradi najizloženiju točku instalacije.\n\nAli glavna šteta obično ne dolazi od izravnog pogotka. Mnogo je vjerojatniji NEIZRAVNI udar: munja tresne u niskonaponski ili nadzemni telefonski vod kilometar dalje, a atmosferski prenapon dođe do tebe po žici. Zato je „isključiti uređaj\" premalo — mrežna sklopka ima razmak kontakata od par milimetara i kilovoltni impuls je preskoči kao da je nema. Utikač mora van iz utičnice. Isto vrijedi i za telefonsku/internetsku liniju, a na ulazu u zgradu takvi vodovi trebaju odvodnike prenapona. Tranzistori su pritom mnogo osjetljiviji na prenapon od nekadašnjih elektronskih cijevi — moderna postaja strada od udara koji bi stari cijevni predajnik preživio.\n\nKad je opasnost blizu: pravilo 10 sekundi. Ako je razmak između bljeska i groma manji od deset sekundi, oluja je unutar oko tri kilometra i prestaje se raditi. Antenu tada treba odspojiti od uređaja i uzemljiti, po mogućnosti s vanjske strane zgrade, da struja uopće ne uđe u kuću. Za koaksijalni kabel je oplet ionako trajno uzemljen; za srednji vodič PZM predlaže prigušnicu od oko 0,1 mH paralelno antenskom priključku, koja statički naboj s antene odvodi na masu, a RF signalu ne smeta.",
+    "formula": [
+      "Pravilo 10 sekundi (svjetlost je trenutačna, zvuk nije):",
+      "",
+      "   d = v_zvuka · t = 340 m/s · 10 s ≈ 3,4 km",
+      "   → grubo: 3 sekunde po kilometru",
+      "   → bljesak i grom razmaknuti < 10 s  ⇒  PRESTANI RADITI",
+      "",
+      "Redoslijed za grmljavine:",
+      "   1. ne raditi s uređajima",
+      "   2. antenski vod odvojiti od uređaja",
+      "      i prespojiti na dobro uzemljenje (izvana, ako može)",
+      "   3. izvući mrežne utikače iz utičnica",
+      "      (sklopka NIJE dovoljna — prenapon preskoči kontakte)",
+      "   4. isto vrijedi za telefon / internet",
+      "",
+      "Razmjeri:",
+      "   napon oblak–tlo   ~ 100 000 000 V",
+      "   struja udara      100 000 … 200 000 A",
+      "   → svaki vodič se rastali, bez obzira na presjek",
+      "",
+      "Odvod statičkog naboja sa srednjeg vodiča koaksa:",
+      "   prigušnica ≈ 0,1 mH paralelno antenskom priključku"
+    ],
+    "links": [
+      {"label": "Munja (hr.wikipedia)", "url": "https://hr.wikipedia.org/wiki/Munja"},
+      {"label": "Gromobran (hr.wikipedia)", "url": "https://hr.wikipedia.org/wiki/Gromobran"},
+      {"label": "Lightning arrester (odvodnik prenapona)", "url": "https://en.wikipedia.org/wiki/Lightning_arrester"}
+    ],
+    "cite": [
+      {"src": "RK", "loc": "10.2. MUNJA, tiskana str. 208"},
+      {"src": "PZM", "loc": "Tema 20, Munja, tiskana str. 133"}
+    ]
+  },
+
+  "teh-281": {
+    "note": "Odgovor je (b): moraju se uvažavati u svakom slučaju. RK to formulira gotovo istim riječima — „osnovna ograničenja su ograničenja koja se moraju uzimati u obzir\". Riječ „preporuke\" u tekstu pitanja zavodi: preporuka je oblik u kojem su ih međunarodna tijela (ICNIRP) objavila, ali kad ih država preuzme u pravilnik, one postaju obvezne granice.\n\nZašto baš „u svakom slučaju\", a ne „djelomice\": sustav zaštite ima dvije razine i to je bit pitanja. OSNOVNA OGRANIČENJA (bazične restrikcije) postavljena su na veličine koje su izravno fiziološki smislene — specifična apsorpcija SAR u W/kg i struja dodira u mA — ali se te veličine ne mogu izmjeriti na terenu, jer bi trebalo mjeriti unutar tijela. Zato su iz njih IZVEDENE referencijske razine: jakost električnog polja E u V/m, jakost magnetskog polja H u A/m i gustoća toka snage S u W/m², koje se mjere instrumentom. Referencijske su razine izračunate konzervativno: ako ih zadovoljavaš, sigurno zadovoljavaš i osnovno ograničenje. Ako ih premašiš, nisi automatski u prekršaju — ali tada moraš dokazati da osnovno ograničenje ipak nije prekoračeno. Osnovno ograničenje je, dakle, ono koje se ne smije prekoračiti nikada i ni pod kojim uvjetima, dok je referencijska razina samo praktična zamjena za mjerenje. Otud „u svakom slučaju\".\n\nBrojke koje vrijedi zapamtiti daje RK u tablici 10.1., uvijek s usrednjavanjem preko 6 minuta i uvijek u paru: izvan zagrade vrijednost za profesionalno osoblje (i amatere koji poznaju mjere zaštite), u zagradi stroža vrijednost za pučanstvo. SAR za cijelo tijelo 0,4 (0,08) W/kg, SAR za dio tijela 10 (2) W/kg, struja dodira 35 (20) mA. Iz tablice 10.2. najkorisnija je granica jakosti električnog polja u području 10–400 MHz: 11,2 V/m — to je i zasebno ispitno pitanje u RK zbirci.\n\nZa nas to nije akademsko. RK navodi izmjerene vrijednosti uz stvarne amaterske antene: 180 V/m pola metra od podnožja vertikalne λ/4 s 800 W, 150 V/m metar-dva ispod dipola na 3–4 m visine sa 120 W, 100 V/m u kući ispod dipola u potkrovlju sa 100 W — sve to premašuje granicu i za profesionalce. RSGB-ova mjerenja daju preko 100 W/m² na 20 cm od vertikalne antene napajane sa 140 W na 28 MHz. Praktična pouka: udaljenost i najmanja potrebna snaga rade više za tvoju sigurnost od bilo koje druge mjere; ne ispituj uređaj otvorenog kućišta, ne gledaj u otvoreni valovod pod naponom, ručni uređaj drži dalje od lica.\n\nPravno stanje provjeri prije nego što se pozoveš na knjigu. RK se poziva na Zakon o zaštiti od neionizirajućih zračenja (NN 105/1999) i Pravilnik o ograničenjima jakosti elektromagnetskih polja (NN 183/04) — oba su u međuvremenu zamijenjena. Danas vrijede Zakon o zaštiti od neionizirajućeg zračenja (NN 91/10, 114/18) i Pravilnik o zaštiti od elektromagnetskih polja (NN 146/14, 59/16, 31/19), čiji su prilozi s tablicama u cijelosti zamijenjeni izmjenama iz 2019., pa RK-ove brojke uzmi kao ispitno gradivo, ne kao aktualni propis. Isto vrijedi i za naziv tijela: „Hrvatska agencija za telekomunikacije\" iz RK danas je HAKOM. Obveza amatera i dalje stoji i danas je u Pravilniku o amaterskim radijskim komunikacijama: uz zahtjev za dozvolu za postaju čija je efektivna izračena snaga jednaka ili veća od 100 W moraju se dostaviti podaci prema pravilniku koji uređuje posebne uvjete postavljanja i uporabe radijskih postaja.",
+    "formula": [
+      "Dvije razine — i zašto je pitanje baš takvo:",
+      "",
+      "   OSNOVNO OGRANIČENJE   SAR [W/kg], struja dodira [mA]",
+      "      fiziološki smisleno, ali se ne može mjeriti na terenu",
+      "      → NIKAD se ne smije prekoračiti",
+      "",
+      "   REFERENCIJSKA RAZINA  E [V/m], H [A/m], S [W/m²]",
+      "      izvedena iz osnovnog, mjerljiva instrumentom",
+      "      → ispod nje si sigurno u redu;",
+      "        iznad nje moraš dokazati osnovno ograničenje",
+      "",
+      "RK, tablica 10.1. — usrednjeno na 6 minuta",
+      "   (izvan zagrade: profesionalci i educirani amateri;",
+      "    u zagradi: pučanstvo)",
+      "",
+      "   SAR cijelo tijelo   0,4  (0,08)  W/kg",
+      "   SAR dio tijela      10   (2)     W/kg",
+      "   struja dodira       35   (20)    mA",
+      "",
+      "RK, tablica 10.2. — jakost električnog polja E",
+      "      1…10 MHz     34,8/√f  V/m",
+      "     10…400 MHz    11,2 V/m        ← zapamti ovu",
+      "    400…2000 MHz   0,558·√f V/m",
+      "",
+      "Izmjereno uz stvarne amaterske antene (RK, tabl. 10.3.):",
+      "   vertikalna λ/4, 800 W, 0,5 m od podnožja   180 V/m",
+      "   dipol na 3–4 m, 120 W, 1–2 m ispod          150 V/m",
+      "   dipol u potkrovlju, 100 W, u kući           100 V/m",
+      "   → sve preko granice i za profesionalce"
+    ],
+    "links": [
+      {"label": "ICNIRP — RF smjernice i osnovna ograničenja", "url": "https://www.icnirp.org/en/frequencies/radiofrequency/index.html"},
+      {"label": "Specific absorption rate (SAR)", "url": "https://en.wikipedia.org/wiki/Specific_absorption_rate"},
+      {"label": "Zakon o zaštiti od neionizirajućeg zračenja (NN 91/10)", "url": "https://narodne-novine.nn.hr/clanci/sluzbeni/2010_07_91_2571.html"},
+      {"label": "Pravilnik o zaštiti od elektromagnetskih polja (NN 146/14)", "url": "https://narodne-novine.nn.hr/clanci/sluzbeni/2014_12_146_2740.html"}
+    ],
+    "cite": [
+      {"src": "RK", "loc": "10.1.2. — Osnovna ograničenja, tablice 10.1. i 10.2., tiskana str. 206–207; tabl. 10.3. i preporuke, tiskana str. 207–208"},
+      {"src": "NN150/22", "loc": "čl. 12. st. 2. — uz zahtjev za dozvolu, za postaje s efektivnom izračenom snagom ≥ 100 W dostavljaju se podaci prema pravilniku o posebnim uvjetima postavljanja i uporabe radijskih postaja"}
+    ]
+  }
+}

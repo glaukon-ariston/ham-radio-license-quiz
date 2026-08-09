@@ -1,0 +1,42 @@
+{
+  "_doc": "Answer keys transcribed BY EYE from the 'ODGOVORI NA PITANJA' tables in docs/Radiokomunikacije.pdf. The table cells do not OCR at all, so these were read from rendered page images at 230 dpi. Rows = question number within a skupina; columns = Skupina I..VI. Technical rows 31-60 were read twice at different resolutions and agreed cell-for-cell.",
+  "_source_pages": {
+    "tehnicki": "PDF 349-350 (printed 354-355)",
+    "propisi": "PDF 370 (printed 376)",
+    "pravila": "PDF 403-404 (printed 409-410)"
+  },
+  "_columns": ["I", "II", "III", "IV", "V", "VI"],
+
+  "tehnicki": {
+    "1":  "BAACCD", "2":  "DCDDCB", "3":  "ADBABB", "4":  "BBDDAA", "5":  "CBCDAA",
+    "6":  "DCDABC", "7":  "DBBBAA", "8":  "BDBDDD", "9":  "CCBBAD", "10": "CCBBBB",
+    "11": "DABACA", "12": "BADCDC", "13": "ABACBB", "14": "BDADCA", "15": "CBCAAC",
+    "16": "DDDBBC", "17": "CABBAA", "18": "AABDBD", "19": "CCCACB", "20": "BDDBCB",
+    "21": "ABDDAB", "22": "DDDBDD", "23": "CBBDBD", "24": "BBCCBB", "25": "CDDDBA",
+    "26": "ACBBDD", "27": "DACACB", "28": "BBCDAA", "29": "DCCBBA", "30": "BDAACB",
+    "31": "DAABCD", "32": "CDBCDC", "33": "ACAABD", "34": "DBCDAA", "35": "CBDBBA",
+    "36": "BAADDC", "37": "BDBCAC", "38": "BCDCCC", "39": "CCAADD", "40": "AADDAB",
+    "41": "CDBABB", "42": "BDDDDA", "43": "BCDCBB", "44": "BCABDB", "45": "CBDDCC",
+    "46": "CCDADD", "47": "BCDAAA", "48": "DBADBA", "49": "CDDCAA", "50": "BCABBB",
+    "51": "ABBADA", "52": "BCBBBD", "53": "BBBAAA", "54": "BADADA", "55": "DDDAAC",
+    "56": "ADBACC", "57": "DDDCAA", "58": "CCCBAC", "59": "DAABBD", "60": "CCADBD"
+  },
+
+  "propisi": {
+    "1":  "ADDADC", "2":  "BADCCD", "3":  "BDDBDC", "4":  "BDBADD", "5":  "CDCBDA",
+    "6":  "BDBDCC", "7":  "BCBDCC", "8":  "AADCBD", "9":  "BDAACD", "10": "ACBACD",
+    "11": "BDABBD", "12": "DDBCAC", "13": "DDAABD", "14": "CBCDCD", "15": "DBCDDD",
+    "16": "CCBAAD", "17": "DDCBCA", "18": "DCBCCB", "19": "CBDDAC", "20": "ADBAAB"
+  },
+
+  "pravila": {
+    "1":  "CCAABC", "2":  "DCBDDD", "3":  "CDBBDB", "4":  "ABBCBC", "5":  "CCCBCC",
+    "6":  "CCBACB", "7":  "CBCBBD", "8":  "ACDCBB", "9":  "ADBACB", "10": "CBCCCA",
+    "11": "CBCDBD", "12": "ABACBC", "13": "CCBADC", "14": "DBAABC", "15": "BDCBCA",
+    "16": "CBDDAA", "17": "CBCCDC", "18": "ABBABB", "19": "BCBBDB", "20": "CBBBBD",
+    "21": "BCBDDC", "22": "CCCBBC", "23": "CCBBAB", "24": "CAACAC", "25": "DBBABC",
+    "26": "CACCCC", "27": "CDDBBA", "28": "CBABAB", "29": "AACAAB", "30": "BDCCAB",
+    "31": "ACCACB", "32": "BACCBC", "33": "BCBDCC", "34": "CABBBA", "35": "DBAADB",
+    "36": "CCCCCB", "37": "BABBBD", "38": "BBDABB", "39": "ACADAA", "40": "DCBBCB"
+  }
+}

@@ -1,0 +1,300 @@
+{
+ "_doc": "Corrections from the currency audit of 9 Aug 2026 against NN 150/22. Named to sort LAST among notes_*.json so these citations win — rebuild.py applies note files in sorted order and the last one for an id takes effect.",
+ "pro-005": {
+  "note": "Poruke koje se ne odnose na radioamatere načelno se ne prosljeđuju — iznimka su pozivi u slučaju nesreće ili opasnosti. Tada je prosljeđivanje ne samo dopušteno nego i očekivano.\n\n⚖ Provjera propisa: Čl. 3. st. 3. postavlja opću zabranu prosljedivanja, a iznimku definira upućivanjem na čl. 59. st. 6. Zakona o elektroničkim komunikacijama (pozivi u slučaju nesreće i opasnosti). Pojmovi 'ratna opasnost' i 'prirodne nepogode' ne pojavljuju se u Pravilniku.",
+  "flag": "check",
+  "cite": [
+   {
+    "src": "NN150/22",
+    "loc": "čl. 3. st. 3. (i čl. 18. t. 1.)"
+   }
+  ]
+ },
+ "pro-012": {
+  "note": "Postaju za odašiljanje televizijskog signala (ATV) smiju postaviti Savez, klub ili radioamater s položenim ispitom — širi krug nego kod repetitora i radiofarova.\n\n⚖ Provjera propisa: Čl. 4. st. 3. t. 6. jedina je točka koja NE navodi tko postavlja postaju — za razliku od t. 3., 4. i 5. koje izrijekom navode Savez ili klub. Iz čl. 12. st. 9. slijedi samo da se za takvu postaju izdaje posebna dozvola.",
+  "flag": "check",
+  "cite": [
+   {
+    "src": "NN150/22",
+    "loc": "čl. 4. st. 3. t. 6. i čl. 12. st. 9."
+   }
+  ]
+ },
+ "pro-022": {
+  "note": "Dozvola mora zadovoljiti i ovaj Pravilnik i propise o ograničenjima jakosti elektromagnetskih polja — dva odvojena propisa.\n\n⚖ Provjera propisa: NN 150/22 ne imenuje 'Pravilnik o ograničenjima jakosti elektromagnetskih polja'. Čl. 12. st. 2. upućuje općenito na 'pravilnik koji uređuje posebne uvjete postavljanja i uporabe radijskih postaja iz članka 91. stavka 2. Zakona', i to samo za postaje s ERP jednakim ili većim od 100 W.",
+  "flag": "check",
+  "cite": [
+   {
+    "src": "NN150/22",
+    "loc": "čl. 12. st. 2. (upućivanje)"
+   }
+  ]
+ },
+ "pro-040": {
+  "note": "U gostovanju po CEPT-u dodaje se prefiks države domaćina; za rad s plovila koristi se telegrafska oznaka za pomorsku pokretnu postaju.\n\n⚖ Provjera propisa: Sadržaj odgovora je točan, ali izvor nije CEPT T/R 61-01. Aneks 1, t. 2.3. te preporuke uređuje samo dodavanje PREFIKSA posjećene zemlje ispred nacionalne pozivne oznake ('/' u telegrafiji, 'stroke' u telefoniji) i nigdje ne spominje /MM. Oznaka /MM odnosno 'maritime mobile' propisana je nacionalno, u čl. 15. st. 2. t. 2. Pravilnika.",
+  "flag": "check",
+  "cite": [
+   {
+    "src": "NN150/22",
+    "loc": "čl. 15. st. 2. t. 2. (a ne T/R 61-01, Aneks II.)"
+   }
+  ]
+ },
+ "pro-041": {
+  "note": "Isto pravilo, ali za rad telefonijom s plovila — izgovara se puni izraz umjesto kratice.\n\n⚖ Provjera propisa: Sadržaj odgovora je točan, ali izvor nije CEPT T/R 61-01. Aneks 1, t. 2.3. te preporuke uređuje samo dodavanje PREFIKSA posjećene zemlje ispred nacionalne pozivne oznake ('/' u telegrafiji, 'stroke' u telefoniji) i nigdje ne spominje /MM. Oznaka /MM odnosno 'maritime mobile' propisana je nacionalno, u čl. 15. st. 2. t. 2. Pravilnika.",
+  "flag": "check",
+  "cite": [
+   {
+    "src": "NN150/22",
+    "loc": "čl. 15. st. 2. t. 2. (a ne T/R 61-01, Aneks II.)"
+   }
+  ]
+ },
+ "pro-045": {
+  "note": "Pozivna oznaka mora se odašiljati unutar trajanja komunikacije, u razmacima od najviše deset minuta (vidi pro-044).\n\n⚖ Provjera propisa: Čl. 15. st. 3. doslovno kaže da se pozivna oznaka odašilje 'na običnom jeziku ili Morseovim kôdom' — to je tekst ponuđenog odgovora a). Označeni odgovor d) također je istinit (oznaka se odašilje na početku i na kraju te tijekom duže komunikacije), ali nije jezik propisa.",
+  "flag": "check",
+  "cite": [
+   {
+    "src": "NN150/22",
+    "loc": "čl. 15. st. 3."
+   }
+  ]
+ },
+ "pro-057": {
+  "note": "Tablica dijeli 6 m na dva dijela: 50 000 – 50 500 kHz = 500 W, a 50 500 – 51 900 kHz = 100 W. Pitanje ne kaže koji dio pojasa misli, a 500 W nije ponuđen, pa je 100 W jedini obranjiv odgovor među ponuđenima.\n\n⚖ Provjera propisa: Dodatak 1, Tablica 1 dijeli 6 m na dva retka s različitim snagama: 50 000 – 50 500 kHz (status P) = 500 W, a 50 500 – 51 900 kHz (status S) = 100 W. Za doslovno 'rad na 50 MHz' propis daje 500 W, što nije ponuđeno među odgovorima.",
+  "flag": "check",
+  "cite": [
+   {
+    "src": "NN150/22",
+    "loc": "Dodatak 1, Tablica 1, retci 50 000 – 50 500 kHz i 50 500 – 51 900 kHz (tablica za A razred)"
+   }
+  ]
+ },
+ "pro-069": {
+  "note": "Rad postaje može zabraniti inspekcijska služba — ne klub, ni Savez, ni lokalna vlast.\n\n⚖ Propis ovo ne uređuje. NN 150/22 nigdje ne spominje 'inspekcijsku službu' niti daje ovlast zabrane rada. Riječi 'zabrana' i 'kazna' u Pravilniku se ne pojavljuju uopće. Jedini spomen inspekcije je u čl. 22. st. 7. Ovlasti nadzora i mjere propisane su Zakonom o elektroničkim komunikacijama (NN 76/22), koji nije među dostavljenim izvorima.",
+  "flag": "check",
+  "cite": [
+   {
+    "src": "NN150/22",
+    "loc": "izvan NN 150/22 (jedini spomen inspekcije: čl. 22. st. 7.)"
+   }
+  ]
+ },
+ "pro-070": {
+  "note": "Govorna komunikacija između dvaju repetitora nije dopuštena — repetitori služe za premošćivanje udaljenosti između postaja, ne za međusobni razgovor.\n\n⚖ Provjera propisa: Dodatak 1, t. 2.4.2.1 opisuje SVRHU repetitora (premošćivanje udaljenosti između pokretnih i nepokretnih postaja), a t. 2.4.2.6 zabranjuje samo da druge komunikacije smetaju prometu preko repetitora. Izričite zabrane govorne veze između dvaju repetitora u Pravilniku nema.",
+  "flag": "check",
+  "cite": [
+   {
+    "src": "NN150/22",
+    "loc": "Dodatak 1, t. 2.4.2.1 i t. 2.4.2.6"
+   }
+  ]
+ },
+ "pro-072": {
+  "note": "Dnevnik se vodi čitljivim i trajnim zapisom, pa obična (grafitna) olovka nije dopuštena — zapis se može izbrisati.\n\n⚖ Provjera propisa: Čl. 20. st. 1. traži samo 'čitljivim zapisom' i stranice označene po redoslijedu; zabrana grafitne olovke nije izrijekom propisana. Štoviše, st. 2. izrijekom dopušta elektronički dnevnik, čime je ponuđeni odgovor d) isključen.",
+  "flag": "check",
+  "cite": [
+   {
+    "src": "NN150/22",
+    "loc": "čl. 20. st. 1. (i st. 2.)"
+   }
+  ]
+ },
+ "pro-073": {
+  "note": "Prazni redak između upisa je zabranjen — sprječava naknadno umetanje podataka. Iz istog razloga stranice moraju biti označene po redoslijedu.\n\n⚖ Provjera propisa: Čl. 20. st. 1. propisuje samo da dnevnik ima 'stranicama označenim po njihovu redoslijedu' i da se odašiljanja bilježe čitljivim zapisom. Zabrana praznog retka između upisa nigdje se ne spominje (niz 'prazn' ne postoji u Pravilniku).",
+  "flag": "check",
+  "cite": [
+   {
+    "src": "NN150/22",
+    "loc": "čl. 20. st. 1. (i st. 2.)"
+   }
+  ]
+ },
+ "pro-074": {
+  "note": "Dnevnik mora imati stranice označene po redoslijedu, pa odgovara uvezana bilježnica — ne slobodni listovi.\n\n⚖ Provjera propisa: Čl. 20. st. 1. traži stranice označene po redoslijedu, ali ne propisuje fizički oblik dnevnika; st. 2. izrijekom dopušta elektronički dnevnik uz mogućnost ispisa. Niz 'uvezan' ne postoji u Pravilniku.",
+  "flag": "check",
+  "cite": [
+   {
+    "src": "NN150/22",
+    "loc": "čl. 20. st. 1. (i st. 2.)"
+   }
+  ]
+ },
+ "pro-075": {
+  "note": "Pri radu s druge lokacije ona se mora upisati u dnevnik, da se iz zapisa vidi odakle se radilo.\n\n⚖ Provjera propisa: Popis obveznih podataka u čl. 20. st. 1. ne sadrži vlastitu lokaciju: t. 5. traži 'lokaciju i pozivnu oznaku amaterske radijske postaje S KOJOM je uspostavljena komunikacija', dakle lokaciju korespondenta. Vlastita dodatna lokacija se prema čl. 13. st. 1. navodi u napomeni dozvole, a ne u dnevniku.",
+  "flag": "check",
+  "cite": [
+   {
+    "src": "NN150/22",
+    "loc": "čl. 20. st. 1. (i st. 2.)"
+   }
+  ]
+ },
+ "pro-079": {
+  "note": "Za odašiljače ispod 30 MHz stavljene u uporabu prije propisanog datuma vrijedi blaži kriterij: gušenje 40 dB uz srednju razinu 50 mW.\n\n⚖ Provjera propisa: Prijelomni datum u Pravilniku je 1. siječnja 2003., a ne 1. siječnja 2013. Vrijednost 40 dB / 50 mW (9 kHz – 30 MHz) vrijedi samo za postaje stavljene u uporabu PRIJE 1.1.2003. Za postaje stavljene u uporabu između 2003. i 2013. — koje pitanje svojom formulacijom 'prije 01.01.2013.' obuhvaća — vrijedi čl. 22. st. 5.: 43 + 10 log (PEP) ili 50 dBc.",
+  "flag": "conflict",
+  "cite": [
+   {
+    "src": "NN150/22",
+    "loc": "čl. 22. st. 4. (usporedi čl. 22. st. 5.)"
+   }
+  ]
+ },
+ "pro-080": {
+  "note": "Za pojas 30–235 MHz i srednje snage veće od 25 W traži se gušenje 60 dB uz srednju razinu 1 mW — stroži zahtjev nego na KV-u.\n\n⚖ Provjera propisa: Vrijednost 60 dB / 1 mW za 30 – 235 MHz i srednju snagu veću od 25 W točna je, ali samo za postaje stavljene u uporabu PRIJE 1. siječnja 2003., ne 2013. Za postaje iz razdoblja 2003.–2013. vrijedi čl. 22. st. 5.: iznad 30 MHz 43 + 10 log (P) ili 60 dB.",
+  "flag": "conflict",
+  "cite": [
+   {
+    "src": "NN150/22",
+    "loc": "čl. 22. st. 4."
+   }
+  ]
+ },
+ "pro-081": {
+  "note": "Za novije odašiljače ispod 30 MHz: 43 + 10·log(PEP) ili 50 dBc, pri čemu se primjenjuje BLAŽI od dva kriterija.\n\n⚖ Provjera propisa: Formula je točna, ali prijelomni datum je 1. siječnja 2003., a ne 2013. Kako je 'nakon 2013.' podskup 'nakon 2003.', označeni odgovor ostaje ispravan unatoč pogrešnom datumu.",
+  "flag": "check",
+  "cite": [
+   {
+    "src": "NN150/22",
+    "loc": "čl. 22. st. 5."
+   }
+  ]
+ },
+ "pro-087": {
+  "note": "Nepostupanje po rješenju nadzora povlači upravnu mjeru novčane kazne.\n\n⚖ Propis ovo ne uređuje. Formulacija 'dvadeseterostruka prosječna plaća' nigdje se ne pojavljuje u NN 150/22 — riječ 'kazna' u Pravilniku ne postoji uopće. To je jezik ranijih propisa (Zakon o telekomunikacijama); iznosi i vrste prekršajnih i upravnih mjera danas su u ZEK-u NN 76/22. Ovlasti nadzora propisane su Zakonom o elektroničkim komunikacijama (NN 76/22), koji nije među dostavljenim izvorima, pa se odgovor ne može potvrditi iz Pravilnika.",
+  "flag": "check",
+  "cite": [
+   {
+    "src": "ZEK",
+    "loc": "NN 76/22 — nadzor i mjere nisu u Pravilniku"
+   },
+   {
+    "src": "NN150/22",
+    "loc": "izvan NN 150/22 (usporedi čl. 24. — jedini članak o smetnjama)"
+   }
+  ]
+ },
+ "pro-088": {
+  "note": "Rad se može zabraniti u svako doba na zahtjev odgovorne osobe inspekcijske službe.\n\n⚖ Propis ovo ne uređuje. NN 150/22 ne poznaje institut zabrane rada 'u svako doba' niti spominje inspekcijsku službu. Ovlasti nadzora propisane su Zakonom o elektroničkim komunikacijama (NN 76/22), koji nije među dostavljenim izvorima, pa se odgovor ne može potvrditi iz Pravilnika.",
+  "flag": "check",
+  "cite": [
+   {
+    "src": "NN150/22",
+    "loc": "izvan NN 150/22 (usporedi čl. 24. — jedini članak o smetnjama)"
+   }
+  ]
+ },
+ "pro-089": {
+  "note": "Inspekcija pregledava troje: postaju, dnevnik i dozvolu. Zato dnevnik i dozvola moraju biti dostupni na lokaciji.\n\n⚖ Propis ovo ne uređuje. NN 150/22 propisuje što se čuva i predočava (dnevnik — čl. 20. st. 3.; sheme i nacrti — čl. 22. st. 7.), ali ne nabraja predmet inspekcijskog pregleda. Ovlasti nadzora propisane su Zakonom o elektroničkim komunikacijama (NN 76/22), koji nije među dostavljenim izvorima, pa se odgovor ne može potvrditi iz Pravilnika.",
+  "flag": "check",
+  "cite": [
+   {
+    "src": "NN150/22",
+    "loc": "izvan NN 150/22 (usporedi čl. 24. — jedini članak o smetnjama)"
+   }
+  ]
+ },
+ "pro-090": {
+  "note": "Rad bez dozvole povlači trajnu zabranu rada postaje — najstroža mjera.\n\n⚖ Propis ovo ne uređuje. NN 150/22 ne propisuje mjere za rad bez dozvole; riječ 'zabrana' u Pravilniku se ne pojavljuje. Ovlasti nadzora propisane su Zakonom o elektroničkim komunikacijama (NN 76/22), koji nije među dostavljenim izvorima, pa se odgovor ne može potvrditi iz Pravilnika.",
+  "flag": "check",
+  "cite": [
+   {
+    "src": "NN150/22",
+    "loc": "izvan NN 150/22 (usporedi čl. 24. — jedini članak o smetnjama)"
+   }
+  ]
+ },
+ "pro-091": {
+  "note": "Kod štetnih smetnji zabrana je PRIVREMENA — traje dok se smetnje ne otklone. Usporedi s pro-090, gdje je zabrana trajna.\n\n⚖ Propis ovo ne uređuje. Čl. 24. st. 2. nalaže nositelju dozvole da sam prestane s radom i ukloni smetnju najkasnije u roku od 30 dana, odnosno sukladno mjerama Agencije — ali ne opisuje ovlast inspektora da zabrani rad. Ovlasti nadzora propisane su Zakonom o elektroničkim komunikacijama (NN 76/22), koji nije među dostavljenim izvorima, pa se odgovor ne može potvrditi iz Pravilnika.",
+  "flag": "check",
+  "cite": [
+   {
+    "src": "NN150/22",
+    "loc": "izvan NN 150/22 (usporedi čl. 24. — jedini članak o smetnjama)"
+   }
+  ]
+ },
+ "pro-092": {
+  "note": "Inspekcija može pregledati postaju u svako pogodno vrijeme — nije ograničena na radno vrijeme.\n\n⚖ Propis ovo ne uređuje. NN 150/22 ne uređuje vrijeme inspekcijskog pregleda. Ovlasti nadzora propisane su Zakonom o elektroničkim komunikacijama (NN 76/22), koji nije među dostavljenim izvorima, pa se odgovor ne može potvrditi iz Pravilnika.",
+  "flag": "check",
+  "cite": [
+   {
+    "src": "NN150/22",
+    "loc": "izvan NN 150/22 (usporedi čl. 24. — jedini članak o smetnjama)"
+   }
+  ]
+ },
+ "prv-003": {
+  "note": "Radiopostaja nije samo jedan uređaj: to je jedan ili više odašiljača i prijamnika zajedno s pomoćnom opremom (antene, napajanje, mjerni instrumenti).\n\n⚖ Propis ovo ne uređuje. NN 150/22 ne definira pojam 'radijska postaja'. Čl. 2. st. 1. definira samo četiri pojma: amatersku radijsku postaju, radioamatera, HRS i radioamaterski klub. Opća definicija radijske postaje nalazi se u ITU Radijskim propisima i u ZEK-u NN 76/22.",
+  "flag": "check",
+  "cite": [
+   {
+    "src": "ZEK",
+    "loc": "NN 76/22 — nadzor i mjere nisu u Pravilniku"
+   },
+   {
+    "src": "NN150/22",
+    "loc": "izvan NN 150/22 (usporedi čl. 2. st. 1. t. 1.)"
+   }
+  ]
+ },
+ "prv-007": {
+  "note": "Nije. Natjecanja su dobrovoljna — radioamaterstvo nema obveznih aktivnosti te vrste.\n\n⚖ Propis ovo ne uređuje. Tvrdnja je točna, ali čl. 3. (na koji quiz upućuje) o natjecanjima ne govori ništa — uređuje uporabu spektra u skladu s načelima amaterske službe, uvjet položenog ispita i dozvole, te zabranu prosljedivanja tuđih priopćenja. Natjecanja se u Pravilniku spominju samo u čl. 4. st. 3. t. 5. i čl. 12. st. 15., i to bez ikakve obveze sudjelovanja.",
+  "flag": "check",
+  "cite": [
+   {
+    "src": "NN150/22",
+    "loc": "izvan NN 150/22 (usporedi čl. 3. st. 1.)"
+   }
+  ]
+ },
+ "prv-026": {
+  "note": "Telefonija na 15 m počinje iznad CW/digitalnog dijela pojasa i ide do gornjeg ruba 21450 kHz.\n\n⚖ Propis ovo ne uređuje. Podjela pojasa na telegrafski/digitalni i telefonijski dio nije propis nego IARU Region 1 bandplan — dobrovoljni dogovor. NN 150/22 propisuje samo rubove pojasa i najveću širinu emisije, a nigdje ne dijeli pojas po vrstama emisije (jedina iznimka je Napomena 3 za 10 100 – 10 150 kHz). Rubovi 15 m pojasa u Tablici 1 jesu u skladu s ponuđenim odgovorom.",
+  "flag": "check",
+  "cite": [
+   {
+    "src": "NN150/22",
+    "loc": "izvan NN 150/22 (IARU R1 bandplan); usporedi Dodatak 1, Napomenu 3 i čl. 16. st. 2."
+   }
+  ]
+ },
+ "prv-027": {
+  "note": "Na 40 m telefonija je u gornjem dijelu pojasa, do ruba 7200 kHz. Donji dio je za CW i digitalne modove.\n\n⚖ Propis ovo ne uređuje. Podjela pojasa na telegrafski/digitalni i telefonijski dio nije propis nego IARU Region 1 bandplan — dobrovoljni dogovor. NN 150/22 propisuje samo rubove pojasa i najveću širinu emisije, a nigdje ne dijeli pojas po vrstama emisije (jedina iznimka je Napomena 3 za 10 100 – 10 150 kHz). Rubovi 40 m pojasa u Tablici 1 jesu u skladu s ponuđenim odgovorom.",
+  "flag": "check",
+  "cite": [
+   {
+    "src": "NN150/22",
+    "loc": "izvan NN 150/22 (IARU R1 bandplan); usporedi Dodatak 1, Napomenu 3 i čl. 16. st. 2."
+   }
+  ]
+ },
+ "prv-028": {
+  "note": "Na 80 m telefonija je u gornjoj polovici, 3600 – 3800 kHz. Ispod 3600 su CW i digitalni modovi.\n\n⚖ Propis ovo ne uređuje. Podjela pojasa na telegrafski/digitalni i telefonijski dio nije propis nego IARU Region 1 bandplan — dobrovoljni dogovor. NN 150/22 propisuje samo rubove pojasa i najveću širinu emisije, a nigdje ne dijeli pojas po vrstama emisije (jedina iznimka je Napomena 3 za 10 100 – 10 150 kHz). Rubovi 80 m pojasa u Tablici 1 jesu u skladu s ponuđenim odgovorom.",
+  "flag": "check",
+  "cite": [
+   {
+    "src": "NN150/22",
+    "loc": "izvan NN 150/22 (IARU R1 bandplan); usporedi Dodatak 1, Napomenu 3 i čl. 16. st. 2."
+   }
+  ]
+ },
+ "prv-030": {
+  "note": "Na 20 m telefonija ide od 14101 kHz do gornjeg ruba 14350 kHz; ispod je CW/digitalni dio.\n\n⚖ Propis ovo ne uređuje. Podjela pojasa na telegrafski/digitalni i telefonijski dio nije propis nego IARU Region 1 bandplan — dobrovoljni dogovor. NN 150/22 propisuje samo rubove pojasa i najveću širinu emisije, a nigdje ne dijeli pojas po vrstama emisije (jedina iznimka je Napomena 3 za 10 100 – 10 150 kHz). Rubovi 20 m pojasa u Tablici 1 jesu u skladu s ponuđenim odgovorom.",
+  "flag": "check",
+  "cite": [
+   {
+    "src": "NN150/22",
+    "loc": "izvan NN 150/22 (IARU R1 bandplan); usporedi Dodatak 1, Napomenu 3 i čl. 16. st. 2."
+   }
+  ]
+ },
+ "prv-025": {
+  "note": "Ne. Zabranu telefonije ne nameće vrsta emisije nego ŠIRINA POJASA: Tablica 1 za 135,7 – 137,8 kHz propisuje najveću širinu pojasa od 200 Hz, u koju govorni signal ne stane. Napomena uz taj redak je Napomena 4 (EIRP najviše 1 W). Napomena 3 ('samo A1A i F1B') odnosi se na pojas 10 100 – 10 150 kHz, ne na 2200 m.",
+  "cite": [
+   {
+    "src": "NN150/22",
+    "loc": "Dodatak 1., Tablica 1., redak 135,7 – 137,8 kHz (200 Hz) i Napomena 4."
+   }
+  ]
+ }
+}

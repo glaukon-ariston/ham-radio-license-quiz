@@ -1,0 +1,113 @@
+{
+  "_doc": "Explanations with citations. Every claim is traceable to a document in docs/. Citation = {src, loc}; src keys are defined in _sources of questions.json.",
+
+  "pro-047": {
+    "flag": "conflict",
+    "note": "PAZI — HRS označava b), ali važeći Pravilnik kaže drugačije. Pojas 135,7 – 137,8 kHz pojavljuje se u Dodatku 1, Tablici 1 samo u tablici za A razred (status S, 1 W, širina 200 Hz). U tablici za P razred tog pojasa nema: P razred na KV ima samo 3500–3800, 7000–7200, 14040–14150, 14280–14350, 21000–21450 i 28000–29700 kHz. Po propisu bi točno bilo d) samo A razreda. Na ispitu odgovori kako traži HRS lista (b), ali znaj da propis kaže drugačije.",
+    "cite": [{"src": "NN150/22", "loc": "Dodatak 1., Tablica 1. (tablice za A i za P razred)"}]
+  },
+  "pro-048": {
+    "note": "1810 – 1850 kHz (Pex, 1500 W) i 1850 – 2000 kHz (S, 1000 W) postoje samo u tablici za A razred; P razred nema 160 m.",
+    "cite": [{"src": "NN150/22", "loc": "Dodatak 1., Tablica 1."}]
+  },
+  "pro-049": {
+    "note": "6 m (50 000 – 50 500 kHz i 50 500 – 51 900 kHz) naveden je samo u tablici za A razred.",
+    "cite": [{"src": "NN150/22", "loc": "Dodatak 1., Tablica 1."}]
+  },
+  "pro-050": {
+    "note": "144 – 146 MHz je u obje tablice: A razred Pex 1500 W, P razred Pex 100 W.",
+    "cite": [{"src": "NN150/22", "loc": "Dodatak 1., Tablica 1."}]
+  },
+  "pro-051": {
+    "note": "80 m (3500 – 3800 kHz) je u obje tablice: A razred 1500 W, P razred 100 W.",
+    "cite": [{"src": "NN150/22", "loc": "Dodatak 1., Tablica 1."}]
+  },
+  "pro-052": {
+    "note": "15 m (21 000 – 21 450 kHz) je u obje tablice: A razred Pex 1500 W, P razred 100 W.",
+    "cite": [{"src": "NN150/22", "loc": "Dodatak 1., Tablica 1."}]
+  },
+  "pro-053": {
+    "note": "70 cm (430 – 440 MHz) je u obje tablice, uz napomene 2 i 5.",
+    "cite": [{"src": "NN150/22", "loc": "Dodatak 1., Tablica 1."}]
+  },
+  "pro-055": {
+    "note": "U tablici za P razred najveća snaga (PEP) za sve pojaseve iznosi 100 W.",
+    "cite": [{"src": "NN150/22", "loc": "Dodatak 1., Tablica 1. (tablica za P razred)"}]
+  },
+  "pro-056": {
+    "note": "70 000 – 70 450 kHz ima status S i snagu 10 W.",
+    "cite": [{"src": "NN150/22", "loc": "Dodatak 1., Tablica 1. (A razred)"}]
+  },
+  "pro-057": {
+    "note": "Tablica dijeli 6 m na dva dijela: 50 000 – 50 500 kHz = 500 W, a 50 500 – 51 900 kHz = 100 W. Pitanje ne kaže koji dio pojasa misli, a 500 W nije ponuđen, pa je 100 W jedini obranjiv odgovor među ponuđenima.",
+    "cite": [{"src": "NN150/22", "loc": "Dodatak 1., Tablica 1. (A razred)"}]
+  },
+  "pro-058": {
+    "note": "24 890 – 24 990 kHz (12 m) ima status Pex i 1500 W, kao i većina KV pojaseva A razreda.",
+    "cite": [{"src": "NN150/22", "loc": "Dodatak 1., Tablica 1. (A razred)"}]
+  },
+  "pro-059": {
+    "note": "U pojasu 135,7 – 137,8 kHz najveća EIRP iznosi 1 W. Pazi na razliku: ovdje je propisan EIRP, a ne PEP kao u ostatku tablice.",
+    "cite": [{"src": "NN150/22", "loc": "Dodatak 1., Napomena 4."}]
+  },
+  "pro-044": {
+    "note": "Pozivna oznaka odašilje se običnim jezikom ili Morseovim kôdom u razmacima od najmanje deset minuta. Za repetitor ili digipitor vrijedi drugo pravilo — ponavlja se najmanje svakih 20 minuta dok je uključen.",
+    "cite": [{"src": "NN150/22", "loc": "čl. 15."}, {"src": "NN150/22", "loc": "Dodatak 1., t. 2.4.2."}]
+  },
+  "pro-066": {
+    "note": "Prijamnom opremom smiju se primati samo signali drugih radioamatera, signali frekvencijske norme i vremenski signali. Prijam drugih službi nije dopušten.",
+    "cite": [{"src": "NN150/22", "loc": "čl. 19. st. 1."}]
+  },
+  "pro-067": {
+    "note": "Uz amaterske signale dozvola omogućava i prijam signala frekvencijske norme.",
+    "cite": [{"src": "NN150/22", "loc": "čl. 19. st. 1."}]
+  },
+  "pro-068": {
+    "note": "Uz amaterske signale dozvola omogućava i prijam vremenskih signala (signala točnog vremena).",
+    "cite": [{"src": "NN150/22", "loc": "čl. 19. st. 1."}]
+  },
+  "pro-071": {
+    "note": "Dnevnik se čuva najmanje godinu dana nakon posljednjeg upisa, radi mogućeg inspekcijskog pregleda.",
+    "cite": [{"src": "NN150/22", "loc": "čl. 20."}]
+  },
+  "pro-004": {
+    "note": "Dva uvjeta idu zajedno: položen radioamaterski ispit I dozvola koju izdaje Agencija. Sam položen ispit nije dovoljan.",
+    "cite": [{"src": "NN150/22", "loc": "čl. 12. st. 1."}]
+  },
+  "pro-006": {
+    "note": "Postoje točno dva razreda — A i P — određena prema razini osposobljenosti radioamatera.",
+    "cite": [{"src": "NN150/22", "loc": "čl. 4. st. 1."}]
+  },
+  "pro-013": {
+    "note": "Ispit se polaže pred ispitnim povjerenstvom, koje se sastoji od predsjednika i članova.",
+    "cite": [{"src": "NN150/22", "loc": "čl. 5. st. 1."}]
+  },
+  "pro-014": {
+    "note": "Program za A razred usklađen je s CEPT preporukom T/R 61-02 — to je HAREC, zbog kojega A razred nosi međunarodno priznanje.",
+    "cite": [{"src": "TR61-02", "loc": "cijeli dokument"}, {"src": "OBVEZNI", "loc": "dio II."}]
+  },
+  "pro-015": {
+    "note": "Program za P razred usklađen je s ERC izvješćem ERC REPORT 32, ne s HAREC-om. Zato P razred ima znatno slabije međunarodno priznanje.",
+    "cite": [{"src": "ERC32", "loc": "cijeli dokument"}, {"src": "OBVEZNI", "loc": "dio IV."}]
+  },
+  "pro-019": {
+    "note": "Za A razred ne treba prethodno položiti P razred — ispitu za A može se pristupiti izravno. Osoba mlađa od 18 godina treba suglasnost roditelja ili skrbnika.",
+    "cite": [{"src": "NN150/22", "loc": "čl. 5. st. 1."}, {"src": "NN150/22", "loc": "čl. 9. st. 1."}]
+  },
+  "pro-027": {
+    "note": "Za postaju u samogradnji potrebno je uvjerenje o tehničkoj sukladnosti koje izdaje Savez (HRS). Isto vrijedi i za uređaje izvorno namijenjene neamaterskoj uporabi.",
+    "cite": [{"src": "NN150/22", "loc": "čl. 12. st. 3."}]
+  },
+  "pro-033": {
+    "note": "Rad s druge nepokretne lokacije prijavljuje se Agenciji kada traje dulje od tri mjeseca.",
+    "cite": [{"src": "NN150/22", "loc": "čl. 13."}]
+  },
+  "pro-084": {
+    "note": "ERP amaterske relejne (repetitorske) postaje ne smije prijeći 15 W.",
+    "cite": [{"src": "NN150/22", "loc": "Dodatak 1., t. 2.4."}]
+  },
+  "pro-016": {
+    "note": "Po važećem Pravilniku nema donje dobne granice za pristup ispitu; osoba mlađa od 18 godina treba suglasnost roditelja ili skrbnika. Stariji priručnik iz 2005. još navodi granicu od 12 godina — to je zastarjelo.",
+    "cite": [{"src": "NN150/22", "loc": "čl. 9."}, {"src": "RK", "loc": "str. 359 (zastarjela inačica pitanja)"}]
+  }
+}

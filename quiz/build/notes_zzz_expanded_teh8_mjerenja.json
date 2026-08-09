@@ -1,0 +1,577 @@
+{
+  "_doc": "Expanded teaching notes — batch: 8. Mjerenja (15 pitanja, teh-244…teh-258). Instrument s pomičnim svitkom i digitalni instrumenti, mjerenje napona/struje/otpora, šent i predotpornik, opterećenje kruga mjerilom, efektivna i vršna vrijednost, osciloskop, analizator spektra, reflektometar i SWR, dip-metar, brojilo frekvencije, pogreške mjerenja i razred točnosti. Vodeća ideja cijelog poglavlja: MJERILO JE DIO KRUGA — svaki instrument koji priključiš mijenja ono što mjeri, i sve ostalo slijedi iz njegova unutrašnjeg otpora. Sortira se ZADNJE pa nadjačava kratke izvorne bilješke.",
+  "_links_verified": "Svaki URL je dohvaćen i potvrđeno je da postoji i da pokriva navedenu tvrdnju (9. kolovoza 2026.). Novo potvrđeno i vrijedno dodavanja u LINKS.md: hr.wikipedia 'Ampermetar', 'Voltmetar', 'Galvanometar' POSTOJE; hr.wikipedia 'Ommetar', 'Analizator spektra', 'Wheatstoneov most', 'Mjerna nesigurnost', 'Efektivna vrijednost izmjenične struje' NE postoje (404) — za njih se koriste en.wikipedia 'Ohmmeter', 'Spectrum analyzer', 'Wheatstone bridge', 'Root mean square'.",
+  "_citation_note": "Nasljeđene citacije upućivale su gotovo sve na PZM str. 121–124. To je za teh-244…248, 252, 253 i 258 točno (PZM Tema 18 doista pokriva napon, struju i otpor), ALI PZM u tom poglavlju UOPĆE ne spominje osciloskop, analizator spektra, reflektometar, SWR ni dip-metar — citacije za teh-249, 250, 251, 254 i 257 bile su pogrešne i zamijenjene su RK-om, koji ima cijelo poglavlje 8 (tiskane str. 174–186). Za teh-255 i teh-256 nasljeđeni PZM citat također je zamijenjen: oba su zadatka doslovno preuzeta iz RK, tiskana str. 176. Sve tiskane stranice očitane su s papira; RK-ov pomak pdf→tiskano u ovom rasponu je +4 (pdf 170 = tiskana 174), a u zbirci pitanja +6 (pdf 288 = tiskana 294, pdf 311 = tiskana 317).",
+
+  "teh-244": {
+    "note": "Napon nije nešto što neka točka „ima\" — napon je RAZLIKA potencijala IZMEĐU dvije točke. Zato voltmetar mora premostiti baš te dvije točke, dakle stajati paralelno s teretom. RK to kaže bez ograde: napon se uvijek mjeri spajanjem priključnica voltmetra paralelno trošilu. Nema smisla pitati „koliki je napon ovdje\" bez druge točke, kao što nema smisla pitati koliko je nešto više bez „više od čega\".\n\nSad ono što ispit zapravo ispituje, a to je posljedica: čim si voltmetar spojio paralelno, on je postao dodatna grana kruga. Kroz njega poteče struja koja prije nije tekla, ukupni otpor na tom mjestu padne, i napon koji si htio izmjeriti — promijeni se. To je efekt opterećenja (loading). Zato RK traži da unutrašnji otpor voltmetra bude što veći: idealan voltmetar ima beskonačan otpor, ne uzima nikakvu struju i ne primjećuje ga se. Realan ga uvijek malo poremeti, a loš ga poremeti toliko da mjerenje nema smisla (koliko točno — vidi teh-246 i teh-255).\n\nZašto su ostali odgovori krivi, i to poučno krivi. (a) Serijski: voltmetar velikog otpora u seriji zaustavi struju u krugu, teret prestane raditi, a instrument pokaže gotovo cijeli napon izvora — dakle broj koji izgleda uvjerljivo, a potpuno je pogrešan. (b) Umjesto tereta: mjeriš napon praznog hoda izvora, a ne napon na teretu; kod izvora s unutrašnjim otporom to su dva različita broja. (d) „Nije bitno\" je jedini odgovor koji je opasan, jer sugerira da instrument ne sudjeluje u krugu — a cijelo poglavlje 8 govori upravo o tome da sudjeluje.\n\nJoš jedna stvar koju treba znati kod izmjeničnog napona. Za AC se rabi isti instrument s pomičnim svitkom, ali s ugrađenim Graetzovim ispravljačem. Takvo mjerilo fizikalno reagira na SREDNJU ispravljenu vrijednost, koja je kod sinusa 0,636 od vršne — ali je ljestvica umjerena u EFEKTIVNOJ vrijednosti, koja je 0,707 od vršne, jer je efektivna vrijednost ona koja daje istu snagu kao istosmjerna struja. Razlika je ugrađena u ljestvicu kao stalni faktor 1,11 (oblikovni faktor sinusa). Posljedica je zamka koju RK izričito navodi: ako mjereni signal NIJE sinusan, taj faktor više ne vrijedi i mjerilo laže — to više što je odstupanje od sinusa veće. Zato se za nesinusne i za RF signale rabe pravi RMS-instrumenti ili elektronički voltmetar s diodnim detektorom.",
+    "formula": [
+      "Voltmetar ide PARALELNO teretu — mjeri razliku potencijala",
+      "između svojih dviju priključnica.",
+      "",
+      "Koliko ga se osjeti (naponsko dijelilo 12 V, 10 kΩ + 10 kΩ):",
+      "   prava vrijednost                       U = 6,00 V",
+      "",
+      "   R_V = 100 kΩ:  10 kΩ ∥ 100 kΩ = 9,09 kΩ",
+      "                  U = 12 · 9,09/19,09 = 5,71 V   (−4,8 %)",
+      "",
+      "   R_V = 1 MΩ:    10 kΩ ∥ 1 MΩ  = 9,90 kΩ",
+      "                  U = 12 · 9,90/19,90 = 5,97 V   (−0,5 %)",
+      "",
+      "   → veći R_V, manja pogreška. Idealno R_V → ∞.",
+      "",
+      "Izmjenični napon (sinus), instrument s ispravljačem:",
+      "   U_sred = 0,636 · U_vrš      ← na to mjerilo fizikalno reagira",
+      "   U_ef   = 0,707 · U_vrš      ← u tome je ljestvica umjerena",
+      "",
+      "   oblikovni faktor = 0,707 / 0,636 = 1,11",
+      "",
+      "   Primjer, U_vrš = 100 V:",
+      "      srednja   63,6 V  ·  1,11  =  70,7 V  = efektivna",
+      "",
+      "   Vrijedi SAMO za sinus. Nesinusni val → pogreška."
+    ],
+    "links": [
+      {"label": "Voltmetar (hr.wikipedia)", "url": "https://hr.wikipedia.org/wiki/Voltmetar"},
+      {"label": "Električni napon (hr.wikipedia)", "url": "https://hr.wikipedia.org/wiki/Elektri%C4%8Dni_napon"},
+      {"label": "Multimetar (hr.wikipedia)", "url": "https://hr.wikipedia.org/wiki/Multimetar"},
+      {"label": "Root mean square — efektivna vrijednost (en.wikipedia)", "url": "https://en.wikipedia.org/wiki/Root_mean_square"}
+    ],
+    "cite": [
+      {"src": "RK", "loc": "8.1.1. Mjerenje istosmjernih i izmjeničnih napona i struja — Mjerenje napona, sl. 8.1.1., tiskana str. 174"},
+      {"src": "RK", "loc": "8.1.1.1. Pogreške pri mjerenju — Utjecaj valnog oblika i Utjecaj unutrašnjeg otpora mjerila, tiskana str. 176"},
+      {"src": "PZM", "loc": "Tema 18 (8. Mjerenja) — Mjerenje napona, sl. 18/3., tiskana str. 122"}
+    ]
+  },
+
+  "teh-245": {
+    "note": "Struja je protok naboja kroz presjek vodiča. Da bi je izmjerio, sva ta struja mora proteći kroz tvoj instrument — a to znači da krug moraš PREKINUTI i ampermetar umetnuti u prekid. Serijski, dakle. RK: ampermetar se uvijek priključuje serijski s trošilom kroz koje protječe struja čiju jakost mjerimo. Ovo je zrcalna slika teh-244: napon se mjeri „preko\" (paralelno), struja se mjeri „kroz\" (serijski).\n\nI ovdje je bit u tome što instrument postane dio kruga. Ampermetar u seriji dodaje svoj unutrašnji otpor u petlju, pa struja koju mjeriš postane manja od one koja je tekla prije nego što si ga spojio. Zato RK traži suprotno od voltmetra: otpor ampermetra treba biti što manji, idealno nula (vidi teh-247 i teh-256). Umjesto o otporu možeš misliti o padu napona na mjerilu — engleski se to zove burden voltage. Osnovno mjerilo s pomičnim svitkom ima pri punom otklonu pad od svega 50 mV; s ugrađenim šentom za veće struje ukupni pad ostaje tog reda veličine.\n\nNajskuplja pogreška u cijelom poglavlju je spojiti ampermetar PARALELNO, kao da je voltmetar. Ampermetar je namjerno napravljen kao gotovo kratki spoj; stavi li ga se paralelno teretu ili, još gore, izravno preko izvora, kroz njega poteče struja ograničena samo unutrašnjim otporom izvora. Rezultat je pregorjeli šent, rastaljena osigurač-žica u instrumentu ili uništeno mjerilo. Zato PZM izričito upozorava da pri mjerenju struje treba biti vrlo oprezan i početi od NAJVEĆEG mjernog područja — u serijskom spoju instrument je praktički bez zaštite.\n\nPraktična napomena za radioamatera: struju kolektora ili anode izlaznog stupnja ne mjeri se rasijecanjem kabela nego preko „ispitnih točaka\" koje su za to predviđene u uređaju (RK 8.1.3.). Za struju u napojnom vodu postaje danas se najčešće uopće ne prekida krug, nego se rabi kliještasti ampermetar ili šent ugrađen u napajanje. Načelo ostaje isto — kliješta samo mjere magnetsko polje umjesto da presijeku vodič.",
+    "formula": [
+      "Ampermetar ide SERIJSKI — krug se prekine i mjerilo umetne.",
+      "",
+      "Koliko ga se osjeti (izvor 12 V, teret 100 Ω):",
+      "   prava vrijednost   I = 12/100      = 120,0 mA",
+      "",
+      "   R_A = 0,5 Ω        I = 12/100,5    = 119,4 mA   (−0,5 %)",
+      "   R_A = 5 Ω          I = 12/105      = 114,3 mA   (−4,8 %)",
+      "   R_A = 100 Ω        I = 12/200      =  60,0 mA   (−50 %)",
+      "",
+      "   → manji R_A, manja pogreška. Idealno R_A → 0.",
+      "",
+      "Pad napona na mjerilu (burden voltage):",
+      "   osnovno mjerilo pri punom otklonu ≈ 50 mV",
+      "   U_A = I · R_A → npr. 1 A · 0,05 Ω = 50 mV",
+      "",
+      "Zrcalno pravilo cijelog poglavlja:",
+      "   NAPON  → paralelno, otpor mjerila velik   (teh-244, teh-246)",
+      "   STRUJA → serijski,  otpor mjerila malen   (teh-245, teh-247)"
+    ],
+    "links": [
+      {"label": "Ampermetar (hr.wikipedia)", "url": "https://hr.wikipedia.org/wiki/Ampermetar"},
+      {"label": "Električna struja (hr.wikipedia)", "url": "https://hr.wikipedia.org/wiki/Elektri%C4%8Dna_struja"},
+      {"label": "Multimetar (hr.wikipedia)", "url": "https://hr.wikipedia.org/wiki/Multimetar"}
+    ],
+    "cite": [
+      {"src": "RK", "loc": "8.1.1. — Mjerenje struje, sl. 8.1.2., tiskana str. 175"},
+      {"src": "RK", "loc": "Zbirka ispitnih pitanja, pit. 43. („ampermetar u seriju, a voltmetar paralelno s teretom\"), tiskana str. 295"},
+      {"src": "PZM", "loc": "Tema 18 — Mjerenje struje (upozorenje o početku od najvećeg područja), tiskana str. 123"}
+    ]
+  },
+
+  "teh-246": {
+    "note": "Voltmetar treba imati što VEĆI unutrašnji otpor, i razlog je izravna posljedica toga što se spaja paralelno (teh-244). Paralelna grana s konačnim otporom oduzima dio struje teretu i time snižava napon koji si htio izmjeriti. RK to formulira idealizirano: idealno bi bilo kada bi unutrašnji otpor voltmetra bio neizmjerno velik, jer tada grana voltmetra ne bi uopće predstavljala opterećenje. Voltmetar prenizakog otpora sustavno pokazuje NIŽI napon od stvarnog — pogreška je uvijek u istom smjeru, nikad slučajna.\n\nZato se kvaliteta voltmetra ne izražava u omima nego u omima po voltu. Razlog je taj što se unutrašnji otpor mijenja s mjernim područjem: veće područje traži veći predotpornik (teh-253), pa je otpor razmjeran punom otklonu. Omjer je stalan i jednak recipročnoj vrijednosti struje punog otklona osnovnog mjerila. Mjerilo s punim otklonom od 50 µA daje 20 kΩ/V — RK i PZM se ovdje slažu da je to donja granica upotrebljivosti u radiotehnici; na području od 100 V to je 2 MΩ. Voltmetar od 500 Ω/V (baš onaj iz teh-255) RK izričito naziva preniskom vrijednošću. Elektronički voltmetri imaju 10 MΩ/V i više, a digitalni multimetri imaju stalnih 10 MΩ na ulazu, neovisno o području — zato kod njih Ω/V uopće nema smisla navoditi.\n\nOstali odgovori padaju iz dva različita razloga. (c) „Što manji unutrašnji otpor\" je točan opis AMPERMETRA, ne voltmetra — klasična zamjena parova (teh-247). (b) „Nelinearna skala\" nije poželjna nego se izbjegava: RK izričito kaže da je ljestvica instrumenta s pomičnim svitkom LINEARNA, a nelinearnu ljestvicu ima ommetar, i to kao neizbježno zlo, ne kao vrlinu (teh-248).\n\nOdgovor (d), „što manja skala\", zaslužuje posebnu riječ jer dodiruje pravu temu — izbor mjernog područja. Razred točnosti instrumenta zadan je u postotku PUNOG OTKLONA, a ne očitane vrijednosti. RK-ov primjer: instrument razreda 2 % na području od 100 V griješi ±2 V bilo gdje na ljestvici. Očitaš li 100 V, to je 2 % pogreške; očitaš li 10 V na tom istom području, tih ±2 V je ±20 %. Zato se područje bira tako da očitanje padne na oko 2/3 ljestvice — nikako na sam početak. „Što manja skala\" nije cilj; cilj je PRIKLADNA skala. Kod struje pak vrijedi obrnut redoslijed opreza: tamo se počinje od najvećeg područja (teh-245), pa se spušta.",
+    "formula": [
+      "Osjetljivost voltmetra:",
+      "   S = R_unutrašnji / U_puni_otklon  =  1 / I_puni_otklon   [Ω/V]",
+      "",
+      "   I_fsd = 50 µA  →  S = 1/50·10⁻⁶ = 20 000 Ω/V = 20 kΩ/V",
+      "   na području 100 V:  R = 20 kΩ/V · 100 V = 2 MΩ",
+      "",
+      "Isto mjerenje, tri voltmetra",
+      "(dijelilo 20 V, 100 kΩ + 100 kΩ, prava vrijednost 10,00 V):",
+      "",
+      "   500 Ω/V   → 50 kΩ    U = 5,00 V    pogreška −50 %",
+      "   20 kΩ/V   → 2 MΩ     U = 9,76 V    pogreška −2,4 %",
+      "   digitalni → 10 MΩ    U = 9,95 V    pogreška −0,5 %",
+      "",
+      "Razred točnosti — postotak PUNOG OTKLONA (RK 8.2.8.):",
+      "   razred 2 %, područje 100 V  →  ±2 V svugdje na ljestvici",
+      "",
+      "      očitanje 100 V  →  ±2 V  =  ±2 %",
+      "      očitanje  66 V  →  ±2 V  =  ±3 %",
+      "      očitanje  10 V  →  ±2 V  =  ±20 %   ← zato ne na početku",
+      "",
+      "   → biraj područje tako da očitanje bude oko 2/3 ljestvice."
+    ],
+    "links": [
+      {"label": "Voltmetar (hr.wikipedia)", "url": "https://hr.wikipedia.org/wiki/Voltmetar"},
+      {"label": "Multimetar (hr.wikipedia)", "url": "https://hr.wikipedia.org/wiki/Multimetar"},
+      {"label": "Električni otpor (hr.wikipedia)", "url": "https://hr.wikipedia.org/wiki/Elektri%C4%8Dni_otpor"}
+    ],
+    "cite": [
+      {"src": "RK", "loc": "8.1.1.1. — Utjecaj unutrašnjeg otpora mjerila (osjetljivost u Ω/V, 20 kΩ/V, elektronički voltmetri 10 MΩ/V), tiskana str. 176"},
+      {"src": "RK", "loc": "8.2.1. Mjerilo s pomičnim svitkom — linearna ljestvica; 8.2.8. Točnost i tolerancije, tiskana str. 181 i 186"},
+      {"src": "PZM", "loc": "Tema 18 — Mjerenje napona (zahtjev od barem 20 kΩ/V, tj. 2 MΩ na području 100 V), tiskana str. 122"}
+    ]
+  },
+
+  "teh-247": {
+    "note": "Ampermetar treba imati što MANJI unutrašnji otpor, i to je točno zrcalo prethodnog pitanja. Ampermetar se spaja serijski (teh-245), dakle njegov otpor se PRIBRAJA otporu petlje. Ohmov zakon onda smanji struju: mjerilo pokaže manje nego što je stvarno teklo prije nego si ga umetnuo. RK: idealni ampermetar morao bi imati unutrašnji otpor jednak ništici, jer nam je cilj da naponi i struja u glavnom strujnom krugu, u kojem je sada ampermetar, ostanu jednaki onima prije priključivanja mjerila.\n\nKoliko je „malo\" dovoljno malo, ovisi o krugu, i to je ono što treba razumjeti umjesto zapamtiti. Mjerodavan je OMJER otpora mjerila prema otporu kruga. U petlji od 100 Ω ampermetar od 0,5 Ω unese pola postotka pogreške; u petlji od 1 Ω isti taj ampermetar unese trećinu. Zato RK kaže da bi realni ampermetar s unutrašnjim otporom od nekoliko oma unio već nedopustivo veliku pogrešku, a dobar mora imati manje od 0,5 Ω (odatle brojka u teh-256).\n\nMehanizam kojim se to postiže vrijedi znati: osnovno mjerilo s pomičnim svitkom ima svitak od oko 2000 Ω, što je za ampermetar beznadno mnogo. Ali čim mu paralelno spojiš šent (teh-252), ukupni otpor kombinacije padne na vrijednost šenta, jer je on mnogo manji. Za područje od 1 A šent iznosi oko 0,05 Ω i to je ono što krug osjeti. Drugim riječima, isti onaj otpornik koji proširuje mjerno područje istodobno rješava i problem unutrašnjeg otpora. Zgodno je misliti u padu napona: pri punom otklonu na mjerilu ostaje svega ~50 mV, bez obzira na područje.\n\nZapamti par u kojem se ova dva pitanja uvijek pojavljuju, jer se na ispitu vole pobrkati: VOLTMETAR — paralelno — velik otpor — idealno beskonačan; AMPERMETAR — serijski — malen otpor — idealno nula. U oba slučaja isti je cilj: da krug ne primijeti da ga netko gleda.",
+    "formula": [
+      "Ampermetar u seriji povećava otpor petlje:",
+      "",
+      "   I_izmjereno = U / (R_kruga + R_A)",
+      "",
+      "   relativna pogreška ≈ − R_A / (R_kruga + R_A)",
+      "",
+      "Isti ampermetar, dva različita kruga (R_A = 0,5 Ω):",
+      "   R_kruga = 100 Ω  →  pogreška  −0,5 %",
+      "   R_kruga =   1 Ω  →  pogreška  −33 %",
+      "   → nije bitan R_A sam po sebi, nego OMJER prema krugu.",
+      "",
+      "Zašto je to uopće izvedivo:",
+      "   svitak osnovnog mjerila            ≈ 2000 Ω",
+      "   šent za područje 1 A               ≈ 0,05 Ω",
+      "   2000 Ω ∥ 0,05 Ω                    ≈ 0,05 Ω   ← to krug osjeti",
+      "",
+      "Par koji se na ispitu miješa:",
+      "   voltmetar   paralelno   R → ∞",
+      "   ampermetar  serijski    R → 0"
+    ],
+    "links": [
+      {"label": "Ampermetar (hr.wikipedia)", "url": "https://hr.wikipedia.org/wiki/Ampermetar"},
+      {"label": "Shunt (electrical) (en.wikipedia)", "url": "https://en.wikipedia.org/wiki/Shunt_(electrical)"},
+      {"label": "Ohmov zakon (hr.wikipedia)", "url": "https://hr.wikipedia.org/wiki/Ohmov_zakon"}
+    ],
+    "cite": [
+      {"src": "RK", "loc": "8.1.1.1. — Utjecaj unutrašnjeg otpora mjerila („dobar ampermetar mora imati unutrašnji otpor manji od 0,5 Ω\"), tiskana str. 176"},
+      {"src": "RK", "loc": "8.2.1. Mjerilo s pomičnim svitkom — osnovno mjerilo, otpor svitka i pad napona pri punom otklonu, tiskana str. 181"},
+      {"src": "PZM", "loc": "Tema 18 — Mjerenje struje, sl. 18/4., tiskana str. 123"}
+    ]
+  },
+
+  "teh-248": {
+    "note": "Otpor se mjeri OMMETROM. Za razliku od voltmetra i ampermetra, koji samo pasivno promatraju ono što se u krugu već događa, ommetar mora sam nešto UČINITI: nema otpora bez struje kroz njega. Zato ommetar u sebi ima vlastitu bateriju (PZM crta 3 V), predotpornik i osnovni miliampermetar. Baterija tjera struju kroz nepoznati otpornik, mjerilo očita struju, a ljestvica je umjerena u omima — dakle uređaj mjeri struju, a piše otpor.\n\nIz tog trika slijede sve osobitosti ommetra. Ljestvica mu je OBRNUTA: najveća struja teče kad je otpor nula, pa je „0 Ω\" na desnom kraju, gdje je puni otklon, a beskonačan otpor je lijevo, gdje kazaljka miruje. Ljestvica je i NELINEARNA, jer je struja obrnuto razmjerna zbroju otpora — na lijevoj se strani vrijednosti zgušnjavaju i tamo se ne može ništa pouzdano očitati (usporedi s teh-246: linearna ljestvica je odlika voltmetra i ampermetra, ne ommetra). Sredina ljestvice pada točno na unutrašnji otpor ommetra, pa je najtočnije mjeriti otpore tog reda veličine. I prije svakog mjerenja šiljke treba kratko spojiti i potenciometrom namjestiti ništicu, jer se napon baterije s vremenom mijenja.\n\nNajvažnije praktično pravilo, i ono zbog kojeg se instrumenti najčešće uništavaju: mjeri se „na hladno\". Otpornik se izvadi iz kruga, ili se barem obvezno isključi izvor napona. Ako u krugu ostane napon, on se pribraja naponu ommetrove baterije — u najboljem slučaju dobiješ besmislen broj, u najgorem pregori mjerilo. Kod uređaja s kondenzatorima to nije dovoljno: preostali naboj se mora izbiti prije mjerenja. Druga zamka je da otpornik u krugu ima usporedne putove: mjeriš njega i sve što je s njim paralelno, pa uvijek dobiješ manji otpor od pravoga. Zato barem jednu nožicu treba odlemiti.\n\nOstali ponuđeni instrumenti mjere sasvim druge veličine i vrijedi ih razlikovati: GRID-DIP metar određuje rezonancijsku frekvenciju titrajnog kruga (teh-254), frekvencmetar mjeri frekvenciju signala, a spektar-analizator prikazuje raspodjelu amplituda po frekvencijama (teh-250). Ako baš nemaš ommetar, otpor se može odrediti i posredno — voltmetrom i ampermetrom istodobno, pa R = U/I po Ohmovu zakonu (RK sl. 8.1.3.); shema s vlastitim izvorom i usporedbenim otporom je onda izravno mjerenje (teh-258).",
+    "formula": [
+      "Ommetar = baterija + predotpor + miliampermetar,",
+      "ljestvica umjerena u omima.",
+      "",
+      "PZM-ova izvedba (sl. 18/5.):",
+      "   baterija 3 V",
+      "   mjerilo 1 mA, otpor svitka 100 Ω",
+      "   serijski 2800 Ω + 200 Ω za namještanje ništice",
+      "   → ukupno R_u = 3000 Ω",
+      "",
+      "   R_x = 0        I = 3/3000    = 1,00 mA  → puni otklon = „0 Ω\"",
+      "   R_x = 3 kΩ     I = 3/6000    = 0,50 mA  → SREDINA ljestvice",
+      "   R_x = 9 kΩ     I = 3/12000   = 0,25 mA  → već stisnuto",
+      "   R_x = ∞        I = 0                    → lijevi kraj",
+      "",
+      "   → ljestvica obrnuta i nelinearna;",
+      "     sredina ljestvice = unutrašnji otpor ommetra.",
+      "",
+      "Posredno mjerenje, ako ommetra nema (RK sl. 8.1.3.):",
+      "   R = U / I     npr. 6,0 V / 12 mA = 500 Ω",
+      "",
+      "Pravila: izvor ISKLJUČEN · kondenzatori izbijeni ·",
+      "         otpornik odlemljen barem jednom nožicom."
+    ],
+    "links": [
+      {"label": "Ohmmeter (en.wikipedia)", "url": "https://en.wikipedia.org/wiki/Ohmmeter"},
+      {"label": "Električni otpor (hr.wikipedia)", "url": "https://hr.wikipedia.org/wiki/Elektri%C4%8Dni_otpor"},
+      {"label": "Ohmov zakon (hr.wikipedia)", "url": "https://hr.wikipedia.org/wiki/Ohmov_zakon"},
+      {"label": "Multimetar (hr.wikipedia)", "url": "https://hr.wikipedia.org/wiki/Multimetar"}
+    ],
+    "cite": [
+      {"src": "PZM", "loc": "Tema 18 — Mjerenje otpora („mjerenje je dakle 'na hladno'\", obrnuta i nelinearna ljestvica, namještanje ništice), sl. 18/5., tiskana str. 124"},
+      {"src": "RK", "loc": "8.1.2. Mjerenje otpora — izravno ommetrom i posredno preko U i I, sl. 8.1.3., tiskana str. 176–177"}
+    ]
+  },
+
+  "teh-249": {
+    "note": "Osciloskop je jedini instrument iz ovog poglavlja koji ne pokazuje BROJ nego SLIKU: crta napon kao funkciju vremena. Zato se njime vidi OBLIK signala — je li sinus čist ili spljošten, je li pravokutni impuls zaobljen, kolika je dubina modulacije, ima li na signalu smetnje kojih na multimetru nema ni traga.\n\nMehanizam je vrijedan pamćenja jer objašnjava sve ručice na prednjoj ploči. Signal ide na Y-ulaz, kroz pojačalo vertikalnog otklona, i sam za sebe daje samo okomitu crtu čija duljina odgovara amplitudi — oblika još nema. Oblik nastane tek kad na X-ulaz dovedeš VREMENSKU BAZU: pilasti napon koji svijetlu točku ravnomjerno vuče slijeva nadesno, pa se ono što se događa u vremenu razmota po ekranu. Da bi slika mirovala, vremenska baza mora biti sinkronizirana sa signalom — to radi triger-sklop. Prekineš li vremensku bazu i dovedeš na X neki drugi signal, dobiješ Lissajousove figure ili modulacijski trapez (RK sl. 8.1.7.), kojim se izravno očitava dubina AM modulacije.\n\nOčitavanje je čisto množenje: amplituda = broj podjeljaka po Y puta V/podjeljak, perioda = broj podjeljaka po X puta s/podjeljak, a frekvencija je f = 1/T. Radioamaterski osciloskopi po RK-u imaju vremensku bazu od 1 µs/cm do 1 s/cm i vertikalni otklon od 5 mV/cm do 100 V/cm.\n\nDva upozorenja koja se lako previde. Prvo: s ekrana očitavaš VRŠNU (ili vršnu-do-vršne) vrijednost, a ne efektivnu. Za snagu i za usporedbu s multimetrom moraš dijeliti s 1,414. Druga zamka je konkretna: u RK-ovoj zbirci na tiskanoj str. 317 zadatak 42. daje očitanje od 6 V, a sljedeći zadatak traži snagu na teretu od 50 Ω — ali među ponuđenim odgovorima nema 0,36 W, koliko iznosi snaga sinusa s vršnom vrijednosti 6 V; najbliži ponuđeni broj (0,8 W) dobiva se tek ako se tih 6 V uzme kao efektivna vrijednost. Pročitaj takav zadatak dvaput. Drugo upozorenje: osciloskop prikazuje VREMENSKU sliku, a analizator spektra FREKVENCIJSKU (teh-250) — to su dva pogleda na isti signal i ne zamjenjuju se. Od ostalih ponuđenih, GRID-DIP metar traži rezonanciju (teh-254), a Leherov vod je par paralelnih vodiča na kojima se pomičnim kratkospojnikom mjeri valna duljina na UHF-u.",
+    "formula": [
+      "Osciloskop:  Y = napon,  X = vrijeme (pilasti napon baze)",
+      "",
+      "Očitavanje (primjer iz RK-ove zbirke, tiskana str. 317):",
+      "   Y: 3 V/podjeljak      X: 1 ms/podjeljak",
+      "",
+      "   amplituda 2 podjeljka  →  U_vrš = 2 · 3 V = 6 V",
+      "   perioda   4 podjeljka  →  T = 4 · 1 ms = 4 ms",
+      "   f = 1/T = 1/0,004 s = 250 Hz",
+      "",
+      "Pretvorbe koje TREBAŠ napraviti sam:",
+      "   U_ef   = U_vrš / 1,414  =  0,707 · U_vrš",
+      "   U_vrš  = 1,414 · U_ef",
+      "   U_vv   = 2 · U_vrš            (vršna-do-vršne)",
+      "",
+      "   6 V vršno → U_ef = 4,24 V → U_vv = 12 V",
+      "   P na 50 Ω = U_ef²/R = 4,24²/50 = 0,36 W",
+      "",
+      "Rasponi amaterskog osciloskopa (RK):",
+      "   vremenska baza   1 µs/cm … 1 s/cm",
+      "   vertikalni otklon 5 mV/cm … 100 V/cm",
+      "",
+      "Dubina AM modulacije s ovojnice:  m = M/N · 100 %"
+    ],
+    "links": [
+      {"label": "Osciloskop (hr.wikipedia)", "url": "https://hr.wikipedia.org/wiki/Osciloskop"},
+      {"label": "Crest factor — odnos vršne i efektivne vrijednosti (en.wikipedia)", "url": "https://en.wikipedia.org/wiki/Crest_factor"},
+      {"label": "Lecher line — Leherov vod (en.wikipedia)", "url": "https://en.wikipedia.org/wiki/Lecher_line"}
+    ],
+    "cite": [
+      {"src": "RK", "loc": "8.2.7. Osciloskop — katodna cijev, vertikalni i horizontalni otklonski sklop, triger, očitavanje amplitude i periode, sl. 8.2.5. i 8.2.6., tiskana str. 185–186"},
+      {"src": "RK", "loc": "8.1.5. Valni oblik ovojnice RF signala — dubina modulacije i modulacijski trapez, sl. 8.1.6. i 8.1.7., tiskana str. 179"},
+      {"src": "RK", "loc": "Zbirka ispitnih pitanja, pit. 42.–43. (očitavanje s zaslona osciloskopa), tiskana str. 317"}
+    ]
+  },
+
+  "teh-250": {
+    "note": "Analizator spektra crta isti signal kao i osciloskop, samo iz druge perspektive: na vodoravnoj osi je FREKVENCIJA, a na okomitoj amplituda. Osciloskop odgovara na pitanje „kako signal izgleda u vremenu\", analizator spektra na pitanje „od kojih se frekvencija sastoji\". To su dvije potpuno različite slike istoga i jedna se iz druge ne može naslutiti okom.\n\nRazlika se najlakše shvati na pravokutnom signalu. Na osciloskopu je to jedan uredan pravokutnik i ništa više. Na analizatoru spektra to je češalj crta: osnovna frekvencija i niz neparnih harmonika, svaki sa svojom amplitudom. Isto vrijedi za odašiljač: na osciloskopu je izlaz izobličenog pojačala i dalje „nekakav sinus\", a na analizatoru odmah vidiš drugi i treći harmonik kako strše iz šuma. RK to i crta — na tiskanoj str. 121 dan je frekvencijski spektar postaje za 10 MHz, s harmonicima naznačenim crtkano za slučaj loše projektiranog uređaja.\n\nZato je analizator spektra instrument kojim se provjerava ČISTOĆA emisije, a to je za radioamatera i pravna, ne samo tehnička stvar. Sporedna zračenja i harmonici su ono zbog čega ti se javlja susjed s prugama na televizoru. Klasičan primjer koji RK postavlja i kao ispitni zadatak: HF odašiljač s niskopropusnim filtrom granične frekvencije 30 MHz, koji radi na 14 MHz — drugi harmonik je na 28 MHz i PROLAZI kroz filtar, treći na 42 MHz ne prolazi. Filtar te dakle ne štiti automatski od svega; treba znati gdje ti harmonici padaju.\n\nOd ostalih ponuđenih instrumenata: osciloskop je vremenska slika (teh-249), reflektometar mjeri odnos napredujućeg i reflektiranog vala, dakle prilagodbu (teh-251), a frekvencmetar daje jedan jedini broj — frekvenciju najjačeg signala — i o spektru ne govori ništa. Analizator spektra izrijekom stoji u ispitnom programu za A razred, u popisu mjernih instrumenata usklađenom s preporukom CEPT T/R 61-02.",
+    "formula": [
+      "Dvije slike istog signala:",
+      "",
+      "   OSCILOSKOP          X = vrijeme       Y = napon",
+      "   ANALIZATOR SPEKTRA  X = frekvencija   Y = amplituda",
+      "",
+      "Pravokutni signal 1 kHz:",
+      "   osciloskop  → jedan pravokutnik",
+      "   analizator  → crte na 1, 3, 5, 7, 9 kHz …",
+      "                 (neparni harmonici, amplituda ~1/n)",
+      "",
+      "Harmonici odašiljača — gdje padaju:",
+      "   osnovna f       2. harmonik    3. harmonik",
+      "    1,8 MHz          3,6            5,4",
+      "    3,5 MHz          7,0           10,5",
+      "    7,0 MHz         14,0           21,0",
+      "   14,0 MHz         28,0           42,0",
+      "   21,0 MHz         42,0           63,0",
+      "",
+      "Zamka: niskopropusni filtar s granicom 30 MHz",
+      "   14 MHz → 2. harmonik 28 MHz  PROLAZI",
+      "          → 3. harmonik 42 MHz  ne prolazi"
+    ],
+    "links": [
+      {"label": "Spectrum analyzer (en.wikipedia)", "url": "https://en.wikipedia.org/wiki/Spectrum_analyzer"},
+      {"label": "Osciloskop (hr.wikipedia)", "url": "https://hr.wikipedia.org/wiki/Osciloskop"},
+      {"label": "Frekvencija (hr.wikipedia)", "url": "https://hr.wikipedia.org/wiki/Frekvencija"}
+    ],
+    "cite": [
+      {"src": "RK", "loc": "3.4.6. Harmonici, nelinearna izobličenja — frekvencijski spektar postaje za 10 MHz, sl. 3.4.5., tiskana str. 121"},
+      {"src": "RK", "loc": "2.2.1. Program za radioamaterski ispit (CEPT T/R 61-02), 8.2. Mjerni instrumenti — analizator spektra, tiskana str. 224–225"},
+      {"src": "RK", "loc": "Zbirka ispitnih pitanja, pit. 49. (harmonik koji prolazi kroz filtar od 30 MHz), tiskana str. 318"}
+    ]
+  },
+
+  "teh-251": {
+    "note": "Prilagođenje antene mjeri se REFLEKTOMETROM — instrumentom koji odvojeno mjeri val koji putuje prema anteni i val koji se vraća. To je jedini pristup koji ima smisla, jer prilagodba po definiciji nije svojstvo napona nego OMJERA dvaju valova. RK: kada u lancu odašiljač–prijenosni vod–antena postoji impedancijska neprilagođenost, sva RF energija ne stiže do antene, nego se jedan njezin dio vraća natrag prema izvoru, reflektirajući se od mjesta neprilagodbe. Napredujući i povratni val zajedno tvore STOJNI VAL s trbusima i čvorovima.\n\nZašto to ne možeš izmjeriti običnim voltmetrom (odgovor b): jer napon uzduž voda nije isti — ovisi o tome gdje si ga mjerio. Na trbuhu je najveći, na čvoru najmanji, a razmak između njih je λ/4. Voltmetar bi ti dao broj koji se mijenja ako pomakneš mjesto mjerenja, dakle beskoristan podatak. Klasična definicija SWR-a upravo je omjer najvišeg i najnižeg napona uzduž voda. Reflektometar zaobilazi tu nezgodu: umjesto da traži maksimum i minimum uzduž kabela, on razdvaja dva vala na jednom mjestu.\n\nKako to radi: usmjereni spreg (directional coupler). Kroz koaksijalni vod, između izolatora i vanjske zaštite, provučen je na kratkoj duljini izolirani vodič u kojem napredujući val inducira napon; taj se napon diodom ispravi i pokaže na mjerilu kao veličina razmjerna napredujućem valu. Druga dioda s drugom spregom, okrenuta suprotno, mjeri povratni val. Odatle preklopnik FWD/REF na svakom SWR-metru. RK opisuje i drugu izvedbu — mjerni most (Wheatstoneov, s impedancijama umjesto djelatnih otpora), koji je u ravnoteži kad je impedancija antene jednaka referentnih 50 Ω; tada voltmetar na dijagonali pokazuje ništicu.\n\nSWR se iz izmjerenih snaga računa u dva koraka: prvo koeficijent refleksije kao korijen omjera snaga, pa onda SWR iz njega. Zapamti nekoliko točaka te tablice napamet, jer se iz njih brzo procjenjuje koliko je stvarno loše. Praktična pouka: SWR 1,5 vraća samo 4 % snage i za rad je posve dobar; oko toga se ne treba mučiti. Tek SWR iznad 3 znači da ti četvrtina snage ne ide u antenu — a RK upozorava da rad velikom snagom uz VSWR 5:1 može prouzročiti prekid napojnog voda, filtra ili antenskog prilagodnika.",
+    "formula": [
+      "Reflektometar mjeri dvije snage odvojeno:",
+      "   P_nap  — napredujući (forward) val",
+      "   P_ref  — reflektirani (reverse) val",
+      "",
+      "Koeficijent refleksije i SWR:",
+      "   ρ   = √(P_ref / P_nap)",
+      "   SWR = (1 + ρ) / (1 − ρ)",
+      "",
+      "Primjer: P_nap = 100 W, P_ref = 4 W",
+      "   ρ   = √(4/100) = √0,04 = 0,20",
+      "   SWR = 1,20 / 0,80 = 1,5",
+      "",
+      "Primjer: P_nap = 100 W, P_ref = 11 W",
+      "   ρ   = √0,11 = 0,33",
+      "   SWR = 1,33 / 0,67 ≈ 2,0",
+      "",
+      "Tablica za pamćenje — koliko se snage vrati:",
+      "   SWR 1,0  →   0,0 %      SWR 3,0  →  25,0 %",
+      "   SWR 1,5  →   4,0 %      SWR 4,0  →  36,0 %",
+      "   SWR 2,0  →  11,1 %      SWR 5,0  →  44,4 %",
+      "",
+      "Obrnuti smjer:  ρ = (SWR − 1)/(SWR + 1),  P_ref/P_nap = ρ²",
+      "",
+      "Klasična definicija (mjerenje uzduž voda):",
+      "   SWR = U_max / U_min ,  razmak trbuh–čvor = λ/4"
+    ],
+    "links": [
+      {"label": "Stojni val (hr.wikipedia)", "url": "https://hr.wikipedia.org/wiki/Stojni_val"},
+      {"label": "SWR meter (en.wikipedia)", "url": "https://en.wikipedia.org/wiki/SWR_meter"},
+      {"label": "Standing wave ratio (en.wikipedia)", "url": "https://en.wikipedia.org/wiki/Standing_wave_ratio"},
+      {"label": "Directional coupler — usmjereni spreg (en.wikipedia)", "url": "https://en.wikipedia.org/wiki/Directional_coupler"}
+    ],
+    "cite": [
+      {"src": "RK", "loc": "8.1.4. Mjerenje omjera naponskoga stojnog vala — načelo reflektometra s dvjema diodama, tiskana str. 178–179"},
+      {"src": "RK", "loc": "8.2.3. Mjerni most kao reflektometar — Wheatstoneov most s impedancijama, ravnoteža pri Z_antene = 50 Ω, sl. 8.2.2., tiskana str. 182"},
+      {"src": "RK", "loc": "Zbirka ispitnih pitanja, pit. 39. (VSWR 5:1 uz veliku snagu), tiskana str. 305"}
+    ]
+  },
+
+  "teh-252": {
+    "note": "Mjerno područje za STRUJU proširuje se otpornikom spojenim PARALELNO zavojnici osnovnog mjerila. Taj se otpornik zove šent (engl. shunt, skretač) i njegov je posao doslovno u imenu: skreće pokraj instrumenta onaj dio struje koji instrument ne bi podnio.\n\nOsnovno mjerilo s pomičnim svitkom je vrlo osjetljivo — puni otklon postiže već pri 25 µA do 10 mA — i veća bi ga struja spalila. Ali struja se u paralelnom spoju dijeli obrnuto razmjerno otporima: kroz manji otpor teče veća struja. Stavi li se paralelno svitku otpornik n-puta manjeg otpora, kroz svitak prolazi samo mali, poznati DIO ukupne struje, a ostatak ide kroz šent. Kazaljka i dalje mjeri istu sitnu struju kao prije; promijenio se samo natpis na ljestvici.\n\nRačun je jednostavan i vrijedi ga znati izvesti, a ne pamtiti. Napon na svitku i na šentu je isti (paralelni su), pa iz jednakosti padova napona odmah slijedi da je otpor šenta jednak otporu svitka podijeljenom s (n − 1), gdje je n koliko puta širiš područje. PZM daje pitomu ilustraciju: mjerilo od 1 mA s otporom svitka 100 Ω i šentom od 1 Ω — kroz instrument teče otprilike stotina struje, ostalo kroz šent, pa se mjeri do oko 100 mA. RK ostavlja isti račun kao vježbu za osnovno mjerilo od 25 µA i 2000 Ω: za područje od 1 A šent izlazi oko 0,05 Ω.\n\nDvije korisne posljedice. Prva: budući da je šent mnogo manji od svitka, ukupni unutrašnji otpor ampermetra postane praktički jednak šentu — zato ampermetar s većim područjem ima MANJI unutrašnji otpor i manje smeta krugu (vidi teh-247 i teh-256). Druga: šent mora podnijeti gotovo cijelu struju, pa je to fizički masivan komad otporne trake ili žice, a ne obični otpornik. I obavezno zapamti zrcalni par: PARALELNO = struja, SERIJSKI = napon (teh-253). Multimetar s više područja nije ništa drugo nego jedno osnovno mjerilo i preklopnik koji bira jedan od nekoliko unaprijed izračunatih šentova, odnosno predotpornika.",
+    "formula": [
+      "Šent (paralelno) → proširenje područja STRUJE",
+      "",
+      "   n = I_novo / I_puni_otklon        (faktor proširenja)",
+      "",
+      "   U_svitka = U_šenta   →   I_m · R_m = (I − I_m) · R_š",
+      "",
+      "   R_š = R_m / (n − 1)",
+      "",
+      "RK-ovo osnovno mjerilo: I_fsd = 25 µA, R_m = 2000 Ω",
+      "   traženo područje 1 A:",
+      "      n   = 1 A / 25 µA = 40 000",
+      "      R_š = 2000 / 39 999 ≈ 0,050 Ω",
+      "   provjera preko pada napona:",
+      "      U_fsd = 25 µA · 2000 Ω = 50 mV",
+      "      R_š  = 50 mV / (1 A − 25 µA) ≈ 0,050 Ω   ✓",
+      "",
+      "PZM-ov primjer: I_fsd = 1 mA, R_m = 100 Ω, R_š = 1 Ω",
+      "      n = 1 + 100/1 = 101  →  područje ≈ 100 mA",
+      "      kroz mjerilo 1 mA, kroz šent 99…100 mA",
+      "",
+      "Nusprodukt: R_ukupno = R_m ∥ R_š ≈ R_š",
+      "   → veće područje ⇒ manji unutrašnji otpor ampermetra"
+    ],
+    "links": [
+      {"label": "Shunt (electrical) (en.wikipedia)", "url": "https://en.wikipedia.org/wiki/Shunt_(electrical)"},
+      {"label": "Ampermetar (hr.wikipedia)", "url": "https://hr.wikipedia.org/wiki/Ampermetar"},
+      {"label": "Galvanometar (hr.wikipedia)", "url": "https://hr.wikipedia.org/wiki/Galvanometar"}
+    ],
+    "cite": [
+      {"src": "PZM", "loc": "Tema 18 — Mjerenje struje, paralelni otpornik (shunt), sl. 18/4., tiskana str. 123"},
+      {"src": "RK", "loc": "8.2.1. Mjerilo s pomičnim svitkom — šent i predotpor, sl. 8.2.1. (uz izričitu vježbu izračuna), tiskana str. 181"},
+      {"src": "RK", "loc": "8.2.2. Mjerilo s više područja — preklopnik bira šent ili predotpor, tiskana str. 182"}
+    ]
+  },
+
+  "teh-253": {
+    "note": "Mjerno područje za NAPON proširuje se otpornikom spojenim SERIJSKI sa zavojnicom osnovnog mjerila. Taj se otpornik zove predotpornik (engl. multiplier) i on preuzima na sebe suvišak napona koji instrument ne smije dobiti.\n\nRazmisli što je osnovno mjerilo zapravo: to je ampermetar. Da bi od njega napravio voltmetar, treba mjereni napon pretvoriti u struju koju mjerilo podnosi, a to radi Ohmov zakon. Serijski otpor ograničava struju na točno onu vrijednost koja daje puni otklon pri traženom naponu. Sve iznad toga pada na predotporniku. Što je predotpornik veći, veće je i mjerno područje — PZM to kaže upravo tako.\n\nRačun je zrcalna slika šenta: umjesto dijeljenja struje, dijeliš napon. Ukupni otpor voltmetra mora biti jednak traženom naponu podijeljenom sa strujom punog otklona, a predotpornik je to minus otpor samog svitka (koji je obično zanemariv u odnosu na predotpor). Odatle i osjetljivost u Ω/V iz teh-246 i teh-255: budući da je ukupni otpor razmjeran području, omjer otpor/napon je stalan i jednak 1/I_fsd.\n\nZapamti par kao cjelinu, jer teh-252 i teh-253 na ispitu dolaze jedno do drugog s IDENTIČNIM ponuđenim odgovorima i razlikuju se samo u riječi „struje\"/„napona\". Logika koja te izvlači: dodani otpornik uvijek PREUZIMA SUVIŠAK onoga što mjeriš. Mjeriš li struju, suvišak struje mora imati zaobilazni put — dakle paralelno. Mjeriš li napon, suvišak napona mora negdje pasti — dakle u seriji. Odgovor (c), kratko spojiti krajeve zavojnice, nije proširenje područja nego zaštita instrumenta u transportu: kratko spojeni svitak elektromagnetski koči zakretni sustav (RK 8.2.1.).",
+    "formula": [
+      "Predotpornik (serijski) → proširenje područja NAPONA",
+      "",
+      "   R_ukupno = U_novo / I_puni_otklon",
+      "   R_p      = R_ukupno − R_m",
+      "",
+      "RK-ovo osnovno mjerilo: I_fsd = 25 µA, R_m = 2000 Ω",
+      "   traženo područje 100 V:",
+      "      R_ukupno = 100 V / 25·10⁻⁶ A = 4 000 000 Ω = 4 MΩ",
+      "      R_p      = 4 000 000 − 2000 = 3 998 000 Ω ≈ 4 MΩ",
+      "",
+      "   osjetljivost = 1/I_fsd = 1/25 µA = 40 000 Ω/V",
+      "",
+      "Isto mjerilo, druga područja (osjetljivost je stalna!):",
+      "      10 V   →  400 kΩ",
+      "     100 V   →    4 MΩ",
+      "    1000 V   →   40 MΩ",
+      "",
+      "Zrcalni par — dodani otpornik preuzima SUVIŠAK:",
+      "   suvišak STRUJE  → zaobilazni put → PARALELNO (šent)",
+      "   suvišak NAPONA  → negdje mora pasti → SERIJSKI (predotpor)"
+    ],
+    "links": [
+      {"label": "Voltmetar (hr.wikipedia)", "url": "https://hr.wikipedia.org/wiki/Voltmetar"},
+      {"label": "Otpornik (hr.wikipedia)", "url": "https://hr.wikipedia.org/wiki/Otpornik"},
+      {"label": "Ohmov zakon (hr.wikipedia)", "url": "https://hr.wikipedia.org/wiki/Ohmov_zakon"}
+    ],
+    "cite": [
+      {"src": "PZM", "loc": "Tema 18 — Mjerenje napona, serijski predotpornik („što je veći taj predotpornik, bit će veće i mjerno područje\"), sl. 18/3., tiskana str. 122"},
+      {"src": "RK", "loc": "8.2.1. Mjerilo s pomičnim svitkom — predotpor R_p za voltmetar s otklonom od 100 V, sl. 8.2.1.; kratko spajanje priključnica kao zaštita, tiskana str. 181"},
+      {"src": "RK", "loc": "8.2.2. Mjerilo s više područja (AVO-metar), tiskana str. 182"}
+    ]
+  },
+
+  "teh-254": {
+    "note": "Ključna riječ u pitanju je ZASEBNOG. Titrajni krug koji ni na što nije spojen ne daje nikakav signal — u njemu se ništa ne događa dok ga netko ne pobudi. Zato od ponuđenih instrumenata otpada sve što čeka da mu netko donese signal, a ostaje GRID-DIP metar, koji signal donosi sam.\n\nDip-metar je zapravo mali podesivi oscilator s otvorenom zavojnicom koju prislanjaš uz mjereni krug. Dok su dvije frekvencije različite, sprega je slaba i oscilator radi mirno. Kad ugađanjem pogodiš rezonanciju mjerenog kruga, taj krug počne upijati energiju iz oscilatora — oscilator se optereti i njegova struja PADNE. Taj pad (engl. dip) očitaš na ugrađenom miliampermetru, a frekvenciju s ljestvice ugodnog kondenzatora. Ime dolazi iz doba elektronskih cijevi, kad se pad vidio na struji rešetke (grid) triode; danas je unutra FET pa se pad vidi na struji zasuna (gate), a „grid\" je iz imena otpao — RK zato instrument zove samo dip-metar.\n\nVrijedi razlikovati dip-metar od APSORPCIJSKOG mjerila frekvencije, jer RK oba obrađuje i oba se pojavljuju u pitanjima. Radi se o istom načelu, samo je smjer prijenosa energije obrnut: kod apsorpcijskog mjerila aktivan je MJERENI krug, a mjerilo je pasivno i upija energiju; kod dip-metra aktivno je MJERILO, a mjereni krug je pasivan. Upravo zato dip-metar može mjeriti mrtav, nespojen krug — a apsorpcijsko mjerilo ne može.\n\nZašto ostali odgovori ne rade. Digitalno mjerilo frekvencije (c) je brojilo impulsa: ono treba stvaran signal na ulazu, a zasebni titrajni krug ga nema. Ono je izvrsno za mjerenje frekvencije koju odašiljač DAJE — točnost mu ovisi isključivo o kristalnom oscilatoru sata koji otvara logička vrata, a područje ide do 100 MHz, s novijim sklopovima i do 1000 MHz uz točnost ±5 Hz. Ampermetar za istosmjernu struju (a) i ommetar (d) uopće ne vide frekvenciju: ommetar bi na zavojnici pokazao samo njezin djelatni otpor od nekoliko oma. Na kraju, budi svjestan granica dip-metra: točnost mu je svega 5–10 %, a sama blizina mjerila povlači ugođenost mjerenog kruga — zato se sprega drži što labavijom, tek toliko da se dip vidi. Rezonancijsku frekvenciju uvijek možeš i provjeriti računom po Thomsonovoj formuli.",
+    "formula": [
+      "Dip-metar: OSCILATOR u mjerilu → energija ide u pasivni krug",
+      "   rezonancija ⇒ krug upija energiju ⇒ struja oscilatora PADNE",
+      "",
+      "Razlika koju ispit voli:",
+      "   apsorpcijsko mjerilo: aktivan MJERENI krug → mjerilo upija",
+      "   dip-metar:           aktivno MJERILO      → mjereni krug upija",
+      "   → samo dip-metar radi na krugu koji nije ni na što spojen",
+      "",
+      "Provjera računom (Thomsonova formula):",
+      "",
+      "   f = 1 / (2·π·√(L·C))",
+      "",
+      "   L = 10 µH, C = 100 pF:",
+      "      L·C  = 10·10⁻⁶ · 100·10⁻¹² = 1·10⁻¹⁵",
+      "      √(LC) = 3,16·10⁻⁸",
+      "      f = 1 / (6,283 · 3,16·10⁻⁸) = 5,03 MHz",
+      "",
+      "Dip-metar služi i obrnuto:",
+      "   poznat L + izmjeren f  →  nepoznat C",
+      "   poznat C + izmjeren f  →  nepoznat L",
+      "",
+      "Točnost:  dip-metar / apsorpcijsko mjerilo   5…10 %",
+      "          digitalno brojilo frekvencije      ±5 Hz",
+      "             (ovisi samo o kristalnom oscilatoru sata)"
+    ],
+    "links": [
+      {"label": "Grid dip oscillator (en.wikipedia)", "url": "https://en.wikipedia.org/wiki/Grid_dip_oscillator"},
+      {"label": "Titrajni krug (hr.wikipedia)", "url": "https://hr.wikipedia.org/wiki/Titrajni_krug"},
+      {"label": "Rezonancija (hr.wikipedia)", "url": "https://hr.wikipedia.org/wiki/Rezonancija"},
+      {"label": "Frequency counter (en.wikipedia)", "url": "https://en.wikipedia.org/wiki/Frequency_counter"}
+    ],
+    "cite": [
+      {"src": "RK", "loc": "8.2.6. Dip-metar — načelo, podrijetlo naziva (grid → gate), mjerenje nepoznatog L, C i Q, tiskana str. 184–185"},
+      {"src": "RK", "loc": "8.1.7. Rezonancijska frekvencija i 8.2.5. Apsorpcijsko mjerilo frekvencije (obrnut smjer prijenosa energije, točnost 5–10 %), tiskana str. 180 i 183–184"},
+      {"src": "RK", "loc": "8.2.4. Brojilo frekvencije — sat, logička vrata, točnost ovisi o kristalu, tiskana str. 183"},
+      {"src": "RK", "loc": "Zbirka ispitnih pitanja, pit. 42. istog teksta, tiskana str. 294"}
+    ]
+  },
+
+  "teh-255": {
+    "note": "Osjetljivost voltmetra po definiciji je njegov unutrašnji otpor podijeljen naponom punog otklona. Uvrsti brojeve iz zadatka: 50 000 Ω podijeljeno sa 100 V daje 500 Ω/V. Ovo je gotovo doslovno prepisan primjer iz RK-a, koji ga na tiskanoj str. 176 provodi s istim brojkama.\n\nZašto se osjetljivost uopće izražava po voltu, a ne kao običan otpor? Zato što se unutrašnji otpor voltmetra mijenja s mjernim područjem — svako područje ima svoj predotpornik (teh-253). Ono što ostaje stalno je omjer, i on je jednak recipročnoj vrijednosti struje punog otklona osnovnog mjerila. Iz 500 Ω/V odmah slijedi da je u tom instrumentu ugrađeno mjerilo od 2 mA, što je za radiotehniku grubo neosjetljivo. Isti instrument na području od 10 V ima 5 kΩ, a na području od 1000 V 500 kΩ — osjetljivost je i dalje 500 Ω/V.\n\nRK uz taj primjer izričito kaže da je 500 Ω/V preniska vrijednost za mjerenja u radiotehnici i da je zadovoljavajuća osjetljivost 20 kΩ/V, što odgovara punom otklonu osnovnog mjerila od 50 µA; elektronički voltmetri imaju 10 MΩ/V i više. Razlika nije akademska. Mjeriš li tim voltmetrom od 500 Ω/V napon na sredini dijelila od dva otpornika po 100 kΩ, njegovih 50 kΩ prepolovit će mjereni napon — pokazat će 5 V umjesto 10 V. Voltmetar od 20 kΩ/V pogriješi 2,4 %, a digitalni s 10 MΩ pola postotka. Instrument je dio kruga, i ovdje se vidi koliko.\n\nPazi na ponuđene odgovore, jer su zamke smišljene. (c) 500 kΩ/V dobiješ ako pomiješaš kilo-ome i ome; (a) 5000 Ω/V ako podijeliš s 10 umjesto sa 100 V; (d) 50 Ω/V ako podijeliš s 1000. Račun je jedno jedino dijeljenje — jedini način da ga zabrljaš je nepažnja s decimalnim mjestima. Napiši 50 000 s razmakom i podijeli sa 100 tako da precrtaš dvije nule.",
+    "formula": [
+      "Osjetljivost voltmetra:",
+      "",
+      "   S = R_unutrašnji / U_puni_otklon",
+      "",
+      "   S = 50 000 Ω / 100 V = 500 Ω/V        ← odgovor (b)",
+      "",
+      "Što to znači za osnovno mjerilo:",
+      "   S = 1 / I_fsd   →   I_fsd = 1/500 = 0,002 A = 2 mA",
+      "",
+      "Isti instrument, druga područja (S je stalna):",
+      "     10 V  →   5 kΩ",
+      "    100 V  →  50 kΩ",
+      "   1000 V  → 500 kΩ",
+      "",
+      "Usporedba s onim što RK traži:",
+      "      500 Ω/V   →  I_fsd = 2 mA      „preniska vrijednost\"",
+      "    20 kΩ/V     →  I_fsd = 50 µA     zadovoljavajuće",
+      "    10 MΩ/V                          elektronički voltmetar",
+      "",
+      "Zamke među ponuđenima:",
+      "   50 000/10   = 5000 Ω/V   ← krivo područje",
+      "   50 000/1000 =   50 Ω/V   ← krivo područje",
+      "   500 kΩ/V                 ← zamjena Ω i kΩ"
+    ],
+    "links": [
+      {"label": "Voltmetar (hr.wikipedia)", "url": "https://hr.wikipedia.org/wiki/Voltmetar"},
+      {"label": "Multimetar (hr.wikipedia)", "url": "https://hr.wikipedia.org/wiki/Multimetar"},
+      {"label": "Ohm (hr.wikipedia)", "url": "https://hr.wikipedia.org/wiki/Ohm"}
+    ],
+    "cite": [
+      {"src": "RK", "loc": "8.1.1.1. — Utjecaj unutrašnjeg otpora mjerila: isti zadatak riješen u tekstu (50 000 Ω / 100 V = 500 Ω/V, uz napomenu da je to preniska vrijednost), tiskana str. 176"},
+      {"src": "RK", "loc": "Zbirka ispitnih pitanja, pit. 44. istog teksta, tiskana str. 295"},
+      {"src": "PZM", "loc": "Tema 18 — Mjerenje napona (zahtjev od barem 20 kΩ/V; 50 µA × 20 kΩ = 1 V), tiskana str. 122"}
+    ]
+  },
+
+  "teh-256": {
+    "note": "Od ponuđenih brojeva jedini prihvatljiv unutrašnji otpor ampermetra je 0,5 Ω, i to nije procjena nego doslovna brojka iz RK-a: dobar ampermetar mora imati unutrašnji otpor manji od 0,5 Ω. Razlog je onaj iz teh-247 — ampermetar je u seriji, pa se njegov otpor pribraja otporu kruga i smanjuje struju koju bi trebao vjerno pokazati.\n\nPonuđeni odgovori su namjerno poredani tako da provjere razumiješ li red veličine. Uzmi tipičan krug: 12 V na teretu od 100 Ω, prava struja 120 mA. S ampermetrom od 0,5 Ω izmjerit ćeš 119,4 mA — pola postotka manje, zanemarivo. S 5 Ω već 114,3 mA, dakle skoro 5 % manje; RK baš za taj slučaj kaže da bi realni ampermetar s unutrašnjim otporom od nekoliko oma unio nedopustivo veliku pogrešku, pa je odgovor (d) tu kao najbliža krivotvorina. Sa 100 Ω izmjerio bi 60 mA, dakle točno polovicu — instrument bi mjerio sam sebe koliko i teret. A s 10 000 Ω dobio bi 1,19 mA, manje od jedan posto stvarne struje; takav „ampermetar\" je zapravo voltmetar (teh-246) i spojen u seriju samo bi ugasio krug.\n\nDodatna korist malog otpora je sigurnosna. Pad napona na ampermetru oduzima se teretu: 0,5 Ω pri 5 A daje 2,5 V pada, što je kod napajanja od 13,8 V već petina napona i postaja bi zaštekala. Zato ozbiljni ampermetri za velike struje imaju otpor reda miliohma, a šent im je masivan komad otporne trake. Isto računaj i kad mjeriš struju postaje — ne ubacuj u napojni vod instrument malog područja.\n\nTehnički se tako mali otpor postiže šentom (teh-252). Osnovno mjerilo ima svitak od oko 2000 Ω, ali paralelno spojen šent od 0,05 Ω povuče ukupni otpor na svoju vrijednost. Odatle korisno pravilo: kod istog instrumenta veće mjerno područje znači MANJI unutrašnji otpor, jer je šent manji. Ako biraš područje, veće je područje istodobno i sigurnije i manje ometa krug — samo je očitanje na početku ljestvice netočnije (razred točnosti se odnosi na puni otklon, vidi teh-246).",
+    "formula": [
+      "RK: „Dobar ampermetar mora imati unutrašnji otpor manji od 0,5 Ω.\"",
+      "",
+      "Provjera na tipičnom krugu (12 V, teret 100 Ω):",
+      "   prava struja  I = 12/100 = 120,0 mA",
+      "",
+      "   R_A = 0,5 Ω    →  12/100,5   = 119,4 mA    −0,5 %   ← (c) ✓",
+      "   R_A = 5 Ω      →  12/105     = 114,3 mA    −4,8 %   ← (d)",
+      "   R_A = 100 Ω    →  12/200     =  60,0 mA    −50 %    ← (b)",
+      "   R_A = 10 000 Ω →  12/10 100  =   1,19 mA   −99 %    ← (a)",
+      "",
+      "Pad napona na mjerilu (koliko oduzimaš teretu):",
+      "   U_A = I · R_A",
+      "   5 A · 0,5 Ω = 2,5 V   ← već petina od 13,8 V!",
+      "   5 A · 0,01 Ω = 50 mV  ← ozbiljan ampermetar",
+      "",
+      "Kako se to postiže (vidi teh-252):",
+      "   svitak 2000 Ω ∥ šent 0,05 Ω ≈ 0,05 Ω",
+      "   → veće mjerno područje ⇒ manji šent ⇒ manji unutrašnji otpor"
+    ],
+    "links": [
+      {"label": "Ampermetar (hr.wikipedia)", "url": "https://hr.wikipedia.org/wiki/Ampermetar"},
+      {"label": "Shunt (electrical) (en.wikipedia)", "url": "https://en.wikipedia.org/wiki/Shunt_(electrical)"},
+      {"label": "Ohmov zakon (hr.wikipedia)", "url": "https://hr.wikipedia.org/wiki/Ohmov_zakon"}
+    ],
+    "cite": [
+      {"src": "RK", "loc": "8.1.1.1. — Utjecaj unutrašnjeg otpora mjerila (ampermetar od nekoliko oma unosi nedopustivu pogrešku; dobar mora biti ispod 0,5 Ω), tiskana str. 176"},
+      {"src": "RK", "loc": "Zbirka ispitnih pitanja, pit. 45. istog teksta, tiskana str. 295"}
+    ]
+  },
+
+  "teh-257": {
+    "note": "SWR metar provjerava stupanj prilagodbe u CIJELOM lancu odašiljač–prijenosni vod–antena, i naglasak je na riječi lanac. Instrument stoji na jednom mjestu (obično odmah iza odašiljača) i uspoređuje snagu koja putuje prema anteni sa snagom koja se vraća. Sve što na tom putu nije prilagođeno na istu impedanciju — izlaz odašiljača, karakteristična impedancija kabela, konektori, prilagodnik, sama antena — vraća dio vala natrag i pojavi se u očitanju.\n\nTo je istodobno i najveće ograničenje instrumenta, i ono se često krivo shvati. SWR metar ti kaže DA nešto nije prilagođeno, ali ne i GDJE. Isto očitanje daje pogrešno rezana antena, mokar konektor i prignječen kabel. Još podmuklije: nizak SWR NIJE dokaz dobre antene. Dugačak kabel s velikim gubicima prigušuje i val koji ide i val koji se vraća, pa neprilagodbu na kraju voda „popravi\" na instrumentu, dok se snaga u međuvremenu pretvorila u toplinu. Umjetna antena (dummy load) pokazuje savršenih 1:1, a ne zrači ništa. Zato SWR mjeri prilagodbu, a ne kvalitetu veze.\n\nZašto ostali odgovori nisu točni. (b) Izlazna snaga odašiljača mjeri se drugačije, iako je često isti kutijica: mjerilo snage rabi termopar ili strujni transformator na feritnoj jezgri kao osjetilo, a za SSB se snaga izražava kao vršna snaga ovojnice (PEP) jer se struja izlaznog stupnja mijenja u ritmu govora i klasični instrumenti su za to prespori. RK preporučuje mjerenje PEP-a osciloskopom na umjetnoj anteni, uz pobudu dvotonskim AF generatorom, i podsjeća da se snage odnose razmjerno KVADRATIMA otklona na zaslonu. (c) Nelinearno izobličenje vidi se na analizatoru spektra po harmonicima (teh-250), a (d) širina pojasa također analizatorom spektra — ni jedno ni drugo SWR metar ne mjeri.\n\nPraktično: SWR mjeri se pri punoj snazi na kojoj namjeravaš raditi, s CW-om ili nemoduliranim nositeljem, i kratko. Očitanje ovisi o frekvenciji, pa antenu treba provjeriti na oba ruba pojasa, ne samo na sredini. SWR 1,5 gubi 4 % snage i nije problem; iznad 3 gubiš četvrtinu, a RK upozorava da rad velikom snagom uz VSWR 5:1 može prouzročiti prekid napojnog voda, filtra ili antenskog prilagodnika. Za formule pretvorbe vidi teh-251.",
+    "formula": [
+      "Što SWR metar vidi:  cijeli lanac odjednom",
+      "",
+      "   ODAŠILJAČ ─── [SWR metar] ─── VOD ─── (prilagodnik) ─── ANTENA",
+      "                      ↑",
+      "        mjeri P_naprijed i P_natrag na SVOM mjestu,",
+      "        ne zna gdje je uzrok",
+      "",
+      "SWR i izgubljena snaga (isti račun kao u teh-251):",
+      "   SWR 1,0 →  0 %      SWR 2,0 → 11,1 %",
+      "   SWR 1,5 →  4 %      SWR 3,0 → 25,0 %",
+      "                       SWR 5,0 → 44,4 %  ← RK: moguć prekid voda",
+      "",
+      "Što SWR metar NIJE:",
+      "   nije mjerilo snage        → termopar / strujni transformator",
+      "   nije mjerilo izobličenja  → analizator spektra",
+      "   nije mjerilo širine pojasa→ analizator spektra",
+      "",
+      "Mjerenje RF snage SSB odašiljača (RK 8.1.3.):",
+      "   PEP = srednja snaga tijekom jedne periode nositelja",
+      "         pri najvišoj amplitudi modulacijske ovojnice",
+      "",
+      "   Usporedba otklona na osciloskopu — snage idu s KVADRATOM:",
+      "      referentni otklon 4 cm  ↔  400 W",
+      "      izmjereni otklon  2 cm  →  400 · (2/4)² = 400 · 1/4 = 100 W",
+      "",
+      "   DC snaga izlaznog stupnja:  P = U_kolektora · I_kolektora"
+    ],
+    "links": [
+      {"label": "SWR meter (en.wikipedia)", "url": "https://en.wikipedia.org/wiki/SWR_meter"},
+      {"label": "Stojni val (hr.wikipedia)", "url": "https://hr.wikipedia.org/wiki/Stojni_val"},
+      {"label": "Peak envelope power — PEP (en.wikipedia)", "url": "https://en.wikipedia.org/wiki/Peak_envelope_power"},
+      {"label": "Standing wave ratio (en.wikipedia)", "url": "https://en.wikipedia.org/wiki/Standing_wave_ratio"}
+    ],
+    "cite": [
+      {"src": "RK", "loc": "Zbirka ispitnih pitanja, pit. 40. istog teksta, tiskana str. 305 (uz pit. 39. o VSWR 5:1)"},
+      {"src": "RK", "loc": "8.1.4. Mjerenje omjera naponskoga stojnog vala — neprilagođenost u lancu odašiljač-prijenosni vod-antena, tiskana str. 178–179"},
+      {"src": "RK", "loc": "8.1.3. Mjerenje DC i RF snage — PEP, dvotonski generator, usporedba otklona na osciloskopu, mjerilo sa strujnim transformatorom, tiskana str. 177–178"}
+    ]
+  },
+
+  "teh-258": {
+    "note": "Shema s baterijom E, usporedbenim otporom R_ref, otpornikom R₁ za namještanje ništice i voltmetrom V, u koju se priključuje nepoznati R_x, jest IZRAVNO mjerenje otpora — drugim riječima, to je shema ommetra. RK je crta kao sl. 8.1.4. i naslovljava upravo tako: „Izravno mjerenje otpora\".\n\nPrepoznaješ je po jednom detalju koji odmah odaje o čemu se radi: shema ima VLASTITI izvor napona. Voltmetar i ampermetar mjere ono što u krugu već postoji; otpor sam po sebi ne proizvodi ništa, pa mu se struja mora dovesti izvana (vidi teh-248). Čim na shemi za mjerenje vidiš bateriju koja nije dio mjerenog kruga, radi se o mjerenju otpora.\n\nNačelo je naponsko dijelilo. Baterija tjera struju kroz seriju R_ref i R_x, a voltmetar očitava pad napona na usporedbenom otporu — zato RK i traži da unutrašnji otpor voltmetra (20 kΩ/V) bude 50 i više puta veći od R_ref, jer inače bi sam voltmetar poremetio dijelilo. Očitanje je najveće kad je R_x nula i pada kako R_x raste; ljestvica je zato obrnuta i nelinearna, a sredina joj pada točno na R_x = R_ref. Upravo zbog toga R_ref nije jedan otpornik nego set: mali kad mjeriš male otpore, veliki kad mjeriš velike. R₁ služi za namještanje ništice, jer napon baterije s vremenom pada. Ljestvica je umjerena u omima i pokriva od jednog oma do više megaoma.\n\nSuprotnost tome je POSREDNO mjerenje otpora (RK sl. 8.1.3.): ampermetar i voltmetar na već postojećem krugu, pa R = U/I po Ohmovu zakonu. Tamo se otpor ne očitava nego RAČUNA — otud „posredno\". Treći put je mjerni most (Wheatstoneov), koji nepoznati otpor uspoređuje s poznatim tako da se traži ravnoteža, tj. ništica na detektoru; isti se most, s impedancijama umjesto djelatnih otpora, rabi kao reflektometar (teh-251). Ako te na ispitu zbuni slika, idi redom: ima li shema vlastiti izvor? ima li usporedbeni otpor? je li instrument voltmetar bez ampermetra? Tri puta da — mjeri se otpor.",
+    "formula": [
+      "Izravno mjerenje otpora = naponsko dijelilo s poznatim R_ref",
+      "",
+      "        E ──[ R_ref ]──┬──[ R_x ]── E",
+      "                       │",
+      "                    voltmetar (R_V ≥ 50 · R_ref)",
+      "",
+      "   U_V = E · R_ref / (R_ref + R_x)",
+      "",
+      "   → odatle:   R_x = R_ref · (E − U_V) / U_V",
+      "",
+      "Primjer, E = 3 V, R_ref = 1 kΩ:",
+      "   U_V = 2,7 V  →  R_x = 1000 · 0,3/2,7 =   111 Ω",
+      "   U_V = 1,5 V  →  R_x = 1000 · 1,5/1,5 =  1000 Ω   ← sredina",
+      "   U_V = 0,3 V  →  R_x = 1000 · 2,7/0,3 =  9000 Ω",
+      "",
+      "   → ljestvica obrnuta i nelinearna, kao kod svakog ommetra;",
+      "     sredina pada na R_x = R_ref, zato se R_ref bira po području.",
+      "",
+      "Tri načina mjerenja otpora:",
+      "   IZRAVNO   ommetar / ova shema      → očitaš u omima",
+      "   POSREDNO  voltmetar + ampermetar   → R = U/I (računaš)",
+      "   MOSTOM    Wheatstone, ravnoteža    → najtočnije"
+    ],
+    "links": [
+      {"label": "Ohmmeter (en.wikipedia)", "url": "https://en.wikipedia.org/wiki/Ohmmeter"},
+      {"label": "Wheatstone bridge (en.wikipedia)", "url": "https://en.wikipedia.org/wiki/Wheatstone_bridge"},
+      {"label": "Ohmov zakon (hr.wikipedia)", "url": "https://hr.wikipedia.org/wiki/Ohmov_zakon"},
+      {"label": "Električni otpor (hr.wikipedia)", "url": "https://hr.wikipedia.org/wiki/Elektri%C4%8Dni_otpor"}
+    ],
+    "cite": [
+      {"src": "RK", "loc": "8.1.2. Mjerenje otpora — sl. 8.1.4. „Izravno mjerenje otpora\" (R_ref, R₁ za ništicu, voltmetar 20 kΩ/V najmanje 50× veći od R_ref) i sl. 8.1.3. „Posredno mjerenje otpora\", tiskana str. 176–177"},
+      {"src": "RK", "loc": "Zbirka ispitnih pitanja, pit. 44. s istom shemom, tiskana str. 317"},
+      {"src": "PZM", "loc": "Tema 18 — Mjerenje otpora (ommetar s vlastitom baterijom, obrnuta i nelinearna ljestvica), tiskana str. 124"}
+    ]
+  }
+}

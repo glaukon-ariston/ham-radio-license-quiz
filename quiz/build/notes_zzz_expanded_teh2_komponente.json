@@ -1,0 +1,745 @@
+{
+  "_doc": "Expanded teaching notes — batch 'teh2_komponente': the 29 questions of tehnički dio, 2. Komponente (teh-036 … teh-064). Otpornici, zavojnice, kondenzatori, transformatori, diode, tranzistori i integrirani sklopovi: što komponenta radi, zašto to fizikalno radi, i gdje je amater sreće u stvarnom uređaju. Named to sort LAST so these override the terse originals; rebuild.py applies notes_*.json in sorted order.",
+  "_links_verified": "Every URL here was fetched and confirmed to exist and to cover the stated point (9 Aug 2026). Note: hr.wikipedia 'Kondenzator' and 'Zavojnica' are disambiguation pages and 'Električki kondenzator' does not exist, so the capacitor questions link en.wikipedia instead.",
+  "_citation_note": "PZM printed pages were read off the page itself; the section map is Tema 4 = 3.2.1. Otpornik (73–75), Tema 5 = 3.2.2. Kondenzator (76–79), Tema 6 = 3.2.3. Zavojnice (79–82), Tema 7 = 3.2.4. Transformatori (83–86), Tema 8 = 3.2.5. Diode (86–89), Tema 9 = 3.2.6. Tranzistori (89–93), Tema 10 = 3.2.7. Elektronske cijevi (94–97). The inherited citations 'Tema 10, tranzistori, str. 94–96' were WRONG (Tema 10 is valves, not transistors) and are corrected here. PZM has NO section on integrated circuits at all, so teh-060…teh-064 now cite RK 2.8. instead.",
+
+  "teh-036": {
+    "note": "Paralelni spoj znači da su oba otpornika priključena na iste dvije točke kruga, pa je napon na njima jednak. Struja se dijeli — kroz svaki otpornik teče svoj dio, a ukupna struja iz izvora je zbroj tih dijelova. Više paralelnih putova znači lakši prolaz struji, dakle MANJI ukupni otpor.\n\nZbog toga se paralelni otpori ne zbrajaju; zbrajaju se njihove recipročne vrijednosti (vodljivosti). Dva jednaka otpornika daju točno polovicu: 50 Ω / 2 = 25 Ω. Općenito n jednakih otpornika R paralelno daje R/n.\n\nZapamti pravilo za brzu provjeru: ukupni otpor paralelnog spoja UVIJEK je manji od najmanjeg otpornika u skupini (vidi teh-038). Ako ti izađe 100 Ω, znaš da si pobrkao serijski i paralelni spoj — 100 Ω je upravo taj pogrešni zbroj i zato je ponuđen kao odgovor.\n\nU praksi ovo koristiš kad ti treba veća snaga ili vrijednost koje nema u kutiji: dva otpornika od 100 Ω / 2 W paralelno daju 50 Ω i podnose 4 W. Tako se improviziraju umjetne antene (dummy load) od paralelno spojenih metalnoslojnih otpornika.",
+    "formula": [
+      "1/R_uk = 1/R₁ + 1/R₂",
+      "1/R_uk = 1/50 + 1/50 = 2/50",
+      "R_uk = 50/2 = 25 Ω",
+      "",
+      "Kraći obrazac za DVA otpornika:",
+      "   R_uk = (R₁ · R₂)/(R₁ + R₂) = (50·50)/100 = 25 Ω",
+      "",
+      "n jednakih otpornika R paralelno  →  R/n",
+      "",
+      "Provjera: R_uk mora biti manji od najmanjeg otpora"
+    ],
+    "links": [
+      {"label": "Otpornik (hr.wikipedia)", "url": "https://hr.wikipedia.org/wiki/Otpornik"},
+      {"label": "Series and parallel circuits", "url": "https://en.wikipedia.org/wiki/Series_and_parallel_circuits"}
+    ],
+    "cite": [
+      {"src": "PZM", "loc": "Tema 4, 3.2.1. Otpornik, tiskana str. 73–75"},
+      {"src": "RK", "loc": "3.1.1. Otpornici — serijski, paralelni, mješoviti spoj, tiskana str. 99–100"}
+    ]
+  },
+
+  "teh-037": {
+    "note": "U serijskom spoju kroz sve otpornike teče ISTA struja — struja nema kuda pobjeći, postoji samo jedan put. Na svakom otporniku padne dio napona, a zbroj tih padova jednak je naponu izvora (drugi Kirchhoffov zakon, zakon petlje).\n\nOdatle slijedi zbrajanje otpora. Uvrsti Ohmov zakon u U = U₁ + U₂ + U₃ pa dobiješ I·R = I·R₁ + I·R₂ + I·R₃, a nakon dijeljenja s I ostaje R = R₁ + R₂ + R₃. Ovdje: 5 + 10 + 20 = 35 Ω.\n\nProvjera koja te uvijek spašava: ukupni otpor serijskog spoja veći je od najvećeg pojedinog otpornika. 35 Ω > 20 Ω — u redu. Ponuđenih 15 Ω je zbroj samo prva dva člana, a 5 Ω je najmanji član; oboje su zamke za onoga tko računa u žurbi.\n\nNapon se pritom dijeli razmjerno otporima — na dvostruko većem otporniku padne dvostruko veći napon. To je načelo naponskog djelila, koje ti izravno treba u teh-041 i teh-042.",
+    "formula": [
+      "R_uk = R₁ + R₂ + R₃",
+      "R_uk = 5 Ω + 10 Ω + 20 Ω = 35 Ω",
+      "",
+      "Zašto se zbrajaju:",
+      "   I je ista kroz sve,  U = U₁ + U₂ + U₃",
+      "   I·R = I·R₁ + I·R₂ + I·R₃      | : I",
+      "   R  = R₁ + R₂ + R₃",
+      "",
+      "Provjera: R_uk mora biti veći od najvećeg otpora"
+    ],
+    "links": [
+      {"label": "Otpornik (hr.wikipedia)", "url": "https://hr.wikipedia.org/wiki/Otpornik"},
+      {"label": "Ohmov zakon (hr.wikipedia)", "url": "https://hr.wikipedia.org/wiki/Ohmov_zakon"}
+    ],
+    "cite": [
+      {"src": "PZM", "loc": "Tema 4, 3.2.1. Otpornik, tiskana str. 73–75"},
+      {"src": "RK", "loc": "3.1.1.1. Serijski spoj, tiskana str. 99"}
+    ]
+  },
+
+  "teh-038": {
+    "note": "Pazi na formulaciju: traži se NETOČNA tvrdnja, pa je zadatak obrnut od uobičajenog. Zbrajanje otpora vrijedi za SERIJSKI spoj (vidi teh-037), a ne za paralelni — zato je tvrdnja d netočna i ona je traženi odgovor.\n\nOstale tri tvrdnje su točne i vrijedi ih razumjeti, ne samo zapamtiti. Napon je na svim paralelnim otpornicima isti jer su svi priključeni na iste dvije točke — to je i sama definicija paralelnog spoja. Struja se dijeli obrnuto razmjerno otporima: iz I = U/R uz isti U slijedi da veći otpor propušta manju struju, pa kroz 100 Ω teče upola manja struja nego kroz 50 Ω. Ukupni otpor manji je od najmanjeg u skupini jer svaki dodani otpornik otvara još jedan put struji; ukupna struja raste, pa ukupni otpor pada. Pašarić to izričito naglašava uz izračun na tiskanoj str. 75.\n\nZapamti par kao cjelinu: SERIJSKI se zbrajaju otpori, PARALELNO se zbrajaju vodljivosti (1/R). Kod kondenzatora je točno obrnuto (vidi teh-052 i teh-053) — to je najčešća zamjena na ispitu, i upravo se na njoj gubi bod.",
+    "formula": [
+      "PARALELNO:",
+      "   U₁ = U₂ = … = U          (napon je isti)",
+      "   I_uk = I₁ + I₂ + …       (struje se zbrajaju)",
+      "   1/R_uk = 1/R₁ + 1/R₂ + …",
+      "   R_uk < najmanji R",
+      "",
+      "SERIJSKI:",
+      "   I₁ = I₂ = … = I          (struja je ista)",
+      "   U_uk = U₁ + U₂ + …       (naponi se zbrajaju)",
+      "   R_uk = R₁ + R₂ + …",
+      "   R_uk > najveći R",
+      "",
+      "Primjer podjele struje, U = 10 V:",
+      "   kroz  50 Ω → 200 mA",
+      "   kroz 100 Ω → 100 mA      (dvostruko manje)"
+    ],
+    "links": [
+      {"label": "Otpornik (hr.wikipedia)", "url": "https://hr.wikipedia.org/wiki/Otpornik"},
+      {"label": "Series and parallel circuits", "url": "https://en.wikipedia.org/wiki/Series_and_parallel_circuits"}
+    ],
+    "cite": [
+      {"src": "PZM", "loc": "Tema 4, 3.2.1. Otpornik — paralelni spoj, tiskana str. 74–75"},
+      {"src": "RK", "loc": "3.1.1.2. Paralelni spoj otpora, tiskana str. 99–100"}
+    ]
+  },
+
+  "teh-039": {
+    "note": "Shema prikazuje otpornik od 500 Ω spojen izravno između dviju priključnica, a njemu paralelno granu u kojoj su otpornici od 300 Ω i 200 Ω spojeni jedan iza drugoga.\n\nPostupak je uvijek isti: prvo pojednostavi serijske grane, pa tek onda računaj paralelu. Serijska grana daje 300 + 200 = 500 Ω. Sada imaš dva otpora od po 500 Ω paralelno, a dva jednaka otpora paralelno daju polovicu (vidi teh-036): 500 / 2 = 250 Ω.\n\nPonuđenih 700 Ω je zbroj 500 + 200, a 1000 Ω zbroj svega — obje pogreške nastaju ako se cijela shema shvati kao serijska. Ponuđenih 500 Ω je vrijednost jedne grane, dakle rješenje u kojem je druga grana zaboravljena.\n\nProvjeri rezultat pravilom: paralelni spoj mora dati manje od najmanje grane. Najmanja grana ovdje je 500 Ω, a 250 Ω < 500 Ω — u redu. To pravilo ti u nekoliko sekundi izbaci tri od četiri ponuđena odgovora.",
+    "formula": [
+      "1) Serijska grana:",
+      "   R₂₃ = 300 Ω + 200 Ω = 500 Ω",
+      "",
+      "2) Paralela s otpornikom od 500 Ω:",
+      "   R_uk = (500 · 500)/(500 + 500)",
+      "        = 250 000/1000 = 250 Ω",
+      "",
+      "Ili kraće: dva jednaka otpora paralelno → R/2",
+      "   R_uk = 500/2 = 250 Ω"
+    ],
+    "links": [
+      {"label": "Series and parallel circuits", "url": "https://en.wikipedia.org/wiki/Series_and_parallel_circuits"},
+      {"label": "Otpornik (hr.wikipedia)", "url": "https://hr.wikipedia.org/wiki/Otpornik"}
+    ],
+    "cite": [
+      {"src": "PZM", "loc": "Tema 4, 3.2.1. Otpornik, tiskana str. 73–75"},
+      {"src": "RK", "loc": "3.1.1.3. Mješoviti spoj, tiskana str. 100"}
+    ]
+  },
+
+  "teh-040": {
+    "note": "Na shemi je otpornik od 10 Ω spojen iz gornje priključnice prema čvoru, a od tog čvora prema donjoj priključnici idu dva otpornika od po 10 Ω jedan uz drugi — dakle međusobno paralelno.\n\nRastavi na dva koraka. Dva paralelna otpornika od 10 Ω daju 10/2 = 5 Ω. Ta zamjenska petica sada je u seriji s gornjim otpornikom od 10 Ω, pa se jednostavno zbraja: 10 + 5 = 15 Ω.\n\nPonuđenih 30 Ω je zbroj svih triju otpornika, kao da je sve serijski; 10 Ω je vrijednost jednog otpornika. Redoslijed računanja je ključ: uvijek kreni od najdubljeg dijela sheme prema priključnicama.\n\nUsporedi s teh-039: ondje je serijska grana bila unutar paralele, ovdje je paralela unutar serije. To su praktički jedina dva rasporeda koja se na ispitu pojavljuju, pa ako oba prepoznaješ na prvi pogled, ta si dva boda riješio.",
+    "formula": [
+      "1) Paralelni par:",
+      "   R₂₃ = (10 · 10)/(10 + 10) = 100/20 = 5 Ω",
+      "",
+      "2) Serija s gornjim otpornikom:",
+      "   R_uk = 10 Ω + 5 Ω = 15 Ω",
+      "",
+      "Kontrola pravilima:",
+      "   paralelni dio  <  najmanji član   (5 < 10) ✓",
+      "   serijski zbroj >  najveći član   (15 > 10) ✓"
+    ],
+    "links": [
+      {"label": "Series and parallel circuits", "url": "https://en.wikipedia.org/wiki/Series_and_parallel_circuits"},
+      {"label": "Otpornik (hr.wikipedia)", "url": "https://hr.wikipedia.org/wiki/Otpornik"}
+    ],
+    "cite": [
+      {"src": "PZM", "loc": "Tema 4, 3.2.1. Otpornik, tiskana str. 73–75"},
+      {"src": "RK", "loc": "3.1.1.3. Mješoviti spoj, tiskana str. 100"}
+    ]
+  },
+
+  "teh-041": {
+    "note": "Uz pitanje ide shema: izvor od 15 V tjera struju od 1 A kroz dva serijski spojena otpornika — nepoznati R, na kojem se traži napon, i otpornik od 10 Ω ispod njega.\n\nU seriji kroz oba teče ista struja, pa napon na poznatom otporniku izračunaš izravno Ohmovim zakonom: U = I·R = 1 A · 10 Ω = 10 V. Kako je zbroj padova napona jednak naponu izvora, na R ostaje 15 V − 10 V = 5 V.\n\nUsput dobiješ i sam R: 5 V / 1 A = 5 Ω. Provjera je uvijek dobra ideja — 5 Ω + 10 Ω = 15 Ω, a 15 V / 15 Ω = 1 A, što se slaže sa zadanom strujom.\n\nOvo je naponsko djelilo: napon izvora dijeli se na serijske otpornike razmjerno njihovim vrijednostima. Otpornik dvostruko većeg otpora dobije dvostruko veći napon. Isto načelo koristiš svaki put kad LED-icu tjeraš preko predotpora ili kad tranzistoru djelilom postavljaš radnu točku baze.",
+    "formula": [
+      "Zadano: U = 15 V,  I = 1 A,  R₂ = 10 Ω",
+      "",
+      "U₂ = I · R₂ = 1 A · 10 Ω = 10 V",
+      "U_R = U − U₂ = 15 V − 10 V = 5 V",
+      "",
+      "Usput: R = U_R / I = 5 V / 1 A = 5 Ω",
+      "Provjera: (5 + 10) Ω · 1 A = 15 V ✓",
+      "",
+      "Naponsko djelilo općenito:",
+      "   U_R = U · R/(R + R₂) = 15 · 5/15 = 5 V"
+    ],
+    "links": [
+      {"label": "Ohmov zakon (hr.wikipedia)", "url": "https://hr.wikipedia.org/wiki/Ohmov_zakon"},
+      {"label": "Voltage divider", "url": "https://en.wikipedia.org/wiki/Voltage_divider"}
+    ],
+    "cite": [
+      {"src": "RK", "loc": "1.1.1. Krug istosmjerne struje; napon, struja, otpor, Ohmov zakon, tiskana str. 18"},
+      {"src": "PZM", "loc": "Tema 4, 3.2.1. Otpornik, tiskana str. 73–75"}
+    ]
+  },
+
+  "teh-042": {
+    "note": "Shema uz pitanje je isti tip zadatka kao teh-041: izvor od 12 V, u petlji teče struja od 2 A, a u seriji su otpornik od 2 Ω i nepoznati R.\n\nNa poznatom otporniku padne U = I·R = 2 A · 2 Ω = 4 V. Ostatak napona izvora otpada na R: 12 V − 4 V = 8 V.\n\nSam R iznosi 8 V / 2 A = 4 Ω, pa je ukupni otpor petlje 2 + 4 = 6 Ω. Provjera: 12 V / 6 Ω = 2 A, točno zadana struja.\n\nTrik za brzinu na ispitu: kad su zadani i napon izvora i struja, uopće ne moraš tražiti R. Izračunaj pad napona na poznatom otporniku i oduzmi ga od napona izvora — dva množenja i jedno oduzimanje. Ponuđenih 6 V i 12 V odgovaraju pogrešnim pretpostavkama (pola napona, odnosno cijeli napon na R), a 10 V je rezultat prepisan iz teh-041.",
+    "formula": [
+      "Zadano: U = 12 V,  I = 2 A,  R₁ = 2 Ω",
+      "",
+      "U₁ = I · R₁ = 2 A · 2 Ω = 4 V",
+      "U_R = U − U₁ = 12 V − 4 V = 8 V",
+      "",
+      "Usput: R = U_R / I = 8 V / 2 A = 4 Ω",
+      "Provjera: (2 + 4) Ω · 2 A = 12 V ✓",
+      "",
+      "Odnos napona = odnos otpora:",
+      "   U₁ : U_R = 2 Ω : 4 Ω = 4 V : 8 V ✓"
+    ],
+    "links": [
+      {"label": "Ohmov zakon (hr.wikipedia)", "url": "https://hr.wikipedia.org/wiki/Ohmov_zakon"},
+      {"label": "Voltage divider", "url": "https://en.wikipedia.org/wiki/Voltage_divider"}
+    ],
+    "cite": [
+      {"src": "RK", "loc": "1.1.1. Krug istosmjerne struje; napon, struja, otpor, Ohmov zakon, tiskana str. 18"},
+      {"src": "PZM", "loc": "Tema 4, 3.2.1. Otpornik, tiskana str. 73–75"}
+    ]
+  },
+
+  "teh-043": {
+    "note": "Shema pokazuje izvor od 5 V na koji su spojene dvije paralelne grane: u jednoj je otpornik od 50 Ω, u drugoj dva otpornika od po 25 Ω spojena jedan za drugim. Strelica I nacrtana je na dovodu iz izvora, dakle traži se UKUPNA struja.\n\nPrvo pojednostavi: 25 + 25 = 50 Ω u seriji. Sada su dvije grane od po 50 Ω paralelno, što daje 25 Ω. Zatim Ohmov zakon: I = U/R = 5 V / 25 Ω = 0,2 A = 200 mA.\n\nPazi na jedinice — odgovor je tražen u miliamperima. 0,2 A je 200 mA; ponuđenih 20 mA i 2 mA razlikuju se samo redom veličine i lako se pogriješe u žurbi, a 2 A bi značilo ukupni otpor od svega 2,5 Ω.\n\nMožeš i granu po granu pa zbrojiti, što je dobra kontrola: kroz 50 Ω teče 5 V / 50 Ω = 100 mA, kroz seriju 25 + 25 = 50 Ω također 100 mA, ukupno 200 mA. Isti rezultat, drugi put.",
+    "formula": [
+      "1) Serijska grana:  25 Ω + 25 Ω = 50 Ω",
+      "2) Paralela:        (50 · 50)/(50 + 50) = 25 Ω",
+      "",
+      "3) Ohmov zakon:",
+      "   I = U/R = 5 V / 25 Ω = 0,2 A = 200 mA",
+      "",
+      "Kontrola po granama:",
+      "   I₁ = 5 V / 50 Ω = 0,1 A = 100 mA",
+      "   I₂ = 5 V / 50 Ω = 0,1 A = 100 mA",
+      "   I  = I₁ + I₂ = 200 mA ✓",
+      "",
+      "Prefiksi:  1 A = 1000 mA,  0,2 A = 200 mA"
+    ],
+    "links": [
+      {"label": "Ohmov zakon (hr.wikipedia)", "url": "https://hr.wikipedia.org/wiki/Ohmov_zakon"},
+      {"label": "Series and parallel circuits", "url": "https://en.wikipedia.org/wiki/Series_and_parallel_circuits"}
+    ],
+    "cite": [
+      {"src": "RK", "loc": "3.1.1. Otpornici — serijski, paralelni, mješoviti spoj, tiskana str. 99–100"},
+      {"src": "PZM", "loc": "Tema 4, 3.2.1. Otpornik, tiskana str. 73–75"}
+    ]
+  },
+
+  "teh-044": {
+    "note": "Zavojnica se protivi PROMJENI struje, a ne struji samoj. Kad se struja mijenja, mijenja se i magnetski tok kroz zavojnicu, a promjena toka u njoj inducira napon koji je po Lenzovu pravilu suprotan uzroku. Što je promjena brža, to je taj protunapon veći.\n\nBrzina promjene sinusne struje je upravo njezina frekvencija, pa induktivni otpor (reaktancija) raste linearno s frekvencijom: X_L = 2πfL. Za istosmjernu struju je f = 0, dakle X_L = 0 — idealna zavojnica je za istosmjernu struju obični komad žice, praktički kratki spoj. Za visoke frekvencije X_L postaje vrlo velik.\n\nZato je točan odgovor 'da, ali samo za struje visoke frekvencije'. Ponuđeni odgovor 'da, ali samo za istosmjernu struju' opisuje kondenzator, koji se ponaša točno obrnuto (vidi teh-051), a 'zavojnica ne predstavlja otpor' vrijedi samo za istosmjernu struju i idealnu zavojnicu bez djelatnog otpora žice.\n\nPraktična posljedica koju ćeš stalno viđati u shemama zove se VF prigušnica (RF choke). Njome se istosmjerno napajanje dovodi na kolektor tranzistora ili anodu cijevi, a da VF signal ne pobjegne u izvor napajanja — jer je za istosmjernu struju prigušnica žica, a za VF zapreka. Pašarić to izričito opisuje na tiskanoj str. 82.",
+    "formula": [
+      "X_L = 2 · π · f · L        [Ω; f u Hz, L u H]",
+      "",
+      "f = 0 (istosmjerna struja) → X_L = 0",
+      "f raste                    → X_L raste linearno",
+      "",
+      "Primjer, L = 10 µH = 10⁻⁵ H:",
+      "   na    1 kHz:  X_L ≈ 6,28 · 10³ · 10⁻⁵ ≈ 0,063 Ω",
+      "   na   14 MHz:  X_L ≈ 6,28 · 1,4·10⁷ · 10⁻⁵ ≈ 880 Ω",
+      "",
+      "Kondenzator je zrcalna slika:",
+      "   X_C = 1/(2 · π · f · C)   — pada s frekvencijom"
+    ],
+    "links": [
+      {"label": "Električni induktivitet (hr.wikipedia)", "url": "https://hr.wikipedia.org/wiki/Elektri%C4%8Dni_induktivitet"},
+      {"label": "Electrical reactance", "url": "https://en.wikipedia.org/wiki/Electrical_reactance"},
+      {"label": "Choke (VF prigušnica)", "url": "https://en.wikipedia.org/wiki/Choke_(electronics)"}
+    ],
+    "cite": [
+      {"src": "RK", "loc": "2.3.2. Reaktancija zavojnice, tiskana str. 67"},
+      {"src": "PZM", "loc": "Tema 6, 3.2.3. Zavojnice, tiskana str. 79–82"}
+    ]
+  },
+
+  "teh-045": {
+    "note": "Serijski spojene zavojnice zbrajaju se kao otpornici: L = L₁ + L₂ + L₃ = 1 + 2 + 3 = 6,00 H.\n\nRazlog je isti kao kod otpornika. Kroz sve zavojnice u seriji teče ista struja, a inducirani naponi na njima se zbrajaju; kako je svaki od tih napona razmjeran vlastitoj induktivnosti, zbrajaju se i induktivnosti.\n\nVrijedi jedan uvjet koji i RK i Pašarić izričito navode: zavojnice ne smiju biti u međusobnoj induktivnoj sprezi. Ako silnice jedne prolaze kroz drugu, ukupna induktivnost je veća ili manja od zbroja, ovisno o smjeru namota. Zato se u stvarnim uređajima zavojnice udaljavaju jedna od druge, postavljaju okomito, oklapaju u limeni lončić ili motaju na toroidima — kod toroida je gotovo sav tok zatvoren u jezgri.\n\nZapamti par: ZAVOJNICE se ponašaju kao otpornici (serijski zbroj, paralelno recipročno), a KONDENZATORI obrnuto. Uz to, henri je golema jedinica — zavojnice od nekoliko henrija su mrežne i NF prigušnice, dok su u radiotehnici uobičajeni mikrohenriji.",
+    "formula": [
+      "Serijski spoj (bez međusobne induktivne sprege):",
+      "   L_uk = L₁ + L₂ + L₃",
+      "   L_uk = 1 H + 2 H + 3 H = 6,00 H",
+      "",
+      "Paralelni spoj:",
+      "   1/L_uk = 1/L₁ + 1/L₂ + 1/L₃",
+      "",
+      "Ista pravila kao za otpornike (obrnuto od kondenzatora).",
+      "",
+      "Redovi veličine:",
+      "   1 H     mrežna / NF prigušnica",
+      "   1 mH    MF i NF krugovi",
+      "   1 µH    VF titrajni krugovi na KV/UKV"
+    ],
+    "links": [
+      {"label": "Električni induktivitet (hr.wikipedia)", "url": "https://hr.wikipedia.org/wiki/Elektri%C4%8Dni_induktivitet"},
+      {"label": "Series and parallel circuits", "url": "https://en.wikipedia.org/wiki/Series_and_parallel_circuits"}
+    ],
+    "cite": [
+      {"src": "RK", "loc": "3.1.3.1. Serijski spoj zavojnica, tiskana str. 103"},
+      {"src": "PZM", "loc": "Tema 6, 3.2.3. Zavojnice — serijski i paralelni spoj, tiskana str. 82"}
+    ]
+  },
+
+  "teh-046": {
+    "note": "Uz pitanje ide shema na kojoj su L₁, L₂, otpornik R i L₃ svi spojeni između istih dviju vodoravnih vodova — dakle sve četiri komponente su međusobno PARALELNE. Traži se samo ukupni induktivitet, pa R uopće ne ulazi u račun; on je u zadatku kao ometač.\n\nParalelne zavojnice računaju se kao paralelni otpornici: zbrajaju se recipročne vrijednosti. 1/1 + 1/2 + 1/2 = 2, pa je L = 1/2 = 0,5 µH.\n\nPonuđenih 5 µH je zbroj (kao da je serijski spoj), a 1 µH je vrijednost samo jedne zavojnice. Provjera je ista kao kod otpornika: ukupna induktivnost paralelnog spoja mora biti manja od najmanje pojedinačne, a 0,5 µH < 1 µH — u redu.\n\nI ovdje vrijedi uvjet iz teh-045 da zavojnice nisu u međusobnoj induktivnoj sprezi. Na shemi su nacrtane jedna do druge, ali se u računu pretpostavlja da su razdvojene, okomito postavljene ili oklopljene.",
+    "formula": [
+      "1/L_uk = 1/L₁ + 1/L₂ + 1/L₃",
+      "1/L_uk = 1/1 + 1/2 + 1/2 = 2      [1/µH]",
+      "L_uk   = 1/2 = 0,5 µH",
+      "",
+      "Otpornik R = 5 Ω NE utječe na induktivitet.",
+      "",
+      "Provjera: L_uk < najmanja zavojnica (1 µH) ✓",
+      "",
+      "Da su iste zavojnice SERIJSKI:",
+      "   L_uk = 1 + 2 + 2 = 5 µH      ← ponuđena zamka"
+    ],
+    "links": [
+      {"label": "Električni induktivitet (hr.wikipedia)", "url": "https://hr.wikipedia.org/wiki/Elektri%C4%8Dni_induktivitet"},
+      {"label": "Series and parallel circuits", "url": "https://en.wikipedia.org/wiki/Series_and_parallel_circuits"}
+    ],
+    "cite": [
+      {"src": "RK", "loc": "3.1.3.3. Paralelni spoj zavojnica, tiskana str. 105"},
+      {"src": "PZM", "loc": "Tema 6, 3.2.3. Zavojnice — serijski i paralelni spoj, tiskana str. 82"}
+    ]
+  },
+
+  "teh-047": {
+    "note": "Dvije jednake zavojnice paralelno daju polovicu: 2 H / 2 = 1,00 H. Isto pravilo kao za dva jednaka otpornika (vidi teh-036).\n\nFormalno: 1/L = 1/2 + 1/2 = 1, dakle L = 1 H. Za dvije zavojnice vrijedi i kraći obrazac L = (L₁·L₂)/(L₁+L₂) = 4/4 = 1 H.\n\nPonuđenih 4,00 H bio bi serijski spoj; 0,50 H je četvrtina i nastaje ako se pomiješaju pravila za kondenzatore ili se dvaput dijeli; 0,25 H nema uporišta ni u jednom pravilu.\n\nRezime svih pravila iz ove skupine, koji ti pokriva teh-036 do teh-047 i teh-052 do teh-056: otpornici i zavojnice se u SERIJI zbrajaju, a PARALELNO recipročno; kondenzatori su obrnuti — PARALELNO se zbrajaju, u SERIJI recipročno.",
+    "formula": [
+      "1/L_uk = 1/L₁ + 1/L₂ = 1/2 + 1/2 = 1",
+      "L_uk = 1,00 H",
+      "",
+      "Kraće: L_uk = (L₁·L₂)/(L₁+L₂) = (2·2)/4 = 1 H",
+      "",
+      "n jednakih zavojnica paralelno  →  L/n",
+      "",
+      "SAŽETAK CIJELE SKUPINE:",
+      "   otpornici  serijski  R₁+R₂     paralelno  1/(1/R₁+1/R₂)",
+      "   zavojnice  serijski  L₁+L₂     paralelno  1/(1/L₁+1/L₂)",
+      "   kondenz.   serijski  1/(1/C₁+1/C₂)   paralelno  C₁+C₂"
+    ],
+    "links": [
+      {"label": "Električni induktivitet (hr.wikipedia)", "url": "https://hr.wikipedia.org/wiki/Elektri%C4%8Dni_induktivitet"},
+      {"label": "Series and parallel circuits", "url": "https://en.wikipedia.org/wiki/Series_and_parallel_circuits"}
+    ],
+    "cite": [
+      {"src": "RK", "loc": "3.1.3.3. Paralelni spoj zavojnica, tiskana str. 105"},
+      {"src": "PZM", "loc": "Tema 6, 3.2.3. Zavojnice — serijski i paralelni spoj, tiskana str. 82"}
+    ]
+  },
+
+  "teh-048": {
+    "note": "Transformator radi na Faradayevu zakonu indukcije. Izmjenična struja u primaru stvara promjenjivi magnetski tok u željeznoj jezgri; taj isti tok prolazi i kroz sekundar i u SVAKOM zavoju sekundara inducira jednak napon. Zato je ukupni napon sekundara razmjeran broju zavoja — udvostručiš li broj zavoja sekundara, udvostručio si i napon.\n\nOdatle omjer transformacije U₂/U₁ = N₂/N₁. Pašarić daje primjer: 200 zavoja u primaru i 1000 u sekundaru daju omjer 1:5, pa 100 V na primaru postaje 500 V na sekundaru.\n\nAli energija se ne stvara ni iz čega. Zanemarimo li gubitke, snaga na sekundaru jednaka je snazi na primaru, pa se struja mijenja obrnuto: dvostruko veći napon znači dvostruko manju raspoloživu struju. Zato transformator koji diže napon ima primar s više zavoja tanje žice, a sekundar s manje zavoja deblje žice — ili obrnuto, ovisno o smjeru transformacije.\n\nZa radioamatera je najvažnija posljedica ona četvrta: impedancija se transformira s KVADRATOM omjera zavoja, Z₁/Z₂ = (N₁/N₂)². Zato balun s omjerom impedancija 4:1 ima omjer zavoja 2:1 i prilagođava 200 Ω na 50 Ω — točno ono što ti treba za napajanje složene dipolne antene koaksijalnim kabelom.",
+    "formula": [
+      "U₂/U₁ = N₂/N₁          napon ∝ broju zavoja",
+      "I₂/I₁ = N₁/N₂          struja obrnuto razmjerna",
+      "Z₁/Z₂ = (N₁/N₂)²       impedancija s KVADRATOM",
+      "",
+      "Zadatak:  N₂ → 2·N₂   ⇒   U₂ → 2·U₂",
+      "          (a raspoloživa struja se prepolovi)",
+      "",
+      "Primjer iz PZM-a: N₁ = 200, N₂ = 1000, U₁ = 100 V",
+      "   U₂ = 100 V · 1000/200 = 500 V",
+      "",
+      "Balun 4:1  →  omjer zavoja 2:1  →  200 Ω na 50 Ω"
+    ],
+    "links": [
+      {"label": "Transformator (hr.wikipedia)", "url": "https://hr.wikipedia.org/wiki/Transformator"}
+    ],
+    "cite": [
+      {"src": "PZM", "loc": "Tema 7, 3.2.4. Transformatori, tiskana str. 83–85"},
+      {"src": "RK", "loc": "2.4. Načelo transformacije i transformatori, tiskana str. 72–73"}
+    ]
+  },
+
+  "teh-049": {
+    "note": "Faktor iskorištenja (stupanj korisnog djelovanja, η) je omjer izlazne i ulazne snage. 80 % znači da od uložene snage 80 % izađe na sekundaru: P₂ = P₁ · η = 100 W · 0,80 = 80 W.\n\nPreostalih 20 W ne nestaje — pretvara se u toplinu, i to na dva mjesta. Gubici u bakru su Jouleovi gubici u otporu namota i rastu s kvadratom struje. Gubici u željezu su histereza i vrtložne struje u jezgri; upravo zbog vrtložnih struja jezgra se ne izrađuje iz punog komada željeza nego se slaže od međusobno izoliranih limova.\n\nPonuđenih 800 W i 160 W bili bi VEĆI od ulazne snage, što je za pasivnu komponentu fizički nemoguće — takav odgovor možeš odbaciti prije nego što uopće počneš računati. Transformator ne pojačava snagu; on je samo preslaguje u drugi omjer napona i struje (vidi teh-048).\n\nIsti pojam η susrest ćeš kod pojačala snage i kod jedinica za napajanje. RK ga obrađuje kao opće svojstvo svakog uređaja: ukupna privedena energija jednaka je zbroju korisne izlazne energije i gubitka u samom uređaju.",
+    "formula": [
+      "η = P_izlaz / P_ulaz          (uvijek η < 1)",
+      "",
+      "P₂ = P₁ · η = 100 W · 0,80 = 80 W",
+      "",
+      "Gubici: P₁ − P₂ = 100 W − 80 W = 20 W",
+      "   → u bakru (otpor namota, ∝ I²)",
+      "   → u željezu (histereza + vrtložne struje)",
+      "",
+      "Obrnuti smjer računa: ako trebaš 80 W na izlazu",
+      "uz η = 0,8, izvor mora dati 80/0,8 = 100 W."
+    ],
+    "links": [
+      {"label": "Transformator (hr.wikipedia)", "url": "https://hr.wikipedia.org/wiki/Transformator"}
+    ],
+    "cite": [
+      {"src": "RK", "loc": "1.9.7. Korisnost, koeficijent korisnosti, tiskana str. 57"},
+      {"src": "PZM", "loc": "Tema 7, 3.2.4. Transformatori — prijenos snage, tiskana str. 84"}
+    ]
+  },
+
+  "teh-050": {
+    "note": "Na slici je transformator označen s Tr sa zajedničkom jezgrom: lijevo je primarni namotaj s dva priključka, a desno su DVA sekundarna namotaja čiji su unutarnji krajevi međusobno spojeni, pa su prema van izvedena samo dva priključka — gornji kraj gornjeg namota i donji kraj donjeg. Tako spojeni namoti tvore jedan niz, dakle SERIJSKI spoj.\n\nSmisao je dobiti veći napon nego što ga daje jedan namot. Kroz oba namota teče ista struja, a njihovi se inducirani naponi zbrajaju: U_sek = U_sek1 + U_sek2. Dva sekundara od po 12 V u seriji daju 24 V.\n\nRK uz to navodi važno ograničenje: opterećenje pritom ne smije biti veće od dopuštenog opterećenja pojedinog dijela sekundara. Dobio si dvostruki napon, ali ne i dvostruku struju — snaga transformatora ostaje ista.\n\nDvije zamke. Prvo, kod serijskog spajanja namota presudan je smjer namatanja: spojiš li ih 'naopako', naponi se ne zbrajaju nego oduzimaju i na izlazu dobiješ gotovo ništa. Zato se istoimeni krajevi namota na shemama označuju točkicom. Drugo, ponuđeni 'kaskadni spoj' nešto je posve drugo — to je spajanje dvaju cijelih transformatora jedan za drugim (RK, 3.1.4.2).",
+    "formula": [
+      "SERIJSKI spoj dvaju sekundarnih namota:",
+      "   U_sek = U_sek1 + U_sek2",
+      "   dopuštena struja ostaje kao za JEDAN namot",
+      "   primjer: 2 × 12 V u seriji → 24 V",
+      "",
+      "PARALELNI spoj (samo za posve jednake namote):",
+      "   napon ostaje isti",
+      "   dopuštena struja se udvostručuje",
+      "   primjer: 2 × 12 V/1 A paralelno → 12 V/2 A",
+      "",
+      "U oba slučaja snaga transformatora je ista.",
+      "Pazi na smjer namota — suprotno spojeni namoti",
+      "se međusobno poništavaju."
+    ],
+    "links": [
+      {"label": "Transformator (hr.wikipedia)", "url": "https://hr.wikipedia.org/wiki/Transformator"}
+    ],
+    "cite": [
+      {"src": "RK", "loc": "3.1.4.1. Serijski spoj (svitaka sekundara), tiskana str. 105–106"},
+      {"src": "PZM", "loc": "Tema 7, 3.2.4. Transformatori — više sekundara, tiskana str. 85"}
+    ]
+  },
+
+  "teh-051": {
+    "note": "Između ploča kondenzatora je dielektrik, dakle izolator, i kroz njega naboj ne prolazi. Ipak, kroz DOVODE teče struja punjenja i izbijanja — i to je jedina struja koju u vezi s kondenzatorom uopće mjeriš.\n\nKod istosmjernog napona ta struja teče samo dok se kondenzator puni. Kad se napon na pločama izjednači s naponom izvora, struja padne na ništicu i kondenzator je za krug prekid. Kod izmjeničnog napona polaritet se stalno okreće, pa se kondenzator neprekidno puni u jednom pa u drugom smjeru i kroz dovode stalno teče struja. Zato Pašarić kaže da kondenzator izmjeničnu struju 'prividno propušta'.\n\nTa prividna vodljivost mjeri se kapacitivnim otporom (reaktancijom) X_C = 1/(2πfC). On PADA s frekvencijom — točno obrnuto od zavojnice (vidi teh-044). Za f = 0 X_C je beskonačan, dakle prekid; zato je ponuđeni odgovor 'da, samo istosmjernu' upravo naopako.\n\nOdatle dvije uloge koje ćeš stalno viđati u shemama. Vezni (kuplirajući) kondenzator prenosi signal iz jednog stupnja u drugi, a zaustavlja istosmjerni radni napon svakog stupnja. Premosni (bypass) kondenzator VF signal odvodi na masu, a istosmjerno napajanje pušta na miru. RK obje primjene izričito nabraja na tiskanoj str. 62.",
+    "formula": [
+      "X_C = 1/(2 · π · f · C)      [Ω; f u Hz, C u F]",
+      "",
+      "f = 0 (istosmjerno) → X_C = ∞   (prekid)",
+      "f raste             → X_C pada",
+      "",
+      "Primjer, C = 100 nF = 10⁻⁷ F:",
+      "   na  100 Hz:  X_C ≈ 15,9 kΩ",
+      "   na    1 MHz: X_C ≈ 1,6 Ω",
+      "",
+      "Zavojnica je zrcalna slika:  X_L = 2πfL raste s f.",
+      "",
+      "Tri svojstva kondenzatora (PZM):",
+      "   1. prima i čuva električni naboj",
+      "   2. prividno propušta izmjeničnu, ne i istosmjernu",
+      "   3. u seriji s otporom pomiče fazu (struja prethodi naponu)"
+    ],
+    "links": [
+      {"label": "Capacitor (en.wikipedia)", "url": "https://en.wikipedia.org/wiki/Capacitor"},
+      {"label": "Electrical reactance", "url": "https://en.wikipedia.org/wiki/Electrical_reactance"}
+    ],
+    "cite": [
+      {"src": "PZM", "loc": "Tema 5, 3.2.2. Kondenzator, tiskana str. 77–78"},
+      {"src": "RK", "loc": "2.2. Kondenzator — uporaba i reaktancija, tiskana str. 62–63"}
+    ]
+  },
+
+  "teh-052": {
+    "note": "Kondenzatori se u spojevima ponašaju točno obrnuto od otpornika. U SERIJI se zbrajaju recipročne vrijednosti, pa dva jednaka kondenzatora daju polovicu: 200 nF / 2 = 100 nF.\n\nRazlog je geometrijski i lako se pamti: serijski spoj dvaju kondenzatora je kao da si razmaknuo ploče. Efektivni razmak se udvostručio, a kapacitet je obrnuto razmjeran razmaku ploča. Formalno: naboj Q kroz seriju je isti za oba kondenzatora, a naponi se zbrajaju, U = Q/C₁ + Q/C₂; nakon dijeljenja s Q ostaje 1/C = 1/C₁ + 1/C₂.\n\nProvjera: ukupni kapacitet serijskog spoja uvijek je manji od najmanjeg pojedinog kondenzatora. 100 nF < 200 nF — u redu. Ponuđenih 400 nF je paralelni rezultat i to je zamka na koju se pada svaki put kad se prenesu pravila za otpornike.\n\nPraktična korist serijskog spoja: udvostručuje se podnošljivi radni napon. Dva kondenzatora za 400 V u seriji podnose 800 V — ali samo ako su im vrijednosti jednake, jer se inače napon nejednako raspodijeli. Zato se u ispravljačima visokog napona svakom kondenzatoru paralelno stavlja izjednačavajući otpornik.",
+    "formula": [
+      "1/C_uk = 1/C₁ + 1/C₂",
+      "1/C_uk = 1/200 + 1/200 = 2/200     [1/nF]",
+      "C_uk   = 100 nF",
+      "",
+      "Kraće za DVA: C_uk = (C₁·C₂)/(C₁+C₂)",
+      "   = (200 · 200)/400 = 100 nF",
+      "",
+      "n jednakih kondenzatora u seriji  →  C/n",
+      "Provjera: C_uk < najmanji kondenzator ✓",
+      "",
+      "ZAPAMTI PAR:",
+      "   otpornici i zavojnice:  SERIJA zbraja",
+      "   kondenzatori:           PARALELA zbraja"
+    ],
+    "links": [
+      {"label": "Capacitor (en.wikipedia)", "url": "https://en.wikipedia.org/wiki/Capacitor"},
+      {"label": "Series and parallel circuits", "url": "https://en.wikipedia.org/wiki/Series_and_parallel_circuits"}
+    ],
+    "cite": [
+      {"src": "PZM", "loc": "Tema 5, 3.2.2. Kondenzator — serijski spoj, tiskana str. 78–79"},
+      {"src": "RK", "loc": "3.1.2.1. Serijski spoj kondenzatora, tiskana str. 101"}
+    ]
+  },
+
+  "teh-053": {
+    "note": "Paralelno spojeni kondenzatori se zbrajaju: 200 + 200 = 400 nF.\n\nZašto: paralelnim spajanjem doslovno povećavaš ukupnu površinu ploča, a kapacitet je razmjeran površini. Formalno, uz isti napon svaki kondenzator primi svoj naboj, pa je ukupni naboj Q = Q₁ + Q₂ = U·C₁ + U·C₂ = U·(C₁ + C₂) — kapaciteti se zbrajaju.\n\nTo je zrcalna slika otpornika: kod njih se zbrajaju SERIJSKI, kod kondenzatora PARALELNO. Ovo pitanje i teh-052 namjerno su postavljeni jedan do drugoga s istim brojkama, pa ih uči u paru: 200 nF i 200 nF daju 400 nF paralelno, a 100 nF u seriji.\n\nU praksi paralelnim spojem dobivaš veći kapacitet, ali radni napon ostaje onaj najslabijeg člana. Tako se u ispravljačima slaže velika filtarska kapacitivnost od više elektrolitskih kondenzatora, a usput im se paralelno dodaje i mali keramički kondenzator — elektroliti zbog vlastite induktivnosti na visokim frekvencijama loše premošćuju, pa taj mali keramički obavlja posao na VF-u.",
+    "formula": [
+      "C_uk = C₁ + C₂ = 200 nF + 200 nF = 400 nF",
+      "",
+      "Zašto, uz isti napon U na oba:",
+      "   Q = Q₁ + Q₂ = U·C₁ + U·C₂ = U·(C₁ + C₂)",
+      "",
+      "SAŽETAK (obrnuto od otpornika):",
+      "   PARALELNO:  C_uk = C₁ + C₂ + …",
+      "   SERIJSKI:   1/C_uk = 1/C₁ + 1/C₂ + …",
+      "",
+      "Isti par brojeva, oba smjera:",
+      "   200 nF ∥ 200 nF = 400 nF",
+      "   200 nF — 200 nF = 100 nF  (u seriji)"
+    ],
+    "links": [
+      {"label": "Capacitor (en.wikipedia)", "url": "https://en.wikipedia.org/wiki/Capacitor"},
+      {"label": "Series and parallel circuits", "url": "https://en.wikipedia.org/wiki/Series_and_parallel_circuits"}
+    ],
+    "cite": [
+      {"src": "PZM", "loc": "Tema 5, 3.2.2. Kondenzator — paralelni spoj, tiskana str. 78–79"},
+      {"src": "RK", "loc": "3.1.2.3. Paralelni spoj kondenzatora, tiskana str. 102–103"}
+    ]
+  },
+
+  "teh-054": {
+    "note": "Na shemi su C₁, C₂ i C₃ nanizani jedan za drugim između priključnica A i B — čisti serijski spoj, bez ijedne paralelne grane.\n\nTri jednaka kondenzatora u seriji daju trećinu vrijednosti: 66 pF / 3 = 22 pF. Formalno 1/C = 1/66 + 1/66 + 1/66 = 3/66, dakle C = 22 pF.\n\nPonuđenih 198 pF je zbroj, dakle rezultat koji bi vrijedio za paralelni spoj — to je zamka broj jedan kod kondenzatora. 33 pF je polovica, kao da su u seriji samo dva, a 11 pF šestina.\n\nProvjeri pravilom: rezultat serijskog spoja kondenzatora manji je od najmanjeg člana, a 22 pF < 66 pF — u redu. Za n jednakih kondenzatora u seriji vrijedi C/n, dakle isti obrazac kao za n jednakih otpornika PARALELNO. Kad se zbuniš oko toga koje pravilo ide kamo, sjeti se da su kondenzatori uvijek 'obrnuti' od otpornika.",
+    "formula": [
+      "1/C_uk = 1/C₁ + 1/C₂ + 1/C₃",
+      "1/C_uk = 1/66 + 1/66 + 1/66 = 3/66     [1/pF]",
+      "C_uk   = 66/3 = 22 pF",
+      "",
+      "n jednakih kondenzatora u seriji  →  C/n",
+      "",
+      "Da su isti kondenzatori PARALELNO:",
+      "   C_uk = 3 · 66 pF = 198 pF     ← ponuđena zamka",
+      "",
+      "Provjera: C_uk < najmanji član (22 < 66) ✓"
+    ],
+    "links": [
+      {"label": "Capacitor (en.wikipedia)", "url": "https://en.wikipedia.org/wiki/Capacitor"},
+      {"label": "Series and parallel circuits", "url": "https://en.wikipedia.org/wiki/Series_and_parallel_circuits"}
+    ],
+    "cite": [
+      {"src": "RK", "loc": "3.1.2.1. Serijski spoj kondenzatora, tiskana str. 101"},
+      {"src": "PZM", "loc": "Tema 5, 3.2.2. Kondenzator — serijski spoj, tiskana str. 78–79"}
+    ]
+  },
+
+  "teh-055": {
+    "note": "Slika prikazuje četiri komponente spojene između istih dviju vodoravnih vodova, dakle sve u PARALELI: kondenzator C₁, zavojnicu L₁, kondenzator C₂ i promjenljivi (trimerski) kondenzator C₃, prepoznatljiv po kosoj strelici preko simbola. To je zapravo paralelni titrajni krug s ugodivim kapacitetom.\n\nPitanje traži samo ukupni KAPACITET, pa zavojnica u račun ne ulazi — ona je na shemi zato što tako izgleda stvarni titrajni krug, i ujedno kao ometač. Paralelni kondenzatori se zbrajaju.\n\nPrije zbrajanja svedi sve na istu jedinicu: 100 pF = 0,1 nF. Tada je C = 2 + 1,5 + 0,1 = 3,6 nF. Ponuđenih 1,36 nF i 0,36 nF nastaju upravo iz pogrešnog pretvaranja pF u nF, a 36 nF iz pomaka decimalnog zareza — ovo je koliko pitanje o kondenzatorima, toliko i o mjernim prefiksima.\n\nPraktični smisao takvog spoja: C₁ i C₂ su nepromjenljivi kondenzatori koji određuju grubu vrijednost, a mali trimer C₃ služi za fino ugađanje rezonantne frekvencije. Rezonancija ovisi o UKUPNOM kapacitetu paralelno zavojnici, pa je zbroj upravo ono što ti u tom računu treba.",
+    "formula": [
+      "Sve četiri komponente su u paraleli.",
+      "Zavojnica L₁ ne ulazi u izračun kapaciteta.",
+      "",
+      "Ujednači jedinice:  100 pF = 0,1 nF",
+      "",
+      "C_uk = C₁ + C₂ + C₃",
+      "C_uk = 2 nF + 1,5 nF + 0,1 nF = 3,6 nF",
+      "",
+      "Prefiksi koje moraš imati u glavi:",
+      "   1 µF = 1000 nF = 1 000 000 pF",
+      "   1 nF = 1000 pF",
+      "   100 pF = 0,1 nF"
+    ],
+    "links": [
+      {"label": "Capacitor (en.wikipedia)", "url": "https://en.wikipedia.org/wiki/Capacitor"},
+      {"label": "Series and parallel circuits", "url": "https://en.wikipedia.org/wiki/Series_and_parallel_circuits"}
+    ],
+    "cite": [
+      {"src": "RK", "loc": "3.1.2.3. Paralelni spoj kondenzatora, tiskana str. 102–103"},
+      {"src": "PZM", "loc": "Tema 5, 3.2.2. Kondenzator, tiskana str. 76–79"}
+    ]
+  },
+
+  "teh-056": {
+    "note": "Na shemi je kondenzator od 2 µF spojen u seriju s parom kondenzatora od po 1 µF koji su međusobno paralelni.\n\nRiješi iznutra prema van. Paralelni par se zbraja: 1 + 1 = 2 µF. Sada su u seriji dva kapaciteta od po 2 µF, a to daje polovicu: 2/2 = 1 µF. Točan odgovor je 1 µF (ponuda b, kojoj se u prijepisu zalijepio i broj sa slike).\n\nPonuđenih 4 µF bila bi vrijednost kad bi sve bilo paralelno, a 3 µF zbroj 2 + 1. Zapamti smjer: paralelni dio POVEĆAVA ukupni kapacitet, serijski ga SMANJUJE — i kad god u shemi postoji makar jedan serijski član, konačni rezultat mora biti manji od njega.\n\nPostupak je isti kao kod otpornika u teh-039 i teh-040, samo su pravila zamijenjena. Kad se izgubiš, precrtaj shemu i zaokruži najdublji podspoj — uvijek se rješava odatle prema priključnicama.",
+    "formula": [
+      "1) Paralelni par:",
+      "   C₂₃ = 1 µF + 1 µF = 2 µF",
+      "",
+      "2) Serija s C₁ = 2 µF:",
+      "   1/C_uk = 1/2 + 1/2 = 1        [1/µF]",
+      "   C_uk = 1 µF",
+      "",
+      "Kraće: C_uk = (2 · 2)/(2 + 2) = 1 µF",
+      "",
+      "Provjera: C_uk < serijski član (1 < 2) ✓"
+    ],
+    "links": [
+      {"label": "Capacitor (en.wikipedia)", "url": "https://en.wikipedia.org/wiki/Capacitor"},
+      {"label": "Series and parallel circuits", "url": "https://en.wikipedia.org/wiki/Series_and_parallel_circuits"}
+    ],
+    "cite": [
+      {"src": "RK", "loc": "3.1.2.4. Mješoviti spoj kondenzatora, tiskana str. 103"},
+      {"src": "PZM", "loc": "Tema 5, 3.2.2. Kondenzator, tiskana str. 78–79"}
+    ]
+  },
+
+  "teh-057": {
+    "note": "Varikap (varaktor, kapacitivna dioda) je dioda koju se namjerno drži u NEPROPUSNOM, reverznom smjeru. U tom stanju kroz nju struja praktički ne teče, ali se oko PN-spoja stvara osiromašeni zaporni sloj bez slobodnih nositelja naboja — dakle izolator stisnut između dva vodljiva područja. Po građi je to kondenzator: dvije obloge i dielektrik među njima.\n\nDebljina tog sloja ovisi o naponu. Što je reverzni napon veći, sloj je deblji, a kapacitet manji — kao da si razmaknuo ploče kondenzatora. Tako naponom izravno upravljaš kapacitetom, i zato je točan odgovor 'promjenljivi kapacitet'. Tipične vrijednosti su reda 10 do 200 pF.\n\nZbog toga je varikap istisnuo mehanički promjenljivi kondenzator. U svakom modernom uređaju ugađanje se izvodi istosmjernim naponom na varikap u titrajnom krugu, a to je i temelj PLL sintetizatora: naponom upravljani oscilator (VCO) mijenja frekvenciju upravo preko varikapa. RK opisuje i drugu klasičnu primjenu — FM modulator, u kojem audiosignal preko varikapa izravno mijenja frekvenciju oscilatora.\n\nNe brkaj s ostalim posebnim diodama: Zenerova stabilizira napon (na nju se odnosi ponuđeni 'naponski regulator'), tunelska ima negativan otpor pa služi kao oscilator, a PIN dioda u VF sklopovima radi kao naponom upravljana sklopka ili prigušivač. Pašarić ih sve nabraja na tiskanoj str. 89.",
+    "formula": [
+      "Varikap = dioda u REVERZNOM (nepropusnom) smjeru",
+      "",
+      "U_R ↑  →  zaporni sloj deblji  →  C ↓",
+      "U_R ↓  →  zaporni sloj tanji   →  C ↑",
+      "",
+      "Analogija s pločastim kondenzatorom:",
+      "   C = ε · A / d      (d = debljina zapornog sloja)",
+      "",
+      "Tipično 10…200 pF.",
+      "",
+      "Primjene: ugađanje titrajnog kruga naponom,",
+      "VCO u PLL sintetizatoru, FM modulator,",
+      "automatska regulacija frekvencije (AFC)."
+    ],
+    "links": [
+      {"label": "Dioda (hr.wikipedia) — varaktor / varikap", "url": "https://hr.wikipedia.org/wiki/Dioda"},
+      {"label": "Varicap (en.wikipedia)", "url": "https://en.wikipedia.org/wiki/Varicap"}
+    ],
+    "cite": [
+      {"src": "PZM", "loc": "Tema 8, 3.2.5. Diode — vrste dioda, tiskana str. 86–89"},
+      {"src": "RK", "loc": "2.6.2.1. Primjeri uporabe dioda, 4. Varikap-dioda — FM modulacija, tiskana str. 81"}
+    ]
+  },
+
+  "teh-058": {
+    "note": "Bipolarni tranzistor ima tri priključka: BAZU (B), KOLEKTOR (C) i EMITER (E). Nazivi opisuju posao svake elektrode — emiter emitira nositelje naboja, kolektor ih skuplja, a tanka baza između njih upravlja time koliko će ih proći.\n\n'Bipolarni' znači da u vođenju sudjeluju obje vrste nositelja, i elektroni i šupljine. Tranzistor je NPN ili PNP, ovisno o rasporedu poluvodičkih slojeva. U normalnom radu spoj baza–emiter polariziran je propusno, a spoj baza–kolektor nepropusno; mala struja baze tada upravlja mnogo većom strujom kolektora. To je tranzistorski efekt i zbog njega je bipolarni tranzistor komponenta upravljana STRUJOM.\n\nZamka u ovom pitanju je odgovor d: 'vrata, izvor i odvod' (gate, source, drain) priključci su FET-a, koji se za razliku od bipolarnog upravlja NAPONOM i ima vrlo velik ulazni otpor (vidi teh-059). 'Anoda i katoda' opisuje diodu, a 'anoda, katoda i vrata' tiristor.\n\nPraktični trag: raspored izvoda nije standardiziran ni unutar iste vrste kućišta i uvijek se provjerava u katalogu. Pašarić upozorava da se kod tranzistora raspored izvoda po dogovoru prikazuje s POGLEDOM ODOZDO — ako to zaboraviš, zamijenit ćeš emiter i kolektor.",
+    "formula": [
+      "BIPOLARNI tranzistor (BJT) — NPN ili PNP:",
+      "   B — baza       upravljačka elektroda",
+      "   C — kolektor   izlaz",
+      "   E — emiter     zajednička točka",
+      "   upravlja se STRUJOM baze",
+      "   I_C = β · I_B    (β = strujno pojačanje)",
+      "",
+      "UNIPOLARNI tranzistor (FET):",
+      "   G — gate,   vrata    upravljačka elektroda",
+      "   D — drain,  odvod",
+      "   S — source, izvor",
+      "   upravlja se NAPONOM na vratima",
+      "",
+      "Dioda:    anoda i katoda",
+      "Tiristor: anoda, katoda i vrata"
+    ],
+    "links": [
+      {"label": "Tranzistor (hr.wikipedia)", "url": "https://hr.wikipedia.org/wiki/Tranzistor"}
+    ],
+    "cite": [
+      {"src": "PZM", "loc": "Tema 9, 3.2.6. Tranzistori — kako radi bipolarni tranzistor, tiskana str. 89–91"},
+      {"src": "RK", "loc": "2.6. Tranzistori, NPN i PNP, tiskana str. 76–78"}
+    ]
+  },
+
+  "teh-059": {
+    "note": "Simbol na slici nacrtan je vodoravno: donji vodoravni potez je neprekinuti KANAL s izvodima S (izvor, source) lijevo i D (odvod, drain) desno, a odozgo na kanal dolazi izvod G (vrata, gate) sa strelicom koja pokazuje prema kanalu i dodiruje ga. Vrata su, dakle, u izravnom dodiru s kanalom.\n\nUpravo to je oznaka SPOJNOG FET-a (JFET, junction FET): između vrata i kanala nalazi se PN-spoj, a strelica prikazuje njegov propusni smjer — strelica prema kanalu znači n-kanalni JFET. Kod MOSFET-a bi vrata bila odvojena prazninom od kanala, jer ih ondje razdvaja vrlo tanak sloj oksida.\n\nRazlika nije samo grafička. Kod JFET-a se PN-spoj vrata–kanal drži u nepropusnom smjeru i njegovim se zapornim slojem sužava kanal; ulazni otpor je nekoliko megaoma. Kod MOSFET-a su vrata galvanski potpuno izolirana, pa ulazni otpor ide u desetke megaoma i više, a upravljanje je čisto elektrostatičko.\n\nDva praktična upozorenja. Pašarić izričito piše da vrata n-kanalnog JFET-a nikada ne smiju dobiti pozitivan napon — PN-spoj bi postao propustan, tranzistor bi prestao raditi kao pojačalo i mogao bi se pregrijati. MOSFET-i su pak vrlo osjetljivi na statički elektricitet upravo zbog te izolacije vrata, pa se drže u vodljivoj pjeni i lemi uzemljenim lemilom.",
+    "formula": [
+      "Kako razlikovati simbole na prvi pogled:",
+      "",
+      "   JFET    vrata DODIRUJU kanal (PN-spoj),",
+      "           kanal je neprekinuta crta",
+      "   MOSFET  vrata ODVOJENA prazninom (oksid),",
+      "           kanal često crtkan (obogaćeni tip)",
+      "   BJT     dvije kose crte prema okomitoj bazi,",
+      "           strelica je na EMITERU",
+      "",
+      "Smjer strelice na vratima FET-a:",
+      "   strelica PREMA kanalu  →  n-kanal",
+      "   strelica OD kanala     →  p-kanal",
+      "",
+      "Ulazni otpor:  JFET ≈ nekoliko MΩ",
+      "               MOSFET ≫ 10 MΩ"
+    ],
+    "links": [
+      {"label": "Tranzistor (hr.wikipedia)", "url": "https://hr.wikipedia.org/wiki/Tranzistor"},
+      {"label": "JFET (en.wikipedia)", "url": "https://en.wikipedia.org/wiki/JFET"}
+    ],
+    "cite": [
+      {"src": "PZM", "loc": "Tema 9, 3.2.6. Tranzistori — J-FET i MOS FET, tiskana str. 92–93"},
+      {"src": "RK", "loc": "2.6.3. Tranzistori — tablica simbola i značajki, tiskana str. 82"}
+    ]
+  },
+
+  "teh-060": {
+    "note": "Integrirani sklopovi dijele se po načinu djelovanja na ANALOGNE (linearne) i DIGITALNE (impulsne). Logičke funkcije — I, ILI, NE, NI, NILI, ekskluzivno ILI — po svojoj naravi rade s dva diskretna stanja, pa se izvode digitalnim integriranim krugovima.\n\nAnalogni (linearni) sklop obrađuje signal koji se mijenja kontinuirano, kroz beskonačno mnogo međuvrijednosti; tipični su operacijska pojačala, modulatori, demodulatori, oscilatori i regulatori napona. Digitalni sklop prepoznaje samo 'ima napona' i 'nema napona', a sve između toga smatra zabranjenim područjem (vidi teh-061).\n\nPonuđeni 'hibridni krugovi' nisu kategorija po funkciji nego po TEHNOLOGIJI izrade: hibridni sklop je onaj kojemu su uz integrirani dio na zajedničku podlogu dodane i diskretne pasivne i aktivne komponente. Hibrid može biti i analogan i digitalan, pa nije odgovor na ovo pitanje. 'Pojačala' su primjena, ne razred sklopova.\n\nU vlastitoj postaji digitalne integrirane sklopove imaš posvuda: u PLL sintetizatoru, u prikazu frekvencije, u kodiranju CTCSS-a, u DSP obradi signala i u sučelju prema računalu.",
+    "formula": [
+      "Podjela integriranih sklopova PO DJELOVANJU:",
+      "   analogni (linearni)   — kontinuirani signal",
+      "   digitalni (impulsni)  — samo dva stanja, 0 i 1",
+      "",
+      "Podjela PO TEHNOLOGIJI IZRADE:",
+      "   monolitni  — sve na jednoj silicijskoj pločici",
+      "   hibridni   — integrirano + diskretne komponente",
+      "",
+      "Osnovne logičke funkcije:",
+      "   I (AND), ILI (OR), NE (NOT),",
+      "   NI (NAND), NILI (NOR), ekskluzivno ILI (XOR)"
+    ],
+    "links": [
+      {"label": "Integrirani krug (hr.wikipedia)", "url": "https://hr.wikipedia.org/wiki/Integrirani_krug"},
+      {"label": "Logički sklopovi (hr.wikipedia)", "url": "https://hr.wikipedia.org/wiki/Logi%C4%8Dki_sklopovi"}
+    ],
+    "cite": [
+      {"src": "RK", "loc": "2.8. Integrirani sklopovi, tiskana str. 94–96"}
+    ]
+  },
+
+  "teh-061": {
+    "note": "Glavna značajka digitalnog integriranog kruga je da poznaje samo dva stanja: logičku 0 (nema napona, isključeno) i logičku 1 (ima napona, uključeno). RK to definira upravo tako na tiskanoj str. 96. Sve ostale prednosti — točnost, brzina, otpornost na smetnje — posljedica su te dvojnosti.\n\nBitno je razumjeti da to nisu dvije točne naponske vrijednosti nego dva POJASA napona; između njih je zabranjeno područje koje sklop u ustaljenom stanju ne smije zauzimati. Zato mala smetnja ne pokvari podatak: dok god napon ostane unutar svog pojasa, izlaz se regenerira u čistu 0 ili 1. To je i razlog zašto se digitalni signal može prenositi i preslikavati bez gomilanja šuma, dok analogni sa svakim prolazom postaje malo lošiji.\n\nOstale ponuđene tvrdnje su netočne: digitalnih sklopova danas ima mnogo VIŠE nego analognih; veličina i cijena nisu definicijska značajka; a linearna pojačala snage upravo su područje analognih sklopova (vidi teh-062).\n\nZa amatera je praktična strana ta da digitalni sklopovi svojim strmim bridovima impulsa stvaraju bogat spektar harmonika. Mikroprocesor i zaslon u postaji znaju biti izvor smetnji vlastitom prijamniku, pa se digitalni dio uređaja pažljivo oklapa i njegovi se dovodi filtriraju.",
+    "formula": [
+      "Digitalni sklop poznaje samo dva stanja:",
+      "   logička 0  —  nema napona (nisko)",
+      "   logička 1  —  ima napona (visoko)",
+      "između njih je ZABRANJENO područje",
+      "",
+      "Primjer ulaznih pragova za TTL logiku (5 V):",
+      "   0,0 … 0,8 V   →  sigurno logička 0",
+      "   2,0 … 5,0 V   →  sigurno logička 1",
+      "   0,8 … 2,0 V   →  zabranjeno područje",
+      "",
+      "n bitova razlikuje 2ⁿ različitih vrijednosti:",
+      "   8 bitova → 256,   16 bitova → 65 536"
+    ],
+    "links": [
+      {"label": "Digital electronics (en.wikipedia)", "url": "https://en.wikipedia.org/wiki/Digital_electronics"},
+      {"label": "Integrirani krug (hr.wikipedia)", "url": "https://hr.wikipedia.org/wiki/Integrirani_krug"}
+    ],
+    "cite": [
+      {"src": "RK", "loc": "2.8.3. Digitalni integrirani sklopovi, tiskana str. 96–98"}
+    ]
+  },
+
+  "teh-062": {
+    "note": "Kod analognog (linearnog) integriranog sklopa izlazni signal dosljedno prati promjene ulaznog. Napon na izlazu u svakom je trenutku preslika ulaznog napona, uvećana za faktor pojačanja — kontinuirano, kroz sve međuvrijednosti, a ne u dva skoka kao kod digitalnog sklopa (vidi teh-061).\n\nOdatle i naziv LINEARNI: idealna karakteristika izlaza u ovisnosti o ulazu je pravac. Odstupanje od pravca znači nelinearno izobličenje, dakle nastanak harmonika i intermodulacijskih produkata kojih u ulaznom signalu nije bilo. Na taj ćeš pojam ponovno naletjeti kod pojačala snage i kod uzroka smetnja — SSB pojačalo mora biti linearno upravo zato da ne raširi signal po susjednim kanalima.\n\nOstale ponuđene tvrdnje su netočne ili nisu tehnički argument: analogni sklopovi nisu ograničeni samo na pojačala — RK nabraja i modulatore, demodulatore, oscilatore, jedinice za napajanje te sklopove za upravljanje i regulaciju; a obrazloženja 'jer se bolje griju' i 'jer bolje poznajemo njihov način rada' nemaju veze s razlikovanjem analognog i digitalnog.\n\nNajpoznatiji analogni integrirani sklop je operacijsko pojačalo (vidi teh-064). U tvojoj postaji analogni su i integrirani stabilizatori napona serije 78xx te NF pojačalo snage u zvučnom stupnju.",
+    "formula": [
+      "ANALOGNI (linearni) integrirani sklop:",
+      "   u_izlaz(t) = A · u_ulaz(t)",
+      "   izlaz kontinuirano prati ulaz",
+      "   idealna karakteristika = pravac",
+      "",
+      "DIGITALNI integrirani sklop:",
+      "   izlaz poprima samo stanje 0 ili 1",
+      "",
+      "Primjeri analognih integriranih sklopova (RK):",
+      "   operacijsko pojačalo, modulator, demodulator,",
+      "   oscilator, jedinica za napajanje,",
+      "   sklopovi za upravljanje i regulaciju"
+    ],
+    "links": [
+      {"label": "Integrirani krug (hr.wikipedia)", "url": "https://hr.wikipedia.org/wiki/Integrirani_krug"},
+      {"label": "Operacijsko pojačalo (hr.wikipedia)", "url": "https://hr.wikipedia.org/wiki/Operacijsko_poja%C4%8Dalo"}
+    ],
+    "cite": [
+      {"src": "RK", "loc": "2.8.2. Analogni integrirani sklop, tiskana str. 95"}
+    ]
+  },
+
+  "teh-063": {
+    "note": "Na slici je PRAVOKUTNIK s dva ulaza slijeva, jednim izlazom zdesna i znakom & unutar pravokutnika. To je IEC oznaka (norma IEC 60617-12) za logički sklop I, engleski AND. Znak & je ujedno i mnemonik — 'and'.\n\nFunkcija I daje na izlazu jedinicu SAMO ako su svi ulazi u jedinici. Dovoljna je jedna nula na bilo kojem ulazu da izlaz padne na nulu. U logičkoj algebri to je množenje: 0·0 = 0, 0·1 = 0, 1·1 = 1 — RK tu tablicu daje na tiskanoj str. 97, a pregled simbola na str. 98 (sl. 2.8.4.).\n\nOvdje je važna razlika u normama i ona je izvor mnogih grešaka, uključujući i onu u ranijoj verziji ove bilješke. Ovo pitanje koristi PRAVOKUTNU (IEC/DIN) oznaku, kod koje se sklopovi razlikuju po ZNAKU unutar pravokutnika: & za I, ≥1 za ILI, 1 za NE, =1 za ekskluzivno ILI, a negacija se dodaje kružićem na izlazu. Tek u američkoj (ANSI/IEEE) 'karakterističnoj' oznaci I je lik ravne lijeve i polukružne desne strane, dok ILI ima zaobljenu lijevu stranu i šiljak desno. Ako gledaš samo obris, a slika je u IEC normi, promašit ćeš — gledaj znak unutra.\n\nPonuđeni NILI (NOR) bio bi ≥1 s kružićem na izlazu, a NE (NOT) ima samo JEDAN ulaz, pa taj odgovor možeš odbaciti već po broju priključaka na slici.",
+    "formula": [
+      "IEC (pravokutne) oznake — gledaj znak UNUTRA:",
+      "   &      →  I (AND)",
+      "   ≥1     →  ILI (OR)",
+      "   1      →  NE (NOT), samo jedan ulaz",
+      "   =1     →  ekskluzivno ILI (XOR)",
+      "   kružić na izlazu  →  negacija (NI, NILI)",
+      "",
+      "Tablica istinitosti za I:",
+      "   A  B  │  A·B",
+      "   0  0  │   0",
+      "   0  1  │   0",
+      "   1  0  │   0",
+      "   1  1  │   1",
+      "",
+      "Logička algebra (RK, tiskana str. 97):",
+      "   0·0 = 0    0·1 = 0    1·1 = 1",
+      "   0+0 = 0    0+1 = 1    1+1 = 1"
+    ],
+    "links": [
+      {"label": "Logički sklopovi (hr.wikipedia)", "url": "https://hr.wikipedia.org/wiki/Logi%C4%8Dki_sklopovi"},
+      {"label": "Logic gate (en.wikipedia)", "url": "https://en.wikipedia.org/wiki/Logic_gate"}
+    ],
+    "cite": [
+      {"src": "RK", "loc": "2.8.3. Digitalni integrirani sklopovi — logička algebra i sl. 2.8.4. simboli logičkih sklopova, tiskana str. 97–98"}
+    ]
+  },
+
+  "teh-064": {
+    "note": "Na slici je trokut okrenut vrhom udesno, s dva ulaza slijeva — gornji označen minusom, donji plusom — i jednim izlazom iz vrha; unutar trokuta stoji slovo A (amplifier). To je standardni simbol OPERACIJSKOG POJAČALA.\n\nTrokut u shemama općenito označava pojačalo i ujedno pokazuje smjer prolaza signala. Ono što ovaj simbol čini baš operacijskim pojačalom jesu DVA ulaza suprotnog djelovanja: invertirajući (−), na kojem izlaz dobiva suprotni polaritet od ulaza, i neinvertirajući (+), na kojem izlaz slijedi ulaz u fazi. Operacijsko pojačalo zapravo pojačava RAZLIKU tih dvaju napona, i to golemim pojačanjem — tipično 10⁵ i više u otvorenoj petlji.\n\nZato se u praksi nikad ne koristi bez povratne veze. Dio izlaznog napona vraća se na invertirajući ulaz i tada pojačanje sklopa određuju samo dva otpornika, a ne nesigurna svojstva samog čipa. Odatle i naziv 'operacijsko': izvorno je služilo za matematičke operacije u analognim računalima — zbrajanje, integriranje, deriviranje.\n\nOstale ponude odbaci po izgledu: dvoulazna ILI vrata crtaju se kao pravokutnik sa znakom ≥1 ili kao zaobljeni lik (vidi teh-063), a atenuator kao pravokutnik s upisanim slabljenjem u dB. Operacijsko pojačalo je najpoznatiji predstavnik ANALOGNIH integriranih sklopova (vidi teh-062) i RK ga navodi kao glavni primjer u poglavlju 2.8.2.",
+    "formula": [
+      "Simbol: trokut, dva ulaza, jedan izlaz",
+      "   −   invertirajući ulaz    (izlaz u protufazi)",
+      "   +   neinvertirajući ulaz  (izlaz u fazi)",
+      "",
+      "u_izlaz = A · (u₊ − u₋),   A vrlo velik (≈10⁵)",
+      "",
+      "S povratnom vezom pojačanje određuju otpornici:",
+      "   invertirajući spoj:     A = − R₂/R₁",
+      "   neinvertirajući spoj:   A = 1 + R₂/R₁",
+      "",
+      "Primjer: R₁ = 1 kΩ, R₂ = 10 kΩ",
+      "   invertirajući spoj → A = −10"
+    ],
+    "links": [
+      {"label": "Operacijsko pojačalo (hr.wikipedia)", "url": "https://hr.wikipedia.org/wiki/Operacijsko_poja%C4%8Dalo"},
+      {"label": "Integrirani krug (hr.wikipedia)", "url": "https://hr.wikipedia.org/wiki/Integrirani_krug"}
+    ],
+    "cite": [
+      {"src": "RK", "loc": "2.8.2. Analogni integrirani sklop, tiskana str. 95"}
+    ]
+  }
+}

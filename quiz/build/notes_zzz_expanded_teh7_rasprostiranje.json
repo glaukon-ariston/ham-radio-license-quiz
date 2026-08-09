@@ -1,0 +1,1145 @@
+{
+  "_doc": "Expanded teaching notes — batch: 7. Rasprostiranje elektromagnetskog vala (41 questions, teh-203…teh-243). Wavelength arithmetic, polarisation, the D/E/F1/F2 ionosphere by day and by night, critical frequency / MUF / LUF, skip distance and the dead zone, D-layer absorption, fading, sporadic E, meteor scatter, aurora, the 11-year solar cycle. Written as one causal chain: Sunce ionizira sloj → gustoća elektrona zadaje kritičnu frekvenciju → to odlučuje vraća li se pojas na Zemlju → otud ponašanje svakog pojasa po dobu dana. Named to sort LAST so these override the terse originals.",
+  "_links_verified": "Every URL here was confirmed (hr/en Wikipedia API, 9 Aug 2026) to exist and to cover the stated point. hr.wikipedia has NO article for 'Prizemni val', 'Prostorni val', 'Kratki valovi' ni 'Ultrakratki valovi' — za te pojmove linkano je na en.wikipedia. Pozor: en 'Surface wave' govori o mehaničkim valovima i NIJE prikladan; koristi se 'Ground wave'.",
+  "_citation_note": "RK printed pages were read off the pages themselves (offset +4 in this range: printed 162 = pdf 158). Chapter 7 'Rasprostiranje radiovalova' runs printed str. 162–173; 1.5.2./1.5.3. (valna duljina, polarizacija) are printed str. 39–41. PZM's whole propagation chapter is Tema 17, tiskana str. 118–120; the wavelength formula really is on PZM str. 114 (inherited citation checked and confirmed correct).",
+
+  "teh-203": {
+    "note": "Valna duljina je put koji val prijeđe za jednu periodu. Budući da se elektromagnetski val u zraku širi brzinom svjetlosti, c ≈ 300 000 000 m/s, a perioda je T = 1/f, izlazi λ = c·T = c/f. Uvrsti li se c u megametrima po sekundi, a frekvencija u megahercima, ostaje praktični obrazac koji ćeš na ispitu koristiti stotinu puta: λ[m] = 300 / f[MHz].\n\nOvdje: 300 / 150 = 2 m. To je ujedno i naziv najpoznatijeg amaterskog UKV pojasa — „dvojka“, 144–146 MHz. Naziv pojasa uvijek dolazi od valne duljine, a ne od frekvencije, jer se antene režu po valnoj duljini: poluvalni dipol za 2 m dug je oko metar.\n\nZamka je ponuđeni odgovor 20 m. Do njega dođeš ako pomiješaš megaherce s kilohercima ili ako uzmeš 3000 umjesto 300. Provjera je uvijek brza u suprotnom smjeru: 300/2 = 150 MHz, dakle 2 m je točno. Zapamti i smjer ovisnosti — viša frekvencija znači KRAĆI val, jer su λ i f obrnuto razmjerni.",
+    "formula": [
+      "λ = c / f,     c ≈ 300 000 000 m/s = 3 · 10⁸ m/s",
+      "",
+      "Praktični oblik (f u MHz, λ u metrima):",
+      "   λ[m] = 300 / f[MHz]        f[MHz] = 300 / λ[m]",
+      "",
+      "Uvrštavanje:",
+      "   λ = 300 / 150 = 2 m",
+      "",
+      "Provjera u suprotnom smjeru:  300 / 2 = 150 MHz  ✓",
+      "",
+      "Nekoliko orijentira za pamćenje:",
+      "     3 MHz → 100 m        30 MHz →  10 m",
+      "    14 MHz →  21 m       144 MHz →   2,08 m",
+      "   300 MHz →   1 m      3000 MHz →   0,1 m"
+    ],
+    "links": [
+      {"label": "Valna duljina (hr.wikipedia)", "url": "https://hr.wikipedia.org/wiki/Valna_duljina"},
+      {"label": "Frekvencija (hr.wikipedia)", "url": "https://hr.wikipedia.org/wiki/Frekvencija"},
+      {"label": "Radiovalovi (hr.wikipedia)", "url": "https://hr.wikipedia.org/wiki/Radiovalovi"}
+    ],
+    "cite": [
+      {"src": "RK", "loc": "1.5.2. Brzina širenja, frekvencija i valna duljina, tiskana str. 39"},
+      {"src": "PZM", "loc": "Tema 16, „Izračun valne duljine“, tiskana str. 114"}
+    ]
+  },
+
+  "teh-204": {
+    "note": "λ = 300 / 30 = 10 m. Upravo taj primjer knjiga Radiokomunikacije uzima kad uvodi obrazac, i to nije slučajno: 30 MHz je granica koja dijeli dva svijeta rasprostiranja.\n\nSve ispod 30 MHz su kratki valovi (HF). Njih ionosfera može savinuti natrag prema Zemlji, pa s malom snagom dosežeš drugi kraj svijeta. Sve iznad 30 MHz su vrlo kratki i ultrakratki valovi (VHF, UHF); njima u pravilu treba veća gustoća elektrona nego što je ionosfera ima, pa prolaze kroz nju i odlaze u svemir (vidi teh-226).\n\nAmaterski pojas 10 m proteže se od 28 000 do 29 700 kHz, dakle točno uz tu granicu. Zato je 10 m pojas dvostruke naravi: kad je Sunce aktivno ponaša se kao pravi DX pojas preko F2 sloja, a kad nije, ljeti se otvara samo povremeno preko sporadičnog E sloja (vidi teh-240).",
+    "formula": [
+      "λ[m] = 300 / f[MHz] = 300 / 30 = 10 m",
+      "",
+      "Granica koju vrijedi zapamtiti:",
+      "     3 – 30 MHz    = HF, kratki valovi   (100 m …  10 m)",
+      "    30 – 300 MHz   = VHF, vrlo kratki    ( 10 m …   1 m)",
+      "   300 – 3000 MHz  = UHF, ultrakratki    (  1 m …  10 cm)",
+      "",
+      "Amaterski pojas 10 m: 28 000 – 29 700 kHz"
+    ],
+    "links": [
+      {"label": "Valna duljina (hr.wikipedia)", "url": "https://hr.wikipedia.org/wiki/Valna_duljina"},
+      {"label": "High frequency (en.wikipedia)", "url": "https://en.wikipedia.org/wiki/High_frequency"},
+      {"label": "Very high frequency (en.wikipedia)", "url": "https://en.wikipedia.org/wiki/Very_high_frequency"}
+    ],
+    "cite": [
+      {"src": "RK", "loc": "1.5.2., tiskana str. 39 i 7.1. Opći pojmovi, tiskana str. 163 (isti primjer: 300/30 = 10 m)"},
+      {"src": "PZM", "loc": "Tema 16, „Izračun valne duljine“, tiskana str. 114"}
+    ]
+  },
+
+  "teh-205": {
+    "note": "Isti obrazac, samo obrnut: f[MHz] = 300 / λ[m] = 300 / 30 = 10 MHz. Kad god ti daju jedno, drugo dobiješ dijeljenjem broja 300 — zato je to jedini broj iz ove teme koji stvarno moraš znati napamet.\n\n30 m je jedan od tri „WARC“ pojasa (30, 17 i 12 m), dodijeljena amaterima na Svjetskoj administrativnoj radijskoj konferenciji 1979. Kod nas je to 10 100 – 10 150 kHz, dakle samo 50 kHz širine, sa sekundarnim statusom i ograničenjem snage na 250 W. Na WARC pojasevima po međunarodnom dogovoru nema natjecanja, pa su za DX u vrijeme contesta često najmirniji dio spektra.\n\n30 m je i propagacijski zanimljiv: dovoljno je nizak da noću radi kao 40 m, a dovoljno visok da danju D-sloj ne guta previše (vidi teh-227). Zato je jedan od rijetkih pojaseva koji je upotrebljiv gotovo 24 sata.",
+    "formula": [
+      "f[MHz] = 300 / λ[m] = 300 / 30 = 10 MHz",
+      "",
+      "Amaterski pojas 30 m:  10 100 – 10 150 kHz",
+      "   status S (sekundarni), P_max = 250 W",
+      "",
+      "Provjera:  300 / 10,125 MHz = 29,6 m ≈ 30 m  ✓"
+    ],
+    "links": [
+      {"label": "Valna duljina (hr.wikipedia)", "url": "https://hr.wikipedia.org/wiki/Valna_duljina"},
+      {"label": "Amateur radio frequency allocations (en.wikipedia)", "url": "https://en.wikipedia.org/wiki/Amateur_radio_frequency_allocations"},
+      {"label": "Pravilnik NN 150/2022", "url": "https://narodne-novine.nn.hr/clanci/sluzbeni/2022_12_150_2313.html"}
+    ],
+    "cite": [
+      {"src": "RK", "loc": "1.5.2., tiskana str. 39"},
+      {"src": "NN150/22", "loc": "Dodatak 1., Tablica 1. (10 100 – 10 150 kHz)"}
+    ]
+  },
+
+  "teh-206": {
+    "note": "Prvi korak je pretvorba u metre, i tu većina pogriješi: 3 cm = 0,03 m. Tek onda f = 300 / 0,03 = 10 000 MHz = 10 GHz.\n\nDijeljenje decimalnim brojem ide lakše ako pomakneš zarez: 300/0,03 = 30 000/3 = 10 000. Za mikrovalove je zgodnije zapamtiti izvedeni oblik λ[cm] = 30 / f[GHz], pa odmah vidiš 30/10 = 3 cm.\n\nTo je stvarni amaterski pojas 3 cm: 10 – 10,45 GHz i 10,45 – 10,5 GHz po Dodatku 1. Pravilnika. Na tim frekvencijama ionosfera više uopće ne sudjeluje u rasprostiranju — valovi se ponašaju kao svjetlost, idu optičkom vidljivošću, a slabi ih kiša i vlaga u zraku. Zato se tu radi s parabolama i vrlo uskim snopovima.",
+    "formula": [
+      "3 cm = 0,03 m",
+      "",
+      "f[MHz] = 300 / λ[m] = 300 / 0,03 = 10 000 MHz = 10 GHz",
+      "",
+      "Zgodniji oblik za mikrovalove:",
+      "   λ[cm] = 30 / f[GHz]        f[GHz] = 30 / λ[cm]",
+      "   30 / 10 = 3 cm  ✓",
+      "",
+      "Amaterski „3 cm“:  10 – 10,45 GHz  i  10,45 – 10,5 GHz",
+      "Za usporedbu:  23 cm → 1,3 GHz,  13 cm → 2,3 GHz,  6 cm → 5,7 GHz"
+    ],
+    "links": [
+      {"label": "Valna duljina (hr.wikipedia)", "url": "https://hr.wikipedia.org/wiki/Valna_duljina"},
+      {"label": "Radiovalovi (hr.wikipedia)", "url": "https://hr.wikipedia.org/wiki/Radiovalovi"}
+    ],
+    "cite": [
+      {"src": "RK", "loc": "1.5.2., tiskana str. 39"},
+      {"src": "NN150/22", "loc": "Dodatak 1., Tablica 1. (10 – 10,5 GHz)"}
+    ]
+  },
+
+  "teh-207": {
+    "note": "300 / 21 = 14,29 m, a pojas se ipak zove 15 m. Naziv pojasa nije rezultat točnog računa nego povijesni, zaokruženi dogovor — bira se okrugao broj koji je blizu izračunate valne duljine i koji se ne sudara s nazivom susjednog pojasa. Da su 21 MHz zvali „14 m“, brkalo bi se s pojasom 20 m (14 MHz).\n\nZato pravilo za ispit glasi: izračunaj λ = 300/f, pa odaberi ponuđeni naziv koji je NAJBLIŽI dobivenom broju. 14,29 je bliže petnaest nego dvadeset, i mnogo bliže od 21 ili 1.\n\nZamka je odgovor „21 m“ — ponuđen je zato što ponavlja broj iz pitanja. Amaterski pojas 15 m je 21 000 – 21 450 kHz, primarna dodjela, i klasičan je „dnevni DX pojas“: otvara se s izlaskom Sunca preko F2 sloja i zatvara se nedugo nakon zalaska, a koliko će biti dobar ovisi izravno o sunčevoj aktivnosti (vidi teh-225).",
+    "formula": [
+      "λ = 300 / 21 = 14,29 m   →  naziv pojasa: 15 m",
+      "",
+      "Zašto naziv nije jednak izračunu — usporedba:",
+      "   pojas       f [MHz]        300/f        naziv",
+      "    80 m     3,5 – 3,8       79 – 86 m      80 m",
+      "    40 m     7,0 – 7,2       42 – 43 m      40 m",
+      "    20 m    14,0 – 14,35     21 – 21,4 m    20 m",
+      "    15 m    21,0 – 21,45     14 – 14,3 m    15 m",
+      "    10 m    28,0 – 29,7      10,1 – 10,7 m  10 m",
+      "",
+      "Pravilo: izračunaj 300/f pa uzmi NAJBLIŽI ponuđeni naziv."
+    ],
+    "links": [
+      {"label": "Valna duljina (hr.wikipedia)", "url": "https://hr.wikipedia.org/wiki/Valna_duljina"},
+      {"label": "Amateur radio frequency allocations (en.wikipedia)", "url": "https://en.wikipedia.org/wiki/Amateur_radio_frequency_allocations"}
+    ],
+    "cite": [
+      {"src": "RK", "loc": "1.5.2., tiskana str. 39"},
+      {"src": "NN150/22", "loc": "Dodatak 1., Tablica 1. (21 000 – 21 450 kHz)"}
+    ]
+  },
+
+  "teh-208": {
+    "note": "300 / 1296 = 0,2315 m, dakle 0,23 m ili 23 cm. Otud i naziv pojasa — „dvadeset i tri centimetra“.\n\nRačun bez kalkulatora: 1296 je otprilike 1300, a 300/1300 = 0,231. Ili obrnuto, provjeri ponuđeni odgovor: 300 / 0,23 = 1304 MHz, što je vrlo blizu 1296. Ponuđeni 23 m odgovarao bi 13 MHz, a 0,03 m odgovara 10 GHz (vidi teh-206) — obje su zamke očito promašene za tri reda veličine.\n\nAmaterski pojas 23 cm je 1240 – 1300 MHz, sekundarni status. 1296 MHz je unutar njega uobičajena „SSB/CW“ frekvencija za daleke veze. Na 23 cm valna duljina je toliko kratka da su antene s velikim dobitkom male i praktične — 30-elementna Yagi antena stane u dva metra — pa se tu radi EME (odbijanje od Mjeseca) i satelitski rad.",
+    "formula": [
+      "λ = 300 / 1296 = 0,2315 m ≈ 0,23 m = 23 cm",
+      "",
+      "Provjera:  300 / 0,23 = 1304 MHz ≈ 1296 MHz  ✓",
+      "",
+      "Amaterski pojas 23 cm: 1240 – 1300 MHz (status S)",
+      "",
+      "Zašto ostali odgovori ne mogu biti točni:",
+      "   23 m    ↔  300/23    = 13 MHz",
+      "   0,13 m  ↔  300/0,13  = 2308 MHz",
+      "   0,03 m  ↔  300/0,03  = 10 000 MHz"
+    ],
+    "links": [
+      {"label": "Valna duljina (hr.wikipedia)", "url": "https://hr.wikipedia.org/wiki/Valna_duljina"},
+      {"label": "Pravilnik NN 150/2022", "url": "https://narodne-novine.nn.hr/clanci/sluzbeni/2022_12_150_2313.html"}
+    ],
+    "cite": [
+      {"src": "RK", "loc": "1.5.2., tiskana str. 39"},
+      {"src": "NN150/22", "loc": "Dodatak 1., Tablica 1. (1240 – 1300 MHz)"}
+    ]
+  },
+
+  "teh-209": {
+    "note": "300 / 24 = 12,5 m, a naziv pojasa je 12 m. Ako uzmeš pravu sredinu pojasa umjesto zaokruženih 24 MHz, račun ispadne još ljepši: pojas je 24 890 – 24 990 kHz, pa je 300 / 24,94 = 12,03 m — praktički točno 12 metara.\n\nTo je dobra ilustracija kako nastaju nazivi pojaseva (usporedi teh-207): računa se od stvarne dodjele, ne od okruglog broja iz pitanja. Ponuđeni odgovori 10 m i 11 m odgovaraju 30 odnosno 27 MHz, a 18 m odgovara oko 16,7 MHz — svi su blizu, pa treba stvarno izračunati, ne pogađati.\n\n12 m je, uz 30 i 17 m, treći WARC pojas, sekundarni status, bez natjecanja. Propagacijski je „osjetljiv“: otvara se danju samo kad je sunčeva aktivnost solidna, a u minimumu ciklusa zna biti mrtav mjesecima. Kad je otvoren, ponaša se gotovo kao 10 m.",
+    "formula": [
+      "λ = 300 / 24 = 12,5 m   →  naziv pojasa: 12 m",
+      "",
+      "Točnije, sa sredinom stvarnog pojasa:",
+      "   pojas 24 890 – 24 990 kHz, sredina ≈ 24,94 MHz",
+      "   λ = 300 / 24,94 = 12,03 m  ✓",
+      "",
+      "Zašto ostali ne prolaze:",
+      "   10 m ↔ 30 MHz     11 m ↔ 27,3 MHz     18 m ↔ 16,7 MHz"
+    ],
+    "links": [
+      {"label": "Valna duljina (hr.wikipedia)", "url": "https://hr.wikipedia.org/wiki/Valna_duljina"},
+      {"label": "Amateur radio frequency allocations (en.wikipedia)", "url": "https://en.wikipedia.org/wiki/Amateur_radio_frequency_allocations"}
+    ],
+    "cite": [
+      {"src": "RK", "loc": "1.5.2., tiskana str. 39"},
+      {"src": "NN150/22", "loc": "Dodatak 1., Tablica 1. (24 890 – 24 990 kHz)"}
+    ]
+  },
+
+  "teh-210": {
+    "note": "Ovo je isti račun, samo krećeš od naziva pojasa: f = 300 / λ = 300 / 160 = 1,875 MHz. Od ponuđenih brojeva najbliži je 1,8 MHz.\n\nStvarna dodjela u Hrvatskoj je 1810 – 1850 kHz (primarno, do 1500 W) i 1850 – 2000 kHz (sekundarno, do 1000 W), dakle pojas ide od 1,81 do 2,00 MHz. Zamka je odgovor „2,00 MHz“ — to jest gornji rub pojasa, ali oznaka pojasa se uvijek veže uz DONJI rub, jer se tu i radi. Isto vrijedi svugdje: 80 m se veže uz 3,5 a ne uz 3,8 MHz, 20 m uz 14,0 a ne uz 14,35 MHz.\n\n160 m je „topband“ i najzahtjevniji KV pojas. Danju je praktički beskoristan preko dvjestotinjak kilometara jer ga D-sloj proguta (vidi teh-227); noću, a pogotovo zimskih noći i oko izlaska Sunca, otvara se prema cijelome svijetu. Antene su problem — poluvalni dipol za 160 m dug je oko 80 metara.",
+    "formula": [
+      "f = 300 / λ = 300 / 160 = 1,875 MHz  →  1,8 MHz",
+      "",
+      "Stvarna dodjela (NN 150/22, Dodatak 1., Tablica 1.):",
+      "   1810 – 1850 kHz   primarno-isključivo, 1500 W",
+      "   1850 – 2000 kHz   sekundarno,          1000 W",
+      "",
+      "Pravilo: oznaka pojasa ide uz DONJI rub,",
+      "   160 m → 1,8 MHz      80 m → 3,5 MHz",
+      "    40 m → 7,0 MHz      20 m → 14,0 MHz",
+      "",
+      "Poluvalni dipol za 160 m:  λ/2 ≈ 165/2 ≈ 82 m žice"
+    ],
+    "links": [
+      {"label": "Pravilnik NN 150/2022", "url": "https://narodne-novine.nn.hr/clanci/sluzbeni/2022_12_150_2313.html"},
+      {"label": "Valna duljina (hr.wikipedia)", "url": "https://hr.wikipedia.org/wiki/Valna_duljina"}
+    ],
+    "cite": [
+      {"src": "NN150/22", "loc": "Dodatak 1., Tablica 1. (1810 – 1850 kHz i 1850 – 2000 kHz)"},
+      {"src": "RK", "loc": "1.5.2., tiskana str. 39"}
+    ]
+  },
+
+  "teh-211": {
+    "note": "f = 300 / 17 = 17,6 MHz, pa je od ponuđenih najbliži 18 MHz. Provjeri i unatrag: stvarna dodjela je 18 068 – 18 168 kHz, a 300 / 18,12 = 16,6 m — zaokruženo na 17 m.\n\nOva dva broja pokazuju zašto naziv pojasa treba shvatiti kao etiketu, ne kao mjeru: izračun daje 16,6, oznaka je 17, a natrag preračunato 17,6 MHz. Kod svih WARC pojaseva odstupanje je nešto veće nego kod starih pojaseva, jer su nazivi birani da se ne sudaraju s postojećima (17 između 20 i 15, 12 između 15 i 10).\n\n17 m je pojas širok samo 100 kHz, sekundarnog statusa, bez natjecanja. Ponaša se kao „blaži“ 15 m: otvara se danju preko F2 sloja, a najbolji je nekoliko sati oko podneva i oko zalaska Sunca. Zbog uskoga pojasa je uvijek gusto naseljen kad je otvoren.",
+    "formula": [
+      "f = 300 / 17 = 17,6 MHz  →  18 MHz",
+      "",
+      "Stvarna dodjela: 18 068 – 18 168 kHz (samo 100 kHz široko)",
+      "   provjera:  300 / 18,12 = 16,6 m ≈ 17 m  ✓",
+      "",
+      "Tri WARC pojasa (dodijeljena 1979., bez natjecanja):",
+      "   30 m → 10,1 MHz      17 m → 18,1 MHz      12 m → 24,9 MHz"
+    ],
+    "links": [
+      {"label": "Pravilnik NN 150/2022", "url": "https://narodne-novine.nn.hr/clanci/sluzbeni/2022_12_150_2313.html"},
+      {"label": "Amateur radio frequency allocations (en.wikipedia)", "url": "https://en.wikipedia.org/wiki/Amateur_radio_frequency_allocations"}
+    ],
+    "cite": [
+      {"src": "NN150/22", "loc": "Dodatak 1., Tablica 1. (18 068 – 18 168 kHz)"},
+      {"src": "RK", "loc": "1.5.2., tiskana str. 39"}
+    ]
+  },
+
+  "teh-212": {
+    "note": "f = 300 / 80 = 3,75 MHz, pa je pojas 80 m onaj na 3,5 MHz. Dodjela je 3500 – 3800 kHz, primarno, do 1500 W — i za A i za P razred.\n\n80 m je klasičan noćni pojas i najbolji primjer cijele ove teme. Danju D-sloj snažno apsorbira sve ispod otprilike 7 MHz, pa 80 m radi samo prizemnim valom i strmim „NVIS“ odbojem, dakle na sto do dvjesto kilometara. Čim Sunce zađe, D-sloj rekombinacijom nestane, apsorpcija propadne, a val slobodno stigne do F sloja i vrati se — pa navečer bez muke radiš cijelu Europu, a zimskih noći i prekooceanski DX (vidi teh-219 i teh-227).\n\nZamka je odgovor 1,8 MHz, koji pripada pojasu 160 m. Provjera je uvijek ista: 300/3,5 = 86 m, 300/1,8 = 167 m — prvi je blizu 80, drugi blizu 160.",
+    "formula": [
+      "f = 300 / 80 = 3,75 MHz  →  3,5 MHz",
+      "",
+      "Dodjela: 3500 – 3800 kHz, status P, 1500 W (A razred)",
+      "                                     100 W (P razred)",
+      "",
+      "Provjera oba kandidata:",
+      "   300 / 3,5 = 86 m   → to je pojas 80 m  ✓",
+      "   300 / 1,8 = 167 m  → to je pojas 160 m",
+      "",
+      "Poluvalni dipol za 3,6 MHz:  λ/2 ≈ 83/2 ≈ 41 m"
+    ],
+    "links": [
+      {"label": "Pravilnik NN 150/2022", "url": "https://narodne-novine.nn.hr/clanci/sluzbeni/2022_12_150_2313.html"},
+      {"label": "Skywave (en.wikipedia)", "url": "https://en.wikipedia.org/wiki/Skywave"}
+    ],
+    "cite": [
+      {"src": "NN150/22", "loc": "Dodatak 1., Tablica 1. (3500 – 3800 kHz)"},
+      {"src": "PZM", "loc": "Tema 17, 7.1. Ionosferski slojevi, tiskana str. 118 (D-sloj danju upija frekvencije ispod 7 MHz)"}
+    ]
+  },
+
+  "teh-213": {
+    "note": "Polarizaciju vala po definiciji određuje smjer vektora ELEKTRIČNOG polja E. Vertikalna polarizacija znači da su silnice električnog polja okomite na površinu tla — točno kako kaže odgovor b.\n\nMagnetska komponenta H nije nestala; ona je uvijek okomita na E (vidi teh-216), pa je kod vertikalno polariziranog vala H vodoravan. Zato je odgovor a naopako postavljen, a odgovor d griješi dvostruko: tvrdi da val ima samo električnu komponentu, što je nemoguće — elektromagnetski val bez magnetskog polja ne postoji, jedno polje stvara drugo i tako se val i održava.\n\nPraktična posljedica: odašiljačka i prijamna antena moraju biti jednako polarizirane. Ako jednu okreneš za 90° u odnosu na drugu, na UKV-u gubiš tipično 20 dB i više — signal jednostavno nestane. Zato su repetitorske i mobilne UKV antene vertikalne, a UKV antene za SSB/CW i daleke veze horizontalne. Na kratkim valovima to je manje važno jer ionosfera zbog Faradayeve rotacije ionako zavrti polarizaciju putem, pa se ona na prijamu ne može predvidjeti.",
+    "formula": [
+      "Polarizacija ≡ smjer vektora E",
+      "",
+      "   vertikalna polarizacija   →  E ⟂ tlo,   H ∥ tlo",
+      "   horizontalna polarizacija →  E ∥ tlo,   H ⟂ tlo",
+      "",
+      "Vrijedi uvijek:  E ⟂ H ⟂ smjer širenja",
+      "",
+      "Gubitak zbog križne polarizacije (VHF/UHF): 20 dB i više",
+      "",
+      "U praksi:",
+      "   vertikalno   – prizemni val na DV/SV, repetitori, FM mobil",
+      "   horizontalno – KV žične antene, VHF SSB/CW, Yagi za DX"
+    ],
+    "links": [
+      {"label": "Polarization (waves) (en.wikipedia)", "url": "https://en.wikipedia.org/wiki/Polarization_(waves)"},
+      {"label": "Elektromagnetsko zračenje (hr.wikipedia)", "url": "https://hr.wikipedia.org/wiki/Elektromagnetsko_zra%C4%8Denje"},
+      {"label": "Antena (hr.wikipedia)", "url": "https://hr.wikipedia.org/wiki/Antena"}
+    ],
+    "cite": [
+      {"src": "RK", "loc": "1.5.3. Polarizacija, tiskana str. 40–41 (Tabela 1.5.3. Vrste i oznake polarizacije)"},
+      {"src": "RK", "loc": "7.1. Opći pojmovi, tiskana str. 163 („Polarizacija vala određena je pravcem silnica električnog polja“)"}
+    ]
+  },
+
+  "teh-214": {
+    "note": "Dogovor je jednoznačan: polarizacija elektromagnetskog vala određena je smjerom E polja, nikada H polja. Radiokomunikacije to kažu doslovno u poglavlju 7.1.\n\nZašto baš E, a ne H? Zato što antena „vidi“ električno polje — u vodiču antene struja se inducira duž smjera E, pa je orijentacija E ono što neposredno određuje hoće li antena primiti signal ili ne. Kad znaš E, H je automatski određen: okomit je na E i na smjer širenja, pa nema dodatne informacije u njemu.\n\nOdgovor „prijamnom antenom“ zvuči logično, ali brka uzrok s posljedicom: prijamna antena ne stvara polarizaciju vala, nego samo bolje ili gore prima onu koju val već ima. Odgovor „smjerom širenja“ je nemoguć jer je E baš okomit na smjer širenja, pa smjer širenja ne može reći gdje se u toj ravnini E nalazi. Osim linearne (vertikalne, horizontalne, zakrenute) postoji i kružna polarizacija, kod koje vektor E rotira — nju rabimo za satelitske veze.",
+    "formula": [
+      "Polarizacija = smjer vektora jakosti električnog polja E",
+      "",
+      "Vrste i oznake (RK, Tabela 1.5.3.):",
+      "   H   horizontalna linearna   – E u vodoravnoj ravnini",
+      "   V   vertikalna linearna     – E u okomitoj ravnini",
+      "   SR/SL  zakrenuta ±45°",
+      "   CR/CL  kružna (cirkularna), desna / lijeva",
+      "   D   dualna,  M  mješovita",
+      "",
+      "Kružna polarizacija – za svemirske i satelitske veze"
+    ],
+    "links": [
+      {"label": "Polarization (waves) (en.wikipedia)", "url": "https://en.wikipedia.org/wiki/Polarization_(waves)"},
+      {"label": "Elektromagnetsko zračenje (hr.wikipedia)", "url": "https://hr.wikipedia.org/wiki/Elektromagnetsko_zra%C4%8Denje"}
+    ],
+    "cite": [
+      {"src": "RK", "loc": "1.5.3. Polarizacija i Tabela 1.5.3., tiskana str. 40–41"},
+      {"src": "RK", "loc": "7.1. Opći pojmovi, tiskana str. 163"}
+    ]
+  },
+
+  "teh-215": {
+    "note": "Zrcalna slika pitanja teh-213. Horizontalna polarizacija znači da su silnice električnog polja PARALELNE s površinom Zemlje — odgovor c.\n\nOdgovor a opisuje vertikalnu polarizaciju. Odgovor b je istinit kao činjenica (kod vertikalne polarizacije H doista jest vodoravan), ali ne definira horizontalnu polarizaciju — polarizacija se nikada ne definira preko H. Odgovor d opet tvrdi da val ima samo E komponentu, što ne postoji.\n\nJednostavno pravilo za pamćenje: kakva je antena, takva je polarizacija. Vodoravno razapet dipol zrači horizontalno polarizirani val, okomiti štap zrači vertikalno polarizirani. Zato tvoja žična KV antena razapeta između dva stabla proizvodi horizontalnu polarizaciju, a vertikala u dvorištu vertikalnu — i zato vertikala bolje radi prizemnim valom i pod niskim kutom prema DX-u, dok dipol na maloj visini zrači strmo prema gore.",
+    "formula": [
+      "horizontalna polarizacija  →  E ∥ površini Zemlje",
+      "vertikalna polarizacija    →  E ⟂ površini Zemlje",
+      "",
+      "Kakva antena, takva polarizacija:",
+      "   vodoravni dipol   →  horizontalno",
+      "   okomita vertikala →  vertikalno",
+      "   Yagi s vodoravnim elementima → horizontalno",
+      "",
+      "Križna polarizacija (90° razlike) → gubitak 20 dB i više"
+    ],
+    "links": [
+      {"label": "Polarization (waves) (en.wikipedia)", "url": "https://en.wikipedia.org/wiki/Polarization_(waves)"},
+      {"label": "Dipol (hr.wikipedia)", "url": "https://hr.wikipedia.org/wiki/Dipol"}
+    ],
+    "cite": [
+      {"src": "RK", "loc": "1.5.3. Polarizacija, tiskana str. 40–41 (Sl. 1.5.3. linearna polarizacija a) vertikalna, b) horizontalna)"}
+    ]
+  },
+
+  "teh-216": {
+    "note": "Elektromagnetski val je TRANSVERZALAN: vektor električnog polja E, vektor magnetskog polja H i pravac širenja P međusobno su okomiti — sva tri čine pravi kut jedan prema drugome. E i H tvore jednu ravninu, a smjer širenja je okomit na tu ravninu.\n\nTo nije proizvoljna definicija nego posljedica Maxwellovih jednadžbi: promjenjivo električno polje stvara magnetsko, a promjenjivo magnetsko opet električno, i to uvijek pod pravim kutom. Val se time sam sebe „gura“ naprijed i može se širiti i kroz prazan prostor, bez ikakvog sredstva. Smjer prijenosa energije daje Poyntingov vektor S = E × H, koji je po definiciji vektorskog produkta okomit na oba.\n\nOdgovor a je besmislen sam po sebi — „180° okomiti“ ne znači ništa, jer okomito znači 90°. Odgovor c bi značio da su E i H paralelni, pa vektorski produkt ne bi postojao i val ne bi prenosio energiju. Odgovor d tvrdi suprotno od transverzalnosti; longitudinalni elektromagnetski val u slobodnom prostoru ne postoji (za razliku od zvuka, koji jest longitudinalan).",
+    "formula": [
+      "E ⟂ H,   E ⟂ P,   H ⟂ P      (P = pravac širenja)",
+      "",
+      "Sva tri kuta su 90°  →  transverzalni val",
+      "",
+      "Prijenos energije:  S = E × H   (Poyntingov vektor)",
+      "   smjer S = smjer širenja vala",
+      "",
+      "Impedancija slobodnog prostora:",
+      "   Z₀ = E / H = 377 Ω",
+      "   gustoća snage  p = E² / Z₀",
+      "   za E = 1 V/m:  p = 1/377 = 2,65 mW/m²"
+    ],
+    "links": [
+      {"label": "Elektromagnetsko zračenje (hr.wikipedia)", "url": "https://hr.wikipedia.org/wiki/Elektromagnetsko_zra%C4%8Denje"},
+      {"label": "Magnetsko polje (hr.wikipedia)", "url": "https://hr.wikipedia.org/wiki/Magnetsko_polje"},
+      {"label": "Električno polje (hr.wikipedia)", "url": "https://hr.wikipedia.org/wiki/Elektri%C4%8Dno_polje"}
+    ],
+    "cite": [
+      {"src": "RK", "loc": "1.5.3. Polarizacija, tiskana str. 40 (Sl. 1.5.2.1. — E i H su međusobno okomite, pravac širenja okomit na njihovu ravninu)"},
+      {"src": "RK", "loc": "7.1. Opći pojmovi, „Gustoća snage i jakost polja“, tiskana str. 163"}
+    ]
+  },
+
+  "teh-217": {
+    "note": "Savijanje vala oko rubova prepreke zove se OGIB ili difrakcija. Radiokomunikacije u odjeljku „Skretanje radiovalova“ nabrajaju tri pojave koje val doživljava, i vrijedi ih razlikovati precizno:\n\n• odbijanje (refleksija) — val udari u granicu dvaju sredstava i vrati se natrag;\n• lom (refrakcija) — val prijeđe u drugo sredstvo, promijeni brzinu i time skrene; to je mehanizam kojim ionosfera zapravo vraća kratke valove (vidi teh-232);\n• ogib (difrakcija) — val zaobiđe rub čvrste zapreke i uđe u geometrijsku sjenu iza nje, pa iza prepreke nema potpune „radiotišine“.\n\nKoliko će val zaobići prepreku ovisi o odnosu valne duljine i veličine prepreke: što je val dulji u odnosu na zapreku, to je ogib jači. Zato se signal na 80 m (λ ≈ 80 m) bez problema čuje iza brežuljka i u dolini, dok na 70 cm (λ ≈ 0,7 m) isti brežuljak radi oštru sjenu i veza pukne. To je i razlog zašto se UKV veze planiraju „optički“, po vidljivosti, a KV ne.",
+    "formula": [
+      "Tri pojave skretanja radiovalova:",
+      "",
+      "   REFLEKSIJA (odbijanje) – val se vraća od granice",
+      "   REFRAKCIJA (lom)       – val prelazi u drugo sredstvo",
+      "                            i skreće jer mijenja brzinu",
+      "   DIFRAKCIJA (ogib)      – val zaobilazi RUB prepreke",
+      "",
+      "Jačina ogiba ovisi o λ prema veličini prepreke:",
+      "   λ ≫ prepreka   →  jak ogib   (KV zaobilazi brdo)",
+      "   λ ≪ prepreka   →  oštra sjena (UHF ne zaobilazi)",
+      "",
+      "Indeks loma:  n = c / v  (brzina u vakuumu / u sredstvu)"
+    ],
+    "links": [
+      {"label": "Ogib (difrakcija) (hr.wikipedia)", "url": "https://hr.wikipedia.org/wiki/Ogib"},
+      {"label": "Refrakcija (lom) (hr.wikipedia)", "url": "https://hr.wikipedia.org/wiki/Refrakcija"},
+      {"label": "Diffraction (en.wikipedia)", "url": "https://en.wikipedia.org/wiki/Diffraction"}
+    ],
+    "cite": [
+      {"src": "RK", "loc": "7.1. Opći pojmovi, „Skretanje radiovalova“, tiskana str. 164"},
+      {"src": "PZM", "loc": "Tema 17, tiskana str. 118–120"}
+    ]
+  },
+
+  "teh-218": {
+    "note": "Ionizaciju u ionosferi izaziva ELEKTROMAGNETSKO ZRAČENJE visoke energije — dio spektra od ultraljubičastog do rendgenskoga — koje dolazi sa Sunca, uz doprinos visokoenergijskih nabijenih čestica sunčeva vjetra i galaktičkoga kozmičkog zračenja. Zato ispitni ključ spominje i „druge zvijezde“: ispod otprilike 70 km kozmičko zračenje čak preteže nad sunčevim.\n\nMehanizam je jednostavan i vrijedi ga znati riječima: foton dovoljne energije udari u neutralnu molekulu kisika ili dušika i izbije joj elektron. Ostaje pozitivan ion i slobodan elektron. Upravo ti SLOBODNI ELEKTRONI čine ionosferu radijski zanimljivom — oni mijenjaju indeks loma sredstva i time savijaju radiovalove. Sve što slijedi u ovoj temi — kritična frekvencija, MUF, mrtva zona, apsorpcija u D-sloju — posljedica je gustoće slobodnih elektrona na pojedinoj visini.\n\nZato su ponuđeni odgovori s temperaturom i tlakom promašeni: na 100 km visine zrak je toliko rijedak da tlak i temperatura ne mogu ništa ionizirati; potrebna je energija pojedinačnog fotona, a ne toplina plina. Obrnuti proces zove se rekombinacija — elektron se sudarom vrati u ion. Ona je brža ondje gdje je zrak gušći i noću kad nema dotoka zračenja, pa noću niži slojevi (D, pa i E) nestaju (vidi teh-219).",
+    "formula": [
+      "Ionizacija:",
+      "   foton (UV / X) + neutralna molekula",
+      "        →  pozitivan ion + SLOBODAN ELEKTRON",
+      "",
+      "Rekombinacija (obrnuto, prevladava noću i u gustom zraku):",
+      "   pozitivan ion + elektron  →  neutralna molekula",
+      "",
+      "Izvori ionizacije prema visini:",
+      "   > 70 km   pretežno UV i rendgensko zračenje Sunca",
+      "   < 70 km   pretežno galaktičko kozmičko zračenje",
+      "",
+      "Maksimum ionizacije: kad je Sunce u zenitu (zenitni kut = 0)"
+    ],
+    "links": [
+      {"label": "Ionosfera (hr.wikipedia)", "url": "https://hr.wikipedia.org/wiki/Ionosfera"},
+      {"label": "Elektromagnetsko zračenje (hr.wikipedia)", "url": "https://hr.wikipedia.org/wiki/Elektromagnetsko_zra%C4%8Denje"},
+      {"label": "Ionosphere (en.wikipedia)", "url": "https://en.wikipedia.org/wiki/Ionosphere"}
+    ],
+    "cite": [
+      {"src": "RK", "loc": "7.1.3. „Procesi stvaranja ioniziranih područja u atmosferi“, tiskana str. 166"},
+      {"src": "PZM", "loc": "Tema 17, 7.1. Ionosferski slojevi, tiskana str. 118"}
+    ]
+  },
+
+  "teh-219": {
+    "note": "Danju postoje sva četiri sloja: D, E, F1 i F2. To je izravna posljedica ravnoteže između ionizacije i rekombinacije. Dok Sunce obasjava atmosferu, stalno se stvaraju slobodni elektroni; čim Sunce zađe, dotok prestane, a elektroni se sudarima vraćaju u ione.\n\nRekombinacija je najbrža ondje gdje je zrak najgušći, dakle najniže. Zato po zalasku prvi nestaje D-sloj (50–90 km) — praktički potpuno. Od E-sloja (90–130 km) noću preostaje samo mali dio. Gore, na 200 km i više, zrak je toliko rijedak da se sudari događaju rijetko, pa F-područje preživi cijelu noć; F1 i F2 se pritom stapaju u jedan jedinstveni F-sloj.\n\nTa dva rečena procesa objašnjavaju cijelu dnevnu dinamiku amaterskih pojaseva. Danju je D-sloj tu i guta sve ispod otprilike 7 MHz, pa 160 i 80 m rade samo lokalno; noću D-sloj nestane, apsorpcija propadne, val slobodno stigne do F-sloja i vrati se — otud noćni DX na niskim pojasevima. Istodobno noću pada i ukupna ionizacija F-područja, pa MUF padne i viši pojasevi (15, 12, 10 m) se zatvore. Zapamti obrazac: NOĆ = niski pojasevi, DAN = visoki pojasevi.",
+    "formula": [
+      "SLOJ   VISINA        DANJU              NOĆU",
+      "  D     50 – 90 km   postoji, APSORBIRA nestaje",
+      "  E     90 – 130 km  reflektira <5 MHz  ostaje mali dio",
+      "  F1   130 – 210 km  postoji            ┐ stapaju se u",
+      "  F2   210 – 500 km  najjača ionizacija ┘ jedinstven F",
+      "",
+      "Zašto baš tako:",
+      "   nisko  → gust zrak → brza rekombinacija → sloj nestane",
+      "   visoko → rijedak zrak → spora rekombinacija → sloj ostane",
+      "",
+      "Posljedica za rad:",
+      "   DAN  – D guta niske pojaseve, MUF visok → 15/12/10 m",
+      "   NOĆ  – D nestao, MUF nizak      → 160/80/40 m"
+    ],
+    "links": [
+      {"label": "Ionosfera (hr.wikipedia)", "url": "https://hr.wikipedia.org/wiki/Ionosfera"},
+      {"label": "Ionosphere (en.wikipedia)", "url": "https://en.wikipedia.org/wiki/Ionosphere"},
+      {"label": "Skywave (en.wikipedia)", "url": "https://en.wikipedia.org/wiki/Skywave"}
+    ],
+    "cite": [
+      {"src": "RK", "loc": "7.1.3., „Rekombinacija elektrona i pozitivnih iona sudarom“ i Sl. 7.1.2. Slojevi ionosfere tijekom dana i noći, tiskana str. 166–167"},
+      {"src": "PZM", "loc": "Tema 17, tiskana str. 118–119 (Slika 17/2: F1 i F2 se noću spajaju)"}
+    ]
+  },
+
+  "teh-220": {
+    "note": "Glavni slojevi ionosfere su D, E, F1 i F2 — poredani po visini od najnižega prema najvišemu. Strogo govoreći, Radiokomunikacije ionosferu najprije dijele na tri PODRUČJA — D, E i F — a područje F se onda, kad se to može razlučiti, dijeli na sloj F1 i sloj F2. Ta razdioba F-a vidljiva je danju; noću je F jedinstven.\n\nOznake su povijesne i nisu abecedne slučajno: Edward Appleton je jak reflektirajući sloj koji je otkrio označio slovom E (od „electric“), a kad su poslije nađeni slojevi iznad i ispod, dobili su F odnosno D — sljedeće i prethodno slovo. Zato nema ni A, ni B, ni C sloja, a ni F3.\n\nCijela ionosfera proteže se od otprilike 50 km do 2000 km iznad površine, gdje već prelazi u magnetosferu. Svaki sloj ima svoju ulogu koju moraš znati: D apsorbira (teh-227), E reflektira niske KV frekvencije i domete do 2500 km, F2 je najjače ioniziran i nosi daleke veze (teh-231).",
+    "formula": [
+      "Poredak po visini (od Zemlje naviše):",
+      "",
+      "   D   50 – 90 km    APSORBER, danju, nestaje noću",
+      "   E   90 – 130 km   reflektira do ~5 MHz, dosezi do 2500 km",
+      "        (max. gustoća elektrona na ≈ 110 km)",
+      "   F1 130 – 210 km   danju, slabiji utjecaj",
+      "   F2 210 – >500 km  NAJJAČA ionizacija, daleke veze",
+      "",
+      "Ukupni raspon ionosfere: ≈ 50 km do ≈ 2000 km",
+      "",
+      "Ne postoje: slojevi A, B, C ni F3."
+    ],
+    "links": [
+      {"label": "Ionosfera (hr.wikipedia)", "url": "https://hr.wikipedia.org/wiki/Ionosfera"},
+      {"label": "Ionosphere (en.wikipedia)", "url": "https://en.wikipedia.org/wiki/Ionosphere"}
+    ],
+    "cite": [
+      {"src": "RK", "loc": "7.1.3. Rasprostiranje ionosferskim valom, tiskana str. 165–167"},
+      {"src": "PZM", "loc": "Tema 17, 7.1. Ionosferski slojevi, tiskana str. 118 (Slika 17/1)"}
+    ]
+  },
+
+  "teh-221": {
+    "note": "Val koji prati Zemljinu površinu i ne napušta je zove se POVRŠINSKI val (govori se i prizemni ili temeljni val). Ne ide pravocrtno kao svjetlost, nego se drži tla zahvaljujući vodljivosti podloge: val inducira struje u zemlji, one troše dio energije i pritom „vuku“ donji rub valne fronte, pa se cijela fronta savija oko zakrivljenosti Zemlje.\n\nUpravo zato površinski val ima gubitke, i to tim veće što je frekvencija viša i što je tlo lošiji vodič. Najbolja podloga je morska voda, najgora suh pustinjski pijesak. Radiokomunikacije to daju brojkama: površinski val je glavni način rasprostiranja do 2 MHz, a iznad 2 MHz slabljenje naglo raste, tako da na 15–20 MHz doseg pada na svega 15–20 km. Od amaterskih pojaseva jedini na kojem je površinski val zanimljiv je 1,8 MHz.\n\nPovršinski val je najbolji ako je vertikalno polariziran — kod horizontalne polarizacije tlo gotovo kratko spaja E polje. Zato dugovalni i srednjovalni odašiljači redovito imaju vertikalne antene. Pazi na ostale ponuđene pojmove: PROSTORNI (ionosferski) val je onaj koji se odbija od ionosfere, a TROPOSFERSKI se savija u nižem sloju atmosfere; oba pripadaju drugim pitanjima ove teme.",
+    "formula": [
+      "Tri glavna načina rasprostiranja (RK, 7.1.):",
+      "   a) POVRŠINSKI (temeljni, prizemni) val — prati tlo",
+      "   b) IONOSFERSKI (prostorni) val — odbija se od ionosfere",
+      "   c) TROPOSFERSKI val — savija se u nižoj atmosferi",
+      "",
+      "Površinski val — doseg prema frekvenciji:",
+      "   < 500 kHz     vrlo mali gubitci, doseg preko svijeta",
+      "   do 2 MHz      glavni način rasprostiranja",
+      "   15 – 20 MHz   doseg samo 15 – 20 km",
+      "",
+      "Vodljivost podloge:  morska voda ≫ vlažno tlo ≫ suh pijesak",
+      "Polarizacija:        vertikalna je znatno bolja"
+    ],
+    "links": [
+      {"label": "Ground wave (en.wikipedia)", "url": "https://en.wikipedia.org/wiki/Ground_wave"},
+      {"label": "Radio propagation (en.wikipedia)", "url": "https://en.wikipedia.org/wiki/Radio_propagation"},
+      {"label": "Radiovalovi (hr.wikipedia)", "url": "https://hr.wikipedia.org/wiki/Radiovalovi"}
+    ],
+    "cite": [
+      {"src": "RK", "loc": "7.1.2. Rasprostiranje površinskim valom, tiskana str. 164–165"},
+      {"src": "PZM", "loc": "Tema 17, 7.2. Površinski i prostorni valovi, tiskana str. 119"}
+    ]
+  },
+
+  "teh-222": {
+    "note": "Ionosfersko, odnosno prostorno rasprostiranje karakteristično je za KRATKE VALOVE, 3–30 MHz. Razlog je fizikalan i vrijedi ga razumjeti kao lanac: gustoća elektrona u sloju određuje koliko sloj savija val, a što je frekvencija viša, to je savijanje slabije. Ispod 3 MHz val se apsorbira ili ostaje pri tlu; iznad 30 MHz savijanje više nije dovoljno da se val vrati, pa prolazi kroz ionosferu u svemir. Između ta dva ruba postoji „prozor“ u kojem se val vrati na Zemlju — i to je kratki val.\n\nZato KV s malom snagom i jednostavnom žičnom antenom dosegne drugi kontinent, dok UKV s istom snagom radi tek do horizonta. Duge i srednje valove nosi prizemni val (srednje i E-sloj noću), a UKV ide izravnom zrakom uz povremene iznimke (Es, troposfera, aurora, meteori).\n\nKoji će KV pojas raditi u kojem trenutku, odlučuju dva suprotstavljena procesa: apsorpcija u D-sloju, koja guši NISKE frekvencije i djeluje samo danju, i ionizacija F-sloja, koja postavlja MUF i time gornju granicu. Danju su oba jaka → radi se visoko. Noću oba oslabe → radi se nisko. Tablica u nastavku je najkorisnija stvar iz cijele ove teme; nauči je i pola pitanja o propagaciji riješit ćeš napamet.",
+    "formula": [
+      "OSNOVNA PRIRODA RASPROSTIRANJA (PZM, Tablica 1.)",
+      "   Vrlo dugi   3 – 30 kHz       površinski val",
+      "   Dugi        30 – 300 kHz     površinski val",
+      "   Srednji     300 – 3000 kHz   površinski + E-sloj (noću)",
+      "   KRATKI      3 – 30 MHz       E-sloj i F-sloj  ← ionosferski",
+      "   Vrlo kratki 30 – 300 MHz     do vidljivosti; Es, troposfera",
+      "   Ultrakratki 300 – 3000 MHz   do granice vidljivosti",
+      "",
+      "AMATERSKI POJASEVI PO DOBU DANA",
+      "  POJAS   f [MHz]        DANJU                NOĆU",
+      "  160 m   1,81 – 2,00    D guta; ~100 km      DX, najbolje zimi",
+      "   80 m   3,5 – 3,8      100 – 300 km         Europa, zimi DX",
+      "   40 m   7,0 – 7,2      Europa 500–1500 km   DX preko svijeta",
+      "   30 m   10,10 – 10,15  radi                 radi",
+      "   20 m   14,0 – 14,35   glavni DX pojas      često još otvoren",
+      "   17 m   18,07 – 18,17  DX                   zatvara se",
+      "   15 m   21,0 – 21,45   DX ako ima pjega     zatvoren",
+      "   12 m   24,89 – 24,99  DX pri visokoj akt.  zatvoren",
+      "   10 m   28,0 – 29,7    DX pri vis. akt.; Es zatvoren",
+      "    6 m   50,0 – 51,9    Es ljeti; F2 u max.  zatvoren",
+      "",
+      "Pravilo: SUNCE GORE → VISOKI POJASEVI,",
+      "         SUNCE DOLJE → NISKI POJASEVI."
+    ],
+    "links": [
+      {"label": "Skywave (en.wikipedia)", "url": "https://en.wikipedia.org/wiki/Skywave"},
+      {"label": "High frequency (en.wikipedia)", "url": "https://en.wikipedia.org/wiki/High_frequency"},
+      {"label": "Ionosfera (hr.wikipedia)", "url": "https://hr.wikipedia.org/wiki/Ionosfera"}
+    ],
+    "cite": [
+      {"src": "PZM", "loc": "Tema 17, Tablica 1. „Priroda rasprostiranja radiovalova“, tiskana str. 120"},
+      {"src": "RK", "loc": "7.1.3. Rasprostiranje ionosferskim valom, tiskana str. 165–167"}
+    ]
+  },
+
+  "teh-223": {
+    "note": "Mrtva zona je prstenasto područje između krajnje točke do koje još dopire POVRŠINSKI val i točke u kojoj na tlo prvi put pada PROSTORNI (ionosferski) val. U njoj se postaja ne čuje, iako je bliža od onih koje se čuju odlično.\n\nGeometrija je jednostavna. Površinski val na kratkim valovima brzo oslabi i nestane nakon nekoliko desetaka kilometara. Ionosferski val kreće od antene pod nekim kutom iznad horizonta, savija se u ionosferi i vrati se na tlo tek na velikoj udaljenosti — jedan „skok“ (engl. hop). Razmak od kraja površinskoga vala do te prve točke pada zove se preskočna udaljenost (skip distance), a područje između je mrtva zona. Radiokomunikacije upozoravaju da to nisu oštre točke nego rubovi zona slabog pokrivanja.\n\nPZM daje savršen praktičan primjer: na 14 MHz možeš ne čuti postaju udaljenu dvadesetak kilometara, a odlično čuti onu na tisuću kilometara. Duljina skoka izravno ovisi o visini sloja i o kutu zračenja: niži kut i viši sloj daju dulji skok. Zato antena s niskim kutom zračenja proširuje mrtvu zonu, ali ti donosi DX; strma antena (NVIS) mrtvu zonu praktički ukida i pokriva blisko područje. Mrtvu zonu djelomično mogu „popuniti“ i raspršeni (skater) signali granične jakosti.",
+    "formula": [
+      "     odašiljač A ····· C ─── mrtva zona ─── B",
+      "     └ površinski val ┘                    └ pad ionosferskog vala",
+      "",
+      "   A–C   doseg površinskog vala",
+      "   C–B   PRESKOČNA UDALJENOST (skip distance)",
+      "   A–B   duljina jednog skoka (hop)",
+      "",
+      "Duljina jednog skoka, ravna aproksimacija:",
+      "   d ≈ 2 · h / tan Δ      (Δ = kut zračenja iznad horizonta)",
+      "",
+      "   E-sloj,  h = 110 km, Δ = 5°  → d ≈ 220/0,0875 ≈ 2500 km",
+      "   F2-sloj, h = 300 km, Δ = 10° → d ≈ 600/0,176  ≈ 3400 km",
+      "",
+      "Najveći mogući skok (Δ → 0, uz zakrivljenost Zemlje,",
+      "R = 6371 km):   d_max = 2 · R · arccos( R / (R+h) )",
+      "   E-sloj  (h = 110 km):  d_max ≈ 2350 km",
+      "   F2-sloj (h = 350 km):  d_max ≈ 4100 km",
+      "",
+      "Slaže se s RK: E → do 2500 km, F2 → oko 4000 km jednim skokom.",
+      "Veće udaljenosti = više skokova (odbijanje F2 – tlo – F2 …).",
+      "",
+      "NIŽI kut zračenja → DULJI skok → VEĆA mrtva zona."
+    ],
+    "links": [
+      {"label": "Skip zone (en.wikipedia)", "url": "https://en.wikipedia.org/wiki/Skip_zone"},
+      {"label": "Skywave (en.wikipedia)", "url": "https://en.wikipedia.org/wiki/Skywave"}
+    ],
+    "cite": [
+      {"src": "RK", "loc": "7.1.3. Rasprostiranje ionosferskim valom, Sl. 7.1.1. (skok, preskočna udaljenost, mrtva zona), tiskana str. 165"},
+      {"src": "PZM", "loc": "Tema 17, mrtva zona, tiskana str. 120 (Slika 17/3)"}
+    ]
+  },
+
+  "teh-224": {
+    "note": "Količina UV i rendgenskoga zračenja koja pada na Zemljinu atmosferu ovisi o AKTIVNOSTI SUNCA. Ni Mjesec, ni meteoriti, ni „događanja u ionosferi“ ne proizvode to zračenje — ionosfera je posljedica, a ne uzrok.\n\nTo je karika koja povezuje astronomiju s tvojim radiom. Sunčeva aktivnost mijenja se u ciklusu od približno 11 godina (vidi teh-243) i mjeri se brojem pjega te tokom zračenja na 10,7 cm. Jače zračenje znači više slobodnih elektrona u F-području, viši MUF, i otvorene 15, 12 i 10 m. Slabo Sunce znači nizak MUF i rad koji se seli na 20, 40 i 80 m.\n\nAli sunčeva aktivnost ne donosi samo dobro. Erupcije (bakljanja) na Suncu izbace nagli mlaz rendgenskoga zračenja koji za osam minuta stigne do Zemlje i ekstremno ionizira D-područje. Posljedica je iznenadni ionosferski poremećaj (SID) — potpuni prekid svih KV veza na osvijetljenoj strani Zemlje, koji traje od nekoliko minuta do nekoliko sati. Dva dana poslije stižu i spore nabijene čestice pa nastupa „ionosferska oluja“ sa slabljenjem F-sloja. Isti čestični mlaz izaziva i auroru (vidi teh-242).",
+    "formula": [
+      "Lanac uzroka:",
+      "   aktivnost Sunca  →  UV i rendgensko zračenje",
+      "        →  ionizacija ionosfere  →  gustoća elektrona",
+      "        →  kritična frekvencija i MUF  →  koji pojas radi",
+      "",
+      "Pokazatelji sunčeve aktivnosti:",
+      "   SSN  – broj sunčevih pjega",
+      "   SFI  – tok zračenja na 10,7 cm (2800 MHz)",
+      "   A, K – indeksi geomagnetske uznemirenosti (niži = bolje)",
+      "",
+      "Naličje: erupcija na Suncu",
+      "   rendgensko zračenje  → za ≈ 8 min → SID, prekid KV",
+      "   spore čestice        → za 24–36 h → aurora, ion. oluja"
+    ],
+    "links": [
+      {"label": "Sunce (hr.wikipedia)", "url": "https://hr.wikipedia.org/wiki/Sunce"},
+      {"label": "Sunčeve pjege (hr.wikipedia)", "url": "https://hr.wikipedia.org/wiki/Sun%C4%8Deve_pjege"},
+      {"label": "Solar flare (en.wikipedia)", "url": "https://en.wikipedia.org/wiki/Solar_flare"},
+      {"label": "Sudden ionospheric disturbance (en.wikipedia)", "url": "https://en.wikipedia.org/wiki/Sudden_ionospheric_disturbance"}
+    ],
+    "cite": [
+      {"src": "RK", "loc": "7.1.3. „Procesi stvaranja ioniziranih područja“, tiskana str. 166, i 7.1.3.2. „Poremećaji“ (SID), tiskana str. 169"},
+      {"src": "PZM", "loc": "Tema 17, tiskana str. 118"}
+    ]
+  },
+
+  "teh-225": {
+    "note": "Zračenje Sunca najjače je kad je broj pjega najveći. Pjege su hladnija, tamnija područja fotosfere koja nastaju ondje gdje snažna magnetska polja koče konvekciju. Same po sebi zrače manje, ali ih uvijek prati okolno aktivno područje s bakljama i koronalnim petljama koje zrače MNOGO jače u ultraljubičastom i rendgenskom dijelu spektra. Zato je ukupno UV/X zračenje veće kad je pjega više — pjege su pokazatelj, ne uzrok.\n\nZa tebe se to prevodi izravno: više pjega → jača ionizacija F-područja → veća gustoća elektrona → viša kritična frekvencija → viši MUF → otvaraju se 15, 12 i 10 m, pa i 6 m. Radiokomunikacije to daju brojkama: pri maksimumu sunčeve aktivnosti MUF može dosegnuti i 50 MHz, a pri minimumu tek 25 MHz.\n\nPazi na dva ponuđena odgovora koja zvuče razumno. „Nisu međusobno ovisni“ i „Sunce zrači podjednako“ oba tvrde da veze nema — a cijela je radioamaterska praksa dokaz da je ima; upravo zato svaki DX-er prati SSN i SFI. Zapamti i da veza nije trenutačna niti savršeno linearna: ionosfera reagira s odgodom od nekoliko dana, pa se koristi zaglađeni broj pjega.",
+    "formula": [
+      "više pjega  →  jače UV i X zračenje",
+      "            →  veća gustoća elektrona N",
+      "            →  viša kritična frekvencija f_c ~ √N",
+      "            →  viši MUF  →  otvoreni viši pojasevi",
+      "",
+      "Brojke iz RK:",
+      "   maksimum aktivnosti:  MUF do ≈ 50 MHz",
+      "   minimum aktivnosti:   MUF tek ≈ 25 MHz",
+      "",
+      "   kritična frekvencija F2-sloja:  2 MHz (noć, minimum)",
+      "                                  13 MHz (dan, maksimum)",
+      "                                do 20 MHz pri vrlo jakoj aktivnosti"
+    ],
+    "links": [
+      {"label": "Sunčeve pjege (hr.wikipedia)", "url": "https://hr.wikipedia.org/wiki/Sun%C4%8Deve_pjege"},
+      {"label": "Sunčev ciklus (hr.wikipedia)", "url": "https://hr.wikipedia.org/wiki/Sun%C4%8Dev_ciklus"},
+      {"label": "Sunspot (en.wikipedia)", "url": "https://en.wikipedia.org/wiki/Sunspot"}
+    ],
+    "cite": [
+      {"src": "RK", "loc": "7.1.3.1. Znakovite frekvencije, tiskana str. 168, i Sl. 7.1.4. s komentarom, tiskana str. 169"},
+      {"src": "PZM", "loc": "Tema 17, tiskana str. 118 („Što je veći broj pjega, to su i uvjeti širenja radiovalova povoljniji“)"}
+    ]
+  },
+
+  "teh-226": {
+    "note": "Ne. U normalnim uvjetima UKV valovi PROLAZE kroz ionosferu i odlaze u svemir. Pravilo koje sve objašnjava glasi: što je frekvencija viša, to je potrebna veća gustoća elektrona da bi se val savio dovoljno i vratio prema Zemlji.\n\nNajgušće ioniziran sloj u ionosferi je F2. Njegova kritična frekvencija kreće se između otprilike 2 i 13 MHz, iznimno do 20 MHz. Ni pri kosom upadu, gdje MUF može biti nekoliko puta veći od kritične frekvencije, ionosfera pri najboljim uvjetima ne prelazi 50 MHz. Sve iznad toga — 144 MHz, 432 MHz, 1296 MHz — jednostavno probije F2 i nastavi dalje. To je i razlog zašto satelitske i svemirske veze uopće rade (vidi teh-237).\n\nZamjeri ključu jednu neopreznost u formulaciji: točan odgovor kaže „svi valovi visoke frekvencije prolaze kroz ionosferu“, a „visoke frekvencije“ (HF) upravo je službeni naziv za kratke valove, koji se NE probijaju. Misli se, naravno, na frekvencije više od kratkovalnih. Zapamti i iznimke, jer su predmet drugih pitanja: sporadični E može vratiti i 144 MHz (teh-240), aurora lomi iznad 20 MHz (teh-242), a meteorski tragovi raspršuju 50 i 144 MHz (teh-241).",
+    "formula": [
+      "Pravilo:  viša frekvencija  →  treba veća gustoća elektrona",
+      "                              da bi se val vratio",
+      "",
+      "Gornja granica onoga što ionosfera može vratiti:",
+      "   kritična frekvencija F2:   2 … 13 MHz (do 20 MHz iznimno)",
+      "   MUF pri kosom upadu:       do ≈ 50 MHz u maksimumu ciklusa",
+      "",
+      "   → 144 MHz, 432 MHz, 1296 MHz prolaze u svemir",
+      "",
+      "Iznimke na UKV-u (nisu „normalni uvjeti“):",
+      "   sporadični E   – do 144 MHz, ljeti",
+      "   aurora         – iznad 20 MHz, uz polarnu svjetlost",
+      "   meteorski trag – 50 i 144 MHz, sekundama",
+      "   troposferski kanal – iznad 50 MHz, do 1500 km"
+    ],
+    "links": [
+      {"label": "Ionosphere (en.wikipedia)", "url": "https://en.wikipedia.org/wiki/Ionosphere"},
+      {"label": "Very high frequency (en.wikipedia)", "url": "https://en.wikipedia.org/wiki/Very_high_frequency"},
+      {"label": "Radio propagation (en.wikipedia)", "url": "https://en.wikipedia.org/wiki/Radio_propagation"}
+    ],
+    "cite": [
+      {"src": "RK", "loc": "7.1.3. „Utjecaj F-područja na rasprostiranje radiovalova“, tiskana str. 167"},
+      {"src": "PZM", "loc": "Tema 17, tiskana str. 119 („U pravilu ionosfera ne odbija ultrakratke valove (iznad 30 MHz) i oni idu u svemir“)"}
+    ]
+  },
+
+  "teh-227": {
+    "note": "D-sloj ne reflektira nego APSORBIRA: radiovalovi kroz njega prolaze oslabljeni. Radiokomunikacije to formuliraju izravno — „D-sloj djeluje uglavnom kao apsorber energije radiovalova“.\n\nMehanizam je ključan za razumijevanje cijele teme. D-sloj leži nisko, na 50–90 km, gdje je zrak još razmjerno gust. Radioval tamo natjera slobodne elektrone da titraju, ali oni gotovo odmah udare u neutralnu molekulu i predaju joj svoju energiju kao toplinu. Energija vala se time troši, umjesto da se val savije natrag. U višim slojevima (E, F) zrak je rijedak, sudara je malo, pa elektroni titranje vrate valu i sloj djeluje kao reflektor, a ne kao apsorber.\n\nApsorpcija je približno obrnuto razmjerna kvadratu frekvencije, pa niski pojasevi stradaju daleko više od visokih. Zato: srednji valovi danju prolaze kroz D uz vrlo jaku apsorpciju; kratki valovi prolaze tim lakše što im je frekvencija viša; VHF i UHF gotovo neoslabljeni. Praktična posljedica koju osjetiš svaki dan: 160 i 80 m danju su mrtvi za daleke veze, a čim D-sloj po zalasku Sunca nestane, isti pojasevi ožive. Uz to, prije nego što se val vrati, D-sloj prolazi DVAPUT — jednom prema gore, jednom prema dolje.",
+    "formula": [
+      "D-sloj: 50 – 90 km, gust zrak → sudari elektrona s molekulama",
+      "        → energija vala se pretvara u toplinu = APSORPCIJA",
+      "",
+      "Apsorpcija ∝ 1 / f²",
+      "   udvostručiš frekvenciju → apsorpcija pada na četvrtinu",
+      "",
+      "   1,8 MHz   golema apsorpcija danju",
+      "   3,5 MHz   velika          (≈ 4× manja nego na 1,8 MHz)",
+      "   7   MHz   osjetna",
+      "  14   MHz   mala",
+      "  28   MHz   zanemariva",
+      "  VHF/UHF    praktički nikakva",
+      "",
+      "Utjecaj D-sloja po pojasevima (RK, str. 167):",
+      "   VLF/ELF  se od D-sloja ODBIJAJU",
+      "   MF (SV)  prolaze uz veoma jaku apsorpciju",
+      "   HF       prolaze uz slabljenje koje pada s porastom f",
+      "   VHF/UHF  neznatno slabljenje",
+      "",
+      "D-sloj postoji SAMO danju → noću niski pojasevi ožive."
+    ],
+    "links": [
+      {"label": "Ionospheric absorption (en.wikipedia)", "url": "https://en.wikipedia.org/wiki/Ionospheric_absorption"},
+      {"label": "Ionosfera (hr.wikipedia)", "url": "https://hr.wikipedia.org/wiki/Ionosfera"},
+      {"label": "Skywave (en.wikipedia)", "url": "https://en.wikipedia.org/wiki/Skywave"}
+    ],
+    "cite": [
+      {"src": "RK", "loc": "7.1.3. „Utjecaj D-sloja na rasprostiranje radiovalova“, tiskana str. 167"},
+      {"src": "PZM", "loc": "Tema 17, tiskana str. 118 (D-sloj danju upija frekvencije ispod 7 MHz)"}
+    ]
+  },
+
+  "teh-228": {
+    "note": "D je najniži sloj ionosfere — proteže se od otprilike 50 do 90 km iznad Zemljine površine. Redoslijed po visini, od tla naviše, glasi D, E, F1, F2, i to je poredak koji na ispitu treba znati napamet.\n\nAko ti pomaže mnemonik: slova idu abecedno prema gore (D, E, F), a unutar F područja niži je F1 pa onda F2. Nema slojeva A, B ni C — oznaka E dodijeljena je prva, a D i F su dobili susjedna slova kad su otkriveni ispod i iznad njega.\n\nPazi: u ovom pitanju ispisano je „F1“ dvaput, kao odgovor a i kao odgovor b. To je očita tipfeler-greška u ispitnom predlošku (jedan od njih vjerojatno je trebao biti F2), ali na točan odgovor ne utječe — D je i dalje jedini ispravan izbor. Zapamti i zašto je baš D najniži važan: tamo je zrak najgušći, pa taj sloj ne reflektira nego apsorbira (vidi teh-227), i zato nestaje čim Sunce zađe.",
+    "formula": [
+      "Poredak po visini, od Zemlje naviše:",
+      "",
+      "   D    50 –  90 km   ← NAJBLIŽI Zemlji",
+      "   E    90 – 130 km   (max. gustoća elektrona na ≈ 110 km)",
+      "   F1  130 – 210 km",
+      "   F2  210 – 500+ km  ← najudaljeniji",
+      "",
+      "Za orijentaciju: komercijalni zrakoplov leti na ≈ 11 km,",
+      "Međunarodna svemirska postaja kruži na ≈ 400 km — dakle",
+      "unutar F2 područja."
+    ],
+    "links": [
+      {"label": "Ionosfera (hr.wikipedia)", "url": "https://hr.wikipedia.org/wiki/Ionosfera"},
+      {"label": "Ionosphere (en.wikipedia)", "url": "https://en.wikipedia.org/wiki/Ionosphere"}
+    ],
+    "cite": [
+      {"src": "RK", "loc": "7.1.3., „D-područje se proteže 50…90 km iznad Zemljine površine“, tiskana str. 166"},
+      {"src": "PZM", "loc": "Tema 17, Slika 17/1, tiskana str. 118"}
+    ]
+  },
+
+  "teh-229": {
+    "note": "F2 je najviši sloj ionosfere. Danju počinje na oko 210 km i seže do preko 500 km; noću se F1 i F2 stope u jedinstveni F-sloj koji ostaje na velikoj visini.\n\nDvije stvari čine F2 najvažnijim slojem za radioamatera, a obje slijede iz njegove visine i položaja. Prvo, ondje je zrak toliko rijedak da se elektroni gotovo ne sudaraju s molekulama, pa rekombinacija ide sporo — sloj preživi cijelu noć i pokazuje najveću gustoću elektrona u cijeloj ionosferi. Drugo, što je sloj viši, to je dulji skok koji nudi: jednim odbojem od F2 prelaziš do oko 4000 km, dok E-sloj daje najviše oko 2500 km (vidi teh-223).\n\nF2 je i najhiroviji sloj. Njegov dnevni maksimum nije u podne nego oko 13 do 15 sati po mjesnom vremenu, godišnji maksimum je zimi u podne, a ne ljeti, i pokazuje niz nepravilnosti u blizini ekvatora i na visokim geografskim širinama. Zato prognoza propagacije nikad nije egzaktna i zato se propagacija na kraju uvijek provjerava slušanjem.",
+    "formula": [
+      "   F2   iznad 210 km, do preko 500 km   ← najviši",
+      "   F1   130 – 210 km",
+      "   E     90 – 130 km",
+      "   D     50 –  90 km                    ← najniži",
+      "",
+      "Zašto je F2 najvažniji:",
+      "   • najveća gustoća elektrona u ionosferi → najviši MUF",
+      "   • rijedak zrak → spora rekombinacija → traje i noću",
+      "   • najviši → najduži skok, do ≈ 4000 km jednim odbojem",
+      "",
+      "Nepravilnosti F2:",
+      "   dnevni maksimum oko 13 – 15 h mjesnog vremena (ne u podne)",
+      "   godišnji maksimum ZIMI u podne (jači od ljetnoga)"
+    ],
+    "links": [
+      {"label": "Ionosfera (hr.wikipedia)", "url": "https://hr.wikipedia.org/wiki/Ionosfera"},
+      {"label": "Ionosphere (en.wikipedia)", "url": "https://en.wikipedia.org/wiki/Ionosphere"},
+      {"label": "Skywave (en.wikipedia)", "url": "https://en.wikipedia.org/wiki/Skywave"}
+    ],
+    "cite": [
+      {"src": "RK", "loc": "7.1.3., „F-područje se proteže od 130 km naviše… F₂-sloj na visinama iznad 210 km“, tiskana str. 167"},
+      {"src": "PZM", "loc": "Tema 17, tiskana str. 118–119"}
+    ]
+  },
+
+  "teh-230": {
+    "note": "Najveća gustoća elektrona u E-sloju nalazi se na visini od približno 110 km. To je brojka koju Radiokomunikacije navode doslovno i koju vrijedi zapamtiti napamet, jer se u računima duljine skoka preko E-sloja upravo ona uvrštava kao visina reflektirajućeg sloja.\n\nSam E-sloj proteže se od 90 do 130 km, dakle 110 km je otprilike njegova sredina — i to nije slučajno. Ionizacija je rezultat dvaju suprotnih gradijenata: prema gore raste intenzitet sunčeva zračenja (jer ga niži slojevi još nisu apsorbirali), a prema dolje raste gustoća plina koji se može ionizirati. Umnožak to dvoje ima maksimum negdje u sredini, i to vrijedi za svaki ionosferski sloj.\n\nPraktično: E-sloj slijedi Sunce vrlo poslušno — dnevni maksimum ionizacije je oko podneva, godišnji ljeti, a noću preostaje samo mali dio sloja. Danju može odbiti kratke valove i dati domete do 2500 km, a srednje valove danju potpuno apsorbira; noću, kad D-sloja više nema, srednji valovi se od E-sloja odbijaju i dosežu preko 300 km. Otud i poznata pojava da navečer na srednjem valu odjednom čuješ udaljene postaje.",
+    "formula": [
+      "E-područje:      90 – 130 km",
+      "Maksimum gustoće elektrona:  ≈ 110 km",
+      "",
+      "Utjecaj E-područja (RK, str. 167):",
+      "   MF (srednji valovi)  danju potpuno apsorbirani",
+      "                        noću odbijanje, dosezi > 300 km",
+      "   HF (kratki valovi)   danju odbijanje, dosezi do 2500 km",
+      "   VHF / UHF            prolaze uz neznatno slabljenje",
+      "",
+      "Kritična frekvencija E-sloja:  1 … 4 MHz",
+      "",
+      "Zašto maksimum baš u sredini sloja:",
+      "   prema gore raste zračenje, prema dolje raste gustoća plina",
+      "   → umnožak ima maksimum negdje između"
+    ],
+    "links": [
+      {"label": "Ionosfera (hr.wikipedia)", "url": "https://hr.wikipedia.org/wiki/Ionosfera"},
+      {"label": "Ionosphere (en.wikipedia)", "url": "https://en.wikipedia.org/wiki/Ionosphere"}
+    ],
+    "cite": [
+      {"src": "RK", "loc": "7.1.3., „Najveća gustoća elektrona je na visini od oko 110 km“, tiskana str. 167"},
+      {"src": "PZM", "loc": "Tema 17, tiskana str. 118 (E-sloj na visini od oko 100 km)"}
+    ]
+  },
+
+  "teh-231": {
+    "note": "Za HF komunikacije na velike udaljenosti najvažnije je F područje, a unutar njega osobito F2 sloj. Radiokomunikacije to kažu izravno: „F-područje, posebice F2-sloj, je najzanimljivije i najvažnije područje ionosfere za komunikacije na velike udaljenosti u području HF“.\n\nDva razloga, oba već poznata iz prethodnih pitanja. Prvo, F2 ima NAJVEĆU gustoću elektrona u cijeloj ionosferi, pa ima i najvišu kritičnu frekvenciju — jedini je sloj koji uopće može vratiti gornje KV pojaseve, 15, 12 i 10 m. Drugo, on je NAJVIŠI, pa jedan skok preko njega prelazi oko 4000 km, dvostruko više nego preko E-sloja. Uz nekoliko uzastopnih odbijanja F2 – tlo – F2 dosežeš bilo koju točku na svijetu.\n\nOstale ponuđene mogućnosti su iz drugog razreda pojava. D i E područja djeluju prema dolje: D apsorbira, E daje relativno kratke skokove i vraća samo niske frekvencije. Sporadični Es je izniman, kratkotrajan i nepredvidiv, i tipično je pojava UKV-a, ne osnovica dalekih KV veza. Zato F2 nosi svakodnevni DX.",
+    "formula": [
+      "Zašto baš F2:",
+      "   • najveća gustoća elektrona → najviša f_c i najviši MUF",
+      "   • najviši sloj → najdulji skok (≈ 4000 km po skoku)",
+      "   • postoji i noću (F1 i F2 se stope u jedan F)",
+      "",
+      "Usporedba dometa jednim skokom:",
+      "   E-sloj   (110 km)  do ≈ 2500 km",
+      "   F2-sloj  (350 km)  do ≈ 4000 km",
+      "",
+      "Zagreb – New York ≈ 6900 km  →  dva skoka preko F2",
+      "Zagreb – Tokio    ≈ 9500 km  →  tri skoka",
+      "",
+      "Svaki dodatni odboj od tla nosi gubitak, pa je za DX",
+      "poželjan što manji broj skokova → što niži kut zračenja."
+    ],
+    "links": [
+      {"label": "Ionosfera (hr.wikipedia)", "url": "https://hr.wikipedia.org/wiki/Ionosfera"},
+      {"label": "Skywave (en.wikipedia)", "url": "https://en.wikipedia.org/wiki/Skywave"},
+      {"label": "High frequency (en.wikipedia)", "url": "https://en.wikipedia.org/wiki/High_frequency"}
+    ],
+    "cite": [
+      {"src": "RK", "loc": "7.1.3. „Utjecaj F-područja na rasprostiranje radiovalova“, tiskana str. 167"},
+      {"src": "PZM", "loc": "Tema 17, tiskana str. 119 („F2… najvažniji je sloj za radioamatere“)"}
+    ]
+  },
+
+  "teh-232": {
+    "note": "Najviša frekvencija koja se, upavši OKOMITO na ionosferski sloj, još odbije natrag prema Zemlji zove se KRITIČNA FREKVENCIJA, oznaka f_c. Okomiti upad je granični, najteži slučaj: val ide ravno gore i mora se savinuti za punih 180° da bi se vratio. Zato je kritična frekvencija najniža od svih „graničnih“ frekvencija — pri svakom kosom upadu sloj vraća i više frekvencije (vidi teh-234).\n\nFizikalno, f_c je izravna mjera gustoće slobodnih elektrona u sloju. Vrijedi f_c ≈ 9 · √(N/10¹²), gdje je N broj elektrona po kubnom metru; drugim riječima, kritična frekvencija raste s korijenom gustoće elektrona. Zato je f_c najbolji jedan broj kojim opisuješ stanje nekog sloja, i zato se mjeri ionosondama — radarima koji odašilju ravno prema gore i traže frekvenciju na kojoj eho nestane.\n\nBrojke iz Radiokomunikacija: za E-sloj f_c je oko 1 do 4 MHz, za F2-sloj oko 2 do 13 MHz, a pri iznimno jakoj sunčevoj aktivnosti do 20 MHz. Donje vrijednosti opažaju se noću u godinama minimuma, gornje danju u maksimumu ciklusa. Praktično, f_c ti je ujedno najviša upotrebljiva frekvencija za bliske veze — one kod kojih val ide gotovo ravno gore i vraća se odmah pokraj tebe (takozvani NVIS rad na 80 i 40 m).",
+    "formula": [
+      "KRITIČNA FREKVENCIJA f_c",
+      "   = najviša frekvencija koja se pri OKOMITOM upadu",
+      "     još odbije natrag prema Zemlji",
+      "",
+      "Veza s gustoćom elektrona N [elektrona/m³]:",
+      "   f_c[MHz] ≈ 9 · √( N / 10¹² )",
+      "",
+      "   npr. N = 10¹² m⁻³  →  f_c ≈ 9 MHz",
+      "        N = 4·10¹¹     →  f_c ≈ 9·√0,4 ≈ 5,7 MHz",
+      "",
+      "Tipične vrijednosti (RK, str. 168):",
+      "   E-sloj:   1 … 4 MHz",
+      "   F2-sloj:  2 … 13 MHz  (iznimno do 20 MHz)",
+      "      donji rub – noću, u minimumu ciklusa",
+      "      gornji rub – danju, u maksimumu ciklusa",
+      "",
+      "f_c je ujedno najviša frekvencija upotrebljiva za BLISKE veze.",
+      "Veza s MUF-om:  MUF = f_c / cos θ  (vidi teh-234)"
+    ],
+    "links": [
+      {"label": "Critical frequency (en.wikipedia)", "url": "https://en.wikipedia.org/wiki/Critical_frequency"},
+      {"label": "Ionosfera (hr.wikipedia)", "url": "https://hr.wikipedia.org/wiki/Ionosfera"},
+      {"label": "Maximum usable frequency (en.wikipedia)", "url": "https://en.wikipedia.org/wiki/Maximum_usable_frequency"}
+    ],
+    "cite": [
+      {"src": "RK", "loc": "7.1.3.1. Znakovite frekvencije, „Kritična frekvencija f_c je najviša frekvencija vala, koji upada okomito na ionosferski sloj“, tiskana str. 168"}
+    ]
+  },
+
+  "teh-233": {
+    "note": "Radiovalovi iznad MUF-a prolaze F2 sloj i odlaze dalje u svemir. To je doslovna formulacija iz Radiokomunikacija i najvažnija posljedica cijele definicije MUF-a.\n\nRazlog je u tome kako ionosfera zapravo vraća val. Ne radi se o pravom zrcalnom odbijanju nego o postupnom lomu: ulazeći u sve gušće ionizirano područje, val nailazi na sve manji indeks loma, pa mu se putanja postupno savija. Ako se stigne savinuti dovoljno prije nego što prođe kroz sloj maksimalne gustoće, vrati se prema Zemlji; ako ne, izađe s druge strane i nastavi ravno. MUF je upravo granica između ta dva ishoda za zadani kut upada.\n\nZato su ostale ponuđene mogućnosti pogrešne. Ne reflektira se od F2 — to vrijedi ISPOD MUF-a. Ne nestaje zbog apsorpcije — apsorpcija je pojava D-sloja i pogađa NISKE frekvencije, ne visoke (vidi teh-227). I ne odbija se od E-sloja — E ima još manju gustoću elektrona od F2, pa ako ga F2 nije uspio vratiti, E pogotovo neće. Praktična posljedica: kad odabereš pojas iznad trenutačnog MUF-a, pojas zvuči potpuno mrtvo — nema šuma, nema postaja. To je uobičajeno stanje 10 m pojasa u minimumu ciklusa.",
+    "formula": [
+      "   f  <  MUF   →  val se savine i vrati na Zemlju",
+      "   f  =  MUF   →  granični slučaj, još se vraća (vidi teh-235)",
+      "   f  >  MUF   →  PROBIJA F2 i odlazi u svemir",
+      "",
+      "Zašto: savijanje vala je slabije što je frekvencija viša.",
+      "   Za dan kut upada postoji frekvencija iznad koje se val",
+      "   više ne stigne savinuti dovoljno prije izlaska iz sloja.",
+      "",
+      "Kako to zvuči u praksi:",
+      "   pojas iznad MUF-a  →  potpuna tišina, nema ni šuma",
+      "   pojas ispod LUF-a  →  sve proguta apsorpcija D-sloja",
+      "   između LUF i MUF   →  pojas je otvoren"
+    ],
+    "links": [
+      {"label": "Maximum usable frequency (en.wikipedia)", "url": "https://en.wikipedia.org/wiki/Maximum_usable_frequency"},
+      {"label": "Skywave (en.wikipedia)", "url": "https://en.wikipedia.org/wiki/Skywave"},
+      {"label": "Ionosfera (hr.wikipedia)", "url": "https://hr.wikipedia.org/wiki/Ionosfera"}
+    ],
+    "cite": [
+      {"src": "RK", "loc": "7.1.3.1. Znakovite frekvencije, „Valovi frekvencija viših od MUF-a prolaze F₂-sloj i odlaze dalje u svemir“, tiskana str. 168"}
+    ]
+  },
+
+  "teh-234": {
+    "note": "MUF je najviša uporabljiva frekvencija (engl. maximum usable frequency) — najviša frekvencija koja se, pri upadu KOSO (upadni kut manji od 90°), još odbije progresivnim lomom u ionosferi i vrati na Zemlju.\n\nVeza s kritičnom frekvencijom je čista geometrija i zove se sekantni zakon: MUF = f_c / cos θ, gdje je θ upadni kut mjeren od okomice na sloj. Za okomit upad θ = 0, cos θ = 1 i MUF = f_c — kritična frekvencija je dakle samo poseban slučaj MUF-a. Što je upad kosiji, to je cos θ manji i MUF veći. Zato niska antena s malim kutom zračenja iznad horizonta daje i veći MUF i dulji skok — dvostruka korist za DX.\n\nRadiokomunikacije daju i praktično pravilo: za daleke veze na 4000 km MUF je oko 3,5 puta veći od kritične frekvencije u sredini puta. Uz to preporučuju raditi na frekvenciji blizu MUF-a, jer je tamo manja ionosferska apsorpcija i dulja skočna udaljenost — „vjerojatnost ostvarenja daleke veze znatno je veća na 28 MHz nego na 14 MHz“, kažu doslovno. U praksi se radi na oko 85 % MUF-a (takozvani OWF ili FOT), jer MUF varira iz minute u minutu pa je raditi točno na njemu nesigurno. Suprotna granica je LUF, najniža uporabljiva frekvencija, koju određuje apsorpcija u D-sloju; pojas je otvoren samo između LUF-a i MUF-a.",
+    "formula": [
+      "MUF = najviša uporabljiva frekvencija, pri KOSOM upadu",
+      "",
+      "SEKANTNI ZAKON:",
+      "   MUF = f_c / cos θ = f_c · sec θ",
+      "         (θ = upadni kut mjeren OD OKOMICE na sloj)",
+      "",
+      "   θ = 0°   (okomito)  →  MUF = f_c        ← kritična frekv.",
+      "   θ = 60°             →  MUF = 2 · f_c",
+      "   θ = 74°             →  MUF = 3,6 · f_c",
+      "   θ = 80°             →  MUF = 5,8 · f_c",
+      "",
+      "Primjer:  f_c(F2) = 7 MHz, θ = 74°",
+      "   MUF = 7 / cos 74° = 7 / 0,2756 = 25,4 MHz",
+      "   → 21 MHz radi, 28 MHz ne radi",
+      "",
+      "Pravilo iz RK: za put od 4000 km",
+      "   MUF ≈ 3,5 · f_c (izmjerena u sredini puta)",
+      "",
+      "U praksi se radi na  OWF ≈ 0,85 · MUF.",
+      "Pojas je otvoren samo u rasponu:  LUF < f < MUF",
+      "   LUF određuje apsorpcija u D-sloju (raste danju)",
+      "   MUF određuje ionizacija F2-sloja"
+    ],
+    "links": [
+      {"label": "Maximum usable frequency (en.wikipedia)", "url": "https://en.wikipedia.org/wiki/Maximum_usable_frequency"},
+      {"label": "Lowest usable high frequency (en.wikipedia)", "url": "https://en.wikipedia.org/wiki/Lowest_usable_high_frequency"},
+      {"label": "Skywave (en.wikipedia)", "url": "https://en.wikipedia.org/wiki/Skywave"}
+    ],
+    "cite": [
+      {"src": "RK", "loc": "7.1.3.1. Znakovite frekvencije (MUF, f_c, LUF) i Sl. 7.1.3., tiskana str. 168, te preporuka rada blizu MUF-a, tiskana str. 169"}
+    ]
+  },
+
+  "teh-235": {
+    "note": "Refleksija je još moguća kad je frekvencija JEDNAKA MUF-u. MUF je po definiciji gornja granica: najviša frekvencija koja se pri danom kutu upada još vrati na Zemlju. Sve iznad nje probija ionosferu i odlazi u svemir (vidi teh-233).\n\nZato su tri od četiri ponuđena odgovora — „znatno viša“, „viša“ i „neznatno viša“ — sva pogrešna iz istog razloga: bilo koje prekoračenje MUF-a, pa i najmanje, znači da se val više ne stigne savinuti dovoljno. Granica je oštra u smislu definicije, iako u prirodi nikad nije savršeno oštra, jer se MUF mijenja iz minute u minutu.\n\nZapamti da vrijedi i sve ISPOD MUF-a — pitanje traži najvišu frekvenciju pri kojoj je refleksija još moguća, a to je točno MUF. Donju granicu postavlja LUF: ispod nje apsorpcija u D-sloju pojede signal prije nego što stigne do reflektirajućeg sloja. Otvoreni pojas znači, dakle, da je tvoja radna frekvencija između LUF-a i MUF-a. Zbog te nestabilnosti MUF-a u praksi se radi na oko 85 % njegove vrijednosti, a ne točno na njemu.",
+    "formula": [
+      "   f < MUF   refleksija moguća",
+      "   f = MUF   refleksija još moguća  ← granični, TOČAN slučaj",
+      "   f > MUF   val probija ionosferu i odlazi u svemir",
+      "",
+      "Radni prozor nekog pojasa:",
+      "        LUF  <  f_rad  <  MUF",
+      "         ↑                 ↑",
+      "   apsorpcija D-sloja   ionizacija F2-sloja",
+      "",
+      "MUF nije stalan — mijenja se s dobom dana, godišnjim dobom,",
+      "smjerom puta i sunčevom aktivnošću, pa se u praksi radi na",
+      "   OWF ≈ 0,85 · MUF"
+    ],
+    "links": [
+      {"label": "Maximum usable frequency (en.wikipedia)", "url": "https://en.wikipedia.org/wiki/Maximum_usable_frequency"},
+      {"label": "Lowest usable high frequency (en.wikipedia)", "url": "https://en.wikipedia.org/wiki/Lowest_usable_high_frequency"}
+    ],
+    "cite": [
+      {"src": "RK", "loc": "7.1.3.1. Znakovite frekvencije, tiskana str. 168"}
+    ]
+  },
+
+  "teh-236": {
+    "note": "Kritična frekvencija f_c definira se za val koji upada OKOMITO na ionosferski sloj i pritom se još reflektira natrag prema Zemlji. Oba dijela definicije moraju biti ispunjena — otud je odgovor a jedini potpun.\n\nOdgovor c ima pravi kut upada, ali pogrešan ishod: val koji prolazi dalje od Zemlje po definiciji je IZNAD kritične frekvencije, a ne jednak njoj. Odgovori b i d govore o tupom i oštrom kutu upada — to su kosi upadi, a za njih vrijedi MUF, ne kritična frekvencija (vidi teh-234).\n\nPovezanost je važnija od same definicije: okomit upad znači θ = 0, dakle cos θ = 1, pa sekantni zakon MUF = f_c / cos θ daje MUF = f_c. Kritična frekvencija je, drugim riječima, MUF za okomiti upad — najmanja moguća vrijednost gornje granice. Zato ju Radiokomunikacije i nazivaju „najvišom uporabljivom frekvencijom za kratkodometne, bliske, mjesne komunikacije“: kod bliskih veza val ide gotovo ravno gore i pada natrag pokraj tebe, pa te ograničava upravo f_c.",
+    "formula": [
+      "f_c :  val upada OKOMITO (θ = 0 od okomice)",
+      "       i još se REFLEKTIRA natrag prema Zemlji",
+      "",
+      "Iz sekantnog zakona:",
+      "   MUF = f_c / cos θ",
+      "   θ = 0  →  cos 0 = 1  →  MUF = f_c",
+      "",
+      "   → kritična frekvencija je MUF za okomiti upad,",
+      "     dakle NAJNIŽA moguća granica; svaki kosi upad je diže.",
+      "",
+      "Praktično značenje:",
+      "   f_c = najviša upotrebljiva frekvencija za BLISKE veze",
+      "         (strmo zračenje, NVIS — 80 i 40 m, doseg 0–400 km)"
+    ],
+    "links": [
+      {"label": "Critical frequency (en.wikipedia)", "url": "https://en.wikipedia.org/wiki/Critical_frequency"},
+      {"label": "Maximum usable frequency (en.wikipedia)", "url": "https://en.wikipedia.org/wiki/Maximum_usable_frequency"}
+    ],
+    "cite": [
+      {"src": "RK", "loc": "7.1.3.1. Znakovite frekvencije, tiskana str. 168 (definicija f_c i napomena da je jednaka najvišoj uporabljivoj frekvenciji za bliske komunikacije)"}
+    ]
+  },
+
+  "teh-237": {
+    "note": "Veze preko komunikacijskih satelita i sa svemirskim letjelicama vode se u UHF i SHF području. Razlog slijedi izravno iz svega prethodnoga: da bi signal uopće došao do satelita, mora PROBITI ionosferu, a to znači da mu frekvencija mora biti iznad svega što ionosfera može vratiti.\n\nRadiokomunikacije to izvode korak po korak: F2 sloj ima najvišu razinu ionizacije u ionosferi, pa će valovi viših frekvencija od kratkovalnih — dakle VHF, UHF i više — prolaziti kroz ionosferu uz određeni stupanj apsorpcije. „Zato se komunikacije preko komunikacijskih satelita i one sa svemirskim letjelicama mogu obavljati u područjima ultravisokih (UHF) i supervisokih frekvencija (SHF)“, zaključuje knjiga. MF i HF otpadaju jer se vraćaju natrag; s njima do satelita ne dolaziš.\n\nJedna praktična opaska, jer ćeš je u eteru odmah primijetiti: amaterski sateliti u praksi rade i na 145 MHz, dakle u VHF području, koje također probija ionosferu — samo uz jaču Faradayevu rotaciju i veće ionosferske efekte nego na UHF-u. Ispitni ključ slijedi tekst priručnika, koji naglašava UHF i SHF kao ono što se pouzdano probija. Zbog te Faradayeve rotacije, koja zavrti smjer E polja u ionosferi, za satelitski se rad rabi kružna polarizacija (vidi teh-214).",
+    "formula": [
+      "Uvjet za satelitsku vezu:  signal mora PROBITI ionosferu",
+      "   → frekvencija iznad svega što ionosfera može vratiti",
+      "",
+      "   MF, HF   se vraćaju → ne dolaze do satelita",
+      "   VHF      probija, ali uz jaču Faradayevu rotaciju",
+      "   UHF, SHF probijaju pouzdano → satelitske i svemirske veze",
+      "",
+      "Podjela po ITU:",
+      "   HF    3 – 30 MHz",
+      "   VHF   30 – 300 MHz",
+      "   UHF   300 – 3000 MHz",
+      "   SHF   3 – 30 GHz",
+      "",
+      "Amaterski satelitski pojasevi u RH (NN 150/22, Dodatak 1.):",
+      "   144 – 146 MHz, 430 – 440 MHz, 1240 – 1300 MHz,",
+      "   2400 – 2450 MHz, 5650 – 5850 MHz, 10 – 10,5 GHz",
+      "",
+      "Polarizacija: KRUŽNA — zbog Faradayeve rotacije u ionosferi."
+    ],
+    "links": [
+      {"label": "Amateur radio satellite (en.wikipedia)", "url": "https://en.wikipedia.org/wiki/Amateur_radio_satellite"},
+      {"label": "Umjetni satelit (hr.wikipedia)", "url": "https://hr.wikipedia.org/wiki/Umjetni_satelit"},
+      {"label": "Ionosphere (en.wikipedia)", "url": "https://en.wikipedia.org/wiki/Ionosphere"}
+    ],
+    "cite": [
+      {"src": "RK", "loc": "7.1.3. „Utjecaj F-područja na rasprostiranje radiovalova“, završni odlomak, tiskana str. 167"},
+      {"src": "NN150/22", "loc": "Dodatak 1., Tablica 1. (UHF i SHF amaterski pojasevi)"}
+    ]
+  },
+
+  "teh-238": {
+    "note": "Promjenjivo slabljenje i jačanje signala u zvučniku zove se FEDING (engl. fading — ono što blijedi, što se gubi). Uzrok je gotovo uvijek višeputno rasprostiranje: do prijamnika iz istoga izvora stižu dva vala ili više njih koji su prošli različito duge putove — jedan nakon jednog odbijanja, drugi nakon dva, treći kao prizemni val.\n\nBudući da su putovi različito dugi, valovi stižu s različitom fazom. Kad je fazna razlika oko 180°, poništavaju se djelomično ili potpuno i signal propadne; kad su u fazi, zbrajaju se i signal skoči. Kako se visina i gustoća ionosferskih slojeva neprestano mijenjaju, mijenja se i duljina puta, pa signal „diše“ u ritmu od sekunde do više minuta.\n\nPostoji i posebna, gadnija vrsta: SELEKTIVNI feding, kod kojega se feding ne događa jednako na svim frekvencijama unutar signala, nego različito za nositelj i za pojedini bočni pojas. Kod AM-a to izobličuje modulaciju do nerazumljivosti; SSB ga trpi znatno bolje, jer nema nositelja koji bi mogao propasti odvojeno od bočnog pojasa. Obični feding suzbija se prostornom ili polarizacijskom diverzitetnošću — dvama razmaknutim antenama i prijamnicima od kojih se uzima jači — i dobrom automatskom regulacijom pojačanja (AGC) u prijamniku.",
+    "formula": [
+      "FEDING = promjena jakosti primljenog signala u vremenu",
+      "",
+      "Uzrok — višeputno rasprostiranje:",
+      "   izravni / prizemni val   ┐",
+      "   val nakon 1 odbijanja    ├→ različite duljine putova",
+      "   val nakon 2 odbijanja    ┘   → različite faze",
+      "",
+      "   fazna razlika ≈ 0°    → valovi se ZBRAJAJU (signal jak)",
+      "   fazna razlika ≈ 180° → PONIŠTAVAJU se (signal propada)",
+      "",
+      "Vrste i lijekovi:",
+      "   opći feding       → diverzitet (2 antene / 2 prijamnika),",
+      "                       dobra AGC regulacija",
+      "   selektivni feding → SSB umjesto AM (nema nositelja koji",
+      "                       može propasti odvojeno)",
+      "",
+      "Srodna pojava na VHF-u: „mobile flutter“ — brzo treperenje",
+      "signala u vezi s pokretnom postajom."
+    ],
+    "links": [
+      {"label": "Fading (en.wikipedia)", "url": "https://en.wikipedia.org/wiki/Fading"},
+      {"label": "Multipath propagation (en.wikipedia)", "url": "https://en.wikipedia.org/wiki/Multipath_propagation"}
+    ],
+    "cite": [
+      {"src": "RK", "loc": "7.1.3.2. Iznimni uvjeti rasprostiranja, odjeljak „Feding“, tiskana str. 170"},
+      {"src": "PZM", "loc": "Tema 17, tiskana str. 120 (feding među naučenim pojmovima)"}
+    ]
+  },
+
+  "teh-239": {
+    "note": "Da — i to presudno. Aktivnost Sunca određuje koliko UV i rendgenskoga zračenja stiže do atmosfere, to zračenje određuje gustoću slobodnih elektrona u ionosferi, a gustoća elektrona određuje kritičnu frekvenciju i MUF, dakle koji je pojas otvoren i dokle se čuje. Cijeli lanac ove teme svodi se na tu jednu rečenicu.\n\nPonuđeni odgovor „da, na frekvencijama ispod 14 MHz“ zvuči precizno, ali je zapravo naopako. Sunčeva aktivnost najviše se osjeti na VIŠIM pojasevima: 10, 12 i 15 m otvaraju se samo kad ima dovoljno pjega, dok su 40 i 80 m razmjerno pouzdani i u minimumu ciklusa. U maksimumu MUF doseže i 50 MHz, u minimumu tek 25 MHz — dakle mijenja se upravo ono što odlučuje o gornjim pojasevima.\n\nUtjecaj ide u oba smjera. Blaga do umjerena aktivnost donosi visoke MUF-ove i odlične uvjete; nagle erupcije donose SID i potpun prekid KV veza na osvijetljenoj strani Zemlje na nekoliko minuta do nekoliko sati, a dan-dva poslije ionosfersku oluju s postupnim „blijeđenjem“ signala i aurorom. Zato ozbiljni operatori prate ne samo broj pjega (SSN) i tok na 10,7 cm (SFI), nego i geomagnetske indekse A i K — kod kojih je NIŽA vrijednost bolja.",
+    "formula": [
+      "Lanac utjecaja:",
+      "   Sunce → UV/X zračenje → ionizacija → gustoća elektrona N",
+      "        → f_c ~ √N → MUF = f_c / cos θ → otvoreni pojasevi",
+      "",
+      "MUF prema fazi ciklusa (RK, str. 169):",
+      "   maksimum aktivnosti:  do ≈ 50 MHz",
+      "   minimum aktivnosti:   tek ≈ 25 MHz",
+      "",
+      "Što pratiti:",
+      "   SSN  broj sunčevih pjega        veći = bolje",
+      "   SFI  tok na 10,7 cm             veći = bolje",
+      "   A, K geomagnetski indeksi       NIŽI = bolje",
+      "",
+      "Naličje aktivnosti:",
+      "   SID              prekid KV, minute do sati",
+      "   ionosferska oluja  blijeđenje signala, sati do dana"
+    ],
+    "links": [
+      {"label": "Sunčev ciklus (hr.wikipedia)", "url": "https://hr.wikipedia.org/wiki/Sun%C4%8Dev_ciklus"},
+      {"label": "Sunčeve pjege (hr.wikipedia)", "url": "https://hr.wikipedia.org/wiki/Sun%C4%8Deve_pjege"},
+      {"label": "Radio propagation (en.wikipedia)", "url": "https://en.wikipedia.org/wiki/Radio_propagation"}
+    ],
+    "cite": [
+      {"src": "RK", "loc": "7.1.3. „Procesi stvaranja ioniziranih područja“, tiskana str. 166, i 7.1.3.1.–7.1.3.2., tiskana str. 168–170"},
+      {"src": "PZM", "loc": "Tema 17, tiskana str. 118"}
+    ]
+  },
+
+  "teh-240": {
+    "note": "Područje vrlo jake koncentracije elektrona koje se povremeno pojavi unutar E-sloja zove se SPORADIČNI E sloj, oznaka Es. Riječ „sporadičan“ znači povremen, nepredvidiv — i to je ključna razlika prema normalnom E-sloju, koji poslušno prati Sunce.\n\nNastanak nema veze sa Sunčevim zračenjem nego s dinamikom same atmosfere. Radiokomunikacije ga objašnjavaju smicanjem vjetrova: na malenoj visinskoj razlici pušu vrlo jaki vjetrovi u suprotnim smjerovima i tvore „škare“, koje uz prisutnost Zemljina magnetskog polja sabijaju ione u tanke, jako ionizirane oblake nepravilnog rasporeda. Ti oblaci traju samo nekoliko sati, a kod nas se brzo gibaju od jugoistoka prema sjeverozapadu.\n\nZa amatera je Es najuzbudljivija pojava na UKV-u. Kritična frekvencija Es-a doseže 50 MHz, a MUF za Es i do 150 MHz, ponekad 220 MHz — dakle otvara se čak i 144 MHz. Pri najvećoj gustoći omogućuje veze na 500–600 km BEZ preskočne udaljenosti, s običnim dipolom, na 28 i 50 MHz. Na našim geografskim širinama najizraženiji je od svibnja do kolovoza, uz slabiju sekundarnu sezonu početkom prosinca. Ne brkaj ga s temperaturnom inverzijom, koja je pojava u troposferi, a ne u ionosferi (vidi ponuđeni odgovor a).",
+    "formula": [
+      "Es = SPORADIČNI E sloj",
+      "   tanki, jako ionizirani oblaci u E-području (≈ 100 km)",
+      "   uzrok: smicanje vjetrova + Zemljino magnetsko polje",
+      "   trajanje: nekoliko sati; giba se JI → SZ",
+      "",
+      "Brojke (RK, str. 170):",
+      "   kritična frekvencija Es:  do 50 MHz",
+      "   MUF za Es:                do 150 MHz, ponekad 220 MHz",
+      "   dosezi:                   500 – 600 km bez mrtve zone",
+      "                             (dipolom, na 28 i 50 MHz)",
+      "",
+      "Sezona kod nas:",
+      "   svibanj – kolovoz   glavna sezona (najizraženija)",
+      "   početak prosinca    slabija, sekundarna sezona",
+      "",
+      "Ne brkati:",
+      "   Es                    – u IONOSFERI, E-područje",
+      "   temperaturna inverzija – u TROPOSFERI, do ≈ 10 km"
+    ],
+    "links": [
+      {"label": "Sporadic E propagation (en.wikipedia)", "url": "https://en.wikipedia.org/wiki/Sporadic_E_propagation"},
+      {"label": "Ionosfera (hr.wikipedia)", "url": "https://hr.wikipedia.org/wiki/Ionosfera"}
+    ],
+    "cite": [
+      {"src": "RK", "loc": "7.1.3.2., odjeljak „Povremeno E-odbijanje“, tiskana str. 170"},
+      {"src": "PZM", "loc": "Tema 17, tiskana str. 118 (E-sporadik, „najčešće se javlja ljeti, ujutro ili navečer“)"}
+    ]
+  },
+
+  "teh-241": {
+    "note": "UKV veze preko meteorskih tragova omogućuje ODBIJANJE, točnije raspršivanje, od ioniziranih tragova koje proizvode meteori. Radiokomunikacije to svrstavaju pod difuzno širenje ili „skater“ — dio energije rasprši se u svim smjerovima, pa i prema udaljenoj postaji.\n\nMehanizam: sitno tijelo, često veličine zrna pijeska, ulazi u atmosferu brzinom od nekoliko desetaka kilometara u sekundi i na visini od otprilike 80 do 120 km — dakle upravo u E-području — trenjem ionizira zrak za sobom. Taj trag slobodnih elektrona je vrlo gust, ali kratkotrajan: traje od djelića sekunde do nekoliko sekundi, iznimno i minutu. Dok postoji, ponaša se kao privremeno zrcalo za VHF signale.\n\nZato meteor scatter veze idu u „naletima“ (engl. burst) i vode se posebnim, vrlo brzim postupcima — nekada CW-om odaslanim ubrzano na traci, danas digitalnim modovima poput MSK144. Najbolje radi na 50 i 144 MHz, dosezi su 800 do 2200 km, a najviše ih ima pred zoru, kad se Zemlja svojom prednjom stranom „zabija“ u roj čestica. Vrhunci su za velikih meteorskih rojeva: Perzeidi sredinom kolovoza, Geminidi sredinom prosinca, Kvadrantidi početkom siječnja. Ponuđeni odgovor „odbijanje od Mjeseca“ opisuje drugu pojavu, EME ili moonbounce, koja doista postoji ali nema veze s meteorima.",
+    "formula": [
+      "Meteorski skater (meteor scatter, MS):",
+      "   meteoroid ulazi u atmosferu pri 30 – 70 km/s",
+      "   → ionizirani trag na 80 – 120 km (E-područje)",
+      "   → privremeno „zrcalo“ za VHF signale",
+      "",
+      "   trajanje traga: djelić sekunde … nekoliko sekundi",
+      "   pojasevi: najbolje 50 MHz i 144 MHz",
+      "   dosezi:   800 – 2200 km",
+      "   najbolje doba: pred zoru (00 – 07 h mjesnog vremena)",
+      "",
+      "Veliki rojevi:",
+      "   Kvadrantidi   početak siječnja",
+      "   Perzeidi      sredina kolovoza  (najpoznatiji)",
+      "   Geminidi      sredina prosinca",
+      "",
+      "Načini rada: brzi CW, danas digitalni MSK144 / FSK441."
+    ],
+    "links": [
+      {"label": "Meteor burst communications (en.wikipedia)", "url": "https://en.wikipedia.org/wiki/Meteor_burst_communications"},
+      {"label": "Meteor (hr.wikipedia)", "url": "https://hr.wikipedia.org/wiki/Meteor"}
+    ],
+    "cite": [
+      {"src": "RK", "loc": "7.1.3.2., odjeljak o difuznom širenju (skater) — „ulogu raspršivača imaju ionizirani tragovi meteorita… u E-području“, tiskana str. 170"},
+      {"src": "PZM", "loc": "Tema 17, tiskana str. 118–120"}
+    ]
+  },
+
+  "teh-242": {
+    "note": "Pojava snažno ioniziranog područja u E-sloju iznad Zemljinih polova zove se AURORA ili polarna svjetlost — Aurora borealis na sjevernoj, Aurora australis na južnoj polutki.\n\nUzrok nije Sunčevo zračenje nego Sunčeve ČESTICE. Nakon jake erupcije Sunce izbaci mlaz električki nabijenih čestica koje do Zemljine atmosfere stižu 24 do 36 sati poslije. Tamo ih Zemljino magnetsko polje skreće prema polovima, gdje pobuđuju atome i molekule da fluoresciraju — nastaju svijetleće „zavjese“ od iona u E-području, koje i vidimo golim okom.\n\nZa radio te zavjese djeluju dvojako, i to je bit ovog pitanja. S jedne strane, na njima se mogu lomiti i raspršivati radiovalovi iznad 20 MHz, pa se otvaraju veze na 50 i 144 MHz s antenom usmjerenom prema SJEVERU, bez obzira gdje je sugovornik. S druge strane, istodobno pojačana apsorpcija u nižem D-području guta niže frekvencije, pa KV veze preko polarnih putova propadnu. Zbog jakog Dopplerovog razvlačenja i raspršenja, aurora signal ima karakterističan hrapav, šuštav, „drhtav“ ton i telefonija postane nerazumljiva — zato se za aurora veze preporučuje CW.",
+    "formula": [
+      "AURORA (polarna svjetlost)",
+      "",
+      "   erupcija na Suncu",
+      "     → mlaz nabijenih čestica",
+      "     → stižu za 24 … 36 sati",
+      "     → Zemljino magnetsko polje ih vodi prema polovima",
+      "     → fluorescentne „zavjese“ iona u E-području",
+      "",
+      "Za radio:",
+      "   lom i raspršenje na zavjesama:  iznad 20 MHz",
+      "   preporučeni pojasevi:            50 MHz i 144 MHz",
+      "   antena:                          usmjerena prema SJEVERU",
+      "   način rada:                      CW (SSB nerazumljiv)",
+      "   ton signala:                     hrapav, šuštav, „drhtav“",
+      "",
+      "   istodobno: pojačana apsorpcija u D-području",
+      "              → gube se niže frekvencije, polarni KV putovi",
+      "",
+      "Ne brkati s Es: Es je ljetna pojava smicanja vjetrova,",
+      "aurora je posljedica Sunčevih čestica i vezana uz polove."
+    ],
+    "links": [
+      {"label": "Polarna svjetlost (hr.wikipedia)", "url": "https://hr.wikipedia.org/wiki/Polarna_svjetlost"},
+      {"label": "Aurora (en.wikipedia)", "url": "https://en.wikipedia.org/wiki/Aurora"},
+      {"label": "Solar flare (en.wikipedia)", "url": "https://en.wikipedia.org/wiki/Solar_flare"}
+    ],
+    "cite": [
+      {"src": "RK", "loc": "7.1.3.2., odjeljak „Polarno svjetlo ili aurora“, tiskana str. 170–171"}
+    ]
+  },
+
+  "teh-243": {
+    "note": "Posebno snažna sunčeva aktivnost ponavlja se u ciklusu od približno 11 godina. Radiokomunikacije to spominju na dva mjesta — kod procesa ionizacije („svakih 11 godina ponavljane, snažnije aktivnosti na Suncu, Sunčeve bure“) i kod dijagrama promjene MUF-a — a PZM dodaje da se maksimum pjega redovito javlja svakih 11 godina.\n\nCiklus je zapravo magnetski: Sunčevo magnetsko polje se svakih otprilike 11 godina prevrne, pa je puni magnetski ciklus 22 godine. Broj pjega raste od minimuma prema maksimumu u nekoliko godina, zadrži se na vrhuncu godinu-dvije, pa opada. Ciklusi se broje od 1755., a onaj u kojem sada radiš je 25. po redu, s vrhuncem sredinom 2020-ih.\n\nZa tebe to znači konkretno: u maksimumu ciklusa MUF doseže i 50 MHz, pa su 10, 12 i 15 m otvoreni gotovo svakodnevno i s malom snagom se radi cijeli svijet; u minimumu MUF pada na oko 25 MHz i rad se seli na 20, 40 i 80 m. Zato iskusni operatori kažu da se DXCC lovi u maksimumu, a strpljenje uči u minimumu. Ostali ponuđeni odgovori — 6 mjeseci, 3 godine, 6 godina — nemaju uporišta; jedini drugi ciklus koji ćeš u praksi primijetiti je godišnji (ljeto/zima) i dnevni (dan/noć).",
+    "formula": [
+      "Sunčev ciklus ≈ 11 godina",
+      "   (puni magnetski ciklus = 22 godine, jer se polaritet",
+      "    Sunčeva polja prevrne svakih 11 godina)",
+      "",
+      "Utjecaj na rad:",
+      "   MAKSIMUM   mnogo pjega,  MUF do ≈ 50 MHz",
+      "              → 10, 12, 15 m otvoreni, 6 m preko F2",
+      "   MINIMUM    malo pjega,   MUF tek ≈ 25 MHz",
+      "              → rad se seli na 20, 40, 80 m",
+      "",
+      "Tri ciklusa koja treba držati na umu:",
+      "   dnevni     dan/noć     → visoki / niski pojasevi",
+      "   godišnji   ljeto/zima  → Es ljeti, DX na niskima zimi",
+      "   sunčev     ≈ 11 godina → gornja granica MUF-a"
+    ],
+    "links": [
+      {"label": "Sunčev ciklus (hr.wikipedia)", "url": "https://hr.wikipedia.org/wiki/Sun%C4%8Dev_ciklus"},
+      {"label": "Sunčeve pjege (hr.wikipedia)", "url": "https://hr.wikipedia.org/wiki/Sun%C4%8Deve_pjege"},
+      {"label": "Solar cycle (en.wikipedia)", "url": "https://en.wikipedia.org/wiki/Solar_cycle"}
+    ],
+    "cite": [
+      {"src": "RK", "loc": "7.1.3. „Procesi stvaranja ioniziranih područja“, tiskana str. 166, i Sl. 7.1.4. s komentarom, tiskana str. 169"},
+      {"src": "PZM", "loc": "Tema 17, tiskana str. 118 („Maksimum pjega redovito se javlja svakih 11 godina“)"}
+    ]
+  }
+}

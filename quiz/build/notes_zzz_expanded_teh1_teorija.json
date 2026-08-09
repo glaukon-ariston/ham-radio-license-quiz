@@ -1,0 +1,1118 @@
+{
+ "_doc": "Expanded teaching notes — batch teh1_teorija (30 questions): the electrical/electromagnetic fundamentals of subsection 1 — fields and shielding, sources and battery capacity, Ohm's law, power and energy, efficiency, frequency/period/wavelength, AC values, and the dBW level. Longer prose, a worked formula block with real numbers on almost every question, links fetched and confirmed, and citations re-read off the printed page. Named to sort LAST so these override the terse originals.",
+ "_links_verified": "Every URL here was fetched and confirmed to exist and to cover the stated point (9 Aug 2026).",
+ "_citation_note": "The inherited PZM citations for this batch were systematically wrong: PZM's 'Tema 1' (str. 61–65) is 3.1.1. Sinusoidalni signali, 'Tema 2' (str. 65–69) is 3.1.2. Modulirani signali, and 'Tema 3' (str. 69–72) is 3.1.3. Snaga i energija. So the Ohm's-law and battery questions had been cited to the sinusoid chapter, and the frequency/period questions to the power chapter — exactly backwards. Everything is re-cited here, primarily to RK, whose chapter 1 covers this material section by section. RK printed page numbers were read off the page itself (PDF→printed offset is +4 in this range, and printed 21–22 carry no folio at all, so they were identified from the section numbering).",
+ "teh-001": {
+  "note": "Električno polje se zaustavlja VODLJIVIM oklopom. Razlog je fizikalan i vrlo izravan: elektrostatsko polje može postojati samo u izolatoru (dielektriku) između dviju električki nabijenih vodljivih površina — unutar same vodljive tvari polja nema, jer bi ono odmah pomaknulo slobodne elektrone dok se ne poništi. Ako tu vodljivu ljusku još i uzemljiš, tako da nema naponske razlike prema okolini, unutar nje polja nema. To je Faradayev kavez.\n\nZato je odgovor a) pogrešan, iako zvuči logično: plastika je izolator, a upravo je izolator ono u čemu polje živi. Plastična izolacija štiti te od DODIRA vodiča pod naponom, ali polje kroz nju prolazi neometano. Odgovor c) je zamka koja miješa dvije različite pojave: feromagnetski materijali (permalloy, mu-metal, meko željezo) služe za MAGNETSKA polja — oni ne blokiraju silnice nego ih 'progutaju' i provedu oko zaštićenog prostora. Odgovor d) je jednostavno netočan.\n\nU praksi ovo susrećeš stalno: bakreni oplet koaksijalnog kabela, limene kutijice preko oscilatora i ulaznih VF sklopova, oklop mrežnog transformatora, mrežasti Faradayev kavez u mjernom laboratoriju. Bitno je da oklop bude uzemljen (spojen na masu) — neuzemljen oklop je znatno slabiji, a kod visokih frekvencija propušta i kroz otvore, to više što je otvor veći u odnosu na valnu duljinu.\n\nRK zaštitu od električnog i od magnetskog polja obrađuje u dva odvojena odjeljka (1.3.2. i 1.4.2.) i izričito kaže: zaštita od elektrostatskih polja ujedno je i zaštita od rasipnih magnetskih polja, ali obrnuto ne vrijedi — za jaka niskofrekvencijska magnetska polja treba feromagnetska obloga.",
+  "formula": [
+   "Jakost električnog polja između dviju ploča:",
+   "   E = U / d        [V/m]",
+   "",
+   "Primjer iz RK (tiskana str. 33–34):",
+   "   U = 1000 V, d = 1 m     → E = 1000 V / 1 m = 1000 V/m",
+   "   U = 1000 V, d = 0,01 m  → E = 1000 V / 0,01 m = 100 000 V/m",
+   "",
+   "Unutar uzemljenog vodljivog oklopa:  E = 0",
+   "",
+   "Tko što zaustavlja:",
+   "   električno polje  → vodljivi oklop (bakar, aluminij, lim)",
+   "   magnetsko polje   → feromagnetski oklop (meko željezo, mu-metal)"
+  ],
+  "links": [
+   {
+    "label": "Faradayev kavez (hr.wikipedia)",
+    "url": "https://hr.wikipedia.org/wiki/Faradayev_kavez"
+   },
+   {
+    "label": "Električno polje (hr.wikipedia)",
+    "url": "https://hr.wikipedia.org/wiki/Elektri%C4%8Dno_polje"
+   },
+   {
+    "label": "Electromagnetic shielding (en.wikipedia)",
+    "url": "https://en.wikipedia.org/wiki/Electromagnetic_shielding"
+   }
+  ],
+  "cite": [
+   {
+    "src": "RK",
+    "loc": "1.3.2. Zaštita oklapanjem od djelovanja električnog polja, tiskana str. 34"
+   },
+   {
+    "src": "RK",
+    "loc": "1.4.2. Zaštita od magnetskih polja, tiskana str. 37"
+   },
+   {
+    "src": "OBVEZNI",
+    "loc": "II. Detaljni sadržaj, a) Tehnički sadržaj, t. 1.3. i 1.4. (zaštita od polja oklapanjem)"
+   }
+  ]
+ },
+ "teh-002": {
+  "note": "Napon je uzrok, struja je posljedica. Električni napon definiran je kao razlika električnih potencijala dviju točaka; dok te razlike ima i dok je krug zatvoren, naboj se giba i teče struja. Nestane li razlika potencijala, struja stane — bez obzira na to koliko dobar vodič imaš.\n\nRK to izvodi preko energije: napon je omjer rada W i naboja Q koji taj rad obavlja, U = W/Q, pa je volt zapravo džul po kulonu. Struja je pak omjer naboja i vremena, I = Q/t, pa je amper kulon po sekundi. Te dvije definicije zajedno s otporom daju Ohmov zakon (vidi teh-019 i teh-020).\n\nPogledaj zašto su ostale ponuđene netočne. Otpor vodiča (c) ne stvara struju — on je ograničava; bez napona i najmanji otpor ne bi ništa proizveo. Gravitacija (b) nema veze s gibanjem naboja u vodiču. Neutroni (d) nemaju naboj, pa njihovo gibanje po definiciji ne može biti električna struja; nositelji su elektroni u metalima, odnosno ioni u tekućinama i plinovima.\n\nZapamti smjerove: elektroni fizički teku od minus-pola prema plus-polu, ali u shemama i u svim proračunima crta se tzv. tehnički smjer, od plusa prema minusu. To je puka konvencija iz 19. stoljeća i ni na što ne utječe, ali te može zbuniti kad prvi put čitaš staru shemu.",
+  "formula": [
+   "U = W / Q        [V = J/C]     napon = rad po jedinici naboja",
+   "I = Q / t        [A = C/s]     struja = naboj u jedinici vremena",
+   "",
+   "Iz toga:  I = U / R",
+   "",
+   "Nema razlike potencijala → U = 0 → I = 0 (bez obzira na R)"
+  ],
+  "links": [
+   {
+    "label": "Električna struja (hr.wikipedia)",
+    "url": "https://hr.wikipedia.org/wiki/Elektri%C4%8Dna_struja"
+   },
+   {
+    "label": "Napon (hr.wikipedia)",
+    "url": "https://hr.wikipedia.org/wiki/Napon"
+   }
+  ],
+  "cite": [
+   {
+    "src": "RK",
+    "loc": "1.1.1. Krug istosmjerne struje; napon, struja, otpor, Ohmov zakon, tiskana str. 18–19"
+   },
+   {
+    "src": "PZM",
+    "loc": "3.1.3. Snaga i energija (Tema 3), tiskana str. 69–70"
+   }
+  ]
+ },
+ "teh-003": {
+  "note": "Da, svakako — i to bez iznimke. Oko svakog vodiča kojim teče električna struja postoji magnetsko polje. To je Oerstedovo otkriće iz 1820., a klasični pokus s željeznom piljevinom pokazuje kako se ona složi u koncentrične kružnice oko vodiča čim struja poteče.\n\nRK to formulira vrlo odlučno: toplinsko djelovanje struje može se izbjeći (u supravodljivom stanju), kemijsko također (bez elektrolita), ali magnetsko djelovanje je uvijek i neodvojivo vezano uz pojavu električne struje. Svaki naboj u gibanju prati magnetsko polje. Zato je odgovor b) ('samo ponekad') pogrešan — nema uvjeta pod kojima bi polje izostalo.\n\nOdgovor d) je zamka koja pretpostavlja da magnetsko polje mogu imati samo magneti. Zapravo je obrnuto: i trajni magnet svoje polje duguje usklađenom gibanju elementarnih naboja u tvari. Ako vodič namotaš u zavojnicu, polja pojedinih zavoja se zbrajaju i dobiješ znatno jače polje; umetneš li još jezgru od mekog željeza, dobio si elektromagnet.\n\nNa toj jednoj činjenici počiva praktički sva radiotehnika koju ćeš dalje učiti: zavojnice, prigušnice, transformatori, releji, zvučnici, feritne jezgre, pa i sama antena, koja zrači upravo zato što izmjenična struja u njoj stvara promjenjivo magnetsko polje.",
+  "formula": [
+   "Jakost polja oko ravnog vodiča na udaljenosti r:",
+   "   H = I / (2 · π · r)        [A/m]",
+   "",
+   "Primjer: I = 10 A, r = 0,1 m",
+   "   H = 10 / (2 · 3,14 · 0,1) = 10 / 0,628 = 15,9 A/m",
+   "",
+   "Polje je razmjerno struji i opada s udaljenošću:",
+   "   dvostruka struja → dvostruko polje",
+   "   dvostruka udaljenost → pola polja",
+   "",
+   "Zavojnica od N zavoja: polja se zbrajaju → N puta jače"
+  ],
+  "links": [
+   {
+    "label": "Magnetsko polje (hr.wikipedia)",
+    "url": "https://hr.wikipedia.org/wiki/Magnetsko_polje"
+   }
+  ],
+  "cite": [
+   {
+    "src": "RK",
+    "loc": "1.4.1. Trajni magneti i elektromagneti, tiskana str. 34–36"
+   },
+   {
+    "src": "OBVEZNI",
+    "loc": "II. Detaljni sadržaj, a) Tehnički sadržaj, t. 1.4. (magnetsko polje koje okružuje vodič kojim protječe struja)"
+   }
+  ]
+ },
+ "teh-004": {
+  "note": "Jakost magnetskog polja označava se slovom H, a mjeri se u amperima po metru (A/m). RK to kaže doslovno na kraju odjeljka 1.4.1.: jakost magnetskog polja izravno je razmjerna jakosti struje koja je to polje prouzročila, a mjerna jedinica je amper po metru.\n\nJedinica se lako pamti ako pogledaš odakle dolazi: polje oko vodiča stvara struja (amperi), a slabi s udaljenošću (metri) — pa je i jedinica 'amper po metru'. Za ravni vodič doslovno je H = I / (2πr), i to su upravo amperi podijeljeni metrima.\n\nPazi da ne pobrkaš H s magnetskom indukcijom B, koja se mjeri u teslama (T). Odnos je B = μ · H, gdje je μ permeabilnost sredstva. H opisuje UZROK (koliko si struje pustio), a B opisuje UČINAK u konkretnom materijalu (koliko silnica zbog toga stvarno prolazi). Zato ista zavojnica sa željeznom jezgrom daje isti H, ali višestruko veći B.\n\nOstale ponude su jedinice drugih veličina: amper (A) je struja, volt (V) je napon, kelvin (K) je temperatura. Usput zapamti i par: jakost ELEKTRIČNOG polja mjeri se u voltima po metru (V/m) — vidi teh-001. Ta dva para, V/m i A/m, često se pitaju jedan uz drugi.",
+  "formula": [
+   "Jakost magnetskog polja:   H  [A/m]",
+   "Magnetska indukcija:       B = μ · H   [T, tesla]",
+   "                           μ = μ₀ · μᵣ",
+   "",
+   "Usporedi s električnim poljem:",
+   "   električno polje  E  [V/m]",
+   "   magnetsko polje   H  [A/m]",
+   "",
+   "Ostale ponuđene jedinice:",
+   "   A  = struja        V = napon        K = temperatura"
+  ],
+  "links": [
+   {
+    "label": "Magnetsko polje (hr.wikipedia)",
+    "url": "https://hr.wikipedia.org/wiki/Magnetsko_polje"
+   },
+   {
+    "label": "Amper (hr.wikipedia)",
+    "url": "https://hr.wikipedia.org/wiki/Amper"
+   }
+  ],
+  "cite": [
+   {
+    "src": "RK",
+    "loc": "1.4.1. Trajni magneti i elektromagneti, tiskana str. 36 (mjerna jedinica jakosti magnetskog polja)"
+   }
+  ]
+ },
+ "teh-005": {
+  "note": "Da — kemijska reakcija daje istosmjernu struju, i to je princip svake baterije i akumulatora. Uroniš dvije elektrode od različitih metala u elektrolit (razrijeđenu kiselinu ili lužinu) i između njih se pojavi napon; to je galvanski članak. Napon je stalnog polariteta, pa je i struja koja poteče istosmjerna.\n\nBrojevi koje vrijedi znati: Voltin članak (bakar–cink u sumpornoj kiselini) daje oko 1,1 V, suhi Leclanchéov element 1,5 V, olovna akumulatorska ćelija 2 V. Zato automobilski akumulator od 12 V ima šest ćelija u seriji (vidi teh-007). Kod olovnog akumulatora pražnjenje se smije voditi dok napon ćelije ne padne na 1,85 V — ispod toga ploče sulfatiziraju i regeneracija je otežana ili nemoguća.\n\nRazlika između baterije i akumulatora je u povratnosti reakcije. Kod primarnog članka (suhi element) reakcija je jednosmjerna i element se ne može puniti. Kod akumulatora je reakcija reverzibilna: pražnjenjem ide na jednu stranu, punjenjem na drugu, pa se ciklus može ponavljati.\n\nOdgovor c) je zamka: nuklearni reaktor ne radi na kemijskoj reakciji nego na nuklearnoj fisiji, i ne daje izravno istosmjernu struju — grije vodu, pravi paru i vrti turbogenerator, koji daje izmjeničnu struju. Odgovor d) je besmislen; elektrokemija je upravo mjesto gdje se kemija i elektrotehnika sastaju.",
+  "formula": [
+   "Naponi po ćeliji koje vrijedi zapamtiti:",
+   "   Voltin članak (Cu–Zn)      ≈ 1,1 V",
+   "   suhi element (Leclanché)     1,5 V",
+   "   olovna akumulatorska ćelija  2,0 V   (prazniti samo do 1,85 V)",
+   "   Ni-Cd / Ni-MH ćelija       ≈ 1,2 V",
+   "",
+   "Odatle:  12 V olovni akumulator = 6 ćelija × 2 V",
+   "         9 V baterija           = 6 članaka × 1,5 V",
+   "",
+   "Olovni akumulator, reverzibilna reakcija:",
+   "   PbO₂ + Pb + 2H₂SO₄  ⇄  2PbSO₄ + 2H₂O",
+   "   → udesno = pražnjenje, ulijevo = punjenje"
+  ],
+  "links": [
+   {
+    "label": "Galvanski elementi (hr.wikipedia)",
+    "url": "https://hr.wikipedia.org/wiki/Galvanski_elementi"
+   },
+   {
+    "label": "Akumulator (hr.wikipedia)",
+    "url": "https://hr.wikipedia.org/wiki/Akumulator"
+   }
+  ],
+  "cite": [
+   {
+    "src": "RK",
+    "loc": "1.2.1. Suhi elementi i 1.2.2. Akumulatori, olovni i alkalijski, tiskana str. 25–26"
+   },
+   {
+    "src": "PZM",
+    "loc": "3.1.3. Snaga i energija (Tema 3), električni/galvanski članak, tiskana str. 69–70"
+   }
+  ]
+ },
+ "teh-006": {
+  "note": "Da — to je elektromagnetska indukcija, koju je Faraday opisao 1831. Gibanjem vodiča kroz magnetsko polje (ili, jednakovrijedno, promjenom polja oko mirnog vodiča) na krajevima vodiča inducira se napon. Bitno je RELATIVNO gibanje, odnosno promjena magnetskog toka kroz petlju: dok se tok mijenja, napon postoji; čim se gibanje zaustavi, napon nestaje.\n\nNa tome rade svi generatori. PZM to lijepo prikazuje: zavoj žice jednoliko se okreće u magnetskom polju između polova magneta i na njegovim krajevima javlja se napon koji se mijenja u obliku sinusoide. To nije slučajno — projekcija ravnomjernog kružnog gibanja na os je sinus, pa okretanje zavoja prirodno daje sinusoidni izmjenični napon. Zato je mrežni napon sinusoidan, a ne neki drugi oblik.\n\nOdgovor d) ('samo u promjenljivom magnetskom polju') je najzavodljiviji, jer u njemu ima zrnce istine — indukciju izaziva promjena toka. Ali tok se mijenja i kad se vodič giba kroz posve STALNO polje, jer se mijenja njegov položaj u polju. Zato je d) preusko i pogrešno, a ispravan je b). Odgovor c) je opet nuklearni reaktor, koji s ovim nema veze (vidi teh-005).\n\nIsta pojava vrijedi i u suprotnom smjeru i s njom ćeš se stalno susretati: samoindukcija zavojnice, međuinduktivna sprega dvaju titrajnih krugova, transformator, pa i prijamna antena — u njoj elektromagnetski val koji nailazi inducira sićušan napon, i to je sve što prijamnik dobiva.",
+  "formula": [
+   "Faradayev zakon indukcije:",
+   "   u = − N · ΔΦ / Δt        (N = broj zavoja, Φ = magnetski tok)",
+   "",
+   "Za ravni vodič duljine l koji se giba brzinom v okomito na polje B:",
+   "   u = B · l · v",
+   "",
+   "Primjer: B = 0,5 T, l = 0,2 m, v = 10 m/s",
+   "   u = 0,5 · 0,2 · 10 = 1 V",
+   "",
+   "Nema promjene toka → nema induciranog napona.",
+   "Zavoj koji se jednoliko okreće u polju → sinusoidni napon."
+  ],
+  "links": [
+   {
+    "label": "Elektromagnetska indukcija (hr.wikipedia)",
+    "url": "https://hr.wikipedia.org/wiki/Elektromagnetska_indukcija"
+   },
+   {
+    "label": "Magnetsko polje (hr.wikipedia)",
+    "url": "https://hr.wikipedia.org/wiki/Magnetsko_polje"
+   }
+  ],
+  "cite": [
+   {
+    "src": "PZM",
+    "loc": "3.1.1. Sinusoidalni signali (Tema 1), dobivanje sinusoide elektromagnetskom indukcijom, sl. 1/4, tiskana str. 62"
+   }
+  ]
+ },
+ "teh-007": {
+  "note": "Serijski spoj ZBRAJA napone. Izvori su nanizani jedan za drugim, pa se njihovi naponi algebarski zbrajaju: U = U₁ + U₂ + U₃ + … Ako su svi jednaki, ukupni napon je n · U. To je i jedini razlog zašto se izvori spajaju u seriju — kad ti treba viši napon nego što ga daje jedan članak.\n\nKapacitet (u ampersatima) se pri tome NE zbraja i to je srž zamke u odgovorima b) i c). Kroz sve članke teče ista struja, pa se svi prazne istom brzinom i baterija izdrži jednako dugo kao jedan članak. RK to formulira preko struje: najviša dopuštena struja serijske kombinacije ne smije biti veća od najviše dopuštene struje jednog izvora (vidi teh-008).\n\nParalelni spoj radi točno obrnuto: napon ostaje kao kod jednog članka, a zbrajaju se struje i time i kapacitet. Uvjet je da svi izvori imaju JEDNAK napon i jednak unutarnji otpor — inače puniji članak počne puniti prazniji kroz kratku petlju i sve se grije. RK to izričito upozorava velikim 'POZOR!'.\n\nOdgovor d) je netočan kao tvrdnja: serijsko spajanje jednakih baterija je posve uobičajeno i sigurno (svaka baterija od 9 V iznutra je serija od šest članaka od 1,5 V). Opasno je nešto drugo — serijski spajati članke različitog stanja napunjenosti ili različitog tipa, jer se slabiji članak može duboko isprazniti pa mu se polaritet obrne.",
+  "formula": [
+   "SERIJSKI spoj n jednakih izvora:",
+   "   U = n · U₁          napon se ZBRAJA",
+   "   I = I₁              struja ostaje ista",
+   "   C [Ah] = C₁         kapacitet ostaje isti",
+   "   Rᵢ = n · Rᵢ₁        unutarnji otpori se zbrajaju",
+   "",
+   "Primjer: 4 × 1,5 V / 2000 mAh u seriji",
+   "   → 6 V / 2000 mAh   (energija 12 Wh)",
+   "",
+   "PARALELNI spoj n jednakih izvora:",
+   "   U = U₁              napon ostaje isti",
+   "   C [Ah] = n · C₁     kapacitet se ZBRAJA",
+   "",
+   "Primjer: 4 × 1,5 V / 2000 mAh paralelno",
+   "   → 1,5 V / 8000 mAh (energija opet 12 Wh)"
+  ],
+  "links": [
+   {
+    "label": "Series and parallel circuits (en.wikipedia)",
+    "url": "https://en.wikipedia.org/wiki/Series_and_parallel_circuits"
+   },
+   {
+    "label": "Baterija (hr.wikipedia)",
+    "url": "https://hr.wikipedia.org/wiki/Baterija"
+   }
+  ],
+  "cite": [
+   {
+    "src": "RK",
+    "loc": "1.2.8. Serijsko povezivanje izvora i 1.2.9. Paralelno povezivanje izvora, tiskana str. 30–31"
+   },
+   {
+    "src": "OBVEZNI",
+    "loc": "II. Detaljni sadržaj, a) Tehnički sadržaj, t. 1.2. (serijski i paralelni spoj izvora napona)"
+   }
+  ]
+ },
+ "teh-008": {
+  "note": "Kroz serijski spoj teče jedna te ista struja kroz sve elemente — nema kamo drugamo otići, jer postoji samo jedan put. Zato je struja serijski spojenih baterija jednaka struji jedne baterije; zbraja se samo napon (vidi teh-007).\n\nOdgovor a) miješa serijski spoj s paralelnim. Zbrajanje struja pripada paralelnom spoju, gdje postoji više grana, pa se prema prvom Kirchhoffovom zakonu struje grana u čvoru zbrajaju u ukupnu struju (vidi teh-024).\n\nRK istu stvar kaže s praktične strane: najviša dopuštena struja serijske kombinacije ne smije biti veća od najviše dopuštene struje jednog izvora. To ima izravnu posljedicu na terenu — nizanjem članaka u seriju NE dobivaš izdašniji izvor, nego samo viši napon. Ako ti treba veća struja, moraš u paralelu.\n\nOdgovori c) i d) ('struji najpraznije' / 'najpunije baterije') pretpostavljaju nejednake članke, a pitanje izričito kaže JEDNAKE baterije. Ipak, u toj zamci se krije korisna praktična istina: kad članci nisu jednaki, serijski niz doista diktira najslabiji član — on se prvi isprazni, ostali ga nastave 'gurati' i mogu mu obrnuti polaritet. Zato se u seriju nikad ne miješaju stare i nove baterije.",
+  "formula": [
+   "SERIJSKI spoj:  I = I₁ = I₂ = I₃ = …    (jedna struja kroz sve)",
+   "                U = U₁ + U₂ + U₃ + …    (naponi se zbrajaju)",
+   "",
+   "PARALELNI spoj: U = U₁ = U₂ = U₃ = …    (jedan napon na svima)",
+   "                I = I₁ + I₂ + I₃ + …    (struje se zbrajaju)",
+   "",
+   "Primjer: tri članka 1,5 V / najviše 1 A, serijski",
+   "   U = 4,5 V,  Imax = 1 A  (a NE 3 A)"
+  ],
+  "links": [
+   {
+    "label": "Series and parallel circuits (en.wikipedia)",
+    "url": "https://en.wikipedia.org/wiki/Series_and_parallel_circuits"
+   }
+  ],
+  "cite": [
+   {
+    "src": "RK",
+    "loc": "1.2.8. Serijsko povezivanje izvora, tiskana str. 30–31"
+   }
+  ]
+ },
+ "teh-009": {
+  "note": "Kapacitet akumulatora izražava se u ampersatima (Ah) i po definiciji je umnožak struje i vremena: Q = I · t. Iz toga se vrijeme dobiva jednostavnim dijeljenjem, t = Q / I. Ovdje: 20 Ah / 0,5 A = 40 h.\n\nJedina prava zamka je pretvorba jedinica. Struja je zadana u miliamperima, a kapacitet u ampersatima, pa 500 mA prvo pretvori u 0,5 A. Ako to propustiš, dobiješ 0,04 h ili 40 000 h, ovisno o tome na koju stranu pogriješiš — a takve ponude su obično baš u ponuđenim odgovorima.\n\nRK daje istovjetan primjer: baterija kapaciteta 45 Ah može se prazniti strujom od 5 A devet sati, ili pet sati strujom od 9 A. Ampersat je zapravo jedinica NABOJA (1 Ah = 3600 As = 3600 C), pa je logično da se umnožak struje i vremena drži konstantnim.\n\nU stvarnosti kapacitet nije posve stalan: pri pražnjenju manjom strujom od nazivne dobiješ nešto više od nazivnog kapaciteta, a pri jakom pražnjenju osjetno manje (Peukertov učinak). Zato proizvođači kapacitet uvijek navode uz određenu struju ili vrijeme pražnjenja, npr. 'C20'. Na ispitu se ipak računa idealno, pravocrtno.",
+  "formula": [
+   "Q = I · t        [Ah]        →        t = Q / I",
+   "",
+   "Uvrsti:",
+   "   500 mA = 0,5 A",
+   "   t = 20 Ah / 0,5 A = 40 h",
+   "",
+   "Provjera: 0,5 A · 40 h = 20 Ah ✓",
+   "",
+   "1 Ah = 3600 As = 3600 C  (ampersat je jedinica naboja)"
+  ],
+  "links": [
+   {
+    "label": "Akumulator (hr.wikipedia)",
+    "url": "https://hr.wikipedia.org/wiki/Akumulator"
+   },
+   {
+    "label": "Ampere-hour (en.wikipedia)",
+    "url": "https://en.wikipedia.org/wiki/Ampere-hour"
+   }
+  ],
+  "cite": [
+   {
+    "src": "RK",
+    "loc": "1.2.3. Kapacitet akumulatora, tiskana str. 27"
+   },
+   {
+    "src": "OBVEZNI",
+    "loc": "II. Detaljni sadržaj, a) Tehnički sadržaj, t. 1.1. (kapacitet baterije, amper-sat)"
+   }
+  ]
+ },
+ "teh-010": {
+  "note": "Isti odnos kao u teh-009, samo je nepoznanica druga: iz Q = I · t slijedi I = Q / t = 10 Ah / 5 h = 2 A. Odgovori su ponuđeni u miliamperima, pa 2 A pretvori u 2000 mA.\n\nDvije korisne navike koje ti štede vrijeme na ispitu. Prva: uvijek pogledaj u kojoj su jedinici PONUĐENI odgovori, ne samo u kojoj je zadatak — ovdje je cijeli račun u amperima i satima, a ponude su u miliamperima. Druga: brzo provjeri red veličine natrag, 2 A · 5 h = 10 Ah ✓. Time odmah odbaciš 500 mA (dalo bi 2,5 Ah) i 10 000 mA (dalo bi 50 Ah).\n\nPrimijeti simetriju cijele skupine zadataka: ista jednadžba Q = I · t rješava se u tri smjera, kao i Ohmov zakon U = R · I (teh-020 do teh-023) i formula za snagu P = U · I (teh-025, teh-026). Naučiš li prepoznati koji je od tri člana nepoznat, pola tehničkog dijela ispita je riješeno istim potezom.\n\nPraktična strana: iz ovog računa odmah znaš koliko će ti trajati prijenosna postaja. Ručna radiostanica s baterijom od 1800 mAh koja u prijamu troši 150 mA izdržat će 1,8 Ah / 0,15 A = 12 sati slušanja — a znatno manje ako i odašilješ, jer u odašiljanju struja skoči na nekoliko ampera.",
+  "formula": [
+   "Q = I · t        →        I = Q / t",
+   "",
+   "Uvrsti:",
+   "   I = 10 Ah / 5 h = 2 A = 2000 mA",
+   "",
+   "Provjera unatrag: 2 A · 5 h = 10 Ah ✓",
+   "",
+   "Ista jednadžba u tri smjera:",
+   "   Q = I · t        I = Q / t        t = Q / I"
+  ],
+  "links": [
+   {
+    "label": "Ampere-hour (en.wikipedia)",
+    "url": "https://en.wikipedia.org/wiki/Ampere-hour"
+   },
+   {
+    "label": "Akumulator (hr.wikipedia)",
+    "url": "https://hr.wikipedia.org/wiki/Akumulator"
+   }
+  ],
+  "cite": [
+   {
+    "src": "RK",
+    "loc": "1.2.3. Kapacitet akumulatora, tiskana str. 27"
+   }
+  ]
+ },
+ "teh-011": {
+  "note": "U kratkom spoju vanjskog otpora praktički nema — spojio si polove izravno. Jedino što tada ograničava struju jest UNUTARNJI otpor izvora, Rᵢ. Zato je struja kratkog spoja Iₖ = U₀ / Rᵢ = 12 V / 0,1 Ω = 120 A.\n\nRK to izvodi upravo tako: kad se stezaljke kratko spoje, napon na njima padne na nulu, jer se cijeli napon izvora troši kao pad napona na unutarnjem otporu, U₀ = Iₖ · Rᵢ, odakle slijedi Iₖ = U₀ / Rᵢ. Isti izraz je i običan Ohmov zakon — samo je jedini otpor u krugu unutarnji.\n\nOdgovori a) 12 kA i c) 0,12 A su zamke s decimalnom točkom: 12 / 0,1 nije 12 000 ni 0,12 nego 120. Odgovor b) 12 A dobio bi da si dijelio s 1 Ω umjesto s 0,1 Ω. Dijeljenje s brojem manjim od jedan POVEĆAVA rezultat — to je pravilo koje na ispitu vrijedi provjeriti dvaput.\n\nZato akumulator u kratkom spoju doslovno vari kabel: 120 A kroz tanku žicu razvija ogromnu snagu (P = I² · R) i žica pocrveni u sekundi. RK upozorava da će izvor bez osigurača biti razoren vlastitom toplinskom energijom. Kod olovnih akumulatora dolazi i opasnost od eksplozije zbog vodika koji se stvara. Praktična pouka: osigurač uvijek na PLUS vod i što bliže akumulatoru, i to je razlog zašto svaki tvornički kabel za KV postaju ima osigurač na oba voda.",
+  "formula": [
+   "Iₖ = U₀ / Rᵢ        (kratki spoj: vanjski otpor ≈ 0)",
+   "",
+   "Uvrsti:",
+   "   Iₖ = 12 V / 0,1 Ω = 120 A",
+   "",
+   "Provjera: 120 A · 0,1 Ω = 12 V ✓",
+   "",
+   "Snaga koja se u tom trenutku razvija u izvoru:",
+   "   P = Iₖ² · Rᵢ = 120² · 0,1 = 1440 W",
+   "",
+   "Pazi na dijeljenje s brojem manjim od 1:",
+   "   12 / 0,1 = 120       (a NE 1,2 ni 12 000)"
+  ],
+  "links": [
+   {
+    "label": "Kratki spoj (hr.wikipedia)",
+    "url": "https://hr.wikipedia.org/wiki/Kratki_spoj"
+   },
+   {
+    "label": "Ohmov zakon (hr.wikipedia)",
+    "url": "https://hr.wikipedia.org/wiki/Ohmov_zakon"
+   }
+  ],
+  "cite": [
+   {
+    "src": "RK",
+    "loc": "1.2.6. Naponski izvori (struja kratkog spoja Iₖ = U₀/Rᵢ), tiskana str. 29–30"
+   },
+   {
+    "src": "OBVEZNI",
+    "loc": "II. Detaljni sadržaj, a) Tehnički sadržaj, t. 1.2. (struja kratkog spoja, unutarnji otpor)"
+   }
+  ]
+ },
+ "teh-012": {
+  "note": "Frekvencija je broj titraja u jednoj sekundi. Zadatak ti daje 100 titraja u 5 sekundi, pa je f = 100 / 5 s = 20 Hz. Ništa više od dijeljenja.\n\nHertz je po definiciji 'jedan po sekundi' (1 Hz = 1 s⁻¹), pa jedinica sama govori kako se računa: broj događaja PODIJELJEN vremenom. Ako ti se ikad učini da bi trebalo množiti, provjeri jedinice — množenjem bi dobio titraj-sekunde, što nije ništa.\n\nNajčešća pogreška je odabir 100 Hz (samo prepisan broj titraja, kao da je vrijeme bilo 1 s) ili 500 Hz (pomnoženo umjesto podijeljeno). Obje su ponuđene, i obje se otkriju istom provjerom unatrag: 20 Hz · 5 s = 100 titraja ✓.\n\nUsko povezano s ovim je perioda T, vrijeme trajanja jednog titraja, koja je recipročna frekvenciji: T = 1/f. Ovdje je T = 1/20 = 0,05 s = 50 ms. Isti par frekvencija–perioda vraća se u teh-013 i teh-015, samo na drugim redovima veličine.",
+  "formula": [
+   "f = N / t        [Hz = 1/s]",
+   "",
+   "Uvrsti:",
+   "   f = 100 titraja / 5 s = 20 Hz",
+   "",
+   "Provjera: 20 Hz · 5 s = 100 titraja ✓",
+   "",
+   "Pripadna perioda:",
+   "   T = 1 / f = 1 / 20 = 0,05 s = 50 ms",
+   "",
+   "1 Hz = 1 titraj u sekundi",
+   "1 kHz = 10³ Hz   1 MHz = 10⁶ Hz   1 GHz = 10⁹ Hz"
+  ],
+  "links": [
+   {
+    "label": "Frekvencija (hr.wikipedia)",
+    "url": "https://hr.wikipedia.org/wiki/Frekvencija"
+   },
+   {
+    "label": "Herc (hr.wikipedia)",
+    "url": "https://hr.wikipedia.org/wiki/Herc"
+   }
+  ],
+  "cite": [
+   {
+    "src": "RK",
+    "loc": "1.6.2. Perioda, frekvencija, faza, tiskana str. 43"
+   },
+   {
+    "src": "PZM",
+    "loc": "3.1.1. Sinusoidalni signali (Tema 1), frekvencija i perioda, tiskana str. 63"
+   }
+  ]
+ },
+ "teh-013": {
+  "note": "Isti odnos kao u teh-012, samo obrnuto: sada tražiš broj titraja. Iz f = N / t slijedi N = f · t = 50 Hz · 5 s = 250 titraja.\n\nPomaže ako jedinice čitaš doslovno: herc je 'titraja u sekundi', pa 50 titraja/s puta 5 s daje 250 titraja — sekunde se pokrate i ostaje čisti broj. Frekvencija je bezdimenzijski broj po vremenu, pa umnožak s vremenom uvijek daje broj događaja.\n\nPonuda a) 10 je rezultat dijeljenja u krivom smjeru (50/5), ponuda d) 25 je 5 · 5, a c) 150 je 30 · 5. Sve tri se otkrivaju istom provjerom: 250 titraja / 5 s = 50 Hz ✓.\n\nBroj 50 Hz nije slučajno odabran — to je frekvencija naše gradske mreže (u Americi 60 Hz). Na tu se frekvenciju vraćaš kasnije kod ispravljača: poluvalni ispravljač daje valovitost od 50 Hz, punovalni od 100 Hz, jer se u punovalnom iskorištavaju obje poluperiode.",
+  "formula": [
+   "f = N / t        →        N = f · t",
+   "",
+   "Uvrsti:",
+   "   N = 50 Hz · 5 s = 250 titraja",
+   "",
+   "Jedinice se pokrate:  (titraja/s) · s = titraja",
+   "",
+   "Provjera: 250 / 5 s = 50 Hz ✓",
+   "",
+   "Perioda:  T = 1/50 = 0,02 s = 20 ms",
+   "   → u 5 s stane 5 / 0,02 = 250 perioda ✓"
+  ],
+  "links": [
+   {
+    "label": "Frekvencija (hr.wikipedia)",
+    "url": "https://hr.wikipedia.org/wiki/Frekvencija"
+   },
+   {
+    "label": "Herc (hr.wikipedia)",
+    "url": "https://hr.wikipedia.org/wiki/Herc"
+   }
+  ],
+  "cite": [
+   {
+    "src": "RK",
+    "loc": "1.6.2. Perioda, frekvencija, faza, tiskana str. 43"
+   },
+   {
+    "src": "PZM",
+    "loc": "3.1.1. Sinusoidalni signali (Tema 1), frekvencija i perioda, tiskana str. 63"
+   }
+  ]
+ },
+ "teh-014": {
+  "note": "Valna duljina je put koji val prijeđe za vrijeme jedne periode, pa je λ = c / f. Uvrsti brojeve: 300 000 000 m/s podijeljeno s 300 000 000 Hz daje točno 1 m.\n\nU praksi nitko ne piše sve te nule. RK daje prilagođenu jednadžbu koju trebaš znati napamet: λ (m) = 300 / f (MHz). Ovdje je λ = 300 / 300 = 1 m. Ista formula radi i unatrag, f (MHz) = 300 / λ (m) — to je zapravo teh-016.\n\nBroj 300 dolazi od brzine svjetlosti izražene u milijunima metara u sekundi: c = 3 · 10⁸ m/s = 300 · 10⁶ m/s, a mega u nazivniku pokrati mega u brojniku. Prava vrijednost je 299 792 458 m/s, ali za sve amaterske proračune 300 000 km/s je više nego dovoljno točno.\n\nTu formulu koristiš stalno, jer se amaterski pojasi zovu po valnoj duljini: 300/145 ≈ 2 m, 300/435 ≈ 0,7 m (70 cm), 300/14 ≈ 21 m (pojas '20 m'), 300/3,6 ≈ 83 m (pojas '80 m'). Nazivi pojasa su zaokruženi, pa nemoj očekivati da će broj izaći točno — 20-metarski pojas doista ima valnu duljinu oko 21 m.",
+  "formula": [
+   "λ = c / f",
+   "",
+   "Uvrsti u osnovnim jedinicama:",
+   "   λ = 300 000 000 m/s ÷ 300 000 000 Hz = 1 m",
+   "",
+   "Praktična formula (RK, tiskana str. 39):",
+   "   λ (m) = 300 / f (MHz)",
+   "   λ = 300 / 300 = 1 m",
+   "",
+   "Provjera: f = 300 / 1 = 300 MHz ✓",
+   "",
+   "Amaterski pojasi:",
+   "   300 / 3,6 MHz ≈ 83 m      (pojas 80 m)",
+   "   300 / 14,2 MHz ≈ 21 m     (pojas 20 m)",
+   "   300 / 145 MHz  ≈ 2,07 m   (pojas 2 m)",
+   "   300 / 435 MHz  ≈ 0,69 m   (pojas 70 cm)"
+  ],
+  "links": [
+   {
+    "label": "Valna duljina (hr.wikipedia)",
+    "url": "https://hr.wikipedia.org/wiki/Valna_duljina"
+   },
+   {
+    "label": "Brzina svjetlosti (hr.wikipedia)",
+    "url": "https://hr.wikipedia.org/wiki/Brzina_svjetlosti"
+   }
+  ],
+  "cite": [
+   {
+    "src": "RK",
+    "loc": "1.5.2. Brzina širenja, frekvencija i valna duljina, tiskana str. 39"
+   },
+   {
+    "src": "OBVEZNI",
+    "loc": "II. Detaljni sadržaj, a) Tehnički sadržaj, t. 1.5. (v = f × λ)"
+   }
+  ]
+ },
+ "teh-015": {
+  "note": "Perioda je recipročna vrijednost frekvencije, T = 1/f. Uvrsti: T = 1 / 24 GHz = 1/24 ns. Odgovor je namjerno ostavljen u tom obliku, jer je 'jedan kroz 24 nanosekunde' točno ono što izlazi iz recipročne vrijednosti.\n\nKako to izlazi: giga je 10⁹, pa je 1/10⁹ s = 1 ns. Dakle 1 / (24 · 10⁹ Hz) = (1/24) · 10⁻⁹ s = 1/24 ns ≈ 0,0417 ns = 41,7 ps. Vrijedi zapamtiti par recipročnih prefiksa, jer se s njima riješi svaki ovakav zadatak bez kalkulatora: 1 GHz ↔ 1 ns, 1 MHz ↔ 1 μs, 1 kHz ↔ 1 ms.\n\nPonuda d) '24 ps' je najgadnija zamka, jer je brojčano blizu točnog rezultata (41,7 ps) i jer ima 'ispravan' prefiks. Ali 24 ps bi značilo da si samo prepisao broj 24 uz manji prefiks, umjesto da si ga stavio u nazivnik. Ponude a) '24 μs' i b) '24 ns' rade istu grešku s drugim prefiksima.\n\nZapamti smjer: viša frekvencija znači KRAĆU periodu. Kod 24 GHz jedna perioda traje četrdesetak pikosekunda — za to vrijeme svjetlost prijeđe svega oko 1,25 cm. Zato na takvim frekvencijama i milimetri duljine voda mijenjaju fazu, i zato se mikrovalna tehnika radi valovodima i trakastim vodovima, a ne običnim žicama.",
+  "formula": [
+   "T = 1 / f",
+   "",
+   "Uvrsti:",
+   "   T = 1 / (24 · 10⁹ Hz) = (1/24) · 10⁻⁹ s = 1/24 ns",
+   "     ≈ 0,0417 ns = 41,7 ps",
+   "",
+   "Recipročni parovi koje vrijedi znati napamet:",
+   "   1 kHz ↔ 1 ms        1 MHz ↔ 1 μs",
+   "   1 GHz ↔ 1 ns        1 THz ↔ 1 ps",
+   "",
+   "Provjera: f = 1 / (1/24 ns) = 24 GHz ✓",
+   "",
+   "Valna duljina na 24 GHz: λ = 300 / 24 000 = 0,0125 m = 12,5 mm"
+  ],
+  "links": [
+   {
+    "label": "Frekvencija (hr.wikipedia)",
+    "url": "https://hr.wikipedia.org/wiki/Frekvencija"
+   },
+   {
+    "label": "Herc (hr.wikipedia)",
+    "url": "https://hr.wikipedia.org/wiki/Herc"
+   }
+  ],
+  "cite": [
+   {
+    "src": "RK",
+    "loc": "1.6.2. Perioda, frekvencija, faza, tiskana str. 43"
+   },
+   {
+    "src": "PZM",
+    "loc": "3.1.1. Sinusoidalni signali (Tema 1), T = 1/f, tiskana str. 63"
+   }
+  ]
+ },
+ "teh-016": {
+  "note": "Ista veza kao u teh-014, samo u suprotnom smjeru: iz λ = c / f slijedi f = c / λ. Uvrsti: 300 000 000 m/s ÷ 10 m = 30 000 000 Hz = 30 MHz. Praktično, f (MHz) = 300 / λ (m) = 300 / 10 = 30 MHz.\n\nProvjeri rezultat unatrag, to je najbrža zaštita od pogreške s prefiksima: 300 / 30 MHz = 10 m ✓. Ponuđeni 300 MHz odgovarao bi valnoj duljini od 1 m (to je teh-014), 3 MHz odgovara 100 m, a 300 kHz odgovara 1000 m — svaka od tih ponuda je zapravo točan odgovor na neko drugo pitanje.\n\nBroj 30 MHz vrijedi pamtiti jer je to konvencionalna granica kratkog vala (HF). Sve ispod 30 MHz je HF i širi se prostornim valom preko ionosfere; iznad toga počinje VHF, koji se u pravilu širi optički. Ista granica se pojavljuje i u propisima i u opisima opreme — 'KV postaja 0–30 MHz' je standardna formulacija.\n\nUsput, ista formula ti daje i duljinu antene. Poluvalni dipol za 30 MHz teorijski je λ/2 = 5 m, a u stvarnosti oko 5 % kraći zbog faktora skraćenja — dakle nešto ispod 4,8 m. Toj temi se vraćaš u dijelu o antenama.",
+  "formula": [
+   "f = c / λ",
+   "",
+   "Uvrsti u osnovnim jedinicama:",
+   "   f = 300 000 000 m/s ÷ 10 m = 30 000 000 Hz = 30 MHz",
+   "",
+   "Praktična formula:",
+   "   f (MHz) = 300 / λ (m) = 300 / 10 = 30 MHz",
+   "",
+   "Provjera: λ = 300 / 30 = 10 m ✓",
+   "",
+   "Ostale ponude su odgovori na druga pitanja:",
+   "   300 MHz → λ = 1 m         3 MHz → λ = 100 m",
+   "   300 kHz → λ = 1000 m",
+   "",
+   "30 MHz = konvencionalna gornja granica kratkog vala (HF)"
+  ],
+  "links": [
+   {
+    "label": "Valna duljina (hr.wikipedia)",
+    "url": "https://hr.wikipedia.org/wiki/Valna_duljina"
+   },
+   {
+    "label": "Elektromagnetsko zračenje (hr.wikipedia)",
+    "url": "https://hr.wikipedia.org/wiki/Elektromagnetsko_zra%C4%8Denje"
+   }
+  ],
+  "cite": [
+   {
+    "src": "RK",
+    "loc": "1.5.2. Brzina širenja, frekvencija i valna duljina, tiskana str. 39"
+   },
+   {
+    "src": "OBVEZNI",
+    "loc": "II. Detaljni sadržaj, a) Tehnički sadržaj, t. 1.5. (v = f × λ)"
+   }
+  ]
+ },
+ "teh-017": {
+  "note": "Kod sinusnog signala vršna (maksimalna) vrijednost je √2 puta veća od efektivne: Umax = Uef · √2 = 100 V · 1,414 = 141,4 V, zaokruženo 141 V.\n\nEfektivna vrijednost nije prosjek nego 'toplinski ekvivalent': to je ona vrijednost istosmjerne struje koja bi u istom otporu razvila jednaku toplinu. Zato se i zove RMS (root mean square) — korijen srednje vrijednosti kvadrata. Faktor √2 dolazi baš iz toga, jer je srednja vrijednost kvadrata sinusa točno polovica kvadrata amplitude, pa je Uef = Umax/√2.\n\nRK daje isti primjer s mrežnim naponom: efektivni napon gradske mreže je 230 V, pa je maksimalni 1,41 · 230 = 325,3 V. To je razlog zašto elektrolitski kondenzatori u mrežnom napajanju moraju izdržati barem 350–400 V, iako 'mreža ima 230 V'. Kad se to zaboravi, kondenzator se raspukne.\n\nZapamti oba smjera i nemoj ih pobrkati: iz efektivne u vršnu MNOŽIŠ s 1,41, iz vršne u efektivnu MNOŽIŠ s 0,707. I zapamti dogovor: ako uz napon ili struju nije naveden nikakav pridjev, uvijek se misli na efektivnu vrijednost. Instrumenti su umjereni tako da pokazuju efektivnu vrijednost.",
+  "formula": [
+   "Umax = Uef · √2 = Uef · 1,414",
+   "Uef  = Umax / √2 = Umax · 0,707",
+   "",
+   "Uvrsti:",
+   "   Umax = 100 V · 1,414 = 141,4 V ≈ 141 V",
+   "",
+   "Provjera: 141 V · 0,707 = 99,7 V ≈ 100 V ✓",
+   "",
+   "Primjer iz RK (tiskana str. 43):",
+   "   mreža Uef = 230 V → Umax = 1,41 · 230 = 325,3 V",
+   "",
+   "Srednja (prosječna) vrijednost punog vala:",
+   "   Usr = 0,637 · Umax   (ne miješaj je s efektivnom!)"
+  ],
+  "links": [
+   {
+    "label": "Izmjenična električna struja (hr.wikipedia)",
+    "url": "https://hr.wikipedia.org/wiki/Izmjeni%C4%8Dna_elektri%C4%8Dna_struja"
+   },
+   {
+    "label": "Root mean square (en.wikipedia)",
+    "url": "https://en.wikipedia.org/wiki/Root_mean_square"
+   }
+  ],
+  "cite": [
+   {
+    "src": "RK",
+    "loc": "1.6.1. Grafički prikaz — vršna, efektivna i srednja vrijednost, tiskana str. 42–43"
+   },
+   {
+    "src": "OBVEZNI",
+    "loc": "II. Detaljni sadržaj, a) Tehnički sadržaj, t. 1.6. (Uef = Umax/√2)"
+   }
+  ]
+ },
+ "teh-018": {
+  "note": "Vrijednost od vrha do vrha (peak-to-peak, Upp) je razmak između najviše pozitivne i najniže negativne točke sinusoide, dakle DVOSTRUKA vršna vrijednost. Zato treba dva koraka: prvo iz efektivne u vršnu (množenje s √2), pa onda još s 2.\n\nUvrsti: Upp = 2 · Uef · √2 = 2 · 220 V · 1,41 = 620,4 V. To je točno onaj broj koji je u ključu. Ako uzmeš točniju vrijednost √2 = 1,4142, dobiješ 622,25 V — dakle ključ je računao s √2 ≈ 1,41, kao i RK u svom primjeru s mrežnim naponom. Ista je zaokruženost i u teh-017 (141 V umjesto 141,4 V). Na ispitu odaberi najbliži ponuđeni broj, ne uznemiruj se zbog druge decimale.\n\nSkraćeni faktor vrijedi zapamtiti: Upp = 2√2 · Uef ≈ 2,83 · Uef. Provjeri i obrnuto, Uef = Upp / 2,83 = 620,4 / 2,83 = 219 V ≈ 220 V ✓. Ostale ponude tada ispadaju očito krive: 480 V bi dalo 170 V, a 760 V ili 820 V dali bi preko 265 V.\n\nOvo nije akademsko cjepidlačenje. Osciloskop mjeri upravo Upp, jer se na ekranu vidi cijeli razmah, dok multimetar pokazuje Uef. Kad uspoređuješ mjerenja s dva instrumenta ili čitaš katalošku vrijednost probojnog napona, faktor 2,83 je razlika između ispravnog i pregorjelog sklopa.",
+  "formula": [
+   "Upp = 2 · Umax = 2 · Uef · √2 = 2,83 · Uef",
+   "",
+   "Uvrsti (uz √2 ≈ 1,41, kako računa i ključ):",
+   "   Umax = 220 V · 1,41 = 310,2 V",
+   "   Upp  = 2 · 310,2 = 620,4 V",
+   "",
+   "Točnije (√2 = 1,4142):",
+   "   Upp = 2 · 220 · 1,4142 = 622,25 V",
+   "",
+   "Provjera unatrag: 620,4 / 2,83 = 219,2 V ≈ 220 V ✓",
+   "",
+   "Tri vrijednosti iste sinusoide od 220 V:",
+   "   Uef = 220 V     Umax = 311 V     Upp = 622 V"
+  ],
+  "links": [
+   {
+    "label": "Izmjenična električna struja (hr.wikipedia)",
+    "url": "https://hr.wikipedia.org/wiki/Izmjeni%C4%8Dna_elektri%C4%8Dna_struja"
+   },
+   {
+    "label": "Root mean square (en.wikipedia)",
+    "url": "https://en.wikipedia.org/wiki/Root_mean_square"
+   }
+  ],
+  "cite": [
+   {
+    "src": "RK",
+    "loc": "1.6.1. Grafički prikaz — vrijednost od vrška do vrška Ipp = 2·Imax, tiskana str. 42–43"
+   }
+  ]
+ },
+ "teh-019": {
+  "note": "Vezu između napona, struje i otpora u strujnom krugu opisuje Ohmov zakon. Georg Ohm objavio ga je 1826.: struja u krugu izravno je razmjerna naponu izvora, a obratno razmjerna otporu kruga. Omjer napona i struje ostaje stalan i jednak je otporu — to je cijela poanta zakona.\n\nOstale ponude opisuju druge stvari, i vrijedi znati koje. Kirchhoffovi zakoni ne povezuju U, I i R nego opisuju raspodjelu struja u čvoru i napona u petlji složenog kruga s više grana (vidi teh-024). Jouleov zakon govori o toplini koju struja razvija u otporniku, W = I² · R · t. Pravilo desne ruke je mnemotehnika za smjer magnetskog polja oko vodiča, dakle iz posve druge teme (vidi teh-003).\n\nOhmov zakon ima jedno praktično ograničenje koje RK izričito spominje: protjecanjem struje trošilo se grije, a s temperaturom mu se mijenja otpor. Zato zakon vrijedi 'uz stalnu temperaturu'. Kod žarulje se to lijepo vidi — hladna nit ima višestruko manji otpor od užarene, pa u prvom trenutku uključenja poteče znatno jača struja.\n\nIme se u ispitnim materijalima piše i 'Omov' i 'Ohmov' (PZM koristi 'Omov zakon', RK 'Ohmov zakon'). To je isti čovjek i isti zakon; u ponuđenim odgovorima ovog pitanja stoji pravopisno neujednačena varijanta, ne daj se time zbuniti.",
+  "formula": [
+   "Ohmov zakon, tri ekvivalentna oblika:",
+   "   U = R · I          R = U / I          I = U / R",
+   "",
+   "Primjer: U = 24 V, I = 8 A → R = 24/8 = 3 Ω",
+   "",
+   "Što opisuju ostale ponude:",
+   "   Kirchhoff  → struje u čvoru, naponi u petlji",
+   "   Joule      → toplina u otporniku, W = I²·R·t",
+   "   desna ruka → smjer magnetskog polja oko vodiča",
+   "",
+   "Ograničenje: vrijedi uz stalnu temperaturu (R ovisi o T)"
+  ],
+  "links": [
+   {
+    "label": "Ohmov zakon (hr.wikipedia)",
+    "url": "https://hr.wikipedia.org/wiki/Ohmov_zakon"
+   },
+   {
+    "label": "Električni otpor (hr.wikipedia)",
+    "url": "https://hr.wikipedia.org/wiki/Elektri%C4%8Dni_otpor"
+   },
+   {
+    "label": "Kirchhoff's circuit laws (en.wikipedia)",
+    "url": "https://en.wikipedia.org/wiki/Kirchhoff%27s_circuit_laws"
+   }
+  ],
+  "cite": [
+   {
+    "src": "RK",
+    "loc": "1.1.1. Krug istosmjerne struje; napon, struja, otpor, Ohmov zakon, tiskana str. 18–19"
+   },
+   {
+    "src": "PZM",
+    "loc": "3.1.3. Snaga i energija (Tema 3), Omov zakon, tiskana str. 70–71"
+   }
+  ]
+ },
+ "teh-020": {
+  "note": "Ispravan je oblik U = R × I. Iz njega se preslagivanjem dobivaju druga dva: I = U / R i R = U / I. Sva tri su isti zakon, samo riješen po drugoj nepoznanici — nemoj ih učiti kao tri zasebne formule.\n\nNajbrža provjera na ispitu su JEDINICE, a ne pamćenje. Om je po definiciji volt po amperu (Ω = V/A). Uvrsti li se to u ponuđeni izraz, samo jedan daje smisao: R · I = (V/A) · A = V ✓. Ponuda a) R = U × I daje V·A, a to je vat, dakle snaga, a ne otpor. Ponuda b) I = R × U daje (V/A)·V, što nije amper. Ponuda d) U = R / I daje (V/A)/A = V/A², besmislica.\n\nZa pamćenje se u radioamaterskoj literaturi koristi mnemotehnički trokut: gore U, dolje I i R jedno pored drugoga. Pokriješ prstom ono što tražiš, a raspored preostalih dvaju ti kaže računaš li umnožak (kad su jedan pored drugoga) ili količnik (kad je jedan iznad drugoga). PZM ga prikazuje i kaže da ta tri oblika moramo znati 'i ako nas probude u pola noći' — što je za ispit doslovno točno, jer se na njima temelje teh-021, teh-022 i teh-023.\n\nIsti trokut vrijedi i za snagu (P gore, U i I dolje) i za energiju (W gore, P i t dolje). Naučiš li shemu jednom, pokrivaš njome veliki dio računskih pitanja iz ovog poglavlja.",
+  "formula": [
+   "U = R · I        R = U / I        I = U / R",
+   "",
+   "Provjera jedinicama (Ω = V/A):",
+   "   U = R · I  → (V/A) · A = V ✓",
+   "   R = U · I  → V · A = W ✗  (to je snaga!)",
+   "   I = R · U  → (V/A) · V ✗",
+   "   U = R / I  → (V/A)/A = V/A² ✗",
+   "",
+   "Mnemotehnički trokut:",
+   "         U",
+   "       -----",
+   "       I  ×  R",
+   "   pokrij traženo — ostatak kaže kako računaš"
+  ],
+  "links": [
+   {
+    "label": "Ohmov zakon (hr.wikipedia)",
+    "url": "https://hr.wikipedia.org/wiki/Ohmov_zakon"
+   },
+   {
+    "label": "Om (hr.wikipedia)",
+    "url": "https://hr.wikipedia.org/wiki/Om"
+   }
+  ],
+  "cite": [
+   {
+    "src": "RK",
+    "loc": "1.1.1. Krug istosmjerne struje; napon, struja, otpor, Ohmov zakon, tiskana str. 18"
+   },
+   {
+    "src": "PZM",
+    "loc": "3.1.3. Snaga i energija (Tema 3), mnemotehnički trokut, tiskana str. 71"
+   },
+   {
+    "src": "OBVEZNI",
+    "loc": "II. Detaljni sadržaj, a) Tehnički sadržaj, t. 1.1. (Ohmov zakon U = I × R)"
+   }
+  ]
+ },
+ "teh-021": {
+  "note": "Traži se struja, pa uzmi oblik Ohmovog zakona riješen po I: I = U / R = 10 V / 100 Ω = 0,1 A. To je 100 mA.\n\nBaterija je ovdje idealizirana — pretpostavlja se da joj unutarnji otpor možeš zanemariti prema 100 Ω tereta. To je razumno: kod običnog članka Rᵢ je reda desetinke oma, pa je pogreška ispod jednog promila. Kad teret postane usporediv s unutarnjim otporom, priča se mijenja i završava u teh-011, gdje je vanjskog otpora praktički nestalo.\n\nProvjeri unatrag da izbjegneš zamku s decimalnom točkom: 0,1 A · 100 Ω = 10 V ✓. Ponuda a) 0,01 A dala bi 1 V, ponuda c) 1 A dala bi 100 V, a d) 10 A čak 1000 V. Kad god dijeliš napon s otporom, pogledaj koliko je puta otpor veći od napona — ovdje 10 puta, pa struja mora biti 10 puta manja od jedinice.\n\nUsput izračunaj i snagu, jer takva se dopuna često traži u sljedećem pitanju: P = U · I = 10 · 0,1 = 1 W. Otpornik od 100 Ω u tom krugu mora biti barem 1 W, a razumno je uzeti 2 W da se ne kuha.",
+  "formula": [
+   "I = U / R",
+   "",
+   "Uvrsti:",
+   "   I = 10 V / 100 Ω = 0,1 A = 100 mA",
+   "",
+   "Provjera: 0,1 A · 100 Ω = 10 V ✓",
+   "",
+   "Snaga koja se pri tome troši:",
+   "   P = U · I = 10 V · 0,1 A = 1 W",
+   "   (otpornik uzmi barem 2 W)"
+  ],
+  "links": [
+   {
+    "label": "Ohmov zakon (hr.wikipedia)",
+    "url": "https://hr.wikipedia.org/wiki/Ohmov_zakon"
+   }
+  ],
+  "cite": [
+   {
+    "src": "RK",
+    "loc": "1.1.1. Krug istosmjerne struje; napon, struja, otpor, Ohmov zakon, tiskana str. 18"
+   },
+   {
+    "src": "PZM",
+    "loc": "3.1.3. Snaga i energija (Tema 3), primjeri uz Omov zakon, tiskana str. 71"
+   }
+  ]
+ },
+ "teh-022": {
+  "note": "Traži se napon, pa koristi U = R · I. Prava zamka nije u formuli nego u jedinicama: struja je zadana u miliamperima, a otpor u omima, pa struju prvo pretvori u ampere. 100 mA = 0,1 A.\n\nUvrsti: U = 50 Ω · 0,1 A = 5 V. Ako propustiš pretvorbu i uvrstiš '100', dobiješ 5000 — pa onda odabereš 50 V ili 20 V jer 'nekako liči'. RK i PZM oboje savjetuju isto pravilo: prije računanja sve pretvori u OSNOVNE jedinice (V, A, Ω, W), a prefikse vrati tek na kraju.\n\nProvjera unatrag: 5 V / 50 Ω = 0,1 A = 100 mA ✓. Ponuda a) 50 V odgovarala bi struji od 1 A, c) 2 V struji od 40 mA, a d) 20 V struji od 400 mA.\n\nOvaj tip računa radiš stalno kad projektiraš predotpornik. Primjer koji ćeš stvarno koristiti: LED-ica traži 20 mA uz pad napona 2 V, a napajanje je 12 V. Na otporniku mora ostati 12 − 2 = 10 V, pa je R = 10 V / 0,02 A = 500 Ω, uzmeš najbližu vrijednost 470 Ω.",
+  "formula": [
+   "U = R · I",
+   "",
+   "Prvo pretvori u osnovne jedinice:",
+   "   100 mA = 0,1 A",
+   "",
+   "Uvrsti:",
+   "   U = 50 Ω · 0,1 A = 5 V",
+   "",
+   "Provjera: 5 V / 50 Ω = 0,1 A = 100 mA ✓",
+   "",
+   "Najčešće pretvorbe:",
+   "   1 mA = 0,001 A       1 kΩ = 1000 Ω",
+   "   1 μA = 0,000001 A    1 MΩ = 1 000 000 Ω"
+  ],
+  "links": [
+   {
+    "label": "Ohmov zakon (hr.wikipedia)",
+    "url": "https://hr.wikipedia.org/wiki/Ohmov_zakon"
+   },
+   {
+    "label": "Amper (hr.wikipedia)",
+    "url": "https://hr.wikipedia.org/wiki/Amper"
+   }
+  ],
+  "cite": [
+   {
+    "src": "RK",
+    "loc": "1.1.2. Mjerne jedinice (decimalne jedinice ampera i oma), tiskana str. 19–20"
+   },
+   {
+    "src": "PZM",
+    "loc": "3.1.3. Snaga i energija (Tema 3), tablica decimalnih jedinica, tiskana str. 71"
+   }
+  ]
+ },
+ "teh-023": {
+  "note": "Traži se otpor, pa koristi treći oblik: R = U / I = 10 V / 2 A = 5 Ω. Ovdje nema pretvorbe jedinica, sve je već u osnovnim jedinicama.\n\nProvjera unatrag: 5 Ω · 2 A = 10 V ✓. Ponuda a) 10 Ω odgovarala bi struji od 1 A, c) 20 Ω struji od 0,5 A, a d) 0,5 Ω struji od 20 A. Uoči obrazac koji se ponavlja u cijeloj ovoj skupini: krivi odgovori nisu nasumični, nego su rezultati istog računa s pomaknutom decimalnom točkom ili s obrnutim dijeljenjem.\n\nUsporedi teh-021, teh-022 i teh-023 — to su tri ista zadatka s tri različite nepoznanice. Ako naučiš prepoznati koja veličina nedostaje i automatski posegneš za odgovarajućim oblikom, ne moraš ništa izvoditi.\n\nBroj 5 Ω je zgodan podsjetnik na jednu drugu temu: 'otpor tereta' u radiotehnici je najčešće 50 Ω, jer je to standardna impedancija koaksijalnog kabela, izlaza odašiljača i umjetne antene. Prilagodba (R_izvora = R_tereta) daje najveći prijenos snage — tome se vraćaš kod napojnih vodova i SWR-a.",
+  "formula": [
+   "R = U / I",
+   "",
+   "Uvrsti:",
+   "   R = 10 V / 2 A = 5 Ω",
+   "",
+   "Provjera: 5 Ω · 2 A = 10 V ✓",
+   "",
+   "Snaga na teretu:",
+   "   P = U · I = 10 · 2 = 20 W",
+   "",
+   "Ista trojka zadataka:",
+   "   teh-021: I = U/R        teh-022: U = R·I        teh-023: R = U/I"
+  ],
+  "links": [
+   {
+    "label": "Ohmov zakon (hr.wikipedia)",
+    "url": "https://hr.wikipedia.org/wiki/Ohmov_zakon"
+   },
+   {
+    "label": "Električni otpor (hr.wikipedia)",
+    "url": "https://hr.wikipedia.org/wiki/Elektri%C4%8Dni_otpor"
+   }
+  ],
+  "cite": [
+   {
+    "src": "RK",
+    "loc": "1.1.1. Krug istosmjerne struje; napon, struja, otpor, Ohmov zakon, tiskana str. 18"
+   },
+   {
+    "src": "PZM",
+    "loc": "3.1.3. Snaga i energija (Tema 3), primjeri uz Omov zakon, tiskana str. 71"
+   }
+  ]
+ },
+ "teh-024": {
+  "note": "Na slici uz pitanje sastaju se u jednom čvoru četiri grane. Odozgo u čvor ULAZI I4 = 5 A (strelica pokazuje prema čvoru). Iz čvora IZLAZE I1 = 3 A udesno i I2 = 2 A ulijevo, a prema dolje izlazi tražena I3.\n\nVrijedi prvi Kirchhoffov zakon, zakon čvora: zbroj svih struja koje ulaze u čvor jednak je zbroju svih struja koje iz njega izlaze. Fizikalno to znači da se naboj u čvoru ne gomila niti nestaje — koliko ga u jedinici vremena dođe, toliko mora i otići. Uvrsti brojeve sa slike: 5 A = 3 A + 2 A + I3, pa je I3 = 5 − 5 = 0 A. Odgovor je (c).\n\nPraktičniji zapis za računanje je algebarski: ulazne struje uzmi s predznakom plus, izlazne s minus, i izjednači zbroj s nulom: +5 − 3 − 2 − I3 = 0 → I3 = 0 A. Rezultat 0 A znači da su I1 i I2 zajedno već odnijele svu struju koju je I4 donio, pa za četvrtu granu ne preostaje ništa; kroz nju ne teče struja iako je na shemi nacrtana.\n\nPonuđeni krivi odgovori nisu nasumični, svaki je jedna tipična pogreška. Ponuda a) 5 A je vrijednost same I4, dakle rezultat zaboravljene jedne izlazne grane. Ponuda d) 1 A je razlika I1 − I2, rezultat zaboravljene ulazne struje I4. Ponuda b) −5 A je klasična zamka s predznacima — dobiješ je ako i I4 uzmeš kao izlaznu struju.\n\nPostupak koji uvijek radi: unaprijed izaberi i nacrtaj smjerove svih struja, ulazne piši s +, izlazne s −, izjednači zbroj s nulom i riješi po traženoj. Ako ti izađe negativan broj, to nije greška — znači samo da struja teče suprotno od smjera koji si pretpostavio. Drugi Kirchhoffov zakon (zakon petlje) radi analogno s naponima: zbroj napona svih izvora i svih padova napona u zatvorenoj petlji jednak je nuli.",
+  "formula": [
+   "1. Kirchhoffov zakon (zakon čvora):",
+   "   Σ I_ulazne = Σ I_izlazne",
+   "   ili, s predznacima:  Σ I = 0",
+   "",
+   "Sa slike:  I4 = 5 A ulazi",
+   "           I1 = 3 A, I2 = 2 A i I3 izlaze",
+   "",
+   "   I4 = I1 + I2 + I3",
+   "   5 A = 3 A + 2 A + I3",
+   "   I3 = 5 − 5 = 0 A            ← odgovor (c)",
+   "",
+   "Algebarski, isto:",
+   "   +5 − 3 − 2 − I3 = 0   →   I3 = 0 A",
+   "",
+   "Odakle su krive ponude:",
+   "    5 A  = samo I4      (zaboravljena izlazna grana)",
+   "    1 A  = I1 − I2      (zaboravljena ulazna I4)",
+   "   −5 A  = i I4 uzet kao izlazna  (krivi predznak)",
+   "",
+   "2. Kirchhoffov zakon (zakon petlje):",
+   "   Σ U_izvora = Σ U_padova     ili   Σ U = 0"
+  ],
+  "links": [
+   {
+    "label": "Kirchhoff's circuit laws (en.wikipedia)",
+    "url": "https://en.wikipedia.org/wiki/Kirchhoff%27s_circuit_laws"
+   },
+   {
+    "label": "Ohmov zakon (hr.wikipedia)",
+    "url": "https://hr.wikipedia.org/wiki/Ohmov_zakon"
+   }
+  ],
+  "cite": [
+   {
+    "src": "RK",
+    "loc": "1.1.3.1. Prvi Kirchhoffov zakon — zakon čvora, tiskana str. 21–22"
+   },
+   {
+    "src": "OBVEZNI",
+    "loc": "II. Detaljni sadržaj, a) Tehnički sadržaj, t. 1.1. Vodljivost (Kirchoffovi zakoni)"
+   }
+  ]
+ },
+ "teh-025": {
+  "note": "Kad znaš napon i otpor, snagu dobiješ izravno iz P = U² / R, bez zaobilaženja preko struje. Uvrsti: P = (10 V)² / 1 Ω = 100 / 1 = 100 W.\n\nOdakle taj oblik: polazi se od P = U · I i u njega se uvrsti Ohmov zakon. Ako umjesto I napišeš U/R, dobiješ P = U²/R; ako umjesto U napišeš I·R, dobiješ P = I²·R. RK sva tri oblika izvodi jednim potezom i to je jedna od najkorisnijih formula u cijelom poglavlju.\n\nProvjeri i dužim putem, da se uvjeriš: I = U/R = 10/1 = 10 A, pa P = U · I = 10 · 10 = 100 W ✓. Isti rezultat, samo dva koraka umjesto jednog.\n\nObrati pažnju na KVADRAT — on je razlog zašto su ostale ponude tako raspoređene. Ponuda b) 10 W dobila bi se da si zaboravio kvadrirati (10/1), a c) 1 W da si dijelio krivo. Kvadratna ovisnost ima i praktičnu posljedicu: udvostručiš li napon na istom otporu, snaga naraste ČETIRI puta. Zbog istog kvadrata se u decibelima za napone koristi faktor 20, a ne 10 (vidi teh-030 i teh-032 u skupini o decibelima).",
+  "formula": [
+   "Tri ekvivalentna oblika:",
+   "   P = U · I        P = U² / R        P = I² · R",
+   "",
+   "Uvrsti:",
+   "   P = (10 V)² / 1 Ω = 100 / 1 = 100 W",
+   "",
+   "Provjera dužim putem:",
+   "   I = U/R = 10/1 = 10 A",
+   "   P = U · I = 10 · 10 = 100 W ✓",
+   "",
+   "Kvadratna ovisnost:",
+   "   dvostruki napon na istom R → ČETVEROSTRUKA snaga",
+   "   polovica napona           → četvrtina snage"
+  ],
+  "links": [
+   {
+    "label": "Električna snaga (hr.wikipedia)",
+    "url": "https://hr.wikipedia.org/wiki/Elektri%C4%8Dna_snaga"
+   },
+   {
+    "label": "Ohmov zakon (hr.wikipedia)",
+    "url": "https://hr.wikipedia.org/wiki/Ohmov_zakon"
+   }
+  ],
+  "cite": [
+   {
+    "src": "RK",
+    "loc": "1.1.4. Snaga električne struje (P = U·I = I²R = U²/R), tiskana str. 23–24"
+   },
+   {
+    "src": "OBVEZNI",
+    "loc": "II. Detaljni sadržaj, a) Tehnički sadržaj, t. 1.9. (P = i²×R, P = u²/R)"
+   }
+  ]
+ },
+ "teh-026": {
+  "note": "Iz P = U · I slijedi U = P / I = 100 W / 1 A = 100 V. Jedan potez, bez pretvorbi.\n\nZa snagu vrijedi isti mnemotehnički trokut kao za Ohmov zakon: gore P, dolje U i I. Pokriješ ono što tražiš i pročitaš račun — pokriješ P i vidiš U × I, pokriješ U i vidiš P/I. PZM taj trokut prikazuje uz P = U × I i uz drugi, istovjetan, za energiju (W gore, P i t dolje) — vidi teh-029.\n\nProvjera unatrag: 100 V · 1 A = 100 W ✓. Ostale ponude su tipičan raspored po redovima veličine: 1 V dalo bi 1 W, 10 V dalo bi 10 W, 1000 V dalo bi 1000 W.\n\nPZM ima lijep primjer koji pokazuje da ista snaga može doći u vrlo različitim kombinacijama: žarulja za 125 V i 0,8 A te žarulja za 12,5 V i 8 A obje troše 100 W, jer je 125 · 0,8 = 12,5 · 8 = 100. To je razlog zašto se energija na daljinu prenosi visokim naponom — za istu snagu treba manja struja, a gubici u vodovima idu s I² (vidi teh-025).",
+  "formula": [
+   "P = U · I        →        U = P / I        I = P / U",
+   "",
+   "Uvrsti:",
+   "   U = 100 W / 1 A = 100 V",
+   "",
+   "Provjera: 100 V · 1 A = 100 W ✓",
+   "",
+   "Trokut za snagu:",
+   "         P",
+   "       -----",
+   "       U  ×  I",
+   "",
+   "Primjer iz PZM (tiskana str. 72) — ista snaga, dvije žarulje:",
+   "   125 V · 0,8 A = 100 W",
+   "   12,5 V · 8 A  = 100 W"
+  ],
+  "links": [
+   {
+    "label": "Električna snaga (hr.wikipedia)",
+    "url": "https://hr.wikipedia.org/wiki/Elektri%C4%8Dna_snaga"
+   },
+   {
+    "label": "Vat (hr.wikipedia)",
+    "url": "https://hr.wikipedia.org/wiki/Vat"
+   }
+  ],
+  "cite": [
+   {
+    "src": "RK",
+    "loc": "1.1.4. Snaga električne struje, tiskana str. 23–24"
+   },
+   {
+    "src": "PZM",
+    "loc": "3.1.3. Snaga i energija (Tema 3), P = U × I i primjer s dvije žarulje, tiskana str. 72"
+   }
+  ]
+ },
+ "teh-027": {
+  "note": "Koeficijent korisnosti (stupanj djelovanja, η) je omjer korisne izlazne snage i ukupne snage uzete iz izvora. Zato zadatak ima dva koraka: prvo izračunaj ulaznu snagu iz napajanja, pa je tek onda usporedi s izlaznom.\n\nUlazna snaga: P_ul = U · I = 12 V · 18 A = 216 W. Izlazna je zadana, 100 W r.f. Dakle η = 100 / 216 = 0,463, odnosno 46 %. Odgovor c).\n\nRazlika, 216 − 100 = 116 W, ne nestaje — pretvara se u toplinu na krajnjem stupnju i mora se odvesti hladnjakom ili ventilatorom. To je više od same korisne snage, i točno je razlog zašto linearno pojačalo ima veliko hladilo. RK to formulira kao P_ul = P_iz + P_gubitaka i naglašava da je η uvijek manji od 1, jer uređaj bez gubitaka ne postoji.\n\nBrojevi od 40 do 60 % tipični su za linearna pojačala u razredu AB, koja moraju biti linearna zbog SSB-a. Pojačala u razredu C, koja se koriste za CW i FM, dosežu 70–80 %, ali izobličuju ovojnicu pa za SSB ne dolaze u obzir. Ako te na ispitu izračun izađe iznad 100 %, negdje si zamijenio ulaz i izlaz — to je fizikalno nemoguće.",
+  "formula": [
+   "η = P_iz / P_ul        ili u postocima:  η = P_iz / P_ul · 100 %",
+   "",
+   "Korak 1 — ulazna snaga iz napajanja:",
+   "   P_ul = U · I = 12 V · 18 A = 216 W",
+   "",
+   "Korak 2 — korisnost:",
+   "   η = 100 W / 216 W = 0,463 → 46 %",
+   "",
+   "Gubitak (pretvara se u toplinu):",
+   "   P_g = 216 − 100 = 116 W",
+   "",
+   "Tipične vrijednosti:",
+   "   razred A    ≈ 25–30 %",
+   "   razred AB   ≈ 40–60 %   (linearno, za SSB)",
+   "   razred C    ≈ 70–80 %   (samo za CW/FM)"
+  ],
+  "links": [
+   {
+    "label": "Stupanj iskorištenja (hr.wikipedia)",
+    "url": "https://hr.wikipedia.org/wiki/Stupanj_iskori%C5%A1tenja"
+   },
+   {
+    "label": "Električna snaga (hr.wikipedia)",
+    "url": "https://hr.wikipedia.org/wiki/Elektri%C4%8Dna_snaga"
+   }
+  ],
+  "cite": [
+   {
+    "src": "RK",
+    "loc": "1.9.7. Korisnost, koeficijent korisnosti, tiskana str. 57"
+   },
+   {
+    "src": "OBVEZNI",
+    "loc": "II. Detaljni sadržaj, a) Tehnički sadržaj, t. 1.9. (η = P_iz/P_ul × 100 %)"
+   }
+  ]
+ },
+ "teh-028": {
+  "note": "Isti odnos kao u teh-027, samo je nepoznanica izlazna snaga: iz η = P_iz / P_ul slijedi P_iz = η · P_ul = 0,5 · 200 W = 100 W.\n\nJedina zamka je postotak. Iskorištenje od 50 % moraš uvrstiti kao 0,5, a ne kao 50 — inače dobiješ 10 000 W. I zapamti smjer: izlaz je uvijek MANJI od ulaza, pa ponuda a) 400 W otpada bez računanja, jer bi značila korisnost od 200 %. Kod ovakvih zadataka prvo pogledaj koje su ponude uopće fizikalno moguće; time obično prepoloviš izbor.\n\nGubitak je 200 − 100 = 100 W, isto toliko koliko i korisna snaga. Kod korisnosti od 50 % uvijek je tako: pola u antenu, pola u hladilo.\n\nUsput povuci vezu s decibelima: pad sa 200 W na 100 W je prepolovljenje, dakle −3 dB (vidi teh-198 u skupini o decibelima). Korisnost od 50 % i gubitak od 3 dB su ista stvar izražena na dva načina — jednom kao postotak, jednom kao razina.",
+  "formula": [
+   "η = P_iz / P_ul        →        P_iz = η · P_ul",
+   "",
+   "Uvrsti (50 % = 0,5):",
+   "   P_iz = 0,5 · 200 W = 100 W",
+   "",
+   "Provjera: 100 / 200 = 0,5 = 50 % ✓",
+   "",
+   "Gubitak: P_g = 200 − 100 = 100 W (u toplinu)",
+   "",
+   "Isto izraženo u decibelima:",
+   "   200 W → 100 W = 10·log₁₀(0,5) = −3 dB",
+   "   → korisnost 50 % ≡ gubitak 3 dB",
+   "",
+   "Izlaz NIKAD nije veći od ulaza: η < 1 uvijek."
+  ],
+  "links": [
+   {
+    "label": "Stupanj iskorištenja (hr.wikipedia)",
+    "url": "https://hr.wikipedia.org/wiki/Stupanj_iskori%C5%A1tenja"
+   },
+   {
+    "label": "Decibel (hr.wikipedia)",
+    "url": "https://hr.wikipedia.org/wiki/Decibel"
+   }
+  ],
+  "cite": [
+   {
+    "src": "RK",
+    "loc": "1.9.7. Korisnost, koeficijent korisnosti, tiskana str. 57"
+   }
+  ]
+ },
+ "teh-029": {
+  "note": "Energija je snaga puta vrijeme: W = P · t = 100 W · 10 h = 1000 Wh = 1 kWh. Jedinice u zadatku već su usklađene (vati i sati), pa se samo množi.\n\nPazi na kilo na kraju: 1000 Wh JEST 1 kWh, pa su ponude a) 0,1 kWh i d) 100 Wh krive za faktor 10, odnosno 10. Ponuda c) 10 Wh je 100 puta premala. Provjera unatrag: 1 kWh / 10 h = 0,1 kW = 100 W ✓.\n\nRazlikuj snagu od energije, jer je to najčešća pojmovna zamka u ovoj temi. Snaga (P, u vatima) kaže koliko brzo trošiš; energija (W, u vatsatima ili džulima) kaže koliko si ukupno potrošio. Osnovna SI jedinica energije je džul, a 1 J = 1 Ws, pa je 1 kWh = 1000 · 3600 Ws = 3 600 000 J = 3,6 MJ. To je i jedinica po kojoj ti stiže račun za struju.\n\nZa snagu i energiju vrijedi isti mnemotehnički trokut kao za sve prije: W gore, P i t dolje. Iz njega odmah čitaš i preostala dva oblika, P = W/t i t = W/P. PZM upozorava na jednu grafičku sitnicu koja zbunjuje: znak veličine rad piše se kurzivom (W), a znak jedinice vat uspravno (W) — isto slovo, dvije različite stvari.",
+  "formula": [
+   "W = P · t        →        P = W / t        t = W / P",
+   "",
+   "Uvrsti:",
+   "   W = 100 W · 10 h = 1000 Wh = 1 kWh",
+   "",
+   "Provjera: 1 kWh / 10 h = 0,1 kW = 100 W ✓",
+   "",
+   "Pretvorbe:",
+   "   1 Wh  = 3600 Ws = 3600 J",
+   "   1 kWh = 3 600 000 J = 3,6 MJ",
+   "   1 J   = 1 Ws",
+   "",
+   "Trokut za energiju:",
+   "         W",
+   "       -----",
+   "       P  ×  t"
+  ],
+  "links": [
+   {
+    "label": "Vatsat (hr.wikipedia)",
+    "url": "https://hr.wikipedia.org/wiki/Vatsat"
+   },
+   {
+    "label": "Snaga (hr.wikipedia)",
+    "url": "https://hr.wikipedia.org/wiki/Snaga"
+   },
+   {
+    "label": "Energija (hr.wikipedia)",
+    "url": "https://hr.wikipedia.org/wiki/Energija"
+   }
+  ],
+  "cite": [
+   {
+    "src": "RK",
+    "loc": "1.1.4.1. Mjerna jedinica energije i snage električne struje (vatsat, kilovatsat), tiskana str. 24–25"
+   },
+   {
+    "src": "PZM",
+    "loc": "3.1.3. Snaga i energija (Tema 3), W = P × t, tiskana str. 72"
+   },
+   {
+    "src": "OBVEZNI",
+    "loc": "II. Detaljni sadržaj, a) Tehnički sadržaj, t. 1.1. (električna energija W = P × t)"
+   }
+  ]
+ },
+ "teh-035": {
+  "note": "dBW je APSOLUTNA razina snage, izražena u odnosu na referentnu snagu od 1 W. Zato uvrštavanje ide u definiciju razine: L = 10 · log₁₀(P / 1 W) = 10 · log₁₀(100) = 10 · 2 = 20 dBW.\n\nCijeli je račun zapravo pitanje 'koliko je 100 puta u decibelima', a to znaš iz osnovne tablice: ×10 je 10 dB, pa je ×100 dvaput to, dakle 20 dB (vidi teh-032). Decibel sam po sebi ne govori ništa o apsolutnoj snazi — tek slovo iza njega kaže prema čemu se mjeri. dBW znači 'prema 1 W', dBm znači 'prema 1 mW'.\n\nIsta snaga u dBm daje drugi broj: 100 W = 100 000 mW, pa je L = 10 · log₁₀(100 000) = 10 · 5 = 50 dBm. Odatle i pravilo koje vrijedi uvijek: dBm = dBW + 30, jer je 1 W tisuću puta veći od 1 mW, a tisuću je 30 dB. Ako ti se ikad broj čini čudan, provjeri jesi li slučajno miješao dvije reference.\n\nRK ovaj zadatak ima doslovno kao Primjer 1. u odjeljku o decibelu, s istim brojevima i istim rezultatom. Napomena iz istog odjeljka koju vrijedi znati: norme zapravo ne preporučuju pisanje 'dBW' i 'dBm' kao da su mjerne jedinice, nego navođenje reference uz razinu, L(1 W). U praksi se ipak posvuda piše dBW i dBm, pa tako i na ispitu.\n\nCW nema veze s računom — to je samo kontekst zadatka. Vrsta emisije ne mijenja pretvorbu vata u decibele.",
+  "formula": [
+   "Apsolutna razina prema 1 W:",
+   "   L = 10 · log₁₀(P / 1 W)   [dBW]",
+   "",
+   "Uvrsti:",
+   "   L = 10 · log₁₀(100 W / 1 W)",
+   "     = 10 · log₁₀(100)",
+   "     = 10 · 2 = 20 dBW",
+   "",
+   "Ista snaga prema 1 mW:",
+   "   L = 10 · log₁₀(100 000) = 10 · 5 = 50 dBm",
+   "",
+   "Pravilo:  dBm = dBW + 30",
+   "",
+   "Ljestvica za brzo računanje:",
+   "     1 W =  0 dBW = 30 dBm",
+   "    10 W = 10 dBW = 40 dBm",
+   "   100 W = 20 dBW = 50 dBm",
+   "  1000 W = 30 dBW = 60 dBm"
+  ],
+  "links": [
+   {
+    "label": "Decibel (hr.wikipedia)",
+    "url": "https://hr.wikipedia.org/wiki/Decibel"
+   },
+   {
+    "label": "Decibel watt (en.wikipedia)",
+    "url": "https://en.wikipedia.org/wiki/Decibel_watt"
+   }
+  ],
+  "cite": [
+   {
+    "src": "RK",
+    "loc": "1.9.4. O decibelu (dB), apsolutna razina i Primjer 1., tiskana str. 53–54"
+   }
+  ]
+ }
+}
