@@ -2,19 +2,36 @@
 
 A question counts as DONE when it carries `links` — that is the marker of the expanded
 style, since every question already had a terse explanation before this pass began.
+
+    python make_packets.py            the 456 HRS questions, as before
+    python make_packets.py --book     the 720 priručnik questions, same topic cut
+    python make_packets.py --book DIR write the book packets somewhere other than work/
+
+The book cut exists because a skupina is a whole mock exam: its 60 technical questions span
+theory, components, circuits and antennas at once, so grouping by skupina makes every notes
+item load reference material for all ten topics. Book questions get their topic from
+book_subsections.json (see rebuild.py); the propisi and pravila ones have none, because the
+HRS banks for those sections carry no chapter headings either, and they fall out by section.
 """
-import json
+import json, sys
 from collections import OrderedDict
 from pathlib import Path
 
 HERE = Path(__file__).parent
-OUT = HERE / "work"
+BOOK = "--book" in sys.argv
+rest = [a for a in sys.argv[1:] if not a.startswith("-")]
+OUT = Path(rest[0]) if BOOK and rest else HERE / "work"
 Q = json.load(open(HERE.parent / "questions.json", encoding="utf-8"))
 flagged = dict(Q["_meta"]["flagged"])
+POOL = Q["questions_extra"] if BOOK else Q["questions"]
+PREFIX = "book_" if BOOK else ""
 
 # (packet name, predicate) — 3. Krugovi, propisi and pravila are split, they are too big for one.
+# The subsection test is None-safe: propisi and pravila carry no subsection at all, and one
+# book question is deliberately left unclassified rather than guessed.
 def teh(n):
-    return lambda q: q["section"] == "tehnicki" and q["subsection"].startswith(f"{n}.")
+    return lambda q: (q["section"] == "tehnicki" and q["subsection"] is not None
+                      and q["subsection"].startswith(f"{n}."))
 
 
 def half(pred, which):
@@ -42,9 +59,9 @@ PACKETS = [
 ]
 SPLIT = {"teh3_krugovi": 2, "propisi": 2, "pravila": 2}
 
-OUT.mkdir(exist_ok=True)
-todo = [q for q in Q["questions"] if not q.get("links")]
-print(f"{len(todo)} of {len(Q['questions'])} still to expand")
+OUT.mkdir(parents=True, exist_ok=True)
+todo = [q for q in POOL if not q.get("links")]
+print(f"{len(todo)} of {len(POOL)} still to expand")
 
 assigned = set()
 index = []
@@ -75,7 +92,7 @@ for name, pred in PACKETS:
             "flag": flagged.get(q["id"]),
             "hrs_source": q["cite_self"]["loc"],
         }
-    p = OUT / f"packet_{name}.json"
+    p = OUT / f"packet_{PREFIX}{name}.json"
     p.write_text(json.dumps({"_packet": name, "_count": len(body), "questions": body},
                             ensure_ascii=False, indent=1), encoding="utf-8")
     index.append((name, len(body), sum(1 for q in pool if flagged.get(q["id"]))))

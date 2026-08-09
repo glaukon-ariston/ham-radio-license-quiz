@@ -63,6 +63,16 @@ book = json.load(open(HERE / "book_parsed2.json", encoding="utf-8"))
 figs = json.load(open(HERE / "figs_index.json", encoding="utf-8"))
 bfigs = json.load(open(HERE / "figs_book_index.json", encoding="utf-8"))
 
+# Topic for the book questions. A skupina is a whole mock exam spanning every topic at once,
+# so without this the only grouping is "one of six papers" and any per-topic cut of the book
+# is impossible. The vocabulary is the HRS technical bank's own chapter headings and nothing
+# else — a subsection string that matches no HRS question would be a second, invisible
+# vocabulary. Only the technical questions carry one: the HRS propisi and pravila banks have
+# no chapter headings, so their questions are subsection None too and there is nothing to
+# draw from. Values are checked against that vocabulary below rather than trusted.
+bsub = {k: v for k, v in json.load(open(HERE / "book_subsections.json", encoding="utf-8")).items()
+        if not k.startswith("_")}
+
 for q in hrs:
     q["src"] = "hrs"
     q["status"] = "live"
@@ -77,7 +87,7 @@ for q in hrs:
     q.pop("red_marks", None)
 
 extra = [{
-    "id": b["id"], "section": b["section"], "subsection": None, "number": b["num"],
+    "id": b["id"], "section": b["section"], "subsection": bsub.get(b["id"]), "number": b["num"],
     "question": b["question"], "options": b["options"], "answer": b["answer"],
     "answer_source": "book-key-table", "src": "book", "status": "live-extra",
     "skupina": b["skupina"], "num_source": b["num_source"],
@@ -129,6 +139,13 @@ problems += [f"{q['id']}: {len(q['options'])} options" for q in hrs + extra
 problems += [f"{q['id']}: empty stem" for q in hrs + extra if not q["question"].strip()]
 seen = Counter(q["id"] for q in hrs + extra)
 problems += [f"{qid}: duplicated {n}x" for qid, n in seen.items() if n > 1]
+# A book subsection that matches no HRS heading is a topic nobody can cut on: it would look
+# classified, sort into no packet, and be found again only by someone counting.
+vocab = {q["subsection"] for q in hrs if q["subsection"]}
+problems += [f"{q['id']}: subsection {q['subsection']!r} is not an HRS subsection"
+             for q in extra if q["subsection"] and q["subsection"] not in vocab]
+problems += [f"{qid}: subsection for a question that does not exist"
+             for qid in bsub if qid not in {q["id"] for q in extra}]
 if problems:
     sys.exit("BUILD ABORTED — unanswerable questions:\n  " + "\n  ".join(problems[:20]))
 print(f"--- integrity ok: {len(hrs) + len(extra)} questions, all answerable")
@@ -150,6 +167,9 @@ DST.mkdir(exist_ok=True)
 (DST / "questions.json").write_text(json.dumps(doc, ensure_ascii=False, indent=1), encoding="utf-8")
 print(f"--- questions.json  hrs={len(hrs)} extra={len(extra)} "
       f"explained={doc['_meta']['explained']} figures={len(figs)}")
+btech = [q for q in extra if q["section"] == "tehnicki"]
+print(f"--- book subsections: {sum(1 for q in btech if q['subsection'])}/{len(btech)} technical "
+      f"(propisi and pravila have no HRS subsection vocabulary)")
 run("build_quiz.py")
 print("\ncoverage:", doc["_meta"]["explained_by_section"])
 print("flagged :", doc["_meta"]["flagged"])
