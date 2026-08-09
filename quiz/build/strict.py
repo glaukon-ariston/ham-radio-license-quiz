@@ -34,6 +34,27 @@ def digits(s):
     return re.findall(r"\d+", s)
 
 
+# Emission/mode abbreviations that change a question's MEANING, not its spelling. Deliberately
+# a short curated list rather than "any ALL-CAPS token": a blanket abbreviation-set comparison
+# also flags 'IARU' against the book OCR's 'LARU' (an I/L glyph misread, same question,
+# bk-pra-2-18 vs prv-004 — one of the documented OCR error classes in REVIEW.md) as a
+# mismatch, which would silently drop a correct agreement. Restricting to modes avoids that:
+# an OCR misread never happens to land on a *different* real mode abbreviation.
+MODES = {"USB", "LSB", "SSB", "CW", "AM", "FM", "FSK", "RTTY", "PSK", "PSK31", "AFSK",
+         "SSTV", "FAX", "DSB", "A1A", "A3E", "F1B", "F3E", "J3E"}
+
+
+def modes(s):
+    """Mode/emission tokens actually present in a RAW (un-normalised) stem. A templated stem
+    that differs only in its mode word is a DIFFERENT question, not a matching one —
+    'Na kojim KV frekvencijskim podrucjima se koristi LSB modulacija?' and the same sentence
+    with USB score 0.9+ on plain similarity (one three-letter run out of ~60 chars) and offer
+    the identical four band options, so the old matcher paired them as the same question and
+    reported a fake key disagreement (prv-009 vs bk-pra-5-05). Both keys are correct for their
+    own, different, question."""
+    return set(re.findall(r"[A-Z][A-Z0-9]{1,5}", s)) & MODES
+
+
 def same(a, b):
     """Two option texts are the same option. Short numeric answers need care: '10 W' and
     '100 W' score 0.857 on plain similarity, which silently paired a 2005 question with its
@@ -62,6 +83,8 @@ for b in book:
     bo = {k: norm(v) for k, v in b["options"].items()}
     for h in by_sec.get(b["section"], []):
         if sim(b["norm"], h["norm"]) < 0.90:
+            continue
+        if modes(b["question"]) != modes(h["question"]):
             continue
         m = setmatch(bo, h["onorm"])
         if not m:

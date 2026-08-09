@@ -949,6 +949,7 @@
   ]
  },
  "teh-201": {
+  "flag": "check",
   "note": "Omjer transformacije je omjer IMPEDANCIJA: 300 Ω / 75 Ω = 4, dakle 1:4. Odgovor je b) (u izvorniku pogrešno otisnuto kao '1 . 4').\n\nNajčešća pogreška ovdje je zamijeniti omjer impedancija s omjerom NAMOTAJA. Kod transformatora se napon prenosi u omjeru broja namotaja, a impedancija se mijenja s KVADRATOM tog omjera. Ako je omjer impedancija 1:4, omjer namotaja je 1:√4 = 1:2. Pitanje traži omjer transformacije impedancija, pa je odgovor 4, a ne 2 — ponuđeni d) 1:2 je upravo ta zamka.\n\nRK ima i elegantno praktično rješenje za točno ovaj slučaj: transformacija 4:1 s poluvalnom koaksijalnom U-petljom. Uzmeš 75-omski kabel, napraviš petlju električne duljine λ/2 i dobiješ 4 · 75 Ω = 300 Ω, bez ijedne zavojnice. Ne zaboravi da je i to električna duljina — fizički se petlja reže kraća za faktor brzine (vidi teh-194).\n\nAlternativa je balun namotan na feritnoj toroidnoj jezgri, kakav PZM opisuje kao VF transformator. Balun 4:1 ovdje radi dva posla odjednom: transformira 75 Ω u 300 Ω i pretvara nesimetričan spoj u simetričan, što je upravo ono što treba za savijeni dipol (teh-189) ili za folded-dipole radijator Yagija. Zato se u katalozima balun uvijek nudi u dvije vrste — 1:1 (samo simetriranje) i 1:4 (simetriranje plus transformacija).\n\nIsto pitanje, s istim brojkama i istim odgovorom, nalazi se i u zbirci pitanja u RK-u.",
   "formula": [
    "Omjer transformacije IMPEDANCIJA:",

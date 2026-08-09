@@ -127,20 +127,26 @@ a set. Two separate artefacts had to be removed before the number meant anything
    identical digits.
 
 All five surviving disagreements were checked by hand and **none is a numbering error**. Three
-had their printed number confirmed on the page image (12, 52, 11):
+had their printed number confirmed on the page image (12, 52, 11). **Resolved 9 Aug 2026
+(P2-0004), see §2 "The five strict.py disagreements — resolved" for the final disposition of
+each:**
 
 - **`bk-pro-4-06` vs `pro-047`** — the book marks *"samo A razreda"* for 135,7 kHz, which is what
   Dodatak 1 says. This **independently corroborates the `pro-047` conflict below**: the HRS red
-  key is the outlier, not the book.
+  key is the outlier, not the book. **Flag: already `conflict`, untouched.**
 - **`bk-pra-5-05`** asks about **USB** where HRS asks about **LSB** — different questions the
-  matcher paired on a one-letter stem difference. Both keys correct.
+  matcher paired on a one-letter stem difference. Both keys correct. **Mapping bug: fixed in
+  `strict.py` (`modes()` guard); no longer counted as comparable.**
 - **`bk-teh-3-12`** (number 12 confirmed on str. 306) — *omjer transformacije* for 75 Ω → 300 Ω:
   the book marks 1:2 (turns ratio), HRS marks 1:4 (impedance ratio). A terminology difference,
-  and both are defensible; z-ratio 4 ⇒ n-ratio 2.
+  and both are defensible; z-ratio 4 ⇒ n-ratio 2. **Flag: `check`, newly added to `teh-201`.**
 - **`bk-teh-4-52`** (number 52 confirmed) — suppressing *sub*harmonics **and** harmonics: the book
   marks band-pass, HRS marks low-pass. The book has the better physics here, since a low-pass
-  filter cannot suppress a subharmonic. Answer HRS in the exam.
+  filter cannot suppress a subharmonic. Answer HRS in the exam. **Flag: `check`, newly added to
+  `teh-273`.**
 - **`bk-pro-2-11`** (number 11 confirmed) — inspection powers; an edition difference in the law.
+  **Flag: already `check`, via the currency-audit cluster below (`pro-069`/`pro-087`–`092`) —
+  same root cause, no new action.**
 
 Two further edition differences surfaced once the missing questions were recovered, and are worth
 knowing because the 2005 book is simply out of date on both:
@@ -170,6 +176,63 @@ exactly two substantial halves, because option text legitimately contains parent
 
 
 ## 2. Still outstanding
+
+### The five strict.py disagreements — resolved 9 August 2026 (P2-0004)
+
+`teh-201`, `teh-273`, `pro-090`, `pro-047` and `prv-009` were the residue holding the strict
+cross-check at 95.4 % (102-103/107-108, depending on the exact wording pass). Each has now been
+classified as either a **flag** (a real disagreement, surfaced in the quiz UI) or a **mapping
+bug** (the two questions being compared were never the same question; fixed in `strict.py`
+instead of the data). The classification and reasoning for each also live in
+`build/overrides.json` under `strict_disagreements`.
+
+| id | book id | disposition | where |
+|---|---|---|---|
+| `teh-201` | `bk-teh-3-12` | flag `check` | `notes_zzz_expanded_teh6_antene.json` (newly added) |
+| `teh-273` | `bk-teh-4-52` | flag `check` | `notes_zzz_expanded_teh9_smetnje.json` (newly added) |
+| `pro-090` | `bk-pro-2-11` | flag `check` | `notes_zz_currency.json` (already there, currency audit) |
+| `pro-047` | `bk-pro-4-06` | flag `conflict` | `notes_propisi.json` (already there, untouched) |
+| `prv-009` | `bk-pra-5-05` | **mapping bug** | `strict.py`'s `modes()` guard |
+
+**`teh-201`** — 75 Ω → 300 Ω match transformer, *"omjer transformacije"*. The book/RK zbirka
+answer 1:2 is the **turns** ratio; HRS's 1:4 is the **impedance** ratio (n = √4 = 2, Z-ratio = 4).
+Both are numerically correct readings of an ambiguous phrase — not a numbering error, not a legal
+question — so neither key is wrong. Flagged `check` so a student who works the physics and lands
+on 1:2 is not left thinking they made an error.
+
+**`teh-273`** — filter to suppress subharmonics *and* harmonics after a VHF transmitter. HRS marks
+**(d) niskopropusni**; the book's own RK zbirka answer table marks **(b) pojasnopropusni**, and
+RK's running prose (str. 192–193) agrees with its own zbirka, not with HRS: a low-pass filter
+passes everything below the working frequency, so it cannot suppress a subharmonic by definition.
+Two independent RK sources against one HRS red mark. Flagged `check`; answer HRS in the exam,
+know the physics is band-pass.
+
+**`pro-090`** — inspection powers (trajna zabrana rada vs. a 3–12 month temporary ban). Same root
+cause as the currency-audit cluster below (`pro-069`, `pro-087`–`pro-092`): NN 150/22 does not
+regulate inspection powers at all — the string `zabran` never occurs in the Pravilnik — those
+powers live in ZEK NN 76/22, outside the audited source set. Already flagged `check` by the 9 Aug
+currency audit, before this item ran. No new action; recorded in `overrides.json` so the residue
+is accounted for rather than silently unexplained.
+
+**`pro-047`** — see the dedicated writeup below. Already flagged `conflict`; per this item's brief
+the existing flag and its warning prose are untouched. The book's agreement with the Pravilnik
+(`bk-pro-4-06` also marks *"samo A razreda"*) independently corroborates the conflict — the HRS
+key is the outlier, not the book.
+
+**`prv-009`** — **not a real disagreement.** HRS asks about **LSB**, the book question
+(`bk-pra-5-05`) asks about **USB** — two different questions (different KV segments use different
+sidebands by amateur convention) that happen to share a templated stem and the same four band
+options. The stems score ≥0.90 on plain text similarity (one three-letter run differs out of
+~60 characters), so `strict.py`'s old matcher paired them and reported a fake key disagreement.
+Fixed by adding a `modes()` guard to `strict.py`: any emission-mode abbreviation (USB, LSB, CW,
+AM, FM, SSB, …) present in either raw stem must match before a pair is accepted. A blanket
+"any ALL-CAPS token must match" guard was tried first and rejected — it also flagged `IARU`
+against the book OCR's misread `LARU` (`bk-pra-2-18` vs `prv-004`, an I/L glyph confusion, the
+same OCR-error class recorded in §1) as a mismatch, silently dropping a correct agreement. The
+mode-word whitelist avoids that because an OCR misread never happens to land on a *different*
+real mode abbreviation. Both HRS's and the book's answers are correct for their own question;
+the pair is no longer counted as comparable at all (108 → 107 total pairs), which is why the
+agreement percentage rose to 96.3 % — a fixed mismatch, not a loosened check.
 
 ### Teaching notes — 456 of 456 COMPLETE
 

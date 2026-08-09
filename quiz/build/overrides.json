@@ -1,5 +1,38 @@
 {
   "_doc": "Manual corrections applied after parsing. Every entry records a human decision about a defect in the source PDF, so the parser stays free of special cases and each judgement is auditable.",
+  "strict_disagreements": {
+    "_doc": "Disposition of every id strict.py has ever reported as a book-vs-HRS disagreement, decided 9 Aug 2026 (P2-0004). Each is either 'flag' (a real disagreement, surfaced in the quiz via notes_*.json flag:check/conflict) or 'mapping-bug' (the two questions are not actually the same question; fixed in strict.py's matcher, not in the data). Full reasoning in REVIEW.md §2.",
+    "teh-201": {
+      "book_id": "bk-teh-3-12",
+      "disposition": "flag",
+      "flag_set_in": "notes_zzz_expanded_teh6_antene.json",
+      "reason": "75Ω→300Ω match transformer 'omjer transformacije': book/RK zbirka answer 1:2 is the TURNS ratio, HRS's 1:4 is the IMPEDANCE ratio (n=√4=2, Z-ratio=4). Both numerically correct for their own reading of an ambiguous term; not a numbering error, not a legal question. Flagged check so a student who computes 1:2 from physics is not left thinking they were wrong."
+    },
+    "teh-273": {
+      "book_id": "bk-teh-4-52",
+      "disposition": "flag",
+      "flag_set_in": "notes_zzz_expanded_teh9_smetnje.json",
+      "reason": "Filter to suppress subharmonics AND harmonics after a VHF transmitter: HRS marks (d) niskopropusni, book/RK's own zbirka answer table marks (b) pojasnopropusni. A low-pass filter passes everything below the working frequency, so it cannot suppress a subharmonic by definition — RK's own running text (str. 192–193) agrees with its zbirka, not with HRS. Two independent RK sources against one HRS red mark. Answer HRS in the exam; flagged check so the reader also gets the physically correct answer."
+    },
+    "pro-090": {
+      "book_id": "bk-pro-2-11",
+      "disposition": "flag",
+      "flag_set_in": "notes_zz_currency.json (pre-existing, from the 9 Aug currency audit)",
+      "reason": "Inspection powers (trajna zabrana rada vs. privremena zabrana 3–12 mj.) are not in NN 150/22 at all — 'zabrana' does not occur in the Pravilnik; those powers live in ZEK NN 76/22, which is outside the audited source set. This strict.py disagreement is the SAME root cause as the pro-069/pro-087–pro-092 currency-audit cluster (REVIEW.md §2) and was already flagged check by that audit before this item ran. No new action — recorded here only so the strict.py residue is accounted for."
+    },
+    "pro-047": {
+      "book_id": "bk-pro-4-06",
+      "disposition": "flag",
+      "flag_set_in": "notes_propisi.json / notes_zzz_expanded_propisi_a.json (pre-existing)",
+      "reason": "135,7–137,8 kHz is A-razred only under Dodatak 1, Tablica 1 (the string does not appear in the P-razred table); HRS marks 'A i P razreda'. Already flagged conflict before this item ran; the book independently corroborates the Pravilnik reading, which strengthens the existing flag but the flag and its warning prose are untouched per this item's Avoid clause."
+    },
+    "prv-009": {
+      "book_id": "bk-pra-5-05",
+      "disposition": "mapping-bug",
+      "fixed_in": "strict.py (modes() guard)",
+      "reason": "HRS prv-009 asks about LSB, book bk-pra-5-05 asks about USB — two genuinely different questions (different KV segments use different sidebands by convention) that happen to share a template stem and the same four band options. The stems score >=0.90 on plain similarity (one 3-letter run differs out of ~60 chars), so the old matcher paired them and reported a fake key disagreement. strict.py now requires any emission-mode abbreviation (USB/LSB/CW/AM/...) present in either raw stem to match before accepting a pair. Both HRS and book answers are correct for their own question; this pair is no longer counted as comparable (108->107 total), which is why the agreement percentage rose to 96.3% — a fixed mismatch, not a loosened check."
+    }
+  },
   "split": [
     {
       "from": "teh-186",
