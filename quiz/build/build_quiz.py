@@ -42,6 +42,54 @@ HTML = r"""<title>Radioamaterski ispit — A razred</title>
   --accent:#0B5563; --accent-soft:#E3EDEF; --good:#2E7D53; --bad:#B3261E;
   --good-soft:#E4F1EA; --bad-soft:#F8E5E4; --warn:#8A5A00; --warn-soft:#FBF0D9; --shadow:0 1px 2px rgba(20,24,26,.07),0 8px 24px -12px rgba(20,24,26,.18); --fx-bg:#EEF2F2;
 }
+/* "balanced" palette — indigo accent, warm-neutral grays. data-palette="muted" (or the
+   attribute absent) falls through to the default :root block above, so only balanced and
+   vivid need their own rules. Each palette repeats the same four-block shape as the muted
+   one above (light default, prefers-color-scheme dark, then the two explicit data-theme
+   overrides) so it composes with that light/dark mechanism instead of replacing it. */
+:root[data-palette="balanced"]{
+  --paper:#F5F4F7; --card:#FFFFFF; --ink:#17151F; --muted:#635B72; --line:#DAD5E0;
+  --accent:#3D3AA8; --accent-soft:#E7E6F5; --good:#157A47; --bad:#C22A3E;
+  --good-soft:#DFF3E7; --bad-soft:#FBE3E7; --warn:#92600A; --warn-soft:#FBEFD7; --shadow:0 1px 2px rgba(23,21,31,.07),0 8px 24px -12px rgba(23,21,31,.18); --fx-bg:#EFEDF5;
+}
+@media (prefers-color-scheme:dark){:root[data-palette="balanced"]{
+  --paper:#131019; --card:#1C1826; --ink:#ECE9F2; --muted:#A79FBA; --line:#332C43;
+  --accent:#8F8CF0; --accent-soft:#252043; --good:#6FD19B; --bad:#F28B95;
+  --good-soft:#173327; --bad-soft:#3A1D22; --warn:#E8BE72; --warn-soft:#332811; --shadow:0 1px 2px rgba(0,0,0,.5),0 8px 24px -12px rgba(0,0,0,.7); --fx-bg:#171320;
+}}
+:root[data-palette="balanced"][data-theme="dark"]{
+  --paper:#131019; --card:#1C1826; --ink:#ECE9F2; --muted:#A79FBA; --line:#332C43;
+  --accent:#8F8CF0; --accent-soft:#252043; --good:#6FD19B; --bad:#F28B95;
+  --good-soft:#173327; --bad-soft:#3A1D22; --warn:#E8BE72; --warn-soft:#332811; --shadow:0 1px 2px rgba(0,0,0,.5),0 8px 24px -12px rgba(0,0,0,.7); --fx-bg:#171320;
+}
+:root[data-palette="balanced"][data-theme="light"]{
+  --paper:#F5F4F7; --card:#FFFFFF; --ink:#17151F; --muted:#635B72; --line:#DAD5E0;
+  --accent:#3D3AA8; --accent-soft:#E7E6F5; --good:#157A47; --bad:#C22A3E;
+  --good-soft:#DFF3E7; --bad-soft:#FBE3E7; --warn:#92600A; --warn-soft:#FBEFD7; --shadow:0 1px 2px rgba(23,21,31,.07),0 8px 24px -12px rgba(23,21,31,.18); --fx-bg:#EFEDF5;
+}
+/* "vivid" palette — violet accent, saturated good/bad/warn. Text-bearing pairs (good on
+   good-soft, bad on bad-soft, warn on warn-soft, accent on card) are all >=4.5:1 contrast;
+   verified with a WCAG contrast script before picking these hexes. */
+:root[data-palette="vivid"]{
+  --paper:#FBFAFF; --card:#FFFFFF; --ink:#0F1220; --muted:#5B5470; --line:#E1DCEF;
+  --accent:#5B21B6; --accent-soft:#EFE3FB; --good:#087038; --bad:#C11229;
+  --good-soft:#D8F5E3; --bad-soft:#FCDEE2; --warn:#924300; --warn-soft:#FDE8CC; --shadow:0 1px 2px rgba(15,18,32,.08),0 10px 28px -12px rgba(91,33,182,.25); --fx-bg:#F3EEFC;
+}
+@media (prefers-color-scheme:dark){:root[data-palette="vivid"]{
+  --paper:#0B0812; --card:#18131F; --ink:#F5F1FC; --muted:#B7ABD4; --line:#362C49;
+  --accent:#B98CFF; --accent-soft:#2C2145; --good:#38E28B; --bad:#FF6B7A;
+  --good-soft:#0F3324; --bad-soft:#401B22; --warn:#FFC670; --warn-soft:#3A2A0C; --shadow:0 1px 2px rgba(0,0,0,.6),0 10px 28px -12px rgba(185,140,255,.35); --fx-bg:#140F1D;
+}}
+:root[data-palette="vivid"][data-theme="dark"]{
+  --paper:#0B0812; --card:#18131F; --ink:#F5F1FC; --muted:#B7ABD4; --line:#362C49;
+  --accent:#B98CFF; --accent-soft:#2C2145; --good:#38E28B; --bad:#FF6B7A;
+  --good-soft:#0F3324; --bad-soft:#401B22; --warn:#FFC670; --warn-soft:#3A2A0C; --shadow:0 1px 2px rgba(0,0,0,.6),0 10px 28px -12px rgba(185,140,255,.35); --fx-bg:#140F1D;
+}
+:root[data-palette="vivid"][data-theme="light"]{
+  --paper:#FBFAFF; --card:#FFFFFF; --ink:#0F1220; --muted:#5B5470; --line:#E1DCEF;
+  --accent:#5B21B6; --accent-soft:#EFE3FB; --good:#087038; --bad:#C11229;
+  --good-soft:#D8F5E3; --bad-soft:#FCDEE2; --warn:#924300; --warn-soft:#FDE8CC; --shadow:0 1px 2px rgba(15,18,32,.08),0 10px 28px -12px rgba(91,33,182,.25); --fx-bg:#F3EEFC;
+}
 *{box-sizing:border-box}
 body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);
   line-height:1.55;-webkit-text-size-adjust:100%}
@@ -59,6 +107,10 @@ header.bar{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--p
 .tick{font-family:var(--mono);font-variant-numeric:tabular-nums;font-size:1rem;font-weight:700;
   padding:.16rem .5rem;border:1px solid var(--line);border-radius:.35rem}
 .tick.warn{color:var(--bad);border-color:var(--bad)}
+.themesel{font:inherit;font-size:.82rem;color:inherit;cursor:pointer;background:var(--card);
+  border:1px solid var(--line);border-radius:.5rem;padding:.4rem .55rem}
+.themesel:hover{border-color:var(--accent)}
+.themesel:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
 
 button{font:inherit;color:inherit;cursor:pointer}
 .btn{background:var(--card);border:1px solid var(--line);border-radius:.5rem;padding:.5rem .85rem;
@@ -175,10 +227,25 @@ a.tag:hover{background:var(--accent-soft)}
 .mode,.opt,.btn{transition:border-color .12s ease,background .12s ease,transform .12s ease}
 </style>
 
+<script>
+/* Set the saved palette before first paint so switching themes never flashes the wrong
+   one on reload. Kept inline and tiny on purpose — everything else lives in the main
+   script at the bottom, which also owns the <select> wiring below. */
+try {
+  var p = localStorage.getItem("9a-ispit-palette");
+  if (p === "balanced" || p === "vivid") document.documentElement.dataset.palette = p;
+} catch (e) {}
+</script>
+
 <header class="bar">
   <div class="barin">
     <div class="brand">9A<span>·</span>ISPIT</div>
     <div class="spacer"></div>
+    <select id="themeSel" class="themesel" aria-label="Boje sučelja">
+      <option value="muted">Prigušeno</option>
+      <option value="balanced">Uravnoteženo</option>
+      <option value="vivid">Živopisno</option>
+    </select>
     <div id="tick" class="tick hidden">00:00</div>
     <button id="quit" class="btn hidden">Prekini</button>
   </div>
@@ -310,6 +377,21 @@ const LS = "9a-ispit-v1";
 let store = {seen:{}, wrong:{}, history:[]};
 try { Object.assign(store, JSON.parse(localStorage.getItem(LS) || "{}")); } catch(e){}
 const save = () => { try { localStorage.setItem(LS, JSON.stringify(store)); } catch(e){} };
+
+/* ---------- theme (colour palette) ---------- */
+// Composes with, rather than replaces, the light/dark mechanism above: this only ever
+// touches [data-palette], never [data-theme] — prefers-color-scheme (or a future explicit
+// light/dark toggle) keeps deciding light vs dark within whichever palette is chosen here.
+const LS_THEME = "9a-ispit-palette", PALETTES = ["muted","balanced","vivid"];
+let palette = "muted";
+try { const saved = localStorage.getItem(LS_THEME); if (PALETTES.includes(saved)) palette = saved; } catch(e){}
+document.documentElement.dataset.palette = palette;
+$("#themeSel").value = palette;
+$("#themeSel").addEventListener("change", e => {
+  palette = PALETTES.includes(e.target.value) ? e.target.value : "muted";
+  document.documentElement.dataset.palette = palette;
+  try { localStorage.setItem(LS_THEME, palette); } catch(e){}
+});
 
 /* ---------- helpers ---------- */
 const shuffle = a => { for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];} return a; };
