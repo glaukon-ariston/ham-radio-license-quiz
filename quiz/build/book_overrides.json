@@ -5,7 +5,8 @@
     "merged-block": "Two questions ran together into one block because neither carried an OCR'd number, so the parser could not see the boundary.",
     "stacked-options": "All four options are set in a single full-width column rather than two, which the column logic reads as stem continuation.",
     "figure-options": "The options ARE diagrams; there is no option text in the source at all.",
-    "cross-reference": "The options are bare letters referring to the figure of an earlier question."
+    "cross-reference": "The options are bare letters referring to the figure of an earlier question.",
+    "figure-in-stem": "The question parses fine on its own, but a sketch sits between the stem and the options and the sketch's own printed label sat in the stem's x-column, so the coordinate parser stitched it onto the stem as if it were wrapped text. The question text here replaces that reading; the options are unchanged from what the parser already found."
   },
 
   "bk-teh-1-12": {"page": 285, "reason": "merged-block",
@@ -108,5 +109,9 @@
     "options": {"a": "a)", "b": "b)", "c": "c)", "d": "d)"}},
   "bk-teh-5-52": {"page": 336, "reason": "figure-options", "figure": [540, 760], "figure_is_options": true,
     "question": "Odašiljač na 70 MHz blokira često naš FM/VHF radiodifuzni prijamnik. Kojim od ponuđenih filtara bismo to mogli spriječiti?",
-    "options": {"a": "a)", "b": "b)", "c": "c)", "d": "d)"}}
+    "options": {"a": "a)", "b": "b)", "c": "c)", "d": "d)"}},
+
+  "bk-teh-5-60": {"page": 338, "reason": "figure-in-stem", "figure": [481, 596],
+    "question": "Žična antena KV odašiljača izlazne snage 100 W postavljena je kao na skici. Sigurnosna udaljenost iznosi 6,4m. Potrebno je:",
+    "options": {"a": "premjestiti antenski sustav", "b": "umjesto desnog 4 m visokog stupa postaviti 8 m stup", "c": "ništa ne treba mijenjati", "d": "i lijevi stup spustiti na 4m"}}
 }
