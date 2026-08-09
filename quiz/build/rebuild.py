@@ -55,7 +55,7 @@ def run(script):
     print("   " + (r.stdout.strip().splitlines() or ["ok"])[-1])
 
 
-for s in ("parse2.py", "parse_book2.py", "figures2.py", "book_figures.py"):
+for s in ("parse2.py", "parse_book2.py", "figures2.py", "book_figures.py", "fig_audit.py"):
     run(s)
 
 hrs = json.load(open(HERE / "bank.json", encoding="utf-8"))
