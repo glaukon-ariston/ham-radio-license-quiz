@@ -175,7 +175,6 @@ a.tag:hover{background:var(--accent-soft)}
 
 <div class="wrap">
   <section id="home">
-    <div id="lookupmsg" class="verdict no hidden" style="margin-top:1rem"></div>
     <div class="hero">
       <div class="eyebrow">HRS · A razred · HAREC</div>
       <h1>Priprema za radioamaterski ispit</h1>
@@ -208,6 +207,7 @@ a.tag:hover{background:var(--accent-soft)}
                autocomplete="off" autocapitalize="off" spellcheck="false" inputmode="text">
         <button id="lookupgo" class="btn" type="button">Otvori</button>
       </div>
+      <div id="lookupmsg" class="verdict no hidden" style="margin-top:.25rem"></div>
     </div>
 
     <div class="sect"><h2>Gradivo</h2><div class="rule"></div></div>
@@ -650,4 +650,5 @@ if(!boot || !openById(boot)) show("home");
 """
 
 out = DST / "quiz.html"
-out.write_text(HTML.replace("__PAYLOAD__", payload)
+out.write_text(HTML.replace("__PAYLOAD__", payload), encoding="utf-8")
+print(f"wrote {out}  ({out.stat().st_size//1024} KB)  questions={len(live)}")
