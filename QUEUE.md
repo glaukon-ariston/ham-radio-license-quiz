@@ -24,39 +24,36 @@ no tooling. Re-prioritising is a `git mv`.
 
 1. Highest band that has an **unblocked** item (`blocked-by:` empty).
 2. Within that band, the **lowest number** — oldest first.
-3. Then drain that item's whole **`cluster:`**, and **stop**.
+3. Do it. Then re-pick from scratch and keep going.
 
-Priority beats clustering; clustering is only the tie-breaker inside a band. A new `P1`
-therefore jumps ahead of a half-drained `P3` cluster, which is the point of having bands.
+Strictly by priority, every time. The queue is re-read after each item, so a `P1` you file
+while a run is in progress is picked up next — it does not wait for the `P3` grind to finish.
 
-## Why "drain a cluster, then stop"
+## What `cluster:` is still for
 
-Context is the real budget. Items sharing a `cluster:` share their working set — the same
-files, the same reference material — so doing them back to back reuses an expensive load.
-A `notes_zzz_expanded_*.json` file is 32–135 KB, and Croatian text tokenises badly: roughly
-**30–45k tokens just to open one**. Reloading that per item is the single largest avoidable
-cost in this project.
+Context is the real budget. A `notes_zzz_expanded_*.json` file is 32–135 KB, and Croatian
+text tokenises badly — roughly **30–45k tokens just to open one**. That cost is why `/drain`
+does the work in subagents: each worker starts cold, loads only its own packet, and dies.
+The orchestrator never opens any of it.
 
-Crossing a cluster boundary means that saving is gone anyway — so that is the cheapest
-moment to stop and start the next stretch cold. Carrying a finished cluster's transcript into
-unrelated work pays for it on every later turn and buys nothing.
+Because every worker starts cold, two items in the same cluster share **nothing** — there is
+no context to reuse between them. So clustering no longer affects ordering, and `/drain`
+runs strictly by priority.
 
-### Ending a stretch is a manual step
+`cluster:` still earns its place for one thing: **worktree reuse under parallel fan-out.**
+A fresh worktree has no build artefacts (`figs/`, the parse intermediates are all gitignored),
+so the first worker in it pays a full `rebuild.py`. Same-cluster items are the ones worth
+handing to the same worktree to amortise that. Until fan-out is enabled — blocked on 0001 —
+the field is a hint and nothing more.
 
-Claude cannot reset its own context — there is no way for it to start itself a clean session.
-It can only stop and say so. Clearing is yours:
+## Running a drain
 
-- **`/clear`** in the current session, or
-- **a new session** — new window, or a new worktree checkout.
+`/drain` goes until the queue has nothing ready, or the circuit breaker trips. It re-picks
+after every item, so a `P1` filed mid-run is taken next.
 
-Do it at every cluster boundary, and always when moving between bands: a `P1` bug fix and a
-`P3` notes grind share nothing, so carrying one into the other is pure cost. Skipping the
-clear still works; it just gets quietly more expensive each stretch, until automatic
-compaction summarises away something that mattered.
-
-Start the next stretch with the same line, in the fresh session:
-
-> Read QUEUE.md, take the next item, drain its cluster, stop.
+Working with Claude **interactively** is the different case: there its context does
+accumulate, it cannot clear itself, and `/clear` between unrelated stretches is yours to do.
+That is a fact about conversations, not about `/drain`.
 
 **Keep item files short — under ~20 lines.** Picking the next item means scanning all of
 `queue/todo/`, and that cost is paid at the start of every stretch.

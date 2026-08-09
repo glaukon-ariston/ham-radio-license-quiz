@@ -52,8 +52,20 @@ Refuse to start if the tree is dirty — say so and stop.
 
    On `fail` or `unverified` → **Recover**.
 
-6. **Next**: if `pick.py` listed siblings, repeat from 1. When the cluster is exhausted,
-   **stop** — do not start the next cluster.
+6. **Next**: repeat from 1. Always re-run `pick.py` rather than working down a remembered
+   list — the queue may have changed, and a `P1` filed mid-run must be taken next. Ignore
+   `cluster:` when ordering; it matters only for worktree reuse under parallel fan-out.
+
+   Keep going until `pick.py` says nothing is ready, or the circuit breaker trips.
+
+## Circuit breaker
+
+**Two consecutive Recover events → stop the run.** Report both reasons and do not pick
+another item.
+
+One item failing is an item problem. Two in a row is usually a systematic one — a broken
+build, a bad assumption in the brief, a missing dependency — and without this the run would
+grind the entire queue into `queue/blocked/` and look busy while doing it.
 
 ## Recover
 
@@ -73,8 +85,12 @@ A `rebuild.py` abort is the safety net working — never route around it.
 
 ## Stop and report
 
-At the cluster boundary, print one line per item — number, verdict, commit sha — plus what
-`pick.py` says is ready next. That summary is the whole point of the run; keep it under ten
-lines.
+A run ends when nothing is ready, or the circuit breaker trips.
+
+Print one line per item — number, verdict, commit sha — plus what `pick.py` says is ready
+next and why the run ended. Keep the running tally as you go rather than reconstructing it
+at the end; re-reading your own history to write the summary is the one place this loop can
+still get expensive. Under ten lines for a short run; for a long one, one line per item and
+a two-line tail.
 
 Do not merge `queue-drain` into `main`. That is Glaukon's call after he has read the diffs.
