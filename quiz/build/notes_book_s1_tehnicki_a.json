@@ -1,0 +1,132 @@
+{
+ "_note": "Skupina I, tehnički dio, paket _a (30 od 720 knjižnih pitanja). Napomene provjerene prema tiskanim stranicama RK (booktool.py) 9-10 Aug 2026. Bez vanjskih poveznica — link_check.py ne obrađuje ovu datoteku (samo notes_zzz_expanded_*), pa poveznice namjerno izostavljene da se izbjegne neprovjerena tvrdnja.",
+ "bk-teh-1-01": {
+  "note": "Harmonik reda n neke frekvencije f je njezin cjelobrojni višekratnik n×f. Drugi (parni) harmonik je stoga jednostavno 2×f, treći 3×f itd. Za f=1750 kHz drugi harmonik iznosi 2×1750=3500 kHz. Harmonici nastaju zbog nelinearnosti pojačala (posebice u razredu C) i mogu smetati drugim službama ako padnu izvan dodijeljenog pojasa, zbog čega ih odašiljač mora filtrirati prije antene.",
+  "formula": ["n-ti harmonik = n × f", "2. harmonik: 2 × 1750 kHz = 3500 kHz"],
+  "cite": [{"src": "RK", "loc": "3.4.6. Harmonici, nelinearna izobličenja, tiskana str. 121"}]
+ },
+ "bk-teh-1-03": {
+  "note": "Dubina (stupanj) amplitudne modulacije m opisuje koliko amplituda VF nositelja odstupa od nemodulirane vrijednosti. Ako je Ec amplituda nemoduliranog nositelja, a Emax vršna amplituda moduliranog vala, vrijedi Emax = Ec×(1+m). Uvrštavanjem Ec=30 V i Emax=60 V dobiva se 1+m=2, odnosno m=1=100%. Kod potpune (100%) modulacije vršna amplituda je dvostruko veća od nemodulirane; prekoračenje toga je prekomjerna modulacija koja izobličuje signal.",
+  "formula": ["Emax = Ec × (1 + m)", "60 = 30 × (1+m)  =>  m = 1 = 100%"],
+  "cite": [{"src": "RK", "loc": "1.8.1. Amplitudna modulacija — AM, tiskana str. 47"}]
+ },
+ "bk-teh-1-05": {
+  "note": "Graf prikazuje impedanciju Z koja s porastom frekvencije prvo pada, doseže minimum na f0, pa opet raste — to je krivulja karakteristična za ugođeni SERIJSKI LC krug. Na rezonanciji serijskog kruga reaktancije zavojnice i kondenzatora se ponište (XL=XC), pa preostaje samo mali omski otpor R, otud minimum baš na f0. Kod paralelnog titrajnog kruga vrijedi suprotno — na rezonanciji impedancija je NAJVEĆA, ne najmanja — pa graf s minimumom isključuje paralelni krug.",
+  "cite": [{"src": "RK", "loc": "3.2.3. Serijski RLC titrajni krug, tiskana str. 110"}]
+ },
+ "bk-teh-1-07": {
+  "note": "Na slici su L i C spojeni MEĐUSOBNO PARALELNO, a taj par je umetnut U SERIJU sa signalnim vodom (donji vod prolazi ravno, bez elemenata) — klasična izvedba 'trap' (odbojnog) kruga. Paralelni LC spoj na svojoj rezonantnoj frekvenciji ima vrlo veliku impedanciju, pa upravo tu frekvenciju blokira na putu od ulaza do izlaza, dok signale drugih frekvencija propušta gotovo neometano jer je izvan rezonancije njegova impedancija mala. Zato je ovo pojasno zaporni (band-stop), a ne propusni filtar.",
+  "cite": [{"src": "RK", "loc": "3.2.4. Filtri (4. pojasno nepropusni filtar), tiskana str. 112"}]
+ },
+ "bk-teh-1-09": {
+  "note": "Dijagram prikazuje jednu izraženu glavnu laticu naprijed i jednu manju laticu iza — tipičan oblik zračenja usmjerene ('snop') antene poput Yagijeva niza s reflektorom i direktorom, koja koncentrira energiju u jednom smjeru radi većeg dobitka. Hertzov dipol i četvrtvalna antena bez parazitnih elemenata zrače simetrično na obje strane okomito na svoju os, bez ovakve jedne izražene glavne latice; trap-antena je višepojasna žičana izvedba čiji dijagram zračenja ne pokazuje ovu usmjerenost.",
+  "cite": [{"src": "RK", "loc": "6.1.4. Usmjerenost antene, tiskana str. 149"}]
+ },
+ "bk-teh-1-11": {
+  "note": "Odsječak voda dug λ/4 djeluje kao transformator impedancije: Zul = Z0²/Zzavr. Ako je udaljeni kraj voda (kod B) kratko spojen, na ulazu (u točki A) dobiva se teoretski beskonačno velika impedancija — četvrtvalni kratko spojeni odsječak ponaša se kao zaporni titrajni krug na svojoj rezonantnoj frekvenciji. Suprotno, otvoreni četvrtvalni odsječak na ulazu daje impedanciju blisku nuli. Takvi odsječci se zato koriste kao izolatori ili nosači bez unošenja gubitaka na radnoj frekvenciji.",
+  "formula": ["Zul = Z0² / Zzavr", "Zzavr → 0 (kratki spoj)  =>  Zul → ∞"],
+  "cite": [{"src": "RK", "loc": "6.2.2. Stojni valovi na prijenosnom vodu do antene, tiskana str. 157"}]
+ },
+ "bk-teh-1-13": {
+  "note": "Prvi Kirchhoffov zakon (zakon čvora) kaže da je zbroj struja koje utječu u čvor jednak zbroju struja koje iz njega izlaze — naboj se u čvoru ne nakuplja. Prema strelicama na slici u čvor utječu I1 i I2, a iz njega izlaze I3, I4 i I5. Iz uvjeta I1+I2 = I3+I4+I5 slijedi 2+6 = 1+4+I5, odnosno I5 = 8−5 = 3 A.",
+  "formula": ["I(ulaz) = I(izlaz)", "I1+I2 = I3+I4+I5", "2+6 = 1+4+I5  =>  I5 = 3 A"],
+  "cite": [{"src": "RK", "loc": "1.1.3.1. Prvi Kirchhoffov zakon — zakon čvora, tiskana str. 21"}]
+ },
+ "bk-teh-1-15": {
+  "note": "Frekvencija je recipročna vrijednost perioda: f = 1/T. Za T = 0,002 s dobiva se f = 1/0,002 = 500 Hz. Ovaj obrazac vrijedi za bilo koju periodičnu pojavu — period je vrijeme jednog potpunog ciklusa, a frekvencija broj ciklusa u sekundi.",
+  "formula": ["f = 1 / T", "f = 1 / 0,002 s = 500 Hz"],
+  "cite": [{"src": "RK", "loc": "1.6. Sinusoidni signali, tiskana str. 42"}]
+ },
+ "bk-teh-1-17": {
+  "note": "Idealna (bezotporna) zavojnica pomiče napon točno 90° ispred struje. Stvarna zavojnica ima i vlastiti omski otpor R žice namota, pa se njezina impedancija sastoji od R u seriji s XL — fazni kut između napona i struje je tada φ = arctan(XL/R), što je uvijek MANJE od 90° (a veće od 0°, jer XL nije nula). Kod realne zavojnice točan odgovor je zato 'napon prednjači za φ<90°', a puni pomak od 90° vrijedi samo za idealnu zavojnicu bez gubitaka.",
+  "formula": ["φ = arctan(XL / R)", "R>0 i XL>0  =>  0° < φ < 90°"],
+  "cite": [{"src": "RK", "loc": "2.3.2. Reaktancija zavojnice, tiskana str. 67"}]
+ },
+ "bk-teh-1-19": {
+  "note": "Omjer naprijed-natrag (F/B) uspoređuje snagu zračenja u glavnom smjeru s onom u suprotnom smjeru, izražen u decibelima: F/B = 10×log10(Pnaprijed/Pnatrag). Prema oznakama na dijagramu zračenja, snaga u glavnoj latici je 60 W, a u stražnjoj 5 W, pa je F/B = 10×log10(60/5) = 10×log10(12) ≈ 10,8 dB. Velik F/B omjer znači da antena vrlo malo zrači (i prima) iz suprotnog smjera, što smanjuje smetnje s te strane.",
+  "formula": ["F/B [dB] = 10 × log10(Pnaprijed / Pnatrag)", "10 × log10(60/5) = 10 × log10(12) ≈ 10,8 dB"],
+  "cite": [{"src": "RK", "loc": "6.1.4. Usmjerenost antene (omjer naprijed-natrag), tiskana str. 149-150"}]
+ },
+ "bk-teh-1-21": {
+  "note": "Tijekom dana sunčevo zračenje ionizira atmosferu dovoljno jako da postoje sva četiri sloja: D (najniži), E, te gornji sloj F razdvojen na F1 i F2. Noću, bez sunčeva zračenja, rekombinacija brzo uklanja slabije ionizirane D i E slojeve, a F1 i F2 se spajaju u jedan sloj F. Zato se dnevni raspored (D, E, F1 i F2) razlikuje od noćnog (samo E i F, odnosno samo F).",
+  "cite": [{"src": "RK", "loc": "7.1.3. Rasprostiranje ionosferskim valom, tiskana str. 165"}]
+ },
+ "bk-teh-1-23": {
+  "note": "Sloj D je najniži i najslabije ionizirani sloj ionosfere. Njegova gustoća slobodnih elektrona dovoljna je za refleksiju samo vrlo niskih frekvencija — VLF i ELF (rabe se npr. za vezu s podmornicama) — dok više frekvencije (MF, HF) kroz njega uglavnom samo prolaze, uz djelomičnu apsorpciju energije umjesto odbijanja. Ta apsorpcija u sloju D, izraženija danju, jedan je od razloga zašto su KV veze na nižim amaterskim pojasevima danju slabije nego noću, kad sloj D nestaje.",
+  "cite": [{"src": "RK", "loc": "7.1.3. Rasprostiranje ionosferskim valom, tiskana str. 165"}]
+ },
+ "bk-teh-1-25": {
+  "note": "Kritična frekvencija nekog ionosferskog sloja je, po definiciji, najviša frekvencija koja se od tog sloja još odbija kad val na sloj upada OKOMITO — pod kutom od 90° (upad 'ravno prema gore'). Za frekvencije niže od kritične val se pri okomitom upadu također odbija; za više od kritične val pri okomitom upadu probija sloj u svemir, osim ako ne upadne pod kosim kutem, kada se i više frekvencije mogu odbiti (na tome se temelji MUF za kose veze).",
+  "cite": [{"src": "RK", "loc": "7.1.3. Rasprostiranje ionosferskim valom, tiskana str. 165"}]
+ },
+ "bk-teh-1-27": {
+  "note": "Snaga elektromagnetskog vala širi se s izvora po sve većoj kuglinoj površini kako raste udaljenost, a površina kugle raste s KVADRATOM polumjera (4πr²). Zato gustoća snage (W/m²) pada s kvadratom udaljenosti: S2 = S1×(d1/d2)². Za d1=1 km, S1=4 mW/m² i d2=2 km (dvostruko dalje) dobiva se S2 = 4×(1/2)² = 1 mW/m² — udaljenost se udvostručila, gustoća snage pala je na četvrtinu.",
+  "formula": ["S2 = S1 × (d1/d2)²", "S2 = 4 mW/m² × (1/2)² = 1 mW/m²"],
+  "cite": [{"src": "RK", "loc": "6.1.5. Dijagrami zračenja (opći pojmovi uz dijagram zračenja antene), tiskana str. 150"}]
+ },
+ "bk-teh-1-29": {
+  "note": "Množilo frekvencije iskorištava nelinearnost tranzistora: na njegovu izlazu se, uz osnovnu frekvenciju, pojavljuju i harmonici (2×, 3×, 4× ulazne frekvencije). Ugađanjem izlaznog titrajnog kruga na željeni harmonik iz bogatog harmoničkog spektra izdvaja se samo ta jedna komponenta, pod uvjetom da je ulazni signal spektralno čist. Množilo dakle ne stvara nove frekvencije zbrajanjem/oduzimanjem dvaju signala (to radi miješalo) niti izravno množi dvije frekvencije — ono filtracijom izdvaja harmonik već prisutan u izobličenom izlaznom signalu.",
+  "cite": [{"src": "RK", "loc": "5.3.5. Množilo frekvencije, tiskana str. 139"}]
+ },
+ "bk-teh-1-31": {
+  "note": "Oscilator radi zahvaljujući jakoj POZITIVNOJ POVRATNOJ SPREZI: dio izlaznog signala vraća se natrag na ulaz u istoj fazi i sam sebe pojačava, a titrajni krug (na ulazu, izlazu ili u samoj petlji) određuje na kojoj će se frekvenciji ta samopojačavajuća petlja stabilizirati. Sama prisutnost titrajnog kruga nije dovoljna — bez pozitivne povratne sprege dovoljnog pojačanja krug bi samo selektivno filtrirao signal, a ne bi sam od sebe počeo titrati.",
+  "cite": [{"src": "RK", "loc": "4.3.2. Oscilator (stalni i promjenjivi), tiskana str. 131"}]
+ },
+ "bk-teh-1-33": {
+  "note": "Intermodulacija nastaje kad se dva ili više signala pomiješaju na nekom NELINEARNOM elementu (pojačalu, miješalu) i stvore lažne produkte na zbrojnim/razlikovnim frekvencijama. Vjerojatnost intermodulacije raste što je veće pojačanje u stupnjevima PRIJE stupnja koji određuje selektivnost prijamnika — jak signal se tada pojača prije nego što uskopojasni krug stigne odbaciti neželjene frekvencije, pa lakše dosegne nelinearno područje. Zato se ulazna pojačala namjerno drže umjerenog pojačanja, a veće pojačanje prepušta se kasnijim, već selektivnim međufrekvencijskim stupnjevima.",
+  "cite": [{"src": "RK", "loc": "4.4.6. Intermodulacija, modulacijska smetnja, tiskana str. 135"}]
+ },
+ "bk-teh-1-35": {
+  "note": "Izlazni (Π/PI) filtar odašiljača ima dvostruku ulogu: prigušuje harmoničke komponente koje nastaju u izlaznom pojačalu (posebno u razredu C, koji radi nelinearno) prije nego što dopru do antene, i transformira (prilagođava) izlaznu impedanciju pojačala na impedanciju antenskoga kabela, radi najvećeg prijenosa snage i najmanjeg SWR-a. Naziv dolazi od izgleda sheme koja nalikuje grčkom slovu Π (kondenzator-zavojnica-kondenzator).",
+  "cite": [{"src": "RK", "loc": "5.3.7. Izlazni filtar (PI-filtar), tiskana str. 139"}]
+ },
+ "bk-teh-1-37": {
+  "note": "Odvojni stupanj (engl. buffer) umeće se između oscilatora i sljedećih pojačavačkih stupnjeva upravo zato da promjene opterećenja ili impedancije IZA njega (npr. pri promjeni radnog stanja pojačala, ugađanju antene i sl.) ne 'vuku' natrag na sam oscilator i ne remete njegovu frekvenciju i stabilnost. Buffer u pravilu nema pojačanje (izvodi se npr. kao emitersko sljedilo, pojačanje ≈1) — njegova je svrha izolacija, ne pojačavanje signala.",
+  "cite": [{"src": "RK", "loc": "5.3.3. Odvojni stupanj, tiskana str. 138"}]
+ },
+ "bk-teh-1-39": {
+  "note": "Pobudni stupanj (driver) nalazi se između oscilatorskog/predpojačavačkog dijela i izlaznog (završnog) pojačala snage. Njegova je zadaća isporučiti izlaznom stupnju dovoljno VF snage da bi taj stupanj mogao raditi u svom punom, planiranom radnom režimu — koliko snage treba ovisi o izlaznoj snazi i o radnom razredu izlaznog pojačala (razred C treba najviše pobudne snage, razred A najmanje). Pobudni stupanj dakle ne pobuđuje oscilator niti sprječava oscilacije pojačala — to su zadaće drugih sklopova.",
+  "cite": [{"src": "RK", "loc": "5.3.4. Pobudni stupanj, tiskana str. 139"}]
+ },
+ "bk-teh-1-41": {
+  "note": "SWR-metar (reflektometar) ne mjeri izravno impedanciju niti snagu, nego NAPON induciran u kratkom vodiču položenom uz prijenosni vod: jedna dioda i mjerilo hvataju napon razmjeran napredujućem (prema anteni) valu, druga dioda i mjerilo hvataju napon razmjeran povratnom (od antene) valu. Iz omjera tih dvaju izmjerenih napona instrument izračunava omjer stojnog vala. Stvarna snaga i impedancija mogu se iz tih napona naknadno izračunati, ali to nije ono što senzor izravno mjeri.",
+  "cite": [{"src": "RK", "loc": "8.1.4. Mjerenje omjera naponskoga stojnog vala, tiskana str. 178-179"}]
+ },
+ "bk-teh-1-43": {
+  "note": "Ampermetar mjeri struju pa mora biti U SERIJI s teretom (sva struja koja teče kroz teret mora proći i kroz ampermetar), a voltmetar mjeri napon pa mora biti spojen PARALELNO s teretom, na iste dvije točke. Kad bi se to zamijenilo — ampermetar paralelno ili voltmetar u seriji — instrumenti bi bitno poremetili strujni krug: ampermetar ima malen unutrašnji otpor pa bi paralelno spojen izazvao gotovo kratki spoj, a voltmetar ima velik otpor pa bi u seriji praktički prekinuo strujni krug.",
+  "cite": [{"src": "RK", "loc": "8.1.1. Mjerenje istosmjernih i izmjeničnih napona i struja, tiskana str. 174"}]
+ },
+ "bk-teh-1-45": {
+  "note": "Ampermetar se spaja u seriji s teretom, pa njegov vlastiti (unutrašnji) otpor dodaje se otporu strujnog kruga i unosi pogrešku mjerenja te gubitak napona. Da bi ta smetnja bila zanemariva, unutrašnji otpor ampermetra mora biti vrlo malen (idealno nula) u odnosu na otpor tereta koji se mjeri — reda veličine desetinke oma, a ne stotine ili tisuće oma kakve bi bile prihvatljive za voltmetar, koji je, obrnuto, spojen paralelno pa treba što veći unutrašnji otpor.",
+  "cite": [{"src": "RK", "loc": "8.1.1. Mjerenje istosmjernih i izmjeničnih napona i struja (pogreške pri mjerenju), tiskana str. 174-175"}]
+ },
+ "bk-teh-1-47": {
+  "note": "Slika prikazuje četiri krivulje frekvencijskog odziva filtra u odnosu na graničnu frekvenciju 30 MHz (gornji rub KV/HF amaterskih pojaseva). Za potiskivanje viših harmonika kratkovalnog odašiljača treba NISKOPROPUSNI filtar koji propušta sve frekvencije od nule do 30 MHz (cijelo radno KV područje) i guši sve iznad te granice (gdje leže harmonici). To odgovara krivulji koja je ravna, na punoj razini, već od f=0 pa sve do 30 MHz, a tek nakon toga pada — ostale tri krivulje ili imaju usku propusnu vrpcu tek oko 30 MHz umjesto širokog propusnog pojasa od nule, ili obrnuto propuštaju (odnosno rastu) baš iznad 30 MHz, što bi harmonike propustilo umjesto da ih priguši.",
+  "cite": [{"src": "RK", "loc": "Ispitna pitanja, SKUPINA I, pitanje 47 (slika s 4 krivulje, 30 MHz), tiskana str. 295; opće načelo niskopropusnog filtra u 5.3.7. Izlazni filtar (PI-filtar), tiskana str. 139"}]
+ },
+ "bk-teh-1-49": {
+  "note": "'Prvi viši neparni harmonik' znači sljedeći harmonik NEPARNOG reda iznad osnovne frekvencije (koja je sama harmonik reda 1, dakle neparna) — to je treći harmonik (red 3), jer je drugi harmonik paran i preskače se. Treći harmonik od 144,69 MHz je 3×144,69 = 434,07 MHz.",
+  "formula": ["3. harmonik = 3 × f", "3 × 144,69 MHz = 434,07 MHz"],
+  "cite": [{"src": "RK", "loc": "3.4.6. Harmonici, nelinearna izobličenja, tiskana str. 121"}]
+ },
+ "bk-teh-1-51": {
+  "note": "Osjetljivost, selektivnost i stabilnost frekvencije lokalnog oscilatora prijamnika nisu proizvoljne — moraju biti unutar normiranih granica propisanih upravo za onu radijsku SLUŽBU u kojoj se prijamnik koristi (amatersku, pomorsku, zrakoplovnu i sl.). Prenizak ili previsok parametar izvan norme povećava rizik od međusobnog ometanja korisnika iste ili susjednih službi, dok su norme za jednu službu prilagođene baš njezinim potrebama pa se ne mogu bez razmišljanja preslikati na drugu.",
+  "cite": [{"src": "RK", "loc": "9.2.2. Parametri prijamnika i smetnje, tiskana str. 198"}]
+ },
+ "bk-teh-1-53": {
+  "note": "Kad se kućno HI-FI pojačalo nađe u jakom polju obližnjeg VF odašiljača, VF signal može prodrijeti u audiosklop i ondje se ISPRAVITI (demodulirati) na nekom nelinearnom poluvodičkom spoju — tipično na spoju baza-emiter tranzistora — koji se pritom ponaša slično diodi. Rezultat je da se izvorna audiomodulacija VF signala pojavi kao neželjeni zvuk na zvučniku, iako uređaj nije namijenjen za prijam radiosignala. Linearni elementi (kondenzatori, otpornici, obična bakrena žica) ne mogu demodulirati signal jer ne unose potreban nelinearni izobličaj.",
+  "cite": [{"src": "RK", "loc": "9.1.1. O elektromagnetskoj kompatibilnosti, tiskana str. 188"}]
+ },
+ "bk-teh-1-55": {
+  "note": "Amaterski odašiljači u VHF/UHF području obično rade samo u jednom uskom frekvencijskom pojasu. Zato se na izlazu ugrađuje pojasnopropusni filtar namijenjen baš tom pojasu — s jedne strane sprječava zračenje neželjenih komponenti (harmonika, šuma) izvan pojasa prema drugim službama, s druge strane štiti sam prijamnik odašiljača od jakih signala susjednih odašiljača. Ta dvostruka korist posljedica je upravo toga što su takvi uređaji uskopojasni po namjeni, za razliku od širokopojasnih odašiljača drugih službi.",
+  "cite": [{"src": "RK", "loc": "9.2. Uzroci smetnja (pojasnopropusni filtar u VHF/UHF području), tiskana str. 192-193"}]
+ },
+ "bk-teh-1-57": {
+  "note": "Klizanje frekvencije (drift) je nepoželjna, SUSTAVNA (jednosmjerna, dugotrajna) promjena frekvencije oscilatora tijekom vremena — najčešće uzrokovana zagrijavanjem komponenti, starenjem dijelova, promjenom napona napajanja, vlage ili tlaka. Razlikuje se od kratkotrajnih ili namjernih promjena frekvencije (poput frekvencijske devijacije kod FM modulacije, koja je upravo poželjna i kontrolirana promjena): drift je spor, sustavan i neizbježno neplaniran pomak koji narušava stabilnost odašiljača.",
+  "cite": [{"src": "RK", "loc": "9.2.1.1. Frekvencijska nestabilnost, tiskana str. 193"}]
+ },
+ "bk-teh-1-59": {
+  "note": "Trajnu ŠIROKOPOJASNU smetnju najčešće stvaraju uređaji s iskrenjem ili prekidanjem struje pri radu — kod ručne električne bušilice to je komutator (kolektor) s četkicama univerzalnog motora, na kojem pri svakom prekidu strujnog kruga nastaje mala iskra bogata harmonicima na širokom frekvencijskom području. Obična sklopka daje samo kratkotrajnu smetnju pri paljenju/gašenju, žarulja sa žarnom niti gotovo nikakvu, a ispravno kućno glačalo (bez rotirajućih dijelova ni komutatora) u pravilu ne stvara značajnu radiofrekvencijsku smetnju.",
+  "cite": [{"src": "RK", "loc": "9.1.1. O elektromagnetskoj kompatibilnosti (opći izvori smetnji: rotacijski strojevi, električni alati), tiskana str. 188"}]
+ }
+}
