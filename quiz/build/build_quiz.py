@@ -161,6 +161,13 @@ a.tag:hover{background:var(--accent-soft)}
 .lookupin{font:inherit;font-family:var(--mono);color:inherit;background:var(--card);
   border:1px solid var(--line);border-radius:.5rem;padding:.5rem .7rem;flex:0 1 14rem;min-width:9rem}
 .lookupin:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+/* In-page stand-in for window.confirm() — see the JS comment by askConfirm() for why. */
+.confirm-mask{position:fixed;inset:0;z-index:30;background:rgba(20,24,26,.45);
+  display:flex;align-items:center;justify-content:center;padding:1rem}
+.confirm-box{background:var(--card);border:1px solid var(--line);border-radius:.7rem;
+  padding:1.1rem 1.2rem;max-width:22rem;width:100%;box-shadow:var(--shadow)}
+.confirm-box p{margin:0 0 1rem;font-size:.92rem;line-height:1.45}
+.confirm-box .nav{margin-top:0}
 .hidden{display:none!important}
 @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
 .mode,.opt,.btn{transition:border-color .12s ease,background .12s ease,transform .12s ease}
@@ -273,6 +280,16 @@ a.tag:hover{background:var(--accent-soft)}
       <button class="btn" id="reviewWrong">Pregledaj greške</button>
     </div>
   </section>
+</div>
+
+<div id="confirmMask" class="confirm-mask hidden">
+  <div class="confirm-box" role="alertdialog" aria-modal="true" aria-labelledby="confirmMsg">
+    <p id="confirmMsg"></p>
+    <div class="nav">
+      <button id="confirmYes" class="btn primary">Potvrdi</button>
+      <button id="confirmNo" class="btn">Odustani</button>
+    </div>
+  </div>
 </div>
 
 <script>
@@ -562,6 +579,30 @@ function buildPicker(){
   add("Dodatna iz priručnika", "Pitanja iz priručnika Radiokomunikacije, s odgovorima iz tablice u knjizi. Ne ulaze u simulaciju ispita.", nb+" pitanja", q=>q.src==="book");
 }
 
+/* ---------- confirm ----------
+   window.confirm() (and alert/prompt) is silently a no-op inside a sandboxed iframe that
+   lacks allow-modals — the call returns undefined without showing anything, so
+   `if(confirm(...))` is always false. That's exactly how this page runs embedded on
+   claude.ai, so start-exam / quit / reset all need their own confirmation UI instead. */
+let confirmPrev = null;
+function askConfirm(msg, onYes){
+  $("#confirmMsg").textContent = msg;
+  $("#confirmMask").classList.remove("hidden");
+  confirmPrev = document.activeElement;
+  $("#confirmYes").focus();
+  const onKey = e => { if(e.key === "Escape"){ e.preventDefault(); done(false); } };
+  function done(ok){
+    $("#confirmMask").classList.add("hidden");
+    document.removeEventListener("keydown", onKey, true);
+    if(confirmPrev && confirmPrev.focus) confirmPrev.focus();
+    if(ok) onYes();
+  }
+  document.addEventListener("keydown", onKey, true);
+  $("#confirmYes").onclick = () => done(true);
+  $("#confirmNo").onclick = () => done(false);
+  $("#confirmMask").onclick = e => { if(e.target === $("#confirmMask")) done(false); };
+}
+
 /* ---------- routing ---------- */
 function show(id){
   ["home","picker","quiz","result"].forEach(s => $("#"+s).classList.toggle("hidden", s !== id));
@@ -633,14 +674,14 @@ document.addEventListener("click", e => {
   if(!go) return;
   const d = go.dataset.go;
   if(d==="practice"){ buildPicker(); show("picker"); }
-  else if(d==="exam"){ if(confirm("Simulacija ispita: 80 pitanja, 105 minuta ukupno. Počinjemo?")) start("exam"); }
+  else if(d==="exam"){ askConfirm("Simulacija ispita: 80 pitanja, 105 minuta ukupno. Počinjemo?", () => start("exam")); }
   else if(d==="wrong") start("wrong");
   else show(d);
 });
 $("#next").onclick = () => step(1);
 $("#prev").onclick = () => step(-1);
-$("#quit").onclick = () => { if(confirm("Prekinuti i odbaciti ovaj pokušaj?")) show("home"); };
-$("#reset").onclick = () => { if(confirm("Obrisati sav napredak?")){ store={seen:{},wrong:{},history:[]}; save(); home(); } };
+$("#quit").onclick = () => askConfirm("Prekinuti i odbaciti ovaj pokušaj?", () => show("home"));
+$("#reset").onclick = () => askConfirm("Obrisati sav napredak?", () => { store={seen:{},wrong:{},history:[]}; save(); home(); });
 $("#reviewWrong").onclick = () => start("wrong");
 
 // No <form>: a sandboxed frame may not have allow-forms, and a blocked submit fails silently.
