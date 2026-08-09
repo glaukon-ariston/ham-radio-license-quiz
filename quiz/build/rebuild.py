@@ -9,8 +9,11 @@ import base64, datetime, glob, json, subprocess, sys
 from collections import Counter
 from pathlib import Path
 
-HERE = Path(__file__).parent
-DST = Path(r"g:/My Drive/Electronics/HAM Radio License/quiz")
+# Both paths are derived from this file's own location, never from cwd and never from an
+# absolute Drive path: a build run inside a worktree must write that worktree's quiz/, or it
+# silently clobbers the main tree and attributes the result to the wrong branch.
+HERE = Path(__file__).resolve().parent
+DST = HERE.parent
 
 SOURCES = {
  "NN150/22": {"title": "Pravilnik o amaterskim radijskim komunikacijama, NN 150/2022",

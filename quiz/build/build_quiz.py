@@ -2,7 +2,9 @@
 import json
 from pathlib import Path
 
-DST = Path(r"g:/My Drive/Electronics/HAM Radio License/quiz")
+# Resolved from this file, not cwd — rebuild.py runs us with cwd=quiz/build, but a direct
+# `python quiz/build/build_quiz.py` from anywhere must still hit the same checkout's quiz/.
+DST = Path(__file__).resolve().parent.parent
 doc = json.loads((DST / "questions.json").read_text(encoding="utf-8"))
 def pack(q, src):
     return {"id": q["id"], "s": q["section"], "sub": q.get("subsection"),
