@@ -41,8 +41,13 @@ for qid, spec in ov.items():
         continue
     y0, y1 = spec["figure"]
     page = doc[spec["page"] - 1]
+    # "figure_x" narrows the crop's horizontal span. Needed when the figure sits beside
+    # real option text at the SAME y (e.g. bk-teh-1-04's capacitor network to the left of
+    # "(a) 3 uF ... (d) 2 uF"): the normal full-page-width crop would hand the option text
+    # to whoever is looking at the picture. Absent, the crop stays full width as before.
+    x0, x1 = spec.get("figure_x", [0, page.rect.width])
     path = DST / f"{qid}.png"
-    page.get_pixmap(clip=pymupdf.Rect(0, y0, page.rect.width, y1), dpi=150).save(path)
+    page.get_pixmap(clip=pymupdf.Rect(x0, y0, x1, y1), dpi=150).save(path)
     w, h, _ = postprocess(path)
     index[qid] = {"file": path.name, "w": w, "h": h,
                   "is_options": bool(spec.get("figure_is_options"))}

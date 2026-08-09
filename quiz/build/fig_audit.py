@@ -308,8 +308,17 @@ def main():
             continue
         q = by_id.get(qid)
         y_hint = q["y"] if q and q.get("y") else None
-        window, coverage, why = propose_window(spec["page"], spec["question"],
-                                                 spec["options"], y_hint=y_hint)
+        # A "figure-plain" override (item 0032+: a stem the parser already read correctly,
+        # just missing its crop) carries no "question"/"options" of its own -- there is
+        # nothing to patch, so nothing was transcribed. Calibrate against the question's own
+        # already-correct parse instead of requiring the override to repeat it.
+        stem_q = spec.get("question", q["question"] if q else None)
+        stem_o = spec.get("options", q["options"] if q else None)
+        if stem_q is None or stem_o is None:
+            print(f"  {qid:14s}  no question text available (override nor parsed) -- "
+                  f"cannot calibrate")
+            continue
+        window, coverage, why = propose_window(spec["page"], stem_q, stem_o, y_hint=y_hint)
         actual = spec["figure"]
         if window is None:
             print(f"  {qid:14s}  stem not located -- cannot calibrate")
