@@ -80,6 +80,38 @@ that tells a later run an item was in flight. It is gitignored — transient sta
 
    Keep going until `pick.py` says nothing is ready, or the circuit breaker trips.
 
+## Loop mode
+
+Started with `/loop /drain`, this survives quota exhaustion. The quota window here is 5
+hours, and wakeups are capped at 1 hour, so the resume is a chain of cheap re-arms rather
+than one long sleep.
+
+**Arm the wakeup before doing any work.** Immediately on waking, and before dispatching the
+first worker:
+
+```
+ScheduleWakeup(delaySeconds=3600, prompt="/drain", reason="quota-kill safety net")
+```
+
+This ordering is the whole mechanism. A loop iteration would normally schedule its successor
+when it finishes — but a quota kill means the turn never finishes, so nothing would be armed
+at precisely the moment it is needed. Arming first means a pending wakeup always exists.
+
+Then drain as usual. At the end of the turn:
+
+- **queue empty** → `ScheduleWakeup(stop=true)`. The work is done; stop looping.
+- **items still ready** → re-arm at 60 s and keep going. Quota is evidently fine, so there is
+  no reason to idle for an hour.
+- **circuit breaker tripped** → re-arm at 3600 s and report. Something systematic is wrong
+  and hammering it will not help.
+
+Do not compute when the quota window resets. You cannot see it, and a wrong guess fails
+silently. Waking every hour and finding either fresh quota or none is cheap and self-
+correcting: a blocked wake does nothing and the next one tries again.
+
+A wake that finds nothing ready and nothing in flight should cost a `pick.py` call and exit.
+Do not re-read `QUEUE.md`, the queue bodies, or your own history to reorient.
+
 ## Circuit breaker
 
 **Two consecutive Recover events → stop the run.** Report both reasons and do not pick
