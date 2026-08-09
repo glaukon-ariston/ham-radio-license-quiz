@@ -146,6 +146,8 @@ td.num{font-family:var(--mono);font-variant-numeric:tabular-nums;text-align:righ
 .lk{margin-top:.6rem;font-size:.78rem;color:var(--muted)}
 .lk a{color:var(--accent);text-decoration:none;border-bottom:1px solid transparent}
 .lk a:hover,.lk a:focus-visible{border-bottom-color:var(--accent)}
+#qcrumb a{color:var(--accent);text-decoration:none;border-bottom:1px solid transparent}
+#qcrumb a:hover,#qcrumb a:focus-visible{border-bottom-color:var(--accent)}
 .cites{margin-top:.6rem;font-family:var(--mono);font-size:.72rem;color:var(--muted);
   line-height:1.5;border-top:1px dashed var(--line);padding-top:.5rem}
 .cites b{color:var(--ink);font-weight:700}
@@ -360,19 +362,41 @@ function timer(){
 
 function render(){
   const it = S.items[S.i], q = it.q;
-  const sub = q.sub ? " · " + q.sub.replace(/^\d+\.\s*/,"") : "";
+  const inExam = S.mode === "exam";
   $("#qcrumb").innerHTML = "";
-  $("#qcrumb").append(SEC[q.s].name + sub + " ");
+  // The section and cjelina names are practice entry points: clicking either starts a new
+  // practice session filtered to it. During an exam they stay inert text — following either
+  // would blow away the running attempt, same as the id permalink below.
+  const secEl = document.createElement(inExam ? "span" : "a");
+  secEl.textContent = SEC[q.s].name;
+  if(!inExam){
+    const secKey = q.s;
+    secEl.href = "#"; secEl.title = "Vježbaj ovo područje";
+    secEl.onclick = e => { e.preventDefault(); start("practice", {filter: qq => qq.s === secKey}); };
+  }
+  $("#qcrumb").append(secEl);
+  if(q.sub){
+    $("#qcrumb").append(" · ");
+    const subEl = document.createElement(inExam ? "span" : "a");
+    subEl.textContent = q.sub.replace(/^\d+\.\s*/,"");
+    if(!inExam){
+      const subKey = q.sub;
+      subEl.href = "#"; subEl.title = "Vježbaj ovu cjelinu";
+      subEl.onclick = e => { e.preventDefault(); start("practice", {filter: qq => qq.sub === subKey}); };
+    }
+    $("#qcrumb").append(subEl);
+  }
+  $("#qcrumb").append(" ");
   const tg = document.createElement("span"); tg.className = "tag";
   tg.textContent = q.src === "hrs" ? "HRS lista" : "priručnik";
   $("#qcrumb").append(tg, " ");
   // The id is the permalink. During an exam it is inert text — following it would blow away
   // the running attempt.
-  const idt = document.createElement(S.mode === "exam" ? "span" : "a");
+  const idt = document.createElement(inExam ? "span" : "a");
   idt.className = "tag"; idt.textContent = q.id;
-  if(S.mode !== "exam"){ idt.href = "#q=" + q.id; idt.title = "Poveznica na ovo pitanje"; }
+  if(!inExam){ idt.href = "#q=" + q.id; idt.title = "Poveznica na ovo pitanje"; }
   $("#qcrumb").append(idt);
-  if(S.mode !== "exam") setUrlQ(q.id);
+  if(!inExam) setUrlQ(q.id);
   $("#qcount").textContent = (S.i+1) + " / " + S.items.length;
   $("#qprog").style.width = pct(S.i, S.items.length) + "%";
   $("#qtext").textContent = q.q;
