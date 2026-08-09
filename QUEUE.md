@@ -38,8 +38,25 @@ A `notes_zzz_expanded_*.json` file is 32–135 KB, and Croatian text tokenises b
 cost in this project.
 
 Crossing a cluster boundary means that saving is gone anyway — so that is the cheapest
-moment to stop, throw the context away, and start the next stretch cold. Carrying a finished
-cluster's transcript into unrelated work pays for it on every later turn and buys nothing.
+moment to stop and start the next stretch cold. Carrying a finished cluster's transcript into
+unrelated work pays for it on every later turn and buys nothing.
+
+### Ending a stretch is a manual step
+
+Claude cannot reset its own context — there is no way for it to start itself a clean session.
+It can only stop and say so. Clearing is yours:
+
+- **`/clear`** in the current session, or
+- **a new session** — new window, or a new worktree checkout.
+
+Do it at every cluster boundary, and always when moving between bands: a `P1` bug fix and a
+`P3` notes grind share nothing, so carrying one into the other is pure cost. Skipping the
+clear still works; it just gets quietly more expensive each stretch, until automatic
+compaction summarises away something that mattered.
+
+Start the next stretch with the same line, in the fresh session:
+
+> Read QUEUE.md, take the next item, drain its cluster, stop.
 
 **Keep item files short — under ~20 lines.** Picking the next item means scanning all of
 `queue/todo/`, and that cost is paid at the start of every stretch.
