@@ -32,8 +32,10 @@ Refuse to start if the tree is dirty — say so and stop.
 3. **Judge the report.** `status: done` and `rebuild: 1176 ok` and `strict:` not regressed
    → go on. Anything else → **Recover** (below).
 
-4. **Check**: dispatch an `Explore` subagent — read-only by construction, so it cannot touch
-   the work it is judging:
+4. **Check**: first `git add -A`, so the checker sees the worker's *whole* footprint and not
+   just what it remembered to stage — anything left unstaged would otherwise skip the check
+   and be swept into the commit anyway. Then dispatch an `Explore` subagent, read-only by
+   construction, so it cannot touch the work it is judging:
 
    > Read `queue/CHECK.md`. Your item is `<path>`. Check the staged diff
    > (`git diff --cached`). Do not read `queue/reports/`. Return the four-line verdict.
