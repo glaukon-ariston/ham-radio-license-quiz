@@ -16,7 +16,29 @@ is the budget the whole run spends — it is paid again on every remaining item.
 git switch queue-drain 2>/dev/null || git switch -c queue-drain
 ```
 
-Refuse to start if the tree is dirty — say so and stop.
+Then decide what state you are resuming from:
+
+| `queue/.inflight` | tree | meaning | do |
+|---|---|---|---|
+| absent | clean | normal start | proceed |
+| absent | dirty | somebody's uncommitted work | **stop**, say so, change nothing |
+| present | either | an earlier run died mid-item | recover, then proceed |
+
+**Recovering an interrupted run.** A run that is killed — quota exhausted, machine asleep,
+window closed — leaves a part-done item behind. The item is still in `todo/`, because it only
+moves on success, so nothing is lost by discarding the partial work and redoing it cleanly:
+
+```
+git stash push -u -m "interrupted <number>"
+rm queue/.inflight
+```
+
+Report it in one line and carry on. Do **not** try to salvage the partial work: it was never
+verified, and a half-written notes file that looks finished is worse than no notes at all.
+
+Write `queue/.inflight` (the item number and the time) immediately **before** dispatching a
+worker, and delete it when the item is committed or Recovered. That file is the only thing
+that tells a later run an item was in flight. It is gitignored — transient state, not history.
 
 ## Per item
 

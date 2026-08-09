@@ -26,6 +26,9 @@ __pycache__/
 .venv/
 venv/
 
+# --- transient run state ---
+queue/.inflight
+
 # --- harness / os ---
 .claude/scheduled_tasks.lock
 .claude/settings.local.json
