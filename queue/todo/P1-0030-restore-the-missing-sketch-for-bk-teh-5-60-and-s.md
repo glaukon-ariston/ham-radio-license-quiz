@@ -17,7 +17,11 @@ it; `bk-teh-5-60` has a `figure` in `figs_book_index.json` and a PNG in `figs_bo
 showing the two masts and the wire; `figure_is_options` is false (the options are text);
 the figure renders in `quiz.html`; and `rebuild.py` runs clean.
 
+This is the pilot for the whole batch: it is the first *stem* figure ever cropped, and
+0031 calibrates its window proposer against the window measured here.
+
 **Avoid.** Do not touch the answer — key `b` comes from the book's own table and stands.
 Read the crop window off the rendered page of `docs/Radiokomunikacije_ocr.pdf`, the way
 the other six entries in `book_overrides.json` were taken; do not guess it. Keep the red
-neutralisation in `figures2.postprocess` — the book marks correct answers in red.
+neutralisation in `figures2.postprocess` — the book marks correct answers in red. Record
+the measured window in `queue/reports/0030.md` so 0031 can check against it.
