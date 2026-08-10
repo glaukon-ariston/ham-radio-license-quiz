@@ -1,0 +1,220 @@
+{
+ "_note": "Skupina VI, tehnički dio, paket _b (30 od 720 knjižnih pitanja, parni brojevi 2-60, dovršava skupinu VI zajedno s paketom _a iz P3-0026). Sve 30 provjerene izravno prema tiskanim stranicama RK (booktool.py za tekst + pymupdf render stranica pdf 338-349 = tiskane 344-355 kao slike, matrica 3x-6x, jer knjižne sličice u ovom PDF-u ~950 jednopikselnih inline slika koje get_images()/get_drawings() ne vide) 9-11 Aug 2026. Sve opcije za svih 30 pitanja uspoređene riječ po riječ s izravnim renderom stranice, ne s OCR tekstom iz current_cite/current_explanation. Odgovor (slovo) za svako od 30 pitanja dodatno je unakrsno provjeren protiv tablice 'ODGOVORI NA PITANJA' (tiskane str. 354-355, redci 1-60, stupac Skupina VI) renderane pri 6x - svih 30 slova iz packet_book_s6_tehnicki_b.json 'answer' polja se slažu s tablicom, transkripcija paketa je točna na razini slova (isti nalaz kao za paket _a).\n\nČetiri pitanja imaju has_figure=false u paketu iako stranica sadrži pravu sliku uz pitanje (potvrđeno izravnim uvidom u render): bk-teh-6-06 (frekvencijski spektar balansnog modulatora), bk-teh-6-14 (dijagram zračenja rezonancijske antene, četverolatičan/leptirast oblik), bk-teh-6-16 (shema serijskoga titrajnog kruga 100 mH/100 pF/100 Ω) i bk-teh-6-18 (blok-shema faznog/FM modulatora s ograničavačem i NPF-om). Za sva četiri, za razliku od dva slučaja nađena u paketu _a (bk-teh-6-09, bk-teh-6-11), stvarna slika je već ispravno povezana u quiz/build/figs_book_index.json (provjereno programski) i quiz/build/figs_book/ - taj mehanizam je odvojen od paketova has_figure polja pa netočna zastavica ondje ne utječe na izgrađeni kviz; opisano je ipak u napomeni svakog od ta četiri pitanja radi potpunosti i dosljednosti s paketom _a. Nema novih propusta u figs_book_index.json za ovaj paket.\n\nOCR-lijepljeni/tablični defekti u tekstu opcija koji NE mijenjaju koje slovo je točno, ali mijenjaju ŠTO to slovo znači: bk-teh-6-04 - paketove opcije (a) i (c) su razlomci s grčkim slovom π koje je OCR posve uništio: stvarno (a)='5/π kΩ' (≈1,59 kΩ), (c)='10/π kΩ' (≈3,18 kΩ), dok paket ima (a)='> kQ' i (c)='ko' - besmislene niske znakova bez brojčane vrijednosti. Paketovo 'answer':'a' je ispravno slovo (tablica ga potvrđuje, i fizika: Xc=1/(2πfC)=1/(2π·50·2 µF)≈1592 Ω≈5/π kΩ), ali sam tekst opcije (a) u paketu ne nosi nikakvu brojčanu informaciju. bk-teh-6-14 - paketove opcije su OCR paketa iskrivljenog grčkog slova λ (lambda): stvarno (a)='λ', (b)='λ/2', (c)='3λ/2', (d)='4λ/2' [tj. 2λ], dok paket ima (a)='%', (b)='a2', (c)='34/2', (d)='43/2' - simboli bez ikakvog očiglednog značenja dok se ne usporede sa stvarnom stranicom. Paketovo 'answer':'a' je ispravno slovo (tablica ga potvrđuje), a stvarni tekst uz njega je 'λ' (puna valna duljina), ne '%'. bk-teh-6-34 - pitanje glasi u paketu '[1-filtar se nalazi:' - OCR je grčko slovo Π (veliko pi) pretvorio u '[1'; knjiga sama (tiskana str. 139, odjeljak 5.3.7.) rabi upravo zapis 'II-filtar (PI-filtar)' pa je stvarni naziv 'Π-filtar' ('PI-filtar'), potpuno čitljiv i potvrđen izravno knjižnim tekstom - manji OCR defekt bez utjecaja na točnost odgovora. Manji, ne-semantički OCR artefakti (stupanj ° čitan kao '\\\"' ili '%', Ω čitan kao 'Q' ili '9', ± čitan kao '£' ili '+', F sloj bez indeksa '2') zabilježeni su usput u pojedinim napomenama gdje su nađeni, ali nisu posebno istaknuti jer ne mijenjaju značenje niti bi zavarali čitatelja.\n\nBez vanjskih poveznica - link_check.py/check_notes.py ne obrađuju ovu datoteku (samo notes_zzz_expanded_*), pa poveznice namjerno izostavljene da se izbjegne neprovjerena tvrdnja.",
+ "bk-teh-6-02": {
+  "note": "Grana iz pitanja 1. u kojoj se mjeri U1 sastoji od R1=10 Ω u seriji s R2=90 Ω, priključena na puni napon izvora U=100 V (druge dvije grane sheme na taj serijski par ne utječu, jer sve tri grane vise na istom paru čvorova). Struja kroz tu granu je I = U/(R1+R2) = 100 V/100 Ω = 1 A, pa je disipacija na otporniku R1 (za koji je u pitanju 1. izračunat U1=10 V): P = I²·R1 = (1 A)²·10 Ω = 10 W, ili ekvivalentno P = U1²/R1 = (10 V)²/10 Ω = 10 W - opcija (b). Ostale opcije (5 W, 50 W, 100 W) odgovaraju zamjeni R1 i R2, pogrešnom zbroju otpora ili računanju snage na pogrešnom otporniku.",
+  "formula": ["I = U / (R1+R2) = 100 V / 100 Ω = 1 A", "P_R1 = I² · R1 = 1² · 10 Ω = 10 W"],
+  "cite": [
+   {"src": "RK", "loc": "Ispitna pitanja, SKUPINA VI, pitanje 2 (nastavak sheme iz pitanja 1: U=100 V, R1=10Ω+R2=90Ω), tiskana str. 344"},
+   {"src": "RK", "loc": "1.1.4. Snaga električne struje (P = U·I = I²·R = U²/R), tiskana str. 23-24"}
+  ]
+ },
+ "bk-teh-6-04": {
+  "note": "Knjiga izravno navodi formulu za reaktanciju (kapacitivni otpor) kondenzatora: Xc = 1/(ωC) = 1/(2πfC). Za C=2 µF i f=50 Hz slijedi Xc = 1/(2π·50·2·10⁻⁶) = 1/(6,283·10⁻⁴) ≈ 1592 Ω = 5000/π Ω = 5/π kΩ, opcija (a) - paketov tekst uz (a) je OCR-om uništen razlomak s π (vidi napomenu na vrhu datoteke), ali stvarna vrijednost 5/π kΩ ≈ 1,59 kΩ odgovara upravo izračunu. Opcija (b) 1300 Ω i (d) 5000 Ω su preniske/nesuvisle vrijednosti za zadane C i f, a (c) 10/π kΩ ≈ 3,18 kΩ je dvostruko veća od točne vrijednosti (odgovarala bi npr. C=1 µF).",
+  "formula": ["Xc = 1/(2πfC) = 1/(2π · 50 Hz · 2·10⁻⁶ F) ≈ 1592 Ω = 5/π kΩ"],
+  "cite": [
+   {"src": "RK", "loc": "Ispitna pitanja, SKUPINA VI, pitanje 4, tiskana str. 344"},
+   {"src": "RK", "loc": "2.2.1. Reaktancija kondenzatora (Xc = 1/ωC = 1/2πfC), tiskana str. 62"}
+  ]
+ },
+ "bk-teh-6-06": {
+  "note": "Paketov has_figure=false je pogrešan (iako je stvarna slika već ispravno povezana u figs_book_index.json, izvan ove datoteke): pitanje nosi frekvencijski spektar (niz uskih pruga oko jedne frekvencije, bez izražene, visoke pruge nositelja u sredini) s oznakom 'Frekvencija' na apscisi. Knjiga opisuje da balansni modulator na izlazu daje dvostruki bočni pojas s potisnutim nositeljem (DSB-SC) - upravo takav spektar bez dominantne linije nositelja, iz kojega se u SSB-odašiljaču potom filtrom izdvaja samo jedan bočni pojas - opcija (c). AM modulator (a) bi dao izraženu liniju nositelja, FM modulator (b) daje kontinuirani, simetrični spektar oko nositelja čiji oblik ovisi o indeksu modulacije (ne prikazan ovdje), a miješalo (d) bi dalo diskretne linije zbroja/razlike dviju ulaznih frekvencija, ne kontinuirani pojas.",
+  "cite": [
+   {"src": "RK", "loc": "Ispitna pitanja, SKUPINA VI, pitanje 6 (frekvencijski spektar bez izražene linije nositelja), tiskana str. 345"},
+   {"src": "RK", "loc": "5.3.9. SSB modulator i Sl. 5.5. Blok shema balansnoga modulatora, tiskana str. 140-141"}
+  ]
+ },
+ "bk-teh-6-08": {
+  "note": "Knjiga izravno opisuje spoj tranzistora sa zajedničkim kolektorom (emitersko sljedilo): 'Pojačanje emiterskoga sljedila uvijek je manje od jedan, a ulazni i izlazni signali su istofazni.' To je doslovno opcija (d), naponsko pojačanje < 1 i fazni pomak 0°. Suprotno tomu, spoj sa zajedničkim emiterom (opisan na istoj stranici prije) daje pojačanje >1 uz fazni pomak 180°, što odgovara distraktoru (b)/(c) s pogrešnim brojčanim pojačanjem, dok (a) '>1, istofazni' ne odgovara nijednom od tri temeljna spoja opisana u knjizi.",
+  "cite": [
+   {"src": "RK", "loc": "Ispitna pitanja, SKUPINA VI, pitanje 8, tiskana str. 345"},
+   {"src": "RK", "loc": "2.6.3.1., t.1.2. Spoj tranzistora sa zajedničkim kolektorom — emitersko sljedilo (pojačanje <1, ulazni i izlazni signali istofazni), tiskana str. 84-85"}
+  ]
+ },
+ "bk-teh-6-10": {
+  "note": "Knjiga izravno navodi da se varikap-dioda (varicap) rabi kao frekvencijski modulator jer joj se 'kapacitet... mijenja u ovisnosti o NF modulacijskom naponu' preko reverznog (blokirnog) napona na diodi - kod poluvodičkih dioda opće je svojstvo zaporno polariziranog p-n spoja da porastom reverznog napona raste širina osiromašenog (zapornog) sloja, a time kapacitet spoja OPADA. To potvrđuje opciju (b), reverzni napon raste, kapacitet opada. Opcije (a) i (c) obrću smjer te ovisnosti, a (d) niječe samu fizičku osnovu na kojoj varikap-dioda radi kao modulator.",
+  "cite": [
+   {"src": "RK", "loc": "Ispitna pitanja, SKUPINA VI, pitanje 10, tiskana str. 345"},
+   {"src": "RK", "loc": "5.3.8. Frekvencijski modulator (varikap-dioda u krugu oscilatora, kapacitet ovisan o NF naponu), tiskana str. 139-140"}
+  ]
+ },
+ "bk-teh-6-12": {
+  "note": "Knjiga izravno definira efektivnu izračenu snagu (e.r.p.) kao 'umnožak snage privedene anteni i...' dobitka antene (uz gubitke voda). Snaga privedena anteni nakon gubitka na vodu od 0,5 dB iznosi P_ant = 50 W · 10^(-0,5/10) ≈ 44,5 W, a uz dobitak antene G=3,5 dB slijedi e.r.p. = P_ant · 10^(3,5/10) ≈ 44,5 W · 2,239 ≈ 99,6 W ≈ 100 W - opcija (c). Neto dobitak sustava (dobitak antene umanjen za gubitak voda) iznosi 3,5-0,5=3 dB ≈ faktor 2, pa je e.r.p. ≈ 2 · 50 W = 100 W, što potvrđuje isti rezultat jednostavnijim putem. Ostale opcije (55 W, 60 W, 120 W) ne odgovaraju umnošku/dijeljenju s ispravnim dB-faktorima.",
+  "formula": ["neto dobitak = G - L = 3,5 dB - 0,5 dB = 3 dB ≈ faktor 2", "e.r.p. = 50 W · 2 = 100 W"],
+  "cite": [
+   {"src": "RK", "loc": "Ispitna pitanja, SKUPINA VI, pitanje 12, tiskana str. 346"},
+   {"src": "RK", "loc": "6.1. ANTENE — 6. efektivna izračena snaga (e.r.p.): umnožak snage privedene anteni i dobitka antene, tiskana str. 151"},
+   {"src": "RK", "loc": "1.9.4. O decibelu (dB) — pretvorba dB u omjer snaga, tiskana str. 53-55"}
+  ]
+ },
+ "bk-teh-6-14": {
+  "note": "Paketov has_figure=false je pogrešan (slika je već ispravno povezana u figs_book_index.json, izvan ove datoteke): pitanje nosi dijagram zračenja u obliku četiriju latica ('leptirasti' oblik) rezonancijske antene na visini h=2λ iznad idealno vodljivoga tla. Knjiga izravno prikazuje (Sl. 6.1.4.) teorijske dijagrame zračenja rezonantnih antena u vodoravnoj ravnini za četiri duljine: poluvalnu, cijelovalnu, tripolovinsku (3λ/2) i antenu dvostruke valne duljine (4λ/2=2λ) antenu, uz pravilo da 'dijagrami zračenja za antene s duljinom l ≤ λ/2 nemaju bočnih latica', dok antene koje rade na višim harmonicima s l=n·λ/2 (n=2,3,4...) imaju bočne latice - broj latica raste s n. Četveroliticni prikaz u pitanju odgovara upravo cijelovalnoj anteni (n=2 poluvalne duljine, l=λ), sl. 6.1.4.b u knjizi - opcija (a). Poluvalna antena (b) ne bi imala bočne latice (samo osnovni 'osmica' oblik), a duže antene (c, d) imaju više latica nego što je prikazano.",
+  "cite": [
+   {"src": "RK", "loc": "Ispitna pitanja, SKUPINA VI, pitanje 14 (dijagram zračenja: četiri latice, h=2λ), tiskana str. 346"},
+   {"src": "RK", "loc": "6.1.2. Dijagrami zračenja — Sl. 6.1.4. (dijagrami za poluvalnu, cijelovalnu, 3λ/2 i 2λ antenu) i pravilo o broju bočnih latica ovisno o l=n·λ/2, tiskana str. 148-149"}
+  ]
+ },
+ "bk-teh-6-16": {
+  "note": "Paketov has_figure=false je pogrešan (slika je već ispravno povezana u figs_book_index.json, izvan ove datoteke): pitanje nosi shemu serijskoga RLC kruga sa zavojnicom 100 mH, kondenzatorom 100 pF i otpornikom 100 Ω. Knjiga izravno navodi: 'Impedancija Z serijskog RLC ugođenog kruga [u rezonanciji] jednaka je djelatnom otporu R. Struju ograničava samo djelatni otpor R.' Budući da je u ovom krugu R=100 Ω, otpor (impedancija) kruga u rezonanciji je upravo 100 Ω - opcija (c) (paketov OCR '1009' je uništeni zapis '100 Ω'). Opcija (a) 'ništica' bi vrijedila samo za idealan krug s R=0, (b) 50 Ω i (d) 'vrlo visok' ne odgovaraju zadanoj vrijednosti otpora niti ponašanju serijskog (za razliku od paralelnog) titrajnog kruga u rezonanciji.",
+  "formula": ["Z_rezonancija (serijski RLC) = R = 100 Ω"],
+  "cite": [
+   {"src": "RK", "loc": "Ispitna pitanja, SKUPINA VI, pitanje 16 (shema: 100 mH, 100 pF, 100 Ω u seriji), tiskana str. 346"},
+   {"src": "RK", "loc": "3.2.3. Serijski RLC titrajni krug (impedancija u rezonanciji Z=R), tiskana str. 110-111"}
+  ]
+ },
+ "bk-teh-6-18": {
+  "note": "Paketov has_figure=false je pogrešan (slika je već ispravno povezana u figs_book_index.json, izvan ove datoteke): blok-shema prikazuje mikrofon → mikrofonsko pojačalo (0...3 kHz) → par antiparalelnih dioda (simetrični ograničavač/klipper) → promjenjivi otpornik (potenciometar) → NF-filtar (NPF, 0...3 kHz) → izlaz označen 'K oscilatoru' (prema oscilatoru). Knjiga opisuje frekvencijski modulator kao sklop koji mijenja kapacitet (npr. varikap-diodom) 'u krugu oscilatora... u ovisnosti o NF modulacijskom naponu' - izlaz sklopa na slici doista ide 'K oscilatoru', što odgovara upravo takvom izravnom (reaktantnom) FM modulatoru. Par dioda simetrično reže (ograničava) amplitudu NF signala PRIJE nego dođe do potenciometra i filtra koji ga vode na oscilator - to je klasična zaštita od prekomjerne devijacije: ograničavanjem najveće amplitude NF napona koji upravlja reaktantnim elementom oscilatora, ograničava se i najveća moguća frekvencijska devijacija, bez obzira koliko jak je ulazni govorni signal - opcija (d), kontrola devijacije frekvencije. Amplitudna modulacija (a) ne mijenja frekvenciju oscilatora pa ne bi trebala djelovati na njegov krug; fazna modulacija (b) se, kako knjiga navodi, 'ne izvodi djelovanjem na sam oscilator... već djelovanjem na titrajni krug u nekom stupnju iza oscilatora', suprotno strelici 'K oscilatoru' na slici; (c) 'ograničavaću frekv. pojasa' opisuje funkciju NF-filtra (dio sklopa), ali ne svrhu ograničavača dioda koji dolazi prije njega u lancu. Napomena: izravna rečenica knjige koja bi objašnjavala baš ovu kombinaciju (klipper+potenciometar+NPF ispred reaktantnog modulatora) kao 'kontrolu devijacije' nije pronađena - zaključak je izveden iz slike sheme u kombinaciji s općim opisom frekvencijskog modulatora i uobičajene uloge ograničavača amplitude.",
+  "cite": [
+   {"src": "RK", "loc": "Ispitna pitanja, SKUPINA VI, pitanje 18 (blok-shema: mikrofon, mikrofonsko pojačalo, ograničavač (diode), potenciometar, NPF, 'K oscilatoru'), tiskana str. 347"},
+   {"src": "RK", "loc": "5.3.8. Frekvencijski modulator (varikap-dioda u krugu oscilatora, kapacitet ovisan o NF naponu) i 5.3.10. Fazni modulator (djeluje na stupanj iza oscilatora, ne na sam oscilator), tiskana str. 139-141"}
+  ]
+ },
+ "bk-teh-6-20": {
+  "note": "Knjiga izravno navodi širinu RF-pojasa za tri vrste modulacije: kod AM 'širina RF-pojasa jednaka je dvostrukoj vrijednosti najviše [modulacijske] frekvencije', kod FM je 'ovisna o indeksu modulacije... jednaka dvostrukoj najvišoj modulacijskoj frekvenciji uvećanoj za dvostruki iznos devijacije frekvencije' (dakle šira od AM-a), dok je 'kod SSB odašiljača RF širina pojasa jednaka je najvećoj modulacijskoj frekvenciji' - upola uža od AM-a jer se prenosi samo jedan bočni pojas bez nositelja. To čini SSB najužim od navedenih, opcija (b). PM (d) ima usporedivu ili veću širinu od FM-a, ne užu.",
+  "cite": [
+   {"src": "RK", "loc": "Ispitna pitanja, SKUPINA VI, pitanje 20, tiskana str. 347"},
+   {"src": "RK", "loc": "5.4.2. RF — širina pojasa (SSB: širina pojasa = najveća modulacijska frekvencija; AM: dvostruka; FM: šira, ovisna o devijaciji), tiskana str. 142"}
+  ]
+ },
+ "bk-teh-6-22": {
+  "note": "Knjiga izravno navodi da ultrakratki (radio)valovi zbog savijanja i raspršivanja dosežu dalje od optičkog vidokruga, 'kao da bi Zemlja imala takvu zakrivljenost kada bismo njezin polumjer povećali za 1/3' (poznati '4/3 Zemljinog polumjera' model radiohorizonta). To je doslovno opcija (d), veći za 1/3 od stvarnoga (za polumjer, što je ekvivalentno za promjer/prečnik u pitanju). Ostale opcije (manji za 1/3, jednak, veći za 1/5) ne odgovaraju tom, u knjizi izričito navedenom, faktoru uvećanja.",
+  "cite": [
+   {"src": "RK", "loc": "Ispitna pitanja, SKUPINA VI, pitanje 22, tiskana str. 347"},
+   {"src": "RK", "loc": "7.1.4. Troposfersko rasprostiranje — Radiohorizont ('Zemlja bi imala takvu zakrivljenost kada bismo njezin polumjer povećali za 1/3'), tiskana str. 172"}
+  ]
+ },
+ "bk-teh-6-24": {
+  "note": "Knjiga izravno definira: 'Kritična frekvencija f_c je najviša frekvencija vala, koji upada okomito na ionosferski sloj, a koji se još odbija natrag prema Zemlji.' To je doslovno opcija (b), okomito (0°). Ostale opcije (45°, 60°, vodoravno/90°) opisuju kose ili tangencijalne upadne kutove, za koje bi (pri istoj gustoći ionizacije) i viša frekvencija od kritične mogla biti reflektirana natrag - definicija kritične frekvencije vezana je posebno uz okomiti upad.",
+  "cite": [
+   {"src": "RK", "loc": "Ispitna pitanja, SKUPINA VI, pitanje 24, tiskana str. 348"},
+   {"src": "RK", "loc": "7.1.3.1. Znakovite frekvencije — Kritična frekvencija ('najviša frekvencija vala, koji upada okomito na ionosferski sloj, a koji se još odbija natrag prema Zemlji'), tiskana str. 168"}
+  ]
+ },
+ "bk-teh-6-26": {
+  "note": "Knjiga opisuje 'iznenadni ionosferski poremećaj' (SID) kao posljedicu 'posebno visoke razine ionizacije u D-području' izazvane izvanredno snažnim Sunčevim zračenjem, s posljedicom 'potpunog prekida komunikacija u cijelom dijelu HF spektra'. To se doslovno poklapa s pitanjem i opcijom (d), D sloja-apsorbera (knjiga na drugome mjestu izričito naziva D-sloj 'apsorberom' radiovalova). Ostale opcije (svi slojevi, posebice E, F odnosno F2) ne odgovaraju sloju za koji knjiga izričito veže uzrok SID-a.",
+  "cite": [
+   {"src": "RK", "loc": "Ispitna pitanja, SKUPINA VI, pitanje 26, tiskana str. 348"},
+   {"src": "RK", "loc": "7.1.3.2. Iznimni uvjeti rasprostiranja — Poremećaji (SID: posebno visoka ionizacija D-područja, potpuni prekid HF komunikacija), tiskana str. 169"},
+   {"src": "RK", "loc": "7.1.3. Utjecaj D-sloja na rasprostiranje radiovalova ('D-sloj djeluje uglavnom kao apsorber energije radiovalova'), tiskana str. 167"}
+  ]
+ },
+ "bk-teh-6-28": {
+  "note": "Knjiga izravno navodi da intermodulacija nastaje kad 'na ulazu imamo dva signala različitih frekvencija', a element na koji djeluju je nelinearan (kod linearnog elementa signali se samo zbrajaju, bez novih kombinacijskih frekvencija). Budući da nelinearnost pojačala/ulaznog stupnja prijamnika uzrokuje pojavu zbroja/razlike frekvencija dvaju ulaznih signala (i njihovih harmonika) bez obzira gdje se točno taj nelinearni element nalazi na ulaznom putu, opcija (a), na bilo kojem nelinearnom elementu na ulazu prijamnika, ispravno opisuje opći uvjet. Opcije (b) i (c) pogrešno ograničavaju pojavu na samo jednu vrstu elemenata (elektronku odnosno tranzistor), a (d) obrće ključni uvjet - na LINEARNOM elementu intermodulacija ne nastaje.",
+  "cite": [
+   {"src": "RK", "loc": "Ispitna pitanja, SKUPINA VI, pitanje 28, tiskana str. 348"},
+   {"src": "RK", "loc": "4.4.6. Intermodulacija, modulacijska smetnja, tiskana str. 135"}
+  ]
+ },
+ "bk-teh-6-30": {
+  "note": "Knjiga izravno navodi: 'Međufrekvencijsko pojačalo ima najveći utjecaj na selektivnost prijamnika, ali i na osjetljivost... Na taj način se lakše dobije željena selektivnost.' To je doslovno opcija (b), postizanja zahtjevane selektivnosti prijamnika. Iako MF pojačalo utječe i na osjetljivost (opcija a), knjiga izričito ističe selektivnost kao njegov glavni doprinos; stabilnost (c) i omjer signal/šum (d) ovise prvenstveno o drugim stupnjevima (oscilatoru odnosno RF/detektorskom dijelu).",
+  "cite": [
+   {"src": "RK", "loc": "Ispitna pitanja, SKUPINA VI, pitanje 30, tiskana str. 349"},
+   {"src": "RK", "loc": "4.3.4. Međufrekvencijsko pojačalo (najveći utjecaj na selektivnost prijamnika), tiskana str. 132"}
+  ]
+ },
+ "bk-teh-6-32": {
+  "note": "Knjiga izravno navodi: 'Selektivnost ovisi o broju i vrsti titrajnih krugova, najviše u međufrekvencijskom pojačalu.' To je doslovno opcija (c), MF pojačalu - jer je međufrekvencija stalna (za razliku od VF-a koja se mijenja ugađanjem), titrajni krugovi u MF-u mogu biti fiksno i vrlo precizno ugođeni (uključujući uske kristalne/keramičke filtre), što daje najlakši put do zahtijevane selektivnosti. VF pojačalo (a) mora pratiti promjenjivu ulaznu frekvenciju pa je teže postići usku selektivnost, a oscilator (b) i NF pojačalo (d) ne sudjeluju izravno u odvajanju susjednih RF kanala.",
+  "cite": [
+   {"src": "RK", "loc": "Ispitna pitanja, SKUPINA VI, pitanje 32, tiskana str. 349"},
+   {"src": "RK", "loc": "4.4.2. Selektivnost ('ovisi o broju i vrsti titrajnih krugova, najviše u međufrekvencijskom pojačalu'), tiskana str. 134"}
+  ]
+ },
+ "bk-teh-6-34": {
+  "note": "Pitanje u paketu glasi '[1-filtar se nalazi:' - OCR defekt grčkog slova Π (vidi napomenu na vrhu datoteke); stvarni naziv je 'Π-filtar' ('PI-filtar'), kako ga knjiga sama piše. Knjiga izravno navodi: 'Između izlaznog pojačala i priključnice na koju se spaja antenski kabel u pravilu se uvijek postavlja izlazni filtar, koji se zbog svog oblika, koji sliči grč. slovu pi, naziva Π-filtar (PI-filtar). Njegova uloga... s jedne strane vrši transformaciju (prilagodbu) izlazne impedancije izlaznog pojačala na ulaznu impedanciju kabela, s druge strane potiskuje harmonička zračenja.' To je doslovno opcija (a), između izlaznog stupnja i antenske priključnice. Ostale opcije smještaju filtar na sasvim druga mjesta u lancu odašiljača (mikrofon/NF ulaz, oscilator/VF ulaz, MF stupnjevi) koja knjiga ne povezuje s Π-filtrom.",
+  "cite": [
+   {"src": "RK", "loc": "Ispitna pitanja, SKUPINA VI, pitanje 34, tiskana str. 349"},
+   {"src": "RK", "loc": "5.3.7. Izlazni filtar (PI-filtar) — 'između izlaznog pojačala i priključnice na koju se spaja antenski kabel', tiskana str. 139"}
+  ]
+ },
+ "bk-teh-6-36": {
+  "note": "Knjiga izravno navodi za izlazno (snažno) pojačalo odašiljača: 'Zbog toga se mora voditi računa o odvođenju previše raspršene energije, bilo izradom posebnih hladnjaka za odvođenje topline ili čak prisilnim odvođenjem topline uporabom ventilatora.' To se doslovno poklapa s opcijom (c). Strujanje toplog zraka PREMA pojačalu (a) bi disipaciju samo pogoršalo, termička izolacija (b) bi spriječila odvođenje topline umjesto da ga omogući, a nepoduzimanje ničega (d) je izravno suprotno onome što knjiga propisuje.",
+  "cite": [
+   {"src": "RK", "loc": "Ispitna pitanja, SKUPINA VI, pitanje 36, tiskana str. 350"},
+   {"src": "RK", "loc": "5.3.6. Pojačalo snage (hladnjaci ili prisilno odvođenje topline ventilatorom kod prevelike disipacije), tiskana str. 139"}
+  ]
+ },
+ "bk-teh-6-38": {
+  "note": "Knjiga izravno navodi: 'Budući da SSB odašiljač na izlazu ima linearno pojačalo, kod njega se ne rabi C razred.' Poslije miješala (translacije frekvencije) SSB signal već nosi svu potrebnu amplitudnu (envelope) informaciju - svaka daljnja nelinearna obrada bi izobličila omjer amplituda unutar signala, pa se poslije miješala primjenjuje isključivo linearno pojačanje razine potrebne za traženu izlaznu snagu, bez daljnjeg množenja ili translacije frekvencije - opcija (c). Umnažanje frekvencije (a) i dodatna translacija (d) nisu dio SSB odašiljačkog lanca poslije miješala, a pojačanje u C razredu (b) je upravo ono što knjiga izričito isključuje za SSB.",
+  "cite": [
+   {"src": "RK", "loc": "Ispitna pitanja, SKUPINA VI, pitanje 38, tiskana str. 350"},
+   {"src": "RK", "loc": "5.3.6. Pojačalo snage ('SSB odašiljač na izlazu ima linearno pojačalo, kod njega se ne rabi C razred'), tiskana str. 139"}
+  ]
+ },
+ "bk-teh-6-40": {
+  "note": "Knjiga izravno navodi za amplitudno modulirani odašiljač: 'Bez modulacije jednaka je snazi vala nositelja, a uz modulaciju od 100 posto veća je od snage bez modulacije za 50 posto.' Taj dodatnih 50% ukupne (nositeljeve) snage potječe upravo iz oba bočna pojasa zajedno (gornji+donji), pa bočni pojasi kod 100-postotne AM modulacije - njihova najveća moguća vrijednost - imaju najviše 50% snage nositelja, opcija (b). Manje postotne vrijednosti modulacije daju manje snage u bočnim pojasima, a veće postotke od 100% (koji bi odgovarali opcijama 80% ili 100%) AM modulacija fizički ne dopušta bez izobličenja.",
+  "formula": ["P_bočni_pojasi(max, pri 100% modulaciji) = 0,5 · P_nositelj"],
+  "cite": [
+   {"src": "RK", "loc": "Ispitna pitanja, SKUPINA VI, pitanje 40, tiskana str. 350"},
+   {"src": "RK", "loc": "5.4.7. Izlazna snaga ('uz modulaciju od 100 posto veća je od snage bez modulacije za 50 posto'), tiskana str. 143"}
+  ]
+ },
+ "bk-teh-6-42": {
+  "note": "Knjiga izravno navodi za dip-metar: 'Dip-metar mjeri frekvenciju s jednakom točnošću kao i apsorpcijsko mjerilo frekvencije, s tim što sada krugovi kojima se mjeri rezonancijska frekvencija ne moraju biti aktivni', te da se njime 'na isti način... lako dođe do nepoznate vrijednosti induktivnosti neke zavojnice ili se lako odredi faktor dobrote, Q-faktor' (uz kapacitet, opisan retkom prije za analogni slučaj s apsorpcijskim mjerilom). To se poklapa s opcijom (a), mjerenje pasivnih titrajnih krugova, kapaciteta, induktiviteta, Q-faktora. Suprotno tomu, knjiga izričito navodi da je dip-metar SKUPLJI od apsorpcijskog mjerila 'zbog veće složenosti i potrebnog napajanja' - obrnuto od (b) i (c), koje opisuju prednosti apsorpcijskog mjerila (bez napajanja, jeftinije), ne dipmetra, a (d) pogrešno tvrdi veću točnost/osjetljivost dipmetra dok knjiga kaže da je točnost 'jednaka' apsorpcijskom mjerilu.",
+  "cite": [
+   {"src": "RK", "loc": "Ispitna pitanja, SKUPINA VI, pitanje 42, tiskana str. 350"},
+   {"src": "RK", "loc": "8.2.6. Dip-metar (mjerenje pasivnih titrajnih krugova, induktiviteta, Q-faktora; krugovi ne moraju biti aktivni), tiskana str. 184-185"}
+  ]
+ },
+ "bk-teh-6-44": {
+  "note": "Netočnost instrumenta u apsolutnom iznosu dobije se množenjem izmjerene frekvencije s dopuštenim relativnim odstupanjem: 100 ppm = 100·10⁻⁶ = 0,0001. Za mjerenu frekvenciju 21 MHz slijedi netočnost = 21 000 000 Hz · 0,0001 = 2100 Hz = ± 2,1 kHz - opcija (b). Opcija (a) ± 210 Hz je za faktor 10 premala (odgovarala bi 10 ppm), a (c) ± 21,0 kHz i (d) ±210 kHz su za faktor 10 odnosno 100 prevelike. Riječ je o izravnom aritmetičkom pretvaranju ppm-a u Hz, bez posebne knjižne formule; nije pronađena rečenica u RK koja bi ovu pretvorbu izričito iznosila, pa je citirana samo ispitna stranica.",
+  "formula": ["netočnost = f_mjerena · tolerancija(ppm)/10⁶ = 21 000 000 Hz · 100/10⁶ = 2100 Hz = 2,1 kHz"],
+  "cite": [
+   {"src": "RK", "loc": "Ispitna pitanja, SKUPINA VI, pitanje 44, tiskana str. 351"}
+  ]
+ },
+ "bk-teh-6-46": {
+  "note": "Knjiga izravno navodi kao jedan od zahtjeva na prijamnik da mora imati mogućnost 'blokiranja ili smanjivanja osjetljivosti (iznad 80 dB)' u odnosu na jake neželjene signale u blizini - to je upravo pojava koja nastaje kad snažan (1 kW) odašiljač zrači izravno prema susjedovoj TV anteni: ulazni (RF/tjunerski) stupanj televizijskog prijamnika, projektiran za znatno slabije signale, biva preopterećen jakim izvanpojasnim signalom na 435 MHz, što ga blokira ili unosi izobličenja/intermodulaciju neovisno o vlastitoj frekvenciji televizijskoga kanala - opcija (d), preopterećenje ulaza televizora (tjuner!). Opcije (a) i (b) opisuju smetnje NAŠIM uređajima na 435 MHz, ne susjedovu televizoru, a (c) preopterećenje izlaza vlastitog odašiljača nije posljedica usmjeravanja prema susjedovoj anteni.",
+  "cite": [
+   {"src": "RK", "loc": "Ispitna pitanja, SKUPINA VI, pitanje 46, tiskana str. 351"},
+   {"src": "RK", "loc": "9.2.2. Parametri prijamnika i smetnje (zahtjev na otpornost prijamnika na blokiranje/smanjivanje osjetljivosti od jakih neželjenih signala), tiskana str. 198"}
+  ]
+ },
+ "bk-teh-6-48": {
+  "note": "U gusto naseljenom susjedstvu udaljenost do susjedove opreme je po prirodi stvari mala, pa je i rizik smetnji (npr. preopterećenja susjedovih prijamnika, vidi pitanje 46.) razmjerno velik; jakost polja u blizini antene opada s udaljenošću, pa je postavljanje antene što dalje od susjeda (unutar dopuštenih granica vlastitog zemljišta i visine) najizravniji način da se ta jakost polja kod susjeda smanji - opcija (a). Spuštanje antene niže (b) bi, obrnuto, antenu često približilo susjednim zgradama i osobama; rad s najvećom snagom (c) izravno povećava rizik smetnji, a dulji antenski kablovi (d) sami po sebi ne smanjuju jakost polja kod susjeda niti su spomenuti u knjizi kao mjera protiv smetnji u gustom susjedstvu. Napomena: izričita rečenica knjige koja preporučuje baš ovu mjeru za gusto naseljeno susjedstvo nije pronađena - zaključak slijedi iz općeg načela da jakost polja/rizik smetnji opada s udaljenošću od izvora, opisanog u poglavlju o smetnjama.",
+  "cite": [
+   {"src": "RK", "loc": "Ispitna pitanja, SKUPINA VI, pitanje 48, tiskana str. 351"},
+   {"src": "RK", "loc": "9.2.2. Parametri prijamnika i smetnje — Sl. 9.2.6. (jakost šuma/smetnje raste što smo bliže izvoru), tiskana str. 198-199"}
+  ]
+ },
+ "bk-teh-6-50": {
+  "note": "Knjiga u više navrata izričito propisuje oklapanje RF/MF sklopova i generatora frekvencija: 'oklapanjem svakog RF-sklopa zasebno' kao mjeru protiv sporednih zračenja, te posebno za sintetizator frekvencije: 'Sintezator treba biti odgovarajuće oklopljen i filtriran. U suprotnom imamo šum umoduliran u sintezatoru.' To se poklapa s opcijom (b), biti dobro oklopljeni. Slobodno zračenje u prostor (a) je suprotno propisanoj mjeri, plastična kućišta (c) ne pružaju elektromagnetski oklop (za razliku od kovinskih), a propisno hlađenje (d) rješava toplinski, ne elektromagnetski problem.",
+  "cite": [
+   {"src": "RK", "loc": "Ispitna pitanja, SKUPINA VI, pitanje 50, tiskana str. 352"},
+   {"src": "RK", "loc": "9.2.1.3. Druge sporedne emisije (oklapanje svakog RF-sklopa zasebno; sintezator mora biti oklopljen i filtriran), tiskana str. 196-197"}
+  ]
+ },
+ "bk-teh-6-52": {
+  "note": "Knjiga izravno navodi za parazitne rezonancije (samooscilacije) pojačala: 'Samooscilacije se mogu pojaviti na radnoj frekvenciji ili blizu nje, ali i na potpuno nepredviđenim frekvencijama.' 'Potpuno nepredviđene frekvencije' znači upravo frekvencije koje nisu u jednostavnom, predvidivom (npr. cjelobrojnom) odnosu prema radnoj frekvenciji - to je opcija (d), relacijski nepovezane s radnom frekvencijom. Opcije (a), (b) i (c) tvrde suprotno: da su te frekvencije u točno određenom, predvidljivom omjeru prema radnoj ili mrežnoj frekvenciji, što je obilježje HARMONIČKIH, ne parazitnih smetnji.",
+  "cite": [
+   {"src": "RK", "loc": "Ispitna pitanja, SKUPINA VI, pitanje 52, tiskana str. 352"},
+   {"src": "RK", "loc": "9.2.1.3. Druge sporedne emisije ('samooscilacije se mogu pojaviti... na potpuno nepredviđenim frekvencijama'), tiskana str. 197"}
+  ]
+ },
+ "bk-teh-6-54": {
+  "note": "Knjiga izravno navodi: 'Osjetljivost, naprimjer, ne smije biti niti preniska, jer bi to zahtijevalo primjenu većih snaga kod odašiljača, a time i mogućnost ometanja drugih službi.' To je doslovno opcija (a). Opcije (c) i (d) proglašavaju posljedicu (nedovoljna osjetljivost) automatski lošom kvalitetom uređaja ili nemogućnošću primanja signala, što knjiga ne tvrdi izravno - njezin naglasak je na POSLJEDICI za sustav (potreba za jačim odašiljačima i rizik ometanja), a (b) niječe da uopće postoji stvaran razlog, suprotno knjizi.",
+  "cite": [
+   {"src": "RK", "loc": "Ispitna pitanja, SKUPINA VI, pitanje 54, tiskana str. 352"},
+   {"src": "RK", "loc": "9.2.2. Parametri prijamnika i smetnje ('osjetljivost ne smije biti niti preniska, jer bi to zahtijevalo primjenu većih snaga kod odašiljača, a time i mogućnost ometanja drugih službi'), tiskana str. 198"}
+  ]
+ },
+ "bk-teh-6-56": {
+  "note": "Cijelo poglavlje 9.2. ('Uzroci smetnja i mjere za njihovo sprečavanje') opisuje upravo ovu kombinaciju mjera: uzemljenje i oklapanje pojedinačnih RF-sklopova ('oklapanjem svakog RF-sklopa zasebno'), filtriranje (notch-filtar, niskopropusni/pojasnopropusni filtar, mrežni filtar) i rasprezanje/odvajanje uzemljenja i vodova ('Dobro RF uzemljenje razdvojite od mrežnog', korištenje bифilarnih zavojnica i kondenzatora za odvođenje RF struja na masu u mrežnom filtru). Zajedno te mjere odgovaraju opciji (c), oklapanje s propisnim uzemljivanjem, filtriranje i rasprezanje - nijedna sama za sebe (kako tvrde opcije a, b, d) nije dovoljna, što je u skladu s opsegom mjera koje knjiga navodi kroz cijelo poglavlje.",
+  "cite": [
+   {"src": "RK", "loc": "Ispitna pitanja, SKUPINA VI, pitanje 56, tiskana str. 353"},
+   {"src": "RK", "loc": "9.2. Uzroci smetnja i mjere za njihovo sprečavanje — Napomene N1-N6 uz Sl. 9.2.1. i mrežni/RF filtri, tiskana str. 191-201"}
+  ]
+ },
+ "bk-teh-6-58": {
+  "note": "Knjiga izravno navodi: 'Notch-filtar..., postavlja se samo u slučaju kad postoji uočen problem samo s jednom harmoničkom frekvencijom. Obično je to jedan rezonantni titrajni krug, koji je ugođen upravo tako da se omogući potiskivanje neželjenog harmonika.' To je doslovno opcija (c), samo kad znademo koja harmonička frekvencija smeta - jer notch-filtar mora biti ugođen upravo na tu poznatu frekvenciju da bi djelovao, za razliku od širokopojasnih filtara (visoko/niskopropusnih) koji ne zahtijevaju poznavanje točne frekvencije. Opcije (a), (b) i (d) predlažu uporabu notch-filtra i kad frekvencija smetnje NIJE poznata ili je smetnja širokopojasna, suprotno njegovoj uskopojasnoj, na jednu frekvenciju ugođenoj prirodi.",
+  "cite": [
+   {"src": "RK", "loc": "Ispitna pitanja, SKUPINA VI, pitanje 58, tiskana str. 353"},
+   {"src": "RK", "loc": "9.2. Uzroci smetnja i mjere za njihovo sprečavanje — 1. Notch-filtar ('postavlja se samo u slučaju kad postoji uočen problem samo s jednom harmoničkom frekvencijom'), tiskana str. 192"}
+  ]
+ },
+ "bk-teh-6-60": {
+  "note": "Knjiga u Tablici 10.2. ('Neke efektivne vrijednosti elektromagnetskog polja', propisane Pravilnikom o ograničenjima jakosti elektromagnetskih polja, NN 183/04) izravno navodi za frekvencijsko područje 10...400 MHz graničnu jakost električnog polja E = 11,2 V/m za 6-minutno izlaganje - opcija (d), doslovno preuzeta vrijednost iz tablice. Ostale opcije (29, 35, 40 V/m) ne odgovaraju vrijednosti propisanoj za taj frekvencijski raspon (usporedbe radi, te brojke bliže su vrijednostima za niže frekvencijsko područje 1...10 MHz gdje granica ovisi o f).",
+  "cite": [
+   {"src": "RK", "loc": "Ispitna pitanja, SKUPINA VI, pitanje 60, tiskana str. 353"},
+   {"src": "RK", "loc": "10.1.2. Ljudsko tijelo i elektromagnetska polja radijskih frekvencija — Tablica 10.2. (10...400 MHz: E=11,2 V/m), tiskana str. 207"}
+  ]
+ }
+}
