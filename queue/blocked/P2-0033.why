@@ -1,5 +1,13 @@
 fig_audit.py still reports 3 outstanding skupina-II ids (bk-teh-2-03, bk-teh-2-28, bk-teh-2-30) after the worker's diff; bk-teh-2-03's parsed stem/options are actually bk-teh-2-04's content merged in (OCR defect), unaddressed. Work stashed: 'queue P2-0033: fail'.
 
-2026-08-10: a 4th outstanding id found by inspection, not by fig_audit.py: bk-teh-2-15
-("Predstavljeni frekvencijski spektar značajka je :"), missing from 0031's original list
-entirely. Added to the item body's scope.
+2026-08-10: Glaukon reported bk-teh-2-15 as missing a figure. Correction: it was NOT a 4th
+gap. The stashed attempt (this stash, stash@{2} at time of writing: "On queue-drain: queue
+P2-0033: fail") already fixed it — book_overrides.json diff adds
+`"bk-teh-2-15": {"page": 296, "reason": "figure-plain", "figure": [287, 397]}`, and the
+untracked queue/reports/P2-0033.md captured in the same stash (3rd parent, `stash@{2}^3`)
+confirms it was opened by eye and is correct (the proposer's raw [287,432] overshot by
+35pt because the "SSB" option is 3 chars, under the hybrid-detector's 6-char floor — see
+report's table). The stash actually fixed 12 of 14 candidate ids cleanly (rebuild.py clean,
+1176 questions, strict.py 96.3% up from 95.4%) and only failed because bk-teh-2-03,
+bk-teh-2-28, bk-teh-2-30 couldn't be closed under this item's own rules — see report for
+why each of those three is a different problem, not unfinished crop work.
