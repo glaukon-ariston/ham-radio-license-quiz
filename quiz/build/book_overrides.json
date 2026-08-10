@@ -36,6 +36,9 @@
     "options": {"a": "zrakoplovne navigacijske službe", "b": "radijskog sustava TETRA", "c": "analognog celularnog NMT sustava", "d": "VHF/FM odašiljača radijskoga programa"}},
 
   "bk-teh-2-02": {"page": 293, "reason": "figure-plain", "figure": [219, 352]},
+  "bk-teh-2-03": {"page": 293, "reason": "figure-options", "figure": [428, 655], "figure_is_options": true,
+    "question": "Koja od skica predstavlja filtar, koji je prikladan da slijedi iza mikrofona sa ciljem ograničenja frekvencijskog pojasa:",
+    "options": {"a": "a)", "b": "b)", "c": "c)", "d": "d)"}},
   "bk-teh-2-04": {"page": 294, "reason": "merged-block", "figure": [89, 253],
     "question": "Sklop na slici je:",
     "options": {"a": "detektor ovojnice", "b": "ratio detektor", "c": "AM – detektor", "d": "punovalni ispravljač"}},
