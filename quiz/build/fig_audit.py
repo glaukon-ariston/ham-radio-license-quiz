@@ -36,6 +36,12 @@ This is a PROPOSAL tool. It writes fig_windows.json for a human to look at in it
 a regression gate: if a question book_overrides.json already says has a figure loses
 its entry in figs_book_index.json (i.e. book_figures.py silently stopped cropping it),
 this script exits nonzero so rebuild.py aborts rather than ship the regression quietly.
+
+A separate, explicit NO_FIGURE dict (below) holds ids confirmed BY EYE to have no
+figure at all -- the GAP detector's false-positive class, where a long wrapped stem
+alone produces the same >60pt gap a real figure would. These are suppressed from the
+outstanding/proposed report without touching book_overrides.json or the regression
+gate; see NO_FIGURE's own docstring for the rule on adding to it.
 """
 import difflib
 import json
@@ -60,6 +66,25 @@ FIGURE_WORD = re.compile(
     r"\b(slika|slici|sliku|shem|crte\u017e|crtez|dijagram|oscilogram|skic"
     r"|krivulj|graf|prikaz|zaslon|spektar|tlocrt|simbol)", re.I)
 NEXT_ANCHOR = re.compile(r"^\(?(\d{1,3})\s*[.,;:]")
+
+# Ids confirmed BY EYE against the rendered PDF page to have no figure at all -- the
+# GAP detector's own false-positive class. A stem that simply wraps 3-4 lines produces
+# the same >60pt stem-y-to-option-y gap as a real figure would (book_parsed2.json's `y`
+# is the first line's y only), with nothing between stem and options on the page. This
+# is a suppression list, not a fix to GAP_THRESHOLD -- tuning the threshold to pass
+# these "naturally" risks hiding a real gap elsewhere the same way. Every entry here
+# must have been confirmed by eye, not assumed from the gap size alone; the reason
+# string should say what page was rendered and what was (and wasn't) seen there. Does
+# NOT touch book_overrides.json or the regression gate below -- it only suppresses
+# these ids from the "outstanding" report and fig_windows.json.
+NO_FIGURE = {
+    "bk-teh-2-28": "gap 66.9pt is the stem's own 3-4 line wrap, not a figure; pdf p.298 "
+                   "(printed 303) rendered and confirmed pure text, no schematic/graph "
+                   "between stem and options (queue/reports/P2-0033.md)",
+    "bk-teh-2-30": "gap 76.8pt is the stem's own 3-4 line wrap, not a figure; pdf p.299 "
+                   "(printed 304) rendered and confirmed pure text, no schematic/graph "
+                   "between stem and options (queue/reports/P2-0033.md)",
+}
 
 doc = pymupdf.open(PDF)
 
@@ -256,12 +281,17 @@ def main():
     print(f"\n{'id':14s} {'page':>4s} {'gap':>7s}  {'detector':<10s} figure")
     outstanding = {}
     unresolved = []
+    excluded = []
     for q, name_hit, gap_hit, gap in candidates:
         det = "name+gap" if name_hit and gap_hit else ("name" if name_hit else "gap")
         already = q["id"] in has_figure
-        print(f"{q['id']:14s} {q['page']:>4d} {gap:>7.1f}  {det:<10s} "
-              f"{'yes' if already else 'NO'}")
+        no_fig = q["id"] in NO_FIGURE
+        status = "yes" if already else ("excluded" if no_fig else "NO")
+        print(f"{q['id']:14s} {q['page']:>4d} {gap:>7.1f}  {det:<10s} {status}")
         if already:
+            continue
+        if no_fig:
+            excluded.append(q["id"])
             continue
         window, coverage, why = propose_window(q["page"], q["question"], q["options"],
                                                  y_hint=q["y"])
@@ -284,6 +314,7 @@ def main():
     print(f"both             : {n_both}")
     print(f"union (suspects) : {len(candidates)}")
     print(f"already fixed    : {n_already}")
+    print(f"excluded (no fig): {len(excluded)} {excluded}")
     print(f"unresolved       : {len(unresolved)} {unresolved}")
     print(f"proposed         : {len(outstanding)}  -> fig_windows.json")
 
