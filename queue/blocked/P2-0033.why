@@ -1,1 +1,5 @@
 fig_audit.py still reports 3 outstanding skupina-II ids (bk-teh-2-03, bk-teh-2-28, bk-teh-2-30) after the worker's diff; bk-teh-2-03's parsed stem/options are actually bk-teh-2-04's content merged in (OCR defect), unaddressed. Work stashed: 'queue P2-0033: fail'.
+
+2026-08-10: a 4th outstanding id found by inspection, not by fig_audit.py: bk-teh-2-15
+("Predstavljeni frekvencijski spektar značajka je :"), missing from 0031's original list
+entirely. Added to the item body's scope.
