@@ -1,0 +1,128 @@
+{
+ "_note": "Skupina II, tehnički dio, paket _a (30 od 720 knjižnih pitanja, neparni brojevi 1-59). Napomene provjerene prema tiskanim stranicama RK (booktool.py + izravno renderiranje stranica 298-308 i navedenih poglavlja) 9-10 Aug 2026. Bez vanjskih poveznica — link_check.py ne obrađuje ovu datoteku (samo notes_zzz_expanded_*), pa poveznice namjerno izostavljene da se izbjegne neprovjerena tvrdnja.",
+ "bk-teh-2-01": {
+  "note": "Tolerancija ±N% znači da izmjerena vrijednost otpora smije odstupati za najviše N% od natpisane (nazivne) vrijednosti u oba smjera. Za otpornik 4,7 kΩ ±10% donja granica je 4700×0,90=4230 Ω, a gornja granica 4700×1,10=5170 Ω — izmjerena vrijednost mora ležati između tih dviju granica, dakle između 4230 Ω i 5170 Ω. Preostali ponuđeni rasponi ili odgovaraju drugom postotku tolerancije ili miješaju gornju granicu jednog izračuna s donjom drugoga.",
+  "formula": ["Rmin = Rnazivno × (1 − tolerancija)", "Rmax = Rnazivno × (1 + tolerancija)", "4700 Ω × 0,90 = 4230 Ω;  4700 Ω × 1,10 = 5170 Ω"],
+  "cite": [{"src": "RK", "loc": "2.1. Otpornik (primjer izračuna tolerancije 47Ω×10²±10%), tiskana str. 59"}]
+ },
+ "bk-teh-2-03": {
+  "note": "Slika prikazuje četiri krivulje frekvencijskog odziva u odnosu na graničnu frekvenciju od 3 kHz — tipičnu gornju granicu razumljivog govornog (audio) pojasa. Filtar koji treba slijediti iza mikrofona radi ograničenja frekvencijskog pojasa mora propustiti govorni signal od najnižih frekvencija do otprilike 3 kHz, a potisnuti sve iznad te granice — dakle mora biti NISKOPROPUSNI filtar s ravnim odzivom do 3 kHz koji nakon toga opada. To odgovara krivulji d), ravnoj od najnižih frekvencija do 3 kHz, koja zatim pada. Krivulja a) je pojasno propusna oko 3 kHz (uska vrpca, ne od nule), krivulja b) je visokopropusna (raste do 3 kHz pa ostaje ravna iznad), a krivulja c) ima urez (pojasno zaporna) baš na 3 kHz — nijedna od te tri ne ograničava audiopojas na koristan način za govor iza mikrofona.",
+  "cite": [{"src": "RK", "loc": "Ispitna pitanja, SKUPINA II, pitanje 3 (4 krivulje frekvencijskog odziva filtra, granica 3 kHz), tiskana str. 298"}]
+ },
+ "bk-teh-2-05": {
+  "note": "Polarizacija elektromagnetskog vala definirana je smjerom (ravninom) njegove komponente ELEKTRIČNOG POLJA E — ako E titra okomito na tlo, polarizacija je vertikalna, ako titra paralelno s tlom, polarizacija je horizontalna. Komponenta magnetskog polja H uvijek je okomita na E i na smjer širenja vala, pa se polarizacija po dogovoru opisuje preko E, a ne preko H. Ni vrsta prijamne antene ni sam smjer širenja vala ne određuju polarizaciju vala — antena mora biti usklađena s polarizacijom radi dobrog prijama, ali polarizaciju ne stvara.",
+  "cite": [{"src": "RK", "loc": "1.5.3. Polarizacija, tiskana str. 40"}]
+ },
+ "bk-teh-2-07": {
+  "note": "Transformator T sa slike iz pitanja 6. spaja kolektorski krug audiofrekvencijskog (AF) pojačala s zvučnikom niske impedancije (svega nekoliko oma). Impedancija na bilo kojoj strani transformatora mijenja se s KVADRATOM omjera zavoja, Za/Zb=(na/nb)², pa se izborom omjera zavoja visoka izlazna impedancija pojačala transformira na nisku impedanciju zvučnika radi najvećeg prijenosa snage — to je impedancijska prilagodba. Sam idealni transformator ne uvećava snagu (nije naponsko, strujno ni snažno pojačanje), samo transformira omjer napona/struje/impedancije.",
+  "formula": ["Za / Zb = (na / nb)²"],
+  "cite": [{"src": "RK", "loc": "2.4. Načelo transformacije i transformatori, tiskana str. 71-72"}]
+ },
+ "bk-teh-2-09": {
+  "note": "Sklop iz pitanja 8. je Colpittsov oscilator: titrajni krug čine kondenzatori C1, C2 (kapacitivni djelitelj) i zavojnica, a tranzistor održava oscilacije pozitivnom povratnom spregom preko tog djelitelja. Izlaz oscilatora uzima se s AKTIVNE, kolektorske strane sklopa — točke C, gdje je tranzistor preko otpora spojen prema donjoj tračnici — a ne izravno iz samog titrajnog kruga (točke A, D) niti s baze (točka B). Kad bi se opteretilo sam titrajni krug, vanjski krug bi ga razdesio i pogoršao stabilnost oscilatora, zato se izlaz uvijek uzima s pojačavačke (kolektorske) strane.",
+  "cite": [{"src": "RK", "loc": "Ispitna pitanja, SKUPINA II, pitanja 8-9 (shema oscilatora s točkama A, B, C, D), tiskana str. 300; opće načelo u 4.3.2. Oscilator (stalni i promjenjivi), tiskana str. 131"}]
+ },
+ "bk-teh-2-11": {
+  "note": "Varikap (engl. varicap, variable capacitance) dioda je poluvodička dioda čiji kapacitet spoja ovisi o naponu reverzne polarizacije koji joj je priveden — što je reverzni napon veći, kapacitet je manji. Rabi se u titrajnim krugovima kao naponom upravljani promjenjivi kondenzator, npr. u FM modulatoru ili naponom upravljanom oscilatoru (VCO). Ne djeluje kao promjenjivi induktivitet ili otpor, niti kao stabilizator napona (to je uloga Zenerove diode).",
+  "cite": [{"src": "RK", "loc": "2.6.2.1. Primjeri uporabe dioda — 4. Varikap-dioda — FM modulacija, tiskana str. 81"}]
+ },
+ "bk-teh-2-13": {
+  "note": "Brzina širenja elektromagnetskog vala u zraku jednaka je brzini svjetlosti c≈3×10⁸ m/s, a povezana je s valnom duljinom λ i frekvencijom f izrazom λ=c/f, odnosno f=c/λ. Za λ=100 cm=1 m dobiva se f=3×10⁸ m/s ÷ 1 m=3×10⁸ Hz=300 MHz.",
+  "formula": ["f = c / λ", "f = 3×10⁸ m/s ÷ 1 m = 3×10⁸ Hz = 300 MHz"],
+  "cite": [{"src": "RK", "loc": "1.5.2. Brzina širenja, frekvencija i valna duljina, tiskana str. 39"}]
+ },
+ "bk-teh-2-15": {
+  "note": "Prikazani spektar sadrži tri crte: val nositelj na fc te po jednu bočnu crtu na fc−fm i fc+fm (donji i gornji bočni pojas), simetrično oko nositelja — to je upravo frekvencijski otisak AMPLITUDNE modulacije jednim tonom, jer modulacija nastaje množenjem nositelja modulacijskim signalom, što u spektru stvara zbrojnu i razlikovnu komponentu uz nepromijenjeni nositelj. Kod FM/PM spektar sadrži mnogo parova bočnih crta čak i za jednostavan ton, a SSB zadržava samo jednu bočnu crtu bez nositelja — nijedno od toga ne odgovara ovom jednostavnom simetričnom paru crta oko punog nositelja.",
+  "cite": [{"src": "RK", "loc": "1.8.1. Amplitudna modulacija — AM, tiskana str. 47"}]
+ },
+ "bk-teh-2-17": {
+  "note": "Kod višepojasne trap-antene svaki par trap-krugova (paralelni LC) na svojoj rezonantnoj frekvenciji predstavlja vrlo veliku impedanciju i time električki 'prekida' žicu antene u toj točki — dio antene iza (dalje od napajanja) tog trapa tada više bitno ne sudjeluje u zračenju. Da bi na najvišem frekvencijskom pojasu ove antene (10 m, oko 29 MHz) antena bila upravo poluvalni dipol te duljine, prvi, napajanju najbliži par trap-krugova L1C1 mora biti ugođen baš na 29 MHz — samo tako se, gledano s napajanja, na 10 m vidi kratka antena omeđena tim trapom. Vanjski parovi L2C2 dodaju se dalje prema krajevima za niže pojaseve (15 m, 20 m).",
+  "cite": [{"src": "RK", "loc": "6.1.6.2. Trap-dipol (W3DZZ-antena), tiskana str. 151; Ispitna pitanja, SKUPINA II, pitanje 17 (shema s L1,C1,L2,C2), tiskana str. 301"}]
+ },
+ "bk-teh-2-19": {
+  "note": "Sklop prima signal s međufrekvencijskog (MF) transformatora, ispravlja ga JEDNOM diodom, a kondenzator na izlazu izglađuje ispravljeni signal prateći omotnicu (ovojnicu) VF nositelja — to je klasični diodni detektor ovojnice, standardna izvedba AM detektora. Nema drugog para dioda niti faznoosjetljivog sklopa kakav bi trebao FM diskriminator ili ratio-detektor, a jedan diodni element bez LC filtra za mrežnu frekvenciju isključuje mrežni ispravljač; nema ni Zenerove diode potrebne za stabilizaciju napona.",
+  "cite": [{"src": "RK", "loc": "3.5.2. Diodni detektor ili detektor ovojnice, tiskana str. 122; Ispitna pitanja, SKUPINA II, pitanje 19 (MF ulaz 10,7 MHz), tiskana str. 302"}]
+ },
+ "bk-teh-2-21": {
+  "note": "Danju sunčevo zračenje ionizira atmosferu dovoljno jako da postoje slojevi D, E te F razdvojen na F1 i F2. Noću, bez sunčeva zračenja, rekombinacija najbrže uklanja najslabije ionizirani D sloj, koji potpuno nestaje, dok se F1 i F2, zbog slabije ionizacije, spajaju u jedinstveni F sloj — noću u ionosferi tako ostaju samo slojevi E i F.",
+  "cite": [{"src": "RK", "loc": "7.1.3. Rasprostiranje ionosferskim valom, tiskana str. 165"}]
+ },
+ "bk-teh-2-23": {
+  "note": "Temperaturna inverzija u dolinama nastaje kad hladan, gušći zrak noću otječe niz obronke i skuplja se najniže u dolini, dok iznad njega ostaje sloj toplijeg zraka — suprotno uobičajenom padu temperature s visinom. Knjiga izravno navodi da se ovakva, mjesnim atmosferskim i topografskim uvjetima uzrokovana inverzija u dolinama 'događa obično ljeti nakon zalaska Sunca', za razliku od dnevnih inverzija pri izlasku/zalasku Sunca ili velikih inverzija nad vodenim površinama, koje se javljaju u drugim prilikama.",
+  "cite": [{"src": "RK", "loc": "7.1.4. Troposfersko rasprostiranje (Troposferska temperaturna inverzija), tiskana str. 173"}]
+ },
+ "bk-teh-2-25": {
+  "note": "Za redovite E- i F-slojeve knjiga navodi kritične frekvencije reda veličine do dvadesetak MHz (E-sloj do oko 4 MHz, F2-sloj do oko 13 MHz, iznimno i do 20 MHz u vrijeme snažne Sunčeve aktivnosti). Sporadični Es sloj je poseban, prolazan, gušće ioniziran oblak unutar E-područja koji povremeno odbija znatno više frekvencije nego redoviti E ili F sloj; prema HRS-ovoj tablici odgovora njegov mogući MUF doseže i do 140 MHz. Ta konkretna brojka nije dodatno razrađena u opisnom dijelu udžbenika (koji navodi samo opće kritične frekvencije redovitih slojeva), pa se ovdje navodi izravno prema tablici odgovora, a ne kao izvod iz teksta.",
+  "cite": [{"src": "RK", "loc": "tablica ODGOVORI NA PITANJA, redak 25, stupac Skupina II; opće kritične frekvencije slojeva u 7.1.3.1. Znakovite frekvencije, tiskana str. 168"}]
+ },
+ "bk-teh-2-27": {
+  "note": "Noću nestaje D sloj (najslabije ioniziran, najbrža rekombinacija), a gornji F sloj gubi razdvojenost na F1 i F2 pa se ta dva podsloja spajaju u jedinstveni F sloj, dok oslabljeni E sloj noću i dalje postoji. Preostaju, dakle, E sloj i spojeni F sloj, uz potpuni nestanak D sloja.",
+  "cite": [{"src": "RK", "loc": "7.1.3. Rasprostiranje ionosferskim valom, tiskana str. 165"}]
+ },
+ "bk-teh-2-29": {
+  "note": "Fazni pomak zbog razlike duljine puta δ dan je izrazom φ=360°×δ/λ. Geometrija je ista kao u zadatku 28 (razlika puta izravnog i od tla odbijenog vala δ=3 m), samo je sada frekvencija 50 MHz, čemu odgovara valna duljina λ=c/f=300/50=6 m. Uvrštavanjem: φ=360°×3/6=180°. Knjiga izravno navodi baš ovaj račun kao primjer: na 1,8 MHz (λ=160 m) ista razlika puta od 3 m daje fazni pomak od svega 6,7°, dok na 50 MHz (λ=6 m) ista razlika puta daje 180° — jer je pri kraćoj valnoj duljini ista fizička razlika puta razmjerno mnogo veći dio vala.",
+  "formula": ["φ = 360° × δ / λ", "λ = c/f = 300/50 = 6 m", "φ = 360° × 3/6 = 180°"],
+  "cite": [{"src": "RK", "loc": "7.1.4. Troposfersko rasprostiranje (izravni i od tla odbijeni val — primjer računa faznog pomaka na 1,8 MHz i 50 MHz), tiskana str. 172"}]
+ },
+ "bk-teh-2-31": {
+  "note": "Pojačalo visoke frekvencije (RF pojačalo) nalazi se NA ULAZU prijamnika, prije miješala — poboljšava osjetljivost, jer pojačava slab antenski signal prije nego uđe u šumljiviji dio sklopa, i poboljšava selektivnost, jer titrajni krugovi na ulazu i izlazu VF pojačala već djelomično potiskuju neželjene (npr. zrcalne) frekvencije prije nego stignu do miješala.",
+  "cite": [{"src": "RK", "loc": "4.3.1. Pojačalo visoke frekvencije (VF) ili radiofrekvencije (RF), tiskana str. 131"}]
+ },
+ "bk-teh-2-33": {
+  "note": "Dvostruka pretvorba frekvencije (dva miješala, dvije međufrekvencije) omogućuje da se iskoriste prednosti obiju krajnosti: PRVA, VISOKA međufrekvencija (npr. 1,6-30 MHz) dovoljno je udaljena od ulazne frekvencije da zrcalna frekvencija padne daleko izvan pojasa i lako se odbaci ulaznim pojasnopropusnim filtrom, dok DRUGA, NISKA međufrekvencija (npr. 50-100 kHz) omogućuje vrlo usko, oštro pojasno propusne filtre potrebne za dobru susjedno-kanalnu selektivnost. Jedna jedina međufrekvencija, visoka ili niska, uvijek mora birati između tih dviju prednosti pa ne daje jednako dobar rezultat u oba pogleda.",
+  "cite": [{"src": "RK", "loc": "4.1.1. Jednostruki i dvostruki superheterodinski prijamnik, tiskana str. 128; 4.4.5. Zrcalna frekvencija, tiskana str. 135"}]
+ },
+ "bk-teh-2-35": {
+  "note": "Stupanj korisnog djelovanja (učinkovitost) omjer je izlazne i ulazne snage pojačala. Ulazna je snaga zbog gubitaka uvijek veća od izlazne, pa učinkovitost ne može doseći niti prijeći vrijednost 1 — dobra konstrukcija ipak teži da učinkovitost bude ŠTO VEĆA I ŠTO BLIŽA JEDINICI, jer se tada manje snage gubi u toplinu i veći dio ulazne snage stiže do antene.",
+  "cite": [{"src": "RK", "loc": "5.4.8. Učinkovitost, tiskana str. 143"}]
+ },
+ "bk-teh-2-37": {
+  "note": "Odvojni stupanj (buffer) umeće se između oscilatora i sljedećih stupnjeva radi izolacije, ne radi pojačanja signala — knjiga izravno navodi da 'odvojni stupanj u pravilu nema pojačanje, ono je približno jednako jedinici, čak i nešto manje', odnosno reda veličine 0,98. Izvodi se obično kao emitersko sljedilo: signal se dovodi na bazu, a odvodi s emitera, uz visoku ulaznu i nisku izlaznu impedanciju koja štiti oscilator od promjena opterećenja iza njega.",
+  "cite": [{"src": "RK", "loc": "5.3.3. Odvojni stupanj, tiskana str. 138"}]
+ },
+ "bk-teh-2-39": {
+  "note": "Kad je rad velikom snagom praćen jakom neprilagodbom (VSWR 5:1), na prijenosnom vodu i uređajima u nizu (filtar, antenski prilagodnik) javljaju se mnogo veći naponi i struje nego pri dobroj prilagodbi. Knjiga to izravno navodi kao mogući uzrok PREKIDA napojnog voda ili dijelova u nizu (filtra, sklopki) zbog visokih napona, ili topljenja vodiča i izolatora zbog velike jakosti struje — mnogo ozbiljnija posljedica od 'ničega posebnog', i suprotna smjeru 'povećanja djelotvornosti' (gubici zbog neprilagodbe djelotvornost, dapače, smanjuju).",
+  "cite": [{"src": "RK", "loc": "6.2.4. Elementi za prilagodbu (Posljedice neprilagodbe), tiskana str. 160"}]
+ },
+ "bk-teh-2-41": {
+  "note": "Apsorpcijsko mjerilo frekvencije sadrži pasivni titrajni krug koji se ugađa dok se ne postigne rezonancija s frekvencijom nekog aktivnog (pobuđenog) titrajnog kruga koji mjerimo, primaknutog mjerilu — u rezonanciji mjerilo apsorbira (crpi) dio energije iz aktivnog kruga, što se očitava kao mala promjena struje. Prijenos energije ide, dakle, IZ aktivnog U pasivni mjerni krug — suprotno smjeru kojim radi dip-metar, koji ima vlastiti aktivni oscilator i prenosi energiju u pasivni krug koji se mjeri.",
+  "cite": [{"src": "RK", "loc": "8.2.5. Apsorpcijsko mjerilo frekvencije, tiskana str. 183"}]
+ },
+ "bk-teh-2-43": {
+  "note": "Knjiga izravno navodi da mjerila s ugrađenim ispravljačem i strujnim transformatorom, namijenjena mjerenju izmjeničnih napona i struja, ispravno mjere te veličine samo ako im je frekvencija do otprilike 10 kHz i ako je valni oblik sinusni — iznad te frekvencije parazitni kapaciteti i induktiviteti u ispravljaču i transformatoru narušavaju točnost, a takva mjerila su baždarena za čist sinusni oblik pa nesinusoidalan signal (npr. pravokutan) daju netočno očitanje.",
+  "cite": [{"src": "RK", "loc": "8.1.1.1. Pogreške pri mjerenju (Utjecaj frekvencije), tiskana str. 175"}]
+ },
+ "bk-teh-2-45": {
+  "note": "Elektronički voltmetar (s diodnim detektorom i ulaznim pojačalom, koji knjiga spominje za mjerenje RF napona do nekoliko stotina MHz) ima, za razliku od običnog analognog AVO-metra, ulazni krug koji signal dodatno pojačava/odvaja od mjernog sklopa, pa mu je ulazni otpor po voltu mjernog područja znatno veći od klasičnih pasivnih instrumenata (koji tipično imaju red veličine 20 000 Ω/V, kao u primjeru iz knjige) — kod elektroničkog voltmetra to je reda veličine 10 MΩ/V ili više, gotovo neovisno o mjernom području, jer ulazni otpor određuje sam pojačavački stupanj, a ne omjer otpornika u mjernom lancu. Zato elektronički voltmetar znatno manje opterećuje mjereni krug od klasičnog instrumenta.",
+  "cite": [{"src": "RK", "loc": "8.1.1.1. Pogreške pri mjerenju (elektronički voltmetar s diodnim detektorom i pojačalom), tiskana str. 175; usporedba s klasičnim instrumentom (20 000 Ω/V) u 8.2.2. Mjerilo s više područja / 8.2.8. Točnost i tolerancije, tiskana str. 182-187"}]
+ },
+ "bk-teh-2-47": {
+  "note": "Dip-metar radi na istom načelu kao apsorpcijsko mjerilo, samo obrnutim smjerom prijenosa energije: ima vlastiti aktivni oscilator čija se energija prenosi u pasivni (nepobuđeni) titrajni krug koji mjerimo — kad se dip-metar ugodi na njegovu rezonantnu frekvenciju, dio energije se apsorbira u mjereni krug, što se na dip-metru očituje kao pad ('dip') struje. To omogućuje mjerenje na krugovima koji sami nemaju vlastiti izvor energije, za razliku od apsorpcijskog mjerila kojemu, obrnuto, treba već aktivan krug da bi uopće mjerilo.",
+  "cite": [{"src": "RK", "loc": "8.2.6. Dip-metar, tiskana str. 184"}]
+ },
+ "bk-teh-2-49": {
+  "note": "Blizu postavljena, jaka amaterska antena (dobitak 18 dB na 432 MHz, samo 5 m od TV/UHF antene) dovodi u prijamnik snažan izvanpojasni signal koji, iako izvan kanala na koji je prijamnik ugođen, može preopteretiti (dovesti u nelinearni rad, tzv. blokiranje ili smanjenje osjetljivosti) ULAZNI stupanj TV prijamnika, tuner. Prijamnik tada gubi osjetljivost ili stvara lažne (intermodulacijske) produkte, što se opaža kao smetnja na ekranu, dok sama antena, silazni vod ili izlazni stupnjevi TV prijamnika time fizički nisu ugroženi.",
+  "cite": [{"src": "RK", "loc": "9.2.2. Parametri prijamnika i smetnje (blokiranje, smanjivanje osjetljivosti), tiskana str. 198"}]
+ },
+ "bk-teh-2-51": {
+  "note": "12 MHz nakon tri uzastopna udvostručenja (×2, ×2, ×2) daje 12×2×2×2=96 MHz. Ta frekvencija upada ravno u VHF/FM radiodifuzno područje (otprilike 87,5-108 MHz), a ne u zrakoplovno, pomorsko VHF ni u TV pojas III VHF područje. Knjiga daje posve analogan primjer: odašiljač u pojasu 50-51,9 MHz svojim DRUGIM harmonikom (dakle ×2) upada u područje 100-103,8 MHz VHF/FM radija — ista vrsta 'nezgode' umnažanja frekvencije koja lako pogodi radiodifuzni FM pojas.",
+  "formula": ["12 MHz × 2 × 2 × 2 = 96 MHz"],
+  "cite": [{"src": "RK", "loc": "9.2. Uzroci smetnja (primjer: harmonik amaterskog odašiljača upada u VHF/FM radiodifuzno područje), tiskana str. 192; 5.1.2. Umnožavanje frekvencije, tiskana str. 136"}]
+ },
+ "bk-teh-2-53": {
+  "note": "Širina RF pojasa kod frekvencijske modulacije jednaka je dvostrukoj najvišoj modulacijskoj frekvenciji uvećanoj za dvostruku devijaciju frekvencije (knjiga to izravno navodi u opisu širine pojasa kod FM). Devijacija Δf razmjerna je amplitudi (razini) modulacijskog NF signala — jači audiosignal daje veću devijaciju. Zato se, da širina zauzetog pojasa ostane unutar propisanih granica, razina modulacijskog (audio) signala namjerno OGRANIČAVA prije modulatora, čime se ograničava i devijacija, a time i ukupna širina pojasa. Povećanje indeksa modulacije ili neograničavanje razine signala djeluje upravo suprotno — širi zauzeti pojas.",
+  "cite": [{"src": "RK", "loc": "5.4.2. RF — širina pojasa, tiskana str. 142; devijacija ovisna o ulaznom AF signalu u 2.6.2.1., 4. Varikap-dioda — FM modulacija, tiskana str. 81"}]
+ },
+ "bk-teh-2-55": {
+  "note": "Knjiga izravno navodi da se, normirano, kao opasan smatra svaki istosmjerni napon viši od 120 V, a svaki NISKOFREKVENTNI (izmjenični) napon viši od 50 V — dakle 'svaki napon viši od 50 V' je točan prag za niskofrekventni napon, niži od pragova 80, 100 ili 110 V ponuđenih u ostalim odgovorima.",
+  "cite": [{"src": "RK", "loc": "10.1.1. Visoki napon, tiskana str. 203"}]
+ },
+ "bk-teh-2-57": {
+  "note": "Prema tablici osnovnih ograničenja za RF polja (SAR, struja dodira), granične vrijednosti razlikuju se ovisno o FREKVENCIJSKOM PODRUČJU (npr. druge granice za 10 kHz-300 GHz nego za 100 kHz-110 MHz) i navode se za određeno vrijeme, TRAJANJE izlaganja (npr. '6-minutno izlaganje'), dok sama razina štetnog djelovanja (SAR) ovisi o brzini kojom tijelo upija energiju, što je izravno povezano s JAKOŠĆU polja. Štetnost RF zračenja stoga istodobno ovisi o sve tri veličine — frekvenciji, jakosti polja i trajanju izlaganja — a ne samo o jednoj od njih.",
+  "cite": [{"src": "RK", "loc": "10.1.2. Ljudsko tijelo i elektromagnetska polja radijskih frekvencija (osnovna ograničenja, tablica 10.1.), tiskana str. 205-206"}]
+ },
+ "bk-teh-2-59": {
+  "note": "Notch (odrezni) filtar je uzak, na jednu frekvenciju ugođen rezonantni krug koji potiskuje samo tu jednu frekvenciju za dodatnih 25-30 dB, gotovo ne utječući na ostatak spektra. Knjiga izravno navodi da se notch-filtar postavlja upravo 'u slučaju kad postoji uočen problem samo s jednom harmoničkom frekvencijom' — točno situacija opisana u pitanju. Širokopojasni i mrežni filtar rješavaju šire, drugačije probleme (npr. RF prodor preko mrežnog voda), a klik filtar je namijenjen posve drugoj vrsti smetnje (klik pri Morseovu otipkavanju).",
+  "cite": [{"src": "RK", "loc": "9.2. Uzroci smetnja (1. Notch-filtar), tiskana str. 192"}]
+ }
+}
