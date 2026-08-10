@@ -1,0 +1,287 @@
+{
+ "_note": "Skupina V, hrvatska i međunarodna djelatna pravila i postupci — jedina datoteka za ovaj paket (40 od 720 knjižnih pitanja, cijeli packet_book_s5_pravila.json). Napomene provjerene izravno prema tiskanim stranicama RK i PZM (booktool.py za tekst, pymupdf render za tablične slike gdje OCR ne prati stupce) 9-10 Aug 2026. Paketov hrs_source je sustavno POGREŠAN za jednu stranicu (tvrdi tiskane str. 397-401; stvarne, izravno pročitane stranice RK-a su 398-402 — natpis 'SKUPINA V.' počinje na tiskanoj str. 398, potvrđeno booktool.py find i izravnim čitanjem: pitanja 1-7 na str.398, 8-16 na str.399, 17-24 na str.400, 25-32 na str.401, 33-40 na str.402). Sve opcije za svih 40 pitanja uspoređene riječ po riječ s izravnim čitanjem tih pet stranica. Svih 40 HRS-ovih točnih slova nezavisno je provjereno na SLICI (ne OCR tekstu, koji na toj tablici ne izdvaja stupce) tablice 'ODGOVORI NA PITANJA, C) HRVATSKA I MEĐUNARODNA DJELATNA PRAVILA I POSTUPCI', stupac Skupina V, RK tiskana str. 409-410 — svih 40 slova podudara se s packet-ovim 'answer' poljem, nijedno odstupanje nađeno. Posebno provjereno pitanje 29 (RV58): RK-ova vlastita tablica repetitorskih kanala (str. 280) daje RX=145,125 MHz / TX=145,725 MHz za RV58, što odgovara opciji (a) 'TX/RX 145,725/145,125' — ovdje HRS-ov ključ ispravno prati vlastitu tablicu knjige (za razliku od istoimenog pitanja u SKUPINI IV, gdje je ista brojčana nedosljednost bila OZNAČENA i NIJE ispravljena; vidi notes_book_s4_pravila.json). Nijedan flag nije bio potreban za ovaj paket. Izvori uz osnovnu ispitnu stranicu: RK 2. Kratice Q-koda (str. 251), RK 3. Operativne kratice (str. 252-255), RK 4. Međunarodni znakovi za nesreće + 5. Popis pozivnih oznaka po zemljama (str. 256, 260-261), RK 6. Planiranje pojaseva IARU-a (str. 264-266), RK Oznake i frekvencije kanala repetitora/simpleksa na 2 m (str. 280), RK Tablica 1.5.1 Radiofrekvencijska područja (str. 38), RK 1.2 Definicija amaterske postaje (str. 210); PZM Tema 24 Međunarodne oznake za opasnost (str. 141), Tema 28 Način održavanja radioamaterske veze (str. 147-148), Tema 32 RST-skala (str. 153-154), Tema 33 Radioamaterski kodeks ponašanja (str. 155). Četiri pitanja (1, 17, 18, 39) nemaju dodatni izvor uz ispitnu stranicu jer nijedan doslovni oslonac nije nađen u RK/PZM za tu konkretnu tvrdnju (konvencija 'UP', svrha kratica općenito, dijeljenost amaterskih pojaseva s drugim službama, pojam CALL BOOK) — u skladu s pravilom 'radije bez izvora nego s uvjerljivim, ali neprovjerenim'.",
+ "bk-pra-5-01": {
+  "note": "Dodatak 'PSE 5 UP' iza općeg telegrafskog poziva slijedi uobičajenu telegrafsku konvenciju rada 'razdvojeno' (split): pozivatelj najavljuje da odgovore sluša na frekvenciji 5 kHz VIŠOJ od one na kojoj sam odašilje poziv, kako se odgovori dozivatelja ne bi gomilali točno na njegovoj frekvenciji. Ne odnosi se na vrijeme čekanja (5 minuta), na pozivne oznake s brojkom 5 niti na odbijanje veze.",
+  "cite": [
+   {"src": "RK", "loc": "Ispitna pitanja, SKUPINA V, pitanje 1, tiskana str. 398"}
+  ]
+ },
+ "bk-pra-5-02": {
+  "note": "IARU-in plan pojasa za 40 metara svrstava segment 7045...7200 kHz pod 'telefonija, telegrafija' bez ograničenja na natjecanja ili posebne dane — 7,085 MHz je unutar tog raspona, pa je rad telefonijom dopušten.",
+  "cite": [
+   {"src": "RK", "loc": "6. Planiranje pojaseva IARU-a — plan pojasa 7 MHz: '7045...7200 kHz telefonija, telegrafija', tiskana str. 264"},
+   {"src": "RK", "loc": "Ispitna pitanja, SKUPINA V, pitanje 2, tiskana str. 398"}
+  ]
+ },
+ "bk-pra-5-03": {
+  "note": "RK-ov popis operativnih kratica prevodi RIG izravno kao 'uređaji, radiopostaje' — upit 'RIG? ?' traži baš ponavljanje tih podataka o primo-odašiljaču, dakle o RX/TX, ne ime i mjesto (to bi tražio drukčiji upit), ne adresu ni raport.",
+  "cite": [
+   {"src": "RK", "loc": "3. Operativne kratice — 'RIG — uređaji, radiopostaje', tiskana str. 254"},
+   {"src": "RK", "loc": "Ispitna pitanja, SKUPINA V, pitanje 3, tiskana str. 398"}
+  ]
+ },
+ "bk-pra-5-04": {
+  "note": "Zakon o telekomunikacijama, čl. 65. st. 3. (naveden u PZM-u uz kratice za nesreće) izravno propisuje da vlasnik ili korisnik radiopostaje koji primi znak opasnosti 'mora odmah prekinuti rad, odazvati se pozivu i staviti svoju radijsku postaju na raspolaganje ili postupiti kako je najsvrhovitije u takvoj situaciji' — što uključuje pokušaj obavještavanja nadležnih institucija, ne bijeg s frekvencije, pozivanje CQ DX niti ignoriranje poziva.",
+  "cite": [
+   {"src": "PZM", "loc": "Tema 24 — Međunarodne oznake za opasnost, čl. 65. st. 3. Zakona o telekomunikacijama, tiskana str. 141"},
+   {"src": "RK", "loc": "Ispitna pitanja, SKUPINA V, pitanje 4, tiskana str. 398"}
+  ]
+ },
+ "bk-pra-5-05": {
+  "note": "IARU-ina napomena uz plan pojaseva glasi: 'Na frekvencijskim pojasevima do 10 MHz upotrebljava se LSB (donji bočni pojas), a iznad 10 MHz upotrebljava se USB (gornji bočni pojas)' — 14, 21 i 28 MHz su svi iznad 10 MHz, dakle USB.",
+  "cite": [
+   {"src": "RK", "loc": "6. Planiranje pojaseva IARU-a — Napomene: 'iznad 10 MHz upotrebljava se USB', tiskana str. 266"},
+   {"src": "RK", "loc": "Ispitna pitanja, SKUPINA V, pitanje 5, tiskana str. 398"}
+  ]
+ },
+ "bk-pra-5-06": {
+  "note": "Rečenica se rastavlja kraticu po kraticu izravno prema RK-ovu popisu: MNI='puno, mnogo', TNX='hvala', FER='za', QSO='veza; održavanje veze' → 'mnogo hvala za vezu'; 73='radioamaterski pozdrav', ES='i (veznik)', GN='laku noć' → 'srdačan pozdrav i laku noć'. Spojeno odgovara točno opciji (c), ne uvodi ni raport (b) ni 'nisam održao vezu' (d).",
+  "cite": [
+   {"src": "RK", "loc": "3. Operativne kratice — 'MNI', 'TNX', 'FER', 'ES', 'GN', '73', tiskana str. 253-255"},
+   {"src": "RK", "loc": "2. Kratice Q-koda — 'QSO — veza; održavanje veze', tiskana str. 251"},
+   {"src": "RK", "loc": "Ispitna pitanja, SKUPINA V, pitanje 6, tiskana str. 398"}
+  ]
+ },
+ "bk-pra-5-07": {
+  "note": "PZM-ov primjer održavanja veze to kaže izravno, u zagradi uz sam poziv CQ: '(Prije pozivanja valja poslušati je li frekvencija slobodna.)', a u nastavku istog poglavlja ponavlja se još oštrije: 'Prije nego što počnete zvati CQ, obvezno provjerite je li frekvencija slobodna; krajnje je neuljudno i neamaterski zvati na frekvenciji koja je već zauzeta.'",
+  "cite": [
+   {"src": "PZM", "loc": "Tema 28 — Način održavanja radioamaterske veze: 'Prije pozivanja valja poslušati je li frekvencija slobodna', tiskana str. 147"},
+   {"src": "PZM", "loc": "Tema 28 — 'obvezno provjerite je li frekvencija slobodna; krajnje je neuljudno i neamaterski zvati na frekvenciji koja je već zauzeta', tiskana str. 148"},
+   {"src": "RK", "loc": "Ispitna pitanja, SKUPINA V, pitanje 7, tiskana str. 398"}
+  ]
+ },
+ "bk-pra-5-08": {
+  "note": "RK-ov popis Q-koda uvodi kratice kao dio telegrafske procedure ('Kratice Q-koda dolaze u dva značenja...'; procedurne kratice 'odašilju se kao dva spojena slova u Morseovom kodu') — Q-kod je po podrijetlu i uobičajenoj primjeni vezan uz telegrafski rad, dok se u telefoniji poruke prenose izravno govorom, bez potrebe za takvim skraćivanjem.",
+  "cite": [
+   {"src": "RK", "loc": "2. Kratice Q-koda — uvodni odlomak, tiskana str. 251"},
+   {"src": "RK", "loc": "Ispitna pitanja, SKUPINA V, pitanje 8, tiskana str. 399"}
+  ]
+ },
+ "bk-pra-5-09": {
+  "note": "RK Q-kod QRU definira izravno kao upit/odgovor 'imate nešto za mene? — nemam ništa za vas', riječ za riječ opcija (c). Ne znači 'spreman sam' (to je QRV), ni 'prestajem s radom' (QRT).",
+  "cite": [
+   {"src": "RK", "loc": "2. Kratice Q-koda — 'QRU — upit: imate nešto za mene? Odgovor: nemam ništa za vas', tiskana str. 251"},
+   {"src": "RK", "loc": "Ispitna pitanja, SKUPINA V, pitanje 9, tiskana str. 399"}
+  ]
+ },
+ "bk-pra-5-10": {
+  "note": "RK Q-kod QRM definira kao 'smetnje' — u kontrastu s QRN ('smetnje od elektrostatičkog pražnjenja', tj. atmosferske smetnje), QRM označava upravo smetnje drugih postaja, opcija (c).",
+  "cite": [
+   {"src": "RK", "loc": "2. Kratice Q-koda — 'QRM — smetnje', 'QRN — smetnje od elektrostatičkog pražnjenja', tiskana str. 251"},
+   {"src": "RK", "loc": "Ispitna pitanja, SKUPINA V, pitanje 10, tiskana str. 399"}
+  ]
+ },
+ "bk-pra-5-11": {
+  "note": "RK Q-kod QSO definira izravno kao 'veza; održavanje veze' — amaterska veza, opcija (b). Pojačanje snage je QRO, promjena frekvencije QSY, a smetnje QRM.",
+  "cite": [
+   {"src": "RK", "loc": "2. Kratice Q-koda — 'QSO — veza; održavanje veze', tiskana str. 251"},
+   {"src": "RK", "loc": "Ispitna pitanja, SKUPINA V, pitanje 11, tiskana str. 399"}
+  ]
+ },
+ "bk-pra-5-12": {
+  "note": "RK-ova vlastita tablica radiofrekvencijskih područja definira HF (visoke frekvencije, dekametarski valovi = kratki valovi) kao raspon 3...30 MHz, riječ za riječ opcija (b). 150 kHz-1 MHz i 144-500 MHz pripadaju drugim područjima (LF/MF odnosno VHF).",
+  "cite": [
+   {"src": "RK", "loc": "Tablica 1.5.1. Radiofrekvencijska područja — 'HF 3...30 MHz visoke frekvencije (dekametarski valovi)', tiskana str. 38"},
+   {"src": "RK", "loc": "Ispitna pitanja, SKUPINA V, pitanje 12, tiskana str. 399"}
+  ]
+ },
+ "bk-pra-5-13": {
+  "note": "Bez repetitora ili unaprijed dogovorenog odstupa, rad je simpleksni: sugovornik prima na istoj frekvenciji na kojoj mi odašiljemo. RK-ova vlastita tablica simpleksnih kanala na 2 m to i pokazuje brojčano — svaki simpleksni kanal (npr. V24) ima identičnu RX i TX frekvenciju. Odgovor je stoga 144,300 MHz, opcija (d), ne pomaknuta vrijednost kao kod repetitorskog rada.",
+  "cite": [
+   {"src": "RK", "loc": "Oznake i frekvencije simpleksnih kanala na području od 2 m — RX frekvencija = TX frekvencija za svaki kanal, tiskana str. 280"},
+   {"src": "RK", "loc": "Ispitna pitanja, SKUPINA V, pitanje 13, tiskana str. 399"}
+  ]
+ },
+ "bk-pra-5-14": {
+  "note": "RK-ov popis pozivnih oznaka (DXCC lista) dodjeljuje Francuskoj prefiks 'F' — pozivna oznaka FSELA (F5ELA) pripada, dakle, Francuskoj, opcija (b), ne Finskoj (OH), Malti (9H) ni Grčkoj (SV).",
+  "cite": [
+   {"src": "RK", "loc": "5. Popis pozivnih oznaka (prefiksa), po zemljama — 'France F', tiskana str. 261"},
+   {"src": "RK", "loc": "Ispitna pitanja, SKUPINA V, pitanje 14, tiskana str. 399"}
+  ]
+ },
+ "bk-pra-5-15": {
+  "note": "RK-ov popis pozivnih oznaka dodjeljuje Italiji prefiks 'I' — pozivna oznaka I3FOR pripada, dakle, Italiji, opcija (c), ne Argentini (LU), Irskoj (EI) niti izdvojenoj Sardiniji (koja u ovoj DXCC listi ima poseban prefiks IS0, ne običan 'I').",
+  "cite": [
+   {"src": "RK", "loc": "5. Popis pozivnih oznaka (prefiksa), po zemljama — 'Italy I', tiskana str. 261"},
+   {"src": "RK", "loc": "Ispitna pitanja, SKUPINA V, pitanje 15, tiskana str. 399"}
+  ]
+ },
+ "bk-pra-5-16": {
+  "note": "RK-ov popis pozivnih oznaka dodjeljuje Češkoj prefiks 'OK' — pozivna oznaka OK5AA pripada, dakle, Češkoj, opcija (a), ne Finskoj (OH), Sloveniji (S5) ni Austriji (OE).",
+  "cite": [
+   {"src": "RK", "loc": "5. Popis pozivnih oznaka (prefiksa), po zemljama — 'Czech Republic OK', tiskana str. 260"},
+   {"src": "RK", "loc": "Ispitna pitanja, SKUPINA V, pitanje 16, tiskana str. 399"}
+  ]
+ },
+ "bk-pra-5-17": {
+  "note": "Kratice omogućuju da se često ponavljani dijelovi poruke (poziv, raport, ime, mjesto, zahvala) prenesu s nekoliko dogovorenih znakova umjesto pune rečenice — svrha im je sažetost i razumljivost, ne prikrivanje sadržaja niti ograničavanje kruga sugovornika.",
+  "cite": [
+   {"src": "RK", "loc": "Ispitna pitanja, SKUPINA V, pitanje 17, tiskana str. 400"}
+  ]
+ },
+ "bk-pra-5-18": {
+  "note": "Amaterska frekvencijska područja nisu uvijek isključivo amaterska namjena — dio ih je dodijeljen amaterskoj službi na dijeljenoj ili sekundarnoj osnovi uz druge radiokomunikacijske službe, pa amateri u pojedinim pojasevima moraju voditi računa i o tim drugim korisnicima.",
+  "cite": [
+   {"src": "RK", "loc": "Ispitna pitanja, SKUPINA V, pitanje 18, tiskana str. 400"}
+  ]
+ },
+ "bk-pra-5-19": {
+  "note": "Radioamaterski kodeks ponašanja (koji su prihvatile sve nacionalne članice IARU-a) prvim pravilom izravno zabranjuje takvo ponašanje: 'Radioamater je pažljiv i pun obzira; on se svjesno neće ponašati tako da za vrijeme održavanja veza drugima uskraćuje zadovoljstvo i da im smeta.' To vrijedi i u natjecanju, neovisno o tome ima li druga postaja veću snagu ili nam smeta.",
+  "cite": [
+   {"src": "PZM", "loc": "Tema 33 — Radioamaterski kodeks ponašanja, t. 1: '...svjesno neće ponašati tako da za vrijeme održavanja veza drugima uskraćuje zadovoljstvo i da im smeta', tiskana str. 155"},
+   {"src": "RK", "loc": "Ispitna pitanja, SKUPINA V, pitanje 19, tiskana str. 400"}
+  ]
+ },
+ "bk-pra-5-20": {
+  "note": "I RK i PZM navode identičan par međunarodnih znakova opasnosti: SOS u telegrafiji, MAYDAY (izgovor 'mejdej') u telefoniji. Riječ je o strogo propisanom, međunarodno dogovorenom znaku, ne o nečemu što svaka postaja sama određuje, i razlikuje se od engleskog 'HELP'.",
+  "cite": [
+   {"src": "RK", "loc": "4. Međunarodni znakovi za nesreće — 'Znak opasnosti telefonijom: MAYDAY', tiskana str. 256"},
+   {"src": "PZM", "loc": "Tema 24 — 'Radiotelefonijom: MAYDAY (izgovori mejdej)', tiskana str. 141"},
+   {"src": "RK", "loc": "Ispitna pitanja, SKUPINA V, pitanje 20, tiskana str. 400"}
+  ]
+ },
+ "bk-pra-5-21": {
+  "note": "Nismo sigurni je li pozivna oznaka F5DBW ispravno primljena, pa tražimo njeno ponavljanje uz upitnik koji to naglašava: 'FSBDW ? PSE (molim) UR (vašu) CALL (pozivnu oznaku) AGN (ponovno) de (od) 9A5JA + PSE K'. Ostale opcije ili već pretpostavljaju ispravnu oznaku (traže ime/mjesto ili raport), ili posve mijenjaju temu poziva.",
+  "cite": [
+   {"src": "RK", "loc": "3. Operativne kratice — 'CALL — pozivna oznaka', 'AGN — ponovno', 'PSE — molim', 'DE — od', tiskana str. 252-254"},
+   {"src": "RK", "loc": "Ispitna pitanja, SKUPINA V, pitanje 21, tiskana str. 400"}
+  ]
+ },
+ "bk-pra-5-22": {
+  "note": "RK Q-kod QTH definira kao 'smještaj radiopostaje' — upravo mjesto javljanja koje nedostaje. Tražimo njegovo ponavljanje: 'PSE (molim) UR (vaš) QTH AGN (ponovno) +K'. MY RPRT?? traži naš vlastiti raport, URANT?? pita za antenu, a PSE UR RIG AGN traži podatke o uređajima — nijedno od toga nije mjesto javljanja.",
+  "cite": [
+   {"src": "RK", "loc": "2. Kratice Q-koda — 'QTH — smještaj radiopostaje', tiskana str. 251"},
+   {"src": "RK", "loc": "3. Operativne kratice — 'AGN — ponovno', tiskana str. 252"},
+   {"src": "RK", "loc": "Ispitna pitanja, SKUPINA V, pitanje 22, tiskana str. 400"}
+  ]
+ },
+ "bk-pra-5-23": {
+  "note": "RK Q-kod QRL definira izravno kao 'zauzetost, rad; molim ne ometati — radim!' — kad treća postaja upita QRL? (jeste li zauzeti), odgovaramo istom kraticom bez upitnika, QRL, čime potvrđujemo da frekvencija nije slobodna.",
+  "cite": [
+   {"src": "RK", "loc": "2. Kratice Q-koda — 'QRL — zauzetost, rad; molim ne ometati — radim!', tiskana str. 251"},
+   {"src": "RK", "loc": "Ispitna pitanja, SKUPINA V, pitanje 23, tiskana str. 400"}
+  ]
+ },
+ "bk-pra-5-24": {
+  "note": "RK Q-kod QRZ definira izravno kao 'tko poziva?' — 'tko me je zvao', opcija (a). Ne odnosi se na frekvenciju (to je QRG), na promjenu frekvencije (QSY) niti na mjesto javljanja (QTH).",
+  "cite": [
+   {"src": "RK", "loc": "2. Kratice Q-koda — 'QRZ — tko poziva?', tiskana str. 251"},
+   {"src": "RK", "loc": "Ispitna pitanja, SKUPINA V, pitanje 24, tiskana str. 400"}
+  ]
+ },
+ "bk-pra-5-25": {
+  "note": "RK-ov popis operativnih kratica prevodi RIG izravno kao 'uređaji, radiopostaje' — opis uređaja, opcija (b), ne opis vremena (WX), ne podaci za dnevnik (LOG) niti sam dnevnik.",
+  "cite": [
+   {"src": "RK", "loc": "3. Operativne kratice — 'RIG — uređaji, radiopostaje', tiskana str. 254"},
+   {"src": "RK", "loc": "Ispitna pitanja, SKUPINA V, pitanje 25, tiskana str. 400"}
+  ]
+ },
+ "bk-pra-5-26": {
+  "note": "RK Q-kod QSY definira izravno kao 'prijelaz na neku drugu frekvenciju' — promijenite frekvenciju, opcija (c). Ne znači 'tko me je zvao' (QRZ) niti se odnosi na jačinu signala (QSB opisuje promjenu jakosti, ne samu frekvenciju).",
+  "cite": [
+   {"src": "RK", "loc": "2. Kratice Q-koda — 'QSY — prijelaz na neku drugu frekvenciju', tiskana str. 251"},
+   {"src": "RK", "loc": "Ispitna pitanja, SKUPINA V, pitanje 26, tiskana str. 401"}
+  ]
+ },
+ "bk-pra-5-27": {
+  "note": "RST je 'sustav za ocjenjivanje signala: R — razumljivost, S — jakost, T — ton'. Ljestvica razumljivosti u RK-ovu Q-kodu ide do R5 ('QRK — razumljivost signala, R1-R5'), a PZM-ova RST-tema pokazuje najviše stupnjeve jakosti i tona kao S9 ('vrlo jaki signali') i T9 ('savršeno čist ton bez tragova brujanja'). Najveći, dakle najbolji mogući raport je stoga 599, ne 999 (R ne ide do 9), 559 ni 555 (to su osrednje ocjene).",
+  "formula": ["max R = 5, max S = 9, max T = 9  →  najveći raport = 599"],
+  "cite": [
+   {"src": "RK", "loc": "3. Operativne kratice — 'RST — sustav za ocjenjivanje signala: R — razumljivost, S — jakost, T — ton', tiskana str. 254"},
+   {"src": "RK", "loc": "2. Kratice Q-koda — 'QRK — razumljivost signala (R1-R5)', tiskana str. 251"},
+   {"src": "PZM", "loc": "Tema 32 — Izvještaj o čujnosti: 'Najveći raport je 599', ljestvice S1-S9 i T1-T9, tiskana str. 153-154"},
+   {"src": "RK", "loc": "Ispitna pitanja, SKUPINA V, pitanje 27, tiskana str. 401"}
+  ]
+ },
+ "bk-pra-5-28": {
+  "note": "RK-ova vlastita tablica radiofrekvencijskih područja definira LF (niske frekvencije, kilometarski valovi = dugi valovi) kao raspon 30...300 kHz, riječ za riječ opcija (a). 300 kHz-3 MHz je MF (srednje frekvencije), a 20-300 MHz i 300-600 MHz su znatno viša, VHF/UHF područja.",
+  "cite": [
+   {"src": "RK", "loc": "Tablica 1.5.1. Radiofrekvencijska područja — 'LF 30...300 kHz niske frekvencije (kilometarski valovi)', tiskana str. 38"},
+   {"src": "RK", "loc": "Ispitna pitanja, SKUPINA V, pitanje 28, tiskana str. 401"}
+  ]
+ },
+ "bk-pra-5-29": {
+  "note": "RK-ova vlastita tablica repetitorskih kanala na 2 m navodi za RV58: RX frekvencija repetitora 145,125 MHz, TX frekvencija repetitora 145,725 MHz. Kako pitanje traži poredak TX/RX, to je 145,725/145,125, točno opcija (a). Opcija (d) samo zamjenjuje poredak (RX/TX), a opcija (c) uzima pogrešan par brojki iz susjednog kanala.",
+  "cite": [
+   {"src": "RK", "loc": "Oznake i frekvencije kanala radijskih repetitora na području od 2 m — 'RV58: RX 145,125 / TX 145,725', tiskana str. 280"},
+   {"src": "RK", "loc": "Ispitna pitanja, SKUPINA V, pitanje 29, tiskana str. 401"}
+  ]
+ },
+ "bk-pra-5-30": {
+  "note": "IARU-in plan pojasa za 80 metara svrstava segment 3700...3800 kHz (i šire, 3650...3775 kHz) pod 'telefonija, telegrafija' — 3,725 MHz je unutar tih raspona, pa je rad telefonijom dopušten, ne ograničen samo na natjecanje ili na radne dane.",
+  "cite": [
+   {"src": "RK", "loc": "6. Planiranje pojaseva IARU-a — plan pojasa 3,5 MHz: '3650...3775 kHz telefonija, telegrafija', '3700...3800 kHz telefonija, telegrafija za natjecanja', tiskana str. 264"},
+   {"src": "RK", "loc": "Ispitna pitanja, SKUPINA V, pitanje 30, tiskana str. 401"}
+  ]
+ },
+ "bk-pra-5-31": {
+  "note": "Nakon primljene samo pozivne oznake, tražimo preostale uobičajene podatke jednom kraticom po kraticu: 'PSE (molim) UR (vaše) NAME (ime) QTH (mjesto javljanja) ES (i) RPRT (raport) BK (prekid, prijelaz na prijam)' — riječ po riječ traži baš ime, mjesto i raport, opcija (c). Ostale opcije su zahvale ili pozdravi, ne upiti za podatke.",
+  "cite": [
+   {"src": "RK", "loc": "3. Operativne kratice — 'NAME — ime', 'RPRT — ocjena čujnosti', 'ES — i (veznik)', tiskana str. 253-254"},
+   {"src": "RK", "loc": "2. Kratice Q-koda — 'QTH — smještaj radiopostaje', tiskana str. 251"},
+   {"src": "RK", "loc": "Ispitna pitanja, SKUPINA V, pitanje 31, tiskana str. 401"}
+  ]
+ },
+ "bk-pra-5-32": {
+  "note": "RK-ov popis operativnih kratica prevodi RIG izravno kao 'uređaji, radiopostaje' — kratica kojom dajemo podatke o RX/TX je, dakle, RIG, opcija (b), ne RST (ocjena signala), RPRT (raport) ni ANT (antena).",
+  "cite": [
+   {"src": "RK", "loc": "3. Operativne kratice — 'RIG — uređaji, radiopostaje', tiskana str. 254"},
+   {"src": "RK", "loc": "Ispitna pitanja, SKUPINA V, pitanje 32, tiskana str. 401"}
+  ]
+ },
+ "bk-pra-5-33": {
+  "note": "Ista IARU-ina napomena koja za USB kaže 'iznad 10 MHz' određuje LSB kao pravilo 'na frekvencijskim pojasevima do 10 MHz' — 3,5 MHz i 7 MHz su oba ispod 10 MHz, dakle LSB u rasponu 3,5...7 MHz, opcija (c), ne u širem ni užem rasponu koji uključuje frekvencije iznad 10 MHz.",
+  "cite": [
+   {"src": "RK", "loc": "6. Planiranje pojaseva IARU-a — Napomene: 'Na frekvencijskim pojasevima do 10 MHz upotrebljava se LSB', tiskana str. 266"},
+   {"src": "RK", "loc": "Ispitna pitanja, SKUPINA V, pitanje 33, tiskana str. 402"}
+  ]
+ },
+ "bk-pra-5-34": {
+  "note": "RK-ov popis operativnih kratica prevodi IARU izravno kao 'Međunarodna radioamaterska organizacija' — Međunarodni savez radioamatera, opcija (b), ne hrvatski savez (HRS) niti udruženje radioklubova ili amatera pojedine zemlje.",
+  "cite": [
+   {"src": "RK", "loc": "3. Operativne kratice — 'IARU — Međunarodna radioamaterska organizacija', tiskana str. 253"},
+   {"src": "RK", "loc": "Ispitna pitanja, SKUPINA V, pitanje 34, tiskana str. 402"}
+  ]
+ },
+ "bk-pra-5-35": {
+  "note": "RK-ov popis pozivnih oznaka vodi Njemačku pod DXCC nazivom 'Federal Republic of Germany' s predstavničkim prefiksom 'DL' — pozivna oznaka DK9KK, iz istog njemačkog niza predmetaka (D...), pripada, dakle, Njemačkoj, opcija (d), ne Danskoj (OZ), Poljskoj (SP) ni SAD-u (K).",
+  "cite": [
+   {"src": "RK", "loc": "5. Popis pozivnih oznaka (prefiksa), po zemljama — 'Federal Republic of Germany DL', tiskana str. 261"},
+   {"src": "RK", "loc": "Ispitna pitanja, SKUPINA V, pitanje 35, tiskana str. 402"}
+  ]
+ },
+ "bk-pra-5-36": {
+  "note": "RK-ov popis pozivnih oznaka dodjeljuje Austriji prefiks 'OE' — pozivna oznaka OE3FMB pripada, dakle, Austriji, opcija (c), ne Bugarskoj (LZ), Slovačkoj (OM) ni Češkoj (OK).",
+  "cite": [
+   {"src": "RK", "loc": "5. Popis pozivnih oznaka (prefiksa), po zemljama — 'Austria OE', tiskana str. 260"},
+   {"src": "RK", "loc": "Ispitna pitanja, SKUPINA V, pitanje 36, tiskana str. 402"}
+  ]
+ },
+ "bk-pra-5-37": {
+  "note": "RK-ov popis pozivnih oznaka dodjeljuje Argentini prefiks 'LU' — pozivna oznaka LU5AA pripada, dakle, Argentini, opcija (b), ne Luksemburgu (LX), Latviji (YL) ni Bugarskoj (LZ).",
+  "cite": [
+   {"src": "RK", "loc": "5. Popis pozivnih oznaka (prefiksa), po zemljama — 'Argentina LU', tiskana str. 260"},
+   {"src": "RK", "loc": "Ispitna pitanja, SKUPINA V, pitanje 37, tiskana str. 402"}
+  ]
+ },
+ "bk-pra-5-38": {
+  "note": "RK Q-kod razlikuje QSL ('potvrda prijama', opći odgovor) od izvedenice QSLL, koju definira izravno kao 'potvrda veze QSL karticom' — fizička kartica koja potvrđuje da je veza održana, opcija (b), ne sustav lociranja postaje niti upit o čujnosti.",
+  "cite": [
+   {"src": "RK", "loc": "2. Kratice Q-koda — 'QSL — potvrda prijama', 'QSLL — potvrda veze QSL karticom', tiskana str. 251"},
+   {"src": "RK", "loc": "Ispitna pitanja, SKUPINA V, pitanje 38, tiskana str. 402"}
+  ]
+ },
+ "bk-pra-5-39": {
+  "note": "CALL BOOK je uobičajeni radioamaterski naziv za adresar (imenik) radioamatera i njihovih pozivnih oznaka, po kojem se za primljenu pozivnu oznaku može pronaći ime i adresa vlasnika — ne priručnik za antene ni za diplome.",
+  "cite": [
+   {"src": "RK", "loc": "Ispitna pitanja, SKUPINA V, pitanje 39, tiskana str. 402"}
+  ]
+ },
+ "bk-pra-5-40": {
+  "note": "RK-ova vlastita definicija amaterske postaje (preuzeta iz ITU-ovih radiokomunikacijskih propisa) kaže izravno: postaja 'služi u svrhu međusobnih komunikacija, osobnog obrazovanja i tehničkih istraživanja koje provode radioamateri isključivo iz osobnih razloga bez materijalne koristi' — riječ za riječ opcija (c). Ne ograničava se na poruke između pojedinih operatora niti na komunikaciju s udrugama.",
+  "cite": [
+   {"src": "RK", "loc": "1.2. Definicija amaterske postaje: '...isključivo iz osobnih razloga bez materijalne koristi...', tiskana str. 210"},
+   {"src": "RK", "loc": "Ispitna pitanja, SKUPINA V, pitanje 40, tiskana str. 402"}
+  ]
+ }
+}
