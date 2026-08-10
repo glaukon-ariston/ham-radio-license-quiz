@@ -241,6 +241,10 @@ try {
   <div class="barin">
     <div class="brand">9A<span>·</span>ISPIT</div>
     <div class="spacer"></div>
+    <select id="srcSel" class="themesel" aria-label="Izvor pitanja">
+      <option value="hrs">Samo HRS lista</option>
+      <option value="all">HRS + priručnik</option>
+    </select>
     <select id="themeSel" class="themesel" aria-label="Boje sučelja">
       <option value="muted">Prigušeno</option>
       <option value="balanced">Uravnoteženo</option>
@@ -393,6 +397,28 @@ $("#themeSel").addEventListener("change", e => {
   try { localStorage.setItem(LS_THEME, palette); } catch(e){}
 });
 
+/* ---------- question source pool: HRS exam bank only vs HRS + book ----------
+   A second axis layered on top of the existing section/cjelina filters (per the item this
+   implements, that filtering must not change) — poolQs() is ANDed into every section/cjelina
+   filter below, on the home tables, the practice picker, and exam sampling. Lives in the
+   sticky header so it's visible (and changeable) from every screen, including the practice
+   picker and the home screen right before starting a simulated exam. */
+const LS_SRC = "9a-ispit-src", SRC_POOLS = ["hrs","all"];
+let srcPool = "hrs";
+try { const saved = localStorage.getItem(LS_SRC); if (SRC_POOLS.includes(saved)) srcPool = saved; } catch(e){}
+const poolQs = () => DATA.q.filter(q => srcPool === "all" || q.src === "hrs");
+$("#srcSel").querySelector('option[value="hrs"]').textContent =
+  "Samo HRS lista (" + DATA.q.filter(q=>q.src==="hrs").length + ")";
+$("#srcSel").querySelector('option[value="all"]').textContent =
+  "HRS + priručnik (" + DATA.q.length + ")";
+$("#srcSel").value = srcPool;
+$("#srcSel").addEventListener("change", e => {
+  srcPool = SRC_POOLS.includes(e.target.value) ? e.target.value : "hrs";
+  try { localStorage.setItem(LS_SRC, srcPool); } catch(e){}
+  if(!$("#home").classList.contains("hidden")) home();
+  if(!$("#picker").classList.contains("hidden")) buildPicker();
+});
+
 /* ---------- helpers ---------- */
 const shuffle = a => { for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];} return a; };
 const sample  = (arr,n) => shuffle(arr.slice()).slice(0,n);
@@ -414,8 +440,10 @@ let S = null;
 function start(mode, opts={}){
   let items;
   if(mode==="exam"){
+    // Section sizes (SEC[k].n), timing and the 70%-per-area pass rule stay tied to the real
+    // HRS exam structure regardless of pool — only which items can fill each section changes.
     items = [];
-    for(const k of Object.keys(SEC)) items = items.concat(sample(DATA.q.filter(q=>q.s===k && q.src==="hrs"), SEC[k].n));
+    for(const k of Object.keys(SEC)) items = items.concat(sample(poolQs().filter(q=>q.s===k), SEC[k].n));
   } else if(mode==="wrong"){
     items = shuffle(Object.keys(store.wrong).map(id=>byId[id]).filter(Boolean));
     if(!items.length){ alert("Nema pitanja u redu za ponavljanje."); return; }
@@ -630,7 +658,7 @@ function finish(){
    so for those two this correctly degrades to a single whole-area group rather than
    inventing cjelina names. */
 function sectionGroups(k){
-  const qs = DATA.q.filter(q=>q.s===k);
+  const qs = poolQs().filter(q=>q.s===k);
   const bySub = {};
   qs.forEach(q=>{ if(q.sub) (bySub[q.sub] = bySub[q.sub]||[]).push(q); });
   const groups = Object.keys(bySub).length
@@ -647,7 +675,7 @@ function sectionGroups(k){
 function home(){
   const tb = $("#secTable").querySelector("tbody"); tb.innerHTML = "";
   for(const [k,meta] of Object.entries(SEC)){
-    const qs = DATA.q.filter(q=>q.s===k);
+    const qs = poolQs().filter(q=>q.s===k);
     let seen=0, ok=0, tries=0;
     qs.forEach(q=>{ const s=store.seen[q.id]; if(s){ seen++; ok+=s.ok; tries+=s.n; } });
     const tr = document.createElement("tr");
@@ -670,7 +698,8 @@ function home(){
   }
   sb.querySelectorAll("[data-sub]").forEach(b => b.onclick = () => {
     const sub = b.dataset.sub, sec = b.dataset.sec;
-    start("practice", {filter: sub ? (q => q.sub === sub) : (q => q.s === sec)});
+    const inPool = q => srcPool === "all" || q.src === "hrs";
+    start("practice", {filter: sub ? (q => q.sub === sub && inPool(q)) : (q => q.s === sec && inPool(q))});
   });
 
   const n = Object.keys(store.wrong).length;
@@ -697,9 +726,10 @@ function buildPicker(){
     b.onclick = () => start("practice", {filter});
     el.appendChild(b);
   };
+  const inPool = q => srcPool === "all" || q.src === "hrs";
   for(const [k,meta] of Object.entries(SEC)){
-    const n = DATA.q.filter(q=>q.s===k).length;
-    add(meta.name, "Sva pitanja iz ovog područja, nasumičnim redom.", n+" pitanja", q=>q.s===k);
+    const n = poolQs().filter(q=>q.s===k).length;
+    add(meta.name, "Sva pitanja iz ovog područja, nasumičnim redom.", n+" pitanja", q=>q.s===k && inPool(q));
     // Cjelina rows exist only where the data has them (tehnicki) — see sectionGroups() above.
     // Propisi/pravila stay a single whole-area entry, already added as the button just above.
     const groups = sectionGroups(k);
@@ -708,7 +738,7 @@ function buildPicker(){
         const stat = g.tries ? pct(g.ok,g.tries)+"% uspješnost" : "još bez pokušaja";
         add(g.name.replace(/^\d+\.\s*/,""),
             "Cjelina unutar „" + meta.name + "”. Viđeno " + g.seen + " · " + stat + ".",
-            g.qs.length+" pitanja", q=>q.sub===g.sub);
+            g.qs.length+" pitanja", q=>q.sub===g.sub && inPool(q));
       });
     }
   }
@@ -812,7 +842,10 @@ document.addEventListener("click", e => {
   if(!go) return;
   const d = go.dataset.go;
   if(d==="practice"){ buildPicker(); show("picker"); }
-  else if(d==="exam"){ askConfirm("Simulacija ispita: 80 pitanja, 105 minuta ukupno. Počinjemo?", () => start("exam")); }
+  else if(d==="exam"){
+    const poolLabel = srcPool === "all" ? "HRS + priručnik" : "samo HRS lista";
+    askConfirm("Simulacija ispita: 80 pitanja, 105 minuta ukupno · izvor: " + poolLabel + ". Počinjemo?", () => start("exam"));
+  }
   else if(d==="wrong") start("wrong");
   else show(d);
 });
