@@ -1,0 +1,167 @@
+{
+ "_note": "Skupina IV, tehnički dio, paket _a (30 od 720 knjižnih pitanja, neparni brojevi 1-59). Napomene provjerene izravno prema tiskanim stranicama RK (booktool.py + pymupdf render stranica 321-331 kao slike, ne samo OCR tekst, jer su knjižne sličice u ovom PDF-u ~950 jednopikselnih inline slika koje get_images()/get_drawings() ne vide) 9-10 Aug 2026. Sve opcije za svih 30 pitanja uspoređene riječ po riječ s izravnim renderom stranice. Nađena dva stvarna, neispravljena defekta koja ovaj paket (files: iz stavke, čitano samo, nije mijenjano) trenutačno nosi u živoj bazi (quiz/build/book_parsed2.json), oba objašnjena u napomeni dotičnoga pitanja umjesto tihog prešućivanja: (1) bk-teh-4-55 ima zamijenjene opcije a/b (parser je stranicu 331 razvrstao po y-koordinati u pogrešne redke zbog 1,3pt razlike u visini retka; c/d su ostale ispravne) — HRS-ov ključ (redak 55, stupac IV = 'A') ispravno pokazuje na stvarnu opciju (a) sa stranice ('može prouzročiti blokiranje prijamnika'), ne na paketov trenutačni tekst pod 'a'; (2) bk-teh-4-47 je zastario naspram već ispravljenoga book_parsed2.json/book_overrides.json — paket još nosi opcije prepisane od SUSJEDNOG pitanja 48 (postoci modulacije), dok je pravi sadržaj pitanja 47 slikovni (četiri sheme spajanja ampermetra/voltmetra), verificirano izravnim uvidom u stranicu 329. Nadalje, bk-teh-4-13 u paketu nosi zastarjeli, OCR-om unakaženi tekst pitanja ('Z, — Z=som |') dok je stvarni, već ispravljeni tekst 'Z0 = 50 Ω; Zizl = 50 Ω; λ/4; Zul = ?' (potvrđeno izravnim uvidom u sliku na str. 323) — napomena je napisana prema stvarnom, provjerenom sadržaju, ne prema pokvarenom tekstu u paketu. Šest pitanja (bk-teh-4-13/15/17/19/43/47) ima has_figure=false u paketu iako stranica sadrži pravu sliku uz pitanje (potvrđeno uvidom); bk-teh-4-45 ima manji OCR-lijepljeni artefakt 'S5:1' umjesto stvarnoga '5:1' u opciji (a) — ne mijenja slovo odgovora niti smisao. Nijedan od ovih defekata nije ispravljen u packet/book_overrides/book_parsed2 datotekama (izvan files: ove stavke); svaki je prijavljen u queue/reports/P3-0018.md. Bez vanjskih poveznica — link_check.py/check_notes.py ne obrađuju ovu datoteku (samo notes_zzz_expanded_*), pa poveznice namjerno izostavljene da se izbjegne neprovjerena tvrdnja.",
+ "bk-teh-4-01": {
+  "note": "Perioda je recipročna vrijednost frekvencije, T=1/f (knjiga to izravno definira: 'Frekvencija je broj perioda u jedinici vremena'). Za f=24 GHz=24×10^9 Hz slijedi T=1/(24×10^9 Hz)=(1/24)×10^-9 s, što je upravo (1/24) ns — ne 24 ns niti 24 ps, koje bi odgovarale krivo obrnutom ili krivo skaliranom računu.",
+  "formula": ["T = 1/f", "T = 1/(24×10⁹ Hz) = (1/24)×10⁻⁹ s = 1/24 ns"],
+  "cite": [
+   {"src": "RK", "loc": "Ispitna pitanja, SKUPINA IV, pitanje 1, tiskana str. 321"},
+   {"src": "RK", "loc": "1.6.2. Perioda, frekvencija, faza (f=1/T), tiskana str. 43"}
+  ]
+ },
+ "bk-teh-4-03": {
+  "note": "Treći harmonik odašiljača koji radi na 7 MHz iznosi 3×7 MHz=21 MHz. Knjiga sama navodi 21 MHz kao radnu amatersku frekvenciju (poluvalni dipol namijenjen 7 MHz opisan je i kao uporabljiv na 21 MHz, 'trećoj harmonik' frekvenciji antene) — 21 MHz je unutar radioamaterskog pojasa (15 m), a ne u CB, KV-emisijskom niti zrakoplovnom području.",
+  "formula": ["3 × 7 MHz = 21 MHz"],
+  "cite": [
+   {"src": "RK", "loc": "Ispitna pitanja, SKUPINA IV, pitanje 3, tiskana str. 321"},
+   {"src": "RK", "loc": "6.1.6.1. Poluvalni dipol napajan u sredini (7 MHz, moguće i 21 MHz kao treći harmonik), tiskana str. 151"}
+  ]
+ },
+ "bk-teh-4-05": {
+  "note": "U seriju spojeni R i L na izmjeničnom naponu čine induktivni krug: struja u zavojnici kasni za naponom (jer se induktivitet suprotstavlja promjeni struje), odnosno napon PREDNJAČI struji, za fazni kut φ između 0° i 90° (φ<π/2), gdje je tan φ=XL/R. Kod čisto djelatnog otpora bio bi φ=0, a kod čiste zavojnice φ=90° — realna RL kombinacija je uvijek negdje između, nikad točno na π/2 niti s obrnutim predznakom (struja ne može prednjačiti u RL krugu).",
+  "formula": ["tan φ = X_L / R,  0 < φ < π/2 (napon prednjači struji)"],
+  "cite": [
+   {"src": "RK", "loc": "Ispitna pitanja, SKUPINA IV, pitanje 5, tiskana str. 321"},
+   {"src": "RK", "loc": "1.6.3. Fazna stanja (prednjačenje/zaostajanje u fazi za kut φ), tiskana str. 44-45"}
+  ]
+ },
+ "bk-teh-4-07": {
+  "note": "Slika uz pitanje prikazuje četiri valna oblika: a) potpuna, neizmijenjena sinusoida (pozitivna i negativna poluperioda), b) samo pozitivni 'brjegovi' odvojeni ravnim (nul) dijelovima ondje gdje bi bila negativna poluperioda, c) sinusoida s izobličenom/pomaknutom negativnom poluperiodom, d) niz pozitivnih brjegova bez ravnih dijelova između njih (gusto nadovezanih). Poluvalni ispravljač (dioda u seriji s teretom) propušta struju samo tijekom jedne poluperiode i potpuno je blokira tijekom druge — na izlazu tereta ostaju samo pozitivni brjegovi s ravnim (nul) prazninama između njih dok dioda ne vodi, što je upravo oblik b), ne puna sinusoida (a, ispravljanja uopće ne bi bilo), ni gusto nadovezani brjegovi bez praznina (d, to je punovalno ispravljanje, vidi zadatak 8).",
+  "cite": [
+   {"src": "RK", "loc": "Ispitna pitanja, SKUPINA IV, pitanje 7 (4 valna oblika a-d), tiskana str. 322"},
+   {"src": "RK", "loc": "3.3.1.1. Sklop za poluvalno ispravljanje, tiskana str. 114"}
+  ]
+ },
+ "bk-teh-4-09": {
+  "note": "Vršna vrijednost dobiva se iz efektivne pomoću Umaks=√2×Uef, koju knjiga u vlastitom riješenom primjeru zaokružuje na Umaks≈1,41×Uef. Vrijednost od vrha do vrha je dvostruka vršna vrijednost: Upp=2×Umaks=2×1,41×220 V=620,4 V — ne 760 V, 480 V ni 820 V, koje ne odgovaraju ni jednom razumnom čitanju formule.",
+  "formula": ["Umaks = √2 × Uef ≈ 1,41 × Uef", "Upp = 2 × Umaks = 2 × 1,41 × 220 V = 620,4 V"],
+  "cite": [
+   {"src": "RK", "loc": "Ispitna pitanja, SKUPINA IV, pitanje 9, tiskana str. 322"},
+   {"src": "RK", "loc": "1.6.1. Grafički prikaz i riješeni primjer (Umaks=√2×Uef=1,41×Uef), tiskana str. 42-43"}
+  ]
+ },
+ "bk-teh-4-11": {
+  "note": "Knjiga izravno navodi da se za prijam frekvencijski moduliranog (FM) signala rabe najčešće dvije vrste demodulatora: diskriminator i ratio-detektor. Ratio-detektor je dakle FM demodulator, ne AM, SSB ni DSB detektor. Za AM se rabi jednostavan diodni detektor koji odreže jednu poluperiodu moduliranog signala, za SSB treba dodatni BFO oscilator koji nadomješta potisnuti val nositelj, a DSB (dvostruki bočni pojas s potisnutim nositeljem) zahtijeva sličan sinkroni detektor s obnovljenim nositeljem — nijedan od tih triju sklopova se u knjizi ne naziva ratio-detektorom.",
+  "cite": [{"src": "RK", "loc": "4.3.6. Detektor (diskriminator i ratio-detektor kao dvije vrste FM demodulatora), tiskana str. 133"}]
+ },
+ "bk-teh-4-13": {
+  "note": "Paketov tekst pitanja ('Z, — Z=som |') je zastarjeli, OCR-om unakažen ostatak parsiranja; stvarni, već ispravljeni tekst (potvrđen izravnim uvidom u sliku na str. 323, gdje je i vidljiva shema s oznakama Zul, Z0=50 Ω, Zizl=50 Ω i duljinom voda λ/4) glasi: 'Z0 = 50 Ω; Zizl = 50 Ω; λ/4; Zul = ?'. Za četvrtvalni ogranak vrijedi Zul=Z0²/Zizl. Kako je ovdje linija već prilagođena (Zizl=Z0=50 Ω), rezultat je trivijalno Zul=50²/50=50 Ω — vod ostaje 'proziran' bez obzira na duljinu λ/4 baš zato što je opterećen svojom vlastitom karakterističnom impedancijom. Opcije 25 Ω, 75 Ω i 150 Ω odgovaraju pogrešnoj primjeni formule ili zamjeni brojnika/nazivnika.",
+  "formula": ["Zul = Z0² / Zizl", "Zul = 50² / 50 = 50 Ω"],
+  "cite": [
+   {"src": "RK", "loc": "Ispitna pitanja, SKUPINA IV, pitanje 13 (shema Zul–Z0=50Ω–Zizl=50Ω, λ/4), tiskana str. 323"},
+   {"src": "RK", "loc": "6.2. PRIJENOSNI VODOVI — karakteristična impedancija i prilagodba, tiskana str. 157"}
+  ]
+ },
+ "bk-teh-4-15": {
+  "note": "Knjiga izravno definira širinu snopa zračenja kao 'širinu u stupnjevima glavne latice između dvaju pravaca na kojima je nanijeta relativna vrijednost zračene snage jednaka polovici najveće zračene snage (-3 dB)'. Točke A i A1 na krakovima kuta širine snopa OA i OA1 su, dakle, definicijski upravo na -3 dB u odnosu na vrh latice (0 dB), ne na -4, -6 ni -8 dB.",
+  "cite": [{"src": "RK", "loc": "6.1.5. Dijagrami zračenja — širina snopa zračenja definirana kao točke na -3 dB, tiskana str. 150"}]
+ },
+ "bk-teh-4-17": {
+  "note": "Grafički simbol (dioda s dodatnim crtama/pločicama uz spoj, tipičan za promjenjivi kapacitet) je simbol varicap-diode. Knjiga izravno opisuje varicap-diodu (varijabilni kapacitet) kao diodu čiji reverzno polarizirani spoj mijenja kapacitet ovisno o naponu, rabljenu u titrajnim krugovima, FM modulatorima i množiteljima frekvencije — različito od Zenerove diode (stabilizacija napona), tunelske diode (negativni otpor) i FET-a (tranzistor, ne dioda niti dvopolni element).",
+  "cite": [{"src": "RK", "loc": "2.6.2. Diode — tablica vrsta dioda (varicap dioda, promjenjivi kapacitet), tiskana str. 79"}]
+ },
+ "bk-teh-4-19": {
+  "note": "Slika prikazuje miješalo s ulazima 7 MHz i 22 MHz. Knjiga izravno navodi da na izlazu miješala (superheterodinskog spoja) izlazi zbroj ili razlika frekvencija dvaju dovedenih signala. Zbroj: 7 MHz+22 MHz=29 MHz; razlika: 22 MHz-7 MHz=15 MHz. Na izlazu su, dakle, 15 MHz i 29 MHz — ne kombinacije koje bi nastale krivim zbrajanjem/oduzimanjem (npr. 7 i 22 MHz nepromijenjeni, ili 15 i 22 MHz).",
+  "formula": ["f_izlaz = f1 ± f2 = 22 MHz ± 7 MHz = 29 MHz ili 15 MHz"],
+  "cite": [
+   {"src": "RK", "loc": "Ispitna pitanja, SKUPINA IV, pitanje 19 (miješalo, ulazi 7 MHz i 22 MHz), tiskana str. 324"},
+   {"src": "RK", "loc": "4.1.1. Jednostruki superheterodinski prijamnik (miješalo daje zbroj ili razliku frekvencija), tiskana str. 128"}
+  ]
+ },
+ "bk-teh-4-21": {
+  "note": "Knjiga izravno navodi da se, uz ostale poticaje ionizaciji (elektromagnetsko zračenje Sunca, nabijene čestice, kozmičko zračenje), 'svakih 11 godina ponavljane, snažnije aktivnosti na Suncu, Sunčeve bure' posebice ističu — to je poznati približno 11-godišnji ciklus Sunčeve aktivnosti (broj Sunčevih pjega raste i pada s tim razdobljem, izravno utječući na ionizaciju gornje atmosfere i time na rasprostiranje HF radiovalova). Ne radi se, dakle, o 6 mjeseci, 3 godine ni približno 6 godina, koje ne odgovaraju nijednom poznatom solarnom ciklusu spomenutom u knjizi.",
+  "cite": [{"src": "RK", "loc": "Procesi stvaranja ioniziranih područja u atmosferi (Sunčeve bure svakih 11 godina), tiskana str. 166"}]
+ },
+ "bk-teh-4-23": {
+  "note": "Knjiga izravno definira SID (iznenadni ionosferski poremećaj, sudden ionospheric disturbance) kao posljedicu izvanredno snažnog zračenja pri Sunčevim erupcijama: pojačano ultraljubičasto i rendgensko zračenje uzrokuje posebno visoku ionizaciju D-područja, što povećava apsorpciju radiovalova prije nego stignu do slojeva odbijanja — rezultat je potpuni prekid komunikacija u HF spektru. Uzrok je, dakle, POJAČANA (ne slabija) solarna aktivnost i ionizacija D sloja kao apsorbera, ne F sloja.",
+  "cite": [
+   {"src": "RK", "loc": "7.1.3.2. Iznimni uvjeti rasprostiranja — Poremećaji (SID definicija), tiskana str. 169"},
+   {"src": "RK", "loc": "Utjecaj D-sloja na rasprostiranje radiovalova (D-sloj djeluje kao apsorber), tiskana str. 167"}
+  ]
+ },
+ "bk-teh-4-25": {
+  "note": "Knjiga izravno opisuje utjecaj E-područja: srednji valovi (MF) se danju potpuno apsorbiraju; danju je moguće odbijanje kratkih valova (HF) s dosezima do 2500 km; radiovalovi u VHF i UHF području prolaze kroz E-područje s NEZNATNIM slabljenjem (ne potpunom apsorpcijom niti odbijanjem). To gotovo doslovno odgovara opciji d) — ne apsorpciji HF/VHF uz prolaz UHF-a (a), ni odbijanju HF/VHF uz prolaz UHF-a (b), ni noćnoj refleksiji HF-a i UHF-a (c, UHF se ionosferom ne odbija).",
+  "cite": [{"src": "RK", "loc": "Utjecaj E-područja na rasprostiranje radiovalova, tiskana str. 167"}]
+ },
+ "bk-teh-4-27": {
+  "note": "Knjiga izravno zaključuje da radiovalovi frekvencija viših od HF područja (dakle VHF i UHF) prolaze kroz ionosferu uz određeni stupanj apsorpcije, pa 'se komunikacije preko komunikacijskih satelita i one sa svemirskim letjelicama mogu obavljati u područjima ultravisokih (UHF) i supervisokih frekvencija (SHF)' — doslovno odgovara opciji a), ne HF/VHF, MF/HF ni samo VHF području, koja bi se od ionosfere odbijala/apsorbirala umjesto prošla do svemira.",
+  "cite": [{"src": "RK", "loc": "Utjecaj F-područja na rasprostiranje radiovalova (satelitske veze u UHF i SHF), tiskana str. 167"}]
+ },
+ "bk-teh-4-29": {
+  "note": "Knjiga izravno opisuje konvertorski tip dvostrukoga superheterodinskog prijamnika: 'frekvencija prvoga oscilatora stalna, što će rezultirati promjenjivom prvom međufrekvencijom. Frekvencija drugoga oscilatora je promjenjiva, pa je rezultat nepromjenjiva druga međufrekvencija.' Kod konvertorskog tipa je, dakle, upravo PRVA međufrekvencija promjenjiva — suprotno tjunerskom tipu (gdje je prvi oscilator promjenjiv, pa je prva MF stalna).",
+  "cite": [{"src": "RK", "loc": "4.1.1. Jednostruki i dvostruki superheterodinski prijamnik — konvertorski tip (1. MF promjenjiva), tiskana str. 128"}]
+ },
+ "bk-teh-4-31": {
+  "note": "Knjiga izravno navodi da pojačalo niskih (NF/AF) frekvencija služi da se izdvojeni NF signal iz moduliranog signala dovoljno pojača kako bi se mogao čuti u zvučniku ili slušalicama — to je pojačanje CIJELOGA prenesenog audiopojasa (govora/glazbe), ne samo frekvencija do 300 Hz (to bi odsjeklo većinu govora), ne MF-a (koji se pojačava prije detektora) niti samo podatkovnih signala.",
+  "cite": [{"src": "RK", "loc": "4.3.9. Pojačalo niskih (NF) ili audiofrekvencija (AF), tiskana str. 133"}]
+ },
+ "bk-teh-4-33": {
+  "note": "Knjiga izravno navodi, u opisu S-mjerila (pokazni instrument za jakost prijamnog signala, ugrađen u jedan od stupnjeva pojačanja prijamnika, sa skalom S0-S9 i nastavkom u dB iznad S9): 'Jedna S jedinica odgovara 6 dB'. Jedna S jedinica znači, dakle, 6 dB jači signal — ne 10, 2 ni 0 dB, koje ne odgovaraju knjižnoj vrijednosti.",
+  "cite": [{"src": "RK", "loc": "4.3.11. S-mjerilo (jedna S jedinica = 6 dB), tiskana str. 134"}]
+ },
+ "bk-teh-4-35": {
+  "note": "Knjiga izravno navodi da izlazna pojačala najčešće rade u C razredu i 'na taj način imaju znatno veći stupanj djelovanja od pojačala koja rade u B i A razredu' — učinkovitost C razreda je, dakle, veća i od A i od B razreda, ne samo veća od A ali manja od B, ne jednaka AB razredu niti manja od njega.",
+  "cite": [{"src": "RK", "loc": "5.3.6. Pojačalo snage (C razred veći stupanj djelovanja od A i B), tiskana str. 139"}]
+ },
+ "bk-teh-4-37": {
+  "note": "Odašiljački NF (modulacijski) lanac prije samog modulatora u praksi po potrebi ima više uzastopnih stupnjeva NF pojačanja (predpojačalo, korekcijski/ograničavajući stupnjevi, pojačalo snage NF signala) da bi se od slaboga mikrofonskog/audio signala dobila razina potrebna za pravilno upravljanje modulatorom — nije ograničeno na točno jedan ili najviše dva stupnja, niti se NF ulaz vodi izravno na oscilator (oscilator daje VF nositelja, ne NF). Napomena: knjiga u dostupnom, kontinuiranom tekstu o modulatorima (5.3.8-5.3.11) ne navodi doslovno 'više stupnjeva' ovom formulacijom — citat je stoga samo ispitno pitanje i opći kontekst poglavlja o odašiljačima, bez dodatnoga potvrdnog navoda u prozi, u skladu s pravilom da se ne navodi izmišljena stranica.",
+  "cite": [{"src": "RK", "loc": "Ispitna pitanja, SKUPINA IV, pitanje 37, tiskana str. 327"}]
+ },
+ "bk-teh-4-39": {
+  "note": "Knjiga izravno suprotstavlja AM i FM slučaj: kod amplitudno moduliranog odašiljača stalnom (jednom) frekvencijom na izlazu se pojavljuju TRI frekvencije (f1, f1+fm, f1-fm) — nositelj i točno po jedna iznad/ispod. NASUPROT tome, 'frekvencijski modulirani odašiljač moduliran jednom frekvencijom će pored vala nositelja imati i ČITAV SPEKTAR frekvencija u bočnim pojasima' — dakle kod FM-a, čak i pri modulaciji jednom frekvencijom, ne nastaju samo dvije diskretne bočne frekvencije nego čitav niz bočnih pojaseva (opcija a, 'val nositelj i bočne pojase'), a ne samo jedna iznad/ispod (to bi vrijedilo za AM, opisano u istom odlomku).",
+  "cite": [{"src": "RK", "loc": "5.4.3. Bočni pojasi (AM: tri frekvencije; FM jednom frekvencijom: čitav spektar u bočnim pojasima), tiskana str. 142"}]
+ },
+ "bk-teh-4-41": {
+  "note": "Knjiga izravno navodi da izlazna impedancija odašiljača mora biti jednaka ulaznoj otpornosti kabela (tereta) kojim je antenski sustav spojen — u suprotnom dolazi do gubitaka na izlaznom pojačalu, a za prilagođenje kad to nije ispunjeno rabi se II-filtar. Uz izlaznu impedanciju 50 Ω, teret za optimalni prijenos snage mora, dakle, biti jednak, 50 Ω — ne 75, 100 ni 150 Ω, koji bi predstavljali neprilagodbu i dio reflektirane, neiskorištene snage.",
+  "cite": [{"src": "RK", "loc": "5.4.6. Izlazna impedancija (izlazna impedancija odašiljača = ulazna otpornost kabela), tiskana str. 143"}]
+ },
+ "bk-teh-4-43": {
+  "note": "Knjiga izravno opisuje 'Mjerilo s pomičnim svitkom': 'Između polova TRAJNOG MAGNETA (1) nalazi se rotor od MEKOG ŽELJEZA (2) na kojemu je svitak (3)' — dakle 1=polovi permanentnog (trajnog) magneta, 2=jezgra od mekog željeza, 3=pomični svitak, riječ za riječ opcija c). Elektromagnet (a), plastična jezgra (b, d) i željezni polovi bez magneta (d) nisu dijelovi ovoga instrumenta.",
+  "cite": [{"src": "RK", "loc": "8.2.1. Mjerilo s pomičnim svitkom (trajni magnet, jezgra od mekog željeza, svitak), tiskana str. 181"}]
+ },
+ "bk-teh-4-45": {
+  "note": "Paketova opcija (a) nosi OCR-lijepljeni artefakt 'S5:1' (suvišno 'S' ispred broja); stvarni tiskani tekst je '5:1' (potvrđeno izravnim uvidom u sliku na str. 328), što ne mijenja slovo odgovora ni smisao. Knjiga izravno navodi: 'Ispravna prilagodba, kada uopće nema reflektiranog naponskog vala, daje SWR l:1' i, dodatno, 'Pri idealnoj prilagodbi omjer SWR je 1:1'. Omjer 1:1 pokazuje, dakle, najbolju (idealnu) prilagodbu odašiljača i antenskog sustava — svaki drugi omjer (5:1, 3:1, 1:2) znači stupanj neprilagodbe i reflektiranu snagu.",
+  "cite": [
+   {"src": "RK", "loc": "6.2.2. Stojni valovi na prijenosnom vodu do antene (ispravna prilagodba daje SWR 1:1), tiskana str. 157"},
+   {"src": "RK", "loc": "Tabela 6.3. Prigušenje i gubici ovisni o omjeru stojnih valova (idealna prilagodba SWR 1:1), tiskana str. 160"}
+  ]
+ },
+ "bk-teh-4-47": {
+  "note": "Paket trenutačno nosi zastarjele opcije prepisane od SUSJEDNOG pitanja 48 (postoci moduliranosti RF nositelja) — to nije stvarni sadržaj pitanja 47. Stvarni sadržaj (potvrđen izravnim uvidom u sliku na str. 329, gdje su četiri sheme označene a)-d) izravno u izvorniku) prikazuje četiri sheme spajanja ampermetra (A), voltmetra (V) i nepoznatog otpora Rx za POSREDNO mjerenje otpora Ohmovim zakonom (R=U/I). U shemi a) ampermetar je u seriji s izvorom, a Rx i voltmetar su MEĐUSOBNO PARALELNI (voltmetar mjeri napon točno na Rx, ampermetar mjeri ukupnu struju kroz Rx i voltmetar zajedno) — ovo je ispravan spoj, jer prema knjizi idealni ampermetar treba imati otpor blizu ništice (u seriji ne remeti krug), a idealni voltmetar treba imati što veći otpor (u paralelnom spoju preko Rx odvodi zanemarivo malu struju) — spoj je prikladan za mjerenje MALIH otpora. U shemi b) voltmetar je pogrešno u SERIJI s A i Rx (velik unutarnji otpor voltmetra blokirao bi struju u krugu), u shemi c) je voltmetar u seriji s izvorom, a ampermetar je paralelno s Rx (ampermetrov mali otpor bi kratko spojio Rx), a u shemi d) su A, Rx i V sva tri međusobno paralelna bez ijednog serijskog elementa (ampermetar bi opet kratko spojio i Rx i voltmetar). HRS-ov ključ (redak 47, stupac IV='A') potvrđuje da je upravo shema a) — jedina topološki ispravna od četiriju — točan odgovor.",
+  "cite": [
+   {"src": "RK", "loc": "Ispitna pitanja, SKUPINA IV, pitanje 47 (četiri sheme A/Rx/V, označene a-d u izvorniku), tiskana str. 329"},
+   {"src": "RK", "loc": "8.1.2. Mjerenje otpora — posredno mjerenje voltmetrom i ampermetrom uz Ohmov zakon, tiskana str. 176"},
+   {"src": "RK", "loc": "8.1.1.1. Utjecaj unutrašnjeg otpora mjerila (idealni ampermetar otpor ~0 u seriji, idealni voltmetar otpor što veći u paraleli), tiskana str. 175-176"}
+  ]
+ },
+ "bk-teh-4-49": {
+  "note": "Knjiga daje upravo ovaj slučaj kao riješeni primjer: 'Peti harmonik istoga odašiljača [amaterski odašiljač 144...146 MHz] upada u V. frekvencijsko područje, 52. i 53. televizijski kanal, u dijelu pojasa 720...730 MHz.' Peti harmonik 144-146 MHz doista je 5×144=720 MHz do 5×146=730 MHz, točno pojas 52. i 53. UHF TV kanala — ne mobilne NMT/GSM mreže niti pomorske komunikacije.",
+  "formula": ["5 × 144 MHz = 720 MHz;  5 × 146 MHz = 730 MHz"],
+  "cite": [
+   {"src": "RK", "loc": "Ispitna pitanja, SKUPINA IV, pitanje 49, tiskana str. 330"},
+   {"src": "RK", "loc": "9.1. (Primjeri) — 'Peti harmonik... 144...146 MHz... 52. i 53. televizijski kanal, 720...730 MHz', tiskana str. 192"}
+  ]
+ },
+ "bk-teh-4-51": {
+  "note": "Knjiga izravno definira: 'Promjena u frekvenciji na početku telegrafskoga signala naziva se čirpom' i objašnjava da čirp nastaje zbog promjene radnog napona ili RF-opterećenja oscilatora tijekom tipkanja — dakle upravo nenamjerne, brze, kratkotrajne promjene frekvencije posebice pri Morzeovu (CW) prijenosu. Frekvencijska devijacija je namjerna FM veličina, drift je sporo, dugotrajno pomicanje frekvencije, a 'klizanje frekvencije' nije knjižni naziv za ovu pojavu.",
+  "cite": [{"src": "RK", "loc": "5.4.11. Smetnje koje se stvaraju otipkavanjem Morseovih znakova (čirp definicija), tiskana str. 144"}]
+ },
+ "bk-teh-4-53": {
+  "note": "Knjiga izravno navodi da izlazno pojačalo odašiljača može samooscilirati 'i kad nema RF-pobudnog ulaza', primjerice dok je tipkalo kod CW-a 'gore' (nepritisnuto) — dakle i prije/bez stvarnog odašiljanja. Mala, promjenjiva struja na instrumentu ispravljača dok je istosmjerno napajanje uključeno, a odašiljač još ne odašilje, upravo je simptom takve pojave sporednih parazitnih titraja (samooscilacije), ne RF smetnji iz mreže, harmoničkih titraja (koji bi trebali RF pobudu) niti pokvarenog ispravljača.",
+  "cite": [{"src": "RK", "loc": "9.2.1.3. Druge sporedne emisije — samooscilacije i kad nema RF-pobudnog ulaza, tiskana str. 197"}]
+ },
+ "bk-teh-4-55": {
+  "note": "Paket trenutačno nosi zamijenjene opcije a) i b) (parser je stranicu 331 razvrstao po y-koordinati u pogrešne retke zbog 1,3pt razlike u visini prvog i drugog retka — c) i d) su ostale ispravne). Stvarni tiskani redoslijed (potvrđen izravnim uvidom u sliku): a) 'može prouzročiti blokiranje prijamnika', b) 'nikada ne uzrokuje smetnje', c) 'uzrokuje pojavu feding', d) 'uzrokuje prodiranje susjednog kanala'. Knjiga izravno navodi da prijamnik treba imati mogućnost odbacivanja 'blokiranja ili smanjivanja osjetljivosti' kao posebne kategorije smetnje uz jak neželjeni signal na širokopojasnom (nedovoljno selektivnom) pretpojačalu — to je upravo blokiranje prijamnika, ne 'nikada ne uzrokuje smetnje' (suprotno stvarnosti), feding (koji je posljedica promjena u ionosferi, ne pretpojačala) niti prodiranje susjednog kanala (to je pitanje selektivnosti, ne razine signala). HRS-ov ključ (redak 55, stupac IV='A') ispravno pokazuje na stvarnu opciju (a) sa stranice, ne na paketov trenutačni tekst pod 'a'.",
+  "cite": [
+   {"src": "RK", "loc": "Ispitna pitanja, SKUPINA IV, pitanje 55, tiskana str. 331"},
+   {"src": "RK", "loc": "9.2.2. Parametri prijamnika i smetnje (odbacivanje blokiranja ili smanjivanja osjetljivosti), tiskana str. 198"}
+  ]
+ },
+ "bk-teh-4-57": {
+  "note": "Smetnja koja se NE mijenja okretanjem potenciometra glasnoće mora nastajati IZA (nizvodno od) tog potenciometra u signalnom lancu — jer bi svaka smetnja unesena prije njega (u tjuneru, u ulaznim/MF stupnjevima) bila pojačana ili prigušena zajedno s korisnim signalom kad se okrene regulator glasnoće. Jedini dio lanca iza potenciometra glasnoće je izlazno NF pojačalo, pa smetnja neovisna o položaju regulatora nastaje upravo ondje — ne ispred potenciometra, ne u tjuneru niti u mrežnom kabelu (koji bi djelovao na cijeli uređaj, uključujući i napajanje tjunera).",
+  "cite": [{"src": "RK", "loc": "Ispitna pitanja, SKUPINA IV, pitanje 57, tiskana str. 331"}]
+ },
+ "bk-teh-4-59": {
+  "note": "Knjiga izravno navodi da su iz osnovnih ograničenja (SAR, struja dodira) izvedene 'granične vrijednosti jakosti električnog polja E, magnetskoga polja H i gustoće toka snage S kao referencijske razine, jer se te veličine mogu neposredno mjeriti' — dakle referencijske, mjerljive veličine su upravo efektivna jakost električnog polja (V/m) i efektivna jakost magnetskog polja (A/m), ne jakost struje u tijelu i napon dodira (to su osnovna ograničenja, ne referencijske razine), ni jakost el. polja u V/cm (kriva jedinica) niti gustoća strujnog toka u tijelu (A/kg, to je specifična apsorpcija SAR, izražena u W/kg, ne A/kg).",
+  "cite": [{"src": "RK", "loc": "10.1.2. Ljudsko tijelo i elektromagnetska polja radijskih frekvencija — referencijske razine E i H, tiskana str. 206"}]
+ }
+}
