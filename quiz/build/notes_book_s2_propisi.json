@@ -1,0 +1,304 @@
+{
+ "_note": "Skupina II, propisi (20 od 720 knjižnih pitanja, jedini paket za tu sekciju te skupine, vidi P2-0005). Napomene provjerene izravno u NN150/22 (PyMuPDF nad docs/Pravilnik_o_amaterskim_radijskim_komunikacijama_NN_150_22.pdf, koji nema tiskanu paginaciju pa se cita clankom/stavkom) i u RK (booktool.py, tiskane stranice) 10 Aug 2026. VAZNO: paket_book_s2_propisi.json's `hrs_source` page numbers are off by one for every question in this packet -- verified with booktool.py: q1-6 are actually on printed RK str. 361 (packet says 360), q7-13 on str. 362 (packet says 361), q14-20 on str. 363 (packet says 362). SKUPINA II starts on str. 361 with its own heading; the packet's hrs_source field was generated against the wrong page. Not fixed here (make_packets.py is out of this item's files:); every `cite` below uses the page verified live, not the packet's own hrs_source. Six of these twenty questions reuse the exact same underlying facts as already-audited HRS-bank propisi notes (pro-072/073/074 pencil+blank-line, pro-016/018 exam age, pro-033 four-weeks-vs-three-months, pro-069/087-092 inspection powers, pro-043 callsign format, pro-044/083 identification intervals, pro-046 band-edge duty) -- cross-checked against those but every citation below was independently pulled and read from the source PDF for this item, not copied. `flag: check` marks a question where RK's own exam text (this is an older mock-exam paper reused across skupine, not the currency-audited 456-question HRS bank) tests a number or requirement that current NN150/22 either no longer states or never stated; the marked HRS/RK answer is left untouched per rule 1.",
+ "bk-pro-2-01": {
+  "note": "Oznaceno je d) -- olovkom se ne smije pisati u dnevnik. Razlog koji ispit ocekuje: dnevnik je dokazni dokument, pa zapis mora biti trajan -- grafitna olovka se moze izbrisati gumicom, tinta i kemijska olovka ne mogu.\n\nProvjera propisa: vazeci NN150/22 clanak 20. stavak 1. trazi samo da se odasiljanja biljeze \"citljivim zapisom\" na stranicama oznacenim po redoslijedu -- vrstu pisala ne spominje. Zahtjev da zapis bude takav \"da se ne moze brisati\" dolazi iz starijeg prirucnickog opisa (RK, poglavlje 3.3.11., tiskana str. 242: \"sve emisije moraju uci s razgovijetnim zapisom koji se ne moze brisati\") -- ta formulacija u sadasnjem Pravilniku vise ne stoji doslovno, samo je \"citljiv zapis\" ostao. Za ispit vrijedi HRS-ov odgovor d); u praksi je danas dnevnik cesce elektronicki (clanak 20. stavak 2. to izrijekom dopusta), gdje pitanje olovke uopce ne postoji.",
+  "cite": [
+   {
+    "src": "NN150/22",
+    "loc": "čl. 20. st. 1. (traži samo čitljiv zapis i stranice po redoslijedu, ne spominje vrstu pisala)"
+   },
+   {
+    "src": "RK",
+    "loc": "3.3.11. Dnevnik amaterske radijske postaje, tiskana str. 242 („zapis koji se ne može brisati“, izvor pravila o olovci); zbirka, SKUPINA II., pit. 1, tiskana str. 361"
+   }
+  ],
+  "flag": "check"
+ },
+ "bk-pro-2-02": {
+  "note": "Oznaceno je a) -- prazni redak je zabranjen. Obrazlozenje koje ispit ocekuje: prazan redak izmedu upisa omogucio bi naknadno umetanje zapisa, pa dnevnik prestaje biti pouzdan kronoloski dokument.\n\nProvjera propisa: clanak 20. stavak 1. NN150/22 propisuje samo da dnevnik ima \"stranicama oznacenim po njihovu redoslijedu\" i da se odasiljanja biljeze \"citljivim zapisom\" -- zabrana praznog retka nigdje se u tekstu ne spominje, ni u ovom clanku ni u ostatku Pravilnika. Ni RK-ov opisni dio o dnevniku (tiskana str. 242-243) tu odredbu ne navodi -- pojavljuje se iskljucivo u samoj zbirci ispitnih pitanja. Rijec je dakle o pravilu koje je preživjelo u ispitnoj tradiciji, ali ga aktualni Pravilnik ne postavlja. Za ispit ostaje a); u praksi (osobito uz elektronicki dnevnik iz stavka 2.) pojam \"praznog retka\" gubi smisao.",
+  "cite": [
+   {
+    "src": "NN150/22",
+    "loc": "čl. 20. st. 1. (stranice po redoslijedu, čitljiv zapis — bez odredbe o praznom retku)"
+   },
+   {
+    "src": "RK",
+    "loc": "opis dnevnika bez te odredbe, tiskana str. 242–243; zbirka, SKUPINA II., pit. 2, tiskana str. 361"
+   }
+  ],
+  "flag": "check"
+ },
+ "bk-pro-2-03": {
+  "note": "Oznaceno je d) -- F2A ili G2A, Morseova telegrafija. Dodatak 1., tocka 2.4.2.4. NN150/22 kaze doslovno: \"Pozivna oznaka amaterskog repetitora ili digipitora ukljucuje se u vrstu emisije F2A ili G2A (Morseova telegrafija) dok je amaterski repetitor ili digipitor ukljucen i ponavlja se najmanje svakih 20 minuta.\"\n\nZasto bas F2A/G2A, a ne A1A (izravni prekidani nositelj): repetitor radi frekvencijski (ili fazno) moduliranim signalom, pa nemodulirani prekidani nositelj (A1A) FM prijamnik uopce ne bi reproducirao kao cujni ton. F2A/G2A je Morse poslan tonom koji modulira nositelj -- svaki FM prijamnik ga cuje kao pistanje, bez prebacivanja moda. Odgovori a), b), c) postoje u tablici vrsta emisije (Dodatak 1., t. 2.3.) -- A1B izravni ispis, A1C faksimil, A3E telefonija -- samo nemaju veze s identifikacijom repetitora.",
+  "cite": [
+   {
+    "src": "NN150/22",
+    "loc": "Dodatak 1., t. 2.4.2.4. (repetitor/digipitor: F2A ili G2A, najmanje svakih 20 minuta)"
+   },
+   {
+    "src": "RK",
+    "loc": "3.3.16.2. Amaterske relejne postaje, tiskana str. 245; zbirka, SKUPINA II., pit. 3, tiskana str. 361"
+   }
+  ]
+ },
+ "bk-pro-2-04": {
+  "note": "Oznaceno je d) -- s navrsenih 12 godina. To je odgovor kakav trazi ova (starija) verzija ispitnog pitanja iz RK-ove zbirke.\n\nProvjera propisa: vazeci NN150/22 u clanku 9. ne postavlja NIKAKVU donju dobnu granicu za pristup ispitu -- ni za P ni za A razred. Stavak 1. trazi samo pisani zahtjev Savezu ili klubu (ime, prezime, OIB, razred), a stavak 2. dodaje da osobe mlade od 18 godina zahtjevu moraju priloziti odobrenje roditelja ili staratelja -- to je jedina poveznica s dobi u cijelom clanku. Brojka \"12 godina\" potjece iz starijeg izdanja prirucnika (RK, poglavlje 3.3.3. Radioamaterski ispiti, tiskana str. 232: \"Pravo polaganja ispita imaju kandidati koji su stariji od 12 godina...\"), koje opisuje raniji, danas ukinuti propis. Za ispit vrijedi HRS-ov odgovor d); u stvarnosti ispit danas moze polagati kandidat bilo koje dobi, uz pristanak roditelja ako je maloljetan.",
+  "cite": [
+   {
+    "src": "NN150/22",
+    "loc": "čl. 9. st. 1. i st. 2. (nema donje dobne granice; < 18 g. traži samo odobrenje roditelja/staratelja)"
+   },
+   {
+    "src": "RK",
+    "loc": "3.3.3. Radioamaterski ispiti, tiskana str. 232 („stariji od 12 godina“ — izvor stare brojke); zbirka, SKUPINA II., pit. 4, tiskana str. 361"
+   }
+  ],
+  "flag": "check"
+ },
+ "bk-pro-2-05": {
+  "note": "Oznaceno je d) -- dulje od cetiri tjedna. Ovo je zanimljivo pitanje jer RK-ova zbirka nudi OBA praga kao odvojene ponudene odgovore -- c) \"dulje od tri mjeseca\" i d) \"dulje od cetiri tjedna\" -- i tiskani kljuc oznacava d).\n\nProvjera propisa: NN150/22, clanak 13. stavak 2., kaze da nositelj dozvole moze postaviti i upotrebljavati nepokretnu amatersku radijsku postaju na drugoj lokaciji \"u razdoblju do najvise 90 dana neprekidno\" na temelju postojece dozvole -- 90 dana je priblizno tri mjeseca, ne cetiri tjedna (28 dana). Cetverotjedni prag i oznaka \"/A\" potjecu iz ranijeg, danas ukinutog propisa. Ova ista cinjenica je vec provjerena za odgovarajuce pitanje u HRS-ovoj 456-pitanjskoj banci (pro-033), gdje je oznaceni odgovor upravo \"dulje od tri mjeseca\" -- ondje se ispravni odgovor podudara s vazecim Pravilnikom. Ovdje, u starijoj knjiznoj zbirci, kljuc je ostao na zastarjeloj brojci. Ne mijenjam HRS-ov/RK-ov oznaceni odgovor (pravilo 1), ali: prema vazecem NN150/22 ispravan prag bio bi c) tri mjeseca (90 dana), ne d) cetiri tjedna.",
+  "formula": [
+   "NN150/22 čl. 13. st. 2.: druga nepokretna lokacija",
+   "   dopušteno bez posebne prijave  do 90 dana neprekidno",
+   "   (≈ tri mjeseca, NE četiri tjedna)",
+   "",
+   "RK zbirka str. 361, pitanje 5 — ponuđena OBA praga:",
+   "   c) tri mjeseca      ← usklađeno s NN150/22",
+   "   d) četiri tjedna    ← tiskani ključ, zastarjela brojka",
+   "",
+   "Usporedi pro-033 (HRS banka, isto pitanje): ondje je",
+   "označen odgovor 'tri mjeseca' — ovdje je 'četiri tjedna'."
+  ],
+  "cite": [
+   {
+    "src": "NN150/22",
+    "loc": "čl. 13. st. 1. i st. 2. (druga nepokretna lokacija, do 90 dana neprekidno bez prijave)"
+   },
+   {
+    "src": "RK",
+    "loc": "zbirka, SKUPINA II., pit. 5, tiskana str. 361 (oba praga ponuđena, d) označen)"
+   }
+  ],
+  "flag": "check"
+ },
+ "bk-pro-2-06": {
+  "note": "Oznaceno je d) -- ne smije komunicirati s radijskim postajama koje nemaju dozvole. Ta formulacija je izravno preuzeta iz RK-ova starijeg opisnog teksta (poglavlje 3.3.9. Sadrzaj odasiljanja, tiskana str. 242, tocka 4.: \"komunicirati s radijskim postajama, koje nemaju dozvole\").\n\nProvjera propisa: NN150/22, clanak 18. tocka 4., danas glasi drukcije -- zabranjuje se komunicirati \"s radijskim postajama koje nemaju valjanu identifikacijsku oznaku ili koje ne odasilju u propisnim intervalima identifikacijsku oznaku\". Kriterij je danas identifikacija (valjana pozivna oznaka, redovito odasiljana), a ne posjedovanje dozvole kao takve -- iako su u praksi ta dva gotovo uvijek povezana, jer postaja bez dozvole obicno nema ni dodijeljenu pozivnu oznaku. Za ispit vrijedi RK-ova formulacija d).",
+  "cite": [
+   {
+    "src": "NN150/22",
+    "loc": "čl. 18. t. 4. (zabrana komunikacije s postajom bez valjane identifikacijske oznake / koja ne odašilje ID u propisanim intervalima — ne „bez dozvole“ doslovno)"
+   },
+   {
+    "src": "RK",
+    "loc": "3.3.9. Sadržaj odašiljanja, tiskana str. 241–242 (t. 4.: „nemaju dozvole“); zbirka, SKUPINA II., pit. 6, tiskana str. 361"
+   }
+  ],
+  "flag": "check"
+ },
+ "bk-pro-2-07": {
+  "note": "Oznaceno je c) -- 40 dB. NN150/22, clanak 22. stavak 4., propisuje tablicu smanjenja sporednih zracenja za amaterske postaje stavljene u uporabu PRIJE 1. sijecnja 2003. -- za pojas 9 kHz - 30 MHz vrijednost je 40 dB (uz srednju razinu snage 50 mW), bez obzira na snagu odasiljaca.\n\nZasto kvalifikator \">25 W\" iz pitanja ovdje nista ne mijenja: za visi pojas (30-235 MHz, 235-960 MHz) tablica DIJELI vrijednost po snazi -- iznad 25 W trazi se 60 dB, do 25 W samo 40 dB. Za pojas ispod 30 MHz tablica takvu podjelu nema -- redak \"9 kHz - 30 MHz\" ima samo jednu vrijednost, 40 dB, koja vrijedi neovisno o snazi. Pitanje spominje \"snagom vecom od 25 W\" vjerojatno kao uvjezbani distraktor iz susjednog retka tablice, ali odgovor ostaje 40 dB u oba slucaja za taj frekvencijski pojas. Napomena: ovaj rezim vrijedi samo za postaje stavljene u uporabu prije 1.1.2003.; nakon toga datuma vrijedi posve druga formula iz stavka 5. (43 + 10 log(PEP) ili 50 dBc, sto je manje strogo).",
+  "formula": [
+   "NN150/22 čl. 22. st. 4. (postaje prije 1.1.2003.):",
+   "   9 kHz – 30 MHz        40 dB / 50 mW   (BEZ podjele po snazi)",
+   "   30 MHz – 235 MHz  >25W  60 dB / 1 mW",
+   "                     <=25W 40 dB / 25 µW",
+   "",
+   "Pitanje spominje >25 W, ali za <30 MHz retka nema podjele —",
+   "40 dB vrijedi u oba slučaja."
+  ],
+  "cite": [
+   {
+    "src": "NN150/22",
+    "loc": "čl. 22. st. 4., tablica, redak 9 kHz – 30 MHz (40 dB / 50 mW, bez podjele po snazi) — vrijedi za postaje stavljene u uporabu prije 1. siječnja 2003."
+   }
+  ]
+ },
+ "bk-pro-2-08": {
+  "note": "Oznaceno je a) -- obicnom olovkom se ne smije upisivati. Isto pitanje kao bk-pro-2-01, samo drugim redoslijedom ponudenih odgovora (ovdje je \"obicna olovka\" pod a), ondje pod d)) -- ista podloga i isto obrazlozenje.\n\nProvjera propisa: clanak 20. stavak 1. NN150/22 trazi \"citljiv zapis\" na stranicama oznacenim po redoslijedu -- ne propisuje vrstu pisala niti trajnost/neizbrisivost zapisa. Zahtjev da se zapis \"ne moze brisati\" (odakle dolazi zabrana grafitne olovke) potjece iz RK-ova starijeg opisa (poglavlje 3.3.11., tiskana str. 242). Za ispit vrijedi a); danas je uz to stavak 2. izrijekom dopustio elektronicki dnevnik, cime pitanje olovke u praksi postaje nevazno.",
+  "cite": [
+   {
+    "src": "NN150/22",
+    "loc": "čl. 20. st. 1. (čitljiv zapis, ne propisuje pisalo) i st. 2. (elektronički dnevnik dopušten)"
+   },
+   {
+    "src": "RK",
+    "loc": "3.3.11. Dnevnik amaterske radijske postaje, tiskana str. 242 (izvor „ne može brisati“); zbirka, SKUPINA II., pit. 11 (broj rekonstruiran), tiskana str. 362"
+   }
+  ],
+  "flag": "check"
+ },
+ "bk-pro-2-09": {
+  "note": "Oznaceno je d) -- podzakonskim aktom za radioamatere. Najvecu snagu amaterske postaje propisuje bas ovaj Pravilnik (NN150/22, podzakonski akt donesen na temelju Zakona o elektronickim komunikacijama) -- ne konstrukcija postaje, ne zahtjev kluba, i ogranicenja svakako postoje (pa c) otpada).\n\nGranica se postavlja na dvije razine, i uvijek vrijedi niza: Dodatak 1., tocka 2.2.1., daje opcu granicu po razredu (A razred 1500 W, P razred 100 W), a Tablica 1. istog Dodatka daje granicu po pojedinom frekvencijskom pojasu, koja je cesto niza od opce (npr. 10 W na 70 MHz za A razred). Clanak 16. stavak 1. dodaje da se snaga dopustena prema Dodatku 1. ne smije prekoraciti.",
+  "formula": [
+   "Dodatak 1., t. 2.2.1. — opća granica po razredu:",
+   "   A razred = 1500 W (61,8 dBm)",
+   "   P razred =  100 W (50,0 dBm)",
+   "",
+   "Tablica 1. — granica po pojasu, npr. A razred na 70 MHz: 10 W",
+   "  (vrijedi UVIJEK niža od dvije granice)"
+  ],
+  "cite": [
+   {
+    "src": "NN150/22",
+    "loc": "čl. 16. st. 1.; Dodatak 1., t. 2.2.1. (opća granica po razredu) i Tablica 1. (granica po pojasu)"
+   }
+  ]
+ },
+ "bk-pro-2-10": {
+  "note": "Oznaceno je c) -- neoklopljeni i udaljeni najmanje 1 m (u OCR-u knjige otisnuto kao \"| m\", sto je graficka greska za brojku 1). Clanak 21. stavak 1. NN150/22 kaze doslovno: antene i prikljucni vodovi moraju se graditi i postavljati tako \"da se osigura najmanje jedan metar udaljenosti izmedu njihovih sastavnih dijelova unutar gradevine i bilo kojeg dijela javne komunikacijske instalacije. Medusobna udaljenost manja od jednog metra dopustena je kod oklopljenih vodova ako je zajamcen rad bez smetnji.\"\n\nDakle: NEOKLOPLJENI vod treba puni razmak od 1 m (jer nema oklopa koji bi prigusio spregu s tudim kabelima); OKLOPLJENI vod smije biti i blize, jer oklop preuzima ulogu razmaka. Odgovori a), b), d) okrecu tu logiku (trazi manju udaljenost bas za oklopljene, a vecu za neoklopljene) ili navode pogresan broj metara.",
+  "cite": [
+   {
+    "src": "NN150/22",
+    "loc": "čl. 21. st. 1. (najmanje 1 m; manja udaljenost dopuštena samo kod oklopljenih vodova)"
+   },
+   {
+    "src": "RK",
+    "loc": "zbirka, SKUPINA II., pit. 13, tiskana str. 362"
+   }
+  ]
+ },
+ "bk-pro-2-11": {
+  "note": "Oznaceno je d) -- zabrana obavljanja djelatnosti u trajanju od tri mjeseca do godine dana. Ta tocna formulacija stoji rijec za rijec u RK-ovu opisu, poglavlje 3.2.1. Kaznene odredbe, tiskana str. 230: \"Za gore navedene prekrsaje inspektor moze izreci i zastitnu mjeru zabrane obavljanja djelatnosti u trajanju od tri mjeseca do godine dana.\" Ta ovlast dolazi iz clanaka 116.-117. STAROG Zakona o telekomunikacijama.\n\nProvjera propisa: NN150/22 (vazeci Pravilnik) uopce ne sadrzi ovlasti inspekcijskog nadzora -- jedini spomen inspekcije je clanak 22. stavak 7. (obveza radioamatera predociti shemu odasiljaca i nacrt antenskog sustava) i clanak 24. stavak 2. (obveza radioamatera odmah prestati s radom kod smetnje). Stari Zakon o telekomunikacijama je u medudobu zamijenjen Zakonom o elektronickim komunikacijama (ZEK, NN 76/22), koji danas propisuje inspekcijski nadzor (Dio cetvrti, Glava I.) -- no tocan clanak koji danas nosi upravo ovu \"tri mjeseca do godine dana\" mjeru nisam uspio potvrditi iz dostupnog izvornika, pa ga namjerno ne navodim (pravilo 5: cititati nista radije nego izmisljeni broj clanka). Za ispit vrijedi HRS-ov/RK-ov odgovor d), preuzet iz opisa starog zakona.",
+  "cite": [
+   {
+    "src": "RK",
+    "loc": "3.2.1. Kaznene odredbe, tiskana str. 230 („zaštitnu mjeru zabrane obavljanja djelatnosti u trajanju od tri mjeseca do godine dana“, po starom Zakonu o telekomunikacijama, čl. 116.–117.)"
+   },
+   {
+    "src": "NN150/22",
+    "loc": "ne sadrži inspekcijske ovlasti; jedini spomen nadzora je čl. 22. st. 7. i čl. 24. st. 2."
+   },
+   {
+    "src": "ZEK",
+    "loc": "NN 76/22 danas uređuje inspekcijski nadzor (Dio četvrti, Glava I.); točan članak za ovu konkretnu mjeru nije potvrđen iz izvornog teksta pa se ne navodi"
+   }
+  ],
+  "flag": "check"
+ },
+ "bk-pro-2-12": {
+  "note": "Oznaceno je d) -- kandidat ne mora imati prethodno polozen radioamaterski ispit za polaganje ispita za A razred. Provjereno u clanku 9. i clanku 10. NN150/22: nigdje se ne trazi da je P razred preduvjet za pristup ispitu za A razred. Clanak 9. stavak 1. trazi samo pisani zahtjev s imenom, prezimenom, OIB-om i naznakom razreda za koji se zeli polagati -- isti uvjet za oba razreda, bez ikakvog redoslijeda medu njima. Clanak 10. stavci 4. i 5. odvojeno uredduju izdavanje HAREC certifikata (za A) i pocetnickog CEPT certifikata (za P), opet bez preduvjeta jednog za drugi.\n\nDrugim rijecima: A razred se smije polagati izravno, bez prethodnog P razreda -- odgovori a), b), c) navode uvjete (dob, srednja skola, polozen P) koje Pravilnik nigdje ne postavlja.",
+  "cite": [
+   {
+    "src": "NN150/22",
+    "loc": "čl. 9. st. 1.–2. (zahtjev za ispit, isti uvjet za oba razreda, bez redoslijeda); čl. 10. st. 4.–5. (odvojeni certifikati, bez preduvjeta)"
+   },
+   {
+    "src": "RK",
+    "loc": "zbirka, SKUPINA II., pit. 15 (broj rekonstruiran), tiskana str. 362"
+   }
+  ]
+ },
+ "bk-pro-2-13": {
+  "note": "Oznaceno je d) -- ispit za pocetnicki (P) razred navodno ukljucuje i znanje Morseovog koda. Ovaj odgovor izravno protuslovi i sluzbenom ispitnom programu i vlastitom opisnom tekstu iste knjige.\n\nProvjera propisa/programa: RK sam, u poglavlju 4.2. (tiskana str. 246), naslovljenom \"ODASILJANJE I PRIJAM SIGNALA MORSEOVIM ZNAKOVIMA -- NIJE OBVEZAN DIO ISPITA\", kaze doslovno: \"Ovaj dio ispita za razrede A i P nije uvjet za polaganje ispita vec je neobvezatna provjera sposobnosti u odasiljanju i prijamu signala Morseovim znakovima.\" Isto potvrduje sluzbeni \"Obvezni dio ispitnog programa\" (temeljen na CEPT preporuci T/R 61-02 za A razred i ERC REPORT 32 za P razred): popis obveznog operativnog sadrzaja za P razred (dio b, \"Hrvatska i medunarodna operativna pravila i postupci\") sadrzi fonetsku abecedu, Q-kod, operativne kratice i pozivne oznake -- Morseov kod se u njemu uopce ne spominje. Tocan ispravan opseg P-razrednog ispita je c) -- tehnicka pitanja, operativna pitanja i propisi, bez Morseovog koda. Ne mijenjam HRS-ov/RK-ov oznaceni odgovor d) (pravilo 1), ali napominjem da je i po vlastitom opisu RK-a i po sluzbenom ispitnom programu Morseov kod za oba razreda neobvezan.",
+  "formula": [
+   "RK str. 246: Morseovi znakovi = NIJE OBVEZAN DIO ISPITA",
+   "             (vrijedi za A i P razred jednako)",
+   "",
+   "Obvezni dio ispitnog programa, P razred, dio b):",
+   "   1. Fonetska abeceda",
+   "   2. Q-kôd",
+   "   3. Operativne kratice",
+   "   4. Pozivne oznake",
+   "   (Morseov kôd nije na popisu)"
+  ],
+  "cite": [
+   {
+    "src": "RK",
+    "loc": "4.2. Odašiljanje i prijam signala Morseovim znakovima — nije obvezan dio ispita, tiskana str. 246; 4.3. Ispit za početnički (P) razred, tiskana str. 246–247; zbirka, SKUPINA II., pit. 16 (broj rekonstruiran), tiskana str. 362"
+   },
+   {
+    "src": "OBVEZNI",
+    "loc": "IV. Detaljni sadržaj obveznog dijela ispitnog programa za P razred, dio b) Hrvatska i međunarodna operativna pravila i postupci (fonetska abeceda, Q-kôd, kratice, pozivne oznake — bez Morseova kôda)"
+   }
+  ],
+  "flag": "check"
+ },
+ "bk-pro-2-14": {
+  "note": "Oznaceno je b) -- dozvola za postaju u samogradnji se izdaje ako postaja ima potvrdu izdanu od HRS-a. Clanak 12. stavak 3. NN150/22 potvrduje sadrzaj, uz malu razliku u nazivu: \"za amaterske radijske postaje u samogradnji ... radioamater je obvezan ... priloziti i uvjerenje o TEHNICKOJ SUKLADNOSTI koje izdaje Savez.\" Ispit koristi stariji izraz \"potvrda o tehnickoj ispravnosti\" -- isti pojam (Savez, odnosno HRS, potvrduje da je samogradena postaja tehnicki u redu prije nego dobije dozvolu), samo drugom rijecju nego u vazecem tekstu Pravilnika (\"sukladnost\" umjesto \"ispravnost\").\n\nOdgovori a), c), d) opisuju postupke koje Pravilnik ne predvida -- dostavu postaje na uvid Agenciji, vlastitu izjavu radioamatera, ili izdavanje bez ikakve potvrde.",
+  "cite": [
+   {
+    "src": "NN150/22",
+    "loc": "čl. 12. st. 3. (samogradnja: uvjerenje o tehničkoj sukladnosti koje izdaje Savez — ispit koristi stariji izraz „potvrda o tehničkoj ispravnosti“ za isti zahtjev)"
+   },
+   {
+    "src": "RK",
+    "loc": "zbirka, SKUPINA II., pit. 18, tiskana str. 363"
+   }
+  ]
+ },
+ "bk-pro-2-15": {
+  "note": "Oznaceno je b) -- ako administracija neke zemlje dostavi prijavu ITU o zabrani komunikacije. Ovo dolazi iz medunarodnih Radiokomunikacijskih propisa ITU-a (RR), clanak 25, koji RK opisuje u poglavlju 1.3. (tiskana str. 210): \"Vlada zemlje clanice ITU-a moze zatraziti da se medunarodne radioamaterske komunikacije izmedu te drzave i neke druge drzave ili drzava zabrane. Treba napomenuti da se taj propis doista rijetko upotrebljava.\"\n\n\"Administracija\" je ovdje ITU-ov standardni naziv za drzavno tijelo nadlezno za telekomunikacije (u Hrvatskoj danas HAKOM/Agencija) -- to je vlada koja moze zatraziti zabranu, ne treca zemlja (d), ne radioamaterski savez (c), i politicki uvjeti sami po sebi nisu formalni mehanizam (a).",
+  "cite": [
+   {
+    "src": "RK",
+    "loc": "1.3. Članak 25 Radiokomunikacijskih propisa ITU (RR), tiskana str. 210; zbirka, SKUPINA II., pit. 19, tiskana str. 363"
+   }
+  ]
+ },
+ "bk-pro-2-16": {
+  "note": "Oznaceno je c) -- svakih 10 minuta. Clanak 15. stavak 3. NN150/22 kaze da se pozivna oznaka mora odasiljati na pocetku i na kraju svake radijske komunikacije, a kod veze duljeg trajanja \"u vremenskim razmacima od najmanje deset minuta\", obicnim jezikom ili Morseovim kodom.\n\nNe brkati s drukcijim brojem za repetitor/digipitor: njihova pozivna oznaka odasilje se u vrsti emisije F2A ili G2A i ponavlja se najmanje svakih 20 minuta (Dodatak 1., t. 2.4.2.4., vidi bk-pro-2-03) -- deset minuta je za tebe kao operatora, dvadeset za sam repetitor.",
+  "cite": [
+   {
+    "src": "NN150/22",
+    "loc": "čl. 15. st. 3. (identifikacija u razmacima od najmanje deset minuta)"
+   },
+   {
+    "src": "RK",
+    "loc": "zbirka, SKUPINA II., pit. 16, tiskana str. 363"
+   }
+  ]
+ },
+ "bk-pro-2-17": {
+  "note": "Oznaceno je d) -- radioamaterska komunikacija se ne smije odvijati signalima nejasnog znacenja. Clanak 18. tocka 7. NN150/22 doslovno zabranjuje \"odasiljati signale nejasnog znacenja ili pogresne pozivne oznake\" -- komunikacija mora biti otvorena i razumljiva.\n\nOdgovori a), b), c) su namjerno pogresni jer telefonija, telegrafija i strani jezik sami po sebi NISU zabranjeni -- clanak 17. trazi samo \"obicni jezik\", sto ukljucuje i medunarodni amaterski kod i operativne kratice, bez ogranicenja na hrvatski jezik ili odredenu vrstu emisije.",
+  "cite": [
+   {
+    "src": "NN150/22",
+    "loc": "čl. 18. t. 7. (zabrana signala nejasnog značenja ili pogrešnih pozivnih oznaka); čl. 17. (obični jezik, bez ograničenja na određeni jezik ili emisiju)"
+   },
+   {
+    "src": "RK",
+    "loc": "zbirka, SKUPINA II., pit. 17, tiskana str. 363"
+   }
+  ]
+ },
+ "bk-pro-2-18": {
+  "note": "Oznaceno je c) -- vlasnik dozvole mora raditi u granicama dopustenog frekvencijskog pojasa. Clanak 16. stavak 1. NN150/22 kaze da odasiljac \"smije raditi samo na radijskim frekvencijama unutar frekvencijskih pojaseva\" navedenih u Tablici 1. Dodatka 1., a clanak 22. stavak 2. to pojacava: \"Granice frekvencijskih pojaseva ne smiju se prekoraciti.\"\n\nOdgovori a), b), d) su namjerno besmisleni distraktori: uporaba iskljucivo materinjeg jezika nikad nije bila propisana (clanak 17. trazi samo obicni jezik), a brzina Morseovog koda (30 ili 60 znakova u minuti) bila je ispitni uvjet do 2003., kad je CEPT-ova preporuka T/R 61-01 ukinula obveznu provjeru poznavanja Morseovih znakova -- danas nije uvjet za dozvolu.",
+  "cite": [
+   {
+    "src": "NN150/22",
+    "loc": "čl. 16. st. 1. (rad samo unutar pojaseva iz Tablice 1.); čl. 22. st. 2. (granice pojaseva se ne smiju prekoračiti)"
+   },
+   {
+    "src": "RK",
+    "loc": "zbirka, SKUPINA II., pit. 18, tiskana str. 363"
+   }
+  ]
+ },
+ "bk-pro-2-19": {
+  "note": "Oznaceno je b) -- 9A, jedna znamenka i jedno, dva ili tri slova. Clanak 15. stavak 1. NN150/22 kaze doslovno: \"Pozivna oznaka sastoji se od oznake »9A«, jedne znamenke i najvise tri slova.\" Formulacija \"najvise tri\" pokriva sve tri moguce duljine sufiksa (jedno, dva ili tri slova), pa je b) tocan odgovor -- npr. 9A5Y (jedno slovo), 9A2XX (dva), 9A1ADE (tri).\n\nOdgovori a), c), d) grijese na razlicite nacine: a) daje samo jedno slovo u pogresnom redoslijedu (slovo pa znamenka), c) fiksira tocno dva slova prije znamenke, d) izbacuje slova posve i ostavlja samo znamenke.",
+  "cite": [
+   {
+    "src": "NN150/22",
+    "loc": "čl. 15. st. 1. (9A + jedna znamenka + najviše tri slova)"
+   },
+   {
+    "src": "RK",
+    "loc": "zbirka, SKUPINA II., pit. 19, tiskana str. 363"
+   }
+  ]
+ },
+ "bk-pro-2-20": {
+  "note": "Oznaceno je d) -- dozvola vrijedi 5 godina. RK-ov opis (poglavlje 3.2., tiskana str. 229) kaze doslovno: \"Dozvolu za radioamatersku postaju moze dobiti radioamater koji je prethodno polozio ispit za radioamatere. Dozvola se izdaje na rok od pet godina koji se moze produljivati.\"\n\nVazna napomena: sam vazeci NN150/22 taj broj vise ne navodi -- clanak 12. stavak 11. tocka 6. samo trazi da dozvola SADRZI podatak o \"roku valjanosti dozvole\", ali ne propisuje koliki taj rok iznosi. Odredba o pet godina je RK-ov vlastiti opisni tekst, koji stoji u istom odlomku kao i sada zastarjele odredbe o starom Zakonu o telekomunikacijama (poglavlje 3.2.1. koje odmah slijedi, vidi bk-pro-2-11) -- petogodisnji ciklus posredno potvrduje i spomen \"petogodisnje naknade za uporabu radijskih frekvencija\" u istom odlomku, ali sam tocan broj godina nisam uspio potvrditi u tekstu vazeceg Pravilnika ili u ZEK-u, pa ovu brojku ne navodim kao potvrdenu trenutnim propisom -- samo kao RK-ov vlastiti, dosljedno ponavljan opis.",
+  "cite": [
+   {
+    "src": "RK",
+    "loc": "3.2. (opis dozvole), tiskana str. 229 („Dozvola se izdaje na rok od pet godina koji se može produljivati“); zbirka, SKUPINA II., pit. 20, tiskana str. 363"
+   },
+   {
+    "src": "NN150/22",
+    "loc": "čl. 12. st. 11. t. 6. (dozvola mora sadržavati „rok valjanosti dozvole“, ali Pravilnik ne navodi koliki taj rok iznosi)"
+   }
+  ],
+  "flag": "check"
+ }
+}
