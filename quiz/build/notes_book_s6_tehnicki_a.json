@@ -1,0 +1,221 @@
+{
+ "_note": "Skupina VI, tehnički dio, paket _a (30 od 720 knjižnih pitanja, neparni brojevi 1-59). Sve 30 provjerene izravno prema tiskanim stranicama RK (booktool.py za tekst + pymupdf render stranica pdf 338-347 = tiskane 344-353 kao slike, matrica 3x-8x, jer knjižne sličice u ovom PDF-u ~950 jednopikselnih inline slika koje get_images()/get_drawings() ne vide) 9-11 Aug 2026. Sve opcije za svih 30 pitanja uspoređene riječ po riječ s izravnim renderom stranice, ne s OCR tekstom iz current_cite/current_explanation. Odgovor (slovo) za svako od 30 pitanja dodatno je unakrsno provjeren protiv tablice 'ODGOVORI NA PITANJA' (tiskane str. 354-355, redci 1-59, stupac Skupina VI) renderane pri 8x - svih 30 slova iz packet_book_s6_tehnicki_a.json 'answer' polja se slažu s tablicom, transkripcija paketa je točna na razini slova.\n\nSedam pitanja ima has_figure=false u paketu iako stranica sadrži pravu sliku uz pitanje (potvrđeno izravnim uvidom u render): bk-teh-6-01 (strujni krug, tri paralelne grane), bk-teh-6-05 (E/H dijagram polarizacije vala), bk-teh-6-09 (serijski LC-krug s UL i UC), bk-teh-6-11 (koaksijalni vod l=lambda/4 sa 75 Ω teretom), bk-teh-6-13 (tri kondenzatora u seriji), bk-teh-6-19 (skica Marconijeve antene) i bk-teh-6-45 (oscilogram sinusoide). Za pet od tih sedam (01, 05, 13, 19, 45) stvarna slika je već ispravno povezana u quiz/build/figs_book_index.json i quiz/build/figs_book/ - taj mehanizam je odvojen od paketova has_figure polja pa netočna zastavica ondje ne utječe na izgrađeni kviz; opisano je ipak u napomeni svakog pitanja radi potpunosti. ZA DVA PITANJA (bk-teh-6-09 i bk-teh-6-11) STVARNA SLIKA NEDOSTAJE I U figs_book_index.json - to je stvarni propust u izgradnji (izvan files: ove stavke, nije ovdje ispravljeno), prijavljen u queue/reports/P3-0026.md; slika je opisana riječima u napomeni svakog od ta dva pitanja kao nadomjestak.\n\nOCR-lijepljeni/tablični defekti u tekstu opcija koji NE mijenjaju koje slovo je točno, ali mijenjaju ŠTO to slovo znači: bk-teh-6-09 - paketove opcije (c) i (d) su zamijenjene mjestima u odnosu na stvarnu stranicu (stvarno: (c)=270°, (d)=180°; paket: (c)='180%', (d)='270\\\" o'). Paketovo 'answer':'d' je ispravno slovo (tablica ga potvrđuje), a na stvarnoj stranici slovo (d) nosi tekst '180°', što se i slaže s fizikom (UL i UC u seriji uvijek su u protufazi, 180°) - dakle paketov 'answer_text' uz slovo d je pogrešan (preuzet je tekst pravog (c)), premda je samo slovo odgovora točno. bk-teh-6-51 - pitanje je tablica dvaju stupaca (impedancija I gušenje) za svaku opciju, a paket je zadržao samo stupac impedancije, izgubivši gušenje: stvarne opcije su (a) 75 oma/3 dB, (b) 3 oma/75 dB, (c) 25 oma/60 dB, (d) 50 oma/-75 dB, dok paket ima samo '75 oma'/'3 oma'/'25 oma'/'50 oma'. bk-teh-6-55 - paketov 'answer_text' za opciju (c) glasi 'zračenjem, indukcijom', no stvarna stranica ima treći dio rečenice: 'zračenjem, indukcijom i vođenjem' (izostavljen je 'i vođenjem'). Sve tri navedene napomene navode puni, sa stranice provjeren tekst, ne skraćeni paketov.\n\nBez vanjskih poveznica - link_check.py/check_notes.py ne obrađuju ovu datoteku (samo notes_zzz_expanded_*), pa poveznice namjerno izostavljene da se izbjegne neprovjerena tvrdnja.",
+ "bk-teh-6-01": {
+  "note": "Paketov has_figure=false je pogrešan (iako je stvarna slika već ispravno povezana u figs_book_index.json, izvan ove datoteke): pitanje nosi shemu s tri paralelne grane između istoga gornjeg i donjeg čvora, sve pod punim naponom izvora U=100 V - lijeva grana R1(10 Ω) u seriji s R2(90 Ω), gdje se U1 mjeri baš preko R1; srednja grana zavojnica (1 mH, vlastiti otpor 10 Ω) u seriji s 90 Ω; desna grana samostalni otpornik 500 Ω. Budući da sve tri grane vise na istom paru čvorova, srednja i desna grana ne utječu na to kako se napon dijeli UNUTAR lijeve grane - tamo vrijedi obični naponski djelitelj dvaju serijskih otpora: U1 = U × R1/(R1+R2) = 100 V × 10/(10+90) = 10 V, opcija (d). Ostale opcije (90 V, 50 V, 9 V) odgovarale bi zamjeni R1 i R2 u razlomku, pogrešnom zbroju otpora ili računanju s pogrešnom granom.",
+  "formula": ["U1 = U × R1 / (R1 + R2) = 100 V × 10 Ω / 100 Ω = 10 V"],
+  "cite": [
+   {"src": "RK", "loc": "Ispitna pitanja, SKUPINA VI, pitanje 1 (shema: U=100 V, grane R1=10Ω+R2=90Ω, zavojnica 1mH/10Ω+90Ω, 500Ω), tiskana str. 344"},
+   {"src": "RK", "loc": "1.1.3.2. Drugi Kirchhoffov zakon — zakon petlje, tiskana str. 22"}
+  ]
+ },
+ "bk-teh-6-03": {
+  "note": "Knjiga izravno navodi da je omjer transformacije jednak omjeru broja zavoja primara prema sekundaru, n1/n2, i da je taj omjer izravno razmjeran omjeru napona primara i sekundara, U1/U2 = n1/n2. Za transformator 240 V / 12 V slijedi omjer transformacije = 240/12 = 20, dakle 20:1, opcija (b). Opcija (a) 10:1 i (c) 5:1 su premali omjeri, a (d) 1:20 obrće smjer transformacije (bio bi to unaprijed pretpostavljeni pojačavajući, ne snizujući transformator).",
+  "formula": ["omjer transformacije = n1/n2 = U1/U2 = 240 V / 12 V = 20 (tj. 20 : 1)"],
+  "cite": [
+   {"src": "RK", "loc": "Ispitna pitanja, SKUPINA VI, pitanje 3, tiskana str. 344"},
+   {"src": "RK", "loc": "2.4. Načelo transformacije i transformatori (omjer transformacije n1/n2 = U1/U2), tiskana str. 72"}
+  ]
+ },
+ "bk-teh-6-05": {
+  "note": "Paketov has_figure=false je pogrešan (slika je već ispravno povezana u figs_book_index.json, izvan ove datoteke): pitanje nosi dijagram s okomitim strelicama E (jakost električnog polja) i vodoravnom strelicom H (jakost magnetskog polja) u smjeru širenja vala. Knjiga izravno definira u Tabeli 1.5.3: 'vertikalna [polarizacija] - vektor jakosti električnog polja, E, je u vertikalnoj ravnini' - to točno opisuje prikazani dijagram (E okomit), opcija (a). Horizontalna polarizacija bi imala E u vodoravnoj ravnini, a kružna/eliptična bi imale E vektor koji rotira s vremenom, što dijagram ne prikazuje.",
+  "cite": [
+   {"src": "RK", "loc": "Ispitna pitanja, SKUPINA VI, pitanje 5 (dijagram: E okomit, H vodoravan), tiskana str. 344"},
+   {"src": "RK", "loc": "Tabela 1.5.3. Vrste i oznake polarizacije (vertikalna - E u vertikalnoj ravnini), tiskana str. 41"}
+  ]
+ },
+ "bk-teh-6-07": {
+  "note": "Knjiga izravno navodi: 'Kod frekvencijski moduliranih odašiljača izlazna snaga nije ovisna o modulaciji, jednaka je s modulacijom i bez nje.' To je točno opcija (a), stalna bez obzira na modulaciju - suprotno amplitudnoj modulaciji, gdje izlazna snaga RASTE s modulacijom (do 50% veća pri 100-postotnoj modulaciji), jer se kod FM-a snaga samo preraspodjeljuje iz nositelja u bočne pojase, a ukupna snaga vala nositelja ostaje ista.",
+  "cite": [
+   {"src": "RK", "loc": "Ispitna pitanja, SKUPINA VI, pitanje 7, tiskana str. 345"},
+   {"src": "RK", "loc": "5.4.7. Izlazna snaga (kod FM odašiljača izlazna snaga nije ovisna o modulaciji), tiskana str. 143"}
+  ]
+ },
+ "bk-teh-6-09": {
+  "note": "Paketov has_figure=false je pogrešan, i ta slika NEDOSTAJE i u figs_book_index.json (stvarni propust u izgradnji kviza, izvan files: ove stavke - prijavljeno u queue/reports/P3-0026.md): pitanje nosi shemu jednostavnoga serijskog LC-kruga sa zavojnicom L (napon UL) i kondenzatorom C (napon UC) u seriji. U serijskom spoju kalema i kondenzatora napon na zavojnici uvijek prednjači struji za 90°, a napon na kondenzatoru uvijek kasni za strujom za 90° (vrijedi za svaku frekvenciju, ne samo u rezonanciji) - stoga su UL i UC uvijek u protufazi, razmaknuti za 180°, opcija (d). Napomena: paketove opcije (c) i (d) zamijenjene su mjestima u odnosu na stvarnu stranicu - stvarno (c)=270°, (d)=180°, dok paket ima (c)='180%', (d)='270\\\" o'; paketovo slovo odgovora 'd' JEST točno slovo (potvrđeno i tablicom ODGOVORI NA PITANJA i fizikom), ali tekst uz njega u paketu ('270°') pripada stvarnoj opciji (c), ne (d) - stvarni tekst uz (d) je '180°'.",
+  "formula": ["φ(UL, UC) = 180° (uvijek, neovisno o frekvenciji ili rezonanciji)"],
+  "cite": [
+   {"src": "RK", "loc": "Ispitna pitanja, SKUPINA VI, pitanje 9 (shema: serijski LC-krug s UL i UC), tiskana str. 345"},
+   {"src": "RK", "loc": "1.6.3. Fazna stanja (fazni kut, jedinični krug 0°-90°-180°-270°), tiskana str. 44"}
+  ]
+ },
+ "bk-teh-6-11": {
+  "note": "Paketov has_figure=false je pogrešan, i ta slika NEDOSTAJE i u figs_book_index.json (stvarni propust u izgradnji kviza, izvan files: ove stavke - prijavljeno u queue/reports/P3-0026.md): pitanje nosi shemu koaksijalnoga voda duljine λ/4, karakteristične impedancije Z0=50 Ω, zaključenog otporom 75 Ω. Knjiga izravno navodi da četvrtvalni ogranak prijenosnog voda djeluje kao transformator impedancije, s pravilom Zul = Z0²/Zteret. Za Z0=50 Ω i Zteret=75 Ω slijedi Zul = 50²/75 = 2500/75 ≈ 33 Ω, opcija (a). Ostale opcije ne poštuju taj kvadratni odnos (npr. 50 Ω ili 75 Ω bi značile da vod uopće ne transformira impedanciju).",
+  "formula": ["Zul = Z0² / Zteret = 50² Ω / 75 Ω = 2500/75 Ω ≈ 33 Ω"],
+  "cite": [
+   {"src": "RK", "loc": "Ispitna pitanja, SKUPINA VI, pitanje 11 (shema: A-Z0=50Ω-B-75Ω-uzemljenje, λ/4), tiskana str. 345"},
+   {"src": "RK", "loc": "6.2.4. Elementi za prilagodbu (Zul = Z0²/Zteret za četvrtvalni ogranak), tiskana str. 159"}
+  ]
+ },
+ "bk-teh-6-13": {
+  "note": "Paketov has_figure=false je pogrešan (slika je već ispravno povezana u figs_book_index.json, izvan ove datoteke): pitanje nosi shemu triju jednakih kondenzatora C1=C2=C3=66 pF spojenih u seriju između točaka A i B. Knjiga izravno navodi da je recipročna vrijednost ukupnog kapaciteta serijski spojenih kondenzatora jednaka zbroju recipročnih vrijednosti pojedinih kapaciteta: 1/C = 1/C1+1/C2+1/C3. Za tri jednaka kondenzatora od 66 pF: 1/C = 3/66 pF = 1/22 pF, dakle C=22 pF, opcija (b). Opcija (a) 11 pF bi bila kapacitet kad bi vrijedilo dijeljenje s 6 umjesto s 3, a (d) 198 pF (=3×66 pF) je vrijednost za PARALELNI, ne serijski spoj.",
+  "formula": ["1/C_AB = 1/C1 + 1/C2 + 1/C3 = 3/66 pF", "C_AB = 66 pF / 3 = 22 pF"],
+  "cite": [
+   {"src": "RK", "loc": "Ispitna pitanja, SKUPINA VI, pitanje 13 (shema: C1=C2=C3=66 pF u seriji, A-B), tiskana str. 346"},
+   {"src": "RK", "loc": "3.1.2.1. Serijski spoj kondenzatora (1/C=1/C1+1/C2+1/C3), tiskana str. 100"}
+  ]
+ },
+ "bk-teh-6-15": {
+  "note": "Knjiga izravno definira: 'Odnos ulazne i izlazne snage nekoga pojačala naziva se učinkovitost ili stupanj iskorištenja.' Ulazna (istosmjerna) snaga pojačala je P_ul = U×I = 12 V × 18 A = 216 W, a izlazna (r.f.) snaga je P_izl = 100 W. Učinkovitost η = P_izl/P_ul = 100 W/216 W ≈ 0,463 = 46%, opcija (c). Opcija (a) 100% bi značila pojačalo bez ikakvih gubitaka (fizički nemoguće za stvarno pojačalo), a (b) 55% i (d) 38% ne odgovaraju točnom omjeru 100/216.",
+  "formula": ["P_ul = U × I = 12 V × 18 A = 216 W", "η = P_izl / P_ul = 100 W / 216 W ≈ 46%"],
+  "cite": [
+   {"src": "RK", "loc": "Ispitna pitanja, SKUPINA VI, pitanje 15, tiskana str. 346"},
+   {"src": "RK", "loc": "5.4.8. Učinkovitost (η = odnos ulazne i izlazne snage), tiskana str. 143"}
+  ]
+ },
+ "bk-teh-6-17": {
+  "note": "Knjiga izravno navodi formulu za duljinu POLUVALNE antene: l ≈ 150/f(MHz) (u metrima). Za četvrtvalnu (λ/4) antenu duljina je upola manja: l ≈ 75/f(MHz). Za f=10 MHz slijedi l ≈ 75/10 = 7,5 m, opcija (a). Ostale opcije (15 m, 22,5 m, 30 m) odgovaraju redom cijeloj poluvalnoj duljini, trostrukoj četvrtini i punovalnoj duljini na istoj frekvenciji - dakle drugim tipovima antena, ne λ/4 antenom iz pitanja.",
+  "formula": ["l(λ/2) ≈ 150 / f(MHz)  →  l(λ/4) ≈ 75 / f(MHz)", "l(λ/4) = 75 / 10 = 7,5 m"],
+  "cite": [
+   {"src": "RK", "loc": "Ispitna pitanja, SKUPINA VI, pitanje 17, tiskana str. 346"},
+   {"src": "RK", "loc": "6.1.1. Duljina antene (l poluvalne antene ≈ 150/f(MHz)), tiskana str. 147"}
+  ]
+ },
+ "bk-teh-6-19": {
+  "note": "Paketov has_figure=false je pogrešan (slika je već ispravno povezana u figs_book_index.json, izvan ove datoteke): skica prikazuje okomitu žicu spojenu preko svitka i promjenjivog kondenzatora na uzemljeni (kružić s masom) izvor - dakle NESIMETRIČNU antenu napajanu prema stvarnom uzemljenju, a ne simetrični dipol napajan u sredini. Knjiga u poglavlju o vertikalnoj anteni opisuje upravo takvu jednopojasnu, uzemljenu četvrtvalnu antenu napajanu koaksijalnim kabelom - to je klasična konstrukcija poznata kao Marconijeva antena (nazvana po Marconiju, koji je prvi rabio antenu protiv stvarnog uzemljenja umjesto simetričnog dipola), opcija (b). Hertzov dipol (a) je simetričan i napajan u sredini bez uzemljenja, trap-dipol (c) bi imao LC-prigušnike (trapove) uzduž elemenata, a dugačka (longwire) antena (d) nije rezonancijski ugođena jednim svitkom/kondenzatorom kao na skici.",
+  "cite": [
+   {"src": "RK", "loc": "Ispitna pitanja, SKUPINA VI, pitanje 19 (skica: okomita žica, svitak, promjenjivi kondenzator, uzemljenje), tiskana str. 347"},
+   {"src": "RK", "loc": "6.1.6.4. Vertikalna antena (jednopojasna, l=λ/4, napojni vod koaksijalni kabel), tiskana str. 152"}
+  ]
+ },
+ "bk-teh-6-21": {
+  "note": "Knjiga izravno navodi: 'F-područje se proteže od 130 km naviše.' To je doslovno opcija (b). Opcija (a) 50 do 130 km odgovara D- i E-području (D je do ~90 km, E je 90...130 km), dok (c) 2000 km naviše i (d) 2500 do 3000 km uvelike premašuju čak i gornju granicu F2-sloja (do preko 500 km) - to su već visine izvan ionosfere.",
+  "cite": [
+   {"src": "RK", "loc": "Ispitna pitanja, SKUPINA VI, pitanje 21, tiskana str. 347"},
+   {"src": "RK", "loc": "7.1.3. Rasprostiranje ionosferskim valom — F-područje (proteže se od 130 km naviše), tiskana str. 167"}
+  ]
+ },
+ "bk-teh-6-23": {
+  "note": "Knjiga izravno navodi: 'Za radiovalove visokih frekvencija (HF) područja E i F djeluju kao reflektori' te da je 'F-područje, posebice F2-sloj, ... najzanimljivije i najvažnije područje ionosfere za komunikacije na velike udaljenosti u području HF'. Zajedno to potvrđuje opciju (d), E i F, posebice F2 sloj. D-sloj (a) uglavnom apsorbira, ne odbija radiovalove, pa ne pomaže komunikaciji na velike udaljenosti, a 'svi slojevi' (b) i sami E sloj (c) ne izdvajaju F2 kao presudan, što knjiga izričito ističe.",
+  "cite": [
+   {"src": "RK", "loc": "Ispitna pitanja, SKUPINA VI, pitanje 23, tiskana str. 348"},
+   {"src": "RK", "loc": "7.1.3. Rasprostiranje ionosferskim valom — utjecaj F-područja (F2-sloj najvažniji za HF komunikacije na velike udaljenosti), tiskana str. 167"}
+  ]
+ },
+ "bk-teh-6-25": {
+  "note": "Knjiga navodi da radiovalovi u VHF i UHF području prolaze kroz ionosferu (E i F područje) s neznatnim slabljenjem, dok se HF valovi od nje odbijaju - zbog toga se komunikacije prema svemirskim objektima (satelitima, a jednako tako i Mjesecom kao pasivnim reflektorom) mogu ostvarivati samo na frekvencijama koje ionosfera propušta umjesto da ih odbije natrag prema Zemlji, dakle ultrakratkim valovima (VHF) i višima, opcija (a). Kratki (HF), srednji i dugi valovi (b, c, d) bi se odbili već od same ionosfere prije nego bi uopće stigli do Mjeseca. Napomena: knjiga ne spominje refleksiju od Mjeseca (EME) izravno - zaključak je izveden iz općeg pravila o prolasku VHF/UHF vala kroz ionosferu, ne iz izričite rečenice o Mjesecu.",
+  "cite": [
+   {"src": "RK", "loc": "Ispitna pitanja, SKUPINA VI, pitanje 25, tiskana str. 348"},
+   {"src": "RK", "loc": "7.1.3.1. Utjecaj F-područja (VHF/UHF valovi prolaze kroz ionosferu uz slabljenje, otud komunikacije sa svemirskim objektima), tiskana str. 167"}
+  ]
+ },
+ "bk-teh-6-27": {
+  "note": "Knjiga izravno definira: 'Miješalo će izdvojiti, a međufrekvencijsko pojačalo dalje pojačati signale čija je frekvencija jednaka dvostrukoj međufrekvenciji uvećanoj za frekvenciju lokalnog oscilatora. Ta se frekvencija naziva zrcalnom frekvencijom.' To je doslovno opcija (b), zbroj frekvencije lokalnog oscilatora i dvostruke međufrekvencije (f_zrc = f_LO + 2×f_MF). Ostale opcije (dvostruko veća od ulazne, dvostruko veća od MF-a, dvostruko veća od LO-a) su pojednostavljene ili netočne parafraze te definicije.",
+  "formula": ["f_zrcalna = f_LO + 2 × f_MF"],
+  "cite": [
+   {"src": "RK", "loc": "Ispitna pitanja, SKUPINA VI, pitanje 27, tiskana str. 348"},
+   {"src": "RK", "loc": "4.4.5. Zrcalna frekvencija (f_zrc = f_LO + 2×f_MF), tiskana str. 135"}
+  ]
+ },
+ "bk-teh-6-29": {
+  "note": "Kod dvostrukoga superheterodinskog prijamnika konvertorskoga tipa prva (viša) međufrekvencija se mijenja s ugađanjem prijamnika radi lakšega potiskivanja zrcalne frekvencije na širokom frekvencijskom području, dok druga (niža) međufrekvencija ostaje STALNA - na njoj se izvodi glavna selektivnost (uski, fiksno ugođeni MF-filtar/kristalni filtar), pa ona ne smije 'plutati' s ugađanjem. To potvrđuje opciju (a), stalna. Napomena: knjiga prikazuje blok-shemu dvostrukoga superheterodinskog prijamnika (sl. 4.2.), ali ne navodi izričito rečenicu da je 2. MF stalna dok je 1. MF promjenjiva - taj zaključak dolazi iz opće arhitekture dvostrukog pretvaranja, ne iz citiranoga teksta.",
+  "cite": [
+   {"src": "RK", "loc": "Ispitna pitanja, SKUPINA VI, pitanje 29, tiskana str. 348"},
+   {"src": "RK", "loc": "4.2.2. AM prijamnik (A3E) — blok shema dvostrukoga superheterodinskog prijamnika, tiskana str. 129"}
+  ]
+ },
+ "bk-teh-6-31": {
+  "note": "Knjiga izravno opisuje AGC: 'Ako sklopu za pojačanje možemo automatski mijenjati radnu točku te na taj način utjecati na pojačanje sklopa, govorimo o automatskom upravljanju pojačanjem... U prijamniku možemo uzeti dio napona s nekog stupnja za pojačanje, ispraviti ga diodom, filtrirati kondenzatorom da se dobije istosmjerni napon, i tim naponom upravljati ukupnim pojačanjem.' To odgovara opciji (d), automatska promjena pojačanja povratnim djelovanjem ispravljenog dijela izlaznog signala na ulaz istog ili prethodnih stupnjeva. Ostale opcije opisuju drugačije funkcije (ugađanje frekvencije, selektivnost, potiskivanje šuma), ne AGC.",
+  "cite": [
+   {"src": "RK", "loc": "Ispitna pitanja, SKUPINA VI, pitanje 31, tiskana str. 349"},
+   {"src": "RK", "loc": "4.3.10. Automatsko upravljanje pojačanjem (AGC), tiskana str. 133-134"}
+  ]
+ },
+ "bk-teh-6-33": {
+  "note": "Knjiga izravno navodi: 'U kolikoj mjeri će prijamnik moći odvojiti signal sa susjednoga kanala ovisi o selektivnosti prijamnika, kao i o snazi signala na susjednom kanalu.' To potvrđuje opciju (d), selektivnosti prijamnika. Stabilnost (a) se odnosi na održavanje frekvencije, osjetljivost (b) na sposobnost pojačanja slabih signala, a izlazni stupanj/zvučnik (c) nema veze s razdvajanjem susjednih kanala.",
+  "cite": [
+   {"src": "RK", "loc": "Ispitna pitanja, SKUPINA VI, pitanje 33, tiskana str. 349"},
+   {"src": "RK", "loc": "4.4.1. Susjedni kanal / 4.4.2. Selektivnost, tiskana str. 134"}
+  ]
+ },
+ "bk-teh-6-35": {
+  "note": "Knjiga izravno navodi: 'Da se smanji utjecaj promjena na izlazu na rad oscilatora, a time i na stabilnost frekvencije koju oscilator daje, između oscilatora i stupnja pojačanja koji slijedi umeće se odvojni stupanj.' To je doslovno opcija (a), odvoji oscilator od utjecaja sljedećih stupnjeva. Odvojni stupanj se izvodi kao emitersko sljedilo (pojačanje ≈1), baš zato da opterećenje sljedećih stupnjeva ne 'povlači' frekvenciju oscilatora.",
+  "cite": [
+   {"src": "RK", "loc": "Ispitna pitanja, SKUPINA VI, pitanje 35, tiskana str. 349"},
+   {"src": "RK", "loc": "5.3.3. Odvojni stupanj (odvaja oscilator od utjecaja sljedećih stupnjeva), tiskana str. 138"}
+  ]
+ },
+ "bk-teh-6-37": {
+  "note": "Knjiga izravno navodi da do čirpa (promjene frekvencije na početku telegrafskog signala) 'može doći i kada se rad oscilatora ne upravlja telegrafskim signalima i tada čirp nastaje zbog promjene radnog napona ili promjene RF-opterećenja oscilatora... ako dolazi do promjene u radu oscilatora promjenom opterećenja, treba bolje odvojiti oscilator.' Jaka RF sprega između izlaznog i VFO stupnja upravo mijenja RF-opterećenje oscilatora u ritmu tipkanja, pa je vjerojatna posljedica čirp-nestabilnost frekvencije, opcija (c). Ostale opcije (promjena snage, iskrenje na tipkalu) nisu izravna posljedica te sprege prema opisu u knjizi.",
+  "cite": [
+   {"src": "RK", "loc": "Ispitna pitanja, SKUPINA VI, pitanje 37, tiskana str. 350"},
+   {"src": "RK", "loc": "5.4.11. Smetnje koje se stvaraju otipkavanjem Morzeovih znakova (čirp zbog promjene RF-opterećenja oscilatora), tiskana str. 144"}
+  ]
+ },
+ "bk-teh-6-39": {
+  "note": "Knjiga izravno definira sporedna zračenja: 'Odašiljač ... će uvijek u većoj ili manjoj mjeri zračiti i na drugim frekvencijama. U prvome redu to su harmonička zračenja... Odašiljač može zračiti i na bilo kojoj drugoj frekvenciji, bilo kao rezultat nekog samoosciliranja ... ili kao produkt nekog neželjenog miješanja. Sva su sporedna zračenja zagađivači frekvencijskog spektra ... te ih treba svesti na najmanju mjeru.' To se doslovno poklapa s opcijom (d), harmonijski proizvodi, parazitne emisije i druga potencijalno smetajuća zračenja čija se razina može i treba smanjiti bez utjecaja na željenu komunikaciju. Ostale opcije bilo umanjuju važnost špuriusa (a) bilo ih pogrešno definiraju kao ovisne o antenskom sustavu (b) ili o vlastitom prijamniku (c).",
+  "cite": [
+   {"src": "RK", "loc": "Ispitna pitanja, SKUPINA VI, pitanje 39, tiskana str. 350"},
+   {"src": "RK", "loc": "5.4.12. Sporedna visokofrekvencijska zračenja, tiskana str. 145"}
+  ]
+ },
+ "bk-teh-6-41": {
+  "note": "Knjiga izravno navodi: 'Prednosti takvoga mjerenja [apsorpcijskim mjerilom] su: nije potrebno napajanje, cijena je pristupačna, jednostavnost i otpornost konstrukcije.' To se doslovno poklapa s opcijom (b), jednostavnost i otpornost konstrukcije, nepotrebno napajanje, niska cijena. Suprotno tomu, knjiga izričito navodi kao NEDOSTATKE upravo veliku točnost i osjetljivost (opcija a) - 'točnost od samo ±5...10 posto, nedovoljna osjetljivost' - pa je (a) obrnuto od onoga što knjiga kaže.",
+  "cite": [
+   {"src": "RK", "loc": "Ispitna pitanja, SKUPINA VI, pitanje 41, tiskana str. 350"},
+   {"src": "RK", "loc": "8.2.5. Apsorpcijsko mjerilo frekvencije (prednosti: nepotrebno napajanje, niska cijena, jednostavnost i otpornost), tiskana str. 184"}
+  ]
+ },
+ "bk-teh-6-43": {
+  "note": "Digitalno mjerilo pokazuje 7,0876 MHz = 7 087 600 Hz. U tom zapisu znamenka 7 pojavljuje se dvaput: jednom kao vodeća znamenka milijuna (7×1 000 000 Hz) i jednom unutar razlomljenog dijela, na mjestu tisućica (...087 6... → ta druga sedmica vrijedi 7×1 000 Hz = 7000 Hz). HRS-ov ključ (tablica ODGOVORI NA PITANJA, redak 43, stupac Skupina VI) označava (b), sedam tisuća herca - dakle traži se mjesna vrijednost DRUGE sedmice (unutar 087,6 kHz razlomka MHz-prikaza), ne vodeće. Pitanje testira razumijevanje mjesne vrijednosti znamenaka u prikazu frekvencije, ne knjižnu teoriju o brojilima; nije pronađena rečenica u knjizi koja bi objašnjavala baš tu konvenciju čitanja, pa dodatna citirana teorija izostaje osim opisa digitalnog brojila frekvencije.",
+  "cite": [
+   {"src": "RK", "loc": "Ispitna pitanja, SKUPINA VI, pitanje 43, tiskana str. 351"},
+   {"src": "RK", "loc": "8.2.4. Brojilo frekvencije (digitalni prikaz izbrojenih impulsa), tiskana str. 183"}
+  ]
+ },
+ "bk-teh-6-45": {
+  "note": "Paketov has_figure=false je pogrešan (slika je već ispravno povezana u figs_book_index.json, izvan ove datoteke): na zaslonu je prikazan sinusoidalni signal čiji jedan puni period T razmjeru se preko 8 vodoravnih podioka mreže (provjereno izravnim brojanjem na renderu - od uzlaznog do sljedećeg uzlaznog prolaska kroz sredinu, s vrhom i dolom u razmaku od po 4 podioka). Uz brzinu otklona vremenske baze od 0,5 µs/podiok slijedi T = 8 × 0,5 µs = 4 µs, pa je f = 1/T = 1/4 µs = 250 000 Hz, opcija (c). Ostale opcije odgovaraju krivom broju podioka po periodi (npr. 25 000 kHz bi bilo za T reda 40 ns, posve nerealno za crtež od 8 podioka pri 0,5 µs/podiok).",
+  "formula": ["T = 8 podioka × 0,5 µs/podiok = 4 µs", "f = 1/T = 1 / 4 µs = 250 000 Hz"],
+  "cite": [
+   {"src": "RK", "loc": "Ispitna pitanja, SKUPINA VI, pitanje 45 (oscilogram: T = 8 podioka), tiskana str. 351"},
+   {"src": "RK", "loc": "8.2.7. Osciloskop (mjerenje frekvencije signala na zaslonu), tiskana str. 185"}
+  ]
+ },
+ "bk-teh-6-47": {
+  "note": "Knjiga izravno navodi da nelinearnost pojačala izobličuje signal: 'Ako na ulaz nekoga pojačala dovedemo idealni sinusoidni signal, na njegovom izlazu će signal u većoj ili manjoj mjeri biti izobličen. Pored signala osnovne frekvencije pojavit će se signali harmoničkih frekvencija.' Premoduliran i prepobuđen (prevelikom pobudom preopterećen) odašiljački stupanj radi izvan svojega linearnog područja, što upravo prouzroči takvo nelinearno izobličenje - dakle pojavu harmonika, opcija (a). Subharmonici (b) nastaju rjeđe i iz drugih razloga (npr. parazitna oscilacija), promjena modulacije (c) i beznačajne promjene (d) ne opisuju posljedicu nelinearnog izobličenja.",
+  "cite": [
+   {"src": "RK", "loc": "Ispitna pitanja, SKUPINA VI, pitanje 47, tiskana str. 351"},
+   {"src": "RK", "loc": "5.4.5. Nelinearnost (izobličen signal donosi harmoničke frekvencije), tiskana str. 142"}
+  ]
+ },
+ "bk-teh-6-49": {
+  "note": "Knjiga prikazuje upravo ovaj slučaj (sl. 9.2.2.): antenu napajanu preko antenskog prilagodnika (AP) s RF uzemljenjem razdvojenim od mrežnog (zaštitnog) uzemljenja, uz napomenu 'Dobro RF uzemljenje razdvojite od mrežnog.' Svrha razdvajanja je spriječiti da se RF struje iz odašiljača (koje bi tekle kroz zajedničko uzemljenje) prenesu u kućnu/mrežnu instalaciju i uzrokuju smetnje drugim uređajima ili susjedima - to je opcija (a), spriječiti mogući prijenos RF smetnji. Mrežni brum (b) i samooscilacije (c) su drugi, posebni problemi koje rješavaju drugi elementi (mrežni filtar, odvojni stupanj), a (d) je netočna generalizacija - razdvajanje uzemljenja ovdje ima jasnu, opisanu korist.",
+  "cite": [
+   {"src": "RK", "loc": "Ispitna pitanja, SKUPINA VI, pitanje 49, tiskana str. 352"},
+   {"src": "RK", "loc": "9.2. Uzroci smetnja i mjere za njihovo sprečavanje — napomena N6 i sl. 9.2.2. (RF uzemljenje razdvojeno od mrežnog), tiskana str. 191-193"}
+  ]
+ },
+ "bk-teh-6-51": {
+  "note": "Pitanje je tablica dvaju stupaca (impedancija i gušenje) po opciji; paket je zadržao samo stupac impedancije, izgubivši stupac gušenja pri parsiranju - stvarne, sa stranice provjerene opcije su: (a) 75 oma / 3 dB, (b) 3 oma / 75 dB, (c) 25 oma / 60 dB, (d) 50 oma / -75 dB (paket ima samo '75 oma'/'3 oma'/'25 oma'/'50 oma', bez dB-stupca). Knjiga navodi da je normirana karakteristična impedancija za koaksijalni antenski vod (uključujući TV/FM silazni vod) 50 Ω ili 75 Ω - za TV prijamnik standardna je 75-omska nesimetrična koaksijalna izvedba. Filtar umetnut u takav vod mora zadržati tu istu impedanciju (75 oma) da ne unese dodatno nepodudaranje (SWR), uz razumno, praktično gušenje neželjenog signala (3 dB); to je opcija (a). Ostale opcije nude ili pogrešnu impedanciju (3, 25, 50 oma umjesto 75) ili nerealno veliko/negativno gušenje.",
+  "cite": [
+   {"src": "RK", "loc": "Ispitna pitanja, SKUPINA VI, pitanje 51 (tablica: impedancija/gušenje po opciji), tiskana str. 352"},
+   {"src": "RK", "loc": "6.2.4. Elementi za prilagodbu (normirana impedancija koaksijalnog voda: 50 Ω ili 75 Ω), tiskana str. 159"}
+  ]
+ },
+ "bk-teh-6-53": {
+  "note": "Knjiga izravno navodi da se intermodulacija javlja kada se na ulazu pojavi signal koji 'na nekom nelinearnom elementu stvori harmoničke komponente ili se pomiješa s nekim drugim signalom' - kad na TAKVOM (nelinearnom) elementu djeluju DVA signala istodobno, njihove međusobne kombinacije zbroja/razlike frekvencija (i harmonika) UVIJEK nastaju, to je sama definicija intermodulacije, neovisno o tome jesu li te komponente dovoljno jake da smetaju. To potvrđuje opciju (a), tvore intermodulacijske produkte. Na LINEARNOM elementu (bez nelinearnosti) do toga ne bi došlo, ali pitanje izričito govori o nelinearnom elementu, pa opcije (b), (c) i (d), koje tvrde da signali jedan drugoga poništavaju, prime se bez smetnji ili daju željeni rezultat, nisu u skladu s definicijom.",
+  "cite": [
+   {"src": "RK", "loc": "Ispitna pitanja, SKUPINA VI, pitanje 53, tiskana str. 352"},
+   {"src": "RK", "loc": "4.4.6. Intermodulacija, modulacijska smetnja (signal na nelinearnom elementu stvara harmoničke komponente ili se miješa s drugim signalom), tiskana str. 135"}
+  ]
+ },
+ "bk-teh-6-55": {
+  "note": "Paketov 'answer_text' za opciju (c) glasi skraćeno 'zračenjem, indukcijom', no stvarna stranica ima puni, treći dodatak: 'zračenjem, indukcijom i vođenjem' (paket je izgubio završno 'i vođenjem'). Knjiga to izravno i doslovno potvrđuje: 'Iz nekoga izvora RF smetnja I. one mogu doprijeti do nekog prijamnika P zračenjem, vođenjem (kondukcijom) i indukcijom' - dakle sva tri puta prijenosa smetnje odjednom, opcija (c) u punom obliku. Opcije (a) samo zračenjem, (b) samo vođenjem i (d) isključivo izravnim kontaktom pogrešno ograničavaju smetnju na samo jedan put, dok knjiga izričito nabraja sva tri.",
+  "cite": [
+   {"src": "RK", "loc": "Ispitna pitanja, SKUPINA VI, pitanje 55, tiskana str. 353"},
+   {"src": "RK", "loc": "9.2.2. Parametri prijamnika i smetnje — 'Općenito o smetnjama' (RF smetnje dopiru zračenjem, vođenjem i indukcijom), tiskana str. 199"}
+  ]
+ },
+ "bk-teh-6-57": {
+  "note": "Knjiga navodi upravo ovaj primjer: 'Četvrti harmonik amaterskog odašiljača 144...146 MHz upada u IV. frekvencijsko područje, 34. televizijski kanal' te dalje objašnjava rješenje - 'U takvom slučaju obično pomogne UHF visokopropusni filtar, koji propušta sve iznad 470 MHz (21. kanal), a ispod te frekvencije oštro reže. To vrijedi samo za UHF TV prijam.' Budući da je odašiljač BEZ harmonika (osnovna frekvencija 144 MHz je izvan UHF TV pojasa, a problem je stoga u samom prijamniku, ne u odašiljačevim harmonicima), u antenski vod TV prijamnika umeće se visokopropusni filtar koji propušta željeni UHF TV signal a guši VHF signal na 144 MHz, opcija (a). Niskopropusni filtar (b) bi, obrnuto, propuštao 144 MHz i gušio UHF TV, par dioda (c) i koaksijalni ogranak λ/2 (d) rješavaju druge probleme (ograničavanje amplitude odnosno usklađivanje faze/impedancije), ne selektivno gušenje VHF-a uz propuštanje UHF-a.",
+  "cite": [
+   {"src": "RK", "loc": "Ispitna pitanja, SKUPINA VI, pitanje 57, tiskana str. 353"},
+   {"src": "RK", "loc": "9.2.2. Parametri prijamnika i smetnje — Visokopropusni TV filtar (primjer: 144 MHz odašiljač upada u UHF TV kanal; UHF visokopropusni filtar rješenje), tiskana str. 201"}
+  ]
+ },
+ "bk-teh-6-59": {
+  "note": "Kada netko pred nama doživi strujni udar, prva i najhitnija radnja je odmah pružiti prvu pomoć (npr. isključiti izvor struje ako je moguće i sigurno, provjeriti disanje i svijest, po potrebi započeti oživljavanje) - svaka odgoda izravno ugrožava život unesrećenoga, dok traženje liječnika u susjedstvu (a) ili samo glasno dozivanje pomoći (c) troše dragocjeno vrijeme bez izravne pomoći unesrećenome, a pozivanje hitne pomoći (b) je svakako potrebno, ali usporedno s pružanjem prve pomoći, ne umjesto nje - HRS-ov ključ označava (d), odmah pružiti prvu pomoć, kao jedini odgovor koji stavlja neposrednu pomoć unesrećenom kolegi na prvo mjesto. Napomena: knjiga u poglavlju o sigurnosti (10. Sigurnost / 10.1. Ljudsko tijelo) opisuje fiziološke učinke struje i mjere opreza (uzemljenje, isključenje, FID-sklopka) kod rada s uređajima, ali ne sadrži izričiti postupak prve pomoći pri strujnom udaru, pa dodatna knjižna potkrepa izostaje.",
+  "cite": [
+   {"src": "RK", "loc": "Ispitna pitanja, SKUPINA VI, pitanje 59, tiskana str. 353"}
+  ]
+ }
+}
