@@ -1,0 +1,409 @@
+{
+ "_note": "Skupina IV, tehnički dio, paket _b (30 od 720 knjižnih pitanja, parni brojevi 2-60 — sestrinski paket P3-0018/notes_book_s4_tehnicki_a.json, koji je pokrio neparne 1-59 sa istih tiskanih str. 321-331). Napomene provjerene izravno prema tiskanim stranicama RK (booktool.py + pymupdf render stranica 321-331 kao slike, ne samo OCR tekst) 9-10 kol 2026. Sve opcije za svih 30 pitanja usporedene riječ po riječ s izravnim renderom stranice (200 dpi) i s book_parsed2.json/book_keys.json. Nađen jedan stvaran, neispravljen sadržajni defekt koji ovaj paket (files: iz stavke, citano samo, nije mijenjano) trenutačno nosi u ŽIVOJ bazi (quiz/build/book_parsed2.json, ne samo u work-paketu): bk-teh-4-40 ima zamijenjene tekstove opcija (c) i (d) — parsane koordinate u book_parsed2.json (dva stupca retka 2 na str. 327, x=71,76 i x=288,24) su dodijeljene obrnutim slovima, pa paket danas nosi c='240 W', d='180' dok izravni render tiskane str. 327 pokazuje (c) 180 W, (d) 240 W. HRS-ov ključ (book_keys.json, redak 40, stupac IV) glasi 'D', a stvarna opcija (d) na tiskanoj stranici je '240 W' — to je i fizikalno smisleno (RK str. 87: korisnost A razreda najbolji slučaj 50%, stvarno 40-45%, pa 100 W izlazne snage uz ~42% korisnosti daje ~240 W ulazne snage; 180 W bi zahtijevao ~56% korisnosti, više od knjigom navedenoga teorijskog maksimuma). Napomena za bk-teh-4-40 pisana je oko provjerenoga stvarnog sadržaja (d = 240 W), ne oko paketova trenutačno zamijenjenog teksta; nije popravljeno u book_parsed2.json/packet (izvan files: ove stavke), prijavljeno u queue/reports/P3-0019.md. Nadalje, dva pitanja (bk-teh-4-22, bk-teh-4-18) imaju opcije koje su u paketu/live-bazi odsječene usred rečenice (npr. bk-teh-4-22 (a) 'Nestaju slojevi' umjesto stvarnoga 'Nestaju slojevi D i E', (d) prekinuto prije 'i F, i F, stapaju se u jedan F sloj'; bk-teh-4-18 (c) prekinuto prije ', f se smanjuje') — ne mijenja slovo odgovora u tim dvama slučajevima (b, odnosno d), pa nije posebno razrađeno u napomeni, ali je zabilježeno ovdje jer je isti obrazac odsijecanja teksta nađen i kod bk-teh-4-24, gdje ODSIJECA UPRAVO TOČAN ODGOVOR (c) 'Danju potpuno oslabe u D i' umjesto stvarnoga 'Danju potpuno oslabe u D i E sloju, a noću ih sloj E reflektira' — ta napomena je pisana oko potpunoga, provjerenog teksta, ne oko odsječenoga. bk-teh-4-12 (d) nosi sitan OCR-zalijepljeni artefakt 'o-' (iz susjednog pitanja 13 na sljedećoj stranici) iza '22 dBW' — kozmetičko, ne mijenja smisao, napomena rabi čisti '22 dBW'. Šest pitanja ima has_figure krivo 'false' u work-paketu iako stranica nosi pravu sliku potrebnu za odgovor (potvrđeno s book_overrides.json/figs_book_index.json i izravnim uvidom u svih pet slika): bk-teh-4-10 (dva fazno pomaknuta vala), bk-teh-4-14 (kvad antena s označenom stranicom lambda/4), bk-teh-4-16 (shema induktivne sprege dvaju krugova), bk-teh-4-46 (osciloskopski prikaz s oznakom 12 V/diobi), bk-teh-4-48 (četiri oscilograma dubine modulacije). (bk-teh-4-08 i bk-teh-4-36 već ispravno nose true.) Ovo NE utječe na živi kviz — rebuild.py prilaže sliku po id-u iz figs_book_index.json neovisno o packetovu has_figure polju (provjereno čitanjem rebuild.py) — pa je riječ samo o zastarjeloj metapodatkovnoj oznaci u work-paketu, ne o stvarnome nedostatku slike u kvizu; svejedno korisno za budućega urednika toga paketa. Sve navedeno nije popravljeno (izvan files: ove stavke, paket/book_parsed2 tretirani kao samo za čitanje, isto kao u P3-0018).",
+ "bk-teh-4-02": {
+  "note": "Valna duljina i frekvencija povezane su izrazom λ=c/f, gdje je c brzina svjetlosti u vakuumu/zraku (knjiga je navodi kao c=300 000 km/s=3×10⁸ m/s). Za f=24 GHz=24×10⁹ Hz slijedi λ=(3×10⁸ m/s)/(24×10⁹ Hz)=0,0125 m=12,5 mm — vrijednost reda veličine milimetara jer je frekvencija vrlo visoka (mikrovalno, 24 GHz je iznad K-pojasa).",
+  "formula": [
+   "λ = c/f",
+   "λ = (3×10⁸ m/s) / (24×10⁹ Hz) = 1,25×10⁻² m = 12,5 mm"
+  ],
+  "cite": [
+   {
+    "src": "RK",
+    "loc": "Ispitna pitanja, SKUPINA IV, pitanje 2, tiskana str. 321"
+   },
+   {
+    "src": "RK",
+    "loc": "1.5.2. Brzina širenja, frekvencija i valna duljina (λ=c/f), tiskana str. 39"
+   }
+  ]
+ },
+ "bk-teh-4-04": {
+  "note": "Odašiljač C razreda vodi manje od poluvala ulaznog signala (tranzistor je zakočen sve dok pozitivni dio signala ne preraste određeni prag), pa titrajni krug u izlazu mora energijom uskladištenom tijekom vođenja nadomjestiti nedostajući dio vala. Zbog kratkog, snažnog vođenja korisnost je veća nego u A i B razredu (knjiga navodi 65-70%), ali je oblik struje kolektora daleko od sinusoidnog pa su nelinearna izobličenja izlaznog signala značajna — zato se C razred rabi za RF pojačala snage uz titrajni krug, a ne za linearno (npr. SSB) pojačanje.",
+  "cite": [
+   {
+    "src": "RK",
+    "loc": "Ispitna pitanja, SKUPINA IV, pitanje 4, tiskana str. 321"
+   },
+   {
+    "src": "RK",
+    "loc": "2.3. Razred C (učinkovitost 65-70%, bolje nego u A i B razredu), tiskana str. 89"
+   }
+  ]
+ },
+ "bk-teh-4-06": {
+  "note": "Kad se poluvodička dioda-sklopka nalazi u seriji sa zavojnicom velikog induktiviteta L, nagli prekid struje kroz zavojnicu (pri isklapanju/prebacivanju diode) uzrokuje naponski šiljak L·di/dt koji može znatno premašiti diodin dopušteni vršni obratni napon (PIV). Zato treba (a) izabrati diodu s dovoljno visokim PIV za očekivani šiljak i (b) dodati zaštitnu RC-mrežicu (kondenzator i otpornik u seriji, tzv. snubber) paralelno diodi/sklopu koja apsorbira i prigušuje prijelaznu naponsku pojavu. Zanemarivanje toga (odgovor b) ili izbjegavanje takvog spoja uopće (c) ne rješava problem niti odgovara praksi; paralelni spoj dioda (d) ne utječe na naponski šiljak.",
+  "cite": [
+   {
+    "src": "RK",
+    "loc": "Ispitna pitanja, SKUPINA IV, pitanje 6, tiskana str. 321"
+   }
+  ]
+ },
+ "bk-teh-4-08": {
+  "note": "Pitanje izravno upućuje na isti prikaz kao u zadatku 7 (četiri valna oblika a-d na istoj stranici). Kod punovalnoga ispravljača struja teče kroz teret tijekom OBIJU poluperioda izmjeničnog napona (i pozitivne i negativne), pa se na izlazu dobiva niz isključivo pozitivnih 'brjegova' bez ravnih (nul) dijelova između njih — ritam pulsiranja je dvostruko viši od mrežne frekvencije (knjiga: 100 Hz umjesto 50 Hz kod poluvalnog ispravljanja). To je upravo oblik d) — gusto nadovezani pozitivni brjegovi bez praznina; oblik b) (pozitivni brjegovi ODVOJENI prazninama) je poluvalno ispravljanje (odgovor na zadatak 7), a oblici a) i c) sadrže i negativnu poluperiodu pa uopće ne predstavljaju ispravljenu struju.",
+  "cite": [
+   {
+    "src": "RK",
+    "loc": "Ispitna pitanja, SKUPINA IV, pitanje 8, tiskana str. 322 (broj pitanja rekonstruiran)"
+   },
+   {
+    "src": "RK",
+    "loc": "3.3.1.2. Punovalno ispravljanje (frekvencija pulsiranja 100 Hz, obje poluperiode kroz teret), tiskana str. 114"
+   }
+  ]
+ },
+ "bk-teh-4-10": {
+  "note": "Slika prikazuje dva sinusna vala na istom vremenskom/kutnom rasponu (0°-360°), međusobno pomaknuta za četvrtinu ciklusa — jedan val doseže vrh točno ondje gdje drugi prolazi kroz nulu. Opcije u paketu nose OCR-izobličen grčki φ/π (prikazan kao 'm'), no knjiga sama, u istoimenom poglavlju o faznim stanjima, rabi upravo taj zapis: 'Fazna razlika φ=π/2=90°' je posebno nazvani, imenovani slučaj (poglavlje 1.6.3.2.), dok su φ=π (180°), φ=π/3 (60°) i φ=π/6 (30°) preostale ponuđene vrijednosti. Pomak za četvrtinu ciklusa na slici odgovara upravo φ=π/2=90° — vrijednost koju HRS-ov ključ i označava kao točnu.",
+  "cite": [
+   {
+    "src": "RK",
+    "loc": "Ispitna pitanja, SKUPINA IV, pitanje 10, tiskana str. 322"
+   },
+   {
+    "src": "RK",
+    "loc": "1.6.3.2. Fazna razlika φ = π/2 = 90° i φ = −π/2 = −90°, tiskana str. 45"
+   },
+   {
+    "src": "RK",
+    "loc": "1.6.2.1. Jedinični krug — fazni kut u radijanima (0; π/2; π; 3π/2; 2π), tiskana str. 44"
+   }
+  ]
+ },
+ "bk-teh-4-12": {
+  "note": "Razina snage u decibelima prema referentnoj snazi P₀ je L=10·log(P/P₀) dB. Knjiga rješava upravo ovaj primjer (P=100 W prema P₀=1 W): L=10·log(100)=10·log(10²)=10×2=20 dB. Budući da je referentna snaga 1 W, jedinica razine je dBW, pa je odgovor 20 dBW — ne 10, 16 ni 22 dBW, koje bi odgovarale pogrešnom eksponentu ili pogrešno primijenjenom faktoru 20 (koji vrijedi za napone/struje, ne za snage).",
+  "formula": [
+   "L(1W) = 10·log(P/P₀) dB",
+   "L(1W) = 10·log(100 W / 1 W) = 10·log(10²) = 10 × 2 = 20 dB = 20 dBW"
+  ],
+  "cite": [
+   {
+    "src": "RK",
+    "loc": "Ispitna pitanja, SKUPINA IV, pitanje 12, tiskana str. 322"
+   },
+   {
+    "src": "RK",
+    "loc": "1.9.4. O decibelu — Primjer 1: P=100 W prema referentnoj snazi 1 W daje 20 dB, tiskana str. 53-54"
+   }
+  ]
+ },
+ "bk-teh-4-14": {
+  "note": "Slika uz pitanje prikazuje dijamantno postavljenu kvadratnu petlju (kvad-antenu) s duljinom svake od četiriju jednakih stranica označenom kao λ=? — upravo veličina koju pitanje traži. Knjiga (kvad-antena W9LZX) izričito navodi: 'stranica petlje radijatora svaka s l=λ/4' (ukupni opseg petlje = 1λ, četiri jednake stranice), uz polarizaciju horizontalnu za standardnu orijentaciju (dijagonala petlje pod 45°, vrh gore/dolje — kako je i na slici). Odgovor je stoga 'λ/4 horizontalna'; vertikalna polarizacija (opcije a, c) vrijedila bi tek za napojnu točku pomaknutu na bočni vrh petlje, što slika ne prikazuje.",
+  "cite": [
+   {
+    "src": "RK",
+    "loc": "Ispitna pitanja, SKUPINA IV, pitanje 14, tiskana str. 323"
+   },
+   {
+    "src": "RK",
+    "loc": "6.1.6.8. Kvad-antena W9LZX (stranica petlje l=λ/4, polarizacija horizontalna), tiskana str. 155"
+   }
+  ]
+ },
+ "bk-teh-4-16": {
+  "note": "Slika prikazuje dva odvojena titrajna kruga, A (C, L₁) i B (C, L₂), s dvjema zavojnicama nacrtanim jedna uz drugu (kao primar/sekundar transformatora) — to je shematski prikaz zajedničkoga magnetskog polja, tj. INDUKTIVNE (transformatorske) sprege, kakvu knjiga opisuje pod 'Indukcijski spregnuti titrajni krugovi' (dvije zavojnice na zajedničkom nosaču na određenom razmaku, stupanj sprege ovisi o udaljenosti). Kapacitivna sprega bi se na shemi prikazala zajedničkim kondenzatorom ili vodičem između krugova, a ne dvjema susjednim zavojnicama, pa opcije a), c), d) ne odgovaraju prikazu.",
+  "cite": [
+   {
+    "src": "RK",
+    "loc": "Ispitna pitanja, SKUPINA IV, pitanje 16, tiskana str. 323"
+   },
+   {
+    "src": "RK",
+    "loc": "3.2.2. Indukcijski spregnuti titrajni krugovi, tiskana str. 110"
+   }
+  ]
+ },
+ "bk-teh-4-18": {
+  "note": "Rezonancijska frekvencija titrajnog LC-kruga određena je umnoškom L·C u nazivniku (f_r ∝ 1/√(LC)) — knjiga to navodi izravno u poglavlju o omjeru L/C. Ako se s porastom temperature poveća kapacitet C, umnožak L·C raste, pa 1/√(LC), a time i rezonancijska frekvencija f, PADA. Odgovor je stoga 'C raste, f pada' (opcija d — OCR u paketu bilježi f kao '/'); ostale opcije tvrde da frekvencija ostaje nepromijenjena ili raste s C, što je suprotno od f_r ∝ 1/√(LC).",
+  "formula": [
+   "f_r = 1 / (2π√(LC))  →  C↑ ⟹ f_r↓"
+  ],
+  "cite": [
+   {
+    "src": "RK",
+    "loc": "Ispitna pitanja, SKUPINA IV, pitanje 18, tiskana str. 324"
+   },
+   {
+    "src": "RK",
+    "loc": "3.2.1. a) Omjer L/C — rezonancijska frekvencija f_r određena umnoškom L·C, tiskana str. 109"
+   },
+   {
+    "src": "RK",
+    "loc": "Promjena frekvencije zbog promjene temperature (elementi s malim temperaturnim koeficijentom), tiskana str. 132"
+   }
+  ]
+ },
+ "bk-teh-4-20": {
+  "note": "Tanka pločica kvarca izrezana iz kristala pokazuje recipročnu piezoelektričku pojavu: kad se na obloge kondenzatora s kristalom unutra narine napon, pločica se mehanički steže i rasteže. Knjiga izričito kaže da titranje kristala 'ne ovisi o frekvenciji napona izvora, nego o izmjerama i modulu elastičnosti samoga kristala' — kristal vibrira SVOJOM vlastitom (rezonantnom) frekvencijom, a titranje je posebno snažno tek kad se frekvencija izvora s njom podudari. Odgovor je stoga 'vibrirati vlastitom frekvencijom', ne frekvencijom f narinutoga napona (opcija a).",
+  "cite": [
+   {
+    "src": "RK",
+    "loc": "Ispitna pitanja, SKUPINA IV, pitanje 20, tiskana str. 324"
+   },
+   {
+    "src": "RK",
+    "loc": "3.2.5. Piezoelektrični kristali — titranje ne ovisi o frekvenciji izvora nego o vlastitoj frekvenciji kristala, tiskana str. 113"
+   }
+  ]
+ },
+ "bk-teh-4-22": {
+  "note": "Noću, bez Sunčeva zračenja kao izvora ionizacije, prevladava rekombinacija elektrona i pozitivnih iona, posebice u nižim, gušćim slojevima. Knjiga to izravno prikazuje na slici 7.1.2. ('Slojevi ionosfere tijekom dana i noći'): D-sloj noću praktički potpuno nestaje (najgušći zrak, najveća rekombinacija), dok se dva F-područja dana (F₁ niže, F₂ više) noću, uz slabiju ionizaciju, spajaju u jedinstven F sloj. E-sloj (koji nije naveden kao potpuno nestao) noću samo znatno oslabi, ne nestaje potpuno kao D. Odgovor je stoga (b): 'Nestaje sloj D, a slojevi F₁ i F₂ stapaju se u jedan F sloj.' (Paket odsijeca opcije a i d usred rečenice — provjereno prema izravnom prikazu tiskane str. 324 — no to ne mijenja točan odgovor.)",
+  "cite": [
+   {
+    "src": "RK",
+    "loc": "Ispitna pitanja, SKUPINA IV, pitanje 22, tiskana str. 324"
+   },
+   {
+    "src": "RK",
+    "loc": "Rekombinacija elektrona i pozitivnih iona — D-sloj noću nestaje, F₁ i F₂ se noću stapaju u jedan F sloj (sl. 7.1.2.), tiskana str. 166"
+   }
+  ]
+ },
+ "bk-teh-4-24": {
+  "note": "Paket i živa baza (book_parsed2.json) odsijecaju opciju (c), upravo točan odgovor, usred rečenice ('Danju potpuno oslabe u D i'); izravnim uvidom u tiskanu str. 325 stvarni tekst glasi 'Danju potpuno oslabe u D i E sloju, a noću ih sloj E reflektira'. Knjiga to potvrđuje riječima: srednji valovi (MF) se danju, prolazeći kroz D i E sloj, gotovo potpuno apsorbiraju (posebice u D-sloju, koji je danju najgušći), dok noću, kad D-sloj nestane, isti valovi mogu biti reflektirani od E-sloja i tako putovati na veće udaljenosti (i preko 300 km). Ta izrazita dnevno-noćna razlika u dosegu srednjovalnih (MF, npr. SV-radiodifuzijskih) postaja je upravo posljedica ovog mehanizma; opcije koje tvrde suprotno (refleksija danju od E, ili refleksija od D tijekom cijelog dana) ne odgovaraju knjizi.",
+  "cite": [
+   {
+    "src": "RK",
+    "loc": "Ispitna pitanja, SKUPINA IV, pitanje 24, tiskana str. 325"
+   },
+   {
+    "src": "RK",
+    "loc": "Utjecaj E-područja na rasprostiranje radiovalova — MF se danju potpuno apsorbiraju u D i E sloju, noću ih reflektira E-sloj, tiskana str. 167"
+   }
+  ]
+ },
+ "bk-teh-4-26": {
+  "note": "Za komunikacije na velike udaljenosti u HF području (otprilike 1-30 MHz) presudno je F-područje ionosfere, posebice njegov gornji, danju odvojeni F₂ sloj — knjiga to izravno navodi kao naslov vlastitog odjeljka ('Utjecaj F-područja... F-područje, posebice F₂-sloj, je najzanimljivije i najvažnije područje ionosfere za komunikacije na velike udaljenosti u području HF'). F₂ sloj ima najveću gustoću elektrona u cijeloj ionosferi pa omogućuje refleksiju i najviših upotrebljivih frekvencija; D i E slojevi (opcija a) prije svega apsorbiraju, a sporadični E (opcija d) je povremena, kratkotrajna pojava korisna prije svega za VHF, ne za redovne duge HF veze.",
+  "cite": [
+   {
+    "src": "RK",
+    "loc": "Ispitna pitanja, SKUPINA IV, pitanje 26, tiskana str. 325"
+   },
+   {
+    "src": "RK",
+    "loc": "Utjecaj F-područja na rasprostiranje radiovalova — F-područje, posebice F₂-sloj, najvažnije za komunikacije na velike udaljenosti u HF, tiskana str. 167"
+   }
+  ]
+ },
+ "bk-teh-4-28": {
+  "note": "Stabilnost prijamnika ponajviše ovisi o stabilnosti frekvencije lokalnog oscilatora — knjiga to kaže izravno: 'Oscilator je sklop u prijamniku najodgovorniji za stabilnost prijamnika.' Budući da miješalo kombinira ulazni signal s oscilatorovim da bi dobilo međufrekvenciju, svaka nestabilnost (mehanička, temperaturna, naponska) oscilatorove frekvencije izravno se prenosi kao pomak čitavog prijamnikova ugođenog kanala. Ostali ponuđeni čimbenici (mehanička stabilnost sklopa općenito, udaljenost od odašiljača, stabilnost napajanja) utječu na rad prijamnika, ali posredno, preko utjecaja na taj isti oscilator, ne izravno kao glavni uzrok.",
+  "cite": [
+   {
+    "src": "RK",
+    "loc": "Ispitna pitanja, SKUPINA IV, pitanje 28, tiskana str. 325"
+   },
+   {
+    "src": "RK",
+    "loc": "Oscilator je sklop u prijamniku najodgovorniji za stabilnost prijamnika, tiskana str. 132"
+   }
+  ]
+ },
+ "bk-teh-4-30": {
+  "note": "Pojačalo visoke frekvencije (VF/RF) na ulazu prijamnika ima na ulazu i na izlazu PROMJENJIVE titrajne krugove kojima se pojačalo ugađa na željenu frekvenciju — knjiga to opisuje izravno uz shemu ulaznoga VF pojačala. Time se postiže bolja osjetljivost i selektivnost te manja opasnost od prodiranja zrcalnih i drugih neželjenih frekvencija. RC-krugovi (opcija b) nisu selektivni po frekvenciji na način potreban za RF ugađanje, transformatori impedancije (c) sami po sebi ne biraju frekvenciju, a fiksno ugođeni krugovi (d) ne bi dopuštali promjenu radne frekvencije prijamnika.",
+  "cite": [
+   {
+    "src": "RK",
+    "loc": "Ispitna pitanja, SKUPINA IV, pitanje 30, tiskana str. 326"
+   },
+   {
+    "src": "RK",
+    "loc": "4.3.1. Pojačalo visoke frekvencije (VF) — titrajni krugovi na ulazu i izlazu promjenjivi radi ugađanja na željenu frekvenciju, tiskana str. 131"
+   }
+  ]
+ },
+ "bk-teh-4-32": {
+  "note": "Ulazni sklop (prvo VF/RF pojačalo na samom ulazu prijamnika) ima najveći utjecaj na ukupnu razinu šuma cijelog prijamnika — knjiga to kaže izravno: 'Dobra izvedba VF pojačala posebno prvoga stupnja od velike je važnosti za ukupan odnos signal/šum.' Razlog je kaskadni učinak: šum unesen u prvom stupnju pojačava se svim narednim stupnjevima pojačanja, pa dominira ukupnim omjerom signal/šum znatno više nego šum unesen kasnije (npr. u oscilatoru ili izlaznim sklopovima), gdje je signal već dovoljno pojačan da nadjača lokalno unesen šum.",
+  "cite": [
+   {
+    "src": "RK",
+    "loc": "Ispitna pitanja, SKUPINA IV, pitanje 32, tiskana str. 326"
+   },
+   {
+    "src": "RK",
+    "loc": "Dobra izvedba VF pojačala posebno prvoga stupnja od velike je važnosti za ukupan odnos signal/šum, tiskana str. 131"
+   }
+  ]
+ },
+ "bk-teh-4-34": {
+  "note": "Kod kristalom upravljanih oscilatora kristal se najčešće drži u termostatu (uz temperaturu blago povišenu na oko 60-70 °C) upravo da bi se smanjio utjecaj promjene vanjske (okolišne) temperature na frekvenciju oscilatora — knjiga to navodi doslovno tim riječima. Cilj termostatiranja nije viši harmonik, dodatno zagrijavanje samo radi sebe niti povećanje frekvencije, već upravo najveća moguća STABILNOST frekvencije (kristal ima vlastiti temperaturni koeficijent koji bi bez termostata unosio drift razmjeran promjenama sobne temperature).",
+  "cite": [
+   {
+    "src": "RK",
+    "loc": "Ispitna pitanja, SKUPINA IV, pitanje 34, tiskana str. 326"
+   },
+   {
+    "src": "RK",
+    "loc": "Kod oscilatora upravljanih kristalom, kristal je najčešće u termostatu (60-70 °C), kako bi se smanjio utjecaj promjene temperature okoline, tiskana str. 132"
+   }
+  ]
+ },
+ "bk-teh-4-36": {
+  "note": "Slika prikazuje četiri dijagrama struje kolektora I_c u vremenu, svaki izrijekom označen slovom radnog razreda pojačala — A (a), AB (b), B (c) i C (d) — te prijenosnu karakteristiku I_c/U_be za razrede A, AB, B i C. Knjiga rabi upravo istu shemu ('Sl. 2.6.14. Položajem radne točke određen je oblik kolektorske struje i razred A, AB, B, C'): C razred vodi najkraće, oštro odsječenim impulsima struje tik uz najviši dio ulaznog signala (najstrmiji, najkasniji 'koljeno' u prijenosnoj krivulji), dok A razred vodi cijeli ciklus. Dijagram d) je taj izrijekom označen kao C, pa je to i traženi odgovor — ne treba ga tražiti posrednim zaključivanjem iz oblika impulsa jer je oznaka na samoj slici nedvosmislena.",
+  "cite": [
+   {
+    "src": "RK",
+    "loc": "Ispitna pitanja, SKUPINA IV, pitanje 36, tiskana str. 327 (broj pitanja rekonstruiran)"
+   },
+   {
+    "src": "RK",
+    "loc": "2.6.14. Sl. Položajem radne točke određen je oblik kolektorske struje i razred A, AB, B, C, tiskana str. 89-90"
+   }
+  ]
+ },
+ "bk-teh-4-38": {
+  "note": "Kod kutne (frekvencijske ili fazne) modulacije amplituda vala nositelja OSTAJE STALNA bez obzira na indeks modulacije — mijenja se samo trenutna frekvencija (ili faza), ne amplituda. Knjiga to kaže izravno: 'Ovojnica je kod kutne (frekvencijske, fazne) modulacije ravna crta, jer su sve trenutne vrijednosti FM signala međusobno jednake.' To je temeljna razlika prema amplitudnoj modulaciji, gdje ovojnica prati (i time otkriva) modulacijski signal; kod FM/PM je ta ista činjenica razlog zašto FM prijamnici mogu rabiti ograničavalo (limiter) koje reže sve amplitudske smetnje ne gubeći informaciju.",
+  "cite": [
+   {
+    "src": "RK",
+    "loc": "Ispitna pitanja, SKUPINA IV, pitanje 38, tiskana str. 327"
+   },
+   {
+    "src": "RK",
+    "loc": "8.1.5. Valni oblik ovojnice RF signala — ovojnica FM signala je ravna crta jer su sve trenutne vrijednosti amplitude jednake, tiskana str. 179"
+   }
+  ]
+ },
+ "bk-teh-4-40": {
+  "note": "Živa baza (book_parsed2.json, iz koje se gradi kviz) ima na ovom mjestu zamijenjene tekstove opcija (c) i (d): trenutačno nosi c='240 W', d='180', dok izravni render tiskane str. 327 (200 dpi) nedvosmisleno pokazuje suprotan raspored — (a) 120 W, (b) 150 W, (c) 180 W, (d) 240 W. HRS-ov ključ (redak 40, stupac IV) glasi 'D', a na PRAVOJ stranici je to '240 W', ne '180' kako paket danas tvrdi pod istim slovom. Fizikalno to potvrđuje i sama knjiga: za A razred navodi korisnost 'u najpovoljnijem slučaju' 50% (uz vlastiti primjer: 50 W na teretu → barem 100 W iz izvora), a 'u stvarnosti' tek 40...45%. Za 100 W izlazne snage uz stvarnu korisnost ≈42% slijedi ulazna snaga ≈100 W/0,42≈240 W; da je odgovor 180 W, tražena korisnost bila bi ≈56% — više od knjigom navedenoga TEORIJSKOG maksimuma za A razred (50%), što fizikalno nije moguće. Napomena je pisana oko provjerenoga stvarnog sadržaja (d=240 W); zamjena u book_parsed2.json/paketu nije popravljena jer je izvan files: ove stavke — vidi queue/reports/P3-0019.md.",
+  "formula": [
+   "korisnost η = P_izlaz / P_ulaz",
+   "P_ulaz ≈ 100 W / 0,42 ≈ 240 W  (stvarna korisnost A razreda 40...45%, RK str. 87)"
+  ],
+  "cite": [
+   {
+    "src": "RK",
+    "loc": "Ispitna pitanja, SKUPINA IV, pitanje 40, tiskana str. 327"
+   },
+   {
+    "src": "RK",
+    "loc": "2.1. Razred A — korisnost u najpovoljnijem slučaju 50%, u stvarnosti 40...45%, tiskana str. 87"
+   }
+  ]
+ },
+ "bk-teh-4-42": {
+  "note": "Osjetljivost voltmetra definira se omjerom njegova unutrašnjeg otpora i pune vrijednosti mjernog područja, u omima po voltu (Ω/V) — knjiga navodi izravno: 'Zadovoljavajuća osjetljivost voltmetra je 20 kΩ/V, što odgovara punom otklonu osnovnog mjerila od 50 μA.' Niža osjetljivost (npr. 500 Ω/V iz knjižina prethodnog primjera) unosi preveliko opterećenje mjerenog kruga i preniska je za radiotehnička mjerenja; elektronički voltmetri s otporom 10 MΩ/V ili većim su još bolji, ali 20 kΩ/V je knjigom navedena granica 'zadovoljavajuće' osjetljivosti analognog instrumenta.",
+  "cite": [
+   {
+    "src": "RK",
+    "loc": "Ispitna pitanja, SKUPINA IV, pitanje 42, tiskana str. 328"
+   },
+   {
+    "src": "RK",
+    "loc": "Utjecaj unutrašnjeg otpora mjerila — zadovoljavajuća osjetljivost voltmetra je 20 kΩ/V (pun otklon 50 μA), tiskana str. 176"
+   }
+  ]
+ },
+ "bk-teh-4-44": {
+  "note": "SWR-metar mjeri stupanj (ne)prilagodbe preko omjera napona stojnoga vala — VSWR (voltage standing wave ratio), tj. omjera napona u najvišoj i najnižoj točki stojnoga vala duž napojnog voda. Knjiga rabi upravo taj naziv: 'naponskoga stojnog vala (VSWR), ili kraće omjera stojnoga vala (SWR)'. Iznos reflektirane snage u vatima (opcija a) ovisi i o apsolutnoj razini odaslane snage pa sam po sebi ne govori dovoljno o KVALITETI prilagodbe; frekvencija vala (c) i omjer struja (d) nisu veličine koje SWR-metar izravno mjeri niti koje definiraju VSWR.",
+  "cite": [
+   {
+    "src": "RK",
+    "loc": "Ispitna pitanja, SKUPINA IV, pitanje 44, tiskana str. 328 (broj pitanja rekonstruiran)"
+   },
+   {
+    "src": "RK",
+    "loc": "Mjerenje SWR-a — naponskoga stojnog vala (VSWR) odnosno omjera stojnoga vala (SWR), tiskana str. 179"
+   }
+  ]
+ },
+ "bk-teh-4-46": {
+  "note": "Na osciloskopskom zaslonu oznaka '12 V' uz vertikalnu os označava osjetljivost (napon po diobi/kvadratiću) — provjereno izravnim uvidom u sliku, koju work-paket krivo označava kao 'bez slike' iako je stvarno prisutna (book_overrides.json/figs_book_index.json je već ispravno nose). Sinusni val na prikazu doseže vrh 2 diobe iznad nulte linije, pa je vršna vrijednost napona U_vrh=2×12 V=24 V. Efektivna (RMS) vrijednost sinusnog napona je 0,707 vršne vrijednosti (knjiga to izravno navodi u istom poglavlju mjerenja), tj. U_ef=24 V×0,707≈16,97 V. Kroz teret od 100 Ω efektivna struja je I_ef=U_ef/R=16,97 V/100 Ω≈0,1697 A≈169 mA — odgovor a).",
+  "formula": [
+   "U_vrh = 2 diobe × 12 V/dioba = 24 V",
+   "U_ef = 0,707 × U_vrh = 0,707 × 24 V ≈ 16,97 V",
+   "I_ef = U_ef / R = 16,97 V / 100 Ω ≈ 0,1697 A ≈ 169 mA"
+  ],
+  "cite": [
+   {
+    "src": "RK",
+    "loc": "Ispitna pitanja, SKUPINA IV, pitanje 46, tiskana str. 329"
+   },
+   {
+    "src": "RK",
+    "loc": "Utjecaj valnog oblika — instrument pokazuje efektivnu vrijednost koja je 0,707 vršne vrijednosti (za sinusni oblik), tiskana str. 176"
+   }
+  ]
+ },
+ "bk-teh-4-48": {
+  "note": "Slika (koju work-paket krivo označava kao 'bez slike', premda je book_overrides.json/figs_book_index.json već nose kao stvarnu) prikazuje četiri kružna oscilograma ovojnice RF nositelja rastuće dubine modulacije — potpuno se podudara s knjižinom vlastitom slikom 8.1.6., čiji je natpis doslovce: '1. nemodulirani nositelj, 2. 50 posto moduliran, 3. 100 posto moduliran, i 4. preko 100 posto moduliran RF nositelj'. Prvi krug nema vidljivu ovojnicu (jednolika amplituda = nemoduliran); drugi ima umjereno stegnuću ovojnicu (50%); treći doseže gotovo do nule u čvorovima (100%); četvrti ovojnicu koja se pri čvorovima preklapa/izobličuje (prekomjerna modulacija, preko 100%). To je redom upravo redoslijed u opciji d).",
+  "cite": [
+   {
+    "src": "RK",
+    "loc": "Ispitna pitanja, SKUPINA IV, pitanje 48, tiskana str. 329 (broj pitanja rekonstruiran)"
+   },
+   {
+    "src": "RK",
+    "loc": "8.1.5. Valni oblik ovojnice RF signala — Sl. 8.1.6.: nemodulirani, 50%, 100%, preko 100% moduliran RF nositelj, tiskana str. 179"
+   }
+  ]
+ },
+ "bk-teh-4-50": {
+  "note": "Sustavno, nenamjerno, postupno mijenjanje frekvencije oscilatora prouzročeno raznim (najčešće temperaturnim ili naponskim) utjecajima u i oko oscilatora naziva se klizanje frekvencije — drift; knjiga to opisuje kao lagano 'otklizavanje' koje kod SSB veze može tijekom razgovora nagraditi vezu s nekoliko kiloherca nesuglasja. Time se drift jasno razlikuje od čirpa (naglo, trenutno pomicanje frekvencije, npr. pri otpuštanju CW tipkala) i od frekvencijske devijacije (namjerna promjena frekvencije radi FM modulacije, ne slučajna nestabilnost).",
+  "cite": [
+   {
+    "src": "RK",
+    "loc": "Ispitna pitanja, SKUPINA IV, pitanje 50, tiskana str. 330"
+   },
+   {
+    "src": "RK",
+    "loc": "9.2.1.2. Klizanje frekvencije — lagano 'otklizavanje' koje odvodi vezu izvan suglasja, razlika prema čirpu, tiskana str. 194"
+   }
+  ]
+ },
+ "bk-teh-4-52": {
+  "note": "Da bi se spriječilo zračenje I subharmonika I harmonika iza VHF odašiljača — dakle signala i ISPOD i IZNAD radne frekvencije — postavlja se pojasnopropusni filtar, koji, za razliku od niskopropusnog filtra (koji bi propustio subharmonike ispod granične frekvencije), propušta samo uzak pojas oko radne frekvencije i zadržava neželjene signale s obje strane. Knjiga niskopropusni, visokopropusni, pojasnopropusni i pojasnonepropusni filtar opisuje kao standardne, kaskadno spojive filtarske sklopove; za potiskivanje istodobno sub- i harmoničkih produkata jedino pojasnopropusna (ne jednostrano propusna) karakteristika odgovara zahtjevu.",
+  "cite": [
+   {
+    "src": "RK",
+    "loc": "Ispitna pitanja, SKUPINA IV, pitanje 52, tiskana str. 330 (broj pitanja rekonstruiran)"
+   },
+   {
+    "src": "RK",
+    "loc": "3.2.4. Filtri — niskopropusni, visokopropusni, pojasnopropusni i pojasnonepropusni filtar, tiskana str. 112"
+   }
+  ]
+ },
+ "bk-teh-4-54": {
+  "note": "Kad se s prijenosnim višepojasnim prijamnikom u ruci približavamo izvoru širokopojasnog šuma, na mjestu izvora (ili u njegovoj neposrednoj blizini) šum je najjači upravo na NAJVIŠOJ frekvenciji koju prijamnik može pratiti. Razlog je praktičan: viši frekvencijski udjeli širokopojasnog šuma (npr. iskrenje motora, prekidača, rasvjete) slabe s udaljenošću brže od nižih, pa preostaju jasno izraženi tek sasvim blizu izvora — dok su daleko od izvora dominantne (jedine razaznatljive) niže frekvencije. Ova napomena oslanja se na opću praksu traženja izvora smetnji (RDF/lov na smetnju), koju knjiga ne opisuje ovom izričitom tehnikom — nema dodatnog citata iz priručnika osim ispitne stranice.",
+  "cite": [
+   {
+    "src": "RK",
+    "loc": "Ispitna pitanja, SKUPINA IV, pitanje 54, tiskana str. 330"
+   }
+  ]
+ },
+ "bk-teh-4-56": {
+  "note": "Dobra praksa projektiranja, proizvodnje i rada radioamaterskih postaja radi sprječavanja EM smetnji obuhvaća: projektiranje sklopova primjereno njihovoj namjeni, uporabu djelotvornih filtara, zaštitno oklapanje svih RF sklopova i oscilatora, sprječavanje prekomjernih (neželjenih) sprega među stupnjevima, te izbjegavanje prekomjerne modulacije. Knjiga upravo te mjere navodi kao osnovne kategorije zaštite od RF smetnji — oklapanje ('zaštita poglavito od neželjenih zračenja... metalnim kućištima... i propisnim uzemljenjem'), filtriranje i rasprezanje ('zaštita od prejakih magnetskih sprega') — dok je izbjegavanje prekomjerne modulacije obrađeno u poglavlju o učinkovitoj uporabi spektra. Ostale opcije preporučuju upravo suprotno (zanemarivanje namjene, rad s prekomjernom modulacijom, plastična kućišta umjesto oklapanja), što je pogrešna praksa.",
+  "cite": [
+   {
+    "src": "RK",
+    "loc": "Ispitna pitanja, SKUPINA IV, pitanje 56, tiskana str. 331"
+   },
+   {
+    "src": "RK",
+    "loc": "Mjere koje poduzimamo za zaštitu od RF smetnja: oklapanje, filtriranje, rasprezanje, tiskana str. 202"
+   }
+  ]
+ },
+ "bk-teh-4-58": {
+  "note": "Istraživanja izravnih (toplinsko, netoplinsko djelovanje) i neizravnih (strujni udar, opekline dodirom) učinaka RF polja na ljudsko tijelo rezultirala su međunarodnim preporukama u obliku 'osnovnih ograničenja' (za specifičnu apsorpciju SAR i struju dodira). Knjiga tu kategoriju definira izravno: 'Osnovna ograničenja su ograničenja koja se moraju uzimati u obzir' — dakle obvezujuća u svakom slučaju, ne preporučena, djelomična niti izostavljiva. Iz njih se dodatno izvode referencijske razine (jakost polja E, H, gustoća toka snage) koje se lakše mjere, ali temeljna obveza ostaje na osnovnim ograničenjima.",
+  "cite": [
+   {
+    "src": "RK",
+    "loc": "Ispitna pitanja, SKUPINA IV, pitanje 58, tiskana str. 331"
+   },
+   {
+    "src": "RK",
+    "loc": "10.1.x Osnovna ograničenja — ograničenja koja se moraju uzimati u obzir, tiskana str. 206"
+   }
+  ]
+ },
+ "bk-teh-4-60": {
+  "note": "Dobar uzemljivač mora biti od dobro vodljivog, korozijski postojanog metala — pocinčana bakrena cijev promjera 2-3 cm i duljine 80-100 cm, zabijena duboko u vlažno tlo. Vlažno tlo ima znatno manju specifičnu otpornost od suhoga ili kamenitog tla, pa uzemljivač u njemu ostvaruje niži otpor uzemljenja (bolju provodnu vezu sa zemljom); plastika (opcija a) uopće ne provodi struju, a suho kamenito tlo (opcija c) daje visok, nepouzdan otpor uzemljenja bez obzira na materijal elektrode. Knjiga ne razrađuje izbor materijala/dubine uzemljivača ovom razinom detalja (opće mjere uzemljenja spominje u poglavlju o sigurnosti i zaštiti od munje), pa nema dodatnog citata iz priručnika osim ispitne stranice.",
+  "cite": [
+   {
+    "src": "RK",
+    "loc": "Ispitna pitanja, SKUPINA IV, pitanje 60, tiskana str. 331"
+   }
+  ]
+ }
+}
