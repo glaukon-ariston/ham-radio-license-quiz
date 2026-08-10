@@ -1,0 +1,213 @@
+{
+ "_note": "Skupina V, tehnički dio, paket _a (30 od 720 knjižnih pitanja, neparni brojevi 1-59). Sve 30 provjerene izravno prema tiskanim stranicama RK (booktool.py za tekst + pymupdf render stranica pdf 326-337 = tiskane 332-343 kao slike, matrica 3x3, jer knjižne sličice u ovom PDF-u ~950 jednopikselnih inline slika koje get_images()/get_drawings() ne vide) 9-10 Aug 2026. Sve opcije za svih 30 pitanja uspoređene riječ po riječ s izravnim renderom stranice, ne s OCR tekstom iz current_cite/current_explanation.\n\nSedam pitanja ima has_figure=false u paketu iako stranica sadrži pravu sliku uz pitanje (potvrđeno izravnim uvidom u render): bk-teh-5-07 (strujni krug 10V/10Ω/4Ω/6Ω), bk-teh-5-11 (naponski djelitelj U=48V/U1=12V/U2=24V/U3=?), bk-teh-5-19 (shema tranzistorskog pojačala s R1-R4,C1-C4), bk-teh-5-41 (oscilogram sinusoide), bk-teh-5-47 (spektar PLL sintetizatora s umoduliranim šumom), bk-teh-5-51 (tlocrtni prikaz s točkama A/B/C/D) i bk-teh-5-55 (vidi niže). Nijedan od ovih has_figure=false zapisa nije ispravljen ovdje (packet_book_s5_tehnicki_a.json je u files: ove stavke, ali samo za čitanje - has_figure je izvan onoga što bilježi datoteka bilježaka); svaka je slika opisana u napomeni dotičnoga pitanja umjesto tihog prešućivanja.\n\nOCR-lijepljeni defekti u tekstu pitanja/opcija koji NE mijenjaju točan odgovor: bk-teh-5-05 (paket navodi R=50Ω, stvarna stranica R=5Ω - nebitno jer formula rezonancije ne ovisi o R; opcije s grčkim slovom π pogrešno OCR-ane kao znamenka '7': '5/7 MHz'->'5/π MHz', '1/7 MHz'->'1/π MHz', a '277 MHz' je zapravo '2π MHz'), bk-teh-5-17 (π u opcijama OCR-an kao 'ze'/'z'/'m'/'z': stvarne opcije su 30π/45π/60π/66π), bk-teh-5-03 (opcije b/c/d izgubile su jedinicu 'V' pri parsiranju: stvarno 18 V/24 V/36 V, ne '18'/'24'/'36').\n\nVeći defekt, prijavljen u queue/reports/P3-0022.md: bk-teh-5-55 u paketu nosi tekst pitanja i SVE ČETIRI opcije prepisane od SUSJEDNOG pitanja 56 ('RF smetnje iz gradske mreže'), dok je stvarni sadržaj pitanja 55 posve drugačiji - slikovni izbor između četiri krivulje frekvencijskog odziva filtra (a-d), bez tekstnih opcija. Napomena za bk-teh-5-55 je napisana prema stvarnom, izravno provjerenom sadržaju sa stranice 342 (redak 55 tablice odgovora i dalje vrijedi za stvarno pitanje 55, samo opcijsko slovo 'a' sada upućuje na krivulju (a), ne na tekst 'Međusobnu zamjenu nule i faze' koji pripada pitanju 56), ne prema pokvarenom tekstu u paketu; to je izričito objašnjeno i u samoj napomeni pitanja.\n\nBez vanjskih poveznica - link_check.py/check_notes.py ne obrađuju ovu datoteku (samo notes_zzz_expanded_*), pa poveznice namjerno izostavljene da se izbjegne neprovjerena tvrdnja.",
+ "bk-teh-5-01": {
+  "note": "Tri sekundarna svitka (3 V, 6 V, 9 V) mogu se međusobno spajati u seriju da se dobije veći napon; knjiga izravno navodi da je pri serijskom spoju dvaju svitaka sekundara ukupni napon zbroj pojedinačnih napona, U_uk = U_1 + U_2. Spajanjem svitka 3 V u seriju sa svitkom 9 V dobiva se točno 3 V + 9 V = 12 V, traženi napon. Premotavanje trafa ili kupnja novoga nisu potrebni kad postojeći svici to već omogućuju, a paralelni spoj svitaka različitog napona nije dopušten postupak (izjednačavanje napona kroz svitke uzrokovalo bi struje kratkog spoja) niti bi dao 12 V.",
+  "formula": ["U_uk = U1 + U2 = 3 V + 9 V = 12 V"],
+  "cite": [
+   {"src": "RK", "loc": "Ispitna pitanja, SKUPINA V, pitanje 1, tiskana str. 332"},
+   {"src": "RK", "loc": "3.1.4.1. Serijski spoj (transformatori, U_uk = U1 + U2), tiskana str. 105"}
+  ]
+ },
+ "bk-teh-5-03": {
+  "note": "Isti zadatak kao pitanje 2 (istosmjerni izlazni napon 12 V), ali s četiri diode u Graetzovu (mosnom) spoju umjesto dviju. Knjiga izravno navodi pravilo za dimenzioniranje: kod dioda u sklopu za poluvalno i punovalno (2-diodno) ispravljanje PIV mora biti trostruki izlazni istosmjerni napon, a 'za diode u mosnom sklopu PIV je samo 1,5 U_o', vrijednosti izlaznoga istosmjernog napona. Za mosni spoj s U_izl=12 V slijedi PIV=1,5×12 V=18 V - manje nego kod dvodiodnoga punovalnog spoja (koji bi za isti izlazni napon tražio 3×12 V=36 V) jer u mosnom spoju nikada nije potreban dvostruki napon sekundara niti središnji izvod. Napomena: paketove opcije (b)-(d) prikazuju '18'/'24'/'36' bez jedinice - na stvarnoj stranici sve četiri opcije nose 'V' (12 V/18 V/24 V/36 V); to ne mijenja koji je odgovor točan.",
+  "formula": ["PIV(mosni spoj) = 1,5 × U_izl = 1,5 × 12 V = 18 V"],
+  "cite": [
+   {"src": "RK", "loc": "Ispitna pitanja, SKUPINA V, pitanje 3 (uz pitanje 2), tiskana str. 332"},
+   {"src": "RK", "loc": "3.3.1.6. Svojstva silicijskih dioda (PIV mosnog sklopa = 1,5×U_izl, PIV 2-diodnog sklopa = 3×U_izl), tiskana str. 117"}
+  ]
+ },
+ "bk-teh-5-05": {
+  "note": "Rezonancijska frekvencija paralelnoga (ugođenoga) titrajnog kruga ne ovisi o djelatnom otporu R, nego samo o L i C: f0=1/(2π√(LC)). Za L=100 µH=10^-4 H i C=100 pF=10^-10 F je LC=10^-14, √(LC)=10^-7, pa je f0=1/(2π×10^-7)=(1/2)×10^7/π Hz=5×10^6/π Hz=5/π MHz≈1,59 MHz - točno opcija (a). Opcija (c) 1/π MHz odgovara petorostruko premaloj vrijednosti (tipična pogreška zamjene brojnika), a opcija (d) 2π MHz je za red veličine previsoka. Napomena: stvarna stranica navodi R=5 Ω (paketov tekst pitanja OCR-om iskrivljen u 'R=50Ω2'), ali R ionako ne ulazi u formulu za f0, pa ta razlika ne utječe na odgovor; opcije na stranici su izravno '5/π MHz' i '1/π MHz' (grčko slovo π), ne '5/7 MHz'/'1/7 MHz' kako paket OCR-om bilježi.",
+  "formula": ["f0 = 1/(2π√(LC))", "f0 = 1/(2π√(100×10⁻⁶ H × 100×10⁻¹² F)) = 5/π MHz ≈ 1,59 MHz"],
+  "cite": [
+   {"src": "RK", "loc": "Ispitna pitanja, SKUPINA V, pitanje 5, tiskana str. 332"},
+   {"src": "RK", "loc": "3.2.1./4. slučaj, formula rezonancijske frekvencije f0=1/(2π√(LC)), tiskana str. 108"}
+  ]
+ },
+ "bk-teh-5-07": {
+  "note": "Paketov has_figure=false je pogrešan: pitanje nosi shemu strujnog kruga (potvrđeno renderom stranice) - izvor 10 V napaja dvije paralelne grane, jednu s otpornikom 10 Ω i drugu s dva otpornika u seriji, 4 Ω i 6 Ω (kroz koju teče tražena struja I, mjerena na vrhu 4 Ω otpornika). Budući da su obje grane spojene izravno na oba pola izvora, na svakoj grani vlada puni napon izvora 10 V, neovisno o drugoj grani. Kroz seriju 4 Ω+6 Ω=10 Ω to daje I=U/R=10 V/10 Ω=1 A, opcija (a). Ostale opcije (2 A, 2,5 A, 0,5 A) odgovarale bi krivom zbrajanju otpora grana (npr. paralelnom spajanju svih triju otpornika ili korištenju samo 4 Ω) umjesto ispravnoga prepoznavanja dviju odvojenih, paralelnih grana na istom naponu.",
+  "formula": ["I = U / (R1 + R2) = 10 V / (4 Ω + 6 Ω) = 1 A"],
+  "cite": [
+   {"src": "RK", "loc": "Ispitna pitanja, SKUPINA V, pitanje 7 (shema: 10 V, grane 10 Ω i 4 Ω+6 Ω), tiskana str. 333"},
+   {"src": "RK", "loc": "3.1.1.3. Mješoviti spoj otpornika, tiskana str. 100"}
+  ]
+ },
+ "bk-teh-5-09": {
+  "note": "Knjiga izravno navodi: 'Kod frekvencijski moduliranih odašiljača u ovisnosti o amplitudi modulirajućeg signala mijenjat će se frekvencija vala nositelja. Veličina promjene frekvencije vala nositelja naziva se frekvencijskom devijacijom.' Devijacija frekvencije kod FM-a, dakle, ovisi o AMPLITUDI modulacijskog signala (opcija a), ne o njegovoj frekvenciji (koja umjesto toga određuje brzinu, ritam promjene, tj. utječe na indeks modulacije i širinu bočnih pojasa, ne na samu devijaciju) ni o fazi (FM i PM su srodne, ali devijacija frekvencije specifično prati amplitudu NF signala kod FM-a).",
+  "cite": [
+   {"src": "RK", "loc": "Ispitna pitanja, SKUPINA V, pitanje 9, tiskana str. 333"},
+   {"src": "RK", "loc": "5.4.10. Indeks modulacije (devijacija frekvencije ovisi o amplitudi modulirajućeg signala), tiskana str. 144"}
+  ]
+ },
+ "bk-teh-5-11": {
+  "note": "Paketov has_figure=false je pogrešan: pitanje nosi shemu serijskoga naponskog djelitelja (potvrđeno renderom stranice) - ukupni napon U=48 V raspoređen je preko triju dijelova u seriji: R1 (na kojem je U1=12 V), R2 (na kojem je U2=24 V) i, na dnu, paralelna kombinacija R3/R4 (na kojoj je traženi U3). Prema drugom Kirchhoffovom zakonu (zakon petlje) zbroj svih napona u petlji jednak je ukupnom naponu izvora, U=U1+U2+U3, odakle U3=48 V-12 V-24 V=12 V, opcija (c). Ostale opcije ne zadovoljavaju taj zbroj (npr. 24 V bi dalo ukupno 60 V, ne 48 V).",
+  "formula": ["U = U1 + U2 + U3", "U3 = 48 V − 12 V − 24 V = 12 V"],
+  "cite": [
+   {"src": "RK", "loc": "Ispitna pitanja, SKUPINA V, pitanje 11 (shema: U=48 V, U1=12 V, U2=24 V, U3=?), tiskana str. 333"},
+   {"src": "RK", "loc": "1.1.3.2. Drugi Kirchhoffov zakon — zakon petlje, tiskana str. 22"}
+  ]
+ },
+ "bk-teh-5-13": {
+  "note": "Deset jednakih otpornika u paralelnom spoju daje ukupni otpor jednak desetini otpora jednoga otpornika (za n jednakih paralelnih otpora vrijedi R_uk=R/n), pa iz R_uk=50 Ω slijedi R=10×50 Ω=500 Ω za svaki otpornik. Budući da je napon na svim paralelnim granama jednak (V=I×R_uk, isti za sve), a otpornici su međusobno jednaki, ukupna snaga 50 W raspoređuje se ravnomjerno na svih deset, pa svaki disipira 50 W/10=5 W. Rezultat 500 Ω, 5 W odgovara opciji (b); ostale opcije krivo primjenjuju faktor 10 (npr. na otpor umjesto na snagu, ili obrnuto).",
+  "formula": ["R_jedan = n × R_uk = 10 × 50 Ω = 500 Ω", "P_jedan = P_uk / n = 50 W / 10 = 5 W"],
+  "cite": [
+   {"src": "RK", "loc": "Ispitna pitanja, SKUPINA V, pitanje 13, tiskana str. 334"},
+   {"src": "RK", "loc": "3.1.1.2. Paralelni spoj otpora, tiskana str. 99"}
+  ]
+ },
+ "bk-teh-5-15": {
+  "note": "Nastavak pitanja 14: devijacija frekvencije porasla je s ±3 kHz na ±5 kHz. Knjiga definira frekvencijsku devijaciju kao mjeru promjene frekvencije nositelja u ritmu modulacije, a širina zauzetoga frekvencijskog pojasa FM signala raste s većom devijacijom (veći Af znači da nositelj 'putuje' dalje od svoje središnje vrijednosti u oba smjera, pa je i ukupni frekvencijski raspon koji signal zauzima veći). Zauzeti frekvencijski spektar je, dakle, porastao (opcija a), ne sužen ni nepromijenjen - suženje ili nepromijenjenost bili bi u suprotnosti s izravnom vezom devijacije i zauzetoga pojasa.",
+  "cite": [
+   {"src": "RK", "loc": "Ispitna pitanja, SKUPINA V, pitanje 15 (nastavak pitanja 14), tiskana str. 334"},
+   {"src": "RK", "loc": "5.4.9.-5.4.10. Frekvencijska devijacija i indeks modulacije, tiskana str. 143-144"}
+  ]
+ },
+ "bk-teh-5-17": {
+  "note": "Faktor dobrote Q zavojnice definiran je kao omjer induktivne reaktancije i djelatnog otpora, Q=X_L/R=2πfL/R. Za L=2 mH, R=20 Ω, f=150 kHz: X_L=2π×150 000×0,002=2π×300=600π Ω, pa je Q=600π/20=30π (≈94,2) - opcija (a). Napomena: stvarna stranica ima opcije '30π'/'45π'/'60π'/'66π' (grčko slovo π), ne '30 ze'/'45 z'/'60 m'/'66 z' kako paket OCR-om bilježi.",
+  "formula": ["Q = X_L / R = 2πfL / R", "Q = 2π(150 000 Hz)(0,002 H) / 20 Ω = 30π"],
+  "cite": [
+   {"src": "RK", "loc": "Ispitna pitanja, SKUPINA V, pitanje 17, tiskana str. 334"},
+   {"src": "RK", "loc": "2.3.3. Faktor dobrote — Q faktor (Q=X_L/R), tiskana str. 69"}
+  ]
+ },
+ "bk-teh-5-19": {
+  "note": "Paketov has_figure=false je pogrešan: pitanje nosi shemu tranzistorskog pojačala (potvrđeno renderom stranice) - bazni djelitelj R1/R3 na napajanje, ulazni signal preko C1 na bazu, otpornik R2 u emiteru prema masi, izlazni signal preko C2 s kolektora (gdje je i kolektorski otpor R3 prema +U), te R4/C3/C4 kao dodatni elementi za polarizaciju/blokadu. Emiter je izravno (bez odvojenoga izlaza) spojen na masu preko R2, dok su i ulaz i izlaz razdvojeni od zajedničke točke - to je klasična topologija spoja sa zajedničkim emiterom, gdje je emiter zajednička točka ulaznoga i izlaznoga strujnog kruga. Odgovara opciji (c); spojevi sa zajedničkim kolektorom ili zajedničkom bazom imaju drukčiju raspodjelu ulaza/izlaza (npr. kod zajedničkoga kolektora izlaz se uzima s emitera, ne s kolektora).",
+  "cite": [
+   {"src": "RK", "loc": "Ispitna pitanja, SKUPINA V, pitanje 19 (shema: R1-R4, C1-C4, tranzistor), tiskana str. 335"},
+   {"src": "RK", "loc": "2.6.3.1.1.1. Pojačalo sa zajedničkim emiterom, tiskana str. 83"}
+  ]
+ },
+ "bk-teh-5-21": {
+  "note": "Knjiga izravno definira: 'Kritična frekvencija f_c je najviša frekvencija vala, koji upada okomito na ionosferski sloj, a koji se još odbija natrag prema Zemlji.' To je točno opcija (a). Val koji upada pod oštrim ili tupim kutom (ne okomito) odbija se i pri višim frekvencijama od kritične (to je osnova MUF-a za veće udaljenosti), a val koji prolazi dalje od Zemlje je onaj čija je frekvencija VIŠA od kritične za dani kut upada, ne obrnuto - definicija kritične frekvencije je vezana upravo uz okomiti upad i odbijanje, ne prolazak.",
+  "cite": [
+   {"src": "RK", "loc": "Ispitna pitanja, SKUPINA V, pitanje 21, tiskana str. 335"},
+   {"src": "RK", "loc": "7.1.3.1. Znakovite frekvencije (definicija kritične frekvencije f_c), tiskana str. 168"}
+  ]
+ },
+ "bk-teh-5-23": {
+  "note": "Knjiga izravno navodi raspon: 'Kritična frekvencija za E-sloj je oko 1...4 MHz, a za F2-sloj je oko 2...13 MHz.' To odgovara opciji (b), 'od 2 do 13 MHz'. Ostale opcije preklapaju se s rasponom navedenim za E-sloj (1-4 MHz, opcija a) ili premašuju gornju granicu koju knjiga navodi za F2 (10-20 MHz i 15-30 MHz opcije c i d nisu potkrijepljene tim brojem, iako tekst spominje da kritična frekvencija tijekom osobito snažne Sunčeve aktivnosti može doseći i do 20 MHz kao iznimku, ne kao prosječni raspon).",
+  "cite": [
+   {"src": "RK", "loc": "Ispitna pitanja, SKUPINA V, pitanje 23, tiskana str. 336"},
+   {"src": "RK", "loc": "7.1.3.1. Znakovite frekvencije (kritična frekvencija F2-sloja: 2...13 MHz), tiskana str. 168"}
+  ]
+ },
+ "bk-teh-5-25": {
+  "note": "Knjiga izravno navodi: 'E-područje je 90...130 km iznad Zemljine površine. Obuhvaća tzv. \"normalne\" i \"sporadične\" slojeve.' To se doslovno poklapa s formulacijom pitanja i opcijom (b), 90 do 130 km. Ostale visine (50-100 km je bliže D-području, iznad 130 km je F-područje, 20-60 km je ispod cijele ionosfere) ne odgovaraju E-području prema knjizi.",
+  "cite": [
+   {"src": "RK", "loc": "Ispitna pitanja, SKUPINA V, pitanje 25, tiskana str. 336"},
+   {"src": "RK", "loc": "7.1.3. Rasprostiranje ionosferskim valom — E-područje (90...130 km, normalni i sporadični slojevi), tiskana str. 167"}
+  ]
+ },
+ "bk-teh-5-27": {
+  "note": "Pitanje traži najvišu kritičnu frekvenciju koju sporadični E-sloj (Es) može dosegnuti; HRS-ov ključ (tablica odgovora, redak 27, stupac Skupina V) označava opciju (c), 'i do 50 MHz'. U opsegu chapters RK dostupnih za ovu provjeru nije pronađen odjeljak koji brojčano razrađuje kritičnu frekvenciju sporadičnoga E-sloja (za razliku od normalnoga E i F2 sloja, obrađenih u 7.1.3.1) - pretraga 'sporadič'/'Es sloj' u cijeloj knjizi ne daje dodatni pogodak osim ovoga ispitnog pitanja, pa se ovdje ne navodi drugi izvor osim samog pitanja, u skladu s pravilom da se ne izmišlja stranica.",
+  "cite": [{"src": "RK", "loc": "Ispitna pitanja, SKUPINA V, pitanje 27, tiskana str. 336"}]
+ },
+ "bk-teh-5-29": {
+  "note": "Knjiga izravno navodi: 'Dobra izvedba VF pojačala posebno prvoga stupnja od velike je važnosti za ukupan odnos signal/šum.' To je točno opcija (b). Veća osjetljivost (a) i veća stabilnost frekvencije (d) su posljedice, ali ne primarni razlog kvalitetne VF izvedbe prema knjizi, a izlazna snaga (c) uopće nije svojstvo prijamnoga RF pojačala (koje ne odašilje).",
+  "cite": [
+   {"src": "RK", "loc": "Ispitna pitanja, SKUPINA V, pitanje 29, tiskana str. 337"},
+   {"src": "RK", "loc": "4.3.1. Pojačalo visoke frekvencije (VF) (dobra izvedba VF pojačala važna za omjer signal/šum), tiskana str. 131"}
+  ]
+ },
+ "bk-teh-5-31": {
+  "note": "Knjiga svoj primjer razreda A pojačanja izravno uvodi kao NF (audio) pojačalo snage ('Primjer rada u razredu A neka je AF pojačalo snage'), a razred A odlikuje se malim izobličenjima uz nizak stupanj korisnosti - upravo svojstvo koje audiopojačalo, gdje je vjernost reprodukcije prioritet, treba. Razred AB (kompromis između A i B) također se često rabi u NF audiotehnici radi boljega stupnja korisnosti uz zadržanu prihvatljivu vjernost. Razredi B i C, s većim izobličenjima, tipičniji su za RF pojačala snage odašiljača (posebno C, koji čak i ne pokušava vjerno reproducirati ulazni oblik), pa (c) 'pojačalo A ili AB razreda' bolje odgovara audiopojačalu nego (a), (b) ili (d).",
+  "cite": [
+   {"src": "RK", "loc": "Ispitna pitanja, SKUPINA V, pitanje 31, tiskana str. 337"},
+   {"src": "RK", "loc": "2. Pojačala snage / 2.1. Razred A (primjer: AF pojačalo snage), tiskana str. 86-87"}
+  ]
+ },
+ "bk-teh-5-33": {
+  "note": "Knjiga izravno definira: 'Susjedni kanal je prva sljedeća viša ili niža frekvencija na kojoj može raditi drugi odašiljač.' Formulacija se riječ za riječ poklapa s opcijom (b). Kanal susjednoga odašiljača (a) nije isto što i susjedni kanal po frekvenciji (odašiljač bi trebao raditi na TOJ konkretnoj frekvenciji, definicija je općenitija), a kanal na kojemu ne radi jači odašiljač (c) ili istodobni prijam/odašiljanje (d) nisu vezani uz pojam susjednoga kanala.",
+  "cite": [
+   {"src": "RK", "loc": "Ispitna pitanja, SKUPINA V, pitanje 33, tiskana str. 337"},
+   {"src": "RK", "loc": "4.4.1. Susjedni kanal (definicija, doslovno podudarna), tiskana str. 134"}
+  ]
+ },
+ "bk-teh-5-35": {
+  "note": "Knjiga izravno zaključuje o razredu A: 'pojačalo A razreda ima: mala izobličenja signala, tj. maleni sadržaj harmonika, ali i nizak stupanj korisnog djelovanja.' To se poklapa s opcijom (b), 's neznatnim izobličenjima ali niskim stupnjem korisnosti'. Suprotno tomu, veći stupanj korisnosti uz mala izobličenja (opcije a i c) nije ostvariv u razredu A prema knjizi - upravo je kompromis između izobličenja i korisnosti ono što razlikuje razrede A, B/AB i C, a razred A žrtvuje korisnost radi vjernosti.",
+  "cite": [
+   {"src": "RK", "loc": "Ispitna pitanja, SKUPINA V, pitanje 35, tiskana str. 337"},
+   {"src": "RK", "loc": "2.1. Razred A (mala izobličenja, nizak stupanj korisnog djelovanja), tiskana str. 86-87"}
+  ]
+ },
+ "bk-teh-5-37": {
+  "note": "HRS-ov ključ (tablica odgovora, redak 37, stupac Skupina V) označava opciju (a), 'više stupnjeva pojačanja'. Knjiga opisuje odvojni stupanj (5.3.3, između oscilatora i sljedećega pojačanja), pobudni stupanj/driver (5.3.4, dovodi pobudnu snagu izlaznom pojačalu) i izlazno pojačalo snage (5.3.6) kao odvojene, imenovane funkcionalne blokove odašiljača, ali ne navodi brojčano ograničenje na broj međustupnjeva između odvojnoga i izlaznog stupnja - koliko je stupnjeva pojačanja potrebno ovisi o traženom pojačanju snage od pobudne do izlazne razine, što je konstrukcijska odluka, a ne fiksno pravilo. Kako u dostupnim poglavljima nije pronađena izričita rečenica koja to potvrđuje brojem, ovdje se navodi samo ispitno pitanje kao izvor.",
+  "cite": [{"src": "RK", "loc": "Ispitna pitanja, SKUPINA V, pitanje 37, tiskana str. 338"}]
+ },
+ "bk-teh-5-39": {
+  "note": "Knjiga u opisu amplitudne modulacije izravno navodi da se moduliraju 'visokofrekvencijske oscilacije (VF) vala (pre)nositelja STALNE AMPLITUDE' - dakle sam val nositelj (bez modulacije, promatran zasebno) ima uvijek istu, stalnu amplitudu; modulacijski signal mijenja OMOTNICU (obvojnicu) VF signala, ne temeljnu amplitudu nositelja samog. To odgovara opciji (d). Nositelj, dakle, ne raste niti pada s dubinom modulacije (opcije a, b) - to bi opisivalo omotnicu, ne nositelja - a ni ne potiskuje se prije izlaznog stupnja kod standardnoga (ne-SSB) AM odašiljača (opcija c, koja opisuje potisnuti nositelj kod DSB/SSB tehnika).",
+  "cite": [
+   {"src": "RK", "loc": "Ispitna pitanja, SKUPINA V, pitanje 39, tiskana str. 338"},
+   {"src": "RK", "loc": "1.8.1. Amplitudna modulacija — AM (sl. 1.8.1., \"vala (pre)nositelja stalne amplitude\"), tiskana str. 47-48"}
+  ]
+ },
+ "bk-teh-5-41": {
+  "note": "Paketov has_figure=false je pogrešan: pitanje nosi sliku oscilograma sinusnog signala s mrežom (potvrđeno renderom stranice), gdje je vršno-vršna amplituda U_vv označena strelicom koja obuhvaća 6 podjeljaka po y-osi. Uz zadanih 0,5 V po podjeljku, U_vv=6×0,5 V=3,0 V - opcija (b). Opcija (a) 2,5 V odgovarala bi petorostrukom, a (c)/(d) 7- odnosno 12-strukom broju podjeljaka, što se ne poklapa s prikazanom sinusoidom na slici.",
+  "formula": ["U_vv = (broj podjeljaka) × (V/podjeljak) = 6 × 0,5 V = 3,0 V"],
+  "cite": [
+   {"src": "RK", "loc": "Ispitna pitanja, SKUPINA V, pitanje 41 (oscilogram, U_vv), tiskana str. 339"},
+   {"src": "RK", "loc": "8.2.7. Osciloskop, tiskana str. 185"}
+  ]
+ },
+ "bk-teh-5-43": {
+  "note": "Perioda je recipročna vrijednost frekvencije, T=1/f (knjiga: 'Perioda je vrijeme trajanja jednog ciklusa oscilacije... Frekvencija je broj perioda u jedinici vremena'). Za f=100 MHz=10^8 Hz slijedi T=1/10^8 s=10^-8 s=0,01×10^-6 s=0,01 µs - opcija (b). Opcije u ms (c, d) su za tri reda veličine prevelike, a 0,1 µs (a) je za faktor 10 preveliko.",
+  "formula": ["T = 1/f = 1/(100×10⁶ Hz) = 0,01 µs"],
+  "cite": [
+   {"src": "RK", "loc": "Ispitna pitanja, SKUPINA V, pitanje 43, tiskana str. 339"},
+   {"src": "RK", "loc": "1.6.2. Perioda, frekvencija, faza (f=1/T), tiskana str. 43"}
+  ]
+ },
+ "bk-teh-5-45": {
+  "note": "Knjiga opisuje upravo ovaj postupak: 'Odašiljač se namjesti da daje 200 W na umjetnoj anteni R_a mjerenjem struje I kroz takvo trošilo pomoću instrumenta s termoparom.' Iz P=I²R slijedi I=√(P/R)=√(200 W/50 Ω)=√4=2 A - opcija (c). Ostale vrijednosti (4 A, 3 A, 8 A) ne zadovoljavaju tu relaciju za zadane P i R.",
+  "formula": ["I = √(P / R) = √(200 W / 50 Ω) = 2 A"],
+  "cite": [
+   {"src": "RK", "loc": "Ispitna pitanja, SKUPINA V, pitanje 45, tiskana str. 340"},
+   {"src": "RK", "loc": "8.1.3. Mjerenje DC i RF snage (200 W na umjetnoj anteni, struja mjerena termoparom), tiskana str. 177"}
+  ]
+ },
+ "bk-teh-5-47": {
+  "note": "Paketov has_figure=false je pogrešan: pitanje nosi sliku frekvencijskog spektra PLL sintetiziranog signala (potvrđeno renderom stranice), gdje su uz nositelj f0 i referencijsku frekvenciju f_r prikazane bočne linije obilježene kao 'šum frekvencijski moduliran u sintezatoru'. Takav šum u sintezatoru (fazna petlja, PLL) najčešće potječe iz vanjskih smetnji koje se ulove u sklop ili s napojnih vodova, a opća mjera protiv toga u knjizi je oklapanje RF sklopova: 'Neželjena harmonička [i sporedna] zračenja... sprečavamo... oklapanjem svakog RF-sklopa zasebno.' Dakle sintezator treba propisno oklopiti (opcija a); zaštita od prašine ili vlage (b, c) i toplinska izolacija (d) ne rješavaju elektromagnetsku (RF) spregu koja unosi šum u spektar.",
+  "cite": [
+   {"src": "RK", "loc": "Ispitna pitanja, SKUPINA V, pitanje 47 (spektar PLL sintetizatora sa šumom), tiskana str. 340"},
+   {"src": "RK", "loc": "3.6.2. Sintetizatori i petlja fazne sinkronizacije, tiskana str. 126"},
+   {"src": "RK", "loc": "9.2.1.3. Druge sporedne emisije (oklapanje svakog RF-sklopa zasebno), tiskana str. 196"}
+  ]
+ },
+ "bk-teh-5-49": {
+  "note": "Pitanje se odnosi na sliku iz zadatka 48 (prigušnica L u seriji, s CR-sklopom u paraleli, na tipkalu). Knjiga opisuje upravo tu shemu (sl. 9.2.4., 'klik-filtar'): 'struja pri zatvaranju kruga (tipkalo dolje), ne poraste trenutačno već, zbog samoindukcije zavojnice L, raste sporije... CR-sklop služi i za sprječavanje iskričenja između kontakata tipkala.' To se doslovno poklapa s opcijom (a): prigušnica L 'zaobljuje' (usporava rast/pad) pravokutne impulse, a CR-sklop sprječava iskričenje na tipkalu. Opcija (b) zamjenjuje uloge L i CR, a (c) i (d) ne odgovaraju opisanoj funkciji filtra protiv klik-smetnji.",
+  "cite": [
+   {"src": "RK", "loc": "Ispitna pitanja, SKUPINA V, pitanje 49 (uz shemu iz pitanja 48), tiskana str. 341"},
+   {"src": "RK", "loc": "9.2.1. Klik-filtar pri otipkavanju (sl. 9.2.4.: uloga L i CR-sklopa), tiskana str. 196"}
+  ]
+ },
+ "bk-teh-5-51": {
+  "note": "Paketov has_figure=false je pogrešan: pitanje nosi tlocrtni prikaz vrta s kućom i četirima označenim točkama A, B, C, D za mogući smještaj antenskoga stuba (potvrđeno renderom stranice) - A i B su uz samu kuću (blizu), C nešto dalje, a D najudaljenija točka na skici. HRS-ov ključ (tablica odgovora, redak 51, stupac Skupina V) označava opciju (d), točku D. Budući da rizik od smetnji (npr. povratno RF polje u kućnoj instalaciji, blizina metalnih konstrukcija ili stanara) raste sa smanjenjem udaljenosti antene od kuće, najudaljenija ponuđena točka najmanje je rizična - to je jedina opća zakonitost koju slika podupire; u dostupnim poglavljima RK nije pronađen zaseban odjeljak koji brojčano ili tekstualno razrađuje baš ovaj scenarij razmještaja stuba u vrtu, pa se ne navodi drugi izvor.",
+  "cite": [{"src": "RK", "loc": "Ispitna pitanja, SKUPINA V, pitanje 51 (tlocrtni prikaz s točkama A/B/C/D), tiskana str. 341"}]
+ },
+ "bk-teh-5-53": {
+  "note": "HRS-ov ključ (tablica odgovora, redak 53, stupac Skupina V) označava opciju (a): 'Radimo s najmanjom mogućom snagom, a trajanje veze ograničimo na vrijeme potrebno da prenesemo i primimo željene poruke.' To je operativno, obzirno ponašanje (tzv. 'zlatno pravilo') koje izravno smanjuje vjerojatnost i jačinu smetnji drugim službama - suprotno opciji (b), koja bi smetnje povećala. Opcije (c) i (d) su izbjegavanje odgovornosti (poricanje ili prebacivanje na državnu službu) umjesto proaktivnoga smanjenja smetnji, pa ne mogu biti 'zlatno pravilo' o kojemu pitanje govori. U dostupnim poglavljima RK nije pronađen zaseban odjeljak koji ovo pravilo brojčano ili tekstualno razrađuje izvan samog ispitnog pitanja, pa se ne navodi drugi izvor.",
+  "cite": [{"src": "RK", "loc": "Ispitna pitanja, SKUPINA V, pitanje 53, tiskana str. 342"}]
+ },
+ "bk-teh-5-55": {
+  "note": "VAŽNO: paketov tekst pitanja i sve četiri opcije za bk-teh-5-55 pripadaju SUSJEDNOM pitanju 56 ('Provjerili smo da RF smetnje u našu opremu dospijevaju iz gradske mreže...', s opcijama o zamjeni faze/utičnice/ugradnji RF filtra/debljem kabelu) - OCR/parsersko lijepljenje spojilo je stranicu dvaju susjednih pitanja. Stvarno pitanje 55 (potvrđeno renderom stranice 342) glasi: 'Naš odašiljač može raditi u cijelom kratkovalnom području. Koji od ponuđenih filtara bi uspješno ograničio harmonička zračenja?', uz SLIKU s četirima krivuljama frekvencijskog odziva filtra, obilježenima a)-d): (a) ravna krivulja do 30 MHz koja zatim opada (niskopropusni filtar s graničnom frekvencijom oko 30 MHz), (b) suprotna krivulja koja raste do 30 MHz i ostaje ravna iznad (visokopropusni), (c) vrpčasta krivulja s vrhom na 30 MHz (pojasnopropusni), (d) usko urezana krivulja na 14 MHz (pojasnozaporni/notch na jednoj frekvenciji). Budući da radioamaterski odašiljač radi na više KV pojasa raspoređenih ispod 30 MHz i treba propustiti SVE te frekvencije a prigušiti harmonike (koji su uvijek IZNAD osnovne, dakle iznad 30 MHz za najviši KV pojas), potreban je niskopropusni filtar s graničnom frekvencijom malo iznad najvišega radnog pojasa - to je krivulja (a). Odgovara i knjižinoj ulozi II-filtra ('s druge strane potiskuje harmonička zračenja koja se stvaraju na samom izlazu') te napomeni da harmonici koji padaju unutar 30 MHz obično ne izazivaju posebne smetnje, dok oni IZNAD 30 MHz (koje niskopropusni filtar guši) mogu smetati VHF/drugim službama. Krivulje (b) pojasnopropusni na 30 MHz i (d) pojasnozaporni na 14 MHz bi upravo BLOKIRALE dio željenoga KV spektra, a (c) visokopropusni bi propustio harmonike umjesto da ih guši.",
+  "cite": [
+   {"src": "RK", "loc": "Ispitna pitanja, SKUPINA V, pitanje 55 (slika: 4 krivulje filtra a-d, granica 30 MHz/14 MHz), tiskana str. 342"},
+   {"src": "RK", "loc": "5.3.7. Izlazni filtar (PI-filtar) — potiskuje harmonička zračenja na izlazu, tiskana str. 139"},
+   {"src": "RK", "loc": "3.4.6. Harmonici, nelinearna izobličenja (harmonici unutar/iznad 30 MHz), tiskana str. 121"}
+  ]
+ },
+ "bk-teh-5-57": {
+  "note": "HRS-ov ključ (tablica odgovora, redak 57, stupac Skupina V) označava opciju (a): žurno premjestiti antenski stub što je moguće dalje od novopodignutoga visokonaponskog voda. Blizina (5-6 m) Yagijeve antene visokonaponskom vodu nosi opasnost od preskoka/indukcije visokog napona na antenski sustav i opremu, izravnu prijetnju sigurnosti (RK 10.1 govori općenito o opasnosti visokog napona za ljudsko tijelo). Zahtijevanje da se premjesti tuđi vod (c) nije u nadležnosti radioamatera niti izvedivo u kratkom roku, preusmjeravanje antene (b) ne uklanja fizičku blizinu i rizik doticaja/preskoka, a žaljenje bez djelovanja (d) ostavlja opasnost neriješenom. U dostupnim poglavljima RK nije pronađen zaseban odjeljak koji brojčano razrađuje baš udaljenost od visokonaponskih vodova, pa se ne navodi dodatni izvor osim općega konteksta 10.1 i samog ispitnog pitanja.",
+  "cite": [
+   {"src": "RK", "loc": "Ispitna pitanja, SKUPINA V, pitanje 57, tiskana str. 343"},
+   {"src": "RK", "loc": "10.1. Ljudsko tijelo — opasnost visokog napona, tiskana str. 203"}
+  ]
+ },
+ "bk-teh-5-59": {
+  "note": "Knjiga u Tablici 10.3 ('Neke vrijednosti RF polja u blizini antena') navodi upravo ovaj slučaj: red 1, 'dipol u potkrovlju', 14,15 MHz, 100 W, izmjereno polje '7...100 V/m u kući' - a napomena uz tablicu kaže da su podebljane (istaknute) vrijednosti one 'koje premašuje graničnu dopuštenu vrijednost i za profesionalno osoblje'. Gornja vrijednost toga raspona, 100 V/m, iz pitanja je upravo ta istaknuta, prekoračujuća vrijednost - dakle 'visoko iznad dopuštene vrijednosti i s mogućim štetnim djelovanjem', opcija (b), a ne granična dopuštena (a) niti ispod granice čak i za profesionalce (c); opcija (d) je u suprotnosti s cijelim poglavljem 10.1.2 koje upravo dokumentira dokazana štetna djelovanja RF polja.",
+  "cite": [
+   {"src": "RK", "loc": "Ispitna pitanja, SKUPINA V, pitanje 59, tiskana str. 343"},
+   {"src": "RK", "loc": "Tablica 10.3, redak 1 (dipol u potkrovlju, 100 W, polje 7...100 V/m, istaknuto kao iznad granice i za profesionalno osoblje), tiskana str. 207"}
+  ]
+ }
+}
