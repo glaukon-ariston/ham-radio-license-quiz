@@ -1,0 +1,131 @@
+{
+ "_note": "Skupina I, tehnički dio, paket _b (30 od 720 knjižnih pitanja, parne brojeve 2-60 iz istog probnog ispita kao _a). Napomene provjerene prema tiskanim stranicama RK (booktool.py + izravno renderiranje stranica pymupdf-om) 9-10 kol 2026, uključujući sve figure (bk-teh-1-04, -06, -12) koje get_images()/get_drawings() ne vide (PrimoPDF linijska umjetnost). Svih 30 odgovora unakrsno provjereno protiv tiskane tablice 'ODGOVORI NA PITANJA, stupac Skupina I' (RK, tiskana str. 354-355) — sva 30 slova iz packet_book_s1_tehnicki_b.json točno se poklapaju s tom tablicom. Bez vanjskih poveznica — link_check.py ne obrađuje ovu datoteku (samo notes_zzz_expanded_*), pa poveznice namjerno izostavljene da se izbjegne neprovjerena tvrdnja.",
+ "bk-teh-1-02": {
+  "note": "ERP (efektivna izračena snaga) dobiva se iz izlazne snage odašiljača uvećane za NETO dobitak antenskog sustava izražen u decibelima — dobitak antene G umanjen za gubitak napojnog voda L, jer se dB vrijednosti duž lanca jednostavno zbrajaju (baš kao pojačanja više pojačala u kaskadi). Neto dobitak je G-L=12-2=10 dB, što u linearnom omjeru snaga iznosi 10^(10/10)=10 (10 dB je uvijek deseterostruko povećanje snage). ERP je stoga izlazna snaga pomnožena tim faktorom: 100 W×10=1000 W.",
+  "formula": ["neto dobitak (dB) = G - L = 12 - 2 = 10 dB", "faktor (linearni) = 10^(10/10) = 10", "ERP = Pizl × faktor = 100 W × 10 = 1000 W"],
+  "cite": [{"src": "RK", "loc": "1.9.4. O decibelu (dB); 1.9.5. Omjeri snaga na izlazu i na ulazu kod više pojačala u kaskadi, tiskana str. 53, 56"}]
+ },
+ "bk-teh-1-04": {
+  "note": "Slika prikazuje dva kondenzatora od 1 µF spojena MEĐUSOBNO PARALELNO, a taj par je u SERIJU s ulaznim kondenzatorom od 2 µF. Kod paralelnog spoja kapaciteti se zbrajaju: 1+1=2 µF. Ta zamjenska vrijednost od 2 µF zatim je u seriji s ulaznim kondenzatorom od 2 µF; kod serijskog spoja zbrajaju se recipročne vrijednosti kapaciteta, pa je 1/Cuk=1/2+1/2=1, odnosno Cuk=1 µF za cijelu mrežu.",
+  "formula": ["C(desno) = 1 µF + 1 µF = 2 µF (paralelno)", "1/C(uk) = 1/2 + 1/2 = 1  =>  C(uk) = 1 µF (serijski spoj s ulaznim kondenzatorom)"],
+  "cite": [{"src": "RK", "loc": "3.1.2.4. Mješoviti spoj kondenzatora, tiskana str. 103"}]
+ },
+ "bk-teh-1-06": {
+  "note": "Krug je naponski stabilizator sa Zenerovom diodom i tranzistorom kao serijskim regulacijskim elementom: baza tranzistora spojena je na čvor Zenerove diode (5,6 V), koja preko otpornika od 560 kΩ dobiva referentnu struju iz nestabilnog izvora od 13 V (10 µF filtrira/izglađuje tu referencu), dok je kolektor spojen na neregulirani ulazni vod. Tranzistor radi kao emitorski sljedbenik: strelica na emiterskom kraku (gornji desni izvod, prema točki A) pokazuje da je riječ o NPN tranzistoru, a izlazni napon na emiteru uvijek je niži od napona baze za pad napona baza-emiter spoja (približno 0,6 V). Iz 5,6 V na bazi tako proizlazi izlazni napon između A i B od otprilike 5,6-0,6≈5 V — stabilan i praktički neovisan o kolebanjima ulaznog napona od 13 V; otpornik 2,2 kΩ predstavlja opterećenje na izlazu.",
+  "formula": ["U(izlaz, A-B) ≈ U(zener) - U(BE) = 5,6 V - 0,6 V ≈ 5 V"],
+  "cite": [{"src": "RK", "loc": "2.6.1. NPN tranzistor, tiskana str. 76; 2.6.2.1. Primjeri uporabe dioda — 3. Zenerova dioda kao regulator napona, tiskana str. 80"}]
+ },
+ "bk-teh-1-08": {
+  "note": "Digitalni elektronički sklopovi rade sa signalima koji poprimaju samo dva razlučiva stanja (logička 0 i logička 1), za razliku od analognih (linearnih) sklopova čiji izlaz kontinuirano prati ulaznu veličinu. Budući da se logičke funkcije (I, ILI, NE i njihove kombinacije) izvode upravo takvim dvorazinskim, binarnim signalima, integrirani krugovi namijenjeni za tu svrhu klasificiraju se kao digitalni krugovi — ne kao linearni krugovi, hibridni sklopovi (koji kombiniraju analogne i digitalne dijelove) ili pojačala (analogni sklopovi).",
+  "cite": [{"src": "RK", "loc": "2.8.3. Digitalni integrirani sklopovi, tiskana str. 96"}]
+ },
+ "bk-teh-1-10": {
+  "note": "Jakost električnog polja E između dviju nabijenih ploča izravno je razmjerna naponu U između njih, a obratno razmjerna njihovu razmaku d: E=U/d. Budući da se volti dijele s metrima, mjerna jedinica jakosti polja je volt po metru (V/m) — analogno kako se jakost magnetskog polja izražava u amperima po metru (A/m). Sami volti (V) mjere napon, a amperi (A) struju, a ne jakost polja.",
+  "cite": [{"src": "RK", "loc": "1.3.1. Jakost električnog polja, tiskana str. 33"}]
+ },
+ "bk-teh-1-12": {
+  "note": "Blok-shema prikazuje: fazni detektor koji uspoređuje ulaznu referentnu frekvenciju fref s frekvencijom iz povratne petlje, niskopropusni filtar (NPF) koji izglađuje izlaz faznog detektora, naponom upravljani oscilator (VCO) čija izlazna frekvencija f=fref ovisi o tom naponu, te programabilni djelitelj u povratnoj grani koji vraća dio VCO-ova signala natrag faznom detektoru. Ta zatvorena petlja koja fazno (pa time i frekvencijski) sinkronizira VCO s referentnom frekvencijom naziva se fazno sinkronizirajućom zatvorenom petljom (PLL) — koristi se u sintetizatorima frekvencije za dobivanje stabilne, precizno ugodive frekvencije iz jednog stabilnog referentnog izvora.",
+  "cite": [{"src": "RK", "loc": "3.6.2. Sintetizatori i petlja fazne sinkronizacije, tiskana str. 126"}]
+ },
+ "bk-teh-1-14": {
+  "note": "Jakost električnog polja E između obloga kondenzatora računa se kao omjer napona U i razmaka obloga d: E=U/d. Uvrštavanjem U=1000 V i d=2 mm=0,002 m dobiva se E=1000/0,002=500 000 V/m, što je isto što i 0,5×10^6 V/m.",
+  "formula": ["E = U / d", "E = 1000 V / 0,002 m = 500 000 V/m = 0,5×10^6 V/m"],
+  "cite": [{"src": "RK", "loc": "1.3.1. Jakost električnog polja, tiskana str. 33"}]
+ },
+ "bk-teh-1-16": {
+  "note": "Kapacitivna reaktancija Xc=1/(2πfC) obratno je razmjerna frekvenciji, pa s porastom f ona PADA. Induktivna reaktancija XL=2πfL izravno je razmjerna frekvenciji, pa s porastom f ona RASTE. Ta suprotna ovisnost o frekvenciji temelj je rada svih filtara i ugođenih titrajnih krugova: pri niskim frekvencijama dominira (velika) Xc, a pri visokima (velika) XL.",
+  "cite": [{"src": "RK", "loc": "2.2.1. Reaktancija kondenzatora, tiskana str. 62; 2.3.2. Reaktancija zavojnice, tiskana str. 67"}]
+ },
+ "bk-teh-1-18": {
+  "note": "Tranzistor je strujno upravljan element: struja kolektora teče tek kada je spoj baza-emiter propusno polariziran iznad praga (za silicijski spoj približno 0,6-0,7 V), jer tek tada kroz taj PN-spoj počinje teći struja baze koja upravlja glavnim strujnim tokom kolektor-emiter. Ako se potencijal baze drži TOČNO na potencijalu emitera (napon baza-emiter jednak nuli), spoj baza-emiter uopće nije propusno polariziran, struje baze nema, pa tranzistor ostaje zatvoren (u zapiranju) i struja kolektora je jednaka nuli (ništici).",
+  "cite": [{"src": "RK", "loc": "2.6.1. NPN tranzistor, tiskana str. 76"}]
+ },
+ "bk-teh-1-20": {
+  "note": "Faktor dobrote (kvalitete) Q ugođenog titrajnog kruga jednak je omjeru rezonancijske frekvencije f0 i širine frekvencijskog pojasa B mjerene na razini -3 dB oko te rezonancije: Q=f0/B. Uz f0=1 MHz=1 000 000 Hz i B=10 kHz=10 000 Hz dobiva se Q=1 000 000/10 000=100. Veći Q znači užu, oštriju rezonancijsku krivulju i bolju selektivnost kruga.",
+  "formula": ["Q = f0 / B(-3dB)", "Q = 1 000 000 Hz / 10 000 Hz = 100"],
+  "cite": [{"src": "RK", "loc": "3.2.1. Paralelni titrajni krug (4.4. faktor kvalitete), tiskana str. 108"}]
+ },
+ "bk-teh-1-22": {
+  "note": "Tijekom noći, bez sunčeva ultraljubičastog zračenja koje uzrokuje ionizaciju, rekombinacija brzo uklanja slabije ionizirane slojeve D i F1 — D sloj noću praktički nestaje, a F1 se spaja s F2 u jedinstveni sloj F. Ono što od dnevnoga rasporeda (D, E, F1, F2) preostaje noću jesu slojevi E i F, pa se noćna ionosfera sastoji upravo od njih.",
+  "cite": [{"src": "RK", "loc": "7.1.3. Rasprostiranje ionosferskim valom, tiskana str. 165"}]
+ },
+ "bk-teh-1-24": {
+  "note": "MUF (maksimalna upotrebljiva frekvencija) je najviša frekvencija za koju se, uz zadane uvjete ionosfere i kut upada, val na nekom sloju (obično najvišem, F2) još odbija natrag prema Zemlji. Radiovalovi frekvencija iznad MUF-a nisu dovoljno savijeni da bi se odbili — probijaju kroz F2 sloj i odlaze u svemir umjesto da se vrate na Zemlju, pa se njima ionosferska (skywave) veza ne može ostvariti na danom putu.",
+  "cite": [{"src": "RK", "loc": "7.1.3. Rasprostiranje ionosferskim valom, tiskana str. 165-169"}]
+ },
+ "bk-teh-1-26": {
+  "note": "Kritična frekvencija nekog sloja je najviša frekvencija koja se od tog sloja još odbija pri okomitom upadu vala, a raste s gustoćom ionizacije sloja. Sloj E je znatno slabije ioniziran od gornjeg sloja F2, pa je i njegova kritična frekvencija niža — u pravilu za otprilike 1-4 MHz niža od kritične frekvencije za sloj F2, a ne viša ili jednaka.",
+  "cite": [{"src": "RK", "loc": "7.1.3. Rasprostiranje ionosferskim valom, tiskana str. 165"}]
+ },
+ "bk-teh-1-28": {
+  "note": "Množilo frekvencije iskorištava nelinearnost tranzistora: na njegovu izlazu se, uz osnovnu frekvenciju, pojavljuju i harmonici (2×, 3×, 4× ulazne frekvencije). Ugađanjem izlaznog titrajnog kruga na željeni harmonik iz tog bogatog harmoničkog spektra izdvaja se samo ta jedna komponenta. Množilo dakle ne stvara nove frekvencije zbrajanjem/oduzimanjem dvaju signala (to radi miješalo) niti izravno množi VF i NF signal — ono filtracijom izdvaja harmonik već prisutan u izobličenom izlaznom signalu.",
+  "cite": [{"src": "RK", "loc": "5.3.5. Množilo frekvencije, tiskana str. 139"}]
+ },
+ "bk-teh-1-30": {
+  "note": "Jednostruki superheterodinski prijamnik ima jedan lokalni oscilator i jedno miješalo: signal lokalnog oscilatora miješa se s ulaznim signalom, a na izlazu miješala nastaje jedna, stalna (konstantna) razlika frekvencija — međufrekvencija — koja se dalje pojačava i detektira. To ga razlikuje od dvostrukoga superheterodinskog prijamnika, koji ima dva oscilatora, dva miješala i dvije uzastopne međufrekvencije radi bolje selektivnosti.",
+  "cite": [{"src": "RK", "loc": "4.1.1. Jednostuki i dvostruki superheterodinski prijamnik, tiskana str. 128"}]
+ },
+ "bk-teh-1-32": {
+  "note": "S-mjerilo je pokazni instrument ugrađen u jedan od stupnjeva pojačanja prijamnika; upravlja njime demodulirani i filtrirani signal iz detektora (ili posebne ispravljačke diode), pa instrument indikativno, na nelinearnoj skali označenoj S-jedinicama, pokazuje jačinu primljenoga signala. On ne mjeri prijamnu frekvenciju, selektivnost niti jačinu signala iz susjednog kanala — samo relativnu jačinu signala na koji je prijamnik ugođen.",
+  "cite": [{"src": "RK", "loc": "4.3.11. S-mjerilo, tiskana str. 134"}]
+ },
+ "bk-teh-1-34": {
+  "note": "Diodni detektor (detektor ovojnice) najjednostavniji je i najčešće korišten AM detektor: to je u osnovi jedna dioda koja poluvalno ispravi (odreže donju polovicu) moduliranog VF signala, nakon čega kondenzator na njezinu izlazu prati vršnu vrijednost tog ispravljenog signala i tako proizvodi napon proporcionalan izvornome modulacijskom (NF) signalu. Ratio-detektor i diskriminator koriste se za FM, ne za AM, a opisan sklop s kristalnim filtrima koji propuštaju samo bočne pojaseve nije standardan AM detektor.",
+  "cite": [{"src": "RK", "loc": "3.5.2. Diodni detektor ili detektor ovojnice, tiskana str. 122"}]
+ },
+ "bk-teh-1-36": {
+  "note": "Driver (pobudni stupanj) odašiljača dovodi izlaznom (završnom) pojačalu snage upravo onu VF snagu koja je tom pojačalu potrebna da bi radilo u svom planiranom radnom režimu. Koliko pobudne snage treba ovisi o izlaznoj snazi i o radnom razredu izlaznog stupnja — pojačalo C razreda treba najviše pobudne snage, A razreda najmanje. Driver dakle ne odvaja oscilator od sljedećih stupnjeva (to je zadaća odvojnog stupnja/buffera) niti sprječava harmonike (to rade filtri).",
+  "cite": [{"src": "RK", "loc": "5.3.4. Pobudni stupanj, tiskana str. 139"}]
+ },
+ "bk-teh-1-38": {
+  "note": "Kod FM odašiljača frekvencija vala nositelja mijenja se u ovisnosti o amplitudi modulacijskog (NF) signala; ta promjena frekvencije naziva se frekvencijskom devijacijom (Δf). Indeks modulacije kod FM definira se kao omjer te frekvencijske devijacije i frekvencije modulacijskog signala fm: m=Δf/fm. Primjerice, uz devijaciju od 75 kHz i modulacijsku frekvenciju od 15 kHz indeks modulacije iznosi 5.",
+  "formula": ["m(FM) = Δf / fm"],
+  "cite": [{"src": "RK", "loc": "5.4.10. Indeks modulacije, tiskana str. 144"}]
+ },
+ "bk-teh-1-40": {
+  "note": "Zračenje kroz kućište je neželjeno RF zračenje samog odašiljača koje ne izlazi kroz anteni namijenjeni put, nego prodire kroz nedovoljno zaštićeno kućište uređaja (primjetljivo npr. i kad je prava antena zamijenjena idealno oklopljenom umjetnom antenom koja sama ne zrači). Takvo se zračenje suzbija boljim oklapanjem i uzemljenjem kućišta — ne boljom učinkovitošću, stabilnošću niti uzemljenjem samog odašiljača kao cjeline, što su svojstva koja rješavaju druge probleme.",
+  "cite": [{"src": "RK", "loc": "5.4.13. Zračenja kroz kućište, tiskana str. 145"}]
+ },
+ "bk-teh-1-42": {
+  "note": "Grid-dip metar (danas, s tranzistorima s učinkom polja, kraće dip-metar) ima vlastiti oscilator s aktivnim titrajnim krugom koji se induktivno spregne s mjerenim, nepobuđenim (pasivnim) titrajnim krugom. Kad se oscilator dip-metra ugodi točno na rezonancijsku frekvenciju mjerenog kruga, dio energije prelazi u taj krug, što se na instrumentu dip-metra očituje kao pad (engl. dip) struje — time se očitava rezonancijska (pa time posredno i vlastita) frekvencija zasebnog titrajnog kruga bez potrebe da on bude napajan ili aktivan.",
+  "cite": [{"src": "RK", "loc": "8.2.6. Dip-metar, tiskana str. 184"}]
+ },
+ "bk-teh-1-44": {
+  "note": "Osjetljivost voltmetra izražava se u omima po voltu (Ω/V) kao omjer unutrašnjeg otpora instrumenta i punog opsega (skale) na kojem je taj otpor izmjeren: osjetljivost=Runutrašnji/Uskala. Uz unutrašnji otpor 50 000 Ω na skali od 100 V dobiva se osjetljivost=50 000/100=500 Ω/V. Što je ta vrijednost veća, voltmetar manje opterećuje mjereni krug pri mjerenjima na nižim naponskim područjima.",
+  "formula": ["osjetljivost = R(unutrašnji) / U(skala)", "osjetljivost = 50 000 Ω / 100 V = 500 Ω/V"],
+  "cite": [{"src": "RK", "loc": "8.1.1. Mjerenje istosmjernih i izmjeničnih napona i struja, tiskana str. 174"}]
+ },
+ "bk-teh-1-46": {
+  "note": "Iz pada napona U=100 V na otporu R=50 Ω slijedi struja I=U/R=100/50=2 A. Snaga na tom teretu je P=U×I=100×2=200 W. Električna energija (rad) utrošena tijekom jedne minute (t=60 s) jednaka je W=P×t=200×60=12 000 Ws (vatsekundi, što je isto što i džuli).",
+  "formula": ["I = U / R = 100 V / 50 Ω = 2 A", "P = U × I = 100 V × 2 A = 200 W", "W = P × t = 200 W × 60 s = 12 000 Ws"],
+  "cite": [{"src": "RK", "loc": "1.1.4. Snaga električne struje; 1.1.4.1. Mjerna jedinica energije i snage električne struje, tiskana str. 23-24"}]
+ },
+ "bk-teh-1-48": {
+  "note": "Drugi harmonik odašiljača koji radi u pojasu 50-51,9 MHz pada u pojas 100-103,8 MHz — a taj se pojas poklapa s VHF/FM pojasom radiodifuznih odašiljača radijskog programa (u Hrvatskoj približno 87,5-108 MHz), pa dovoljno nepotisnuti drugi harmonik takvog amaterskog odašiljača lako smeta upravo slušanju FM radija u susjedstvu.",
+  "cite": [{"src": "RK", "loc": "9.2. Uzroci smetnja (primjer 1. uz sl. 9.1.1.), tiskana str. 192"}]
+ },
+ "bk-teh-1-50": {
+  "note": "Četvrti harmonik amaterskog odašiljača koji radi u pojasu 144-146 MHz pada u pojas 576-584 MHz. Taj pojas leži unutar IV. frekvencijskog područja televizijskih odašiljača (UHF TV kanali), pa dovoljno nepotisnuti četvrti harmonik takvog odašiljača lako smeta prijamu televizijskog programa u susjedstvu, a ne sustavima GSM ili DCS 1800 (koji rade na posve drugim frekvencijama) niti VHF/FM radiju (kojemu smeta niži, drugi harmonik iz susjednog primjera).",
+  "cite": [{"src": "RK", "loc": "9.2. Uzroci smetnja (primjer 2. uz sl. 9.1.1.), tiskana str. 192"}]
+ },
+ "bk-teh-1-52": {
+  "note": "Dobra radioamaterska praksa i briga o elektromagnetskoj kompatibilnosti (EMC) zahtijevaju svođenje mogućih smetnji susjedima na najmanju moguću mjeru — osobito navečer, kad je gledanje TV programa u gusto naseljenim sredinama najintenzivnije, a kućni prijamnici i pojačala osjetljiviji na prodor jakih obližnjih RF polja. Zato se preporuča raditi s najmanjom snagom koja je dovoljna da se veza uspješno održi, a ne uvijek zračiti najvećom raspoloživom snagom niti nastaviti rad nepromijenjenom snagom unatoč pritužbama.",
+  "cite": [{"src": "RK", "loc": "9.1.1. O elektromagnetskoj kompatibilnosti, tiskana str. 188"}]
+ },
+ "bk-teh-1-54": {
+  "note": "Iza širokopojasnog tranzistorskog pojačala snage KV odašiljača izlazni (Π/PI) filtar mora biti niskopropusni: on propušta cijelo radno KV područje (do otprilike 30 MHz) i potiskuje harmoničke komponente koje leže iznad njega, sprječavajući da nepoželjni viši harmonici, generirani u nelinearnom izlaznom stupnju, dopru do antene. Visokopropusni ili pojasni filtar ne bi potisnuo baš te više (VHF i iznad) harmonike, a pojam 'atenautor' nije standardni sklop za tu svrhu.",
+  "cite": [{"src": "RK", "loc": "5.3.7. Izlazni filtar (PI-filtar), tiskana str. 139"}]
+ },
+ "bk-teh-1-56": {
+  "note": "Kad se nelinearni poluvodički element kućne audiotehnike (npr. spoj baza-emiter tranzistora u pojačalu, koji se ponaša slično diodi) nađe izložen dvama ili više jakih VF signala (npr. iz obližnje amaterske postaje i neke druge postaje), on ih miješa i stvara produkte miješanja (intermodulacijske produkte) na zbrojnim i razlikovnim frekvencijama — što se može čuti kao neželjeni zvuk. Linearni elementi (kondenzatori, otpornici, obična žica) ne unose taj nelinearni izobličaj pa sami po sebi ne stvaraju takve produkte.",
+  "cite": [{"src": "RK", "loc": "9.1.1. O elektromagnetskoj kompatibilnosti, tiskana str. 188"}]
+ },
+ "bk-teh-1-58": {
+  "note": "Oklapanje oscilatora i RF stupnjeva od utjecaja vanjskih (i njihova vlastitog, prema van) polja izvodi se metalnim (kovinskim) elementima: elektronske cijevi oklapale su se metalnim tuljcima, cijeli sklopovi i osjetljive zavojnice ugrađuju se u metalna kućišta/kutijice, a vodovi se oklapaju bakrenim opletom (ekranizacija). Plastični ili nemetalni materijali ne provode struju pa ne mogu zaustaviti elektromagnetsko polje — djelotvoran oklop mora biti vodljiv i uzemljen.",
+  "cite": [{"src": "RK", "loc": "1.3.2. Zaštita oklapanjem od djelovanja električnog polja, tiskana str. 34"}]
+ },
+ "bk-teh-1-60": {
+  "note": "Propisno uzemljenje radijske postaje izvodi se najkraćom mogućom vezom (radi najmanjeg otpora i induktivnosti voda) do posebnog, za tu svrhu predviđenog uzemljivača (uzemljivačke elektrode zabijene u zemlju) — ne oslanjanjem na slučajne, električki nepouzdane veze poput vodovodne/grijanje instalacije, nul-vodiča kućne mreže ili tanke žice u lončanici, koji ne jamče nizak otpor prema zemlji niti sigurnost pri atmosferskim izbijanjima.",
+  "cite": [{"src": "RK", "loc": "10.2. MUNJA, tiskana str. 208"}]
+ }
+}
