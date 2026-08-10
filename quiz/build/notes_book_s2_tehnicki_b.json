@@ -1,0 +1,128 @@
+{
+ "_note": "Skupina II, tehnički dio, paket _b (30 od 720 knjižnih pitanja, parni brojevi 2-60, komplementarno paketu _a). Napomene provjerene prema tiskanim stranicama RK (booktool.py + izravno renderiranje stranica 298-308 i navedenih poglavlja, uključujući pixmap render svih slika uz pitanja 2, 4, 6, 8, 12, 16, 20, 46, 58) 9-10 Aug 2026. Sve 30 opcija/slova iz paketa provjerene protiv renderiranih stranica — za razliku od paketa _a (koji je imao tri zbrkana pitanja), ovih 30 parnih pitanja odgovaraju tiskanoj stranici točku po točku, bez otkrivenih grešaka transkripcije. Bez vanjskih poveznica — link_check.py ne obrađuje ovu datoteku (samo notes_zzz_expanded_*), pa poveznice namjerno izostavljene da se izbjegne neprovjerena tvrdnja.",
+ "bk-teh-2-02": {
+  "note": "Kod idealnog transformatora omjer impedancija na dvjema stranama jednak je kvadratu omjera broja zavoja: Za/Zb=(na/nb)². Na slici je omjer zavoja između točaka A,B (primar) i sekundara na kojem je spojen otpor 32 kΩ upravo 1:4 (primar ima manje zavoja). Preslikana impedancija na strani A,B je zato Za=32000×(1/4)²=32000/16=2000 Ω. Preostali ponuđeni iznosi odgovaraju zamjeni omjera (kvadrat 4 umjesto 1/4, što bi dalo 512 000 Ω — nije ponuđeno), ili linearnom umjesto kvadratnom omjeru zavoja.",
+  "formula": ["Za / Zb = (na / nb)²", "Za = 32 000 Ω × (1/4)² = 32 000 / 16 = 2000 Ω"],
+  "cite": [{"src": "RK", "loc": "2.4. NAČELO TRANSFORMACIJE I TRANSFORMATORI (Za/Zb=(na/nb)², omjer impedancije jednak kvadratu omjera transformacije), tiskana str. 71-72; slika uz pitanje 2 (omjer zavoja 1:4, A,B na primaru, 32 kΩ na sekundaru), tiskana str. 298"}]
+ },
+ "bk-teh-2-04": {
+  "note": "Slika prikazuje MF ulazni transformator s dvije diode suprotne orijentacije (jedna gore, jedna dolje) spojene na simetrično (centralno izvedenu) sekundarnu zavojnicu, s AF izlazom na desnoj strani — to je upravo ratio-detektor za demodulaciju FM signala. Knjiga izravno opisuje ovu shemu: 'Diode D₁ i D₂ su suprotno polarizirane... Napon s krajeva zavojnice L₂ ispravlja se pomoću dioda D₁ i D₂', s FM ulazom na primaru. Detektor ovojnice i AM-detektor imaju samo jednu diodu (bez simetrične dvodiodne sheme), a punovalni ispravljač ne demodulira MF/FM signal nego samo ispravlja izmjenični napon mrežne ili slične frekvencije.",
+  "cite": [{"src": "RK", "loc": "3.5.3. Detektor FM signala — ratio-detektor (dvije suprotno polarizirane diode D₁,D₂ na simetričnoj zavojnici, sl. 3.5.2.), tiskana str. 122; Ispitna pitanja, SKUPINA II, pitanje 4 (identična shema s dvije diode, MF ulazom i AF izlazom), tiskana str. 299"}]
+ },
+ "bk-teh-2-06": {
+  "note": "Slika prikazuje tranzistorski pojačavač sa zajedničkim emiterom (djelitelj napona 3,3 kΩ/3,3 kΩ na bazi, emiterski otpor 3,3 kΩ premošten kondenzatorom 1 μF radi vezanja izmjeničnog signala, ulazni kondenzator 1 μF) čiji je izlaz preko transformatora T vezan izravno na zvučnik — to je posljednji, izlazni stupanj audiofrekvencijskog (AF/NF) pojačala, koje NF signal pojačava dovoljno da pokreće zvučnik. Nema ulaznoga VF/MF titrajnog kruga niti dva ulazna signala kao kod miješala, pa sklop nije RF pojačalo, MF pojačalo ni miješalo.",
+  "cite": [{"src": "RK", "loc": "4.3.9. Pojačalo niskih (NF) ili audiofrekvencija (AF) — na izlazu posljednjeg stupnja transformacija otpora na otpor zvučnika pomoću transformatora za prilagodbu, tiskana str. 133; Ispitna pitanja, SKUPINA II, pitanje 6 (tranzistorsko pojačalo s izlaznim transformatorom T i zvučnikom), tiskana str. 299"}]
+ },
+ "bk-teh-2-08": {
+  "note": "Prikazana shema (kondenzatori C₁...C₅, otpori R₁,R₂, titrajni krug sa zavojnicom i promjenjivim C₂, izlaz s kolektora tranzistora u točki C) prema knjizi je upravo Colpittsov oscilator — 'najviše rabljen oscilator s promjenjivom frekvencijom, VFO, jest onaj u izvedbi kao Colpittsov oscilator'. Prepoznatljivo obilježje Colpittsova oscilatora je kapacitivni djelitelj (ovdje C₃, C₄) preko kojega se dio napona s titrajnog kruga vraća na bazu tranzistora kao pozitivna povratna sprega — za razliku od RC oscilatora (koji nema LC titrajni krug), kristal-oscilatora (koji frekvenciju određuje kristalom, ne LC krugom) i RF predpojačala (koje nije oscilator nego pojačalo ulaznog signala).",
+  "cite": [{"src": "RK", "loc": "3.6.1. Oscilator s promjenjivom frekvencijom — VFO najčešće izveden kao Colpittsov oscilator, primjer sheme sl. 3.6.2., tiskana str. 124-125; Ispitna pitanja, SKUPINA II, pitanje 8 (shema s C₁...C₅, R₁, R₂, titrajni krug s kapacitivnim djeliteljem), tiskana str. 300"}]
+ },
+ "bk-teh-2-10": {
+  "note": "Kod pojačala C razreda baza tranzistora je prednaponom potisnuta ispod praga vođenja (zakočena), pa tranzistor provede tek kad pozitivni dio ulaznog signala poraste dovoljno visoko iznad nule — to je uvijek KRAĆE od pola periode ulaznog signala, za razliku od A razreda (vodi cijelu periodu) i B razreda (vodi točno pola periode). Knjiga to izravno navodi: 'Pojačalo C razreda pojačava manje od poluvala ulaznog signala', s korisnošću od 65 do 70 posto, boljom nego kod A i B razreda upravo zbog kratkog vremena vođenja.",
+  "cite": [{"src": "RK", "loc": "2.6.3.1, 2. Pojačala snage, 2.3. Razred C, tiskana str. 88-89"}]
+ },
+ "bk-teh-2-12": {
+  "note": "Izvor od 5 V napaja usporedno dva ogranka: otpornik 50 Ω, i dva serijski spojena otpornika po 25 Ω (ukupno 25+25=50 Ω). Dva jednaka paralelna ogranka od po 50 Ω daju ukupni otpor 50/2=25 Ω. Struja I koju daje izvor je tada I=U/R=5 V/25 Ω=0,2 A=200 mA.",
+  "formula": ["R_ukupno = (50 Ω × (25 Ω + 25 Ω)) / (50 Ω + (25 Ω + 25 Ω)) = (50×50)/(50+50) = 25 Ω", "I = U / R = 5 V / 25 Ω = 0,2 A = 200 mA"],
+  "cite": [{"src": "RK", "loc": "3.1.1.1. Serijski spoj i 3.1.1.2. Paralelni spoj otpora (formule za zbrajanje otpora), tiskana str. 99; slika uz pitanje 12 (izvor 5 V, 50 Ω i dva serijska 25 Ω otpornika u paraleli), tiskana str. 300"}]
+ },
+ "bk-teh-2-14": {
+  "note": "Trap (paralelni rezonantni LC krug) umetnut u obje grane dipola na svojoj rezonantnoj frekvenciji predstavlja golem otpor (djeluje kao izolator) i time električki 'prekida' žicu antene u toj točki, dok na nižim frekvencijama, gdje trap nije u rezonanciji, ostaje kapacitivan i propušta struju dalje prema krajevima antene, produljujući je. Zahvaljujući tome ista antena, ovisno o frekvenciji, djeluje kao kraći (viši pojas) ili duži (niži pojas) rezonantni vod — dakle rezonira u najmanje dva frekvencijska pojasa, a ne samo u jednom.",
+  "cite": [{"src": "RK", "loc": "6.1.6.2. Trap-dipol (W3DZZ-antena) — trap kao golem otpor (izolator) u rezonanciji, kapacitivan izvan nje, tiskana str. 151"}]
+ },
+ "bk-teh-2-16": {
+  "note": "Devet jednakih otpornika od 1 kΩ tvori simetričnu mrežu od tri 'stupnja' (po tri otpornika svaki), pri čemu su čvorovi istoga stupnja međusobno spojeni (tri vodoravna niza 1 kΩ – 1 kΩ – 1 kΩ, s okomitim vezama nakon svakog stupnja). Zbog te simetrije svaki stupanj je zapravo tri jednaka otpornika od 1 kΩ SPOJENA PARALELNO, što daje 1 kΩ/3 po stupnju. Tri takva stupnja su međusobno u SERIJI (A→čvor1→čvor2→B), pa je ukupan otpor R_AB=1kΩ/3+1kΩ/3+1kΩ/3=1 kΩ — isto koliko iznosi otpor jednoga jedinog otpornika u mreži.",
+  "formula": ["R_stupnja = 1 kΩ / 3 (tri jednaka otpornika u paraleli)", "R_AB = 3 × (1 kΩ / 3) = 1 kΩ"],
+  "cite": [{"src": "RK", "loc": "3.1.1.1. Serijski spoj i 3.1.1.2. Paralelni spoj otpora, tiskana str. 99; slika uz pitanje 16 (mreža 3×3 otpornika od 1 kΩ između A i B), tiskana str. 301"}]
+ },
+ "bk-teh-2-18": {
+  "note": "Knjiga o troelementnoj snop-anteni (Yagi tipa) izravno navodi: 'Dodavanjem parazitnih elemenata (direktora) usmjerenost antene raste, frekvencijski pojas je uži, impedancija u napojnoj točki opada' — dakle dodavanje parazitnih elemenata (direktora, reflektora) poluvalnom dipolu SMANJUJE impedanciju u točki napajanja (s tipičnih oko 70 Ω na dipolu, prema knjizi, na vrijednosti od 20 do 80 Ω i više kod stvarnih višeelementnih izvedbi, ovisno o razmacima elemenata), a ne povećava je niti ostaje nepromijenjena.",
+  "cite": [{"src": "RK", "loc": "6.1.6.7. Troelementna snop-antena (dodavanjem parazitnih elemenata impedancija u napojnoj točki opada), tiskana str. 154"}]
+ },
+ "bk-teh-2-20": {
+  "note": "Od četiri prikazane sheme, samo shema d) odgovara stvarnoj izvedbi mrežnoga RF filtra kakvu knjiga opisuje i prikazuje (sl. 9.2.8.) — kombinacija zavojnice s feritnom jezgrom (velika impedancija za neželjene RF struje) i više kondenzatora spojenih na masu (mala impedancija za RF struje, odvode ih na masu/kućište), različita od jednostavnih dvoelementnih LC-članaka (sheme a) i b), samo jedna zavojnica i dva kondenzatora u Pi- odnosno T-rasporedu) i od sklopa s otpornicima (shema c), koji bi prigušivao i korisnu mrežnu (50 Hz) struju jer ne razlikuje frekvencije reaktivno. Ovakav mrežni filtar postavlja se, prema knjizi, upravo na vod mrežnog napajanja kako bi spriječio prodor RF komponente u mrežu (i obrnuto).",
+  "cite": [{"src": "RK", "loc": "9.2. UZROCI SMETNJA — REF smetnje iz mreže, mrežni filtar sa zavojnicom i kondenzatorima na masu (sl. 9.2.8.), tiskana str. 200; slika uz pitanje 20 (četiri sheme filtara a-d), tiskana str. 302"}]
+ },
+ "bk-teh-2-22": {
+  "note": "Knjiga definira MUF (najvišu uporabljivu frekvenciju) kao frekvenciju 'pri kojoj se radiovalovi još odbijaju progresivnim lomom u ionosferi', a dodaje da 'valovi frekvencija viših od MUF-a prolaze F₂-sloj i odlaze dalje u svemir'. Dakle MUF je po definiciji GRANIČNA, najviša frekvencija koja se još reflektira — frekvencije JEDNAKE MUF-u su posljednje koje se još odbijaju, dok sve više od MUF-a (neznatno, znatno ili bilo koliko) više ne prolaze test refleksije nego prolaze ravno kroz ionosferu.",
+  "cite": [{"src": "RK", "loc": "7.1.3.1. Znakovite frekvencije (definicija MUF-a — najviša frekvencija koja se još odbija; više od MUF-a val prolazi F₂-sloj), tiskana str. 168"}]
+ },
+ "bk-teh-2-24": {
+  "note": "Knjiga izravno navodi za E-područje: 'Najveća gustoća elektrona je na visini od oko 110 km.' To je vrijednost unutar raspona E-područja (90-130 km iznad Zemljine površine), bliže njegovoj donjoj polovici, a ne uz same rubove raspona (90 km ili 130 km) niti u F-području (220 km, koje počinje tek od 130 km naviše).",
+  "cite": [{"src": "RK", "loc": "7.1.3. Rasprostiranje ionosferskim valom (E-područje, najveća gustoća elektrona na oko 110 km), tiskana str. 167"}]
+ },
+ "bk-teh-2-26": {
+  "note": "Knjiga o utjecaju E-područja danju izravno navodi tri odvojene tvrdnje koje se točno poklapaju s ponuđenim odgovorom: 'Srednji valovi (MF) se danju potpuno apsorbiraju... Danju je moguće odbijanje kratkih valova (HF)... Radiovalovi u VHF i UHF području prolaze kroz E-područje s neznatnim slabljenjem.' Dakle danju E-sloj MF potpuno prigušuje, HF od njega može (ali ne mora uvijek) reflektirati, a VHF/UHF njime gotovo neometano prolaze — točno opisano u odgovoru (c).",
+  "cite": [{"src": "RK", "loc": "7.1.3. Rasprostiranje ionosferskim valom (Utjecaj E-područja na rasprostiranje radiovalova, danju), tiskana str. 167"}]
+ },
+ "bk-teh-2-28": {
+  "note": "Fazni pomak zbog razlike puta δ dan je izrazom φ=360°×δ/λ. Za frekvenciju 1,8 MHz valna duljina je λ=c/f=300/1,8≈160 m. Uz zadanu razliku puta δ=3 m: φ=360°×3/160≈6,7°. Knjiga navodi upravo ovaj račun kao svoj vlastiti primjer, s istim brojevima i istim rezultatom.",
+  "formula": ["λ = c / f = 300 / 1,8 ≈ 160 m", "φ = 360° × δ / λ = 360° × 3 / 160 ≈ 6,7°"],
+  "cite": [{"src": "RK", "loc": "7.1.4. Troposfersko rasprostiranje (izravni i od tla odbijeni val — primjer računa faznog pomaka: 3 m razlike puta na 1,8 MHz daje 6,7°), tiskana str. 172"}]
+ },
+ "bk-teh-2-30": {
+  "note": "Pri odbijanju od tla pod malim upadnim kutom i horizontalnom polarizacijom val mijenja fazu za oko 180°. Kad bi putovi izravnog i odbijenog vala bili jednake duljine, val bi na mjestu prijama stigao točno protufazno i poništio bi se. Uz dodatnu razliku puta od 3 m na 1,8 MHz, geometrijski fazni pomak iznosi tek dodatnih 6,7° (iz zad. 28) — što ukupnu faznu razliku (180°+6,7°≈186,7°) drži vrlo blizu potpune protufaznosti. Knjiga to izravno potvrđuje kao posljedicu upravo za ovaj slučaj: 'Posljedica toga je gubitak signala odaslanog na 1,8 MHz' — dakle valovi će se (gotovo) poništavati, a ne ostati bez učinka, postati istofazni ili dati pojačanje (što se prema knjizi događa tek na znatno višim frekvencijama poput 50 MHz).",
+  "cite": [{"src": "RK", "loc": "7.1.4. Troposfersko rasprostiranje (odbijanje s faznim zaokretom ~180°, gubitak signala na 1,8 MHz zbog gotovo potpune protufaznosti), tiskana str. 172"}]
+ },
+ "bk-teh-2-32": {
+  "note": "Knjiga u opisu prijamničkih stupnjeva izravno navodi: 'Sklop kojim iz moduliranog signala možemo dobiti NF signal naziva se detektor', a najjednostavniji takav sklop za AM signal 'sastoji se od diode koja odreže negativne (ili pozitivne) poluperiode moduliranog signala'. To je točno opisani sklop iz pitanja — sklop koji otkriva i izdvaja NF modulacijski signal iz AM moduliranog signala. Oscilator proizvodi signal (ne izdvaja ga), modulator radi obrnuti postupak (utiskuje NF u VF), a RF pojačalo samo pojačava VF signal bez demodulacije.",
+  "cite": [{"src": "RK", "loc": "4.3.6. Detektor (sklop kojim iz moduliranog signala dobivamo NF signal naziva se detektor), tiskana str. 133"}]
+ },
+ "bk-teh-2-34": {
+  "note": "Knjiga izravno navodi: 'Kada u titrajnom krugu umjesto klasičnoga kondenzatora upotrijebimo varaktor (varikap-diodu), dobijemo naponski nadziran oscilator, VCO... jer se promjena frekvencije izvodi promjenom iznosa zapornoga napona varaktora.' Dakle obilježje VCO-a nije da se nadzire (kontrolira) napon napajanja ili izlazni napon, nego da je upravo u titrajnom krugu oscilatora ugrađena varikap-dioda čiji kapacitet (a time i rezonantna frekvencija kruga) ovisi o naponu koji joj je priveden.",
+  "cite": [{"src": "RK", "loc": "3.6.1. Oscilator s promjenjivom frekvencijom (VCO — varaktor/varikap-dioda u titrajnom krugu umjesto kondenzatora), tiskana str. 125; primjer uporabe varikap-diode u 2.6.2.1., 4. Varikap-dioda — FM modulacija, tiskana str. 81"}]
+ },
+ "bk-teh-2-36": {
+  "note": "Knjiga izravno navodi: 'Kod odašiljača za veze telefonijom pomoću amplitudne modulacije, modulator treba priključiti na posljednji stupanj odašiljača, osim ako iza amplitudno moduliranog stupnja ne slijedi linearno pojačalo.' Posljednji stupanj odašiljača je upravo izlazni stupanj (PA) — dakle amplitudna modulacija se uobičajeno obavlja u izlaznom, a ne u oscilatorskom, MF- ili odvojnom (buffer) stupnju.",
+  "cite": [{"src": "RK", "loc": "5.1.1. Odašiljač s translacijom frekvencije ili bez nje (modulator na posljednjem/izlaznom stupnju kod AM telefonije), tiskana str. 136"}]
+ },
+ "bk-teh-2-38": {
+  "note": "Knjiga izravno navodi svrhu odvojnog (buffer) stupnja: 'Da se smanji utjecaj promjena na izlazu na rad oscilatora, a time i na stabilnost frekvencije koju oscilator daje, između oscilatora i stupnja pojačanja koji slijedi umeće se odvojni stupanj.' Dakle buffer stupanj prije svega smanjuje utjecaj promjenjivog tereta (sljedećih stupnjeva) na stabilnost oscilatora, a ne prvenstveno odvaja RF od AF dijela odašiljača (to rade drugi sklopovi) niti odvaja bočne pojase kod SSB-a (to rade filtri), a smanjenje utjecaja na pojačanje pojačala nije njegova svrha — buffer sam po sebi gotovo da nema pojačanje.",
+  "cite": [{"src": "RK", "loc": "5.3.3. Odvojni stupanj (svrha: smanjiti utjecaj tereta na stabilnost oscilatora), tiskana str. 138"}]
+ },
+ "bk-teh-2-40": {
+  "note": "SWR-metar mjeri omjer naponskoga stojnog vala (VSWR/SWR), koji nastaje kad postoji impedancijska neprilagođenost u lancu odašiljač-prijenosni vod-antena, pa se dio RF energije reflektira natrag prema izvoru umjesto da stigne do antene. Mjerenjem SWR-a nadzire se upravo stupanj te prilagodbe (i, prema knjizi, ugađanje antenskog prilagodnika kad on postoji) — SWR-metar ne mjeri izravno izlaznu snagu, nelinearno izobličenje izlaznog signala ni širinu frekvencijskog pojasa odašiljača.",
+  "cite": [{"src": "RK", "loc": "8.1.4. Mjerenje omjera naponskoga stojnog vala (neprilagođenost u lancu odašiljač-prijenosni vod-antena), tiskana str. 178; 9.2. UZROCI SMETNJA (SWR-metrom se nadzire stupanj prilagodbe odašiljača i antenskoga sustava), tiskana str. 192"}]
+ },
+ "bk-teh-2-42": {
+  "note": "Knjiga u uvodu u pogreške pri mjerenju izravno najavljuje da će 'ukratko opisati utjecaje frekvencije i valnog oblika mjerene veličine te utjecaj unutrašnjeg otpora instrumenta na točnost mjerenja' — dakle upravo frekvencija i valni oblik mjerene veličine, zajedno s osjetljivošću (unutrašnjim otporom) samoga mjernog instrumenta, prema knjizi najviše utječu na izbor mjernog instrumenta i metode mjerenja, a ne izdašnost izvora, temperatura/vlažnost okružja ili sam način očitavanja s ljestvice (to su tek dodatni, sporedni izvori pogreške).",
+  "cite": [{"src": "RK", "loc": "8.1.1.1. Pogreške pri mjerenju (uvod: utjecaj frekvencije, valnog oblika i unutrašnjeg otpora instrumenta na točnost mjerenja), tiskana str. 174-175"}]
+ },
+ "bk-teh-2-44": {
+  "note": "Knjiga izravno navodi: 'Za mjerenje RF napona do nekoliko stotina megaherca upotrebljava se elektronički voltmetar s diodnim detektorom i pojačalom.' Običan univerzalni AVO-metar ili voltmetar s više mjernih područja (bez elektroničkog pojačala i diodnog detektora) prema istoj stranici ispravno mjeri samo do oko 10 kHz i to sinusni valni oblik — kod RF napona takvi klasični instrumenti ne rade ispravno, pa 'svaki voltmetar' nije točan odgovor.",
+  "cite": [{"src": "RK", "loc": "8.1.1.1. Pogreške pri mjerenju — Utjecaj frekvencije (za RF napon do nekoliko stotina MHz elektronički voltmetar s diodnim detektorom i pojačalom), tiskana str. 175"}]
+ },
+ "bk-teh-2-46": {
+  "note": "Knjiga prikazuje modulacijski trapez u tri oblika: '1. pri 50 posto modulacije, 2. pri 100 posto modulacije, i 3. preko 100 posto modulacije' (sl. 8.1.7.) — kako postotak modulacije raste, trapez se sve više sužava prema šiljku, a treći, najšiljastiji oblik (koji dosiže ili prelazi središnju os) predstavlja prekomjernu modulaciju iznad 100 posto. Na slici uz pitanje to odgovara najšiljastijem od tri prikazana trokutasta oblika (opcija c), dok blaži oblici (a i b) odgovaraju modulaciji do 100 posto ili manjoj.",
+  "cite": [{"src": "RK", "loc": "8.1.5. Valni oblik ovojnice RF signala — modulacijski trapez pri 50%, 100% i preko 100% modulacije (sl. 8.1.7.), tiskana str. 179; slika uz pitanje 46 (tri oscilograma modulacijskog trapeza), tiskana str. 306"}]
+ },
+ "bk-teh-2-48": {
+  "note": "Rezonantna frekvencija LC titrajnog kruga dana je Thomsonovom formulom f=1/(2π√(LC)), odakle slijedi C=1/((2πf)²×L). Uz f=159 MHz=1,59×10⁸ Hz i L=1 μH=1×10⁻⁶ H: (2πf)²≈(1×10⁹)²=1×10¹⁸, pa je C=1/(1×10¹⁸×1×10⁻⁶)=1×10⁻¹² F=1 pF.",
+  "formula": ["f₀ = 1 / (2π√(LC))", "C = 1 / ((2πf)² × L)", "C = 1 / ((2π×1,59×10⁸)² × 1×10⁻⁶) ≈ 1 pF"],
+  "cite": [{"src": "RK", "loc": "3.2.1. Paralelni titrajni krug (rezonantna frekvencija f₀=1/(2π√LC)), tiskana str. 108"}]
+ },
+ "bk-teh-2-50": {
+  "note": "Korodirani (oksidirani) spoj na metalnom antenskom sustavu djeluje kao slučajni, nekvalitetan poluvodički (diodni) prijelaz između dva metala — takav nelinearni kontakt može ispravljati (detektirati) i miješati susjedne jake radiofrekvencijske signale koji na njega padnu, stvarajući neželjene proizvode miješanja koji se onda mogu čuti kao smetnja na susjednom prijamniku. Napomena: ovu konkretnu pojavu ('rusty bolt' učinak na korodiranom spoju) knjiga u svom opisnom tekstu izravno ne obrađuje — najbliže srodne teme, sporedne emisije i intermodulacijski proizvodi nastali frekvencijskom pretvorbom, opisane su općenito (str. 196-198), ali bez izričitog spominjanja korozije kao izvora nelinearnosti. Odgovor je stoga preuzet izravno iz HRS-ove tablice odgovora, a ne izveden iz teksta udžbenika — u skladu s pravilom da se ne izmišlja poglavlje kojega nema.",
+  "cite": [{"src": "RK", "loc": "tablica ODGOVORI NA PITANJA, redak 50, stupac Skupina II; srodna, ali općenitija tema (sporedne emisije/intermodulacijski proizvodi) u 9.2.1.3., tiskana str. 196-198"}]
+ },
+ "bk-teh-2-52": {
+  "note": "Knjiga izravno navodi zahtjev da se kod SSB-prijenosa potpuno potisne nositelj i neprenošeni bočni pojas, s najmanje 50 dB potiskivanja, te opisuje što se događa kad se to ne postigne: kad je potiskivanje neželjenoga bočnog pojasa dovoljno (50 dB i više) ostaje samo blaga distorzija unutar pojasa, ali 'kad je potiskivanje neželjenoga bočnog pojasa samo 25 dB i manje' nastaju intermodulacijske komponente koje znatno izobličuju željeni signal i uzrokuju 'prskanje' (splatter) široko izvan dodijeljenoga pojasa. To točno odgovara opisu u pitanju — izobličenje željenog signala i prskanje u širem pojasu — a ne povećanju izlazne snage, smanjenju djelotvornosti ili učinkovitijoj uporabi spektra.",
+  "cite": [{"src": "RK", "loc": "9.2.1.2. Neučinkovita uporaba frekvencijskog spektra (nedovoljno potiskivanje bočnog pojasa kod SSB-a — distorzija i splatter, sl. 9.2.3.), tiskana str. 194-195"}]
+ },
+ "bk-teh-2-54": {
+  "note": "Knjiga izravno opisuje uzrok i lijek za klik-smetnju: ako se otipkavanje izvodi 'trenutačnim pravokutnim prijelazima (oštri, nezaobljeni rubovi)... to se čuje kao 'klik' pri svakom pritiskivanju ili otpuštanju tipkala', a 'stanje se pogoršava ako je uz to i regulacija DC napajanja loša'. Uporaba klik-filtra (CR-sklop koji zaobljuje rubove impulsa otipkavanja pomoću samoindukcije zavojnice i vremenske konstante RC) uz dobru regulaciju istosmjernoga napajanja sprječava klik-smetnju — samo povećanje ili smanjenje brzine otipkavanja, bez filtra i bez dobre regulacije napajanja, ne rješava uzrok problema.",
+  "cite": [{"src": "RK", "loc": "9.2.1.2/9.2.1.3. (klik-smetnja kod oštrih rubova otipkavanja i loše regulacije DC napajanja; uporaba klik-filtra, sl. 9.2.4.), tiskana str. 195-196"}]
+ },
+ "bk-teh-2-56": {
+  "note": "Knjiga izravno navodi: 'Elektromagnetsko zračenje radijskih frekvencija je neionizirajuće zračenje, tj. ono koje ima energiju fotona nedovoljnu da ionizira atome neke tvari.' Iako pod određenim uvjetima ima dokazana štetna (toplinska i netoplinska) djelovanja, ono prema svojoj energiji fotona ne spada u ionizirajuće, toplinsko ni infracrveno zračenje kao zasebnu kategoriju, nego upravo u kategoriju neionizirajućeg zračenja.",
+  "cite": [{"src": "RK", "loc": "10.1.2. Ljudsko tijelo i elektromagnetska polja radijskih frekvencija (RF zračenje je neionizirajuće), tiskana str. 205"}]
+ },
+ "bk-teh-2-58": {
+  "note": "Slika prikazuje shemu odašiljača s naznačenim kritičnim točkama N1 (tipkalo), N2 (mikrofon) i N3 (AC napajanje) — knjiga uz istovjetnu shemu (sl. 9.2.1.) daje eksplicitne napomene: 'N1. Uz tipkalo obvezno uporabiti klik filtar. N2. Obratiti pozornost na ograničenu širinu audiopojasa (filtar)... N3. Putem mrežnog napajanja mogu prodrijeti RF smetnje. Postavite mrežni filtar.' Dakle u N1 dolazi klik-filtar, u N2 filtar ograničenja audiopojasa (NP/niskopropusni), a u N3 mrežni filtar — točno kako navodi odgovor (c), a ne isključivo niskopropusni ili pojasnozaporni filtri na sva tri mjesta, niti izravni žični spojevi bezikakve filtracije.",
+  "cite": [{"src": "RK", "loc": "9.2. UZROCI SMETNJA — shema amaterske postaje s kritičnim točkama N1-N6 (sl. 9.2.1.) i napomene uz nju (N1 klik filtar, N2 audiopojas/filtar, N3 mrežni filtar), tiskana str. 191; slika uz pitanje 58 (N1 tipkalo, N2 mikrofon, N3 AC napajanje → ODAŠILJAČ), tiskana str. 308"}]
+ },
+ "bk-teh-2-60": {
+  "note": "Knjiga izravno navodi: 'U VHF i UHF području amaterski odašiljači su obično namijenjeni za jedan pojas, a samo rijetki rade u više od jednoga frekvencijskog pojasa. Zato se najčešće rabi pojasnopropusni filtar posebno namijenjen za svaki pojas.' Takav filtar propušta samo željeni pojas i sprječava neželjena zračenja s obiju strana toga pojasa. Niskopropusni filtar (koji propušta SVE ispod granične frekvencije) uobičajen je u HF području gdje odašiljači rade u više pojaseva odjednom, a pojasnozaporni i visokopropusni filtri rješavaju posve druge probleme (potiskivanje jedne frekvencije, odnosno propuštanje svega iznad granice).",
+  "cite": [{"src": "RK", "loc": "9.2. UZROCI SMETNJA (VHF/UHF odašiljači namijenjeni jednom pojasu → pojasnopropusni filtar), tiskana str. 193"}]
+ }
+}
