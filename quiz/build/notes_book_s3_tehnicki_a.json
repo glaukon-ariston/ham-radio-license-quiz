@@ -1,0 +1,185 @@
+{
+ "_note": "Skupina III, tehnički dio, paket _a (30 od 720 knjižnih pitanja, neparni brojevi 1-59). Napomene provjerene izravno prema tiskanim stranicama RK (booktool.py + pymupdf render stranica 309-320 kao slike, ne samo OCR tekst, jer su sve knjižne sličice u ovom PDF-u ~950 jednopikselnih inline slika koje get_images()/get_drawings() ne vide) 9-10 Aug 2026. Sve opcije za svih 30 pitanja uspoređene riječ po riječ s izravnim renderom stranice (ne samo s book_parsed2.json) — nema zamijenjenih/spojenih opcija kakve su nađene u ranijim paketima (bk-teh-2-03/13/29). Bez vanjskih poveznica — link_check.py ne obrađuje ovu datoteku (samo notes_zzz_expanded_*), pa poveznice namjerno izostavljene da se izbjegne neprovjerena tvrdnja.",
+ "bk-teh-3-01": {
+  "note": "Slika (ista koja prati pitanje) prikazuje C1, L1, C2 i C3 spojene MEĐUSOBNO PARALELNO između dviju stezaljki — L1 je induktivitet postavljen usporedno s kondenzatorima, ne u seriji s njima. Kapacitet paralelno spojenih kondenzatora zbraja se, a induktivitet L1 na taj zbroj uopće ne utječe (naveden je kao zamka, jer pitanje traži samo ukupni kapacitet): C=C1+C2+C3=2,0 nF+1,5 nF+0,1 nF=3,6 nF (100 pF=0,1 nF).",
+  "formula": ["C = C1 + C2 + C3", "2,0 nF + 1,5 nF + 0,1 nF = 3,6 nF"],
+  "cite": [
+   {"src": "RK", "loc": "Ispitna pitanja, SKUPINA III, pitanje 1 (slika C1,L1,C2,C3 svi paralelno), tiskana str. 309"},
+   {"src": "RK", "loc": "3.1.2.3. Paralelni spoj kondenzatora (C=C1+C2+C3), tiskana str. 102-103"}
+  ]
+ },
+ "bk-teh-3-03": {
+  "note": "Slika prikazuje L1, L2, L3 i R spojene međusobno paralelno — otpor R je zamka jer pitanje traži samo ukupni induktivitet, na koji R ne utječe. Recipročna vrijednost ukupnog induktiviteta paralelno spojenih zavojnica jednaka je zbroju recipročnih vrijednosti: 1/L=1/L1+1/L2+1/L3=1/1+1/2+1/2=2, dakle L=0,5 mH.",
+  "formula": ["1/L = 1/L1 + 1/L2 + 1/L3", "1/L = 1/1 + 1/2 + 1/2 = 2  ->  L = 0,5 mH"],
+  "cite": [
+   {"src": "RK", "loc": "Ispitna pitanja, SKUPINA III, pitanje 3 (slika L1,L2,R,L3 svi paralelno), tiskana str. 309"},
+   {"src": "RK", "loc": "3.1.3.3. Paralelni spoj zavojnica (1/L=1/L1+1/L2+1/L3), tiskana str. 105"}
+  ]
+ },
+ "bk-teh-3-05": {
+  "note": "Slika prikazuje jedan jedini brijeg (impedancija Z raste do maksimuma na nekoj frekvenciji f, pa opet pada) — to je upravo rezonancijska krivulja PARALELNOG titrajnog LC kruga: knjiga izravno navodi da je za rezonancijsku frekvenciju f0 impedancija realnoga paralelnog titrajnog kruga najveća, a teorijski, bez djelatnog otpora, teži u beskonačnost. Serijski LC spoj bi, obrnuto, imao minimum impedancije na rezonanciji (urez, ne brijeg), a sama zavojnica ili paralelni RL spoj ne bi dali ovakav simetrični rezonancijski vrh.",
+  "cite": [
+   {"src": "RK", "loc": "Ispitna pitanja, SKUPINA III, pitanje 5 (krivulja Z(f) s jednim vrhom), tiskana str. 309"},
+   {"src": "RK", "loc": "3.2.1. Paralelni titrajni krug (impedancija najveća za f=f0), tiskana str. 106-108, osobito Sl. 3.18. Rezonancijske krivulje, str. 108"}
+  ]
+ },
+ "bk-teh-3-07": {
+  "note": "Vršna (maksimalna) vrijednost sinusnog napona dobiva se iz efektivne pomoću Umaks=√2×Uef, a knjiga tu vezu u vlastitom riješenom primjeru zaokružuje na Umaks=1,41×Uef (primjer: 230 V efektivno daje maksimalni napon računom 1,41×230 V). Istim zaokruženim faktorom za 220 V efektivno: 1,41×220 V=310,2 V.",
+  "formula": ["Umaks = √2 × Uef ≈ 1,41 × Uef", "1,41 × 220 V = 310,2 V"],
+  "cite": [
+   {"src": "RK", "loc": "Ispitna pitanja, SKUPINA III, pitanje 7, tiskana str. 310"},
+   {"src": "RK", "loc": "1.6.1. Grafički prikaz i riješeni primjer (Umaks=√2×Uef=1,41×Uef; 230 V efektivno), tiskana str. 42-43"}
+  ]
+ },
+ "bk-teh-3-09": {
+  "note": "Shema prikazuje transformator, JEDNU diodu u seriju s izlazom i otpor tereta s izlaznom strujom I — dioda propušta struju samo tijekom jedne poluperiode izmjeničnog napona, dakle poluvalno ispravljanje (usporedi s knjižnom shemom istog oblika: transformator + jedna dioda + teret R, koja ispravlja samo pozitivnu poluperiodu). Punovalno ispravljanje traži dvije diode (ili mosni spoj od četiri), stabilizacija napona traži Zenerovu diodu, a nijedan element sheme ne odgovara pojasnom LC filtru.",
+  "cite": [
+   {"src": "RK", "loc": "Ispitna pitanja, SKUPINA III, pitanje 9 (transformator + 1 dioda + teret I), tiskana str. 310"},
+   {"src": "RK", "loc": "3.3.1.1. Sklop za poluvalno ispravljanje (Sl. 3.3.1.1, ista topologija), tiskana str. 114"}
+  ]
+ },
+ "bk-teh-3-11": {
+  "note": "Knjiga izravno navodi da su komponenta električnog polja E i komponenta magnetskog polja H elektromagnetskog vala međusobno okomite i tvore ravninu na koju je okomit pravac širenja vala P — dakle sve tri veličine, E, H i pravac širenja, međusobno su okomite (kut 90°, ne 0° ni 180°, a pravac širenja se ne poklapa ni s E ni s H, nego je na obje okomit).",
+  "cite": [{"src": "RK", "loc": "1.5.3. Polarizacija (E i H međusobno okomiti, okomiti na pravac širenja P), tiskana str. 40"}]
+ },
+ "bk-teh-3-13": {
+  "note": "Valna duljina na 100 MHz je λ=c/f=3×10^8/100×10^6=3 m; pitanje navodi da je vod odrezan na jednu električnu valnu duljinu (OCR je u tiskanom tekstu izgubio simbol λ između riječi 'duljinu' i 'i' — ovo tumačenje jedino daje broj koji se poklapa s HRS-ovim odgovorom). Fizička duljina voda uvijek je kraća od električne za faktor brzine k_v (jer se val u dielektriku voda širi sporije nego u vakuumu); knjiga izravno navodi k_v=0,66 baš za koaksijalni vod s polietilenskom izolacijom. Fizička duljina = 3 m×0,66=1,98 m.",
+  "formula": ["λ = c/f = 3×10⁸ / 100×10⁶ = 3 m", "fizička duljina = λ × k_v = 3 m × 0,66 = 1,98 m"],
+  "cite": [
+   {"src": "RK", "loc": "Ispitna pitanja, SKUPINA III, pitanje 13, tiskana str. 311"},
+   {"src": "RK", "loc": "6.2. PRIJENOSNI VODOVI (faktor brzine k_v=0,66 za polietilenski koaksijalni vod), tiskana str. 157"}
+  ]
+ },
+ "bk-teh-3-15": {
+  "note": "Kod FM modulacije amplituda modulacijskog (NF) signala određuje veličinu DEVIJACIJE — odstupanja trenutačne frekvencije nositelja od njegove središnje (mirne) frekvencije, ne stalni 'pomak' na novu frekvenciju niti promjenu amplitude/ovojnice nositelja (amplituda FM signala je po definiciji stalna). Knjiga izravno definira devijaciju kao odstupanje trenutačne frekvencije od frekvencije nositelja uz prisutnost modulacije, a jačina (amplituda) modulacijskog signala je upravo ono što tu devijaciju određuje.",
+  "cite": [
+   {"src": "RK", "loc": "Ispitna pitanja, SKUPINA III, pitanje 15, tiskana str. 311"},
+   {"src": "RK", "loc": "5.4.9. Frekvencijska devijacija, tiskana str. 143"}
+  ]
+ },
+ "bk-teh-3-17": {
+  "note": "Razina (dobitak) izražena u decibelima definirana je kao G=10·log(P2/P1). Za G=6 dB slijedi P2/P1=10^0,6≈3,98≈4 — dakle izlazna snaga je približno 4 puta veća od ulazne, odnosno ulazna je približno 4 puta manja od izlazne.",
+  "formula": ["G = 10·log(P2/P1) dB", "6 = 10·log(P2/P1)  ->  P2/P1 = 10^0,6 ≈ 3,98 ≈ 4"],
+  "cite": [
+   {"src": "RK", "loc": "Ispitna pitanja, SKUPINA III, pitanje 17, tiskana str. 312"},
+   {"src": "RK", "loc": "1.9.4. O decibelu (dB) — G=10log(P2/P1), tiskana str. 53"}
+  ]
+ },
+ "bk-teh-3-19": {
+  "note": "Slika prikazuje koaksijalni vod duljine λ/4 čiji je udaljeni kraj B otvoren (nije spojen ni na kakav teret) — pitanje traži impedanciju na bliskom kraju A. Za četvrtvalni ogranak vrijedi Zul=Z0²/ZL, gdje je Z0 karakteristična impedancija voda; kad je udaljeni kraj otvoren, ZL teži beskonačnosti, pa Zul=Z0²/ZL teži NIŠTICI — knjiga to izravno navodi kao poseban slučaj (otvoreni λ/4 ogranak djeluje kao serijski titrajni krug, dakle vrlo mala impedancija na ulazu).",
+  "formula": ["Zul = Z0² / ZL", "ZL → ∞ (otvoren kraj B)  ->  Zul → 0"],
+  "cite": [
+   {"src": "RK", "loc": "Ispitna pitanja, SKUPINA III, pitanje 19 (koaksijalni vod A-B, λ/4, B otvoren), tiskana str. 312"},
+   {"src": "RK", "loc": "6.2.3. Ogranak prijenosnog voda duljine λ/4 kao serijski ili paralelni titrajni krug; 6.2.4. Elementi za prilagodbu (Zul=Z0²/ZL, poseban slučaj ZL→∞ daje Zul→0), tiskana str. 158-159"}
+  ]
+ },
+ "bk-teh-3-21": {
+  "note": "Ova slika (krivulje A, B, C između 460 i 470 kHz) izravno je preuzeta iz knjižnog poglavlja o induktivno spregnutim titrajnim krugovima, gdje je knjiga sama već imenovala krivulje: krivulja A je kritična sprega, krivulja B je SLABA sprega (dobivena razmicanjem zavojnica ispod kritične vezanosti, odziv pada ispod 50%), a krivulja C je TIJESNA sprega (jača od kritične, dvogrba krivulja s udolinom na rezonantnoj frekvenciji). Dakle B=slaba, C=tijesna.",
+  "cite": [
+   {"src": "RK", "loc": "Ispitna pitanja, SKUPINA III, pitanje 21 (iste krivulje A/B/C, 460-470 kHz), tiskana str. 313"},
+   {"src": "RK", "loc": "3.2.2. Indukcijski spregnuti titrajni krugovi (krivulja A=kritična sprega, B=slaba sprega, C=tijesna sprega), tiskana str. 110"}
+  ]
+ },
+ "bk-teh-3-23": {
+  "note": "Knjiga izravno definira osjetljivost prijamnika kao mogućnost da pojača i najslabije signale (uz povoljan omjer signala i šuma) — to je upravo opcija b. Dobar prijam susjednog kanala je stvar SELEKTIVNOSTI, ne osjetljivosti, a osjetljivost na mehaničke vibracije ili temperaturne promjene opisuje (ne)stabilnost prijamnika, suprotno poželjno svojstvo.",
+  "cite": [{"src": "RK", "loc": "4.4.3. Osjetljivost (mogućnost pojačanja i najslabijih signala), tiskana str. 135"}]
+ },
+ "bk-teh-3-25": {
+  "note": "Knjiga izravno opisuje tjunerski (tuner) tip dvostrukog superheterodinskog prijamnika: prvi oscilator ima promjenjivu frekvenciju (kao kod jednostrukog superheterodina), a frekvencija DRUGOG oscilatora je STALNA, 'jer je stalna i prva međufrekvencija' — dakle upravo kod tjunerskog tipa je prva međufrekvencija stalna (za razliku od konvertorskog tipa, gdje je stalan prvi oscilator pa je promjenjiva prva međufrekvencija).",
+  "cite": [
+   {"src": "RK", "loc": "Ispitna pitanja, SKUPINA III, pitanje 25, tiskana str. 314"},
+   {"src": "RK", "loc": "4.1.1. Jednostruki i dvostruki superheterodinski prijamnik (tjunerski tip: 1. međufrekvencija stalna), tiskana str. 128"}
+  ]
+ },
+ "bk-teh-3-27": {
+  "note": "Knjiga izravno navodi: srednji valovi (MF) prolaze D-sloj uz vrlo jaku apsorpciju, kratki valovi (HF) prolaze uz manje slabljenje što je frekvencija viša, a VHF i UHF valovi prolaze uz tek neznatno slabljenje — 'općenito, D-sloj djeluje uglavnom kao apsorber energije radiovalova'. Dakle SVI navedeni valovi (MF, HF, VHF, UHF) prolaze kroz D-sloj, samo oslabljeni u različitoj mjeri, a ne odbijaju se od njega niti prolaze bez ikakvog gubitka.",
+  "cite": [{"src": "RK", "loc": "7.1.3. Rasprostiranje ionosferskim valom — Utjecaj D-sloja na rasprostiranje radiovalova (D-sloj je apsorber energije), tiskana str. 167"}]
+ },
+ "bk-teh-3-29": {
+  "note": "Knjiga doslovno navodi: 'Valovi frekvencija viših od MUF-a prolaze F2-sloj i odlaze dalje u svemir' — gotovo identična formulacija odgovoru c. MUF (najviša uporabljiva frekvencija) je upravo granica iznad koje se val više ne odbija progresivnim lomom natrag prema Zemlji, nego prolazi kroz ionosferu.",
+  "cite": [{"src": "RK", "loc": "7.1.3.1. Znakovite frekvencije ('Valovi frekvencija viših od MUF-a prolaze F2-sloj i odlaze dalje u svemir'), tiskana str. 168"}]
+ },
+ "bk-teh-3-31": {
+  "note": "Knjiga izravno opisuje napravu za umjeravanje s kristalom: ispituje se stabilnost nekog oscilatora koji nije upravljan kristalom tako da ga se usporedi (u blizini prijamnika s isključenim BFO) s vrlo stabilnim kristalom upravljanim oscilatorom — u prijamniku se čuje ton čija je frekvencija jednaka razlici frekvencija ta dva oscilatora, čime se ispituje TOČNOST FREKVENCIJE ispitivanog oscilatora, ne parametri odašiljača/prijamnika u cjelini niti selektivnost.",
+  "cite": [{"src": "RK", "loc": "4.3.8. Naprava za umjeravanje s kristalom, tiskana str. 133"}]
+ },
+ "bk-teh-3-33": {
+  "note": "Knjiga izravno navodi da se bolja osjetljivost prijamnika postiže VEĆIM BROJEM STUPNJEVA POJAČANJA (uz napomenu da pojačanje iznad određene granice gubi smisao jer bi se pojačavao i vlastiti šum sklopova) — dakle osjetljivost prvenstveno ovisi o broju pojačavačkih stupnjeva, ne o broju oscilatora, kvaliteti kristala kvarca (to utječe na stabilnost frekvencije) ni o izlaznom audiopojačalu (koje dolazi iza detektora, ne utječe na prijam slabog VF signala).",
+  "cite": [{"src": "RK", "loc": "4.4.3. Osjetljivost (bolja osjetljivost = veći broj stupnjeva pojačanja), tiskana str. 135"}]
+ },
+ "bk-teh-3-35": {
+  "note": "Knjiga izravno navodi, u kontekstu indeksa/dubine modulacije: 'Ograničavalom možemo ograničiti dubinu modulacije' — ograničavalo dakle ograničava AMPLITUDU modulacijskog (NF) signala prije nego uzrokuje prekomjernu (preko 100%) modulaciju, a ne snagu ni vrijeme rada odašiljača niti izravno povećava korisno djelovanje.",
+  "cite": [{"src": "RK", "loc": "5.4.10. Indeks modulacije ('Ograničavalom možemo ograničiti dubinu modulacije'), tiskana str. 144"}]
+ },
+ "bk-teh-3-37": {
+  "note": "Dobra impedancijska prilagodba u lancu odašiljač-vod-antena zahtijeva da su SVE TRI impedancije jednake: knjiga navodi da izlazna impedancija odašiljača mora biti jednaka ulaznoj (karakterističnoj) impedanciji voda kojim se prenosi VF-snaga, a odvojeno i da karakteristična impedancija voda treba biti jednaka impedanciji antene u točki napajanja za najveći prijenos energije. Spajanje ta dva uvjeta daje upravo odgovor b — ne zbroj ni razlika impedancija (c, d), niti sama jednakost voda i antene bez odašiljača (a, nepotpuno).",
+  "cite": [
+   {"src": "RK", "loc": "5.4.6. Izlazna impedancija (izlazna impedancija odašiljača = ulazna impedancija kabela), tiskana str. 143"},
+   {"src": "RK", "loc": "6.2.1. Impedancijska prilagodba antena i prijenosni vod (karakteristična impedancija voda = impedancija antene), tiskana str. 157"}
+  ]
+ },
+ "bk-teh-3-39": {
+  "note": "Knjiga izravno navodi da je za rad SSB-odašiljača potrebno potisnuti val nositelj i jedan bočni pojas, a kako su frekvencije nositelja i bočnih pojasa vrlo blizu, za to potiskivanje treba kristalni filtar s velikom strminom bokova rezonantne krivulje — dakle kristalni filtar ne razdvaja bočne pojase niti filtrira VF pri AM (to rade drugi sklopovi), nego upravo potiskuje nositelj i jedan bočni pojas pri SSB prijenosu.",
+  "cite": [{"src": "RK", "loc": "5.3.11. Kristalni filtar (potiskivanje vala nositelja i jednog bočnog pojasa za SSB), tiskana str. 141"}]
+ },
+ "bk-teh-3-41": {
+  "note": "Knjiga daje izravan brojčani primjer: uz frekvencijsku devijaciju od 75 kHz i modulacijsku frekvenciju od 15 kHz, indeks modulacije (Δf/fm) iznosi 5 — to su upravo standardne vrijednosti radiodifuznog FM odašiljača (75 kHz devijacija, 15 kHz najviša audiofrekvencija), pa je indeks modulacije približno 5.",
+  "formula": ["m = Δf / fm = 75 kHz / 15 kHz = 5"],
+  "cite": [{"src": "RK", "loc": "5.4.10. Indeks modulacije (primjer: devijacija 75 kHz, fm 15 kHz, m=5), tiskana str. 144"}]
+ },
+ "bk-teh-3-43": {
+  "note": "Na osciloskopskoj slici iz zadatka 42. (Y-os 3 V/podjeljak, X-os 1 ms/podjeljak) amplituda A signala izmjerena izravno s mreže iznosi 3 podjeljka×3 V=9 V (vršna vrijednost), a period T iznosi 8 podjeljaka×1 ms=8 ms. Snaga koju sinusni signal vršne vrijednosti 9 V razvija na otporu 50 Ω računa se preko efektivne vrijednosti: Uef=9 V/√2≈6,36 V, P=Uef²/R=40,5/50≈0,81 W, dakle približno 0,8 W.",
+  "formula": ["Uef = Uvrh/√2 = 9 V / √2 ≈ 6,36 V", "P = Uef² / R = 40,5 / 50 ≈ 0,81 W ≈ 0,8 W"],
+  "cite": [
+   {"src": "RK", "loc": "Ispitna pitanja, SKUPINA III, pitanje 42-43 (osciloskopska slika, 3V/podjeljak, 1ms/podjeljak, A=3 podjeljka, T=8 podjeljaka), tiskana str. 317"},
+   {"src": "RK", "loc": "1.9.1. Snaga na teretu djelatnog otpora R (P=UI uz efektivne vrijednosti); 1.6.1. efektivna vrijednost Uef=Uvrh/√2, tiskana str. 42, 51"}
+  ]
+ },
+ "bk-teh-3-45": {
+  "note": "Blok-shema (Konvertor -> Logički sklop -> Brojilo -> Prikaz, uz Sat spojen na Logički sklop) doslovno odgovara knjižnoj pojednostavljenoj blok-shemi digitalnog mjerila frekvencije s pet osnovnih sklopova: konvertor (VF sinusni val u pravokutne impulse), logički sklop ('vrata', otvara/zatvara prolaz impulsa), sat (kristalom određeni precizni vremenski interval), brojilo (broji propuštene impulse) i digitalni prikaz rezultata.",
+  "cite": [
+   {"src": "RK", "loc": "Ispitna pitanja, SKUPINA III, pitanje 45 (blok-shema Konvertor/Logički sklop/Sat/Brojilo/Prikaz), tiskana str. 317"},
+   {"src": "RK", "loc": "8.2.4. Brojilo frekvencije (ista petodijelna blok-shema, Sl. 8.2.3.), tiskana str. 183"}
+  ]
+ },
+ "bk-teh-3-47": {
+  "note": "Slika prikazuje LC sklop sa zavojnicom L uzemljenom u sredini i kondenzatorima C sa svake strane, uz simbole za vod prema mreži i prema uređaju — to je upravo knjižni mrežni RF filtar: zavojnica s feritnom jezgrom visoke permeabilnosti daje veliku impedanciju za neželjene RF struje, a kondenzatori spojeni na masu ih odvode, dok za mrežnu frekvenciju 50 Hz sklop propušta struju gotovo nesmetano.",
+  "cite": [
+   {"src": "RK", "loc": "Ispitna pitanja, SKUPINA III, pitanje 47 (LC sklop, L uzemljena, C sa svake strane), tiskana str. 318"},
+   {"src": "RK", "loc": "RF smetnje iz mreže — Sl. 9.2.8. Mrežni filtar (ista topologija L + C na masu), tiskana str. 200"}
+  ]
+ },
+ "bk-teh-3-49": {
+  "note": "Knjiga izravno navodi, među mjerama za sprečavanje harmoničkih zračenja, 'oklapanjem svakog RF-sklopa zasebno' — RF stupnjevi u kojima nastaju harmonici (npr. izlazno pojačalo, množilo frekvencije) moraju biti propisno (metalno) oklopljeni, ne neoklopljeni niti samo zaštićeni epoksidnom smolom ili plastičnim kućištem (što ne sprječava RF zračenje kroz kućište).",
+  "cite": [{"src": "RK", "loc": "9.2.1.3. Druge sporedne emisije (oklapanje svakog RF-sklopa zasebno), tiskana str. 196"}]
+ },
+ "bk-teh-3-51": {
+  "note": "Slika (transformator s promjenjivim kondenzatorom prema izlazu, natpisi 'Prema odašiljaču' i 'Antena s napajanjem na kraju') doslovno je preuzeta iz knjižne sheme AP-a: 'Antenski prilagodnik — AP' je zapravo ugođeni titrajni krug koji, uz dodatno potiskivanje harmonika, omogućava prilagodbu impedancije prema anteni s napajanjem na kraju kad izlazna impedancija odašiljača/niskopropusnog filtra nije 50 Ω.",
+  "cite": [
+   {"src": "RK", "loc": "Ispitna pitanja, SKUPINA III, pitanje 51 (shema s natpisima 'Prema odašiljaču', 'Antena s napajanjem na kraju'), tiskana str. 318"},
+   {"src": "RK", "loc": "9.2. Uzroci smetnja — '4. Antenski prilagodnik — AP', Sl. 9.2.2. (identični natpisi), tiskana str. 193"}
+  ]
+ },
+ "bk-teh-3-53": {
+  "note": "Slika prikazuje LC filtar i krivulju amplitudnog odziva koja naglo raste iznad 470 MHz — knjiga izravno opisuje upravo taj visokopropusni UHF TV filtar (Sl. 9.2.10., ista os '470 f/MHz'): propušta sve iznad 470 MHz (21. TV kanal), a ispod te granice oštro reže. Rabi se za sprječavanje smetnji amaterskih postaja na TV prijamu u UHF području, ne za pojasnopropusni, pojasnozaporni ili VHF/FM filtar.",
+  "cite": [
+   {"src": "RK", "loc": "Ispitna pitanja, SKUPINA III, pitanje 53 (LC filtar + krivulja s oznakom 470 f/MHz), tiskana str. 319"},
+   {"src": "RK", "loc": "Visokopropusni TV filtar — Sl. 9.2.10. (propušta iznad 470 MHz, 21. kanal), tiskana str. 201"}
+  ]
+ },
+ "bk-teh-3-55": {
+  "note": "Smetnja koja postoji čak i kad je susjedova TV antena odspojena, a vremenski se poklapa točno s našim odašiljanjem, ne dolazi putem antene (tada bi nestala odspajanjem antene), nego VOĐENJEM kroz mrežni vod napajanja — knjiga izravno navodi da RF smetnje iz mreže sprječavamo ugradnjom odgovarajućeg (mrežnog) filtra. Zamjena TV antenskog kabela ili sobna antena ne bi pomogle jer put smetnje uopće nije preko antenskog voda.",
+  "cite": [
+   {"src": "RK", "loc": "Ispitna pitanja, SKUPINA III, pitanje 55, tiskana str. 319"},
+   {"src": "RK", "loc": "RF smetnje iz mreže (smetnje se sprječavaju ugradnjom mrežnog filtra), tiskana str. 200"}
+  ]
+ },
+ "bk-teh-3-57": {
+  "note": "Knjiga, pod 'Posebne mjere opreza' za rad na uređaju koji je pod naponom, navodi čitav niz uvjeta (suhe ruke i tijelo, pripijena odjeća, obuća s gumenim potplatom, izoliran alat, rad samo jednom rukom bez rukavica, itd.) — nijedan pojedinačni uvjet sam za sebe nije dovoljan, nego treba 'dobro poznavati i primijeniti SVE mjere zaštite', točno kako navodi odgovor d. Sama znojnost/neodjevenost, pouzdanje u osigurače ili ograničenje na 230 V nisu dovoljni niti spomenuti kao dostatni uvjeti.",
+  "cite": [{"src": "RK", "loc": "10.1.1. Visoki napon — Posebne mjere opreza, tiskana str. 204"}]
+ },
+ "bk-teh-3-59": {
+  "note": "Knjiga navodi, doslovno, upravo ovih pet preporuka za rad s uređajima visoke RF snage (posebice mikrovalnim vezama): ne gledati u valovod koji je s druge strane RF napajan; ne raditi s uređajima visoke RF snage kad je kućište otvoreno; ne ispitivati uređaj s neoklopljenom umjetnom antenom; pri ugađanju antene upotrijebiti najmanju moguću snagu; ručni, prenosivi uređaj držati što dalje od lica — riječ za riječ odgovara opciji a. Ostale opcije preokreću po jednu od tih pet preporuka u njezinu suprotnost (npr. 'gledaj u valovod', 'najveću moguću snagu', 'drži što bliže licu').",
+  "cite": [{"src": "RK", "loc": "10.1. Ljudsko tijelo — pet preporuka za rad s mikrovalnim vezama (neposredno prije 10.2. Munja), tiskana str. 208"}]
+ }
+}
