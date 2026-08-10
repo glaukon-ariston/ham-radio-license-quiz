@@ -198,8 +198,11 @@ td.num{font-family:var(--mono);font-variant-numeric:tabular-nums;text-align:righ
 .lk{margin-top:.6rem;font-size:.78rem;color:var(--muted)}
 .lk a{color:var(--accent);text-decoration:none;border-bottom:1px solid transparent}
 .lk a:hover,.lk a:focus-visible{border-bottom-color:var(--accent)}
-#qcrumb a{color:var(--accent);text-decoration:none;border-bottom:1px solid transparent}
-#qcrumb a:hover,#qcrumb a:focus-visible{border-bottom-color:var(--accent)}
+/* .crumb: shared style for breadcrumb-style links — the in-quiz section/cjelina/home links
+   in #qcrumb, and the top-of-screen home link on screens with no other breadcrumb content
+   (picker, result). One rule so a home link looks identical wherever it appears. */
+.crumb a{color:var(--accent);text-decoration:none;border-bottom:1px solid transparent}
+.crumb a:hover,.crumb a:focus-visible{border-bottom-color:var(--accent)}
 .cites{margin-top:.6rem;font-family:var(--mono);font-size:.72rem;color:var(--muted);
   line-height:1.5;border-top:1px dashed var(--line);padding-top:.5rem}
 .cites b{color:var(--ink);font-weight:700}
@@ -317,6 +320,7 @@ try {
   </section>
 
   <section id="picker" class="hidden">
+    <div class="eyebrow crumb"><a href="#" data-go="home">← Početna</a></div>
     <div class="sect"><h2>Vježba — odaberi područje</h2><div class="rule"></div></div>
     <div id="pickList" class="modes"></div>
     <button class="btn" data-go="home">← Natrag</button>
@@ -324,7 +328,7 @@ try {
 
   <section id="quiz" class="hidden">
     <div class="qhead">
-      <span class="eyebrow" id="qcrumb"></span>
+      <span class="eyebrow crumb" id="qcrumb"></span>
       <div class="spacer"></div>
       <span class="mono" id="qcount"></span>
     </div>
@@ -346,6 +350,7 @@ try {
   </section>
 
   <section id="result" class="hidden">
+    <div class="eyebrow crumb"><a href="#" data-go="home">← Početna</a></div>
     <div class="sect"><h2 id="resTitle">Rezultat</h2><div class="rule"></div></div>
     <div id="resBody"></div>
     <div class="nav">
@@ -474,6 +479,14 @@ function render(){
   const it = S.items[S.i], q = it.q;
   const inExam = S.mode === "exam";
   $("#qcrumb").innerHTML = "";
+  // Home link: first thing in the breadcrumb, on every quiz screen (practice, exam, wrong-
+  // review, and single deep-linked questions alike) — unlike the section/cjelina links below,
+  // it stays live even during an exam, going through the same leaveQuiz() confirm gate as
+  // #quit so it can't be used to silently discard a running attempt.
+  const homeEl = document.createElement("a");
+  homeEl.href = "#"; homeEl.textContent = "← Početna"; homeEl.title = "Povratak na početnu";
+  homeEl.onclick = e => { e.preventDefault(); leaveQuiz(); };
+  $("#qcrumb").append(homeEl, " · ");
   // The section and cjelina names are practice entry points: clicking either starts a new
   // practice session filtered to it. During an exam they stay inert text — following either
   // would blow away the running attempt, same as the id permalink below.
@@ -771,6 +784,16 @@ function askConfirm(msg, onYes){
   $("#confirmMask").onclick = e => { if(e.target === $("#confirmMask")) done(false); };
 }
 
+// Shared by #quit and the breadcrumb home link on the quiz screen, so both exit paths give the
+// identical confirm-before-losing-progress prompt (see P1-0038 — a silent window.confirm()
+// no-op here made both start-exam and quit look dead in a sandboxed iframe). A "single"-mode
+// session (deep-linked question) has nothing to lose, so it skips the prompt, same as #quit
+// already being hidden for that mode.
+function leaveQuiz(){
+  if(S && S.mode !== "single") askConfirm("Prekinuti i odbaciti ovaj pokušaj?", () => show("home"));
+  else show("home");
+}
+
 /* ---------- routing ---------- */
 function show(id){
   ["home","picker","quiz","result"].forEach(s => $("#"+s).classList.toggle("hidden", s !== id));
@@ -851,7 +874,7 @@ document.addEventListener("click", e => {
 });
 $("#next").onclick = () => step(1);
 $("#prev").onclick = () => step(-1);
-$("#quit").onclick = () => askConfirm("Prekinuti i odbaciti ovaj pokušaj?", () => show("home"));
+$("#quit").onclick = leaveQuiz;
 $("#reset").onclick = () => askConfirm("Obrisati sav napredak?", () => { store={seen:{},wrong:{},history:[]}; save(); home(); });
 $("#reviewWrong").onclick = () => start("wrong");
 
