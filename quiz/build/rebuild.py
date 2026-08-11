@@ -107,8 +107,9 @@ for e in extra:
         e["figure"] = {"data": f"data:image/png;base64,{data}", "w": f["w"], "h": f["h"]}
         e["figure_is_options"] = f["is_options"]
 
-# attach explanations
-byid = {q["id"]: q for q in hrs}
+# attach explanations. Must cover both banks: hrs alone would silently drop every
+# notes_book_*.json entry (the 720 book-only bk-* questions in extra) into "unknown ids".
+byid = {q["id"]: q for q in hrs + extra}
 unknown = []
 for f in sorted(glob.glob(str(HERE / "notes_*.json"))):
     for qid, spec in json.load(open(f, encoding="utf-8")).items():
@@ -151,12 +152,12 @@ if problems:
 print(f"--- integrity ok: {len(hrs) + len(extra)} questions, all answerable")
 
 doc = {"_meta": {}, "_sources": SOURCES, "questions": hrs, "questions_extra": extra}
-tot = Counter(q["section"] for q in hrs)
-exp = Counter(q["section"] for q in hrs if q.get("explanation"))
+tot = Counter(q["section"] for q in hrs + extra)
+exp = Counter(q["section"] for q in hrs + extra if q.get("explanation"))
 doc["_meta"] = {
     "generated": datetime.date.today().isoformat(),
     "live_total": len(hrs), "extra_total": len(extra), "figures": len(figs),
-    "explained": sum(1 for q in hrs if q.get("explanation")),
+    "explained": sum(1 for q in hrs + extra if q.get("explanation")),
     "explained_by_section": {s: f"{exp[s]}/{tot[s]}" for s in tot},
     "flagged": [(q["id"], q["flag"]) for q in hrs if q.get("flag")],
     "answer_key": "HRS's own red-text marking, extracted from the source PDFs.",
