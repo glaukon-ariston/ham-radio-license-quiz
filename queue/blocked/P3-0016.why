@@ -1,1 +1,15 @@
 bk-pra-3-05's compound citation lists HRD ("čuo, čujem") at str.254, but its actual definition sits on str.253 (confirmed by row-coordinate PDF extraction; p.254's abbreviation list starts at LTR, no HRD entry). Semantic content is correct (only the page pointer for that one sub-citation is off by one), but checker verdict was fail. All other 39 notes and 30+ sampled citations verified correct, including the off-by-one hrs_source fix (matches P3-0013's pattern). Work stashed: 'queue P3-0016: fail'.
+
+2026-08-11, repair attempt 2 (stash "queue P3-0016: fail (repair attempt 2)"): the named HRD
+defect was fixed correctly, plus twelve more bad citations the first checker passed — six of
+them FALSE NEGATIVES (notes claiming something is absent from a source that in fact contains
+it). Root cause found and confirmed by the checker: PyMuPDF extraction silently drops a label
+column on RK str. 253 (32 labels extracted for ~45 printed definitions), so absence claims
+checked against extracted text alone come out wrong; only a high-res page render shows the
+missing entries. All nine absence claims in the recovered file were re-verified visually and
+hold.
+
+Blocked again on ONE new defect introduced by the repair itself, same class as the original:
+bk-pra-3-34's cite places „DN - dolje, na nižu frekvenciju“ on tiskana str. 253; DN is printed
+on str. 252 (253 begins at DX). The fix is one character in one `loc` string. Recover the
+attempt-2 stash, not the original — it is 13 fixes ahead.
