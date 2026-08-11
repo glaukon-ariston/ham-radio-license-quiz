@@ -1,0 +1,166 @@
+{
+ "_note": "Skupina I, pravila i postupci — svih 40 knjižnih pitanja iz packet_book_s1_pravila.json (jedan probni ispit). Sadržaj je gotovo isključivo Q-kod/operativne kratice/pozivne oznake/plan pojaseva — objašnjenja provjerena izravno protiv tiskanih stranica RK (booktool.py, pymupdf): '2. KRATICE Q-KODA' str. 250-251, '3. OPERATIVNE KRATICE U RADIOAMATERSKOJ SLUŽBI' str. 252-255, '5. POZIVNE OZNAKE' (DXCC popis po zemljama) str. 256-262, '6. PLANIRANJE POJASEVA IARU-a' str. 264-266, te NN150/22 (Pravilnik o amaterskim radijskim komunikacijama, čl. 2. st. 1. t. 2., čl. 15. st. 1., čl. 19. st. 3., Dodatak 1. Tablica 1. — čitano izravno iz PDF-a jer nema tiskane paginacije pa se navode samo članci, bez 'str.'). Sve odgovarajuće opcije/odgovore iz packeta unakrsno provjerene protiv značenja u tim tablicama — nijedan HRS odgovor nije mijenjan (pravilo 1), samo objašnjen; nema neslaganja vrijednih zastavice u ovom paketu. Napomena: definicija radiopostaje 'jedan ili više odašiljača i prijamnika s pomoćnom opremom' (bk-pra-1-27) postoji SAMO u tekstu ispitnog pitanja u priručniku — NN150/22 čl. 2. st. 1. t. 1. definira amatersku radijsku postaju po frekvencijskom pojasu, ne po opremi, pa se ondje ne navodi kao izvor. Bez vanjskih poveznica — link_check.py obrađuje samo notes_zzz_expanded_* datoteke.",
+
+ "bk-pra-1-01": {
+  "note": "Radioamaterska pozivna oznaka sastoji se od predmetka (prefiksa), koji određuje državnu pripadnost radiopostaje, i sufiksa (do tri slova) koji određuje radiopostaju unutar te države. Nema opcije 'bez pravila' niti se oznaka svodi na same inicijale korisnika — to potvrđuje i domaći propis: hrvatska pozivna oznaka sastoji se od '9A', jedne znamenke i najviše tri slova.",
+  "cite": [{"src": "RK", "loc": "5. POZIVNE OZNAKE, tiskana str. 256"}, {"src": "NN150/22", "loc": "čl. 15. st. 1."}]
+ },
+ "bk-pra-1-02": {
+  "note": "3,598 MHz spada u dio 80-metarskog pojasa 3590–3600 kHz, koji je IARU-ov plan pojaseva namijenio digitalnim modovima (po mogućnosti paketnim) i telegrafiji — telefonija ondje NIJE dopuštena. Telefonija na 80 m počinje tek od 3600 kHz naviše.",
+  "cite": [{"src": "RK", "loc": "6. PLANIRANJE POJASEVA IARU-a, tiskana str. 264"}]
+ },
+ "bk-pra-1-03": {
+  "note": "'CQ CQ AMERIKA' je usmjereni opći poziv — upućen je isključivo radiopostajama u Americi, a ne svima (to bi bio obični CQ, u priručniku kratica COQ — 'opći poziv svim radiopostajama'). Postaja kojoj takav usmjereni poziv nije namijenjen na njega se ne javlja niti ga na bilo koji način prekida; odgovaraju samo postaje iz traženog područja.",
+  "cite": [{"src": "RK", "loc": "3. OPERATIVNE KRATICE U RADIOAMATERSKOJ SLUŽBI (COQ), tiskana str. 252"}]
+ },
+ "bk-pra-1-04": {
+  "note": "R = primljeno/u redu, MNI = puno/mnogo, TNX = hvala, FER = za, INFO = informacija — 'R MNI TNX FER INFO' znači 'primljeno, mnogo hvala za informaciju'. To je uobičajen odgovor kad nam sugovornik ispriča podatke o svojim uređajima.",
+  "cite": [{"src": "RK", "loc": "3. OPERATIVNE KRATICE U RADIOAMATERSKOJ SLUŽBI, tiskana str. 252-255"}]
+ },
+ "bk-pra-1-05": {
+  "note": "GE = dobra večer/dobro veče, DR = drag(i), OM = radioamater/prijatelj (Old Man), ES = i, TU = hvala, FER = za, CALL = pozivna oznaka/poziv. 'GE DR OM ES TU FER CALL' se stoga prevodi kao 'dobro veče dragi prijatelju i hvala za poziv'.",
+  "cite": [{"src": "RK", "loc": "3. OPERATIVNE KRATICE U RADIOAMATERSKOJ SLUŽBI, tiskana str. 252-255"}]
+ },
+ "bk-pra-1-06": {
+  "note": "OK = u redu, DR OM = dragi prijatelju, UR = vaš, SIGS = signali, VY = vrlo, PSE = molim, QRP = smanjite snagu odašiljača. GD ovdje stoji za englesko 'good' (dobar) — pazite, u priručnikovoj tablici kratica GD je zavedeno kao 'dobar dan', a 'dobar' kao GUD; u sklopu 'UR SIGS VY GD' riječ je o ocjeni signala. Cijela poruka 'ALL OK DR OM = UR SIGS VY GD = PSE QRP' znači 'sve u redu dragi prijatelju = vaš signal je vrlo dobar = molim smanjite snagu'.",
+  "cite": [{"src": "RK", "loc": "3. OPERATIVNE KRATICE U RADIOAMATERSKOJ SLUŽBI, tiskana str. 252-255"}, {"src": "RK", "loc": "2. KRATICE Q-KODA (QRP), tiskana str. 251"}]
+ },
+ "bk-pra-1-07": {
+  "note": "SWL (prijamni radioamater) samo sluša — nema odašiljač i ne smije ništa odaslati, pa na CQ poziv ne otipkava baš ništa. Umjesto odgovora, u dnevnik samo bilježi da je vezu čuo.",
+  "cite": [{"src": "RK", "loc": "3. OPERATIVNE KRATICE U RADIOAMATERSKOJ SLUŽBI (SWL), tiskana str. 255"}]
+ },
+ "bk-pra-1-08": {
+  "note": "QRL? pita je li frekvencija zauzeta. Budući da smo usred veze sa sugovornikom, ispravan je odgovor QRL (bez upitnika) — 'zauzet sam, radim; molim ne ometajte' — čime treća postaja saznaje da frekvencija nije slobodna i da ne smije zauzeti tu frekvenciju.",
+  "cite": [{"src": "RK", "loc": "2. KRATICE Q-KODA (QRL), tiskana str. 251"}]
+ },
+ "bk-pra-1-09": {
+  "note": "QTH = smještaj (mjesto rada) radiopostaje. Ne treba brkati s QRA (ime/naziv postaje) ni s QRB (udaljenost između postaja).",
+  "cite": [{"src": "RK", "loc": "2. KRATICE Q-KODA (QTH), tiskana str. 251"}]
+ },
+ "bk-pra-1-10": {
+  "note": "QSL = potvrda prijama. (QSL kartica, koja isto tako nosi ime QSL, dodatno potvrđuje i sadržaj održane veze — ali sama kratica znači potvrdu prijama poruke.)",
+  "cite": [{"src": "RK", "loc": "2. KRATICE Q-KODA (QSL), tiskana str. 251"}]
+ },
+ "bk-pra-1-11": {
+  "note": "QRM označava smetnje — u praksi se ova kratica koristi za smetnje koje uzrokuju druge radiopostaje (ljudskog podrijetla), za razliku od QRN koje su smetnje elektrostatičkog/atmosferskog podrijetla (npr. grmljavina).",
+  "cite": [{"src": "RK", "loc": "2. KRATICE Q-KODA (QRM, QRN), tiskana str. 251"}]
+ },
+ "bk-pra-1-12": {
+  "note": "QRB = udaljenost između radiopostaja.",
+  "cite": [{"src": "RK", "loc": "2. KRATICE Q-KODA (QRB), tiskana str. 251"}]
+ },
+ "bk-pra-1-13": {
+  "note": "Radioamater je po propisu osoba koja se bavi radijskom tehnikom i radiooperatorstvom isključivo iz osobnih razloga i bez novčane naknade — radioamaterska postaja stoga služi za osobne poruke, bez ikakve materijalne koristi, ne za posredovanje poruka trećih osoba ili komercijalnu djelatnost.",
+  "cite": [{"src": "NN150/22", "loc": "čl. 2. st. 1. t. 2."}]
+ },
+ "bk-pra-1-14": {
+  "note": "CW (Continuous Wave) je uvriježena kratica za telegrafiju (rad Morseovim znakovima).",
+  "cite": [{"src": "RK", "loc": "3. OPERATIVNE KRATICE U RADIOAMATERSKOJ SLUŽBI (CW), tiskana str. 252"}]
+ },
+ "bk-pra-1-15": {
+  "note": "3,5 MHz leži u kratkovalnom pojasu koji se po tradiciji naziva '80 metara' (nominalna valna duljina λ=c/f≈300/3,5≈86 m, zaokruženo na naziv pojasa '80 m' — kratkovalni pojasi se nazivaju po približnoj, ne točnoj valnoj duljini).",
+  "formula": ["λ ≈ 300 / f(MHz) = 300 / 3,5 ≈ 86 m → naziv pojasa: 80 m"],
+  "cite": [{"src": "NN150/22", "loc": "Dodatak 1., Tablica 1. (redak 3500 – 3800 kHz)"}]
+ },
+ "bk-pra-1-16": {
+  "note": "SV je prefiks Grčke — SV2SV je stoga grčka radioamaterska postaja.",
+  "cite": [{"src": "RK", "loc": "5. POZIVNE OZNAKE (popis po prefiksu/po zemljama), tiskana str. 256-262"}]
+ },
+ "bk-pra-1-17": {
+  "note": "TA je prefiks Turske — TA9DT je stoga turska radioamaterska postaja.",
+  "cite": [{"src": "RK", "loc": "5. POZIVNE OZNAKE (popis po prefiksu/po zemljama), tiskana str. 256-262"}]
+ },
+ "bk-pra-1-18": {
+  "note": "OZ je prefiks Danske — OZ2DD je stoga danska radioamaterska postaja.",
+  "cite": [{"src": "RK", "loc": "5. POZIVNE OZNAKE (popis po prefiksu/po zemljama), tiskana str. 256-262"}]
+ },
+ "bk-pra-1-19": {
+  "note": "Da — obični CQ poziv (opći poziv svim radiopostajama) koristi se posvuda, uključujući natjecanja; u natjecanjima ga se katkad naglašava kao 'CQ TEST'/'CQ CONTEST', ali je i dalje riječ o istom, univerzalnom CQ pozivu, ne o nekoj posebnoj, ograničenoj proceduri.",
+  "cite": [{"src": "RK", "loc": "3. OPERATIVNE KRATICE U RADIOAMATERSKOJ SLUŽBI (COQ, CONTEST), tiskana str. 252"}]
+ },
+ "bk-pra-1-20": {
+  "note": "QSL kartica je pisana potvrda da je veza s drugom postajom stvarno održana — proširenje kratice QSL ('potvrda prijama') na materijalni dokaz o vezi, koji se razmjenjuje poštom ili preko QSL biroa.",
+  "cite": [{"src": "RK", "loc": "2. KRATICE Q-KODA (QSL), tiskana str. 251"}]
+ },
+ "bk-pra-1-21": {
+  "note": "ALL OK DR OM = sve u redu dragi prijatelju; PSE QRP = molim smanjite snagu (QRP = smanjenje snage odašiljača). 'TONI' je ovdje samo ime sugovornika umetnuto u poruku.",
+  "cite": [{"src": "RK", "loc": "2. KRATICE Q-KODA (QRP), tiskana str. 251"}, {"src": "RK", "loc": "3. OPERATIVNE KRATICE U RADIOAMATERSKOJ SLUŽBI, tiskana str. 252-255"}]
+ },
+ "bk-pra-1-22": {
+  "note": "SWL (prijamni radioamater) šalje QSL karte svima čije je veze čuo i potvrdio prijamom, bez obzira jesu li i sami SWL ili odašiljačke postaje — to je uobičajena praksa razmjene QSL karata za primljene veze.",
+  "cite": [{"src": "RK", "loc": "3. OPERATIVNE KRATICE U RADIOAMATERSKOJ SLUŽBI (SWL), tiskana str. 255"}]
+ },
+ "bk-pra-1-23": {
+  "note": "CQ poziv uobičajeno završava kraticama 'PSE K' — PSE (molim) + K (procedurni znak 'prelazim na prijam', poziv bilo kojoj postaji da odgovori) — čime se poziva bilo koga da se javi.",
+  "cite": [{"src": "RK", "loc": "3. OPERATIVNE KRATICE U RADIOAMATERSKOJ SLUŽBI (PSE), tiskana str. 254"}]
+ },
+ "bk-pra-1-24": {
+  "note": "QTR = točno vrijeme ('koliko je sati?').",
+  "cite": [{"src": "RK", "loc": "2. KRATICE Q-KODA (QTR), tiskana str. 251"}]
+ },
+ "bk-pra-1-25": {
+  "note": "SKED = dogovorena radijska veza (unaprijed ugovoren termin i frekvencija za vezu s određenim sugovornikom).",
+  "cite": [{"src": "RK", "loc": "3. OPERATIVNE KRATICE U RADIOAMATERSKOJ SLUŽBI (SKED), tiskana str. 254"}]
+ },
+ "bk-pra-1-26": {
+  "note": "DX = jako udaljen, daleko — u radioamaterskom žargonu označava daleku vezu.",
+  "cite": [{"src": "RK", "loc": "3. OPERATIVNE KRATICE U RADIOAMATERSKOJ SLUŽBI (DX), tiskana str. 253"}]
+ },
+ "bk-pra-1-27": {
+  "note": "Prema ispitnom gradivu, radiopostaja nije samo jedan uređaj: to je jedan ili više odašiljača i prijamnika zajedno s pomoćnom opremom (napajanje, antenski sustav, mjerni instrumenti i sl.) — ne svodi se na 'samo odašiljač i prijamnik' niti na neki apstraktni 'centar veza'. Napomena o izvoru: ovakva, opremom određena definicija nalazi se jedino u tekstu samog ispitnog pitanja u priručniku. Pravilnik NN150/22 (čl. 2. st. 1. t. 1.) definira amatersku radijsku postaju posve drukčije — kao 'radijsku postaju koja radi u radiofrekvencijskom pojasu namijenjenom amaterskoj službi i amaterskoj satelitskoj službi', dakle po pojasu, a ne po opremi — pa se ovdje namjerno NE navodi kao izvor ove definicije.",
+  "cite": [{"src": "RK", "loc": "SKUPINA I, pitanje 27 (izvorni tekst opcije c), tiskana str. 381"}]
+ },
+ "bk-pra-1-28": {
+  "note": "433,675 MHz upada u hrvatski 70-centimetarski radioamaterski pojas 430–440 MHz. Ostale ponuđene vrijednosti nisu radioamaterska frekvencijska područja: 7,5 MHz je izvan 40-metarskog pojasa (7000–7200 kHz), a '200 m' i '50 m' nisu nazivi postojećih radioamaterskih pojaseva.",
+  "cite": [{"src": "NN150/22", "loc": "Dodatak 1., Tablica 1. (redak 430 – 440 MHz)"}]
+ },
+ "bk-pra-1-29": {
+  "note": "14 MHz leži u kratkovalnom pojasu tradicionalno nazvanom '20 metara' (nominalno λ=c/f≈300/14≈21 m, zaokruženo na naziv pojasa '20 m').",
+  "formula": ["λ ≈ 300 / f(MHz) = 300 / 14 ≈ 21 m → naziv pojasa: 20 m"],
+  "cite": [{"src": "NN150/22", "loc": "Dodatak 1., Tablica 1. (retci 14 000 – 14 250 kHz i 14 250 – 14 350 kHz, A razred)"}]
+ },
+ "bk-pra-1-30": {
+  "note": "Opći poziv telefonijom upućuje se riječima 'poziv svima, ovdje 9A2XX — prelazim na prijam': 'poziv svima' je govorna inačica CQ poziva (u priručniku kratica COQ — 'opći poziv svim radiopostajama'), a 'prelazim na prijam' je govorna inačica procedurnog znaka K.",
+  "cite": [{"src": "RK", "loc": "3. OPERATIVNE KRATICE U RADIOAMATERSKOJ SLUŽBI (COQ), tiskana str. 252"}]
+ },
+ "bk-pra-1-31": {
+  "note": "14,065 MHz upada u segment 14 060–14 070 kHz, koji je IARU-ov plan pojaseva namijenio telegrafiji — rad telegrafijom je tu dopušten (da).",
+  "cite": [{"src": "RK", "loc": "6. PLANIRANJE POJASEVA IARU-a, tiskana str. 265"}]
+ },
+ "bk-pra-1-32": {
+  "note": "Ako nismo primili mjesto javljanja (QTH) sugovornika, tražimo da ga ponovi: PSE (molim) UR (vaš) QTH (mjesto javljanja) AGN (ponovno) +K (prelazim na prijam) — 'molim ponovite svoje mjesto javljanja'. (Ponuđena opcija bilježi kraticu kao 'OTH'; radi se o QTH — smještaju/mjestu javljanja radiopostaje, ne o novoj, drugoj kratici.)",
+  "cite": [{"src": "RK", "loc": "2. KRATICE Q-KODA (QTH), tiskana str. 251"}, {"src": "RK", "loc": "3. OPERATIVNE KRATICE U RADIOAMATERSKOJ SLUŽBI (PSE, UR, AGN), tiskana str. 252-255"}]
+ },
+ "bk-pra-1-33": {
+  "note": "Poziv u pogibelji (SOS telegrafijom, MAYDAY telefonijom) ima apsolutni prioritet. Pravilnik to izričito nalaže: prigodom prijama poziva u pomoć u slučaju nesreće i opasnosti radioamater mora bez odgode prekinuti vlastito odašiljanje te uspostaviti komunikaciju s radijskom postajom koja odašilje poziv u pomoć — dakle odgovaramo na poziv i pokušavamo obavijestiti nadležne institucije o potrebi pomoći, a ne mijenjamo frekvenciju niti ga ignoriramo.",
+  "cite": [{"src": "RK", "loc": "4. MEĐUNARODNI ZNAKOVI ZA NESREĆE, PROMET U SLUČAJEVIMA OPASNOSTI, tiskana str. 256"}, {"src": "NN150/22", "loc": "čl. 19. st. 3."}]
+ },
+ "bk-pra-1-34": {
+  "note": "Dogovor je: na frekvencijskim pojasevima do 10 MHz koristi se LSB (donji bočni pojas), a iznad 10 MHz USB (gornji bočni pojas). Svi UKV/VHF pojasevi su iznad 10 MHz, pa se ondje SSB radi isključivo s USB.",
+  "cite": [{"src": "RK", "loc": "6. PLANIRANJE POJASEVA IARU-a (Napomene), tiskana str. 266"}]
+ },
+ "bk-pra-1-35": {
+  "note": "PA je prefiks Nizozemske — PA3ILA je stoga nizozemska radioamaterska postaja.",
+  "cite": [{"src": "RK", "loc": "5. POZIVNE OZNAKE (popis po prefiksu/po zemljama), tiskana str. 256-262"}]
+ },
+ "bk-pra-1-36": {
+  "note": "SP je prefiks Poljske — SP9KD je stoga poljska radioamaterska postaja.",
+  "cite": [{"src": "RK", "loc": "5. POZIVNE OZNAKE (popis po prefiksu/po zemljama), tiskana str. 256-262"}]
+ },
+ "bk-pra-1-37": {
+  "note": "G je jedan od prefiksa Ujedinjenog Kraljevstva, dodijeljen postajama u Engleskoj (GM = Škotska, GW = Wales, GI = Sjeverna Irska) — G3FOG je stoga engleska radioamaterska postaja.",
+  "cite": [{"src": "RK", "loc": "5. POZIVNE OZNAKE (popis po prefiksu/po zemljama), tiskana str. 256-262"}]
+ },
+ "bk-pra-1-38": {
+  "note": "IARU = International Amateur Radio Union — Međunarodni savez radioamatera, krovna svjetska organizacija nacionalnih radioamaterskih saveza (HRS je njegov član). IARU nije regulator (to je nacionalna agencija odn. ITU).",
+  "cite": [{"src": "RK", "loc": "3. OPERATIVNE KRATICE U RADIOAMATERSKOJ SLUŽBI (IARU), tiskana str. 253"}]
+ },
+ "bk-pra-1-39": {
+  "note": "QSL karte se uobičajeno šalju putem QSL biroa nacionalnog saveza (jeftinije, skupno) i izravno poštom (brže, npr. za rijetke DX veze) — obje mogućnosti se koriste, radioamateri ih dakle šalju.",
+  "cite": [{"src": "RK", "loc": "3. OPERATIVNE KRATICE U RADIOAMATERSKOJ SLUŽBI (CRD — QSL karta), tiskana str. 252"}]
+ },
+ "bk-pra-1-40": {
+  "note": "U radijskim vezama telegrafijom rabe se kratice za mnoge pojmove i postupke čime se znatno skraćuje vrijeme potrebno za prijenos poruke — svrha im je dakle brzina i jednoznačnost prijenosa, a ne skrivanje sadržaja (to bi bilo šifriranje i nije dopušteno).",
+  "cite": [{"src": "RK", "loc": "2. KRATICE Q-KODA (uvodni tekst), tiskana str. 250"}]
+ }
+}
