@@ -33,8 +33,16 @@ your report.
    plausible, and say so in the note.
 6. **PyMuPDF, never `pdftotext`** — it destroys Croatian diacritics and cannot see the
    red-text answer key. Set `PYTHONIOENCODING=utf-8` before any Python that prints Croatian.
+7. **Never trust extracted/OCR'd text as evidence of what the book itself says.** `booktool.py`
+   gives you *text*, not the page. If your evidence for a claim is a string that looks garbled
+   ("LARU", "F5SBDW", "C,"), that garbling is almost always the extraction failing, not the
+   book — render the page as an image and read it yourself (or have an LLM read the rendered
+   image) before asserting anything about what's printed, especially before claiming the book
+   itself contains an error. A citation pointing at the wrong page is a mistake; asserting the
+   *source* is wrong when it isn't is worse, because it survives every check that only
+   re-reads the same OCR text.
 
-Two traps that have cost real time here:
+Traps that have cost real time here:
 
 - `get_images()` and `get_drawings()` **both return empty** on pages that plainly show a
   circuit. These are PrimoPDF files whose line art is ~950 one-pixel inline images. Two
@@ -42,6 +50,13 @@ Two traps that have cost real time here:
   at it** before concluding anything is absent.
 - Google Drive can hand you a **half-written file**. A bulk read that succeeds is not proof
   it read everything. If a file looks truncated, it probably is — check its size.
+- **PyMuPDF garbles callsigns and abbreviations on some RK pages**, and a worker who spots the
+  garbled string without rendering concludes it's the book's own typo. `bk-pra-2-18` claimed
+  the book prints "LARU" instead of "IARU" (rendered str. 385: prints "IARU" cleanly);
+  `bk-pra-3-02` quoted option b) as `"F5SBDW ? PSE UR CALL AGN de 9A$SJA + PSEK"` and blamed
+  "OCR knjige" (rendered str. 388: prints `"F5BDW ? PSE UR CALL AGN de 9A5JA + PSE K"` cleanly).
+  Both shipped past a checker before a second render caught them. This is rule 7 above, stated
+  again here because it has now cost two items four blocked rounds each.
 
 ## Never
 

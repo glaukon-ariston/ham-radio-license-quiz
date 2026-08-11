@@ -27,6 +27,12 @@ you are the independent check on.
 7. **Does anything look invented?** An article number or page that reads plausibly but is
    not in the source is the worst failure mode here, because it survives every automated
    check. Rule 5 says cite nothing instead.
+8. **Does any note allege the book itself is wrong, garbled, or misspelled?** Never take that
+   on the worker's word or on `booktool.py`'s extracted text — render the page and read it
+   yourself. `bk-pra-2-18`/`bk-pra-3-02` both shipped a claim like this ("LARU" for IARU,
+   garbled callsigns) past a checker who spot-checked pages but didn't render the specific one
+   the claim was about; a second render is what caught it. Rendering is required, not optional,
+   whenever a note's evidence is "the text I extracted looks wrong."
 
 ## Bias
 
