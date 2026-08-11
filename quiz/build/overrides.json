@@ -105,6 +105,10 @@
       "options.c": "f_rez = 1 / (2π·L·C)",
       "options.d": "f_rez = 2π / (L·C)",
       "reason": "Formule su u izvorniku slike; izvlačenje teksta dalo je krnje nizove tipa 'f= π√'. Prepisano s renderirane str. 13 (točan odgovor a — Thomsonova formula)."
+    },
+    "teh-137": {
+      "options.d": "PLL sintezator.",
+      "reason": "Oznake blokovske sheme sl. 3.6.4. (RK 3.6.2., tiskana str. 126-127) ispod odgovora ('Δf', 'fref', 'f0 = fref', 'fazni detektor', 'NPF', 'VCO', 'PLL', 'programibilni djeljitalj') nalijepile su se na odgovor d). Očitano s renderirane str. 19: d) glasi samo 'PLL sintezator.'"
     }
   },
   "figure_options": {
