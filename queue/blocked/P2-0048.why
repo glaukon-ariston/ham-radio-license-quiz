@@ -1,0 +1,8 @@
+The named bk-pra-2-18 LARU/IARU fix is correct (verified: str. 253/264/267/385 all print IARU
+cleanly). But the broader 15+-note sample this item required found two more instances of the
+same failure class: bk-pra-2-05 and bk-pra-2-31 both fabricate a claim that the book splits a
+short quoted phrase across two printed lines - rendered pages show both are single lines. Same
+pattern as the sibling P3-0012/P3-0016 saga (a confident, specific claim about the source
+text's own presentation/error, unverified against a rendered page). Work stashed:
+'queue P2-0048: fail'. This file (notes_book_s2_pravila.json) has still never successfully
+landed after four total attempts across P3-0012 and this item.
