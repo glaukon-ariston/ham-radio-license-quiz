@@ -1,1 +1,19 @@
 bk-teh-5-54's second citation reads "3.4.6. Harmonici... tiskana str. 121", but the quoted examples ("Drugi harmonik je f2=2x3530 kHz=7060 kHz"; "Peti harmonik... f5=720 MHz") are actually on tiskana str. 120 under section 3.4.5 (p.121 only has the 3.4.6 heading, not these examples). All other 29 notes and 9 sampled citations verified correct; the report's "stray script re-ran harmlessly" claim also independently confirmed true (notes_book_s2_propisi.json untouched). Work stashed: 'queue P3-0023: fail'.
+
+2026-08-11, repair attempt 2 (stash "queue P3-0023: fail (repair attempt 2)"): the named
+bk-teh-5-54 defect was fixed correctly (examples are on str. 120 / 3.4.5), plus eleven more
+bad citations the first checker passed — including bk-teh-5-58 citing section 10.2 when 10.2
+is "Munja" on str. 208, and one false negative (bk-teh-5-26 claimed no source supports Es MUF
+220 MHz; printed str. 170 says it verbatim — the earlier search missed it because the book
+writes "E_s" and never spells "sporadič" on that page). The checker verified all 47 distinct
+printed page references, not a sample, and all three absence claims by page render.
+
+Blocked again on ONE defect: bk-teh-5-20 explains the wrong circuit element. Printed str. 335
+asks "kondenzator C3 je:" (the packet OCR dropped the subscript to "C,"), and C3 in the q19
+schematic is the emitter bypass across R4 — but the note says "Kondenzator C1 o kojem je riječ
+je vezni/blokadni kondenzator na ulazu ili izlazu pojačala" and builds its whole explanation on
+coupling-capacitor behaviour. The answer letter (c) is unaffected; the note simply points the
+student at the wrong part of the figure. Recover the attempt-2 stash, not the original — it is
+12 fixes ahead.
+
+Cosmetic, same file: the _note says "Ispravljeno je devet citata" then lists twelve.
