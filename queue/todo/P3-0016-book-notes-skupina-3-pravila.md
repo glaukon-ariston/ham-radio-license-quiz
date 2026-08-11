@@ -36,3 +36,25 @@ is wrong.
 it is actually printed on, and every other individual page pointer inside every compound
 citation in the recovered file is checked separately — a compound citation is only correct
 when each of its page numbers is correct.
+
+---
+
+**Round 2 (filed 11 Aug 2026).** Repair attempt 1 fixed the named HRD defect plus twelve
+more the checker had missed, six of them false negatives traced to a real root cause:
+PyMuPDF's extraction silently drops a label column on RK str. 253 (32 labels extracted for
+~45 printed definitions), so any note claiming an absence checked only against extracted
+text can come out backwards. It was blocked again on a new defect the repair itself
+introduced. Recover the stash `queue P3-0016: fail (repair attempt 2)` — it is 13 fixes
+ahead of the original stash named above. Do not recover the original.
+
+The new defect: `bk-pra-3-34`'s cite places „DN - dolje, na nižu frekvenciju" on tiskana
+str. 253; DN is printed on str. 252 (253 begins at DX). One character in one `loc` string.
+
+**Done when (round 2).** `bk-pra-3-34`'s page pointer is corrected (253 → 252). Because two
+consecutive repair passes on this file have each introduced a fresh wrong page number while
+fixing others, after you finish editing, re-check every page number you personally touch —
+and separately, every individual page number inside every compound/multi-page citation in
+the whole file — against the actual printed page, not against your memory of having gotten
+it right. For every absence/negative claim in the file (of the pattern "X is not in the
+list", "no source says X"), render the page as an image and read it visually; the PyMuPDF
+extraction gap is confirmed real on at least str. 253 and may recur elsewhere in this book.

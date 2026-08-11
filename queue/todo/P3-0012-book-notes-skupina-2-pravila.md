@@ -41,3 +41,25 @@ The three defects:
 **Done when (in addition to the original).** All three are corrected against the real page
 text, any inline page number in note prose matches that note's own `cite` field, and every
 other citation in the recovered file is re-confirmed word-for-word before you declare done.
+
+---
+
+**Round 2 (filed 11 Aug 2026).** Repair attempt 1 fixed all three defects above and nine
+more the checker had missed — 12 fixes total, all independently confirmed. It was blocked
+again on a thirteenth. Recover the stash `queue P3-0012: fail (repair attempt 2)` — it is 12
+fixes ahead of the original stash named above. Do not recover the original.
+
+The new defect: `bk-pra-2-28` asserts of option a) (TX/RX 145,750/145,150) that "Opcija a)
+navodi brojke koje ne pripadaju nijednom retku tablice". RK str. 280 — the note's own cited
+page — lists `RV60  145,150  145,750  R6`, exactly that pair. The claim is contradicted by
+its own citation.
+
+Also cosmetic: the file's `_note` field says "još šest" but then lists twelve ids — fix the
+count while you're in there.
+
+**Done when (round 2).** `bk-pra-2-28`'s claim about option a) is corrected or removed, the
+`_note` count is fixed, and — because this file's repair passes have now twice introduced
+new errors while fixing old ones — every one of the 40 notes is read once more as a
+standalone claim (not diffed against the round-1 fix list) and checked against actual page
+text, including every negative/absence assertion, which must be checked against a rendered
+page image, not extracted text alone.

@@ -36,3 +36,28 @@ page.
 and section the quoted examples actually appear on, and every other citation in the
 recovered file is re-confirmed by checking that its quoted text is literally present on the
 page cited — not merely nearby.
+
+---
+
+**Round 2 (filed 11 Aug 2026).** Repair attempt 1 fixed the named bk-teh-5-54 defect plus
+eleven more the checker had missed, including a false negative caused by notation mismatch
+(the book writes "E_s", never "sporadična E"). It was blocked again on a new defect. Recover
+the stash `queue P3-0023: fail (repair attempt 2)` — it is 12 fixes ahead of the original
+stash named above. Do not recover the original.
+
+The new defect: `bk-teh-5-20` explains the wrong circuit element. Printed str. 335 asks
+"kondenzator C3 je:" (the packet's OCR dropped the subscript to "C,"); C3 in the q19
+schematic is the emitter bypass across R4. The note instead explains "Kondenzator C1" as a
+coupling/blocking capacitor at the amplifier's input or output — a different, unrelated
+component. The answer letter (c) is untouched; only the explanation targets the wrong part
+of the figure.
+
+Also cosmetic: the file's `_note` says "Ispravljeno je devet citata" then lists twelve —
+fix the count.
+
+**Done when (round 2).** `bk-teh-5-20`'s note is rewritten to explain C3 (the emitter
+bypass), matching the schematic and the question's actual subject. The `_note` count is
+fixed. Because this is the second defect this file has shipped past a checker, re-verify
+every note against the actual schematic/page it describes — not just citations, but whether
+the note is naming the same component, quantity, or curve the question is actually asking
+about — before declaring done.
