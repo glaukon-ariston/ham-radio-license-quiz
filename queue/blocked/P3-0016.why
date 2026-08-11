@@ -13,3 +13,25 @@ Blocked again on ONE new defect introduced by the repair itself, same class as t
 bk-pra-3-34's cite places „DN - dolje, na nižu frekvenciju“ on tiskana str. 253; DN is printed
 on str. 252 (253 begins at DX). The fix is one character in one `loc` string. Recover the
 attempt-2 stash, not the original — it is 13 fixes ahead.
+
+2026-08-11, repair attempt 3 (stash "queue P3-0016: fail (repair attempt 3)"): fixed the
+named DN 253->252 defect, plus correctly diagnosed and fixed two more instances of the
+LARU/IARU-class bug the checker had specifically flagged as a risk (bk-pra-3-35, bk-pra-3-17
+- both confirmed correct against rendered images). 17 further citations sampled clean.
+
+Blocked a FOURTH time on a new instance of the exact same bug the round explicitly guarded
+against: bk-pra-3-02 quotes option b) as "F5SBDW ? PSE UR CALL AGN de 9A$SJA + PSEK" and
+blames the garbling on "OCR knjige [koja] unosi grafičke greške u pozivne oznake" (the book's
+OCR introducing errors). The rendered image of str. 388 shows the book prints this cleanly:
+"F5BDW ? PSE UR CALL AGN de 9A5JA + PSE K". The garbled string is PyMuPDF's own extraction
+artifact, reproduced as a direct quote and mislabeled as a book error - the third confirmed
+instance of this failure mode in this file alone, and it shipped past a check specifically
+looking for it.
+
+Sibling item P3-0012 hit the identical bug pattern (IARU/LARU) on its own third round, also
+today. This looks like a systemic issue: PyMuPDF garbles callsigns/abbreviations on certain
+RK pages, and workers who spot the garbling without rendering the page conclude it's a book
+typo rather than an extraction artifact, then write a confident note "explaining" the fake
+error. NOT refiling automatically - this is the second consecutive Recover this run, tripping
+the circuit breaker, and the pattern itself needs a structural fix (a rendering step or a
+brief update) before another blind repair round is likely to help.
