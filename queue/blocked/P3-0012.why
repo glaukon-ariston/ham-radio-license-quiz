@@ -1,1 +1,9 @@
 Three citation mismatches (same failure mode as P3-0008/P3-0009, both also in this pravila/propisi sub-series): bk-pra-2-12 mislabels 122-136 GHz as secondary/not-recommended when RK p.279 shows 134.001-136 GHz is explicitly primary/recommended (real secondary range is 136-141 GHz); bk-pra-2-18's own prose cites the wrong page number for "LARU Regija 1" (says str.271, actually p.267, which the cite field itself gets right); bk-pra-2-29 claims 7040-7045 kHz is exclusively telegraphy/digital when RK p.264 (the cited page) already lists telefonija there. Work stashed: 'queue P3-0012: fail'.
+
+2026-08-11, repair attempt 2 (stash "queue P3-0012: fail (repair attempt 2)"): the three
+originally-named defects were all fixed and confirmed, and the worker found and fixed nine
+more the first checker had passed (12 total, all verified by the checker this time). Blocked
+again on a THIRTEENTH, newly surfaced: bk-pra-2-28 asserts "Opcija a) navodi brojke koje ne
+pripadaju nijednom retku tablice" of the pair TX/RX 145,750/145,150, but RK str. 280 — the
+note's own cite — lists RV60 = 145,150 / 145,750, exactly that pair. Also cosmetic: the
+file's _note says "još šest" but lists twelve ids.
