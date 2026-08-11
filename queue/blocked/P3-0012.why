@@ -7,3 +7,18 @@ again on a THIRTEENTH, newly surfaced: bk-pra-2-28 asserts "Opcija a) navodi bro
 pripadaju nijednom retku tablice" of the pair TX/RX 145,750/145,150, but RK str. 280 — the
 note's own cite — lists RV60 = 145,150 / 145,750, exactly that pair. Also cosmetic: the
 file's _note says "još šest" but lists twelve ids.
+
+2026-08-11, repair attempt 3 (stash "queue P3-0012: fail (repair attempt 3)"): fixed the
+named bk-pra-2-28 defect plus two more false "book doesn't say X" claims found on a full
+re-read (bk-pra-2-25 chirp, bk-pra-2-37 repeater polarization, both given real citations,
+both confirmed by the checker via rendered page image). 17 further citations sampled clean.
+
+Blocked a FOURTH time on bk-pra-2-18: the note asserts as fact that the book itself (not
+OCR) misspells IARU as "LARU," citing str. 267 and str. 385 as supposed evidence of the
+book's own typo. Rendered images of both pages show "IARU" printed correctly in both places
+— the claim is fabricated from the PyMuPDF text-extraction artifact this file has now been
+blocked for four times, just relocated to a note nobody had re-checked against the image.
+
+This file has taken 3 repair rounds and found ~15 distinct bad citations/claims across them,
+more than any other item in this series. Recommend a human read the recovered stash directly
+before a 4th automated attempt, rather than refiling blind again.
