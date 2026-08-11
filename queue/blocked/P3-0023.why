@@ -17,3 +17,24 @@ student at the wrong part of the figure. Recover the attempt-2 stash, not the or
 12 fixes ahead.
 
 Cosmetic, same file: the _note says "Ispravljeno je devet citata" then lists twelve.
+
+2026-08-11, repair attempt 3 (stash "queue P3-0023: fail (repair attempt 3)"): fixed the
+named bk-teh-5-20 C1-vs-C3 defect (confirmed correct: q19/q20 genuinely asks about C3, the
+emitter-bypass capacitor across R4) but the replacement citation to str.83 claims that page's
+circuit has "isti nazivi C1-C4/R1-R4" (the same C1-C4/R1-R4 component names) as the q19
+schematic. Str.83's circuit (Sl. 2.6.5) only has C1-C3, no C4 - confirmed by rendered page
+image. The claim contradicts the note's own adjacent quote ("Sva tri kondenzatora, C1, C2,
+C3..."). The underlying physics explanation is otherwise sound and well-supported by str.83's
+text; only the "same 4-capacitor topology" framing is wrong. 7 of 9 other figure-bearing notes
+spot-checked clean for component/curve/quantity accuracy, not just citation presence.
+
+This is the file's fourth confirmed defect across three repair rounds. NOT refiling again
+automatically - flagging for human review, matching the treatment given to sibling items
+P3-0012 and P3-0016, which hit the same "keeps finding one more thing" pattern.
+
+Resolved 11 Aug 2026 by human review (Glaukon independently rendered tiskana str. 83 and
+confirmed the circuit has three capacitors, not four). Recovered stash "queue P3-0023: fail
+(repair attempt 3)" and applied a one-word fix: "isti nazivi C1-C4/R1-R4" -> "isti nazivi
+C1-C3/R1-R4" in both bk-teh-5-20's citation and its note prose. No other change. rebuild.py:
+1176 questions, explained 1066->1096, no unknown-id warnings. strict.py: 96.3% (unchanged).
+check_notes.py: 0 errors, 1 pre-existing unrelated warning. Item moved to queue/done/.
