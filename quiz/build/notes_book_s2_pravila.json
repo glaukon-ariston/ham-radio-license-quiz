@@ -1,0 +1,423 @@
+{
+ "_note": "Skupina II, pravila i postupci (40 od 720 knjižnih pitanja, iz jednog probnog ispita). Napomene provjerene prema tiskanim stranicama RK (booktool.py, uključivo izravno renderiranje stranica 257-259 DXCC popisa gdje OCR miješa dva stupca) 9-10 Aug 2026, i prema izravnoj usporedbi s tiskanim ispitnim pitanjima na str. 383-387 (paket nije iskrivljen — sve opcije i redoslijed slova odgovaraju tiskanoj stranici). Bez vanjskih poveznica — link_check.py ne obrađuje ovu datoteku (samo notes_zzz_expanded_*), pa poveznice namjerno izostavljene da se izbjegne neprovjerena tvrdnja. Popravljeno 11 Aug 2026: sve 40 citata ponovno provjereno riječ po riječ prema samoj stranici; ispravljene tri prijavljene greške (2-12 dodjele u mikrovalnim pojasevima, 2-18 stranica u tekstu napomene, 2-29 'isključivo telegrafija' ispod 7 045 kHz) i još dvanaest koje su prošle prvu provjeru (2-03, 2-05, 2-07, 2-09, 2-11, 2-13, 2-21, 2-24, 2-25, 2-30, 2-31, 2-34 — v. queue/reports/P3-0012.md). Round 2 popravak 11 Aug 2026: ispravljena 2-28 (opcija a 'TX/RX 145,750/145,150' je stvaran par kanala RV60 iz iste tablice, str. 280, ne izmišljen broj kako je prethodno tvrđeno) i, ponovnim čitanjem svih 40 bilješki kao samostalnih tvrdnji provjerenih protiv stranice/slike (ne prema popisu ranijih ispravaka), još dvije negativne tvrdnje koje su bile netočne: 2-25 tvrdila je da riječ 'chirp' knjiga nigdje ne definira, no definira je izrijekom (str. 51 i osobito str. 144, 5.4.11.); 2-37 tvrdila je da knjiga ne govori o polarizaciji repetitorskih/pokretnih antena, no izrijekom je spominje kao iznimku od horizontalne polarizacije (str. 173). Sve ostale bilješke ponovno provjerene prema tiskanoj stranici i potvrđene točnima. P2-0048 (11 Aug 2026): uklonjena neistinita tvrdnja u 2-18 da sam tiskani udžbenik piše 'LARU' umjesto 'IARU' — izravno renderirane str. 253, 264, 267 i 385 pokazuju da knjiga posvuda ispravno piše 'IARU'; navodni 'LARU' bio je artefakt PyMuPDF ekstrakcije teksta (booktool.py find/page), ne tiskana stranica. Bilješka sada samo objašnjava značenje kratice IARU, bez tvrdnje o tiskarskoj/knjižnoj pogrešci.",
+ "bk-pra-2-01": {
+  "note": "Frekvencija 21,145 MHz spada u segment 21 120...21 149 kHz IARU-inog plana pojasa 15 m, uz koji je u planu navedena samo telegrafija — nikakva telefonija. Iznad njega slijedi uski pojas 21 149...21 151 kHz ('telegrafija, radijski farovi — isključivo'), a telefonija (SSB) na 15 m počinje tek segmentom 21 151...21 450 kHz (telefonija, telegrafija, SSTV, FAX). Budući da 21,145 MHz leži unutar telegrafijskog segmenta, a ne iznad granice 21 151 kHz, telefonski rad na toj točnoj frekvenciji nije dopušten.",
+  "cite": [
+   {
+    "src": "RK",
+    "loc": "6. Planiranje pojaseva IARU-a, plan kratkovalnih pojaseva 21 MHz (21120-21149 kHz telegrafija; 21149-21151 kHz radijski farovi; 21151-21450 kHz telefonija, telegrafija, SSTV, FAX), tiskana str. 265"
+   }
+  ]
+ },
+ "bk-pra-2-02": {
+  "note": "Kad primimo samo pozivnu oznaku sugovornika, a ne i njegovo ime, mjesto ili raport, logično je zatražiti upravo te nedostajuće podatke — PSE (molim) NAME (ime) QTH (smještaj radiopostaje) ES (i) RPRT (ocjena čujnosti, tj. raport) BK (prekid odašiljanja, prijelaz na prijam). Ostale tri ponuđene poruke sve već PRETPOSTAVLJAJU da su ti podaci primljeni: traže potvrdu veze i QSL karte (opcija a), zahvaljuju na odličnom raportu (opcija b) ili su pozdrav za kraj veze (opcija d) — nijedna od njih ne traži podatke koje bismo tek trebali saznati.",
+  "cite": [
+   {
+    "src": "RK",
+    "loc": "3. Operativne kratice u radioamaterskoj službi (PSE — molim; NAME — ime; RPRT — ocjena čujnosti), tiskana str. 254; ES — i (veznik), tiskana str. 253; BK — prekid odašiljanja, prijelaz na prijam, tiskana str. 252; 2. Q-kod (QTH — smještaj radiopostaje), tiskana str. 251"
+   }
+  ]
+ },
+ "bk-pra-2-03": {
+  "note": "CQ je opći poziv upućen svim postajama — knjiga ga definira upravo tako, 'opći poziv svim postajama' — bez ograničenja na određenu vrstu veze ili na određeni pojas. Njegova je namjena tražiti bilo koju slobodnu postaju za vezu, pa nema tehničkog ni proceduralnog razloga da bi u natjecanju (uključujući UKV natjecanja) bio zabranjen; naprotiv, u natjecanjima se CQ poziv koristi vrlo često i posvuda za prikupljanje veza. Ova konkretna dopuštenost u UKV natjecanjima nije dodatno razrađena u knjižnom tekstu izvan definicije same kratice CQ, pa se ovdje oslanja na HRS-ovu tablicu odgovora.",
+  "cite": [
+   {
+    "src": "RK",
+    "loc": "tablica ODGOVORI NA PITANJA, redak 3, stupac Skupina II"
+   },
+   {
+    "src": "RK",
+    "loc": "3. Operativne kratice (CQ — opći poziv svim postajama), tiskana str. 227; isto i u popisu na tiskanoj str. 252 ('opći poziv svim radiopostajama')"
+   }
+  ]
+ },
+ "bk-pra-2-04": {
+  "note": "Odgovor na CQ poziv otvara se pozivnom oznakom pozvane postaje, zatim DE (od — 'koristi se kao član prije pozivne oznake, npr. CQ DE 9A2HW') i vlastitom pozivnom oznakom — dakle 'DL8AA DE 9A9Z' (kome se obraćamo, pa od koga). Slijedi kratki pozdrav i zahvala na pozivu: GM (dobro jutro) DR (drag) OM (radioamater, poznanik) = TNX (hvala) FER (za) CALL (pozivna oznaka, ovdje u smislu 'poziv'). Opcija a) ima obrnut redoslijed pozivnih oznaka (počinje s '9A9Z DE DL8AA = TNX FER RPRT = 73 ES HPE CUAGN,', kao da se pozvana postaja javlja sama sebi), opcija c) traži ponavljanje podataka koje smo upravo primili (PSE RPT UR CALL ES NAME) umjesto da zahvali na pozivu, a opcija d) opet zamjenjuje tko je 'DE' koga.",
+  "cite": [
+   {
+    "src": "RK",
+    "loc": "3. Operativne kratice (DE, DR, CALL, tiskana str. 252; GM, FER, tiskana str. 253; OM, tiskana str. 254; TNX, tiskana str. 255)"
+   }
+  ]
+ },
+ "bk-pra-2-05": {
+  "note": "Tiskana stranica ispisuje pitanje kao jedan neprekinut redak: '= UFB DR OM = PSE UR QSL VIA BUREAU' (paketovo vlastito polje 'question' u ovoj bazi je skraćeno na prvi dio tog retka — to je nedostatak same baze, ne prijelom retka u knjizi — ali obje kratice su dio iste poruke i objašnjavaju zašto točan odgovor spominje i slanje QSL karte). UFB znači 'zvanredno' (odlično), DR OM je uobičajeno obraćanje sastavljeno od DR (drag) i OM (radioamater, poznanik), a drugi red doslovno traži da se QSL karta pošalje preko biroa (PSE = molim, UR = vaš/tvoj, VIA BUREAU = preko biroa). Zajedno to daje: 'odlično primljeno, dragi prijatelju — molim pošaljite mi QSL kartu preko biroa.' Preostale opcije mijenjaju kvalitetu prijama (slabo/djelomično/ništa) što UFB ne znači, ili traže drukčiji način slanja karte (poštom) što 'preko biroa' ne kaže.",
+  "cite": [
+   {
+    "src": "RK",
+    "loc": "3. Operativne kratice (DR, tiskana str. 252; OM, PSE, tiskana str. 254; UFB, UR, tiskana str. 255)"
+   },
+   {
+    "src": "RK",
+    "loc": "Ispitna pitanja, SKUPINA II, pitanje 5 (jedan neprekinut redak: '= UFB DR OM = PSE UR QSL VIA BUREAU'), tiskana str. 383"
+   }
+  ]
+ },
+ "bk-pra-2-06": {
+  "note": "SWL (Short Wave Listener) je prijamni radioamater — knjiga ga tako i definira, 'prijamni radioamater' — dakle onaj koji sluša i bilježi veze, ali sam ne odašilje. Nema vlastitu pozivnu oznaku prema kojoj bi ograničio komu šalje QSL kartu, nego kao potvrdu prijama šalje karticu svakoj postaji koju je čuo i evidentirao, bez obzira odgovara li mu ta postaja ili ne (razmjena SWL-QSL nije obostrana kao kod dvije aktivne postaje). Ovo konkretno pravilo o opsegu slanja (svima, a ne samo u natjecanjima ili samo drugim SWL-ovcima) nije razrađeno u knjižnom tekstu izvan definicije same kratice SWL, pa se ovdje oslanja na HRS-ovu tablicu odgovora.",
+  "cite": [
+   {
+    "src": "RK",
+    "loc": "tablica ODGOVORI NA PITANJA, redak 6, stupac Skupina II"
+   },
+   {
+    "src": "RK",
+    "loc": "3. Operativne kratice (SWL — prijamni radioamater), tiskana str. 255"
+   }
+  ]
+ },
+ "bk-pra-2-07": {
+  "note": "Kad se javi postaja čiju pozivnu oznaku nismo uspjeli primiti, upitna kratica kojom tražimo da se ponovno predstavi jest QRZ — knjiga je izravno definira kao pitanje 'Tko me poziva?' s odgovorom 'Poziva vas ...' (u kraćem popisu Q-koda samo 'tko poziva?'). QRM označava smetnje ('Ometa li vas tko?'), a QRS traži sporije tipkanje ('trebam li tipkati sporije?'). Kratica QLF u knjizi se ne pojavljuje nigdje osim u samom ispitnom pitanju — nije dio knjižnog popisa Q-koda i knjiga joj ne daje značenje, pa je ovdje tretiraj jednostavno kao odvlačilicu.",
+  "cite": [
+   {
+    "src": "RK",
+    "loc": "2. Q-kod (QRZ — Tko me poziva? / Poziva vas ...; QRM — Ometa li vas tko?), tiskana str. 227; kraći popis Q-koda (QRZ, QRM, QRS), tiskana str. 251"
+   }
+  ]
+ },
+ "bk-pra-2-08": {
+  "note": "QSY je Q-kod kojim se traži ili nalaže promjena odašiljačke frekvencije — knjiga ga u punom popisu Q-koda navodi kao pitanje 'Hoću li promijeniti odašiljačku frekvenciju?' s odgovorom 'Promijenite odašiljačku frekvenciju.', a u kraćem popisu kao 'prijelaz na neku drugu frekvenciju'. Preostale opcije opisuju druge kratice: 'tko me je zvao' odgovara QRZ-u, 'nemam ništa za vas' odgovara QRU-u, a atmosferske smetnje označava QRN ('smetnje od elektrostatičkog pražnjenja').",
+  "cite": [
+   {
+    "src": "RK",
+    "loc": "2. Q-kod (QSY — Hoću li promijeniti odašiljačku frekvenciju? / Promijenite odašiljačku frekvenciju.), tiskana str. 227; kraći popis (QSY — prijelaz na neku drugu frekvenciju; QRN, QRU, QRZ), tiskana str. 251"
+   }
+  ]
+ },
+ "bk-pra-2-09": {
+  "note": "QRU je Q-kod za pitanje 'Imate li što za mene?', na koje je standardni odgovor upravo 'nemam ništa za vas' — knjiga to navodi doslovno: 'QRU — upit: imate nešto za mene? Odgovor: nemam ništa za vas.' Ostale ponuđene tvrdnje pripadaju drugim Q-kodovima iz istog popisa: 'povećajte snagu' je QRO, 'spreman sam' je QRV, a 'koliko je sati' pokriva QTR (točno vrijeme) — nijedno od toga nije QRU.",
+  "cite": [
+   {
+    "src": "RK",
+    "loc": "2. Q-kod (QRU — upit: imate nešto za mene? Odgovor: nemam ništa za vas; QRO, QRV, QTR u istom popisu), tiskana str. 251"
+   }
+  ]
+ },
+ "bk-pra-2-10": {
+  "note": "RIG je radioamaterska kratica kojom se opisuje radna oprema — knjiga je definira kao 'uređaji, radiopostaje'. Kad sugovornik pita 'What's your rig?' odnosno traži RIG podatke, očekuje opis korištenog uređaja (marka/model, snaga, način rada), a ne dnevnik rada (to je LOG — 'dnevnik radiopostaje'), skalu za ocjenu prijama (to je RST — 'sustav za ocjenjivanje signala: R — razumljivost, S — jakost, T — ton') ili tipkalo (to je KEY — 'telegrafsko tipkalo').",
+  "cite": [
+   {
+    "src": "RK",
+    "loc": "3. Operativne kratice (RIG — uređaji, radiopostaje; RST), tiskana str. 254; LOG i KEY, tiskana str. 253"
+   }
+  ]
+ },
+ "bk-pra-2-11": {
+  "note": "Napomene uz IARU-in plan kratkovalnih pojaseva izravno navode da se 'radioamaterska natjecanja ne smiju odvijati u pojasevima 10 MHz, 18 MHz i 24 MHz' — formulacija tri konkretne iznimke jasno podrazumijeva da je natjecateljski rad na ostalim kratkovalnim pojasevima inače dopušten. To dodatno potvrđuje i sam plan, koji za više kratkovalnih segmenata izrijekom piše 'za natjecanja' (npr. 3 500...3 560 kHz i 3 600...3 650 kHz na 80 m, 14 000...14 060 kHz i 14 125...14 300 kHz na 20 m). Odgovor 'da' dakle stoji posredno, preko popisa iznimaka i oznaka segmenata, a ne preko izravne rečenice 'kratki val se smije koristiti za natjecanja'.",
+  "cite": [
+   {
+    "src": "RK",
+    "loc": "6. Planiranje pojaseva IARU-a — Napomene uz plan kratkovalnih pojaseva ('Radioamaterska natjecanja se ne smiju odvijati u pojasevima 10 MHz, 18 MHz i 24 MHz'), tiskana str. 266; segmenti označeni 'za natjecanja', tiskana str. 264-265"
+   }
+  ]
+ },
+ "bk-pra-2-12": {
+  "note": "Radioamaterski pojasevi nisu svi dodijeljeni amaterskoj službi na isti način, i to knjiga pokazuje izravno u planu mikrovalnih pojaseva: uz pojedine segmente stoji napomena o vrsti dodjele. Napomenu 'ne preporučuje se s obzirom na sekundarnu dodjelu' nose točno tri segmenta — 78,000...81,000 GHz (gornji dio pojasa 76 GHz / 4 mm), 136,000...141,000 GHz (gornji dio pojasa 134 GHz / 2,2 mm) i 241,000...248,000 GHz (pojas 241 GHz / 1,2 mm). Sekundarna dodjela znači da amaterska služba na tim frekvencijama dijeli spektar s prioritetnijim (primarnim) korisnicima, ne smije im smetati i mora im ustupiti mjesto — dakle ne, radioamaterski pojasevi nisu uvijek isključivo radioamaterski. Pazi na dvije zamke u istoj tablici: segment 134,001...136,000 GHz nosi upravo suprotnu napomenu, 'preporučuje se s obzirom na primarnu dodjelu' (kao i 77,501...78,000 GHz te 248,001...250,000 GHz), a pojas 122 GHz (122,250...123,000 GHz) uopće nema napomenu o dodjeli.",
+  "cite": [
+   {
+    "src": "RK",
+    "loc": "Plan mikrovalnih pojaseva — pojas 76 GHz, napomene 'preporučuje se s obzirom na primarnu dodjelu' (77,501-78,000 GHz) i 'ne preporučuje se s obzirom na sekundarnu dodjelu' (78,000-81,000 GHz), tiskana str. 278"
+   },
+   {
+    "src": "RK",
+    "loc": "Plan mikrovalnih pojaseva — pojasevi 122 GHz, 134 GHz i 241 GHz (134,001-136,000 GHz primarna; 136,000-141,000 GHz i 241,000-248,000 GHz sekundarna), tiskana str. 279"
+   }
+  ]
+ },
+ "bk-pra-2-13": {
+  "note": "Telefonija (glasovni prijenos govora) označava se kraticom FONE — knjiga je definira izravno kao 'telefonija, prijenos glasa'. Od ponuđenih odvlačilica knjiga sama definira samo RTTY, i to kao 'radioteleprinter' (pisani digitalni prijenos); ATV se u knjizi pojavljuje isključivo kao oznaka načina rada u planovima UKV/mikrovalnih pojaseva (npr. 'FM i ATV' u planu pojasa 70 cm), bez ispisanog značenja, a kratica ARQ ne pojavljuje se u knjizi nigdje osim u samom ispitnom pitanju. Nijedna od te tri kratice ne označava glasovnu vezu.",
+  "cite": [
+   {
+    "src": "RK",
+    "loc": "3. Operativne kratice (FONE — telefonija, prijenos glasa), tiskana str. 253; RTTY — radioteleprinter, tiskana str. 254"
+   },
+   {
+    "src": "RK",
+    "loc": "Plan UHF pojaseva 430 MHz (70 cm) — segmenti označeni 'FM i ATV', tiskana str. 273"
+   }
+  ]
+ },
+ "bk-pra-2-14": {
+  "note": "Tablica 'Oznake i frekvencije kanala radijskih repetitora na području od 2 m' navodi za oznaku RV62 par frekvencija 145,175 i 145,775 MHz (uz stariju oznaku R7), u istom stupčanom poretku kao i za sve ostale kanale te tablice — prvi stupac je ulazna (RX) frekvencija repetitora, drugi izlazna (TX), a razmak je uvijek točno 600 kHz. To odgovara točno opciji b) 'RX/TX 145,175/145,775'. Opcija a) ima zamijenjene vrijednosti, opcija c) miješa brojku iz drugog kanala (154,675 umjesto 145,675), a opcija d) navodi par 145,050/145,650 koji pripada kanalu RV52, ne RV62.",
+  "cite": [
+   {
+    "src": "RK",
+    "loc": "Oznake i frekvencije kanala radijskih repetitora na području od 2 m (redak RV62: 145,175 / 145,775 / R7; usporedi RV52: 145,050 / 145,650), tiskana str. 280"
+   }
+  ]
+ },
+ "bk-pra-2-15": {
+  "note": "Prefiks LZ u međunarodnom (DXCC) popisu pozivnih oznaka po zemljama pripada Bugarskoj, pa radioamater s pozivnom oznakom koja počinje s 'LZ' (npr. LZ1AA) odašilje iz Bugarske. Susjedni retci istog popisa pokazuju zašto su odvlačilice odabrane baš tako: LU je Argentina, LX Luxembourg, LY Lithuania — sve tri stoje neposredno iznad LZ-a — dok je Latvija YL, dakle na sasvim drugom kraju popisa.",
+  "cite": [
+   {
+    "src": "RK",
+    "loc": "5. Pozivne oznake — Popis pozivnih oznaka (prefiksa), po zemljama (DXCC lista), redoslijed po prefiksu: LU Argentina, LX Luxembourg, LY Lithuania, LZ Bulgaria, tiskana str. 258; YL Latvia, tiskana str. 259"
+   }
+  ]
+ },
+ "bk-pra-2-16": {
+  "note": "Prefiks OM u međunarodnom (DXCC) popisu pozivnih oznaka po zemljama pripada Slovačkoj Republici ('Slovak Republic'), pa radioamater s pozivnom oznakom OM1PG odašilje iz Slovačke. Neposredno iznad njega u popisu stoji OK = Czech Republic, a ispod ON = Belgium — Češka i Slovačka bile su do 1993. jedna država (Čehoslovačka), pa se prefiksi lako zamijene, ali knjižni ih popis jasno razdvaja. Danska ima prefiks OZ (također na istoj stranici), a Gibraltar ZB2.",
+  "cite": [
+   {
+    "src": "RK",
+    "loc": "5. Pozivne oznake — Popis pozivnih oznaka (prefiksa), po zemljama (DXCC lista): OK Czech Republic, OM Slovak Republic, ON Belgium, OZ Denmark, tiskana str. 258; ZB2 Gibraltar, tiskana str. 259"
+   }
+  ]
+ },
+ "bk-pra-2-17": {
+  "note": "DXCC popis navodi predstavnički prefiks DL uz naziv 'Federal Republic of Germany', smješten između D6 (Comoros) i DU (Philippines). Njemačkoj je u međunarodnom sustavu dodijeljen cijeli niz prefiksa DA–DR (uključujući DJ, DK i DL), pa pozivna oznaka DJ1OV pripada radioamateru iz SR Njemačke jednako kao što bi to bila i oznaka koja počinje s DL. Odvlačilice su drugdje u popisu: Danska je OZ, Vatikan HV, a Estonija ES.",
+  "cite": [
+   {
+    "src": "RK",
+    "loc": "5. Pozivne oznake — Popis pozivnih oznaka (prefiksa), po zemljama (DXCC lista): D6 Comoros, DL Federal Republic of Germany, DU Philippines, ES Estonia, tiskana str. 257; HV Vatican, OZ Denmark, tiskana str. 258"
+   }
+  ]
+ },
+ "bk-pra-2-18": {
+  "note": "IARU je skraćenica za International Amateur Radio Union — Međunarodni savez radioamatera, krovnu svjetsku organizaciju nacionalnih radioamaterskih saveza (poput HRS-a); knjižni popis kratica navodi IARU kao 'Međunarodna radioamaterska organizacija'. Upravo IARU usklađuje plan frekvencijskih pojaseva opisan u poglavlju 6 ('Planiranje pojaseva IARU-a'), uključujući napomenu uz pojas 1,8 MHz o usklađivanju s Planom pojaseva za IARU Regiju 1. HRS je Hrvatski radioamaterski savez (nacionalni, ne međunarodni savez), dok 'udruženje radioklubova' i 'udruženje amatera Italije' ne odgovaraju nijednoj stvarnoj organizaciji pod tom kraticom.",
+  "cite": [
+   {
+    "src": "RK",
+    "loc": "3. Operativne kratice (IARU — Međunarodna radioamaterska organizacija), tiskana str. 253"
+   },
+   {
+    "src": "RK",
+    "loc": "6. Planiranje pojaseva IARU-a — naslov poglavlja, tiskana str. 264; napomena 'Plan pojaseva za IARU Regiju 1' uz pojas 1,8 MHz, tiskana str. 267"
+   }
+  ]
+ },
+ "bk-pra-2-19": {
+  "note": "Prema HRS-ovoj tablici odgovora, QSL karta mora sadržavati samo pozivnu oznaku (identifikaciju postaje s kojom je veza uspostavljena), a ne i tehničke podatke o korištenim radijskim uređajima — potonje je uobičajena, ali neobavezna dodatna informacija na kartici. Ovo konkretno pravilo o obaveznom minimalnom sadržaju QSL karte nije razrađeno u knjižnom tekstu: on kratice QSL ('potvrda prijama'), QSLL ('potvrda veze QSL karticom') i CRD ('QSL karta') objašnjava samo kao pojmove, a nigdje ne propisuje što na kartici mora pisati. Odgovor se stoga oslanja izravno na HRS-ovu tablicu odgovora.",
+  "cite": [
+   {
+    "src": "RK",
+    "loc": "tablica ODGOVORI NA PITANJA, redak 19, stupac Skupina II"
+   },
+   {
+    "src": "RK",
+    "loc": "2. Q-kod (QSL — potvrda prijama; QSLL — potvrda veze QSL karticom), tiskana str. 251; 3. Operativne kratice (CRD — QSL karta), tiskana str. 252"
+   }
+  ]
+ },
+ "bk-pra-2-20": {
+  "note": "CALL-BOOK je adresar (imenik) radioamatera — popis pozivnih oznaka s pripadajućim imenima i adresama operatora, koji se koristi npr. za slanje QSL karata izravnom poštom umjesto preko biroa. Knjiga u popisu kratica definira samostalno 'CALL' kao pozivnu oznaku (i 'CS' u istom značenju), ali složenicu 'CALL-BOOK' nigdje u tekstu ne razrađuje — pojavljuje se samo u ispitnim pitanjima — pa se za sam pojam ovdje oslanja na HRS-ovu tablicu odgovora.",
+  "cite": [
+   {
+    "src": "RK",
+    "loc": "tablica ODGOVORI NA PITANJA, redak 20, stupac Skupina II"
+   },
+   {
+    "src": "RK",
+    "loc": "3. Operativne kratice (CALL — pozivna oznaka), tiskana str. 252"
+   }
+  ]
+ },
+ "bk-pra-2-21": {
+  "note": "TNX FOR QSO = 73 CUAGN rastavlja se na: TNX (hvala), QSO (veza; održavanje veze), 73 (radioamaterski pozdrav) i CUAGN (ponovno se susresti, ponovno se čuti na pojasu). Zajedno: 'hvala za vezu — srdačan pozdrav do ponovnog susreta.' Opcija a) pogrešno zamjenjuje 'vezu' (QSO) s 'QSL kartom', opcija b) dodaje 'laku noć' (to bi bilo GN) koje ovaj tekst ne sadrži, a opcija d) spominje raport (RPRT) koji se ovdje uopće ne pojavljuje.",
+  "cite": [
+   {
+    "src": "RK",
+    "loc": "2. Q-kod (QSO — veza; održavanje veze), tiskana str. 251; 3. Operativne kratice (CUAGN, tiskana str. 252; TNX i 73, tiskana str. 255)"
+   }
+  ]
+ },
+ "bk-pra-2-22": {
+  "note": "RST je sustav ocjenjivanja primljenog signala: R (razumljivost), S (jakost) i T (ton) — knjiga to navodi doslovno, 'sustav za ocjenjivanje signala: R — razumljivost, S — jakost, T — ton' (u kraćem popisu iz poglavlja o Q-kodu: 'čitljivost, jakost signala, tonsko izvješće'). Time RST u cjelini ocjenjuje kvalitetu PRIJAMA sugovornikova signala, a ne snagu vlastitog odašiljača, udaljenost između postaja (to bi bio Q-kod QRB) niti kvalitetu same opreme.",
+  "cite": [
+   {
+    "src": "RK",
+    "loc": "3. Operativne kratice (RST — sustav za ocjenjivanje signala: R — razumljivost, S — jakost, T — ton), tiskana str. 254; kraći popis (RST — čitljivost, jakost signala, tonsko izvješće), tiskana str. 227"
+   }
+  ]
+ },
+ "bk-pra-2-23": {
+  "note": "Kratica LOG označava dnevnik radioamaterske postaje (evidenciju svih ostvarenih veza) — knjiga je definira izravno kao 'dnevnik radiopostaje'. DNV i RDN nisu radioamaterske kratice i ne pojavljuju se u knjižnom popisu, a QSL označava potvrdu prijama (odnosno karticu kojom se veza potvrđuje), a ne sâm dnevnik.",
+  "cite": [
+   {
+    "src": "RK",
+    "loc": "3. Operativne kratice (LOG — dnevnik radiopostaje), tiskana str. 253; 2. Q-kod (QSL — potvrda prijama), tiskana str. 251"
+   }
+  ]
+ },
+ "bk-pra-2-24": {
+  "note": "QSP je Q-kod koji označava posredovanje između sugovornika, tj. prenošenje poruke trećoj strani koju sugovornik izravno ne čuje — knjiga ga navodi doslovno tako, 'posredovanje između sugovornika'. Time odgovara upravo zahtjevu 'prenesite moju poruku'. Preostale tri opcije pripadaju drugim Q-kodovima iz istog popisa: 'promijenite frekvenciju' je QSY ('prijelaz na neku drugu frekvenciju'), 'jačina vaših signala se mijenja' je QSB ('promjena jakosti signala (fading)'), a 'ostanite na prijamu' nije QSP nego je najbliže QRX-u ('kad slijedi ponovni poziv?').",
+  "cite": [
+   {
+    "src": "RK",
+    "loc": "2. Q-kod (QSP — posredovanje između sugovornika; QSB, QSY, QRX u istom popisu), tiskana str. 251"
+   }
+  ]
+ },
+ "bk-pra-2-25": {
+  "note": "QRP je Q-kod kojim se traži ili nalaže smanjenje snage odašiljača (u širem smislu i naziv za rad malom snagom) — knjiga ga u punom popisu Q-koda navodi kao pitanje 'Hoću li smanjiti snagu odašiljača?' s odgovorom 'Smanjite snagu odašiljača.', a u kraćem popisu kao 'smanjenje snage odašiljača'. Suprotan zahtjev, povećanje snage, označava se s QRO; upit za vrijeme je QTR ('točno vrijeme'). Odvlačilica 'vaš ton nije čist (chirp)' opisuje nešto što knjiga stvarno definira, samo ne kao Q-kod: u poglavlju 5.4.11. 'Smetnje koje se stvaraju otipkavanjem Morseovih znakova' piše da se 'promjena u frekvenciji na početku telegrafskoga signala naziva čirpom' (engl. chirp, cvrkutanje) — dakle nestabilnost frekvencije odašiljača tijekom tipkanja, spomenuta i uz otipkavanje u poglavlju 1.8.4. Knjiga tu pojavu ne povezuje ni s jednim Q-kodom; najbliža ocjena tona u Q-kodu je QRI ('ton odašiljanog signala, T1-T9'), odnosno T u sustavu RST.",
+  "cite": [
+   {
+    "src": "RK",
+    "loc": "2. Q-kod (QRP — Hoću li smanjiti snagu odašiljača? / Smanjite snagu odašiljača.; QRO), tiskana str. 227; kraći popis (QRP, QRO, QRI — ton odašiljanog signala T1-T9, QTR), tiskana str. 251"
+   },
+   {
+    "src": "RK",
+    "loc": "5.4.11. Smetnje koje se stvaraju otipkavanjem Morseovih znakova ('Promjena u frekvenciji na početku telegrafskoga signala naziva se čirpom'), tiskana str. 144; spomenuto uz 1.8.4. Otipkavanje, tiskana str. 51"
+   }
+  ]
+ },
+ "bk-pra-2-26": {
+  "note": "RPRT je kratica za raport — ocjenu čujnosti primljenog signala (u praksi RST vrijednost) — knjiga je definira izravno kao 'ocjena čujnosti'. 'Ponovite' je kratica RPT ('ponovi'), jedno slovo kraća i navedena u istom retku popisa; za repetitor knjiga u popisu kratica nema oznake RPRT (na UKV planovima piše 'radijski repetitori' punim riječima), a 'opis uređaja' je RIG.",
+  "cite": [
+   {
+    "src": "RK",
+    "loc": "3. Operativne kratice (RPRT — ocjena čujnosti; RPT — ponovi; RIG — uređaji, radiopostaje), tiskana str. 254"
+   }
+  ]
+ },
+ "bk-pra-2-27": {
+  "note": "Telegrafija (rad Morseovim znakovima) označava se kraticom CW — knjiga je u popisu operativnih kratica definira izravno kao 'telegrafija', a u kraćem popisu uz Q-kod objašnjava CW kao 'kontinuirani val', što je tehnički temelj telegrafskog odašiljanja. RTTY je pisani digitalni prijenos (radioteleprinter), SSB je 'prijenos s jednim bočnim pojasom' (vrsta amplitudne modulacije), a FM je frekvencijska modulacija — nijedna od tih triju kratica ne označava telegrafiju.",
+  "cite": [
+   {
+    "src": "RK",
+    "loc": "3. Operativne kratice (CW — telegrafija; FM), tiskana str. 252-253; RTTY, SSB, tiskana str. 254; CW — kontinuirani val, tiskana str. 227"
+   }
+  ]
+ },
+ "bk-pra-2-28": {
+  "note": "Tablica kanala repetitora na 2 m navodi za oznaku RV54 par frekvencija 145,075 MHz (prvi stupac, ulazna/RX) i 145,675 MHz (drugi stupac, izlazna/TX), uz stariju oznaku R3 i razmak od točno 600 kHz — isti poredak stupaca kao kod svih ostalih kanala tablice (npr. RV62 u pitanju 14). Pitanje traži par u obliku TX/RX, dakle izlazna pa ulazna, što daje opciju b) 'TX/RX 145,675/145,075'. Opcija a) 'TX/RX 145,750/145,150' nije izmišljen broj: to je točan TX/RX par susjednog kanala RV60 (RX 145,150 / TX 145,750, oznaka R6, u istoj tablici) — dakle zamijenjen kanal, a ne zamijenjen poredak stupaca ili nasumičan broj. Opcija c) ima zamijenjen redoslijed TX/RX unatoč ispravnim brojkama RV54 kanala, a opcija d) miješa ispravnu RX vrijednost s pogrešnom drugom brojkom (144,475).",
+  "cite": [
+   {
+    "src": "RK",
+    "loc": "Oznake i frekvencije kanala radijskih repetitora na području od 2 m (redak RV54: 145,075 / 145,675 / R3; redak RV60: 145,150 / 145,750 / R6), tiskana str. 280"
+   }
+  ]
+ },
+ "bk-pra-2-29": {
+  "note": "Frekvencija 7,085 MHz spada u segment 7 045...7 200 kHz IARU-inog plana pojasa 40 m, koji je u planu naveden kao 'telefonija, telegrafija' — dakle telefonski (SSB) rad na 7,085 MHz je dopušten, i to bilo kojeg dana i izvan natjecanja. Pazi da 7 045 kHz nije oštra granica između 'samo telegrafije' i telefonije: segment neposredno ispod, 7 040...7 045 kHz, već dopušta i telefoniju ('digitalna (osim paketne), SSTV, FAX, telegrafija, telefonija'). Čisto telegrafski dio pojasa je samo 7 000...7 035 kHz, dok je 7 035...7 040 kHz digitalni/SSTV/FAX uz telegrafiju, bez telefonije.",
+  "cite": [
+   {
+    "src": "RK",
+    "loc": "6. Planiranje pojaseva IARU-a, plan kratkovalnih pojaseva 40 m (7000-7035 kHz telegrafija; 7035-7040 kHz digitalna, SSTV, FAX, telegrafija; 7040-7045 kHz isto + telefonija; 7045-7200 kHz telefonija, telegrafija), tiskana str. 264"
+   }
+  ]
+ },
+ "bk-pra-2-30": {
+  "note": "RIG označava opis radne opreme ('uređaji, radiopostaje'), a upitnik iza kratice pretvara je u pitanje odnosno zahtjev za ponavljanje — knjiga tu logiku izrijekom opisuje za Q-kod ('kada iza kratice slijedi upitnik, kratica ima značenje pitanja') i za kraticu AA ('upotrebljava se poslije znaka pitanja ili kratice RPT kao zahtjev za ponavljanje'). Kad sugovornik otipka 'RIG?? +K' traži dakle da ponovimo podatke o svom uređaju, tipično RX/TX opremu koju koristimo, a 'K' ('poziv za odašiljanje') poziva nas da nastavimo. Ime i mjesto tražilo bi se s 'NAME QTH??', adresa s 'ADR??', a raport s 'RST??' ili 'RPRT??'.",
+  "cite": [
+   {
+    "src": "RK",
+    "loc": "3. Operativne kratice (RIG — uređaji, radiopostaje), tiskana str. 254; K — poziv za odašiljanje, RX, TX, tiskana str. 227; AA — sve poslije (zahtjev za ponavljanje), tiskana str. 252"
+   },
+   {
+    "src": "RK",
+    "loc": "2. Q-kod — uvodna napomena o značenju upitnika iza kratice, tiskana str. 251"
+   }
+  ]
+ },
+ "bk-pra-2-31": {
+  "note": "TNX FER NICE QSO ES UFB RPRT - HPE CUAGN VY 73 rastavlja se na: TNX (hvala) FER (za) NICE (lijepu) QSO (vezu) ES (i) UFB (izvanredan) RPRT (raport, ocjena čujnosti) - HPE (nadati se) CUAGN (ponovno se susresti) VY (vrlo) 73 (radioamaterski pozdrav). Zajedno: 'hvala za lijepu vezu i odličan raport — nadam se ponovnom susretu i mnogo pozdrava' (opcija c; tiskana stranica ispisuje taj odgovor kao jedan neprekinut redak — paketovo vlastito polje 'answer_text' u ovoj bazi je to koje je skraćeno, ne knjiga). Opcija a) pogrešno uvodi 'opis uređaja' (RIG) koji ovaj tekst ne spominje, opcija b) zamjenjuje 'vezu' s 'QSL karticom', a opcija d) uvodi 'opis vremena' (WX) i slanje QSL karte kojih u ovom tekstu nema.",
+  "cite": [
+   {
+    "src": "RK",
+    "loc": "3. Operativne kratice (CUAGN, ES, FER, HPE, tiskana str. 252-253; RPRT, tiskana str. 254; TNX, UFB, VY, 73, tiskana str. 255)"
+   },
+   {
+    "src": "RK",
+    "loc": "2. Q-kod (QSO — veza; održavanje veze), tiskana str. 251"
+   },
+   {
+    "src": "RK",
+    "loc": "Ispitna pitanja, SKUPINA II, pitanje 31 (odgovor c, jedan neprekinut redak: 'hvala za lijepu vezu i odličan raport – nadam se ponovnom susretu i mnogo pozdrava'), tiskana str. 386"
+   }
+  ]
+ },
+ "bk-pra-2-32": {
+  "note": "Prefiks HB u međunarodnom (DXCC) popisu pozivnih oznaka po zemljama pripada Švicarskoj ('HB Switzerland'), a susjedni redak HB0 posebno Lihtenštajnu — pa radioamater s pozivnom oznakom koja počinje s 'HB9' odašilje iz Švicarske. Mađarska je HA, redak neposredno iznad (odatle i odvlačilica), Danska je OZ, a Venezuela YV.",
+  "cite": [
+   {
+    "src": "RK",
+    "loc": "5. Pozivne oznake — Popis pozivnih oznaka (prefiksa), po zemljama (DXCC lista): HA Hungary, HB Switzerland, HB0 Liechtenstein, tiskana str. 257; OZ Denmark, tiskana str. 258; YV Venezuela, tiskana str. 259"
+   }
+  ]
+ },
+ "bk-pra-2-33": {
+  "note": "Kao i kod LZ1AA (pitanje 15.), prefiks LZ u DXCC popisu pripada Bugarskoj, pa i pozivna oznaka LZ1SS označava radioamatera iz Bugarske. Odvlačilice su svaka na drugom mjestu popisa: Novi Zeland je ZL, Luxembourg LX, a Rumunjska YO.",
+  "cite": [
+   {
+    "src": "RK",
+    "loc": "5. Pozivne oznake — Popis pozivnih oznaka (prefiksa), po zemljama (DXCC lista): LX Luxembourg, LZ Bulgaria, tiskana str. 258; YO Romania, ZL New Zealand, tiskana str. 259"
+   }
+  ]
+ },
+ "bk-pra-2-34": {
+  "note": "Prefiks VE u DXCC popisu pozivnih oznaka po zemljama pripada Kanadi ('VE Canada'), pa radioamater s pozivnom oznakom VE3BRU odašilje iz Kanade. Neposredno ispod u popisu stoji VK = Australia (odatle odvlačilica c), a Malta je 9H. Za Veliku Britaniju popis ne navodi jedan zbirni prefiks nego zasebne retke po dijelovima otočja: G England, GD Isle of Man, GI Northern Ireland, GJ Jersey, GM Scotland, GU Guernsey, GW Wales.",
+  "cite": [
+   {
+    "src": "RK",
+    "loc": "5. Pozivne oznake — Popis pozivnih oznaka (prefiksa), po zemljama (DXCC lista): VE Canada, VK Australia, tiskana str. 259; G England, GD, GI, GJ, GM, GU, GW, tiskana str. 257; 9H Malta, tiskana str. 256"
+   }
+  ]
+ },
+ "bk-pra-2-35": {
+  "note": "Pozivna oznaka je oznaka identifikacije postaje — knjiga izravno navodi da se 'radiomaterska pozivna oznaka sastoji se od predmetka (prefiksa), koji određuje državnu pripadnost radiopostaje i sufiksa koji određuje radiopostaju unutar države' (knjiga ovdje ispisuje 'radiomaterska' bez drugog 'a' — tiskarska pogreška, ne naša). Uobičajena praksa (kao u primjerima 9A2XY ili DJ1OV iz ovog paketa) taj prefiks dalje dijeli na slovni predznak i brojku područja ('9A' + '2'), pa se u nastavi opisuje tročlana struktura prefiks-broj-sufiks, dok knjižni tekst na ovom mjestu spominje samo dvočlanu podjelu prefiks/sufiks — brojka se u knjizi ne izdvaja kao zaseban član. Oznaka svakako NIJE tek ime postaje s inicijalima operatora (opcija a), niti se sastoji od oznake države i naziva postaje ili dodatka po izboru amatera (opcije c, d).",
+  "cite": [
+   {
+    "src": "RK",
+    "loc": "5. Pozivne oznake ('Radiomaterska pozivna oznaka sastoji se od predmetka (prefiksa), koji određuje državnu pripadnost radiopostaje i sufiksa koji određuje radiopostaju unutar države' — tiskano bez drugog 'a' u 'Radiomaterska'), tiskana str. 256"
+   }
+  ]
+ },
+ "bk-pra-2-36": {
+  "note": "Za vrijeme natjecanja razmjena se, radi brzine i poštenog vrednovanja, ograničava na standardizirane elemente (pozivne oznake, raport, redni broj ili lokator) — osobni, nekonvencionalni razgovori nisu dopušteni jer usporavaju rad i odstupaju od pravila natjecanja po kojima svaka veza mora biti brzo i jednoznačno evidentirana. Ovo konkretno pravilo ponašanja tijekom natjecanja nije razrađeno u knjižnom tekstu — knjiga o natjecanjima ima samo kratice (CONTEST/TEST — 'natjecanje', 'radioamatersko natjecanje') i napomenu o pojasevima u kojima se natjecanja ne smiju održavati — pa se odgovor oslanja izravno na HRS-ovu tablicu odgovora.",
+  "cite": [
+   {
+    "src": "RK",
+    "loc": "tablica ODGOVORI NA PITANJA, redak 36, stupac Skupina II"
+   },
+   {
+    "src": "RK",
+    "loc": "3. Operativne kratice (CONTEST — natjecanje), tiskana str. 252; (TEST — 2. radioamatersko natjecanje), tiskana str. 255"
+   }
+  ]
+ },
+ "bk-pra-2-37": {
+  "note": "Radijski repetitori i mobilne/ručne postaje koje ih koriste uobičajeno rade s vertikalno polariziranim antenama (okomito na tlo). Knjiga to izrijekom potvrđuje u poglavlju o rasprostiranju vala: za rad na 50 MHz i višim frekvencijama piše da se 'gotovo se uvijek rabe antene s velikim dobitkom i horizontalnom polarizacijom, osim u pokretnoj službi s FM i u radu preko repetitora' — repetitorski i pokretni FM rad su dakle izrijekom izuzeti od horizontalne polarizacije. Mobilne i ručne postaje gotovo isključivo imaju vertikalne (gumene ili magnetske) antene, pa bi vodoravna ili kružna polarizacija na repetitoru unijela veliki gubitak zbog nepodudarnosti polarizacije. Polarizaciju vala općenito objašnjava poglavlje 1.5.3.; odgovor potvrđuje i HRS-ova tablica odgovora.",
+  "cite": [
+   {
+    "src": "RK",
+    "loc": "tablica ODGOVORI NA PITANJA, redak 37, stupac Skupina II"
+   },
+   {
+    "src": "RK",
+    "loc": "Visina antene, kut zračenja i polarizacija ('za rad na 50 MHz i na višim frekvencijama ... antene s velikim dobitkom i horizontalnom polarizacijom, osim u pokretnoj službi s FM i u radu preko repetitora'), tiskana str. 173"
+   },
+   {
+    "src": "RK",
+    "loc": "1.5.3. Polarizacija, tiskana str. 40"
+   }
+  ]
+ },
+ "bk-pra-2-38": {
+  "note": "Unutar pojasa 80 m, IARU-in plan pojaseva namjenjuje segment 3 730...3 740 kHz za 'SSTV, FAX, telefoniju, telegrafiju' — SSTV (sporoanalizirajuća televizija) tu je izrijekom navedena kao prvi navedeni način rada, dok je nijedan susjedni segment ne spominje. Zato je od ponuđenih odgovora točan upravo SSTV: susjedni segmenti su ili digitalno-telegrafski (3 580...3 590 i 3 590...3 600 kHz) ili opće telefonijsko-telegrafski bez SSTV napomene (3 650...3 775 i 3 775...3 800 kHz). Napomena uz plan objašnjava i zašto je redoslijed važan: 'kada je nekoliko vrsta rada prikazano u podpojasevima, prvi ima prioritet'.",
+  "cite": [
+   {
+    "src": "RK",
+    "loc": "6. Planiranje pojaseva IARU-a, plan kratkovalnih pojaseva 80 m (3 730...3 740 kHz: SSTV, FAX, telefonija, telegrafija), tiskana str. 264; Napomene ('prvi ima prioritet'), tiskana str. 266"
+   }
+  ]
+ },
+ "bk-pra-2-39": {
+  "note": "Plan pojasa 2 m ograničava repetitorske kanale — i ulazni segment 144,994...145,194 MHz i izlazni segment 145,594...145,794 MHz — riječima 'radijski repetitori — ulazni/izlazni pojas isključivo, kanalni razmak 12,5 kHz, vrsta modulacije 12K0F3E'. Oznaka 12K0F3E je ITU oznaka emisije za FM telefoniju (F3E = frekvencijska modulacija, analogni govor) širine 12,5 kHz, dakle za glas, a ne za telegrafiju (koja bi bila A1A odnosno F1B). Budući da su repetitorski kanali time namjenski ograničeni samo na FM govor, telegrafski rad preko repetitora nije dopušten.",
+  "cite": [
+   {
+    "src": "RK",
+    "loc": "Plan VHF pojaseva 144 MHz (2 m) — repetitorski ulazni i izlazni pojas, 'isključivo, kanalni razmak 12,5 kHz, vrsta modulacije 12K0F3E', tiskana str. 271"
+   }
+  ]
+ },
+ "bk-pra-2-40": {
+  "note": "Knjiga u definiciji amaterske postaje izravno navodi: 'Amaterska postaja je radijska postaja u radioamaterskoj službi, koja služi u svrhu međusobnih komunikacija, osobnog obrazovanja i tehničkih istraživanja koje provode radioamateri isključivo iz osobnih razloga bez materijalne koristi za što trebaju imati položen propisani radioamaterski ispit.' Namjena je dakle osobna (a ne poslovna ni komercijalna) komunikacija radioamatera, bez materijalne koristi — što je doslovno opcija c. Time otpada opcija a) (koja bi komunikaciju nepotrebno svela na 'pojedine operatore') i opcija d) (koja pogrešno ograničava rad na komunikaciju s amaterskim udrugama); ista se odrednica 'iz osobnih razloga, a ne zbog materijalnog interesa' pojavljuje i u definiciji amaterske službe u prethodnom odjeljku.",
+  "cite": [
+   {
+    "src": "RK",
+    "loc": "1.2. Definicija amaterske postaje, tiskana str. 210; usporedi 1.1. Definicija amaterske službe na istoj stranici"
+   }
+  ]
+ }
+}
