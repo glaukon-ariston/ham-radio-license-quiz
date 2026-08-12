@@ -45,3 +45,31 @@ duplicate "c)" option label the checker also noted is a genuine misprint *in the
 defect. Do not re-derive the str. 383 render to double-check this item's own finding — it is
 already confirmed by direct human inspection of the page, not by the packet field that was
 wrong in the first place.
+
+---
+
+**Round 9 (filed 12 Aug 2026).** Glaukon has authorized up to 16 further automated repair
+rounds for this specific file, without waiting for a human check-in between rounds.
+
+**AUTO-REFILE AUTHORIZED.** If this round's checker verdict is `fail`: do not stop for
+human review. Immediately (a) stash the work as usual, (b) append a new `Round N` section
+below this one naming the new stash and the specific defect(s) found, decrement
+`Rounds remaining`, and (c) move the item back to `queue/todo/` and commit, so the next
+`/drain` firing (the hourly cron, job `250a7cd5`) picks it up automatically. Only stop and
+leave it in `queue/blocked/` for a human once `Rounds remaining` reaches 0, or if the
+verdict is `pass`.
+
+**Rounds remaining: 16**
+
+Recover the stash `queue P2-0051: fail` (the latest). Two known defects to fix, both
+single-word quote-verbatim slips found on the eighth landing attempt:
+1. `bk-pra-2-05` quotes UFB as "izvanredno"; the rendered page (str. 255) prints
+   "zvanredno" — drop the extra "i".
+2. `bk-pra-2-37` quotes "gotovo uvijek rabe antene..."; the rendered page (str. 173) reads
+   "gotovo **se** uvijek rabe antene..." — add the missing "se".
+
+**Done when (round 9).** Both fixed. Given this file's history (eight straight rounds each
+finding one more transcription slip via full re-render), do not assume the rest of the file
+is clean just because a prior round certified it — render every page this file cites and
+check every quoted string character-by-character against the image, not against
+`booktool.py`'s text output, which has been the root cause of every defect so far.
