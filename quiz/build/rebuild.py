@@ -5,7 +5,7 @@
     figures2.py    vector figures -> figs/
     this script    assemble questions.json, attach notes, then build_quiz.py
 """
-import base64, datetime, glob, json, subprocess, sys
+import datetime, glob, json, subprocess, sys
 from collections import Counter
 from pathlib import Path
 
@@ -80,8 +80,10 @@ for q in hrs:
                       "loc": f"{FILE[q['section']]}, pitanje {q['number']}, str. {q.get('page','?')}"}
     f = figs.get(q["id"])
     if f:
-        data = base64.b64encode((HERE / "figs" / f["file"]).read_bytes()).decode()
-        q["figure"] = {"data": f"data:image/png;base64,{data}", "w": f["w"], "h": f["h"]}
+        # A relative path, not a base64 data URI: quiz.html only ever shows one figure at a
+        # time, but a data URI makes every page load parse all of them. `images/<file>` is
+        # copied alongside quiz.html below and resolves under both file:// and http(s)://.
+        q["figure"] = {"data": f"images/{f['file']}", "w": f["w"], "h": f["h"]}
         q["figure_is_options"] = bool(q.pop("figure_options", False))
     q.pop("figure_options", None)
     q.pop("red_marks", None)
@@ -103,8 +105,7 @@ extra = [{
 for e in extra:
     f = bfigs.get(e["id"])
     if f:
-        data = base64.b64encode((HERE / "figs_book" / f["file"]).read_bytes()).decode()
-        e["figure"] = {"data": f"data:image/png;base64,{data}", "w": f["w"], "h": f["h"]}
+        e["figure"] = {"data": f"images/{f['file']}", "w": f["w"], "h": f["h"]}
         e["figure_is_options"] = f["is_options"]
 
 # attach explanations. Must cover both banks: hrs alone would silently drop every
@@ -150,6 +151,28 @@ problems += [f"{qid}: subsection for a question that does not exist"
 if problems:
     sys.exit("BUILD ABORTED — unanswerable questions:\n  " + "\n  ".join(problems[:20]))
 print(f"--- integrity ok: {len(hrs) + len(extra)} questions, all answerable")
+
+# Copy the figure PNGs quiz.html's `f` field now points at into quiz/images/, next to
+# quiz.html itself. Source dir differs per question (figs/ for HRS, figs_book/ for book);
+# destination is flat because figs_index.json / figs_book_index.json filenames are already
+# id-based and disjoint (checked: no id collides between the two indexes). Stale PNGs from a
+# figure that no longer exists are removed so quiz/images/ never drifts from questions.json.
+img_dir = DST / "images"
+img_dir.mkdir(exist_ok=True)
+wanted = {}
+for q in hrs + extra:
+    fig = q.get("figure")
+    if not fig:
+        continue
+    fname = Path(fig["data"]).name
+    src = (HERE / "figs" if q["src"] == "hrs" else HERE / "figs_book") / fname
+    wanted[fname] = src
+for fname, src in wanted.items():
+    (img_dir / fname).write_bytes(src.read_bytes())
+stale = [p for p in img_dir.glob("*.png") if p.name not in wanted]
+for p in stale:
+    p.unlink()
+print(f"--- images: {len(wanted)} PNGs in {img_dir}" + (f" ({len(stale)} stale removed)" if stale else ""))
 
 doc = {"_meta": {}, "_sources": SOURCES, "questions": hrs, "questions_extra": extra}
 tot = Counter(q["section"] for q in hrs + extra)

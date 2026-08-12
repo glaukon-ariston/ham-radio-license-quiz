@@ -9,6 +9,10 @@ doc = json.loads((DST / "questions.json").read_text(encoding="utf-8"))
 def pack(q, src):
     return {"id": q["id"], "s": q["section"], "sub": q.get("subsection"),
             "q": q["question"], "o": q["options"], "a": q["answer"], "src": src,
+            # "f" is a path like "images/teh-024.png", relative to quiz.html itself — not a
+            # base64 data URI. rebuild.py copies the PNG into quiz/images/ alongside
+            # quiz.html; img.src resolves a relative path against the page's own location
+            # under both file:// and http(s)://, so the runtime line below needs no change.
             "f": q.get("figure", {}).get("data"), "fo": bool(q.get("figure_is_options")),
             "e": q.get("explanation"), "flag": q.get("flag"),
             "fx": q.get("formula"), "lk": q.get("links"),
@@ -525,6 +529,8 @@ function render(){
   $("#qtext").textContent = q.q;
 
   const fig = $("#qfig");
+  // q.f is "images/<id>.png", relative to this page — works unchanged under file:// and
+  // http(s)://, unlike fetch()/XHR which file:// blocks with a CORS error.
   if(q.f){ $("#qimg").src = q.f; fig.classList.remove("hidden"); } else fig.classList.add("hidden");
 
   const wrapEl = $("#qopts"); wrapEl.innerHTML = "";
