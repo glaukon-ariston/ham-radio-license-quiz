@@ -1,0 +1,17 @@
+Both named fixes (bk-pra-2-04 "0A9Z"->"9A9Z"; bk-pra-2-39 "12KOF3E"->"12K0F3E") confirmed
+correct via pixel-level render. A full character-by-character re-render of all 26 cited
+pages found two more quote-verbatim slips, smaller than any prior defect in this file's
+history: bk-pra-2-05 quotes UFB as "izvanredno" when the page prints "zvanredno" (no "i");
+bk-pra-2-37 quotes "gotovo uvijek rabe antene..." when the page reads "gotovo SE uvijek
+rabe antene..." (drops "se"). Both are single-word transcription slips in an otherwise
+accurate quote, not fabricated content or claims about the book's own errors - a milder
+failure mode than the six before it, but still a quote that isn't verbatim.
+
+Work stashed: 'queue P2-0051: fail'. This is the EIGHTH failed landing attempt for
+notes_book_s2_pravila.json across four items (P3-0012 x4, P2-0048, P2-0050, this one).
+Each pass fixes what it's told plus finds smaller new defects; the defect size has been
+shrinking (fabricated claims -> fabricated quotes -> single-word quote slips), which may
+mean this is close to converging, or may mean incremental patching against this
+particular file has an effectively unbounded tail of tiny transcription errors that a
+strict word-for-word check will always find one more of. Worth a human decision on
+whether to keep patching or accept a slightly looser quote-fidelity bar for this file.
