@@ -33,14 +33,21 @@ your report.
    plausible, and say so in the note.
 6. **PyMuPDF, never `pdftotext`** — it destroys Croatian diacritics and cannot see the
    red-text answer key. Set `PYTHONIOENCODING=utf-8` before any Python that prints Croatian.
-7. **Never trust extracted/OCR'd text as evidence of what the book itself says.** `booktool.py`
-   gives you *text*, not the page. If your evidence for a claim is a string that looks garbled
-   ("LARU", "F5SBDW", "C,"), that garbling is almost always the extraction failing, not the
-   book — render the page as an image and read it yourself (or have an LLM read the rendered
-   image) before asserting anything about what's printed, especially before claiming the book
-   itself contains an error. A citation pointing at the wrong page is a mistake; asserting the
-   *source* is wrong when it isn't is worse, because it survives every check that only
-   re-reads the same OCR text.
+7. **Never trust extracted text as evidence of what the book itself presents — in any respect,
+   not just spelling.** `booktool.py` gives you *text*, not the page, and its extraction can be
+   wrong about spelling, word choice, line breaks, table layout, duplicate labels, anything.
+   If a claim you're about to write is of the shape "the book itself does/says/prints X" —
+   garbles a word, splits a phrase across two lines, mislabels an option, omits an entry — the
+   extraction is the far more likely culprit than the book, whatever *kind* of oddity it is.
+   Render the page as an image and read it yourself (or have an LLM read the rendered image)
+   before writing that sentence. A citation pointing at the wrong page is a mistake; asserting
+   the *source* is wrong when it isn't is worse, because it survives every check that only
+   re-reads the same extracted text. **This rule does not enforce itself** — say so in your
+   report: for every claim of this shape, name the id and state plainly that you rendered the
+   specific page and read it, not that you re-ran `booktool.py`. A claim of this shape with no
+   render mentioned is exactly what a checker should treat as unverified, and it is what let
+   `bk-pra-2-05`/`bk-pra-2-31` (a *line-split* claim, not a misspelling) ship past this same
+   rule the very next run after it was written — see the trap entry below.
 
 Traps that have cost real time here:
 
@@ -57,6 +64,14 @@ Traps that have cost real time here:
   "OCR knjige" (rendered str. 388: prints `"F5BDW ? PSE UR CALL AGN de 9A5JA + PSE K"` cleanly).
   Both shipped past a checker before a second render caught them. This is rule 7 above, stated
   again here because it has now cost two items four blocked rounds each.
+- **The rule above was added at commit `f127091` (22:40) after those two shipped — and the very
+  next worker run on the same file, 23 minutes later, produced two more**: `bk-pra-2-05` and
+  `bk-pra-2-31` each claimed the book splits a short quoted phrase across two printed lines;
+  rendered, both are one line. Same root cause (extraction trusted over render), different
+  surface symptom (layout, not spelling) — apparently different enough that "don't trust
+  garbled words" didn't fire as a match. A rule stated only by example gets read narrowly.
+  Rule 7 now says the *general* case for exactly this reason: any "the book itself does X"
+  claim, whatever X is, needs a render before you write it, and your report needs to say so.
 
 ## Never
 

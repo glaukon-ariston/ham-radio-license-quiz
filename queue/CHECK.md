@@ -27,12 +27,16 @@ you are the independent check on.
 7. **Does anything look invented?** An article number or page that reads plausibly but is
    not in the source is the worst failure mode here, because it survives every automated
    check. Rule 5 says cite nothing instead.
-8. **Does any note allege the book itself is wrong, garbled, or misspelled?** Never take that
-   on the worker's word or on `booktool.py`'s extracted text — render the page and read it
-   yourself. `bk-pra-2-18`/`bk-pra-3-02` both shipped a claim like this ("LARU" for IARU,
-   garbled callsigns) past a checker who spot-checked pages but didn't render the specific one
-   the claim was about; a second render is what caught it. Rendering is required, not optional,
-   whenever a note's evidence is "the text I extracted looks wrong."
+8. **Does any note allege the book itself does, says, or presents something unusual** — wrong,
+   garbled, misspelled, split across lines, mislabeled, missing an entry, anything about the
+   source's own presentation? Never take that on the worker's word or on `booktool.py`'s
+   extracted text — render the page and read it yourself. `bk-pra-2-18`/`bk-pra-3-02` (word
+   garbling) and `bk-pra-2-05`/`bk-pra-2-31` (a line-split claim) all shipped this way; each
+   time a second render is what caught it. Rendering is required, not optional, for *any* such
+   claim, whatever kind of oddity it alleges — do not let the claim's specific flavor decide
+   whether it counts. Per BRIEF.md rule 7 the worker's report should name each such claim and
+   confirm it rendered the page; if a claim of this shape appears with no render mentioned in
+   the report, treat it as unverified on sight and render it yourself before passing anything.
 
 ## Bias
 

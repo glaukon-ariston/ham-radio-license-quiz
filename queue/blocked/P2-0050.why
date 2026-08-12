@@ -1,0 +1,20 @@
+Both named fixes (bk-pra-2-05, bk-pra-2-31) confirmed correct against rendered pages. Full
+40-note re-read this time found a SEVENTH instance of the underlying bug, in a new shape:
+bk-pra-2-04 quotes exam option a) as "0A9Z DE DL8AA", but printed str. 383 reads "9A9Z DE
+DL8AA" - the "0" is booktool.py's own OCR garbling reproduced as if it were the page content.
+Not a "claim about the book's quality" this time, just a fabricated quote sourced from the
+unreliable text-extraction tool instead of a render. Answer (opcija b) unaffected.
+
+This is notes_book_s2_pravila.json's SIXTH failed landing attempt (P3-0012 x4, P2-0048 x1,
+this item), each time exactly one more instance of trusting extracted/OCR text over a
+rendered page. Two cosmetic non-blocking notes also surfaced: str.386 pitanje 26 has a
+genuine duplicate "c)" misprint in the book that bk-pra-2-26 doesn't claim anything about
+(not a defect); bk-pra-2-39's cite string has "12KOF3E" (letter O) vs "12K0F3E" (digit 0,
+matching the note body and page) - typo in the citation string only.
+
+Work stashed: 'queue P2-0050: fail'. NOT refiling again. Given six consecutive failures on
+this specific file, each caught only by a full re-read, recommend either (a) a human writes
+this file's remaining defect-prone notes by hand against page renders rather than another
+automated patch-and-recheck cycle, or (b) treat every citation in this file as unverified
+and have a worker regenerate it from scratch reading only rendered images, never booktool.py
+text output, from the start.
