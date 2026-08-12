@@ -84,6 +84,21 @@ NO_FIGURE = {
     "bk-teh-2-30": "gap 76.8pt is the stem's own 3-4 line wrap, not a figure; pdf p.299 "
                    "(printed 304) rendered and confirmed pure text, no schematic/graph "
                    "between stem and options (queue/reports/P2-0033.md)",
+    "bk-pra-3-04": "gap 61.5pt is the stem's own multi-line wrap (CQ CQ AFRICA... call, "
+                   "three printed lines before the options), not a figure; pdf p.382 "
+                   "(printed 388) rendered and confirmed pure text, no schematic/graph "
+                   "between stem and options (manual check, 2026-08-12).",
+    "bk-teh-5-02": "gap 62.7pt is the stem's own two-line wrap, not a figure; pdf p.327 "
+                   "(printed 332) rendered and confirmed pure text, no schematic/graph "
+                   "between stem and options (manual check, 2026-08-12).",
+    "bk-teh-5-06": "NAME hit only on 'krivulje' in '-3 dB krivulje odziva', a phrase about "
+                   "the response curve, not a picture of one; pdf p.327 (printed 332) "
+                   "rendered and confirmed pure text, no schematic/graph on the page "
+                   "(manual check, 2026-08-12).",
+    "bk-teh-5-15": "NAME hit only on 'spektar' in 'Zauzeti frekvencijski spektar je:', a "
+                   "purely verbal follow-on to q14, not a picture; pdf p.329 (printed 334) "
+                   "rendered and confirmed pure text, no schematic/graph on the page "
+                   "(manual check, 2026-08-12).",
 }
 
 doc = pymupdf.open(PDF)
