@@ -14,7 +14,15 @@ is the budget the whole run spends — it is paid again on every remaining item.
 
 ```
 git switch queue-drain 2>/dev/null || git switch -c queue-drain
+python queue/from_issues.py
 ```
+
+`from_issues.py` (P2-0060) drains open GitHub issues labelled `quiz-feedback` — filed from
+the live quiz's "Report a problem" control — into `queue/todo/` items, then closes each as
+triaged. This is what makes a report filed from the quiz show up as work without a GitHub
+Action: run it before the first `pick.py` so anything filed since the last drain is already
+a queue item by the time picking starts. It requires `gh` already authenticated in this
+environment; it does not attempt to log in.
 
 Then decide what state you are resuming from:
 

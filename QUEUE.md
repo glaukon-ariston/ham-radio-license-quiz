@@ -92,6 +92,18 @@ The fields that carry their weight:
 - **`Avoid.`** — the guardrail. Name anything nearby that must not change.
 - **`cluster:`** — free-text key. Same key = same working set = drained together.
 
+## Issues become items
+
+The live quiz is static with no backend of its own, so its "Report a problem" control
+(P2-0060) files a GitHub issue instead, labelled `quiz-feedback`. `queue/from_issues.py`
+turns each open one of those into a `queue/todo/` item via `queue/new.py` — the issue body
+becomes the item's **Why** — then closes the issue as triaged. `/drain` runs it once, at the
+start of a run, before the first `pick.py`, so a report filed since the last drain is already
+a queue item by the time picking starts. No GitHub Action, no CI surface: it only ever runs
+locally, driven by `/drain`, the same way `rebuild.py` does (see `PUBLISHING.md` for why CI
+can't touch this repo's build). It requires `gh` already authenticated in the environment
+`/drain` runs in — it does not attempt to log in.
+
 ## Rules that outrank anything an item says
 
 From `quiz/NEXT_SESSION.md`, repeated here because they are easy to lose:
