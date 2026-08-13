@@ -39,3 +39,6 @@ Thumbs.db
 
 # --- PII: personal contact-info drafts (name, phone, personal email, address) ---
 emails/
+
+# --- copyrighted source scans: HRS priručnik + third-party book; credited, not redistributed ---
+docs/
