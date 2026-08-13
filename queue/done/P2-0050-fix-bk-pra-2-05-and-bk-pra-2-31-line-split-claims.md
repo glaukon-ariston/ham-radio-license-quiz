@@ -47,3 +47,11 @@ introducing a fifth defect, which is exactly what happened on both of this file'
 repair attempts. Do not re-derive the two page renders from scratch to "double check" the
 finding above — it is already confirmed by direct human inspection of the rendered pages, not
 by `booktool.py`'s extracted text, which is the thing that was wrong in the first place.
+
+---
+
+**Closed out, superseded (12 Aug 2026).** notes_book_s2_pravila.json landed via P2-0051
+(round 9), which recovered this item's own stash lineage and fixed every remaining defect.
+The checker for that round rendered all 26 cited pages and verified every quoted string
+character-by-character across all 40 notes — the file is in the committed corpus now. No
+further action needed on this item; not refiling.

@@ -32,3 +32,11 @@ across three rounds and re-litigating them risks introducing a fifth defect. Don
 the disputed sentence and leave a gap; the note must still fully answer the question. Rule 7 in
 BRIEF.md applies here directly: verify by rendering, not by re-reading `booktool.py`'s text
 output, which is the same extraction that caused this defect.
+
+---
+
+**Closed out, superseded (12 Aug 2026).** notes_book_s2_pravila.json landed via P2-0051
+(round 9), which recovered this item's own stash lineage and fixed every remaining defect.
+The checker for that round rendered all 26 cited pages and verified every quoted string
+character-by-character across all 40 notes — the file is in the committed corpus now. No
+further action needed on this item; not refiling.

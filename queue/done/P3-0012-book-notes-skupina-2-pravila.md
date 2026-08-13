@@ -63,3 +63,11 @@ new errors while fixing old ones — every one of the 40 notes is read once more
 standalone claim (not diffed against the round-1 fix list) and checked against actual page
 text, including every negative/absence assertion, which must be checked against a rendered
 page image, not extracted text alone.
+
+---
+
+**Closed out, superseded (12 Aug 2026).** notes_book_s2_pravila.json landed via P2-0051
+(round 9), which recovered this item's own stash lineage and fixed every remaining defect.
+The checker for that round rendered all 26 cited pages and verified every quoted string
+character-by-character across all 40 notes — the file is in the committed corpus now. No
+further action needed on this item; not refiling.
