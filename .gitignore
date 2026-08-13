@@ -36,3 +36,6 @@ queue/.inflight
 .claude/settings.local.json
 desktop.ini
 Thumbs.db
+
+# --- PII: personal contact-info drafts (name, phone, personal email, address) ---
+emails/
