@@ -25,74 +25,40 @@ payload = json.dumps({"q": live, "meta": doc["_meta"], "src": doc["_sources"]},
 HTML = r"""<title>Radioamaterski ispit — A razred</title>
 <style>
 :root{
-  --paper:#F4F6F6; --card:#FFFFFF; --ink:#14181A; --muted:#5B6B6E; --line:#D8DEDE;
-  --accent:#0B5563; --accent-soft:#E3EDEF; --good:#2E7D53; --bad:#B3261E;
-  --good-soft:#E4F1EA; --bad-soft:#F8E5E4; --warn:#8A5A00; --warn-soft:#FBF0D9; --shadow:0 1px 2px rgba(20,24,26,.07),0 8px 24px -12px rgba(20,24,26,.18); --fx-bg:#EEF2F2;
   --mono:ui-monospace,SFMono-Regular,"SF Mono",Menlo,Consolas,"Liberation Mono",monospace;
   --sans:ui-sans-serif,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
 }
-@media (prefers-color-scheme:dark){:root{
-  --paper:#0E1214; --card:#171D1F; --ink:#E8EDED; --muted:#93A3A6; --line:#2A3335;
-  --accent:#38BEC9; --accent-soft:#123034; --good:#5FBF8B; --bad:#F2887F;
-  --good-soft:#122A20; --bad-soft:#2E1A18; --warn:#E5B764; --warn-soft:#2C2413; --shadow:0 1px 2px rgba(0,0,0,.5),0 8px 24px -12px rgba(0,0,0,.7); --fx-bg:#101618;
-}}
-:root[data-theme="dark"]{
-  --paper:#0E1214; --card:#171D1F; --ink:#E8EDED; --muted:#93A3A6; --line:#2A3335;
-  --accent:#38BEC9; --accent-soft:#123034; --good:#5FBF8B; --bad:#F2887F;
-  --good-soft:#122A20; --bad-soft:#2E1A18; --warn:#E5B764; --warn-soft:#2C2413; --shadow:0 1px 2px rgba(0,0,0,.5),0 8px 24px -12px rgba(0,0,0,.7); --fx-bg:#101618;
-}
+/* P2-0059 replaced the old data-palette x data-theme cross (three near-identical hue-only
+   palettes, each duplicated across prefers-color-scheme + two explicit overrides) with a
+   single data-theme axis: light, dark, waterfall. Exactly one flat block per theme, no
+   @media(prefers-color-scheme) duplication — the inline pre-paint script below resolves the
+   initial value once (stored choice, else OS dark-mode, defaulting to light; never
+   auto-lands on waterfall) and sets data-theme before first paint. */
 :root[data-theme="light"]{
   --paper:#F4F6F6; --card:#FFFFFF; --ink:#14181A; --muted:#5B6B6E; --line:#D8DEDE;
   --accent:#0B5563; --accent-soft:#E3EDEF; --good:#2E7D53; --bad:#B3261E;
   --good-soft:#E4F1EA; --bad-soft:#F8E5E4; --warn:#8A5A00; --warn-soft:#FBF0D9; --shadow:0 1px 2px rgba(20,24,26,.07),0 8px 24px -12px rgba(20,24,26,.18); --fx-bg:#EEF2F2;
 }
-/* "balanced" palette — indigo accent, warm-neutral grays. data-palette="muted" (or the
-   attribute absent) falls through to the default :root block above, so only balanced and
-   vivid need their own rules. Each palette repeats the same four-block shape as the muted
-   one above (light default, prefers-color-scheme dark, then the two explicit data-theme
-   overrides) so it composes with that light/dark mechanism instead of replacing it. */
-:root[data-palette="balanced"]{
-  --paper:#F5F4F7; --card:#FFFFFF; --ink:#17151F; --muted:#635B72; --line:#DAD5E0;
-  --accent:#3D3AA8; --accent-soft:#E7E6F5; --good:#157A47; --bad:#C22A3E;
-  --good-soft:#DFF3E7; --bad-soft:#FBE3E7; --warn:#92600A; --warn-soft:#FBEFD7; --shadow:0 1px 2px rgba(23,21,31,.07),0 8px 24px -12px rgba(23,21,31,.18); --fx-bg:#EFEDF5;
+:root[data-theme="dark"]{
+  --paper:#0E1214; --card:#171D1F; --ink:#E8EDED; --muted:#93A3A6; --line:#2A3335;
+  --accent:#38BEC9; --accent-soft:#123034; --good:#5FBF8B; --bad:#F2887F;
+  --good-soft:#122A20; --bad-soft:#2E1A18; --warn:#E5B764; --warn-soft:#2C2413; --shadow:0 1px 2px rgba(0,0,0,.5),0 8px 24px -12px rgba(0,0,0,.7); --fx-bg:#101618;
 }
-@media (prefers-color-scheme:dark){:root[data-palette="balanced"]{
-  --paper:#131019; --card:#1C1826; --ink:#ECE9F2; --muted:#A79FBA; --line:#332C43;
-  --accent:#8F8CF0; --accent-soft:#252043; --good:#6FD19B; --bad:#F28B95;
-  --good-soft:#173327; --bad-soft:#3A1D22; --warn:#E8BE72; --warn-soft:#332811; --shadow:0 1px 2px rgba(0,0,0,.5),0 8px 24px -12px rgba(0,0,0,.7); --fx-bg:#171320;
-}}
-:root[data-palette="balanced"][data-theme="dark"]{
-  --paper:#131019; --card:#1C1826; --ink:#ECE9F2; --muted:#A79FBA; --line:#332C43;
-  --accent:#8F8CF0; --accent-soft:#252043; --good:#6FD19B; --bad:#F28B95;
-  --good-soft:#173327; --bad-soft:#3A1D22; --warn:#E8BE72; --warn-soft:#332811; --shadow:0 1px 2px rgba(0,0,0,.5),0 8px 24px -12px rgba(0,0,0,.7); --fx-bg:#171320;
-}
-:root[data-palette="balanced"][data-theme="light"]{
-  --paper:#F5F4F7; --card:#FFFFFF; --ink:#17151F; --muted:#635B72; --line:#DAD5E0;
-  --accent:#3D3AA8; --accent-soft:#E7E6F5; --good:#157A47; --bad:#C22A3E;
-  --good-soft:#DFF3E7; --bad-soft:#FBE3E7; --warn:#92600A; --warn-soft:#FBEFD7; --shadow:0 1px 2px rgba(23,21,31,.07),0 8px 24px -12px rgba(23,21,31,.18); --fx-bg:#EFEDF5;
-}
-/* "vivid" palette — violet accent, saturated good/bad/warn. Text-bearing pairs (good on
-   good-soft, bad on bad-soft, warn on warn-soft, accent on card) are all >=4.5:1 contrast;
-   verified with a WCAG contrast script before picking these hexes. */
-:root[data-palette="vivid"]{
-  --paper:#FBFAFF; --card:#FFFFFF; --ink:#0F1220; --muted:#5B5470; --line:#E1DCEF;
-  --accent:#5B21B6; --accent-soft:#EFE3FB; --good:#087038; --bad:#C11229;
-  --good-soft:#D8F5E3; --bad-soft:#FCDEE2; --warn:#924300; --warn-soft:#FDE8CC; --shadow:0 1px 2px rgba(15,18,32,.08),0 10px 28px -12px rgba(91,33,182,.25); --fx-bg:#F3EEFC;
-}
-@media (prefers-color-scheme:dark){:root[data-palette="vivid"]{
-  --paper:#0B0812; --card:#18131F; --ink:#F5F1FC; --muted:#B7ABD4; --line:#362C49;
-  --accent:#B98CFF; --accent-soft:#2C2145; --good:#38E28B; --bad:#FF6B7A;
-  --good-soft:#0F3324; --bad-soft:#401B22; --warn:#FFC670; --warn-soft:#3A2A0C; --shadow:0 1px 2px rgba(0,0,0,.6),0 10px 28px -12px rgba(185,140,255,.35); --fx-bg:#140F1D;
-}}
-:root[data-palette="vivid"][data-theme="dark"]{
-  --paper:#0B0812; --card:#18131F; --ink:#F5F1FC; --muted:#B7ABD4; --line:#362C49;
-  --accent:#B98CFF; --accent-soft:#2C2145; --good:#38E28B; --bad:#FF6B7A;
-  --good-soft:#0F3324; --bad-soft:#401B22; --warn:#FFC670; --warn-soft:#3A2A0C; --shadow:0 1px 2px rgba(0,0,0,.6),0 10px 28px -12px rgba(185,140,255,.35); --fx-bg:#140F1D;
-}
-:root[data-palette="vivid"][data-theme="light"]{
-  --paper:#FBFAFF; --card:#FFFFFF; --ink:#0F1220; --muted:#5B5470; --line:#E1DCEF;
-  --accent:#5B21B6; --accent-soft:#EFE3FB; --good:#087038; --bad:#C11229;
-  --good-soft:#D8F5E3; --bad-soft:#FCDEE2; --warn:#924300; --warn-soft:#FDE8CC; --shadow:0 1px 2px rgba(15,18,32,.08),0 10px 28px -12px rgba(91,33,182,.25); --fx-bg:#F3EEFC;
+/* "waterfall" — themed on an SDR panadapter/waterfall display: near-black surfaces, a
+   phosphor-cyan accent, a violet->cyan->green->amber->red spectrum gradient (--fx-gradient,
+   consumed by the couple of additive rules below with a safe var() fallback so light/dark
+   are untouched), and an accent-tinted glow in --shadow instead of a plain drop shadow.
+   good/bad/warn are pulled hue-apart (lime / red-pink / amber) so they stay distinguishable
+   from the cyan accent and from each other. Every pair WCAG-checked >=4.5:1 (contrast.py,
+   see report) before picking these hexes: ink/paper 19.2:1, ink/card 18.15:1, accent/paper
+   12.46:1, good/good-soft 12.01:1, bad/bad-soft 5.6:1, warn/warn-soft 9.34:1. */
+:root[data-theme="waterfall"]{
+  --paper:#05080A; --card:#0B1116; --ink:#E8FFF7; --muted:#7E9AA3; --line:#17242A;
+  --accent:#00E5C7; --accent-soft:#0A2B28; --good:#7CFF6B; --bad:#FF5C6C;
+  --good-soft:#0F2A16; --bad-soft:#33131A; --warn:#FFC93C; --warn-soft:#33290C;
+  --shadow:0 1px 2px rgba(0,0,0,.6),0 0 20px -4px rgba(0,229,199,.5),0 10px 28px -12px rgba(0,0,0,.85);
+  --fx-bg:#060B0D;
+  --fx-gradient:linear-gradient(90deg,#7C3AED,#06B6D4,#22C55E,#F59E0B,#EF4444);
 }
 *{box-sizing:border-box}
 body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);
@@ -104,6 +70,13 @@ h1,h2,h3{text-wrap:balance;margin:0}
 
 header.bar{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--paper) 88%,transparent);
   backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+/* Additive-only waterfall touch #1: a static spectrum-gradient hairline under the sticky
+   header, standing in for a panadapter's frequency axis. --fx-gradient only exists on
+   :root[data-theme="waterfall"]; the var() fallback keeps light/dark byte-for-byte
+   unchanged (transparent = invisible). Static, no animation, per the item's "no scanline
+   motion" rule — and unaffected by prefers-reduced-motion since nothing here transitions. */
+header.bar::after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:2px;
+  background:var(--fx-gradient,transparent)}
 .barin{max-width:56rem;margin:0 auto;padding:.6rem 1.1rem;display:flex;align-items:center;gap:.9rem}
 .brand{font-family:var(--mono);font-weight:700;letter-spacing:.04em;font-size:.94rem}
 .brand span{color:var(--accent)}
@@ -146,9 +119,13 @@ th,td{text-align:left;padding:.5rem .6rem;border-bottom:1px solid var(--line)}
 th{font-family:var(--mono);font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);font-weight:600}
 td.num{font-family:var(--mono);font-variant-numeric:tabular-nums;text-align:right}
 
-/* S-meter style score bar with the 70% pass line marked */
+/* S-meter style score bar with the 70% pass line marked. Additive-only waterfall touch #2:
+   the neutral (in-progress) fill reads the same --fx-gradient token as the header hairline
+   above, falling back to the plain --accent fill light/dark already used — a completed
+   result's .ok/.no state (next rule, higher specificity) always overrides it with a solid
+   --good/--bad, in every theme, so pass/fail never depends on the gradient. */
 .meter{position:relative;height:.62rem;background:var(--accent-soft);border-radius:.31rem}
-.meter i{position:absolute;inset:0 auto 0 0;background:var(--accent);border-radius:.31rem}
+.meter i{position:absolute;inset:0 auto 0 0;background:var(--fx-gradient,var(--accent));border-radius:.31rem}
 .meter i.ok{background:var(--good)} .meter i.no{background:var(--bad)}
 /* The pass line must read over the empty track and over either fill colour, in both themes:
    full-contrast ink with a paper-coloured halo, overhanging the bar top and bottom. The track
@@ -258,13 +235,22 @@ a.tag:hover{background:var(--accent-soft)}
 </style>
 
 <script>
-/* Set the saved palette before first paint so switching themes never flashes the wrong
-   one on reload. Kept inline and tiny on purpose — everything else lives in the main
-   script at the bottom, which also owns the <select> wiring below. */
+/* Resolve and set the theme before first paint so a stored choice (or OS dark mode) never
+   flashes the wrong theme on reload. Kept inline and tiny on purpose — everything else
+   lives in the main script at the bottom, which also owns the <select> wiring below.
+   P2-0059 replaced the old data-palette x data-theme cross with a single light/dark/
+   waterfall choice under a new key; the old key is best-effort dropped, not migrated —
+   muted/balanced/vivid don't map onto light/dark/waterfall 1:1, so a stored old value is
+   simply discarded rather than translated. Never auto-lands on waterfall: only an explicit
+   stored "waterfall" choice selects it, otherwise OS dark-mode decides light vs dark. */
+try { localStorage.removeItem("9a-ispit-palette"); } catch (e) {}
 try {
-  var p = localStorage.getItem("9a-ispit-palette");
-  if (p === "balanced" || p === "vivid") document.documentElement.dataset.palette = p;
-} catch (e) {}
+  var t = localStorage.getItem("9a-ispit-theme");
+  if (t !== "light" && t !== "dark" && t !== "waterfall") {
+    t = (window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches) ? "dark" : "light";
+  }
+  document.documentElement.dataset.theme = t;
+} catch (e) { document.documentElement.dataset.theme = "light"; }
 </script>
 
 <header class="bar">
@@ -276,9 +262,9 @@ try {
       <option value="all">HRS + priručnik</option>
     </select>
     <select id="themeSel" class="themesel" aria-label="Boje sučelja">
-      <option value="muted">Prigušeno</option>
-      <option value="balanced">Uravnoteženo</option>
-      <option value="vivid">Živopisno</option>
+      <option value="light">Svijetlo</option>
+      <option value="dark">Tamno</option>
+      <option value="waterfall">Vodopad</option>
     </select>
     <div id="tick" class="tick hidden">00:00</div>
     <button id="quit" class="btn hidden">Prekini</button>
@@ -441,19 +427,18 @@ let store = {seen:{}, wrong:{}, history:[]};
 try { Object.assign(store, JSON.parse(localStorage.getItem(LS) || "{}")); } catch(e){}
 const save = () => { try { localStorage.setItem(LS, JSON.stringify(store)); } catch(e){} };
 
-/* ---------- theme (colour palette) ---------- */
-// Composes with, rather than replaces, the light/dark mechanism above: this only ever
-// touches [data-palette], never [data-theme] — prefers-color-scheme (or a future explicit
-// light/dark toggle) keeps deciding light vs dark within whichever palette is chosen here.
-const LS_THEME = "9a-ispit-palette", PALETTES = ["muted","balanced","vivid"];
-let palette = "muted";
-try { const saved = localStorage.getItem(LS_THEME); if (PALETTES.includes(saved)) palette = saved; } catch(e){}
-document.documentElement.dataset.palette = palette;
-$("#themeSel").value = palette;
+/* ---------- theme (light / dark / waterfall) ----------
+   The inline pre-paint script right after </style> already resolved data-theme on <html>
+   before this script even ran (stored "9a-ispit-theme" choice, else OS dark-mode, defaulting
+   to light — never waterfall). This block just reads that back so it can't disagree with
+   what's already painted, wires the <select>, and persists future changes under the same key. */
+const LS_THEME = "9a-ispit-theme", THEMES = ["light","dark","waterfall"];
+let theme = THEMES.includes(document.documentElement.dataset.theme) ? document.documentElement.dataset.theme : "light";
+$("#themeSel").value = theme;
 $("#themeSel").addEventListener("change", e => {
-  palette = PALETTES.includes(e.target.value) ? e.target.value : "muted";
-  document.documentElement.dataset.palette = palette;
-  try { localStorage.setItem(LS_THEME, palette); } catch(e){}
+  theme = THEMES.includes(e.target.value) ? e.target.value : "light";
+  document.documentElement.dataset.theme = theme;
+  try { localStorage.setItem(LS_THEME, theme); } catch(e){}
 });
 
 /* ---------- question source pool: HRS exam bank only vs HRS + book ----------
@@ -490,10 +475,10 @@ function applyNarrowHeaderLabels(){
     ? {hrs:"HRS ("+hrsN+")", all:"HRS+kn. ("+allN+")"}
     : {hrs:"Samo HRS lista ("+hrsN+")", all:"HRS + priručnik ("+allN+")"};
   $("#srcSel").querySelectorAll("option").forEach(o => { o.textContent = src[o.value]; });
-  const theme = narrowMQ.matches
-    ? {muted:"Prigušeno", balanced:"Uravnot.", vivid:"Živopisno"}
-    : {muted:"Prigušeno", balanced:"Uravnoteženo", vivid:"Živopisno"};
-  $("#themeSel").querySelectorAll("option").forEach(o => { o.textContent = theme[o.value]; });
+  // light/dark/waterfall option labels are already short at full width, so unlike srcSel
+  // above there's no separate narrow abbreviation to switch to — one map covers both widths.
+  const themeLabel = {light:"Svijetlo", dark:"Tamno", waterfall:"Vodopad"};
+  $("#themeSel").querySelectorAll("option").forEach(o => { o.textContent = themeLabel[o.value]; });
 }
 applyNarrowHeaderLabels();
 narrowMQ.addEventListener("change", applyNarrowHeaderLabels);
