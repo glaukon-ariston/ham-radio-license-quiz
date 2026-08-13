@@ -168,9 +168,12 @@ td.num{font-family:var(--mono);font-variant-numeric:tabular-nums;text-align:righ
 .opt:hover:not(:disabled){border-color:var(--accent);background:var(--accent-soft)}
 .opt:disabled{cursor:default}
 .opt .k{font-family:var(--mono);font-weight:700;color:var(--muted);flex:none;width:1.1rem}
+/* .mk: the non-colour correct/wrong marker (UX_REVIEW #2) — decorative glyph, aria-hidden;
+   the actual screen-reader signal is the adjacent .vh text inserted alongside it in render(). */
+.opt .mk{font-weight:700;margin-right:.25rem}
 .opt.sel{border-color:var(--accent);background:var(--accent-soft)}
-.opt.ok{border-color:var(--good);background:var(--good-soft)} .opt.ok .k{color:var(--good)}
-.opt.no{border-color:var(--bad);background:var(--bad-soft)} .opt.no .k{color:var(--bad)}
+.opt.ok{border-color:var(--good);background:var(--good-soft)} .opt.ok .k{color:var(--good)} .opt.ok .mk{color:var(--good)}
+.opt.no{border-color:var(--bad);background:var(--bad-soft)} .opt.no .k{color:var(--bad)} .opt.no .mk{color:var(--bad)}
 .verdict{margin-top:.9rem;font-size:.9rem;padding:.6rem .75rem;border-radius:.45rem;border:1px solid var(--line)}
 .verdict.ok{border-color:var(--good);background:var(--good-soft)}
 .verdict.no{border-color:var(--bad);background:var(--bad-soft)}
@@ -230,8 +233,26 @@ a.tag:hover{background:var(--accent-soft)}
 .confirm-box p{margin:0 0 1rem;font-size:.92rem;line-height:1.45}
 .confirm-box .nav{margin-top:0}
 .hidden{display:none!important}
+/* Visually hidden but still present for screen readers / focusable — the #quiz screen's own
+   heading (UX_REVIEW #1) and the SR-only correct/wrong words alongside the .mk glyph
+   (UX_REVIEW #2). Standard clip-based pattern, not display:none, so AT and .focus() both see it. */
+.vh{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;
+  clip:rect(0,0,0,0);white-space:nowrap;border:0}
 @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
 .mode,.opt,.btn{transition:border-color .12s ease,background .12s ease,transform .12s ease}
+/* Sticky header has no narrow-viewport plan otherwise (UX_REVIEW #3): brand + both selects +
+   timer + quit all in one un-wrapped row can clip or force horizontal *page* scroll on a
+   ~360-390px phone in exam mode (timer and quit both visible — the worst case). Shrink the
+   selects/brand/timer and let the row wrap as a last-resort fallback; JS below additionally
+   swaps each <option>'s text for a shorter form at this width (applyNarrowHeaderLabels()),
+   which does most of the actual width reduction since option text — not CSS — decides how wide
+   a closed <select> renders. */
+@media (max-width:480px){
+  .barin{gap:.4rem;padding:.55rem .7rem;flex-wrap:wrap;row-gap:.35rem}
+  .brand{font-size:.82rem}
+  .themesel{padding:.32rem .4rem;font-size:.74rem}
+  .tick{font-size:.85rem;padding:.12rem .4rem}
+}
 </style>
 
 <script>
@@ -266,7 +287,7 @@ try {
   <section id="home">
     <div class="hero">
       <div class="eyebrow">HRS · A razred · HAREC</div>
-      <h1>Priprema za radioamaterski ispit</h1>
+      <h1 id="homeH" tabindex="-1">Priprema za radioamaterski ispit</h1>
       <p>Sva pitanja i točni odgovori iz službenih HRS ispitnih lista za A razred.
          Ispit se polaže pismeno: <strong>70&nbsp;% u svakom od tri područja</strong>.</p>
     </div>
@@ -325,12 +346,17 @@ try {
 
   <section id="picker" class="hidden">
     <div class="eyebrow crumb"><a href="#" data-go="home">← Početna</a></div>
-    <div class="sect"><h2>Vježba — odaberi područje</h2><div class="rule"></div></div>
+    <div class="sect"><h2 id="pickerH" tabindex="-1">Vježba — odaberi područje</h2><div class="rule"></div></div>
     <div id="pickList" class="modes"></div>
     <button class="btn" data-go="home">← Natrag</button>
   </section>
 
   <section id="quiz" class="hidden">
+    <!-- Visually hidden: this screen's visible "heading" is the dynamic breadcrumb (#qcrumb)
+         built in render(), not a static <h1>/<h2>. This one exists purely as a focus target
+         for show()'s transition-focus fix (UX_REVIEW #1) so screen-reader users still get a
+         landmark announcement when a quiz session starts. -->
+    <h2 id="quizH" tabindex="-1" class="vh">Pitanje</h2>
     <div class="qhead">
       <span class="eyebrow crumb" id="qcrumb"></span>
       <div class="spacer"></div>
@@ -355,7 +381,7 @@ try {
 
   <section id="result" class="hidden">
     <div class="eyebrow crumb"><a href="#" data-go="home">← Početna</a></div>
-    <div class="sect"><h2 id="resTitle">Rezultat</h2><div class="rule"></div></div>
+    <div class="sect"><h2 id="resTitle" tabindex="-1">Rezultat</h2><div class="rule"></div></div>
     <div id="resBody"></div>
     <div class="nav">
       <button class="btn primary" data-go="home">Početna</button>
@@ -416,10 +442,6 @@ const LS_SRC = "9a-ispit-src", SRC_POOLS = ["hrs","all"];
 let srcPool = "hrs";
 try { const saved = localStorage.getItem(LS_SRC); if (SRC_POOLS.includes(saved)) srcPool = saved; } catch(e){}
 const poolQs = () => DATA.q.filter(q => srcPool === "all" || q.src === "hrs");
-$("#srcSel").querySelector('option[value="hrs"]').textContent =
-  "Samo HRS lista (" + DATA.q.filter(q=>q.src==="hrs").length + ")";
-$("#srcSel").querySelector('option[value="all"]').textContent =
-  "HRS + priručnik (" + DATA.q.length + ")";
 $("#srcSel").value = srcPool;
 $("#srcSel").addEventListener("change", e => {
   srcPool = SRC_POOLS.includes(e.target.value) ? e.target.value : "hrs";
@@ -427,6 +449,30 @@ $("#srcSel").addEventListener("change", e => {
   if(!$("#home").classList.contains("hidden")) home();
   if(!$("#picker").classList.contains("hidden")) buildPicker();
 });
+
+/* ---------- narrow-viewport header labels (UX_REVIEW #3) ----------
+   A native <select> box sizes to its longest *option* text, not to CSS width — "HRS +
+   priručnik (1176)" next to "Uravnoteženo", the brand, and (in exam mode) the timer and quit
+   button is too wide to fit one un-wrapped row without clipping or forcing the page into
+   horizontal scroll on a ~360-390px phone. Swap each <option>'s text for a shorter form under
+   that width instead of touching layout; value, aria-label, and the change handlers above are
+   untouched, so behaviour and screen-reader announcement don't change, only how wide the
+   closed box renders. The CSS media query above shrinks paddings/fonts as a smaller second
+   lever and adds flex-wrap as a last-resort fallback if this still isn't enough. */
+const narrowMQ = window.matchMedia("(max-width:480px)");
+function applyNarrowHeaderLabels(){
+  const hrsN = DATA.q.filter(q=>q.src==="hrs").length, allN = DATA.q.length;
+  const src = narrowMQ.matches
+    ? {hrs:"HRS ("+hrsN+")", all:"HRS+kn. ("+allN+")"}
+    : {hrs:"Samo HRS lista ("+hrsN+")", all:"HRS + priručnik ("+allN+")"};
+  $("#srcSel").querySelectorAll("option").forEach(o => { o.textContent = src[o.value]; });
+  const theme = narrowMQ.matches
+    ? {muted:"Prigušeno", balanced:"Uravnot.", vivid:"Živopisno"}
+    : {muted:"Prigušeno", balanced:"Uravnoteženo", vivid:"Živopisno"};
+  $("#themeSel").querySelectorAll("option").forEach(o => { o.textContent = theme[o.value]; });
+}
+applyNarrowHeaderLabels();
+narrowMQ.addEventListener("change", applyNarrowHeaderLabels);
 
 /* ---------- helpers ---------- */
 const shuffle = a => { for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];} return a; };
@@ -542,8 +588,21 @@ function render(){
     if(it.pick === k) b.classList.add("sel");
     if(it.done){
       b.disabled = true;
-      if(k === q.a) b.classList.add("ok");
-      else if(k === it.pick) b.classList.add("no");
+      // Correct/wrong was otherwise colour-only (border+background via .ok/.no, plus a colour
+      // change on .k) — a WCAG 1.4.1 violation at the one moment in the app where the
+      // distinction matters most. Add a decorative glyph (aria-hidden) plus a visually-hidden
+      // word, so a colourblind sighted user and a screen-reader user both get a non-colour
+      // signal too (UX_REVIEW #2). This stays inside the same it.done gate as .ok/.no, so it
+      // never fires before finish() in exam mode either.
+      if(k === q.a){
+        b.classList.add("ok");
+        b.querySelector(".k").insertAdjacentHTML("afterend",
+          '<span class="mk" aria-hidden="true">✓</span><span class="vh"> (točan odgovor)</span>');
+      } else if(k === it.pick){
+        b.classList.add("no");
+        b.querySelector(".k").insertAdjacentHTML("afterend",
+          '<span class="mk" aria-hidden="true">✗</span><span class="vh"> (tvoj odgovor, netočno)</span>');
+      }
     }
     b.onclick = () => pick(k);
     wrapEl.appendChild(b);
@@ -807,6 +866,15 @@ function show(id){
   if(id!=="home") $("#lookupmsg").classList.add("hidden");
   if(id==="home"){ clearInterval(tid); $("#tick").classList.add("hidden"); $("#quit").classList.add("hidden"); home(); }
   window.scrollTo({top:0, behavior:"instant"});
+  // Move keyboard focus to the new screen's own heading on every transition, instead of letting
+  // it silently drop to <body> (UX_REVIEW #1) — a keyboard/screen-reader user otherwise gets no
+  // signal that navigation happened at all, on every single home/picker/quiz/result switch.
+  // Each top-level section carries exactly one heading with tabindex="-1" for this purpose
+  // (#quiz's is visually hidden — its visible header is the dynamic breadcrumb, not a static
+  // heading). Deliberately lives only here, not in render(), so answering/next/prev within an
+  // already-open quiz screen never steals focus back — only screen-level transitions do.
+  const h = $("#"+id).querySelector("h1[tabindex],h2[tabindex]");
+  if(h) h.focus({preventScroll:true});
 }
 
 /* ---------- deep links: quiz.html#q=teh-024 (also #teh-024, or a comma-separated list) ---------- */
