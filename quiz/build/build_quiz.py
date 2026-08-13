@@ -197,6 +197,8 @@ td.num{font-family:var(--mono);font-variant-numeric:tabular-nums;text-align:righ
 .why.check h4{color:var(--warn)}
 .wp{margin:0 0 .55rem}
 .wp:last-child{margin-bottom:0}
+.wp a{color:var(--accent);text-decoration:none;border-bottom:1px solid transparent}
+.wp a:hover,.wp a:focus-visible{border-bottom-color:var(--accent)}
 /* Worked maths sits apart from the prose: mono, indented, and allowed to scroll on its own
    so a long derivation never makes the page itself scroll sideways. */
 .fx{font-family:var(--mono);font-size:.79rem;line-height:1.5;margin:.15rem 0 .5rem;
@@ -411,6 +413,28 @@ const PASS = 70, KEYS = ["a","b","c","d"];
 const $ = s => document.querySelector(s);
 const byId = Object.fromEntries(DATA.q.map(q => [q.id, q]));
 
+// Note prose often names another question by id ("Ne brkati s osjetljivošću (teh-142)",
+// "Usporedi s pro-090"). Matches both id shapes in use — HRS "teh-024" / "pro-011" / "prv-007"
+// (a few, like "teh-186b", with a trailing letter) and priručnik "bk-teh-1-01" — bounded so a
+// hyphenated non-id token ("100 kHz-110 MHz", "WRC-03") can't be mistaken for one. Bare book
+// references with no id ("vidi pitanje 24") don't match this shape at all and are left alone,
+// same as any token that matches the shape but isn't a real id: only a byId hit becomes a link.
+const XREF_RE = /(^|[^a-z0-9-])((?:bk-[a-z]+-\d+-\d+)|(?:[a-z]{3}-\d{2,3}[a-z]?))(?![a-z0-9-])/gi;
+function appendNoteText(el, text){
+  XREF_RE.lastIndex = 0;
+  let last = 0, m;
+  while((m = XREF_RE.exec(text))){
+    const id = m[2].toLowerCase(), start = m.index + m[1].length;
+    if(!byId[id]) continue;               // shape matches, but no such question — leave as text
+    if(start > last) el.appendChild(document.createTextNode(text.slice(last, start)));
+    const a = document.createElement("a");
+    a.href = "#q=" + id; a.textContent = m[2];
+    el.appendChild(a);
+    last = start + m[2].length;
+  }
+  if(last < text.length) el.appendChild(document.createTextNode(text.slice(last)));
+}
+
 /* ---------- persistence ---------- */
 const LS = "9a-ispit-v1";
 let store = {seen:{}, wrong:{}, history:[]};
@@ -622,13 +646,15 @@ function render(){
     $("#qwhyh").textContent = q.flag === "conflict" ? "Propis kaže drugačije"
                             : q.flag === "check"    ? "Provjeriti s klubom" : "Objašnjenje";
     // Built as DOM nodes rather than innerHTML: the note text is ours, but it carries
-    // maths and quoted regulation, and textContent keeps any stray < or & literal.
+    // maths and quoted regulation, and textContent keeps any stray < or & literal. Cross-
+    // question references get the same treatment via appendNoteText: text nodes plus <a>
+    // elements built with createElement/textContent, never a raw-HTML string.
     const body = $("#qwhyp");
     body.textContent = "";
     (q.e || "").split(/\n\n+/).forEach(para => {
       const p = document.createElement("p");
       p.className = "wp";
-      p.textContent = para.replace(/\n/g, " ");
+      appendNoteText(p, para.replace(/\n/g, " "));
       body.appendChild(p);
     });
     (q.fx || []).forEach(line => {
