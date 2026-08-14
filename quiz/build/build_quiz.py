@@ -53,10 +53,10 @@ HTML = r"""<title>Radioamaterski ispit — A razred</title>
 }
 /* P2-0059 replaced the old data-palette x data-theme cross (three near-identical hue-only
    palettes, each duplicated across prefers-color-scheme + two explicit overrides) with a
-   single data-theme axis: light, dark, waterfall. Exactly one flat block per theme, no
+   single data-theme axis: light, dark, vibrant. Exactly one flat block per theme, no
    @media(prefers-color-scheme) duplication — the inline pre-paint script below resolves the
    initial value once (stored choice, else OS dark-mode, defaulting to light; never
-   auto-lands on waterfall) and sets data-theme before first paint. */
+   auto-lands on vibrant) and sets data-theme before first paint. */
 :root[data-theme="light"]{
   --paper:#F4F6F6; --card:#FFFFFF; --ink:#14181A; --muted:#5B6B6E; --line:#D8DEDE;
   --accent:#0B5563; --accent-soft:#E3EDEF; --good:#2E7D53; --bad:#B3261E;
@@ -67,7 +67,7 @@ HTML = r"""<title>Radioamaterski ispit — A razred</title>
   --accent:#38BEC9; --accent-soft:#123034; --good:#5FBF8B; --bad:#F2887F;
   --good-soft:#122A20; --bad-soft:#2E1A18; --warn:#E5B764; --warn-soft:#2C2413; --shadow:0 1px 2px rgba(0,0,0,.5),0 8px 24px -12px rgba(0,0,0,.7); --fx-bg:#101618;
 }
-/* "waterfall" — themed on an SDR panadapter/waterfall display: near-black surfaces, a
+/* "vibrant" — themed on an SDR panadapter/waterfall display: near-black surfaces, a
    phosphor-cyan accent, a violet->cyan->green->amber->red spectrum gradient (--fx-gradient,
    consumed by the couple of additive rules below with a safe var() fallback so light/dark
    are untouched), and an accent-tinted glow in --shadow instead of a plain drop shadow.
@@ -75,17 +75,134 @@ HTML = r"""<title>Radioamaterski ispit — A razred</title>
    from the cyan accent and from each other. Every pair WCAG-checked >=4.5:1 (contrast.py,
    see report) before picking these hexes: ink/paper 19.2:1, ink/card 18.15:1, accent/paper
    12.46:1, good/good-soft 12.01:1, bad/bad-soft 5.6:1, warn/warn-soft 9.34:1. */
-:root[data-theme="waterfall"]{
+:root[data-theme="vibrant"]{
   --paper:#05080A; --card:#0B1116; --ink:#E8FFF7; --muted:#7E9AA3; --line:#17242A;
   --accent:#00E5C7; --accent-soft:#0A2B28; --good:#7CFF6B; --bad:#FF5C6C;
   --good-soft:#0F2A16; --bad-soft:#33131A; --warn:#FFC93C; --warn-soft:#33290C;
   --shadow:0 1px 2px rgba(0,0,0,.6),0 0 20px -4px rgba(0,229,199,.5),0 10px 28px -12px rgba(0,0,0,.85);
   --fx-bg:#060B0D;
   --fx-gradient:linear-gradient(90deg,#7C3AED,#06B6D4,#22C55E,#F59E0B,#EF4444);
+  /* P2-0062: glass-card surface so the animated #fxbg layer (below) shows through the
+     otherwise-opaque --card. Light/dark never read this token — it only exists here. */
+  --card-glass:color-mix(in srgb, var(--card) 82%, transparent);
 }
 *{box-sizing:border-box}
 body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);
   line-height:1.55;-webkit-text-size-adjust:100%}
+/* P2-0062: vibrant-only — let the #fxbg animated layer (next block) show through instead
+   of the opaque --paper fill. #fxbg itself always paints a solid var(--fx-bg) base first
+   (same near-black previously used statically), so this never exposes the browser's default
+   white canvas; it only swaps which element supplies the opaque base. */
+:root[data-theme="vibrant"] body{background:transparent}
+/* P2-0062 "full rave mode": a fixed, full-viewport animated background layer, inserted in the
+   HTML right before <header class="bar">. The structural rule below is unscoped
+   (position/z-index/overflow only, no colour) so it's a no-op in light/dark, same
+   "additive, inert elsewhere" pattern as header.bar::after further down — z-index:-1 sits
+   under both of the file's other explicit z-indices (header.bar 20, .confirm-mask 30), never
+   collides. Everything with colour or motion is vibrant-scoped:
+     #fxbg      — solid var(--fx-bg) base (opaque; keeps light/dark and the reduced-motion
+                  fallback state identical to the pre-P2-0062 static look) plus a slow
+                  filter:hue-rotate() cycle on the layer itself.
+     #fxbg .fx1 — five drifting radial-gradient blobs in the --fx-gradient hues.
+     #fxbg .fx2 — a scanline band sweeping vertically, panadapter-style.
+   Opacity lives on the two children, not on #fxbg itself, specifically so #fxbg's own solid
+   var(--fx-bg) base stays fully opaque — an opacity on #fxbg would also fade *that* base,
+   letting the transparent body above expose the page's default white canvas underneath.
+   fx2's sweep runs `alternate` (down, then back up), not a one-way `infinite` loop: the band
+   lives in only the top ~18% of a background 6x the element's height, so a one-way sweep
+   scrolls it out of view for most of the cycle and then, at the instant position wraps 100%
+   back to 0%, pops it back in with no transition — a hard flash every 7s. Reversing direction
+   instead of restarting removes that jump-cut entirely, since the reverse pass ends exactly
+   where the forward pass began. */
+#fxbg{position:fixed;inset:0;z-index:-1;pointer-events:none;overflow:hidden}
+:root[data-theme="vibrant"] #fxbg{background:var(--fx-bg);animation:fxhue 24s linear infinite}
+:root[data-theme="vibrant"] #fxbg .fx1{
+  position:absolute;inset:-25%;opacity:.55;
+  background:
+    radial-gradient(38% 38% at 18% 22%, rgba(124,58,237,.95), transparent 70%),
+    radial-gradient(42% 42% at 82% 26%, rgba(6,182,212,.95), transparent 70%),
+    radial-gradient(36% 36% at 28% 82%, rgba(34,197,94,.9), transparent 70%),
+    radial-gradient(40% 40% at 80% 80%, rgba(245,158,11,.85), transparent 70%),
+    radial-gradient(30% 30% at 54% 52%, rgba(239,68,68,.8), transparent 70%);
+  animation:fxdrift 52s ease-in-out infinite alternate;
+}
+:root[data-theme="vibrant"] #fxbg .fx2{
+  position:absolute;inset:0;opacity:.5;
+  background:linear-gradient(180deg, transparent 0%, rgba(0,229,199,.5) 8%, transparent 18%);
+  background-size:100% 600%;
+  animation:fxscan 9s linear infinite alternate;
+}
+@keyframes fxhue{0%{filter:hue-rotate(0deg)}100%{filter:hue-rotate(360deg)}}
+@keyframes fxdrift{0%{transform:translate(0,0) scale(1)}50%{transform:translate(-4%,3%) scale(1.07)}100%{transform:translate(3%,-3%) scale(1)}}
+@keyframes fxscan{0%{background-position:0 0}100%{background-position:0 100%}}
+@keyframes fxsweep{0%{background-position:0 0}100%{background-position:200% 0}}
+@keyframes fxglowok{0%{box-shadow:0 0 0 0 rgba(124,255,107,.65)}100%{box-shadow:0 0 22px 6px rgba(124,255,107,0)}}
+@keyframes fxglowno{0%{box-shadow:0 0 0 0 rgba(255,92,108,.65)}100%{box-shadow:0 0 22px 6px rgba(255,92,108,0)}}
+@keyframes fxbreathe{0%,100%{opacity:.18}50%{opacity:.42}}
+/* "Neon" rebrand (renamed from "Vodopad" — see themeLabel below): every button and glass
+   card on the page now pulses on its own, permanently, not just the one-shot/hover glows
+   above. Three animations:
+     fxbtnpulse — breathes a glow ring (box-shadow) on top of each element's existing
+                  --shadow layer (kept present at both keyframe stops so the base card-lift
+                  shadow never flattens out mid-pulse).
+     fxbtnspin  — cycles filter:hue-rotate() so the glow sweeps the spectrum instead of
+                  sitting fixed on --accent. Scoped to .btn only, not .opt/.mode: those two
+                  carry the actual question/option text a learner is reading, and rotating a
+                  paragraph's hue every few seconds fights readability more than it adds
+                  flair — the glow pulse alone already reads as "alive" there.
+     fxglass    — breathes the glass-card background between two --card-glass opacities, for
+                  every element already on that token (qcard, mode, opt, stat, confirm-box).
+   Every group below is deliberately staggered (nth-of-type buckets, negative animation-delay
+   so playback starts already offset instead of drifting into it over time): a row of nav
+   buttons, a grid of mode cards, or a list of options all animating in lockstep reads as one
+   blinking unit, not each one being alive. nth-of-type, not nth-child, because e.g. .nav
+   mixes buttons with a .spacer/.hint — nth-of-type still counts correctly among only the
+   <button> siblings there. fxbtnpulse/fxbtnspin (the glow) run 6x the first pass (14.4/30s
+   instead of 2.4/5s) — 8x briefly, then dialled back a notch for feeling more responsive;
+   delays below are scaled by the same 6x so the stagger pattern is unchanged. fxglass (the
+   glass-card breathing, a separate concern from the glow) keeps its own 8x pace, 48s, since
+   nothing asked for that one to move. .qcard runs a dedicated fxglasscard instead of the
+   shared fxglass: the question card is the one thing on screen for most of a session, so it
+   dips further towards transparent (60%/36% card-colour instead of fxglass's 82%/58%) to let
+   the animated backdrop read through it more; .opt/.mode/.stat/.confirm-box stay on the
+   shared, shallower fxglass so option text and stat numbers keep more backing behind them.
+   Glow radius (fxbtnpulse's peak blur/spread) is pulled in slightly from the first pass, too
+   — 30px/10px read a bit heavy. All animations stop for free under this file's one global
+   prefers-reduced-motion rule (animation:none!important): every element here is real, not a
+   pseudo, so unlike header.bar::after/.qcard::before above, no explicit override is needed. */
+@keyframes fxbtnpulse{
+  0%,100%{box-shadow:var(--shadow),0 0 6px 1px color-mix(in srgb, var(--accent) 50%, transparent)}
+  50%{box-shadow:var(--shadow),0 0 24px 8px color-mix(in srgb, var(--accent) 85%, transparent)}
+}
+@keyframes fxbtnspin{0%{filter:hue-rotate(0deg)}100%{filter:hue-rotate(360deg)}}
+@keyframes fxglass{
+  0%,100%{background:color-mix(in srgb, var(--card) 82%, transparent)}
+  50%{background:color-mix(in srgb, var(--card) 58%, transparent)}
+}
+@keyframes fxglasscard{
+  0%,100%{background:color-mix(in srgb, var(--card) 60%, transparent)}
+  50%{background:color-mix(in srgb, var(--card) 36%, transparent)}
+}
+:root[data-theme="vibrant"] .btn{animation:fxbtnpulse 14.4s ease-in-out infinite,fxbtnspin 30s linear infinite}
+:root[data-theme="vibrant"] .opt,:root[data-theme="vibrant"] .mode{animation:fxbtnpulse 14.4s ease-in-out infinite,fxglass 48s ease-in-out infinite}
+:root[data-theme="vibrant"] .qcard{animation:fxglasscard 48s ease-in-out infinite}
+:root[data-theme="vibrant"] .stat,:root[data-theme="vibrant"] .confirm-box{animation:fxglass 48s ease-in-out infinite}
+:root[data-theme="vibrant"] .btn:nth-of-type(4n+2){animation-delay:-3.6s,-7.5s}
+:root[data-theme="vibrant"] .btn:nth-of-type(4n+3){animation-delay:-7.2s,-15s}
+:root[data-theme="vibrant"] .btn:nth-of-type(4n){animation-delay:-10.8s,-22.5s}
+:root[data-theme="vibrant"] .opt:nth-of-type(4n+2),:root[data-theme="vibrant"] .mode:nth-of-type(4n+2){animation-delay:-3.6s,-12s}
+:root[data-theme="vibrant"] .opt:nth-of-type(4n+3),:root[data-theme="vibrant"] .mode:nth-of-type(4n+3){animation-delay:-7.2s,-24s}
+:root[data-theme="vibrant"] .opt:nth-of-type(4n),:root[data-theme="vibrant"] .mode:nth-of-type(4n){animation-delay:-10.8s,-36s}
+:root[data-theme="vibrant"] .stat:nth-of-type(3n+2){animation-delay:-16s}
+:root[data-theme="vibrant"] .stat:nth-of-type(3n){animation-delay:-32s}
+/* The "Vježbaj" buttons in #subTable are each the lone <button> in their own <td>, so
+   nth-of-type above always sees index 1 there (it resets per parent) — every row's button
+   landed in the same untouched 4n+1 bucket and pulsed in lockstep. Staggering by the ancestor
+   <tr> instead (siblings within tbody, so nth-of-type counts across rows) fixes it without
+   touching the generic .btn rule other tables/toolbars still rely on. */
+:root[data-theme="vibrant"] #subTable tbody tr:nth-of-type(4n+2) .btn{animation-delay:-3.6s,-7.5s}
+:root[data-theme="vibrant"] #subTable tbody tr:nth-of-type(4n+3) .btn{animation-delay:-7.2s,-15s}
+:root[data-theme="vibrant"] #subTable tbody tr:nth-of-type(4n) .btn{animation-delay:-10.8s,-22.5s}
 .wrap{max-width:56rem;margin:0 auto;padding:0 1.1rem 4rem}
 h1,h2,h3{text-wrap:balance;margin:0}
 .eyebrow{font-family:var(--mono);font-size:.688rem;letter-spacing:.13em;text-transform:uppercase;color:var(--muted)}
@@ -93,13 +210,15 @@ h1,h2,h3{text-wrap:balance;margin:0}
 
 header.bar{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--paper) 88%,transparent);
   backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
-/* Additive-only waterfall touch #1: a static spectrum-gradient hairline under the sticky
-   header, standing in for a panadapter's frequency axis. --fx-gradient only exists on
-   :root[data-theme="waterfall"]; the var() fallback keeps light/dark byte-for-byte
-   unchanged (transparent = invisible). Static, no animation, per the item's "no scanline
-   motion" rule — and unaffected by prefers-reduced-motion since nothing here transitions. */
+/* Additive-only vibrant touch #1: a spectrum-gradient hairline under the sticky header,
+   standing in for a panadapter's frequency axis. --fx-gradient only exists on
+   :root[data-theme="vibrant"]; the var() fallback keeps light/dark byte-for-byte
+   unchanged (transparent = invisible). P2-0062: now animated (a slow sweep, vibrant-scoped
+   rule below) as part of "full rave mode" — no longer static, and the existing global
+   prefers-reduced-motion rule now does govern this (it didn't need to before). */
 header.bar::after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:2px;
   background:var(--fx-gradient,transparent)}
+:root[data-theme="vibrant"] header.bar::after{background-size:200% 100%;animation:fxsweep 16s linear infinite}
 .barin{max-width:56rem;margin:0 auto;padding:.6rem 1.1rem;display:flex;align-items:center;gap:.9rem}
 .brand{font-family:var(--mono);font-weight:700;letter-spacing:.04em;font-size:.94rem}
 .brand span{color:var(--accent)}
@@ -116,6 +235,7 @@ button{font:inherit;color:inherit;cursor:pointer}
 .btn{background:var(--card);border:1px solid var(--line);border-radius:.5rem;padding:.5rem .85rem;
   box-shadow:var(--shadow)}
 .btn:hover{border-color:var(--accent)}
+:root[data-theme="vibrant"] .btn:hover{box-shadow:0 0 18px 2px color-mix(in srgb, var(--accent) 55%, transparent)}
 /* --paper already inverts per theme, so it stays legible on --accent in both */
 .btn.primary{background:var(--accent);color:var(--paper);border-color:var(--accent);font-weight:600}
 .btn:focus-visible,.opt:focus-visible,a:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
@@ -127,7 +247,9 @@ button{font:inherit;color:inherit;cursor:pointer}
 .modes{display:grid;gap:.9rem;grid-template-columns:repeat(auto-fit,minmax(15rem,1fr));margin:1.4rem 0 2rem}
 .mode{background:var(--card);border:1px solid var(--line);border-radius:.7rem;padding:1rem 1.05rem;
   text-align:left;box-shadow:var(--shadow);display:flex;flex-direction:column;gap:.4rem}
+:root[data-theme="vibrant"] .mode{background:var(--card-glass);backdrop-filter:blur(11px);-webkit-backdrop-filter:blur(11px)}
 .mode:hover{border-color:var(--accent);transform:translateY(-1px)}
+:root[data-theme="vibrant"] .mode:hover{box-shadow:0 0 0 1px var(--accent),0 0 18px 2px color-mix(in srgb, var(--accent) 55%, transparent)}
 .mode h3{font-size:1.02rem}
 .mode p{margin:0;color:var(--muted);font-size:.87rem}
 .mode .spec{font-family:var(--mono);font-size:.72rem;color:var(--accent);letter-spacing:.04em}
@@ -136,19 +258,28 @@ button{font:inherit;color:inherit;cursor:pointer}
 .sect h2{font-size:1.05rem;letter-spacing:-.01em}
 .rule{flex:1;height:1px;background:var(--line)}
 
-table{width:100%;border-collapse:collapse;font-size:.9rem}
+/* color is set explicitly here rather than left to inherit from body: Chromium has a real
+   quirk where a <td> with no color rule of its own doesn't reliably repaint on a live
+   data-theme switch (confirmed by testing) — th, which already declares its own
+   color:var(--muted) below, was unaffected. Giving table its own explicit var(--ink)
+   reference (th's own rule still wins on specificity+order) sidesteps the stale-inherit path. */
+table{width:100%;border-collapse:collapse;font-size:.9rem;color:var(--ink)}
 .tscroll{overflow-x:auto}
 th,td{text-align:left;padding:.5rem .6rem;border-bottom:1px solid var(--line)}
 th{font-family:var(--mono);font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);font-weight:600}
 td.num{font-family:var(--mono);font-variant-numeric:tabular-nums;text-align:right}
 
-/* S-meter style score bar with the 70% pass line marked. Additive-only waterfall touch #2:
+/* S-meter style score bar with the 70% pass line marked. Additive-only vibrant touch #2:
    the neutral (in-progress) fill reads the same --fx-gradient token as the header hairline
    above, falling back to the plain --accent fill light/dark already used — a completed
    result's .ok/.no state (next rule, higher specificity) always overrides it with a solid
-   --good/--bad, in every theme, so pass/fail never depends on the gradient. */
+   --good/--bad, in every theme, so pass/fail never depends on the gradient. P2-0062: the
+   neutral fill now sweeps (vibrant-scoped rule below), same technique as the header
+   hairline; .ok/.no stay solid colours with no gradient stops, so animating
+   background-position on them is a no-op — pass/fail still never depends on motion either. */
 .meter{position:relative;height:.62rem;background:var(--accent-soft);border-radius:.31rem}
 .meter i{position:absolute;inset:0 auto 0 0;background:var(--fx-gradient,var(--accent));border-radius:.31rem}
+:root[data-theme="vibrant"] .meter i{background-size:200% 100%;animation:fxsweep 16s linear infinite}
 .meter i.ok{background:var(--good)} .meter i.no{background:var(--bad)}
 /* The pass line must read over the empty track and over either fill colour, in both themes:
    full-contrast ink with a paper-coloured halo, overhanging the bar top and bottom. The track
@@ -158,6 +289,18 @@ td.num{font-family:var(--mono);font-variant-numeric:tabular-nums;text-align:righ
 
 .qcard{background:var(--card);border:1px solid var(--line);border-radius:.7rem;padding:1.15rem 1.15rem 1.25rem;
   box-shadow:var(--shadow)}
+/* P2-0062, vibrant only: glass card so #fxbg reads through even behind an open question —
+   the case that matters most, since a question card is on screen for most of a session.
+   position:relative is needed only so ::before (the breathing glow overlay, also vibrant-
+   only) has a positioning context; harmless in light/dark since neither uses ::before here. */
+:root[data-theme="vibrant"] .qcard{
+  position:relative;background:var(--card-glass);backdrop-filter:blur(11px);-webkit-backdrop-filter:blur(11px);
+}
+:root[data-theme="vibrant"] .qcard::before{
+  content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;
+  background:radial-gradient(60% 50% at 50% 0%, rgba(0,229,199,.4), transparent 70%);
+  animation:fxbreathe 9s ease-in-out infinite;
+}
 .qhead{display:flex;gap:.6rem;align-items:center;flex-wrap:wrap;margin-bottom:.7rem}
 .qtext{font-size:1.06rem;line-height:1.45;margin:0 0 .9rem;text-wrap:pretty}
 .fig{margin:0 0 1rem;background:#fff;border:1px solid var(--line);border-radius:.5rem;padding:.5rem;overflow-x:auto}
@@ -165,7 +308,9 @@ td.num{font-family:var(--mono);font-variant-numeric:tabular-nums;text-align:righ
 .opts{display:flex;flex-direction:column;gap:.5rem}
 .opt{display:flex;gap:.7rem;align-items:flex-start;text-align:left;width:100%;
   background:var(--card);border:1px solid var(--line);border-radius:.5rem;padding:.7rem .8rem;line-height:1.45}
+:root[data-theme="vibrant"] .opt{background:var(--card-glass);backdrop-filter:blur(11px);-webkit-backdrop-filter:blur(11px)}
 .opt:hover:not(:disabled){border-color:var(--accent);background:var(--accent-soft)}
+:root[data-theme="vibrant"] .opt:hover:not(:disabled){box-shadow:0 0 18px 2px color-mix(in srgb, var(--accent) 55%, transparent)}
 .opt:disabled{cursor:default}
 .opt .k{font-family:var(--mono);font-weight:700;color:var(--muted);flex:none;width:1.1rem}
 /* .mk: the non-colour correct/wrong marker (UX_REVIEW #2) — decorative glyph, aria-hidden;
@@ -174,6 +319,11 @@ td.num{font-family:var(--mono);font-variant-numeric:tabular-nums;text-align:righ
 .opt.sel{border-color:var(--accent);background:var(--accent-soft)}
 .opt.ok{border-color:var(--good);background:var(--good-soft)} .opt.ok .k{color:var(--good)} .opt.ok .mk{color:var(--good)}
 .opt.no{border-color:var(--bad);background:var(--bad-soft)} .opt.no .k{color:var(--bad)} .opt.no .mk{color:var(--bad)}
+/* P2-0062, vibrant only: a one-shot glow pulse firing off the existing .ok/.no class
+   toggles in render()'s JS — no JS change needed, the animation just plays once whenever the
+   class is freshly applied to an element. */
+:root[data-theme="vibrant"] .opt.ok{animation:fxglowok 1.1s ease-out}
+:root[data-theme="vibrant"] .opt.no{animation:fxglowno 1.1s ease-out}
 .verdict{margin-top:.9rem;font-size:.9rem;padding:.6rem .75rem;border-radius:.45rem;border:1px solid var(--line)}
 .verdict.ok{border-color:var(--good);background:var(--good-soft)}
 .verdict.no{border-color:var(--bad);background:var(--bad-soft)}
@@ -182,6 +332,7 @@ td.num{font-family:var(--mono);font-variant-numeric:tabular-nums;text-align:righ
 
 .grid3{display:grid;gap:1rem;grid-template-columns:repeat(auto-fit,minmax(13rem,1fr))}
 .stat{background:var(--card);border:1px solid var(--line);border-radius:.6rem;padding:.85rem .95rem;box-shadow:var(--shadow)}
+:root[data-theme="vibrant"] .stat{background:var(--card-glass);backdrop-filter:blur(11px);-webkit-backdrop-filter:blur(11px)}
 .stat .big{font-family:var(--mono);font-size:1.75rem;font-weight:700;letter-spacing:-.02em;line-height:1.1}
 .pill{font-family:var(--mono);font-size:.68rem;letter-spacing:.08em;text-transform:uppercase;
   padding:.12rem .45rem;border-radius:.28rem;border:1px solid var(--line);color:var(--muted)}
@@ -232,6 +383,7 @@ a.tag:hover{background:var(--accent-soft)}
   display:flex;align-items:center;justify-content:center;padding:1rem}
 .confirm-box{background:var(--card);border:1px solid var(--line);border-radius:.7rem;
   padding:1.1rem 1.2rem;max-width:22rem;width:100%;box-shadow:var(--shadow)}
+:root[data-theme="vibrant"] .confirm-box{background:var(--card-glass);backdrop-filter:blur(11px);-webkit-backdrop-filter:blur(11px)}
 .confirm-box p{margin:0 0 1rem;font-size:.92rem;line-height:1.45}
 .confirm-box .nav{margin-top:0}
 /* Report-a-problem dialog (P2-0060): a variant of the confirm dialog above, not a second
@@ -256,6 +408,22 @@ a.tag:hover{background:var(--accent-soft)}
 .vh{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;
   clip:rect(0,0,0,0);white-space:nowrap;border:0}
 @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+/* P2-0062: the rule above already stops most animation this item adds (global
+   *{animation:none}), including #fxbg's own filter:hue-rotate() — but a frozen hue-rotated
+   blob is not the flat pre-P2-0062 look either, so the first rule below hides the two
+   animated children outright (#fxbg keeps its own solid var(--fx-bg) base, unaffected),
+   landing reduced-motion on plain var(--fx-bg) — the same static colour the theme showed
+   before this item. The second rule covers a gap in the global `*` rule above: a bare `*`
+   never matches ::before/::after pseudo-elements (they need to be named explicitly), so it
+   silently does not reach header.bar::after's new sweep or .qcard::before's new breathing
+   glow — both pseudo-elements, both first given animation by this item. Confirmed by
+   screenshotting 2s apart with the reduced-motion rules force-applied: identical without this
+   second rule, header.bar::after was still visibly mid-sweep between the two frames. */
+@media (prefers-reduced-motion:reduce){
+  :root[data-theme="vibrant"] #fxbg .fx1,:root[data-theme="vibrant"] #fxbg .fx2{opacity:0}
+  :root[data-theme="vibrant"] header.bar::after{animation:none}
+  :root[data-theme="vibrant"] .qcard::before{animation:none;opacity:.18}
+}
 .mode,.opt,.btn{transition:border-color .12s ease,background .12s ease,transform .12s ease}
 /* Sticky header has no narrow-viewport plan otherwise (UX_REVIEW #3): brand + both selects +
    timer + quit all in one un-wrapped row can clip or force horizontal *page* scroll on a
@@ -277,20 +445,21 @@ a.tag:hover{background:var(--accent-soft)}
    flashes the wrong theme on reload. Kept inline and tiny on purpose — everything else
    lives in the main script at the bottom, which also owns the <select> wiring below.
    P2-0059 replaced the old data-palette x data-theme cross with a single light/dark/
-   waterfall choice under a new key; the old key is best-effort dropped, not migrated —
-   muted/balanced/vivid don't map onto light/dark/waterfall 1:1, so a stored old value is
-   simply discarded rather than translated. Never auto-lands on waterfall: only an explicit
-   stored "waterfall" choice selects it, otherwise OS dark-mode decides light vs dark. */
+   vibrant choice under a new key; the old key is best-effort dropped, not migrated —
+   muted/balanced/vivid don't map onto light/dark/vibrant 1:1, so a stored old value is
+   simply discarded rather than translated. Never auto-lands on vibrant: only an explicit
+   stored "vibrant" choice selects it, otherwise OS dark-mode decides light vs dark. */
 try { localStorage.removeItem("9a-ispit-palette"); } catch (e) {}
 try {
   var t = localStorage.getItem("9a-ispit-theme");
-  if (t !== "light" && t !== "dark" && t !== "waterfall") {
+  if (t !== "light" && t !== "dark" && t !== "vibrant") {
     t = (window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches) ? "dark" : "light";
   }
   document.documentElement.dataset.theme = t;
 } catch (e) { document.documentElement.dataset.theme = "light"; }
 </script>
 
+<div id="fxbg" aria-hidden="true"><div class="fx1"></div><div class="fx2"></div></div>
 <header class="bar">
   <div class="barin">
     <div class="brand">9A<span>·</span>ISPIT</div>
@@ -302,7 +471,7 @@ try {
     <select id="themeSel" class="themesel" aria-label="Boje sučelja">
       <option value="light">Svijetlo</option>
       <option value="dark">Tamno</option>
-      <option value="waterfall">Vodopad</option>
+      <option value="vibrant">Neon</option>
     </select>
     <div id="tick" class="tick hidden">00:00</div>
     <button id="quit" class="btn hidden">Prekini</button>
@@ -367,6 +536,10 @@ try {
       pitanje po oznaci”, ili više njih odvojenih zarezom. Kad je stranica otvorena izravno, a ne
       unutar okvira na claude.ai, isto radi i adresa s <span class="mono">#q=teh-024</span>.
       <button id="reset" class="btn" style="margin-left:.4rem">Obriši napredak</button>
+    </p>
+    <p class="note hidden" id="ghNote">
+      Izvorni kod ovog kviza dostupan je na
+      <a id="ghLink" href="#" target="_blank" rel="noopener noreferrer">GitHubu ↗</a>.
     </p>
   </section>
 
@@ -491,12 +664,12 @@ let store = {seen:{}, wrong:{}, history:[]};
 try { Object.assign(store, JSON.parse(localStorage.getItem(LS) || "{}")); } catch(e){}
 const save = () => { try { localStorage.setItem(LS, JSON.stringify(store)); } catch(e){} };
 
-/* ---------- theme (light / dark / waterfall) ----------
+/* ---------- theme (light / dark / vibrant) ----------
    The inline pre-paint script right after </style> already resolved data-theme on <html>
    before this script even ran (stored "9a-ispit-theme" choice, else OS dark-mode, defaulting
-   to light — never waterfall). This block just reads that back so it can't disagree with
+   to light — never vibrant). This block just reads that back so it can't disagree with
    what's already painted, wires the <select>, and persists future changes under the same key. */
-const LS_THEME = "9a-ispit-theme", THEMES = ["light","dark","waterfall"];
+const LS_THEME = "9a-ispit-theme", THEMES = ["light","dark","vibrant"];
 let theme = THEMES.includes(document.documentElement.dataset.theme) ? document.documentElement.dataset.theme : "light";
 $("#themeSel").value = theme;
 $("#themeSel").addEventListener("change", e => {
@@ -539,9 +712,9 @@ function applyNarrowHeaderLabels(){
     ? {hrs:"HRS ("+hrsN+")", all:"HRS+kn. ("+allN+")"}
     : {hrs:"Samo HRS lista ("+hrsN+")", all:"HRS + priručnik ("+allN+")"};
   $("#srcSel").querySelectorAll("option").forEach(o => { o.textContent = src[o.value]; });
-  // light/dark/waterfall option labels are already short at full width, so unlike srcSel
+  // light/dark/vibrant option labels are already short at full width, so unlike srcSel
   // above there's no separate narrow abbreviation to switch to — one map covers both widths.
-  const themeLabel = {light:"Svijetlo", dark:"Tamno", waterfall:"Vodopad"};
+  const themeLabel = {light:"Svijetlo", dark:"Tamno", vibrant:"Neon"};
   $("#themeSel").querySelectorAll("option").forEach(o => { o.textContent = themeLabel[o.value]; });
 }
 applyNarrowHeaderLabels();
@@ -989,6 +1162,8 @@ function openReport(){
 const REPORT_ENABLED = !!REPO;
 if(REPORT_ENABLED) $("#reportBtn").onclick = openReport;
 else $("#reportBtn").classList.add("hidden");
+// Home-page backlink to the repo (same REPO/"" gate as the report button above).
+if(REPO){ $("#ghLink").href = "https://github.com/" + REPO; $("#ghNote").classList.remove("hidden"); }
 
 /* ---------- routing ---------- */
 function show(id){
