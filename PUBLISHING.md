@@ -84,16 +84,35 @@ one branch, deliberately.
 
 ### Every subsequent publish (after any content change)
 
-Re-run the same two commands — rebuild, then commit the output — on the `gh-pages` branch:
+**`git checkout gh-pages` deletes `quiz/build/` first — plan for that.** The one-time setup
+above uses `git checkout --orphan gh-pages`, which *keeps* the working tree untouched, so
+`rebuild.py` was still sitting on disk when it ran. Every later publish instead uses a plain
+`git checkout gh-pages` — a normal branch switch — and `gh-pages`'s tree holds only
+`quiz/quiz.html`, `quiz/questions.json`, and `quiz/images/`, so switching to it deletes
+everything else that's tracked on your work branch but absent from `gh-pages`, including the
+whole `quiz/build/` directory the build scripts live in. Restore just that one path with a
+pathspec-limited checkout (which doesn't touch `gh-pages`'s own tracked files, so it can't
+conflict with them) rather than switching branches again:
 
 ```bash
 git checkout gh-pages
+git checkout queue-drain -- quiz/build      # restore the scripts gh-pages doesn't track
 python quiz/build/rebuild.py
 git add -f quiz/quiz.html quiz/questions.json quiz/images/
 git commit -m "Rebuild: <what changed>"
 git push
+git restore --staged quiz/build             # the scripts don't belong in this branch's commit
+rm -rf quiz/build                           # ...or in its working tree, before switching back
 git checkout queue-drain
 ```
+
+Skipping the `restore --staged`/`rm -rf` cleanup risks two things: an accidental `git add -f
+quiz/build` would commit the build scripts onto `gh-pages`, which is meant to hold only the
+built site; and the final `git checkout queue-drain` will refuse to run ("untracked working
+tree files would be overwritten by checkout") because those restored scripts are untracked
+here and drift from `queue-drain`'s committed copies the moment `rebuild.py` touches its own
+JSON caches (`quiz/build/notes_*.json`, `book_overrides.json`, etc. — normal, expected churn
+from re-running extraction, not something to chase down or preserve).
 
 **`quiz/images/*.png` filenames are not content-hashed** — a changed figure can silently
 reuse an old filename that's still cached by a browser or CDN. Always `git add -f
@@ -101,6 +120,23 @@ quiz/images/` in full on every publish (as above), never just the files that loo
 stale images that `rebuild.py` removed (it prints `N stale removed` when it prunes
 orphaned PNGs from `quiz/images/`) are actually removed from the branch too, and so nothing
 that changed is skipped by assuming an image was already up to date.
+
+**If any `git checkout` in this file fails with `cannot stat '<path>': Permission denied`**
+(commonly `.claude/`, if a running Claude Code session has it open), the branch switch can't
+even stat the locked directory to reconcile it — retrying doesn't help if the lock is
+held by a live process, not a transient sync lock. Exclude that one path from the checkout's
+comparison instead of waiting for it to free up:
+
+```bash
+printf '/*\n!.claude/\n' > .git/info/sparse-checkout
+git config core.sparseCheckout true
+git checkout <branch>                       # now skips the locked path
+git config core.sparseCheckout false
+rm -f .git/info/sparse-checkout
+```
+
+This only tells checkout to leave that path alone — it doesn't change what's tracked or
+committed, so it's safe to use for any of the checkouts above.
 
 ## 3. GitHub repository setting — no longer a manual step
 
@@ -119,12 +155,16 @@ nothing moves them to the branch root). Confirm the served URL once the build st
 
 ## Summary: what to re-run after any content change
 
-1. `python quiz/build/rebuild.py` (locally, with `docs/` present) — regenerates
+1. `git checkout gh-pages`, then `git checkout queue-drain -- quiz/build` to bring the scripts
+   back (a plain `gh-pages` checkout deletes them — see above).
+2. `python quiz/build/rebuild.py` (`docs/` must be present) — regenerates
    `quiz/questions.json`, `quiz/quiz.html`, `quiz/images/`.
-2. On the `gh-pages` branch: `git add -f quiz/quiz.html quiz/questions.json quiz/images/`,
-   commit, push. Always include the full `quiz/images/` tree, not just changed files —
-   filenames aren't content-hashed, so a stale image that should have been removed only
-   goes away if the whole directory is re-added.
+3. `git add -f quiz/quiz.html quiz/questions.json quiz/images/`, commit, push. Always include
+   the full `quiz/images/` tree, not just changed files — filenames aren't content-hashed, so
+   a stale image that should have been removed only goes away if the whole directory is
+   re-added.
+4. `git restore --staged quiz/build && rm -rf quiz/build`, then `git checkout queue-drain`.
 
 No other step is needed — GitHub Pages serves whatever is currently on `gh-pages` with no
-separate deploy action once the one-time source setting (step 3) is in place.
+separate deploy action once the one-time source setting (§3, "GitHub repository setting"
+above) is in place.
