@@ -4,16 +4,18 @@ A practice quiz for the Croatian amateur radio **A-class (napredni razred)** lic
 built from the Hrvatski radioamaterski savez's (HRS) own answer-marked exam banks. **1176
 questions**, every one carrying a cited teaching note.
 
-**Try it:** _(link goes live once GitHub Pages is set up — see P2-0058)_
+For the official path to getting licensed — registration, courses, booking the exam itself —
+see HRS's own guide: [*Kako postati radioamater?*](https://www.hamradio.hr/kako-postati-radioamater/).
+This project only covers exam prep, not the surrounding process.
+
+**Try it:** [glaukon-ariston.github.io/ham-radio-license-quiz](https://glaukon-ariston.github.io/ham-radio-license-quiz/quiz/quiz.html)
 
 ---
 
 ## How it's built
 
-HRS's exam PDFs mark every correct answer in **red text**. That's invisible to `pdftotext`
-and to every other text extractor — almost certainly why no answer key circulates online.
-Reading the PDFs with [PyMuPDF](https://pymupdf.readthedocs.io/) instead recovers the colour
-*and* fixes the encoding, since `pdftotext` also mangles Croatian diacritics (`č ć ž š đ`).
+HRS's exam PDFs mark each question's correct answer in red text. This project reads that
+colour straight out of HRS's own exam PDFs to build the answer key.
 
 The result: all **456** official HRS questions carry HRS's own authoritative answer — not a
 derived one. Those are cross-validated against the 2005 HRS priručnik
@@ -24,11 +26,11 @@ mis-alignment — see `quiz/REVIEW.md`. The priručnik also supplies **720** add
 practice-only questions (not exam-eligible), for **1176** total.
 
 Every one of the 1176 questions carries a teaching note: a worked derivation for numeric
-questions, an article citation for regulatory ones — sourced, never invented.
+questions, an article citation for regulatory ones.
 
 The whole corpus rebuilds from the source PDFs in one command:
 
-```
+```bash
 python quiz/build/rebuild.py
 ```
 
@@ -55,7 +57,7 @@ credits them and tells you how to get your own copy.
 | Odluka o provođenju ispita | [hamradio.hr](http://www.hamradio.hr/download/RA_ispiti_1_Odluka_o_provodjenju_ispita.pdf) |
 | Odluka o imenovanju povjerenstva | [hamradio.hr](http://www.hamradio.hr/download/RA_ispiti_2_Odluka_o_imenovanju_povjerenstva.pdf) |
 | Rješenje o iznosu naknada | [hamradio.hr](http://www.hamradio.hr/download/RA_ispiti_3_Rjesenje_o_iznosu_naknada.pdf) |
-| Obavezni dio ispita | [hamradio.hr](http://www.hamradio.hr/download/RA_ispiti_4_Obavezni_dio_ispita.pdf) |
+| Obavezni dio ispita (byte-identical file, published under two names/URLs) | [hamradio.hr (RA_ispiti_4)](http://www.hamradio.hr/download/RA_ispiti_4_Obavezni_dio_ispita.pdf), [hamradio.hr (ispitni program)](http://www.hamradio.hr/download/Obvezni_dio_ispitnog_programa.pdf) |
 | HAKOM — dopunsko rješenje o imenovanju povjerenstva za P razred | [hamradio.hr](https://www.hamradio.hr/download/HAKOM_Dopunsko_rjesenje_P_razred.pdf) |
 
 Every link above was fetched this session and confirmed to serve the same document as this
@@ -67,28 +69,40 @@ over a trusted connection at the time of writing (TLS certificate could not be v
 
 ### HRS's own exam & instructional material
 
-- **The three A-class question banks** — `RA_ispiti_7_A_razred_Pravila_i_postupci.pdf`,
-  `RA_ispiti_8_A_razred_HR_i_medjunarodni_propisi.pdf`,
-  `RA_ispiti_9_A_razred_Tehnicki_dio.pdf` — and the corresponding three P-class banks
-  (`RA_ispiti_10/11/12`). Published by HRS.
+- **The three A-class question banks** —
+  [`RA_ispiti_7_A_razred_Pravila_i_postupci.pdf`](http://www.hamradio.hr/download/RA_ispiti_7_A_razred_Pravila_i_postupci.pdf),
+  [`RA_ispiti_8_A_razred_HR_i_medjunarodni_propisi.pdf`](http://www.hamradio.hr/download/RA_ispiti_8_A_razred_HR_i_medjunarodni_propisi.pdf),
+  [`RA_ispiti_9_A_razred_Tehnicki_dio.pdf`](http://www.hamradio.hr/download/RA_ispiti_9_A_razred_Tehnicki_dio.pdf)
+  — and the corresponding three P-class banks:
+  [`RA_ispiti_10`](http://www.hamradio.hr/download/RA_ispiti_10_P_razred_Pravila_i_postupci.pdf)/[`11`](http://www.hamradio.hr/download/RA_ispiti_11_P_razred_HR_i_medjunarodni_propisi.pdf)/[`12`](http://www.hamradio.hr/download/RA_ispiti_12_P_razred_Tehnicki_dio.pdf).
+  Published by HRS.
 - **`Radiokomunikacije.pdf`** (`_ocr.pdf`) — HRS's 410-page official priručnik, ~2005.
-  Rendering its own introduction page confirms it is authored by **Mladen Zadro, dipl. ing.**
+  Authored by **Mladen Zadro, dipl. ing.**
   (voditelj/lead author), with co-authors **Ante Botica, dipl. ing.**, **dr. sc. Draško
   Marin**, and **Vladimir Štancl, ing.**, reviewed by **dr. sc. Zvonimir Jakobović** and
-  **mr. sc. Željko Ulip**, and published by Hrvatski radioamaterski savez.
-- **`ZBIRKA-1_Prirucnik-Radiokomunikacije-2023.pdf`** — despite its filename this is a
-  *different* work: "Priručnik praktičnih radova za pripremu natjecanja mladih tehničara u
-  području radiokomunikacije" (2023), authored by **Jelena Tuksar, mag. ing.**, **mr. sc.
-  Željko Ulip**, and **Stipe Predanić, dipl. ing.**, published by HRS — confirmed from its
-  own title page.
+  **mr. sc. Željko Ulip**, and published by Hrvatski radioamaterski savez. HRS does not host
+  this one publicly — it's out of print, and copies have circulated via places like this
+  [forum.hr thread](https://www.forum.hr/showthread.php?t=1064885); linked here for context,
+  not as an endorsed distribution channel. The `_ocr.pdf` variant the build pipeline actually
+  reads (`quiz/build/booktool.py`'s `RK` source) is produced locally by running the original
+  through [PDF24](https://tools.pdf24.org/)'s OCR tool to add a text layer — it is not a
+  separately downloaded file.
+- **[`ZBIRKA-1_Prirucnik-Radiokomunikacije-2023.pdf`](https://www.hamradio.hr/wp-content/uploads/2025/11/ZBIRKA-1_Prirucnik-Radiokomunikacije-2023.pdf)**
+  — despite its filename this is a *different* work: "Priručnik praktičnih radova za
+  pripremu natjecanja mladih tehničara u području radiokomunikacije" (2023), authored by
+  **Jelena Tuksar, mag. ing.**, **mr. sc. Željko Ulip**, and **Stipe Predanić, dipl. ing.**,
+  published by HRS.
 
 ### One externally-authored, out-of-print book
 
-`Pasaric_Radioamaterizam_za_mlade.pdf` — *"Radioamaterizam za mlade — priručnik za polaganje
-operatorskog P-ispita"*, by **Božidar Pasarić, 9A2HL**, Zagreb 2008, published in the
-University of Zagreb's official textbook series ("Udžbenici Sveučilišta u Zagrebu" /
-*Manualia Universitatis Studiorum Zagrabiensis*) — confirmed from the book's own title and
-colophon pages. Publisher of record: Hrvatski radioamaterski savez.
+[`Pasaric_Radioamaterizam_za_mlade.pdf`](https://www.hamradio.hr/download/Pasaric_Radioamaterizam_za_mlade.pdf)
+— *"Radioamaterizam za mlade — priručnik za polaganje operatorskog P-ispita"*, by **Božidar
+Pasarić, 9A2HL**, Zagreb 2008, published in the University of Zagreb's official textbook
+series ("Udžbenici Sveučilišta u Zagrebu" / *Manualia Universitatis Studiorum
+Zagrabiensis*). Publisher of record: Hrvatski radioamaterski savez.
+
+Every hamradio.hr link above was fetched this session and confirmed byte-identical to this
+project's local copy.
 
 ---
 
@@ -102,25 +116,24 @@ question with no valid answer, the wrong option count, an empty stem, or a dupli
 `strict.py` re-runs the book-vs-HRS cross-check on every rebuild so an edit that breaks
 agreement is caught immediately, not discovered by a test-taker.
 
-**What's not built yet:** there is no in-quiz feedback UI, and no automated path from a
-reader spotting a problem to a queue item being filed. `quiz/quiz.html` has no
-feedback-submission code today — if you find a mistake, please open a GitHub issue. Turning
-that into a closed loop is on the roadmap, not shipped.
+Every question also carries a **"Prijavi problem"** button that opens a prefilled GitHub
+issue (question id, current answer, citation, and a chosen reason), labelled `quiz-feedback`.
+`queue/from_issues.py` turns each open one of those into a queue item at the start of every
+`/drain` run and closes the issue as triaged — a reader spotting a mistake and a worked queue
+item are the same closed loop, not two separate steps.
 
 ---
 
 ## License
 
 - **Code** (the Python build pipeline under `quiz/build/`, and the generated quiz
-  HTML/JS) — **MIT**.
+  HTML/JS) — **MIT**, see [`LICENSE`](LICENSE).
 - **Teaching notes and citations** (the content of `quiz/build/notes_*.json`) — these are
-  Glaukon's own authored derivative work, and are **CC BY-SA**.
+  Glaukon's own authored derivative work, and are **CC BY-SA 4.0**, see
+  [`LICENSE-NOTES`](LICENSE-NOTES).
 - **The underlying exam questions and answer keys** are HRS's own material, used here under
   citation. They are covered by neither license grant above; this project does not claim to
   license HRS's content, only its own code and notes.
-
-No `LICENSE` file has been added yet — this section states intent; formal SPDX license files
-may follow in a separate change.
 
 ---
 

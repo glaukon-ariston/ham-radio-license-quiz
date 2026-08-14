@@ -29,7 +29,7 @@ serves directly.
 Requires the local, untracked `docs/` directory (the source PDFs) to be present — it is not
 and will not be in the public repo.
 
-```
+```bash
 python quiz/build/rebuild.py
 ```
 
@@ -41,7 +41,7 @@ output from a run that aborted.
 
 Optional but recommended before publishing — these must not regress:
 
-```
+```bash
 python quiz/build/strict.py
 python quiz/build/check_notes.py
 ```
@@ -64,12 +64,11 @@ for the three gitignored paths.** Why this over alternatives:
 
 ### One-time setup: create the `gh-pages` branch
 
-Run this once, the first time the site is published. `git remote -v` is currently empty —
-there is no remote configured yet, and creating one is a decision for Glaukon to make, not
-something to do as a side effect of following this doc. Everything below is written assuming
-a remote named `origin` will exist by the time this is actually run.
+Run this once, the first time the site is published. `origin` now points at
+`glaukon-ariston/ham-radio-license-quiz` (created and wired up in P2-0061) — everything below
+runs against that remote.
 
-```
+```bash
 git checkout --orphan gh-pages
 git rm -rf --cached .
 python quiz/build/rebuild.py
@@ -87,7 +86,7 @@ one branch, deliberately.
 
 Re-run the same two commands — rebuild, then commit the output — on the `gh-pages` branch:
 
-```
+```bash
 git checkout gh-pages
 python quiz/build/rebuild.py
 git add -f quiz/quiz.html quiz/questions.json quiz/images/
@@ -103,18 +102,20 @@ stale images that `rebuild.py` removed (it prints `N stale removed` when it prun
 orphaned PNGs from `quiz/images/`) are actually removed from the branch too, and so nothing
 that changed is skipped by assuming an image was already up to date.
 
-## 3. One-time GitHub repository setting
+## 3. GitHub repository setting — no longer a manual step
 
-After the first push to `gh-pages` (above), in the repo's GitHub settings:
+Pushing a branch literally named `gh-pages` (above) is enough on its own: GitHub auto-enables
+Pages the moment that branch exists, sourced from `gh-pages` at `/ (root)` — confirmed via
+`gh api repos/<owner>/<repo>/pages`, which reported `"source":{"branch":"gh-pages","path":"/"}`
+immediately after the first push, with no `Settings → Pages` click needed. If GitHub ever
+changes this default, the equivalent manual step is **Settings → Pages → Build and
+deployment → Source: Deploy from a branch → Branch: `gh-pages`, folder: `/ (root)`.**
 
-**Settings → Pages → Build and deployment → Source: Deploy from a branch → Branch:
-`gh-pages`, folder: `/ (root)`.**
-
-GitHub then serves `quiz/quiz.html` at
-`https://<owner>.github.io/<repo>/quiz/quiz.html` (paths are root-relative to the branch,
-and the built files live under `quiz/` even on `gh-pages` — nothing moves them to the
-branch root). Confirm the served URL once Pages is live and use that as the link in
-`README.md`'s `_(link goes live once GitHub Pages is set up — see P2-0058)_` placeholder.
+GitHub serves `quiz/quiz.html` at `https://<owner>.github.io/<repo>/quiz/quiz.html` (paths
+are root-relative to the branch, and the built files live under `quiz/` even on `gh-pages` —
+nothing moves them to the branch root). Confirm the served URL once the build status is
+`built` (`gh api repos/<owner>/<repo>/pages --jq .status`) and use that as the link in
+`README.md`'s **Try it** line.
 
 ## Summary: what to re-run after any content change
 
